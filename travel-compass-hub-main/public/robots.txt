@@ -1,0 +1,31 @@
+# ==========================================================
+# robots.txt for Rudraksh Safar
+# Tour & Travel Agency | Bhilai, Chhattisgarh, India
+# Website: https://rudrakshsafar.com
+# Last Updated: January 2026
+# ==========================================================
+
+# ---------------------------------
+# Allow all well-behaved crawlers
+# ---------------------------------
+User-agent: *
+Allow: /
+
+# ---------------------------------
+# Sitemap location
+# ---------------------------------
+Sitemap: https://rudrakshsafar.com/sitemap.xml
+
+# ---------------------------------
+# Optional crawl optimization
+# (Enable ONLY if server load increases)
+# ---------------------------------
+# Crawl-delay: 1
+
+# ---------------------------------
+# Optional sensitive paths
+# (Enable only when these exist)
+# ---------------------------------
+# Disallow: /admin/
+# Disallow: /dashboard/
+# Disallow: /private/

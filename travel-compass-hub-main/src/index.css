@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Travel Palette */
+    --background: 40 30% 98%;
+    --foreground: 210 25% 15%;
+
+    --card: 40 30% 99%;
+    --card-foreground: 210 25% 15%;
+
+    --popover: 40 30% 99%;
+    --popover-foreground: 210 25% 15%;
+
+    /* Deep Ocean Teal - Trust & Calm */
+    --primary: 195 60% 28%;
+    --primary-foreground: 40 30% 98%;
+
+    /* Warm Amber Gold - Luxury */
+    --secondary: 35 85% 55%;
+    --secondary-foreground: 210 25% 10%;
+
+    /* Soft Cream */
+    --muted: 40 25% 94%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Coral Terracotta - Warmth */
+    --accent: 18 70% 60%;
+    --accent-foreground: 40 30% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 195 60% 28%;
+
+    --radius: 1rem;
+
+    /* Custom Luxury Variables */
+    --gold: 35 85% 55%;
+    --gold-light: 40 80% 70%;
+    --ocean: 195 60% 28%;
+    --ocean-light: 195 50% 45%;
+    --cream: 40 30% 98%;
+    --cream-dark: 40 25% 94%;
+    --charcoal: 210 25% 15%;
+
+    /* Glass Effects */
+    --glass-bg: 40 30% 100% / 0.7;
+    --glass-border: 40 30% 100% / 0.3;
+    --glass-shadow: 210 25% 15% / 0.1;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(35 85% 55%), hsl(40 80% 65%));
+    --gradient-ocean: linear-gradient(135deg, hsl(195 60% 28%), hsl(195 50% 40%));
+    --gradient-hero: linear-gradient(180deg, hsl(210 25% 15% / 0.6) 0%, hsl(210 25% 15% / 0.3) 50%, transparent 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)), hsl(40 30% 100% / 0.5));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--glass-shadow));
+    --shadow-elevated: 0 10px 40px hsl(var(--glass-shadow));
+    --shadow-gold: 0 4px 20px hsl(35 85% 55% / 0.3);
+
+    --sidebar-background: 40 30% 98%;
+    --sidebar-foreground: 210 25% 25%;
+    --sidebar-primary: 195 60% 28%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 40 25% 94%;
+    --sidebar-accent-foreground: 210 25% 15%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 195 60% 28%;
+  }
+
+  .dark {
+    --background: 210 25% 8%;
+    --foreground: 40 30% 95%;
+
+    --card: 210 25% 12%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 210 25% 12%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 195 50% 50%;
+    --primary-foreground: 210 25% 8%;
+
+    --secondary: 35 80% 50%;
+    --secondary-foreground: 210 25% 8%;
+
+    --muted: 210 20% 18%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 18 65% 55%;
+    --accent-foreground: 40 30% 98%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 195 50% 50%;
+
+    --glass-bg: 210 25% 15% / 0.8;
+    --glass-border: 210 25% 25% / 0.3;
+    --glass-shadow: 0 0% 0% / 0.3;
+
+    --sidebar-background: 210 25% 10%;
+    --sidebar-foreground: 40 30% 90%;
+    --sidebar-primary: 195 50% 50%;
+    --sidebar-primary-foreground: 210 25% 8%;
+    --sidebar-accent: 210 20% 18%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 210 20% 20%;
+    --sidebar-ring: 195 50% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glassmorphism */
+  .glass {
+    @apply bg-background/70 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-lg border border-border/30 rounded-2xl;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Gold Accents */
+  .text-gold {
+    color: hsl(var(--secondary));
+  }
+
+  .bg-gold {
+    background: var(--gradient-gold);
+  }
+
+  .border-gold {
+    border-color: hsl(var(--secondary));
+  }
+
+  /* Ocean Theme */
+  .text-ocean {
+    color: hsl(var(--primary));
+  }
+
+  .bg-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  /* Premium Button Styles */
+  .btn-gold {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-medium text-charcoal transition-all duration-300;
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold:hover {
+    @apply scale-105;
+    box-shadow: 0 6px 30px hsl(35 85% 55% / 0.4);
+  }
+
+  .btn-ocean {
+    @apply px-8 py-4 rounded-full font-medium text-primary-foreground transition-all duration-300;
+    background: var(--gradient-ocean);
+  }
+
+  .btn-ocean:hover {
+    @apply scale-105;
+    box-shadow: 0 6px 30px hsl(195 60% 28% / 0.3);
+  }
+
+  .btn-glass {
+    @apply glass px-8 py-4 rounded-full font-medium transition-all duration-300;
+  }
+
+  .btn-glass:hover {
+    @apply bg-background/90 scale-105;
+  }
+
+  /* Text Charcoal */
+  .text-charcoal {
+    color: hsl(var(--foreground));
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Fade In Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* Image hover effect */
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-zoom:hover img {
+    @apply scale-110;
+  }
+
+  /* Underline animation for links */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Active nav state */
+  .nav-active {
+    @apply text-secondary;
+  }
+
+  .nav-active::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
