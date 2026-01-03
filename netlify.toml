@@ -1,0 +1,7 @@
+[build]
+  base = "travel-compass-hub-main"
+  command = "npm run build"
+  publish = "travel-compass-hub-main/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
