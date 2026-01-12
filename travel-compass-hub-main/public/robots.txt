@@ -1,31 +1,88 @@
-# ==========================================================
-# robots.txt for Rudraksh Safar
-# Tour & Travel Agency | Bhilai, Chhattisgarh, India
-# Website: https://rudrakshsafar.com
-# Last Updated: January 2026
-# ==========================================================
+# Robots.txt for Rudraksh Safar
+# Best Travel Agency in Bhilai, Chhattisgarh
+# https://rudrakshsafar.com
+# Updated: January 2026
 
-# ---------------------------------
-# Allow all well-behaved crawlers
-# ---------------------------------
-User-agent: *
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
 Allow: /
 
-# ---------------------------------
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# AI Crawlers - Allow for Answer Engine Optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Social Media Crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Default rule for all other bots
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
 # Sitemap location
-# ---------------------------------
 Sitemap: https://rudrakshsafar.com/sitemap.xml
 
-# ---------------------------------
-# Optional crawl optimization
-# (Enable ONLY if server load increases)
-# ---------------------------------
-# Crawl-delay: 1
+# Host
+Host: https://rudrakshsafar.com
 
-# ---------------------------------
-# Optional sensitive paths
-# (Enable only when these exist)
-# ---------------------------------
+# Disallow patterns (none currently - we want full indexing)
 # Disallow: /admin/
-# Disallow: /dashboard/
 # Disallow: /private/

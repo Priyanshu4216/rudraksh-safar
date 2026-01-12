@@ -11,10 +11,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    details: [
-      'GE Road, In Front of Petrol Pump',
-      'Bhilai 3, Chhattisgarh 490021',
-    ],
+    details: ['GE Road, In Front of Petrol Pump', 'Bhilai 3, Chhattisgarh 490021'],
   },
   {
     icon: Phone,
@@ -29,10 +26,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: 'Working Hours',
-    details: [
-      'Mon - Sat: 9:00 AM - 7:00 PM',
-      'Sun: 10:00 AM - 4:00 PM',
-    ],
+    details: ['Mon - Sat: 9:00 AM - 7:00 PM', 'Sun: 10:00 AM - 4:00 PM'],
   },
 ];
 
@@ -44,12 +38,9 @@ const ContactSection = () => {
     destination: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -57,73 +48,40 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const whatsappMessage = `🌍 New Travel Inquiry – Rudraksh Safar
-
-👤 Name: ${formData.name}
-📧 Email: ${formData.email}
-📞 Phone: ${formData.phone}
-✈️ Destination Interest: ${formData.destination || 'Not specified'}
-
-📝 Message:
-${formData.message}
-
-Please assist the customer with details.`;
-
-    window.open(
-      `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
-        whatsappMessage
-      )}`,
-      '_blank'
-    );
+    // Create WhatsApp message
+    const message = `New Inquiry from Website:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nDestination Interest: ${formData.destination}\n\nMessage: ${formData.message}`;
+    
+    window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 
     toast({
-      title: 'Inquiry Sent Successfully!',
-      description: 'Our team at Rudraksh Safar will contact you shortly on WhatsApp.',
+      title: 'Inquiry Sent!',
+      description: 'We\'ll connect with you shortly via WhatsApp.',
     });
 
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      destination: '',
-      message: '',
-    });
-
+    setFormData({ name: '', email: '', phone: '', destination: '', message: '' });
     setIsSubmitting(false);
   };
 
   const handleWhatsAppDirect = () => {
-    window.open(
-      `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
-        'Hello Rudraksh Safar Team! 👋 I am interested in planning a trip. Please guide me with available packages and pricing.'
-      )}`,
-      '_blank'
-    );
+    window.open(`https://wa.me/${PHONE_NUMBER}?text=Hello! I am interested in planning a trip. Please help me with the details.`, '_blank');
   };
 
   return (
-    <section
-      id="contact"
-      className="section-padding bg-muted/30"
-      aria-labelledby="contact-heading"
-    >
+    <section id="contact" className="section-padding bg-muted/30" aria-labelledby="contact-heading">
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block text-secondary font-medium tracking-widest uppercase text-sm mb-4">
             Get in Touch
           </span>
-          <h2
-            id="contact-heading"
-            className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6"
-          >
-            Plan Your Journey with Rudraksh Safar
+          <h2 id="contact-heading" className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
+            Start Planning Your Dream Trip
           </h2>
           <p className="text-muted-foreground text-lg">
-            Ready to explore new destinations? Connect with us and let Rudraksh
-            Safar craft a seamless travel experience for you.
+            Ready to explore? Reach out to us and let's craft your perfect travel experience together.
           </p>
         </div>
 
@@ -139,14 +97,9 @@ Please assist the customer with details.`;
                   <info.icon className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">
-                    {info.title}
-                  </h3>
+                  <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
                   {info.details.map((detail, index) => (
-                    <p
-                      key={index}
-                      className="text-muted-foreground text-sm"
-                    >
+                    <p key={index} className="text-muted-foreground text-sm">
                       {detail}
                     </p>
                   ))}
@@ -154,19 +107,13 @@ Please assist the customer with details.`;
               </div>
             ))}
 
-            {/* WhatsApp CTA */}
+            {/* Quick WhatsApp CTA */}
             <div className="glass-card p-6 bg-secondary/5 border-secondary/20">
-              <h3 className="font-semibold text-foreground mb-2">
-                Need Instant Assistance?
-              </h3>
+              <h3 className="font-semibold text-foreground mb-2">Need Instant Assistance?</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Chat directly with our travel experts on WhatsApp for quick
-                guidance and exclusive offers.
+                Chat directly with our travel experts on WhatsApp for quick responses.
               </p>
-              <Button
-                onClick={handleWhatsAppDirect}
-                className="btn-gold w-full gap-2"
-              >
+              <Button onClick={handleWhatsAppDirect} className="btn-gold w-full gap-2">
                 <MessageCircle className="w-5 h-5" />
                 Chat on WhatsApp
               </Button>
@@ -175,20 +122,14 @@ Please assist the customer with details.`;
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <form
-              onSubmit={handleSubmit}
-              className="glass-card p-8 md:p-10"
-            >
+            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
                 Send Us an Inquiry
               </h3>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Full Name *
                   </label>
                   <Input
@@ -196,16 +137,13 @@ Please assist the customer with details.`;
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your full name"
+                    placeholder="Your name"
                     required
                     className="bg-background/50"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                     Email Address *
                   </label>
                   <Input
@@ -223,11 +161,8 @@ Please assist the customer with details.`;
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    WhatsApp Number *
+                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    Phone Number *
                   </label>
                   <Input
                     id="phone"
@@ -235,16 +170,13 @@ Please assist the customer with details.`;
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 XXXXX XXXXX"
+                    placeholder="+91 92291 50311"
                     required
                     className="bg-background/50"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="destination"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
+                  <label htmlFor="destination" className="block text-sm font-medium text-foreground mb-2">
                     Interested Destination
                   </label>
                   <Input
@@ -252,17 +184,14 @@ Please assist the customer with details.`;
                     name="destination"
                     value={formData.destination}
                     onChange={handleChange}
-                    placeholder="e.g., Goa, Bali, Switzerland"
+                    placeholder="e.g., Bali, Switzerland"
                     className="bg-background/50"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Your Message *
                 </label>
                 <Textarea
@@ -270,7 +199,7 @@ Please assist the customer with details.`;
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Share your travel dates, preferences, and any special requirements..."
+                  placeholder="Tell us about your travel preferences, dates, and any special requirements..."
                   rows={5}
                   required
                   className="bg-background/50"
@@ -293,8 +222,7 @@ Please assist the customer with details.`;
               </Button>
 
               <p className="text-sm text-muted-foreground text-center mt-4">
-                Your details are safe with Rudraksh Safar. By submitting, you
-                agree to our{' '}
+                By submitting, you agree to our{' '}
                 <a href="#privacy" className="text-secondary hover:underline">
                   Privacy Policy
                 </a>{' '}
@@ -302,7 +230,6 @@ Please assist the customer with details.`;
                 <a href="#terms" className="text-secondary hover:underline">
                   Terms of Service
                 </a>
-                .
               </p>
             </form>
           </div>

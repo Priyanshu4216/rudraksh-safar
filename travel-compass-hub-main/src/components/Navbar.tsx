@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Compass } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
+  { name: 'Home', href: '/', isRoute: true },
   { name: 'About Us', href: '#about' },
   {
     name: 'Packages',
@@ -24,6 +24,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
@@ -89,7 +90,7 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col">
             <span className={`text-xl md:text-2xl font-serif font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
+              isScrolled || !isHomePage ? 'text-foreground' : 'text-primary-foreground'
             }`}>
               Rudraksh
             </span>
@@ -104,7 +105,9 @@ const Navbar = () => {
           <div className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${
             isScrolled 
               ? 'bg-muted/80' 
-              : 'bg-background/10 backdrop-blur-md border border-white/10'
+              : isHomePage 
+                ? 'bg-background/10 backdrop-blur-md border border-white/10'
+                : 'bg-muted/80'
           }`}>
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
@@ -114,7 +117,7 @@ const Navbar = () => {
                     className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       activeSection === link.href.replace('#', '')
                         ? 'bg-secondary text-secondary-foreground shadow-md'
-                        : isScrolled
+                        : isScrolled || !isHomePage
                           ? 'text-foreground hover:bg-secondary/10'
                           : 'text-primary-foreground/90 hover:bg-white/10'
                     }`}
@@ -122,6 +125,19 @@ const Navbar = () => {
                     {link.name}
                     <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
                   </button>
+                ) : link.isRoute ? (
+                  <Link
+                    to={link.href}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
+                      (link.href === '/' && isHomePage && activeSection === 'home')
+                        ? 'bg-secondary text-secondary-foreground shadow-md'
+                        : isScrolled || !isHomePage
+                          ? 'text-foreground hover:bg-secondary/10'
+                          : 'text-primary-foreground/90 hover:bg-white/10'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
                 ) : (
                   <a
                     href={link.href}
@@ -132,7 +148,7 @@ const Navbar = () => {
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
                       activeSection === link.href.replace('#', '')
                         ? 'bg-secondary text-secondary-foreground shadow-md'
-                        : isScrolled
+                        : isScrolled || !isHomePage
                           ? 'text-foreground hover:bg-secondary/10'
                           : 'text-primary-foreground/90 hover:bg-white/10'
                     }`}
@@ -186,7 +202,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`p-2.5 rounded-xl transition-all duration-300 ${
-              isScrolled 
+              isScrolled || !isHomePage
                 ? 'bg-muted text-foreground' 
                 : 'glass text-primary-foreground'
             }`}
@@ -252,6 +268,18 @@ const Navbar = () => {
                     ))}
                   </div>
                 </div>
+              ) : link.isRoute ? (
+                <Link
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block py-4 font-medium transition-colors ${
+                    link.href === '/' && isHomePage
+                      ? 'text-secondary'
+                      : 'text-foreground'
+                  }`}
+                >
+                  {link.name}
+                </Link>
               ) : (
                 <a
                   href={link.href}

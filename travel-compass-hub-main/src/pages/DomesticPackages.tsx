@@ -14,22 +14,58 @@ const PHONE_NUMBER = '919229150311';
 
 const domesticPackages = [
   {
+    id: 'andaman',
+    title: 'Andaman Beach Holiday',
+    location: 'Andaman Islands',
+    duration: '6 Days / 5 Nights',
+    price: '₹32,999',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop',
+    tag: 'Beach',
+  },
+  {
+    id: 'kashmir',
+    title: 'Kashmir Paradise',
+    location: 'Jammu & Kashmir',
+    duration: '6 Days / 5 Nights',
+    price: '₹22,999',
+    image: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Romantic',
+  },
+  {
+    id: 'udaipur',
+    title: 'Udaipur Royal Escape',
+    location: 'Rajasthan',
+    duration: '4 Days / 3 Nights',
+    price: '₹14,999',
+    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Heritage',
+  },
+  {
+    id: 'shimla-manali',
+    title: 'Shimla Manali Adventure',
+    location: 'Himachal Pradesh',
+    duration: '7 Days / 6 Nights',
+    price: '₹15,999',
+    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Adventure',
+  },
+  {
+    id: 'kodaikanal',
+    title: 'Kodaikanal Retreat',
+    location: 'Tamil Nadu',
+    duration: '4 Days / 3 Nights',
+    price: '₹13,999',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Nature',
+  },
+  {
     id: 'chardham',
     title: 'Char Dham Yatra',
-    location: 'Uttarakhand, India',
+    location: 'Uttarakhand',
     duration: '12 Days / 11 Nights',
     price: '₹17,999',
     image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
     tag: 'Spiritual',
-  },
-  {
-    id: 'manali',
-    title: 'Manali Adventure',
-    location: 'Himachal Pradesh',
-    duration: '5 Days / 4 Nights',
-    price: '₹9,999',
-    image: 'https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Adventure',
   },
   {
     id: 'ladakh',
@@ -41,15 +77,6 @@ const domesticPackages = [
     tag: 'Expedition',
   },
   {
-    id: 'spiti',
-    title: 'Spiti Valley',
-    location: 'Himachal Pradesh',
-    duration: '9 Days / 8 Nights',
-    price: '₹32,999',
-    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
-    tag: 'Remote',
-  },
-  {
     id: 'goa',
     title: 'Goa Getaway',
     location: 'Goa',
@@ -57,6 +84,15 @@ const domesticPackages = [
     price: '₹11,999',
     image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2074&auto=format&fit=crop',
     tag: 'Beach',
+  },
+  {
+    id: 'manali',
+    title: 'Manali Adventure',
+    location: 'Himachal Pradesh',
+    duration: '5 Days / 4 Nights',
+    price: '₹9,999',
+    image: 'https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Adventure',
   },
   {
     id: 'munnar',
@@ -93,6 +129,15 @@ const domesticPackages = [
     price: '₹16,999',
     image: 'https://images.unsplash.com/photo-1506038634487-60a69ae4b7b1?q=80&w=2066&auto=format&fit=crop',
     tag: 'Heritage',
+  },
+  {
+    id: 'spiti',
+    title: 'Spiti Valley',
+    location: 'Himachal Pradesh',
+    duration: '9 Days / 8 Nights',
+    price: '₹32,999',
+    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Remote',
   },
 ];
 
@@ -167,7 +212,6 @@ const DomesticPackages = () => {
       { "@type": "ListItem", "position": 3, "name": "Goa Getaway", "url": "https://rudrakshsafar.com/package/goa" },
       { "@type": "ListItem", "position": 4, "name": "Manali Adventure", "url": "https://rudrakshsafar.com/package/manali" },
       { "@type": "ListItem", "position": 5, "name": "Munnar Tea Trails", "url": "https://rudrakshsafar.com/package/munnar" }
-
     ]
   };
 
@@ -182,7 +226,7 @@ const DomesticPackages = () => {
           title="Domestic Tour Packages India - Char Dham, Ladakh, Goa, Manali"
           description="Book best domestic tour packages in India starting ₹9,999. Char Dham Yatra ₹17,999, Ladakh ₹24,999, Goa ₹11,999, Manali ₹9,999. 100% customizable trips from Bhilai, Chhattisgarh."
           keywords="domestic tour packages India, Char Dham Yatra package, Ladakh tour, Goa trip, Manali package, Kerala tour, pilgrimage tours India, adventure tours, hill station packages"
-          canonicalUrl="https:///rudrakshsafar.com/domestic-packages"
+          canonicalUrl="https://rudrakshsafar.com/domestic-packages"
           structuredData={structuredData}
         />
         <Navbar />

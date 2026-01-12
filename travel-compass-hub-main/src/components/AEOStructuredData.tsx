@@ -3,146 +3,23 @@ import { Helmet } from 'react-helmet-async';
 // Comprehensive package data for AI/Search engines
 const allPackages = {
   domestic: [
-    {
-      name: "Char Dham Yatra",
-      description: "Complete 12-day pilgrimage covering Yamunotri, Gangotri, Kedarnath, and Badrinath temples in Uttarakhand. Includes comfortable accommodation, all meals, transportation, and expert guides.",
-      price: 17999,
-      duration: "12 Days / 11 Nights",
-      location: "Uttarakhand, India",
-      highlights: ["Yamunotri Temple", "Gangotri Temple", "Kedarnath Temple", "Badrinath Temple", "Rishikesh", "Haridwar"],
-      includes: ["3-star hotels", "All meals", "AC transportation", "Temple darshan assistance", "Travel insurance"],
-      bestTime: "May to June, September to October",
-      difficulty: "Moderate - suitable for all ages with basic fitness"
-    },
-    {
-      name: "Kedarnath Yatra",
-      description: "Sacred 6-day pilgrimage to Kedarnath Temple, one of the 12 Jyotirlingas. Trek through stunning Himalayan landscapes with professional guides and comfortable stays.",
-      price: 14999,
-      duration: "6 Days / 5 Nights",
-      location: "Uttarakhand, India",
-      highlights: ["Kedarnath Temple", "Sonprayag", "Gaurikund", "Himalayan Trek", "Rudraprayag"],
-      includes: ["Hotels", "Meals", "Pony/Palki optional", "Guide", "Trek permits"],
-      bestTime: "May to June, September to November",
-      difficulty: "Moderate to Challenging - 16km trek involved"
-    },
-    {
-      name: "Ladakh Adventure",
-      description: "Thrilling 8-day adventure through the land of high passes. Experience Pangong Lake, Nubra Valley, monasteries, and the world's highest motorable roads.",
-      price: 24999,
-      duration: "8 Days / 7 Nights",
-      location: "Leh-Ladakh, India",
-      highlights: ["Pangong Lake", "Nubra Valley", "Khardung La Pass", "Thiksey Monastery", "Magnetic Hill", "Shanti Stupa"],
-      includes: ["Boutique hotels", "Breakfast & dinner", "Innova/Tempo Traveller", "Permits", "Oxygen cylinder"],
-      bestTime: "May to September",
-      difficulty: "Moderate - high altitude acclimatization required"
-    },
-    {
-      name: "Goa Getaway",
-      description: "Relaxing 4-day beach vacation in India's party capital. Enjoy pristine beaches, water sports, nightlife, and Portuguese heritage.",
-      price: 11999,
-      duration: "4 Days / 3 Nights",
-      location: "Goa, India",
-      highlights: ["Baga Beach", "Calangute Beach", "Basilica of Bom Jesus", "Fort Aguada", "Dudhsagar Falls", "Cruise"],
-      includes: ["Beach resort", "Breakfast", "Airport transfers", "Sightseeing", "Water sports"],
-      bestTime: "October to March",
-      difficulty: "Easy - suitable for all"
-    },
-    {
-      name: "Manali Adventure",
-      description: "Perfect 5-day hill station escape in the Himalayas. Snow activities, adventure sports, scenic valleys, and charming cafes await.",
-      price: 9999,
-      duration: "5 Days / 4 Nights",
-      location: "Himachal Pradesh, India",
-      highlights: ["Solang Valley", "Rohtang Pass", "Hadimba Temple", "Mall Road", "Old Manali", "Vashisht Temple"],
-      includes: ["Deluxe hotel", "Breakfast", "Volvo bus/cab", "Sightseeing", "Snow activities"],
-      bestTime: "October to February for snow, March to June for pleasant weather",
-      difficulty: "Easy - family friendly"
-    },
-    {
-      name: "Kashmir Paradise",
-      description: "7-day tour of India's crown jewel. Houseboats, Mughal gardens, gondola rides, and breathtaking valleys.",
-      price: 29999,
-      duration: "7 Days / 6 Nights",
-      location: "Jammu & Kashmir, India",
-      highlights: ["Dal Lake Houseboat", "Gulmarg Gondola", "Pahalgam", "Mughal Gardens", "Sonmarg", "Shankaracharya Temple"],
-      includes: ["Houseboat + hotel", "All meals", "Shikara ride", "Gondola tickets", "Private cab"],
-      bestTime: "March to October",
-      difficulty: "Easy - suitable for all ages"
-    }
+    { name: "Andaman Beach Holiday", description: "6-day tropical beach vacation to pristine Andaman Islands with scuba diving, snorkeling, and Cellular Jail visit.", price: 32999, duration: "6 Days / 5 Nights", location: "Andaman Islands, India", highlights: ["Radhanagar Beach", "Havelock Island", "Scuba Diving", "Cellular Jail"], includes: ["Beach resort", "All meals", "Ferry transfers", "Water sports"], bestTime: "October to May", difficulty: "Easy - beach holiday" },
+    { name: "Kashmir Paradise", description: "6-day romantic getaway to Kashmir with Dal Lake houseboat stay, Gulmarg gondola, and Mughal gardens.", price: 22999, duration: "6 Days / 5 Nights", location: "Jammu & Kashmir, India", highlights: ["Dal Lake", "Gulmarg", "Pahalgam", "Mughal Gardens"], includes: ["Houseboat + hotel", "All meals", "Shikara ride", "Gondola tickets"], bestTime: "March to October", difficulty: "Easy - romantic" },
+    { name: "Udaipur Royal Escape", description: "4-day heritage tour of Udaipur - City of Lakes with palace visits, boat rides, and Rajasthani culture.", price: 14999, duration: "4 Days / 3 Nights", location: "Rajasthan, India", highlights: ["City Palace", "Lake Pichola", "Jag Mandir", "Kumbhalgarh"], includes: ["Heritage hotel", "Breakfast", "Boat rides", "Sightseeing"], bestTime: "October to March", difficulty: "Easy - cultural" },
+    { name: "Mussoorie & Nainital", description: "5-day twin hill station tour covering Queen of Hills and Lake District of India.", price: 12999, duration: "5 Days / 4 Nights", location: "Uttarakhand, India", highlights: ["Naini Lake", "Mall Road", "Kempty Falls", "Gun Hill"], includes: ["Hotels", "Breakfast", "Transfers", "Boating"], bestTime: "March to June, September to November", difficulty: "Easy - family friendly" },
+    { name: "Shimla Manali Adventure", description: "7-day adventure tour covering two of India's most popular hill stations with snow activities and paragliding.", price: 15999, duration: "7 Days / 6 Nights", location: "Himachal Pradesh, India", highlights: ["Mall Road Shimla", "Solang Valley", "Rohtang Pass", "Hadimba Temple"], includes: ["Hotels", "Breakfast", "Volvo/cab", "Sightseeing"], bestTime: "October to February for snow", difficulty: "Easy to Moderate" },
+    { name: "Kodaikanal Retreat", description: "4-day nature retreat to Princess of Hill Stations with lakes, waterfalls, and pine forests.", price: 13999, duration: "4 Days / 3 Nights", location: "Tamil Nadu, India", highlights: ["Kodaikanal Lake", "Coaker's Walk", "Pillar Rocks", "Silver Cascade"], includes: ["Hotel", "Breakfast", "Transfers", "Sightseeing"], bestTime: "April to June, September to October", difficulty: "Easy - nature retreat" },
+    { name: "Char Dham Yatra", description: "Complete 12-day pilgrimage covering Yamunotri, Gangotri, Kedarnath, and Badrinath temples.", price: 17999, duration: "12 Days / 11 Nights", location: "Uttarakhand, India", highlights: ["Yamunotri", "Gangotri", "Kedarnath", "Badrinath"], includes: ["Hotels", "All meals", "Transportation", "Temple assistance"], bestTime: "May to June, September to October", difficulty: "Moderate - pilgrimage" },
+    { name: "Ladakh Expedition", description: "8-day adventure through land of high passes with Pangong Lake and Nubra Valley.", price: 24999, duration: "8 Days / 7 Nights", location: "Leh-Ladakh, India", highlights: ["Pangong Lake", "Nubra Valley", "Khardung La", "Monasteries"], includes: ["Hotels", "Meals", "Permits", "Oxygen"], bestTime: "May to September", difficulty: "Moderate - high altitude" },
+    { name: "Goa Getaway", description: "4-day beach vacation with water sports, nightlife, and Portuguese heritage.", price: 11999, duration: "4 Days / 3 Nights", location: "Goa, India", highlights: ["Baga Beach", "Basilica Bom Jesus", "Fort Aguada", "Water Sports"], includes: ["Beach resort", "Breakfast", "Transfers"], bestTime: "October to March", difficulty: "Easy - beach party" }
   ],
   international: [
-    {
-      name: "Dubai Extravaganza",
-      description: "Luxurious 5-day tour of the UAE's glittering city. Desert safari, Burj Khalifa, Dubai Mall, and world-class entertainment.",
-      price: 54999,
-      duration: "5 Days / 4 Nights",
-      location: "Dubai, UAE",
-      highlights: ["Burj Khalifa", "Desert Safari", "Dubai Mall", "Palm Jumeirah", "Dubai Marina", "Global Village"],
-      includes: ["4-star hotel", "Breakfast", "Airport transfers", "Desert safari with dinner", "City tour"],
-      visa: "Visa on arrival for Indians (14 days)",
-      bestTime: "November to March",
-      difficulty: "Easy - luxury travel"
-    },
-    {
-      name: "Bali Paradise",
-      description: "6-day tropical escape to Indonesia's island paradise. Temples, rice terraces, beaches, and vibrant culture.",
-      price: 64999,
-      duration: "6 Days / 5 Nights",
-      location: "Bali, Indonesia",
-      highlights: ["Tanah Lot Temple", "Ubud Rice Terraces", "Kuta Beach", "Uluwatu Temple", "Mount Batur", "Tegallalang"],
-      includes: ["Pool villa", "Breakfast", "Private transfers", "Temple tours", "Spa session"],
-      visa: "Visa on arrival (30 days free)",
-      bestTime: "April to October",
-      difficulty: "Easy - beach & culture"
-    },
-    {
-      name: "Thailand Explorer",
-      description: "7-day adventure through the Land of Smiles. Bangkok's temples, Pattaya's beaches, and Thai cuisine.",
-      price: 38999,
-      duration: "7 Days / 6 Nights",
-      location: "Thailand",
-      highlights: ["Grand Palace", "Pattaya Beach", "Coral Island", "Floating Market", "Safari World", "Alcazar Show"],
-      includes: ["3-star hotels", "Breakfast", "Transfers", "All tours", "Thai massage"],
-      visa: "Visa on arrival (15 days) or e-Visa",
-      bestTime: "November to February",
-      difficulty: "Easy - tourist friendly"
-    },
-    {
-      name: "Maldives Luxury",
-      description: "5-day luxury escape to the world's most exclusive island destination. Overwater villas, pristine beaches, and underwater wonders.",
-      price: 85999,
-      duration: "5 Days / 4 Nights",
-      location: "Maldives",
-      highlights: ["Overwater Villa", "Snorkeling", "Sunset Cruise", "Underwater Restaurant", "Spa", "Dolphin Watching"],
-      includes: ["5-star resort", "Full board meals", "Speedboat transfers", "Water activities", "Couple spa"],
-      visa: "Visa on arrival (30 days free)",
-      bestTime: "November to April",
-      difficulty: "Easy - luxury relaxation"
-    },
-    {
-      name: "Nepal Himalayan Trek",
-      description: "7-day cultural and trekking experience in the lap of Himalayas. Temples, mountains, and warm Nepali hospitality.",
-      price: 24999,
-      duration: "7 Days / 6 Nights",
-      location: "Nepal",
-      highlights: ["Pashupatinath Temple", "Boudhanath Stupa", "Pokhara", "Phewa Lake", "Sarangkot Sunrise", "Chitwan Safari"],
-      includes: ["Boutique hotels", "Breakfast & dinner", "All transfers", "Safari", "Guide"],
-      visa: "Visa on arrival at Kathmandu",
-      bestTime: "October to December, March to May",
-      difficulty: "Easy to Moderate"
-    },
-    {
-      name: "Sri Lanka Heritage",
-      description: "6-day tour of the teardrop island. Ancient temples, tea plantations, wildlife safari, and golden beaches.",
-      price: 35999,
-      duration: "6 Days / 5 Nights",
-      location: "Sri Lanka",
-      highlights: ["Sigiriya Rock", "Temple of Tooth", "Nuwara Eliya Tea", "Yala Safari", "Galle Fort", "Colombo"],
-      includes: ["Heritage hotels", "Breakfast & dinner", "Private driver", "Safari", "All entrance fees"],
-      visa: "ETA required (can be applied online)",
-      bestTime: "December to March",
-      difficulty: "Easy - cultural tour"
-    }
+    { name: "Phuket Beach Paradise", description: "5-day Thai beach holiday with Phi Phi Islands, Big Buddha, and vibrant nightlife.", price: 42999, duration: "5 Days / 4 Nights", location: "Phuket, Thailand", highlights: ["Phi Phi Islands", "Patong Beach", "Big Buddha", "Phang Nga Bay"], includes: ["4-star hotel", "Breakfast", "Island tours", "Transfers"], visa: "On Arrival", bestTime: "November to February", difficulty: "Easy - beach escape" },
+    { name: "Singapore City Explorer", description: "5-day city tour with Universal Studios, Gardens by the Bay, and Night Safari.", price: 58999, duration: "5 Days / 4 Nights", location: "Singapore", highlights: ["Marina Bay Sands", "Universal Studios", "Gardens by the Bay", "Sentosa"], includes: ["4-star hotel", "Breakfast", "Theme park tickets", "Transfers"], visa: "e-Visa", bestTime: "Year-round", difficulty: "Easy - city break" },
+    { name: "Dubai Extravaganza", description: "5-day luxury tour with Burj Khalifa, desert safari, and world-class shopping.", price: 54999, duration: "5 Days / 4 Nights", location: "Dubai, UAE", highlights: ["Burj Khalifa", "Desert Safari", "Dubai Mall", "Palm Jumeirah"], includes: ["4-star hotel", "Breakfast", "Desert safari", "City tour"], visa: "e-Visa", bestTime: "November to March", difficulty: "Easy - luxury" },
+    { name: "Bali Paradise", description: "6-day tropical escape with temples, rice terraces, and beach clubs.", price: 64999, duration: "6 Days / 5 Nights", location: "Bali, Indonesia", highlights: ["Ubud", "Tanah Lot", "Uluwatu", "Seminyak"], includes: ["Pool villa", "Breakfast", "Temple tours", "Spa"], visa: "On Arrival", bestTime: "April to October", difficulty: "Easy - beach & culture" },
+    { name: "Thailand Explorer", description: "6-day tour covering Bangkok temples and Phuket beaches.", price: 38999, duration: "6 Days / 5 Nights", location: "Thailand", highlights: ["Grand Palace", "Phi Phi Islands", "Floating Market", "Patong"], includes: ["Hotels", "Breakfast", "Tours", "Thai massage"], visa: "On Arrival", bestTime: "November to February", difficulty: "Easy" },
+    { name: "Maldives Paradise", description: "4-day luxury island escape with overwater villa and water activities.", price: 85999, duration: "4 Days / 3 Nights", location: "Maldives", highlights: ["Overwater Villa", "Snorkeling", "Dolphin Cruise", "Spa"], includes: ["5-star resort", "Full board", "Water activities"], visa: "On Arrival", bestTime: "November to April", difficulty: "Easy - luxury" }
   ]
 };
 

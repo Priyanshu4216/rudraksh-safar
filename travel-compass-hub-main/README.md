@@ -1,190 +1,73 @@
-🌍 Rudraksh Safar – Official Website
+# Welcome to your Lovable project
 
-Rudraksh Safar is a modern, SEO-optimized travel agency website built for promoting domestic & international tour packages from Bhilai, Chhattisgarh (India).
+## Project info
 
-This website is optimized for:
+**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-🔍 Google & Bing crawling
+## How can I edit this code?
 
-🤖 AI / Answer Engine Optimization (AEO)
+There are several ways of editing your application.
 
-⚡ Performance (Netlify + Vite)
+**Use Lovable**
 
-📱 Mobile responsiveness
+Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
 
-📈 Local SEO & Maps visibility
+Changes made via Lovable will be committed automatically to this repo.
 
-🔗 Live URLs
+**Use your preferred IDE**
 
-Primary Domain: https://rudrakshsafar.com
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-Netlify Preview: *.netlify.app (for testing only)
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-⚠️ Search engines should index ONLY the primary domain.
+Follow these steps:
 
-🛠️ Tech Stack
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-Frontend: HTML5 + React
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-Build Tool: Vite
+# Step 3: Install the necessary dependencies.
+npm i
 
-Hosting: Netlify
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-SEO: Manual + Schema.org (JSON-LD)
+**Edit a file directly in GitHub**
 
-Analytics: (Optional – Google Analytics / GSC)
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-📂 Project Structure (Important)
-/
-├── public/
-│   ├── sitemap.xml        # SEO sitemap (DO NOT BREAK)
-│   ├── robots.txt         # Crawl rules
-│   ├── favicon.png
-│   └── videos/            # Background videos
-│
-├── src/
-│   ├── main.tsx           # Entry point (Vite)
-│   ├── App.tsx
-│   └── components/
-│
-├── index.html             # SEO head + schema (CRITICAL FILE)
-├── README.md              # This file
-└── netlify.toml           # Netlify config (if present)
+**Use GitHub Codespaces**
 
-🔍 SEO & Crawl Configuration (VERY IMPORTANT)
-✅ Sitemap
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-Location:
+## What technologies are used for this project?
 
-/public/sitemap.xml
+This project is built with:
 
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-Must always be valid XML
+## How can I deploy this project?
 
-Submitted to:
+Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
-Google Search Console
+## Can I connect a custom domain to my Lovable project?
 
-Bing Webmaster Tools
+Yes, you can!
 
-❌ Do not add unescaped characters like &
-✔ Use &amp; in URLs
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-✅ robots.txt
-
-Location:
-
-/public/robots.txt
-
-
-Allows all crawlers
-
-Declares sitemap URL
-
-⚠️ Do not block /, /assets, /js, /css
-
-✅ Canonical URLs
-
-All pages must use:
-
-https://rudrakshsafar.com/
-
-
-(with trailing slash consistency)
-
-🧠 Schema.org (AEO Ready)
-
-The website includes:
-
-TravelAgency
-
-LocalBusiness
-
-WebSite
-
-FAQPage
-
-BreadcrumbList
-
-📌 These schemas help:
-
-Google rich results
-
-AI answers (ChatGPT, Bing Copilot)
-
-Voice search
-
-⚠️ Do NOT delete schema blocks from index.html.
-
-🎥 Background Video (Autoplay Fix)
-
-To ensure background video works on all browsers:
-
-<video autoplay muted loop playsinline preload="auto">
-  <source src="/videos/hero.mp4" type="video/mp4" />
-</video>
-
-
-✔ muted + playsinline are mandatory
-❌ Without them autoplay will fail
-
-🚀 Deployment (Netlify)
-Option 1: GitHub (Recommended)
-
-Push code to GitHub
-
-Netlify auto-deploys on push
-
-Option 2: Drag & Drop
-
-Build project
-
-Drag dist/ folder into Netlify
-
-🔄 After Every Deployment (CHECKLIST)
-
- Open /sitemap.xml in browser
-
- Open /robots.txt in browser
-
- Test background video
-
- Check console for errors
-
- Re-submit sitemap if changed
-
-📍 Local SEO Setup (Must Have)
-
-Google Business Profile (Bhilai)
-
-Consistent NAP:
-
-Name: Rudraksh Safar
-
-Address: GE Road, Bhilai 3
-
-Phone: +91-9229150311
-
-City-specific content (Bhilai, Raipur, Durg)
-
-⚠️ Things NOT to Do
-
-❌ Do not remove meta tags
-❌ Do not remove schema
-❌ Do not edit sitemap without validation
-❌ Do not index Netlify preview URLs
-❌ Do not autoplay video without muted
-
-📞 Contact
-
-Rudraksh Safar
-📍 Bhilai, Chhattisgarh, India
-📞 +91-9229150311
-🌐 https://rudrakshsafar.com
-
-✅ Status
-
-🟢 Crawlable
-🟢 SEO-optimized
-🟢 AI-friendly
-🟢 Production-ready
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

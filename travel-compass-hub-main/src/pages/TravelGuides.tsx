@@ -49,7 +49,7 @@ const guides = [
         'Book 2-3 months in advance for best flight prices',
         'Travel during off-season (May-September for most)',
         'Choose visa-on-arrival countries to save on visa fees',
-        'Contact Rudraksha Safar for customized budget packages',
+        'Contact Rudraksh Safar for customized budget packages',
       ],
     },
   },
@@ -128,7 +128,7 @@ const guides = [
         { destination: 'Ooty', duration: '3-4 days', budget: '₹10,000 - ₹15,000', highlights: 'Tea gardens, toy train, botanical gardens' },
         { destination: 'Amritsar', duration: '2-3 days', budget: '₹7,000 - ₹12,000', highlights: 'Golden Temple, Wagah Border, food' },
       ],
-      bookingTip: 'Contact Rudraksha Safar at +91-9229150311 for customized packages with best rates from Bhilai.',
+      bookingTip: 'Contact Rudraksh Safar at +91-9229150311 for customized packages with best rates from Bhilai.',
     },
   },
 ];
@@ -146,10 +146,10 @@ const generateGuideSchema = () => ({
       "@type": "Article",
       "name": guide.title,
       "description": guide.description,
-      "url": `https://rudrakshsafar/guides/${guide.id}`,
+      "url": `https://wanderluxtravels.com/guides/${guide.id}`,
       "author": {
         "@type": "Organization",
-        "name": "Rudraksha Safar"
+        "name": "Wanderlux Travels"
       }
     }
   }))
@@ -164,10 +164,10 @@ const TravelGuides = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Travel Guides 2025 | Best Destinations from India |  Travels</title>
+        <title>Travel Guides 2025 | Best Destinations from India | Wanderlux Travels</title>
         <meta name="description" content="Expert travel guides for 2025. Best international destinations from India, budget trips under ₹50,000, honeymoon ideas, best time to visit guide. Free advice from Bhilai's top travel agency." />
-        <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Rudraksh Safar" />
-        <link rel="canonical" href="https://rudrakshsafar.com/guides" />
+        <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Wanderlux Travels" />
+        <link rel="canonical" href="https://wanderluxtravels.com/guides" />
         <script type="application/ld+json">{JSON.stringify(generateGuideSchema())}</script>
       </Helmet>
 
@@ -188,7 +188,7 @@ const TravelGuides = () => {
               Budget tips, best destinations, seasonal guides, and more.
             </p>
             <p className="text-sm text-muted-foreground">
-              Updated for 2025 | By Rudraksha Safar, Bhilai
+              Updated for 2025 | By Wanderlux Travels, Bhilai
             </p>
           </AnimatedSection>
         </div>
@@ -306,7 +306,7 @@ const TravelGuides = () => {
               Need Personalized Travel Advice?
             </h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Our travel experts at Rudraksha Safar, Bhilai are here to help you plan the perfect trip.
+              Our travel experts at Wanderlux Travels, Bhilai are here to help you plan the perfect trip.
               Free consultation, no obligations.
             </p>
             <button

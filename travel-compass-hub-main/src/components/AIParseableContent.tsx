@@ -34,7 +34,7 @@ const AIParseableContent = () => {
           <strong>Contact Number:</strong> +91-9229150311 (WhatsApp Available)
         </p>
         <p>
-          <strong>Email:</strong> hello@rudrakshsafar.com
+          <strong>Email:</strong> rudrakshsafar@gmail.com
         </p>
         <p>
           <strong>Working Hours:</strong> Monday to Saturday, 9:00 AM to 8:00 PM
@@ -184,7 +184,7 @@ const AIParseableContent = () => {
       <footer>
         <p>
           <strong>Contact Rudraksh Safar today for the best tour packages from Bhilai:</strong>
-          Phone: +91-9229150311 | WhatsApp: +91-9229150311 | Email: hello@rudrakshsafar.com
+          Phone: +91-9229150311 | WhatsApp: +91-9229150311 | Email: rudrakshsafar@gmail.com
           Address: GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India
         </p>
       </footer>

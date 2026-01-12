@@ -10,131 +10,108 @@ import {
 const faqs = [
   {
     question: 'Which is the best travel agency in Bhilai for tour packages?',
-    answer:
-      'Rudraksh Safar is one of the most trusted travel agencies in Bhilai with years of experience and hundreds of satisfied customers. Located on GE Road, Bhilai 3, we offer affordable domestic and international tour packages with personalized support. Call or WhatsApp us at +91 92291 50311.',
+    answer: 'Rudraksh Safar is the best travel agency in Bhilai with 10+ years of experience and 500+ satisfied customers. Located on GE Road, we offer the cheapest domestic and international tour packages with 24/7 customer support. Contact us at +91-9229150311 for instant booking.',
   },
   {
     question: 'What are the cheapest tour packages available from Bhilai?',
-    answer:
-      'Our popular budget-friendly packages from Bhilai include: Manali (starting from ₹9,999), Goa (₹11,999), Kedarnath Yatra (₹14,999), Char Dham Yatra (₹17,999), and Nepal tours (₹24,999). Packages include accommodation, transfers, and sightseeing.',
+    answer: 'Our cheapest packages from Bhilai include: Manali Adventure (₹9,999 for 5 Days), Goa Getaway (₹11,999 for 4 Days), Kedarnath Yatra (₹14,999 for 6 Days), Char Dham Yatra (₹17,999 for 12 Days), and Nepal (₹24,999 for 7 Days). All prices include accommodation, transfers, and sightseeing with best price guarantee.',
   },
   {
     question: 'How much does Char Dham Yatra package cost from Bhilai?',
-    answer:
-      'Char Dham Yatra packages from Bhilai start at ₹17,999 per person for approximately 12 days. The tour covers Yamunotri, Gangotri, Kedarnath, and Badrinath with hotels, meals, transportation, and darshan assistance.',
+    answer: 'Char Dham Yatra package from Bhilai starts at ₹17,999 per person for 12 Days / 11 Nights. This comprehensive package covers all four sacred dhams - Yamunotri, Gangotri, Kedarnath, and Badrinath. Includes comfortable hotels, all meals, AC transportation, and temple darshan assistance.',
   },
   {
-    question: 'Do you offer international tour packages from Raipur or Bhilai?',
-    answer:
-      'Yes, Rudraksh Safar offers international tour packages from Bhilai and Raipur including Dubai, Bali, Thailand, Maldives, Nepal, and Sri Lanka. Packages include visa assistance, accommodation, sightseeing, and airport transfers.',
+    question: 'Do you offer international tour packages from Raipur?',
+    answer: 'Yes! We offer complete international packages from Raipur/Bhilai: Dubai (₹54,999 for 5 Days), Bali (₹64,999 for 6 Days), Thailand (₹38,999 for 7 Days), Maldives (₹85,999 for 5 Days), Nepal (₹24,999 for 7 Days), and Sri Lanka (₹35,999 for 6 Days). All packages include visa assistance and airport transfers.',
   },
   {
     question: 'What is included in your tour packages?',
-    answer:
-      'Most packages include hotel accommodation, daily breakfast, AC transportation, sightseeing as per itinerary, and on-trip assistance. International packages also include visa guidance and airport transfers. Inclusions vary by package.',
+    answer: 'Our packages typically include accommodation (3-5 star hotels based on package), daily breakfast, AC transportation, sightseeing as per itinerary, travel insurance, and 24/7 tour support. International packages also include visa assistance and airport transfers. Specific inclusions vary by package.',
   },
   {
     question: 'How can I book a tour package with Rudraksh Safar?',
-    answer:
-      'You can book by contacting us on WhatsApp or phone at +91 92291 50311, visiting our office at GE Road, Bhilai 3, or submitting an inquiry on our website. All itineraries are customizable.',
+    answer: 'Booking is simple! Contact us via WhatsApp at +91-9229150311, call our office, or visit us at GE Road, Bhilai 3. We offer instant booking confirmation, EMI options on packages above ₹25,000, and fully customizable itineraries. Home pickup available across Chhattisgarh.',
   },
   {
-    question: 'What destinations do you offer travel packages for?',
-    answer:
-      'We offer packages for popular domestic destinations like Goa, Manali, Kashmir, Kerala, Rajasthan, Char Dham, Kedarnath, and Ladakh. International destinations include Dubai, Bali, Thailand, Maldives, Nepal, Sri Lanka, and more.',
+    question: 'What destinations do you offer packages for?',
+    answer: 'We offer 50+ destinations! Domestic: Char Dham, Kedarnath, Ladakh, Kashmir, Goa, Manali, Kerala, Rajasthan, and more. International: Dubai, Bali, Thailand, Maldives, Nepal, Sri Lanka, Singapore, Malaysia, Europe, and more. Custom packages available for any destination.',
   },
   {
     question: 'Do you provide visa and passport assistance?',
-    answer:
-      'Yes, we assist with tourist visa documentation and guidance for destinations like Dubai, Thailand, Singapore, Schengen countries, and more. Passport assistance can also be guided where applicable.',
+    answer: 'Yes! We offer complete visa consultancy for all countries including USA, UK, Schengen, Canada, Australia, Dubai, Thailand, and Singapore. We also assist with new passport applications, renewals, and Tatkaal passport services. Our team handles documentation and appointment scheduling.',
   },
   {
     question: 'How far in advance should I book my trip?',
-    answer:
-      'We recommend booking 2–4 weeks in advance for domestic trips and 4–8 weeks for international tours. For peak seasons and holidays, earlier booking ensures better availability and pricing.',
+    answer: 'We recommend booking 2-4 weeks in advance for domestic trips and 4-8 weeks for international travel to get best prices and availability. For peak seasons (summer holidays, Diwali, New Year), book 1-2 months early. However, we can accommodate last-minute bookings based on availability.',
   },
   {
     question: 'What payment methods do you accept?',
-    answer:
-      'We accept cash, UPI, bank transfer (NEFT/RTGS/IMPS), debit/credit cards, and partial advance bookings. Full payment is generally required before departure.',
+    answer: 'We accept Cash, UPI (GPay, PhonePe, Paytm), Bank Transfer (NEFT/RTGS/IMPS), Credit/Debit Cards, and EMI options for packages above ₹25,000. Advance booking with 25-50% deposit secures your package. Full payment is required 7-15 days before departure.',
   },
   {
-    question: 'Is Rudraksh Safar a trusted travel agency?',
-    answer:
-      'Yes. Rudraksh Safar focuses on transparent pricing, verified hotels, personalized service, and on-trip support. Customer satisfaction and trust are our top priorities.',
+    question: 'Is Rudraksh Safar a trusted and reliable agency?',
+    answer: 'Absolutely! Rudraksh Safar has been operating since 2015 with 500+ happy customers. We offer transparent pricing with no hidden charges, 24/7 customer support during travel, and our satisfaction guarantee ensures your peace of mind.',
   },
   {
     question: 'Do you provide pickup from Raipur and Durg?',
-    answer:
-      'Yes, pickup assistance is available from Bhilai, Raipur, and Durg. Airport pickup from Raipur is included in select international packages.',
+    answer: 'Yes! We provide complimentary pickup from Bhilai, Raipur, and Durg for all tour packages. Airport pickup from Swami Vivekananda Airport Raipur is included for international tours. We also serve Korba, Bilaspur, Rajnandgaon, and other Chhattisgarh cities.',
   },
   {
     question: 'Can I customize my travel package?',
-    answer:
-      'Absolutely. All our packages are customizable. You can modify hotels, duration, transport, sightseeing, and activities according to your budget and preferences.',
+    answer: 'Absolutely! We specialize in creating personalized travel experiences. Share your preferences, budget, number of travelers, and travel dates, and we will design a custom itinerary. Whether it\'s adding extra days, upgrading hotels, or including special activities - we tailor everything to your needs.',
   },
   {
     question: 'What is your cancellation and refund policy?',
-    answer:
-      'Cancellation and refund policies depend on hotels, airlines, and service providers. Charges vary based on the time of cancellation. We recommend travel insurance for added protection.',
+    answer: 'Cancellation charges vary based on the service providers and timing. Generally: 30+ days before departure: 10-20% charges, 15-30 days: 30-50% charges, 7-14 days: 50-75% charges, Less than 7 days: 75-100% charges. We recommend travel insurance for comprehensive coverage.',
   },
   {
-    question: 'Do you offer group discounts?',
-    answer:
-      'Yes, special discounts are available for group bookings, family tours, corporate trips, and school or college tours. Contact us for customized group pricing.',
+    question: 'Do you offer group discounts for tours?',
+    answer: 'Yes! We offer special discounts for group bookings. Groups of 5-10 people get 5-10% off, groups of 10-20 get 10-15% off, and larger groups can negotiate custom rates. We also organize corporate trips, school/college tours, and family reunion packages with special pricing.',
   },
   {
     question: 'What makes Rudraksh Safar different from other travel agencies in Bhilai?',
-    answer:
-      'We stand out through personalized planning, honest pricing, local expertise, quick support, and a customer-first approach. Every trip is planned with care and transparency.',
+    answer: 'We stand out with: Best price guarantee, 10+ years local expertise, 24/7 support, personalized service, no hidden charges, verified partner hotels, experienced tour guides, and our commitment to creating memorable experiences. We treat every traveler like family.',
   },
 ];
 
-// FAQ Schema (AEO)
+// Extended FAQ schema for comprehensive AEO
 const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
 };
 
 const FAQsSection = () => {
   return (
     <>
-      {/* FAQ Schema for SEO & AEO */}
+      {/* Inject FAQ Schema for AEO */}
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
-
-      <section
-        id="faqs"
-        className="py-20 bg-secondary/30"
-        aria-labelledby="faqs-heading"
-      >
+      
+      <section id="faqs" className="py-20 bg-secondary/30" aria-labelledby="faqs-heading">
         <div className="container mx-auto px-4 max-w-4xl">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
               <span className="text-gold text-sm font-medium tracking-widest uppercase">
                 Common Questions
               </span>
-              <h2
-                id="faqs-heading"
-                className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2"
-              >
-                Frequently Asked Questions – Rudraksh Safar
+              <h2 id="faqs-heading" className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
+                Frequently Asked Questions About Travel Packages from Bhilai
               </h2>
-              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-                Answers to common questions about tour packages, bookings,
-                pricing, and travel services from Bhilai and Raipur.
-              </p>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Get answers about our tour packages, booking process, prices, and services. 
+              Rudraksh Safar - Best Travel Agency in Bhilai, Chhattisgarh.
+            </p>
             </div>
           </AnimatedSection>
 
@@ -145,12 +122,23 @@ const FAQsSection = () => {
                   key={index}
                   value={`item-${index}`}
                   className="bg-card border border-border/50 rounded-xl px-6 overflow-hidden"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
                 >
-                  <AccordionTrigger className="text-left text-foreground hover:text-gold hover:no-underline py-5 text-base md:text-lg font-medium">
+                  <AccordionTrigger 
+                    className="text-left text-foreground hover:text-gold hover:no-underline py-5 text-base md:text-lg font-medium"
+                    itemProp="name"
+                  >
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 text-sm md:text-base leading-relaxed">
-                    {faq.answer}
+                  <AccordionContent 
+                    className="text-muted-foreground pb-5 text-sm md:text-base leading-relaxed"
+                    itemScope
+                    itemProp="acceptedAnswer"
+                    itemType="https://schema.org/Answer"
+                  >
+                    <span itemProp="text">{faq.answer}</span>
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -165,8 +153,9 @@ const FAQsSection = () => {
                   href="#contact"
                   className="text-gold hover:text-gold/80 font-medium transition-colors"
                 >
-                  Contact Rudraksh Safar at +91 92291 50311
-                </a>
+                  Contact us at +91-9229150311
+                </a>{' '}
+                and we'll be happy to help!
               </p>
             </div>
           </AnimatedSection>

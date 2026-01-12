@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Quote, Send } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -10,8 +10,7 @@ const testimonials = [
     name: 'Priya Sharma',
     location: 'Bhilai, Chhattisgarh',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
-    rating: 5,
-    text: 'Wanderlux made our honeymoon in Maldives absolutely magical! Every detail was perfect — from the overwater villa to the private dinner on the beach. Truly a dream come true.',
+    text: 'Rudraksh Safar made our honeymoon in Maldives absolutely magical! Every detail was perfect — from the overwater villa to the private dinner on the beach. Truly a dream come true.',
     trip: 'Maldives Honeymoon',
   },
   {
@@ -19,7 +18,6 @@ const testimonials = [
     name: 'Rajesh & Family',
     location: 'Raipur, Chhattisgarh',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-    rating: 5,
     text: 'Our family trip to Thailand was seamlessly organized. The kids loved every moment, and we parents could relax knowing everything was taken care of. Highly recommended!',
     trip: 'Thailand Family Adventure',
   },
@@ -28,8 +26,7 @@ const testimonials = [
     name: 'Ananya Patel',
     location: 'Charoda, Chhattisgarh',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',
-    rating: 5,
-    text: 'As a solo female traveler, safety was my priority. Wanderlux not only ensured I felt secure throughout my Bali trip but also connected me with amazing local experiences.',
+    text: 'As a solo female traveler, safety was my priority. Rudraksh Safar not only ensured I felt secure throughout my Bali trip but also connected me with amazing local experiences.',
     trip: 'Bali Solo Journey',
   },
   {
@@ -37,7 +34,6 @@ const testimonials = [
     name: 'Vikram Mehta',
     location: 'Khursipar, Bhilai',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop',
-    rating: 5,
     text: 'The Ladakh adventure was beyond expectations! The team handled all logistics perfectly, letting us focus on the breathtaking landscapes. Already planning our next trip!',
     trip: 'Ladakh Expedition',
   },
@@ -108,13 +104,6 @@ const TestimonialsSection = () => {
           <div className="relative">
             {/* Testimonial Card */}
             <div className="glass-card bg-background/10 p-8 md:p-12 text-center">
-              {/* Rating */}
-              <div className="flex items-center justify-center gap-1 mb-6">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
-                ))}
-              </div>
-
               {/* Quote */}
               <p className="text-xl md:text-2xl font-serif leading-relaxed mb-8 text-primary-foreground">
                 "{testimonials[currentIndex].text}"

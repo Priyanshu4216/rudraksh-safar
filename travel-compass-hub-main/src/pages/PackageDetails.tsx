@@ -35,7 +35,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
-      answer: `Booking is simple! Contact Rudraksha Safar at +91-9229150311 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
+      answer: `Booking is simple! Contact Rudraksh Safar at +91-9229150311 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
     },
     {
       question: `Can I customize the ${pkg.title} itinerary?`,
@@ -60,7 +60,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: `We require 30% advance to confirm booking. Balance is due 7 days before departure. Free cancellation up to 15 days before travel. 50% refund for cancellations 7-14 days prior. Our transparent pricing has no hidden charges - what you see is what you pay!`
     },
     {
-      question: `Why choose Rudraksha Safar for ${pkg.location} tour?`,
+      question: `Why choose Rudraksh Safar for ${pkg.location} tour?`,
       answer: `With 10+ years of experience, 500+ happy travelers, and being Bhilai's trusted travel partner, we offer the best value packages. Our highlights: 24/7 support, local expertise, ${isDomestic ? 'home pickup from Chhattisgarh' : 'complete visa assistance'}, and personalized service. We're not just a travel agency - we're your travel family!`
     }
   ];
@@ -70,6 +70,60 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
 
 const allPackages = [
   // International Packages
+  {
+    id: 'phuket',
+    title: 'Phuket Beach Paradise',
+    location: 'Phuket, Thailand',
+    duration: '5 Days / 4 Nights',
+    price: '₹42,999',
+    image: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2001&auto=format&fit=crop',
+    tag: 'Beach Escape',
+    type: 'international',
+    visa: 'On Arrival',
+    currency: 'Thai Baht (THB)',
+    famousPlaces: ['Patong Beach', 'Phi Phi Islands', 'Big Buddha', 'Old Phuket Town', 'James Bond Island'],
+    whatToEat: ['Pad Thai', 'Tom Yum Soup', 'Fresh Seafood', 'Mango Sticky Rice', 'Massaman Curry'],
+    attractions: ['Phi Phi Island Tour', 'Snorkeling & Diving', 'Thai Massage', 'Bangla Road Nightlife', 'Phang Nga Bay'],
+    itinerary: [
+      'Day 1: Arrive at Phuket International Airport, transfer to Patong Beach hotel. Evening explore vibrant Bangla Road and enjoy authentic Thai seafood dinner.',
+      'Day 2: Full day Phi Phi Islands tour by speedboat - visit Maya Bay (famous from "The Beach" movie), snorkeling at Monkey Beach, lunch on Phi Phi Don island, swimming at Bamboo Island.',
+      'Day 3: Morning visit to iconic Big Buddha temple for panoramic views. Explore colorful Old Phuket Town with its Sino-Portuguese architecture. Afternoon at Kata or Karon beach with water sports.',
+      'Day 4: Phang Nga Bay excursion - visit James Bond Island, kayaking through limestone caves, visit floating village, sea cave exploration. Evening Thai cooking class.',
+      'Day 5: Morning leisure at beach, last-minute shopping at Jungceylon Mall, spa session, airport transfer for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2001&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'singapore',
+    title: 'Singapore City Explorer',
+    location: 'Singapore',
+    duration: '5 Days / 4 Nights',
+    price: '₹58,999',
+    image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2052&auto=format&fit=crop',
+    tag: 'City Break',
+    type: 'international',
+    visa: 'e-Visa',
+    currency: 'Singapore Dollar (SGD)',
+    famousPlaces: ['Marina Bay Sands', 'Gardens by the Bay', 'Sentosa Island', 'Orchard Road', 'Merlion Park'],
+    whatToEat: ['Chilli Crab', 'Hainanese Chicken Rice', 'Laksa', 'Kaya Toast', 'Satay'],
+    attractions: ['Universal Studios', 'Singapore Zoo', 'Night Safari', 'Clarke Quay', 'S.E.A. Aquarium'],
+    itinerary: [
+      'Day 1: Arrive at Changi Airport (one of world\'s best airports). Transfer to Marina Bay area hotel. Evening Marina Bay Sands light show and Merlion Park visit.',
+      'Day 2: Full day Sentosa Island adventure - Universal Studios Singapore with Hollywood rides, S.E.A. Aquarium, Madame Tussauds, beach activities at Siloso.',
+      'Day 3: Morning at Gardens by the Bay - Supertree Grove, Cloud Forest & Flower Dome. Afternoon shopping at Orchard Road. Evening Singapore Flyer and Clarke Quay dinner.',
+      'Day 4: Morning Singapore Zoo visit (world\'s best rainforest zoo). Afternoon Chinatown and Little India exploration for cultural immersion. Evening Night Safari - world\'s first nocturnal zoo.',
+      'Day 5: Leisure morning, last-minute shopping at Bugis Street and Mustafa Centre, enjoy farewell Chilli Crab lunch, airport transfer for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2052&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1508062878650-88b52897f298?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1496939376851-89342e90adcd?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
   {
     id: 'bali',
     title: 'Bali Paradise',
@@ -237,6 +291,158 @@ const allPackages = [
     ],
   },
   // Domestic Packages
+  {
+    id: 'andaman',
+    title: 'Andaman Beach Holiday',
+    location: 'Andaman Islands, India',
+    duration: '6 Days / 5 Nights',
+    price: '₹32,999',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop',
+    tag: 'Beach',
+    type: 'domestic',
+    famousPlaces: ['Radhanagar Beach', 'Cellular Jail', 'Havelock Island', 'Neil Island', 'Ross Island'],
+    whatToEat: ['Fresh Seafood', 'Grilled Fish', 'Coconut Curry', 'Lobster', 'Prawn Masala'],
+    attractions: ['Scuba Diving', 'Snorkeling', 'Glass Bottom Boat', 'Light & Sound Show', 'Sea Walking'],
+    itinerary: [
+      'Day 1: Arrive at Port Blair airport, transfer to hotel. Afternoon visit Cellular Jail - a national memorial. Evening witness the moving Light & Sound Show depicting India\'s freedom struggle.',
+      'Day 2: Morning ferry to Ross Island (British-era ruins in jungle) and North Bay Island (water sports). Return to Port Blair for Corbyn\'s Cove Beach visit.',
+      'Day 3: Morning cruise to Havelock Island (2 hrs) - the crown jewel of Andaman. Check into beach resort. Evening at Radhanagar Beach - Asia\'s best beach with stunning sunset.',
+      'Day 4: Full day Havelock adventure - scuba diving/snorkeling at Elephant Beach to see coral reefs and colorful marine life. Optional sea walking experience. Evening at beach shack.',
+      'Day 5: Morning ferry to Neil Island (natural coral bridge). Visit Laxmanpur Beach and Bharatpur Beach. Return to Port Blair by evening.',
+      'Day 6: Morning leisure, visit Samudrika Marine Museum and Anthropological Museum. Shopping for shells and pearls. Airport transfer for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'kashmir',
+    title: 'Kashmir Paradise',
+    location: 'Jammu & Kashmir, India',
+    duration: '6 Days / 5 Nights',
+    price: '₹22,999',
+    image: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Romantic',
+    type: 'domestic',
+    famousPlaces: ['Dal Lake', 'Gulmarg', 'Pahalgam', 'Mughal Gardens', 'Sonmarg'],
+    whatToEat: ['Rogan Josh', 'Yakhni', 'Dum Aloo', 'Gushtaba', 'Kahwa'],
+    attractions: ['Shikara Ride', 'Gondola Ride', 'Houseboat Stay', 'Mughal Gardens', 'Pony Ride'],
+    itinerary: [
+      'Day 1: Arrive at Srinagar airport, transfer to iconic Dal Lake houseboat. Afternoon Shikara ride through floating gardens and lotus blooms. Evening enjoy Kahwa tea on deck.',
+      'Day 2: Full day Gulmarg excursion - ride the famous Gondola cable car (world\'s highest at 13,400 ft). Snow activities in winter, golf course in summer. Stunning Himalayan views.',
+      'Day 3: Drive to Pahalgam (90 km) - the Valley of Shepherds. Visit Betaab Valley (Bollywood famous), Aru Valley, and Chandanwari. Optional pony ride to Baisaran Valley.',
+      'Day 4: Sonmarg day trip - Meadow of Gold with Thajiwas Glacier. Stunning landscape of snow-capped peaks and flower meadows. Return to Srinagar.',
+      'Day 5: Visit famous Mughal Gardens - Nishat Bagh, Shalimar Bagh, and Chashme Shahi. Afternoon at Shankaracharya Temple for panoramic views. Evening shopping at local markets for Pashmina.',
+      'Day 6: Morning leisure at houseboat, last Shikara ride. Transfer to Srinagar airport for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1593181520415-c20261bcad6e?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'udaipur',
+    title: 'Udaipur Royal Escape',
+    location: 'Rajasthan, India',
+    duration: '4 Days / 3 Nights',
+    price: '₹14,999',
+    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Heritage',
+    type: 'domestic',
+    famousPlaces: ['City Palace', 'Lake Pichola', 'Jag Mandir', 'Saheliyon Ki Bari', 'Jagdish Temple'],
+    whatToEat: ['Dal Baati Churma', 'Gatte Ki Sabzi', 'Laal Maas', 'Ghevar', 'Rajasthani Thali'],
+    attractions: ['Boat Ride', 'Palace Tour', 'Cultural Show', 'Puppet Show', 'Vintage Car Museum'],
+    itinerary: [
+      'Day 1: Arrive at Udaipur airport/station, transfer to heritage hotel. Afternoon visit iconic City Palace - largest palace complex in Rajasthan with panoramic lake views. Evening boat ride on Lake Pichola to Jag Mandir island.',
+      'Day 2: Morning visit Saheliyon Ki Bari (Garden of Maidens), Fateh Sagar Lake, and Moti Magri (Maharana Pratap Memorial). Afternoon explore Vintage Car Museum. Evening Dharohar folk dance show at Bagore Ki Haveli.',
+      'Day 3: Day trip to Kumbhalgarh Fort (80 km) - second longest wall in the world after Great Wall of China. Visit Ranakpur Jain Temples with 1444 uniquely carved pillars. Return to Udaipur.',
+      'Day 4: Morning visit Jagdish Temple, stroll through old city lanes. Shopping for miniature paintings, silver jewelry, and handicrafts. Transfer to airport/station for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1568495248636-6432b97bd949?q=80&w=2074&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'mussoorie-nainital',
+    title: 'Mussoorie & Nainital',
+    location: 'Uttarakhand, India',
+    duration: '5 Days / 4 Nights',
+    price: '₹12,999',
+    image: 'https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Hill Station',
+    type: 'domestic',
+    famousPlaces: ['Naini Lake', 'Mall Road Mussoorie', 'Kempty Falls', 'Naina Devi Temple', 'Gun Hill'],
+    whatToEat: ['Bal Mithai', 'Singori', 'Aloo Ke Gutke', 'Kafuli', 'Bhang Ki Chutney'],
+    attractions: ['Boating', 'Cable Car Ride', 'Trekking', 'Waterfall Visit', 'Zoo Visit'],
+    itinerary: [
+      'Day 1: Arrive Delhi, drive to Mussoorie (6 hrs) - Queen of Hills. Evening stroll at famous Mall Road with stunning mountain views. Try local street food and shop for woolen wear.',
+      'Day 2: Full day Mussoorie exploration - cable car ride to Gun Hill for panoramic views, visit Kempty Falls (15 km), Company Garden, and Camel\'s Back Road walk at sunset.',
+      'Day 3: Drive to Nainital (4 hrs) via scenic Himalayan roads. Check into lakeside hotel. Evening boating on Naini Lake - the eye-shaped lake. Visit Naina Devi Temple.',
+      'Day 4: Morning Cable Car to Snow View Point for Himalayan views. Visit Eco Cave Garden, Bhimtal Lake, and Hanuman Garhi Temple. Evening shopping at Tibetan Market.',
+      'Day 5: Morning visit Tiffin Top (Dorothy\'s Seat) for sunrise. Last boating session. Shopping for candles and souvenirs. Drive to Delhi for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1582540730343-eb6c0f76d2b1?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'shimla-manali',
+    title: 'Shimla Manali Adventure',
+    location: 'Himachal Pradesh, India',
+    duration: '7 Days / 6 Nights',
+    price: '₹15,999',
+    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Adventure',
+    type: 'domestic',
+    famousPlaces: ['Mall Road Shimla', 'Solang Valley', 'Rohtang Pass', 'Hadimba Temple', 'Kufri'],
+    whatToEat: ['Siddu', 'Dham', 'Chana Madra', 'Tudkiya Bhath', 'Aktori'],
+    attractions: ['Skiing', 'Paragliding', 'River Rafting', 'Toy Train', 'Snow Activities'],
+    itinerary: [
+      'Day 1: Arrive Chandigarh/Delhi, drive to Shimla (7 hrs). Evening walk at Mall Road - the heart of Shimla with colonial architecture. View Christ Church illuminated at night.',
+      'Day 2: Full day Shimla exploration - visit Kufri for horse riding and adventure activities, Jakhoo Temple (highest point in Shimla), and The Ridge. Optional: Toy Train joy ride (UNESCO Heritage).',
+      'Day 3: Drive Shimla to Manali (8 hrs) via Kullu Valley. Stop at Vaishno Devi Temple Kullu. Evening explore Old Manali cafes and vibrant hippie culture.',
+      'Day 4: Full day Solang Valley adventure - paragliding (world-famous), zorbing, rope way ride. Winter visitors enjoy skiing and snow activities. Evening at Vashisht Hot Springs.',
+      'Day 5: Rohtang Pass excursion (subject to weather/permits) - snow activities at 13,050 ft, stunning views of Lahaul Valley. Alternative: Atal Tunnel to Sissu for breathtaking landscapes.',
+      'Day 6: Visit Hadimba Temple (ancient wooden temple), Manu Temple, Tibetan Monastery, and Van Vihar. Afternoon river rafting on Beas River (seasonal). Evening local market shopping.',
+      'Day 7: Morning visit Naggar Castle and Roerich Art Gallery. Drive to Chandigarh for departure or continue to Delhi.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1593181520415-c20261bcad6e?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1596627116790-af6f46dddbf6?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'kodaikanal',
+    title: 'Kodaikanal Retreat',
+    location: 'Tamil Nadu, India',
+    duration: '4 Days / 3 Nights',
+    price: '₹13,999',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Nature',
+    type: 'domestic',
+    famousPlaces: ['Kodaikanal Lake', 'Coaker\'s Walk', 'Pillar Rocks', 'Bryant Park', 'Silver Cascade Falls'],
+    whatToEat: ['Home-made Chocolates', 'Fresh Cheese', 'Filter Coffee', 'Dosa', 'Mushroom dishes'],
+    attractions: ['Boating', 'Cycling', 'Pine Forest Walk', 'Waterfall Visit', 'Star Gazing'],
+    itinerary: [
+      'Day 1: Arrive Madurai airport (120 km) or Kodaikanal Road railway station, scenic drive up the ghats to Kodaikanal - Princess of Hill Stations. Evening at Kodaikanal Lake - boating and cycling around the star-shaped lake.',
+      'Day 2: Morning walk at Coaker\'s Walk - a 1 km path on the edge of steep slopes with panoramic valley views. Visit Bryant Park (botanical garden) and Pillar Rocks (trio of vertical rock pillars). Afternoon at Pine Forest for nature walks.',
+      'Day 3: Early morning visit to Dolphin\'s Nose viewpoint for sunrise. Explore Silver Cascade Falls and Bear Shola Falls. Afternoon visit Green Valley View (suicide point) and Guna Caves. Evening chocolate and cheese shopping - Kodaikanal specialties.',
+      'Day 4: Morning visit Berijam Lake (if permit available) - pristine forest lake. Shopping for eucalyptus oil, spices, and handmade chocolates. Drive to Madurai for departure.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1596627116790-af6f46dddbf6?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1582540730343-eb6c0f76d2b1?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
   {
     id: 'chardham',
     title: 'Char Dham Yatra',
@@ -550,7 +756,7 @@ const PackageDetails = () => {
       "priceValidUntil": "2025-12-31",
       "seller": {
         "@type": "TravelAgency",
-        "name": " Rudraksha Safar",
+        "name": "Rudraksh Safar",
         "telephone": "+91-9229150311",
         "address": {
           "@type": "PostalAddress",
@@ -564,7 +770,7 @@ const PackageDetails = () => {
     },
     "provider": {
       "@type": "TravelAgency",
-      "name": "Rudraksha Safar",
+      "name": "Rudraksh Safar",
       "url": "https://rudrakshsafar.com"
     }
   };
@@ -578,7 +784,7 @@ const PackageDetails = () => {
     "image": pkg.gallery,
     "brand": {
       "@type": "Brand",
-      "name": "Rudraksha Safar"
+      "name": "Rudraksh Safar"
     },
     "offers": {
       "@type": "Offer",
@@ -587,15 +793,9 @@ const PackageDetails = () => {
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",
-        "name": " Travels"
+        "name": "Rudraksh Safar"
       }
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "50",
-      "bestRating": "5"
-    }
   };
 
   // FAQ Schema for AEO
@@ -633,7 +833,7 @@ const PackageDetails = () => {
         "@type": "ListItem",
         "position": 3,
         "name": pkg.title,
-        "item": `https://rudrakshsafar.com/package/${pkg.id}`
+        "item": `https://wanderluxtravels.com/package/${pkg.id}`
       }
     ]
   };
