@@ -1,4 +1,4 @@
 [build]
-  base = ""
-  publish = "dist"
+  base = "travel-compass-hub-main"
   command = "npm run build"
+  publish = "travel-compass-hub-main/dist"
