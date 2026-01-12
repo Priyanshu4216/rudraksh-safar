@@ -192,7 +192,7 @@ const legalContent = {
       <p>You agree to indemnify and hold harmless Rudraksh Safar, its directors, employees, and agents from any claims, damages, losses, or expenses arising from your breach of these Terms, your violation of any law, or your conduct during travel.</p>
       
       <h3>10. Travel Insurance</h3>
-      <p>We strongly recommend purchasing comprehensive travel insurance covering trip cancellation, medical emergencies, evacuation, baggage loss, and personal liability. Wanderlux Travels is not an insurance provider and assumes no liability for uninsured losses.</p>
+      <p>We strongly recommend purchasing comprehensive travel insurance covering trip cancellation, medical emergencies, evacuation, baggage loss, and personal liability. Rudraksh Safar is not an insurance provider and assumes no liability for uninsured losses.</p>
       
       <h3>11. Intellectual Property</h3>
       <p>All content on our website including text, images, logos, and graphics is the intellectual property of Rudraksh Safar or its licensors. Unauthorized use, reproduction, or distribution is prohibited.</p>
@@ -270,7 +270,7 @@ const legalContent = {
       <p>We may update this Cookie Policy periodically. The "Last Updated" date indicates when changes were made.</p>
       
       <h3>8. Contact Us</h3>
-      <p>For questions about our use of cookies, contact us at hello@wanderlux.com.</p>
+      <p>For questions about our use of cookies, contact us at rudrakshsafar@gmail.com.</p>
     `,
   },
   disclaimer: {
@@ -278,7 +278,7 @@ const legalContent = {
     content: `
       <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
       
-      <p>Please read this disclaimer carefully before using the Wanderlux Travels website or services. By accessing our website or engaging our services, you acknowledge and accept the following disclaimers.</p>
+      <p>Please read this disclaimer carefully before using the Rudraksh Safar website or services. By accessing our website or engaging our services, you acknowledge and accept the following disclaimers.</p>
       
       <h3>1. General Disclaimer</h3>
       <p>The information provided on this website is for general informational purposes only. While we strive to keep information accurate and up-to-date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on this website.</p>
@@ -306,7 +306,7 @@ const legalContent = {
       <p>We will endeavor to provide equivalent alternatives when changes are necessary, but we are not liable for any inconvenience or losses resulting from such changes.</p>
       
       <h3>5. Third-Party Services Disclaimer</h3>
-      <p><strong>IMPORTANT:</strong> Wanderlux Travels acts as an intermediary and does not own, operate, or control any aircraft, hotels, vehicles, restaurants, or other facilities used in travel arrangements. All services are provided by independent Third-Party Suppliers under their own terms, conditions, and liability limitations. We expressly disclaim all liability for:</p>
+      <p><strong>IMPORTANT:</strong> Rudraksh Safar acts as an intermediary and does not own, operate, or control any aircraft, hotels, vehicles, restaurants, or other facilities used in travel arrangements. All services are provided by independent Third-Party Suppliers under their own terms, conditions, and liability limitations. We expressly disclaim all liability for:</p>
       <ul>
         <li>Acts, omissions, or negligence of Third-Party Suppliers</li>
         <li>Quality, safety, or suitability of third-party services</li>
@@ -334,7 +334,7 @@ const legalContent = {
       <p>Our website may contain links to external websites. We have no control over the content, privacy policies, or practices of these third-party sites and assume no responsibility for them.</p>
       
       <h3>10. Limitation of Liability</h3>
-      <p>To the fullest extent permitted by law, Wanderlux Travels, its directors, employees, and agents shall not be liable for any direct, indirect, incidental, consequential, special, or exemplary damages arising from your use of this website or our services.</p>
+      <p>To the fullest extent permitted by law, Rudraksh Safar, its directors, employees, and agents shall not be liable for any direct, indirect, incidental, consequential, special, or exemplary damages arising from your use of this website or our services.</p>
       
       <h3>11. Copyright Notice</h3>
       <p>All content on this website is protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of any content is strictly prohibited.</p>
@@ -351,8 +351,8 @@ const legalContent = {
       <p><strong>PLEASE READ THIS POLICY CAREFULLY. IT CONTAINS IMPORTANT INFORMATION ABOUT REFUNDS AND YOUR RIGHTS.</strong></p>
       
       <h3>1. Understanding Our Role</h3>
-      <p><strong>IMPORTANT NOTICE:</strong> Wanderlux Travels operates as an intermediary travel agent and facilitator between you (the traveler) and various Third-Party Service Providers including, but not limited to, airlines, hotels, resorts, transport operators, tour companies, and other hospitality and travel service providers ("Service Providers").</p>
-      <p>We do not own, manage, or operate the hotels, flights, vehicles, or other services included in your travel arrangements. Therefore, <strong>refund decisions, policies, and processing are primarily governed by the respective Service Providers' terms and conditions</strong>, not solely by Wanderlux Travels.</p>
+      <p><strong>IMPORTANT NOTICE:</strong> Rudraksh Safar operates as an intermediary travel agent and facilitator between you (the traveler) and various Third-Party Service Providers including, but not limited to, airlines, hotels, resorts, transport operators, tour companies, and other hospitality and travel service providers ("Service Providers").</p>
+      <p>We do not own, manage, or operate the hotels, flights, vehicles, or other services included in your travel arrangements. Therefore, <strong>refund decisions, policies, and processing are primarily governed by the respective Service Providers' terms and conditions</strong>, not solely by Rudraksh Safar.</p>
       
       <h3>2. How Refunds Are Determined</h3>
       <p>When you request a cancellation or refund:</p>
@@ -373,7 +373,7 @@ const legalContent = {
         <li><strong>Transport Services:</strong> Trains, buses, and cab services have their own cancellation policies.</li>
       </ul>
       
-      <h3>4. Wanderlux Travels Service Fee</h3>
+      <h3>4. Rudraksh Safar Service Fee</h3>
       <p>Our service fee (if applicable) for booking facilitation, consultation, and itinerary planning is generally non-refundable as it compensates for services already rendered. This fee is separate from amounts paid to Service Providers.</p>
       
       <h3>5. Refund Processing</h3>
@@ -411,9 +411,9 @@ const legalContent = {
       <p>We strongly recommend purchasing comprehensive travel insurance that includes trip cancellation coverage. Insurance can protect you against financial losses when refunds are not available from Service Providers.</p>
       
       <h3>10. Your Acknowledgment</h3>
-      <p>By booking with Wanderlux Travels, you acknowledge and accept that:</p>
+      <p>By booking with Rudraksh Safar, you acknowledge and accept that:</p>
       <ul>
-        <li>Refund decisions are made by Service Providers, not Wanderlux Travels.</li>
+        <li>Refund decisions are made by Service Providers, not  Rudraksh Safar.</li>
         <li>We act in good faith to communicate your requests but cannot guarantee outcomes.</li>
         <li>You have reviewed and understood the cancellation policies of Service Providers before booking.</li>
       </ul>
@@ -477,7 +477,7 @@ const legalContent = {
       <h3>6. Visa Services</h3>
       <p>Visa processing fees paid to embassies/consulates are non-refundable regardless of visa outcome. Our visa assistance service fee is also non-refundable once processing has begun.</p>
       
-      <h3>7. Cancellation by Wanderlux Travels</h3>
+      <h3>7. Cancellation by Rudraksh Safar</h3>
       <p>In rare circumstances where we must cancel a booking:</p>
       <ul>
         <li>You will receive a full refund of amounts paid to us.</li>
@@ -530,7 +530,7 @@ const legalContent = {
       <p>A booking is confirmed only when:</p>
       <ul>
         <li>Required deposit has been received and verified.</li>
-        <li>Written confirmation is issued by Wanderlux Travels.</li>
+        <li>Written confirmation is issued by  Rudraksh Safar.</li>
         <li>Service Providers have confirmed availability.</li>
       </ul>
       <p>Unconfirmed inquiries do not constitute a binding contract.</p>
@@ -627,7 +627,7 @@ const legalContent = {
     content: `
       <h3>Booking & Payments</h3>
       
-      <h4>How do I book a trip with Wanderlux Travels?</h4>
+      <h4>How do I book a trip with Rudraksh Safar?</h4>
       <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 92291 50311, (3) Call us directly, or (4) Email us at hello@wanderlux.com. Our travel experts will guide you through the entire process.</p>
       
       <h4>What payment methods do you accept?</h4>
@@ -645,7 +645,7 @@ const legalContent = {
       <p>Cancellation charges depend on how close to departure you cancel and the policies of hotels, airlines, and other service providers. Generally, earlier cancellations incur lower charges. Please refer to our Cancellation Policy for details.</p>
       
       <h4>Who decides the refund amount?</h4>
-      <p>Refund decisions are primarily made by the Third-Party Service Providers (hotels, airlines, tour operators) based on their policies. Wanderlux Travels facilitates your refund request but does not control the outcome. Please see our Refund Policy for complete details.</p>
+      <p>Refund decisions are primarily made by the Third-Party Service Providers (hotels, airlines, tour operators) based on their policies. Rudraksh Safar facilitates your refund request but does not control the outcome. Please see our Refund Policy for complete details.</p>
       
       <h4>How long does a refund take?</h4>
       <p>Approved refunds typically take 15-45 business days depending on the service providers involved and your bank's processing time.</p>
@@ -682,10 +682,10 @@ const legalContent = {
       <h4>What if my flight is delayed or cancelled?</h4>
       <p>Contact the airline directly for immediate assistance. Inform us so we can help coordinate with hotels and other services if needed. Flight delays/cancellations are beyond our control.</p>
       
-      <h3>About Wanderlux Travels</h3>
+      <h3>About Rudraksh Safar</h3>
       
       <h4>How long have you been in business?</h4>
-      <p>Wanderlux Travels has been crafting memorable travel experiences since 2010, serving thousands of happy travelers across domestic and international destinations.</p>
+      <p>  Rudraksh Safarhas been crafting memorable travel experiences since 2010, serving thousands of happy travelers across domestic and international destinations.</p>
       
       <h4>Where are you located?</h4>
       <p>Our office is at GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India. We serve clients across India and cater to travel worldwide.</p>

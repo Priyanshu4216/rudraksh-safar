@@ -146,10 +146,10 @@ const generateGuideSchema = () => ({
       "@type": "Article",
       "name": guide.title,
       "description": guide.description,
-      "url": `https://wanderluxtravels.com/guides/${guide.id}`,
+      "url": `https://rudrakshsafar.com/guides/${guide.id}`,
       "author": {
         "@type": "Organization",
-        "name": "Wanderlux Travels"
+        "name": "Rudraksh Safar"
       }
     }
   }))
@@ -164,9 +164,9 @@ const TravelGuides = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Travel Guides 2025 | Best Destinations from India | Wanderlux Travels</title>
+        <title>Travel Guides 2025 | Best Destinations from India |  Travels</title>
         <meta name="description" content="Expert travel guides for 2025. Best international destinations from India, budget trips under ₹50,000, honeymoon ideas, best time to visit guide. Free advice from Bhilai's top travel agency." />
-        <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Wanderlux Travels" />
+        <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Rudraksh Safar" />
         <link rel="canonical" href="https://wanderluxtravels.com/guides" />
         <script type="application/ld+json">{JSON.stringify(generateGuideSchema())}</script>
       </Helmet>
@@ -188,7 +188,7 @@ const TravelGuides = () => {
               Budget tips, best destinations, seasonal guides, and more.
             </p>
             <p className="text-sm text-muted-foreground">
-              Updated for 2025 | By Wanderlux Travels, Bhilai
+              Updated for 2025 | By Rudraksh Safar, Bhilai
             </p>
           </AnimatedSection>
         </div>
@@ -306,7 +306,7 @@ const TravelGuides = () => {
               Need Personalized Travel Advice?
             </h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Our travel experts at Wanderlux Travels, Bhilai are here to help you plan the perfect trip.
+              Our travel experts at Rudraksh Safar, Bhilai are here to help you plan the perfect trip.
               Free consultation, no obligations.
             </p>
             <button

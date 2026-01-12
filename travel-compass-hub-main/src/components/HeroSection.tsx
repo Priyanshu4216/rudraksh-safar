@@ -98,7 +98,7 @@ const HeroSection = () => {
             playsInline
             preload="auto"
             aria-hidden="true"
-            title="Wanderlux Travels - Beautiful travel destinations background video"
+            title=" Rudraksh Safar- Beautiful travel destinations background video"
             className={`w-full h-full object-cover scale-110 transition-opacity duration-700 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
