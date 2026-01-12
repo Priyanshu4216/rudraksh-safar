@@ -167,7 +167,7 @@ const TravelGuides = () => {
         <title>Travel Guides 2025 | Best Destinations from India |  Travels</title>
         <meta name="description" content="Expert travel guides for 2025. Best international destinations from India, budget trips under ₹50,000, honeymoon ideas, best time to visit guide. Free advice from Bhilai's top travel agency." />
         <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Rudraksh Safar" />
-        <link rel="canonical" href="https://wanderluxtravels.com/guides" />
+        <link rel="canonical" href="https://w.com/guides" />
         <script type="application/ld+json">{JSON.stringify(generateGuideSchema())}</script>
       </Helmet>
 

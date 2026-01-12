@@ -833,7 +833,7 @@ const PackageDetails = () => {
         "@type": "ListItem",
         "position": 3,
         "name": pkg.title,
-        "item": `https://wanderluxtravels.com/package/${pkg.id}`
+        "item": `https://rudrakshsafar.com/package/${pkg.id}`
       }
     ]
   };
