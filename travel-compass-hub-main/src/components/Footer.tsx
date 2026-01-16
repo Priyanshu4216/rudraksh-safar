@@ -378,7 +378,7 @@ const legalContent = {
       
       <h3>5. Refund Processing</h3>
       <ul>
-        <li>Refund requests must be submitted in writing via email to hello@wanderlux.com or through WhatsApp.</li>
+        <li>Refund requests must be submitted in writing via email to rudrakshsafar@gmail.com or through WhatsApp.</li>
         <li>Processing time depends on the Service Providers and may take 15-45 business days from the date of cancellation approval.</li>
         <li>Refunds will be processed to the original payment method unless otherwise agreed.</li>
         <li>Bank processing times may add additional days for the refund to reflect in your account.</li>
@@ -413,14 +413,14 @@ const legalContent = {
       <h3>10. Your Acknowledgment</h3>
       <p>By booking with Rudraksh Safar, you acknowledge and accept that:</p>
       <ul>
-        <li>Refund decisions are made by Service Providers, not  Rudraksh Safar.</li>
+        <li>Refund decisions are made by Service Providers, not Rudraksh Safar.</li>
         <li>We act in good faith to communicate your requests but cannot guarantee outcomes.</li>
         <li>You have reviewed and understood the cancellation policies of Service Providers before booking.</li>
       </ul>
       
       <h3>11. Contact Us</h3>
       <p>For refund inquiries, contact us at:<br/>
-      <strong>Email:</strong> hello@wanderlux.com<br/>
+      <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
       <strong>Phone:</strong> +91 92291 50311<br/>
       <strong>WhatsApp:</strong> +91 92291 50311</p>
     `,
@@ -431,7 +431,7 @@ const legalContent = {
       <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
       
       <h3>1. General Cancellation Guidelines</h3>
-      <p>All cancellation requests must be submitted in writing via email (hello@wanderlux.com) or WhatsApp (+91 92291 50311). Verbal cancellation requests will not be accepted.</p>
+      <p>All cancellation requests must be submitted in writing via email (rudrakshsafar@gmail.com) or WhatsApp (+91 92291 50311). Verbal cancellation requests will not be accepted.</p>
       <p><strong>IMPORTANT:</strong> The cancellation charges outlined below are indicative and subject to the specific policies of Third-Party Service Providers (airlines, hotels, tour operators, etc.). Actual charges may be higher or lower based on their terms.</p>
       
       <h3>2. Standard Cancellation Timeline</h3>
@@ -502,14 +502,14 @@ const legalContent = {
       
       <h3>10. How to Request Cancellation</h3>
       <ol>
-        <li>Send a written cancellation request to hello@wanderlux.com with your booking reference.</li>
+        <li>Send a written cancellation request to rudrakshsafar@gmail.com with your booking reference.</li>
         <li>Include your full name, booking details, and reason for cancellation.</li>
         <li>Await confirmation of cancellation and applicable charges within 48-72 hours.</li>
       </ol>
       
       <h3>11. Contact Us</h3>
       <p>For cancellation assistance, contact us at:<br/>
-      <strong>Email:</strong> hello@wanderlux.com<br/>
+      <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
       <strong>Phone/WhatsApp:</strong> +91 92291 50311</p>
     `,
   },
@@ -530,7 +530,7 @@ const legalContent = {
       <p>A booking is confirmed only when:</p>
       <ul>
         <li>Required deposit has been received and verified.</li>
-        <li>Written confirmation is issued by  Rudraksh Safar.</li>
+        <li>Written confirmation is issued by Rudraksh Safar.</li>
         <li>Service Providers have confirmed availability.</li>
       </ul>
       <p>Unconfirmed inquiries do not constitute a binding contract.</p>
@@ -618,7 +618,7 @@ const legalContent = {
       
       <h3>13. Contact Us</h3>
       <p>For booking inquiries, contact us at:<br/>
-      <strong>Email:</strong> hello@wanderlux.com<br/>
+      <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
       <strong>Phone/WhatsApp:</strong> +91 92291 50311</p>
     `,
   },
@@ -628,7 +628,7 @@ const legalContent = {
       <h3>Booking & Payments</h3>
       
       <h4>How do I book a trip with Rudraksh Safar?</h4>
-      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 92291 50311, (3) Call us directly, or (4) Email us at hello@wanderlux.com. Our travel experts will guide you through the entire process.</p>
+      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 92291 50311, (3) Call us directly, or (4) Email us at rudrakshsafar@gmail.com. Our travel experts will guide you through the entire process.</p>
       
       <h4>What payment methods do you accept?</h4>
       <p>We accept bank transfers (NEFT/RTGS/IMPS), credit/debit cards (Visa, MasterCard, Amex), and UPI payments. All online payments are processed securely.</p>
@@ -685,7 +685,7 @@ const legalContent = {
       <h3>About Rudraksh Safar</h3>
       
       <h4>How long have you been in business?</h4>
-      <p>  Rudraksh Safarhas been crafting memorable travel experiences since 2010, serving thousands of happy travelers across domestic and international destinations.</p>
+      <p>Rudraksh Safar has been crafting memorable travel experiences, serving thousands of happy travelers across domestic and international destinations.</p>
       
       <h4>Where are you located?</h4>
       <p>Our office is at GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India. We serve clients across India and cater to travel worldwide.</p>

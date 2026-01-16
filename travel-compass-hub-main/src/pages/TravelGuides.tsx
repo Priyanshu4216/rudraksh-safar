@@ -164,10 +164,10 @@ const TravelGuides = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Travel Guides 2025 | Best Destinations from India |  Travels</title>
-        <meta name="description" content="Expert travel guides for 2025. Best international destinations from India, budget trips under ₹50,000, honeymoon ideas, best time to visit guide. Free advice from Bhilai's top travel agency." />
-        <meta name="keywords" content="travel guide India, best destinations 2025, cheap international trips, honeymoon destinations, best time to visit, travel tips, Rudraksh Safar" />
-        <link rel="canonical" href="https://w.com/guides" />
+        <title>Travel Guides 2026 | Best Destinations from India | Rudraksh Safar</title>
+        <meta name="description" content="Expert travel guides for 2026. Best international destinations from India, budget trips under ₹50,000, honeymoon ideas, best time to visit guide. Free advice from Bhilai's top travel agency." />
+        <meta name="keywords" content="travel guide India, best destinations 2026, cheap international trips, honeymoon destinations, best time to visit, travel tips, Rudraksh Safar" />
+        <link rel="canonical" href="https://rudrakshsafar.com/guides" />
         <script type="application/ld+json">{JSON.stringify(generateGuideSchema())}</script>
       </Helmet>
 
@@ -188,7 +188,7 @@ const TravelGuides = () => {
               Budget tips, best destinations, seasonal guides, and more.
             </p>
             <p className="text-sm text-muted-foreground">
-              Updated for 2025 | By Rudraksh Safar, Bhilai
+              Updated for 2026 | By Rudraksh Safar, Bhilai
             </p>
           </AnimatedSection>
         </div>

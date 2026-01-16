@@ -6,17 +6,18 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
+    // Faster loading - 1.5s total instead of ~2.5s
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
           setIsExiting(true);
-          setTimeout(onComplete, 500);
+          setTimeout(onComplete, 300);
           return 100;
         }
-        return prev + 2;
+        return prev + 4; // Faster increment
       });
-    }, 30);
+    }, 25); // Faster interval
 
     return () => clearInterval(timer);
   }, [onComplete]);

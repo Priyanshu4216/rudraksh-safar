@@ -9,6 +9,10 @@ import SecurityProvider from "./components/SecurityProvider";
 import Index from "./pages/Index";
 import DomesticPackages from "./pages/DomesticPackages";
 import InternationalPackages from "./pages/InternationalPackages";
+import HoneymoonPackages from "./pages/HoneymoonPackages";
+import FamilyPackages from "./pages/FamilyPackages";
+import AdventurePackages from "./pages/AdventurePackages";
+import LuxuryPackages from "./pages/LuxuryPackages";
 import PackageDetails from "./pages/PackageDetails";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
@@ -17,7 +21,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="light" storageKey="wanderlux-theme">
+    <ThemeProvider defaultTheme="light" storageKey="rudraksh-safar-theme">
       <SecurityProvider>
         <TooltipProvider>
           <Toaster />
@@ -28,6 +32,10 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/domestic-packages" element={<DomesticPackages />} />
               <Route path="/international-packages" element={<InternationalPackages />} />
+              <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
+              <Route path="/family-packages" element={<FamilyPackages />} />
+              <Route path="/adventure-packages" element={<AdventurePackages />} />
+              <Route path="/luxury-packages" element={<LuxuryPackages />} />
               <Route path="/package/:packageId" element={<PackageDetails />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

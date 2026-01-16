@@ -84,8 +84,8 @@ const WhyChooseUsSection = () => {
             {[
               { value: '1000+', label: 'Happy Travelers' },
               { value: '50+', label: 'Destinations' },
-              { value: '500+', label: 'Tour Packages' },
-              { value: '98%', label: 'Satisfaction Rate' },
+              { value: '10+', label: 'Years Experience' },
+              { value: '24/7', label: 'Travel Support' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-3xl md:text-4xl font-serif font-bold text-secondary mb-2">

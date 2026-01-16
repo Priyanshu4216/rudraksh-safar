@@ -84,43 +84,34 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
   return (
     <Link to={`/package/${pkg.slug}`}>
       <motion.div
-        initial={{ opacity: 0, y: 100, rotateX: 20 }}
-        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
         transition={{ 
-          duration: 0.7, 
-          delay: index * 0.15,
+          duration: 0.5, 
+          delay: index * 0.1,
           type: "spring",
-          stiffness: 80
+          stiffness: 100
         }}
         whileHover={{ 
-          scale: 1.02, 
-          rotateY: 3,
-          z: 30,
-          transition: { duration: 0.3 }
+          scale: 1.02,
+          transition: { duration: 0.2 }
         }}
-        style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
       >
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500 cursor-pointer">
-          {/* Image with 3D tilt */}
-          <motion.div 
-            className="relative h-64 overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-          >
+          {/* Image */}
+          <div className="relative h-64 overflow-hidden">
             <img
               src={pkg.image}
               alt={`${pkg.title} - ${pkg.location} travel package, ${pkg.duration}`}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              decoding="async"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-            <motion.span 
-              className="absolute top-4 left-4 bg-secondary px-3 py-1 rounded-full text-sm font-medium text-secondary-foreground"
-              whileHover={{ scale: 1.1 }}
-            >
+            <span className="absolute top-4 left-4 bg-secondary px-3 py-1 rounded-full text-sm font-medium text-secondary-foreground">
               {pkg.tag}
-            </motion.span>
+            </span>
             <div className="absolute bottom-4 left-4 right-4">
               <h3 className="text-xl font-serif font-bold text-primary-foreground mb-1">
                 {pkg.title}
@@ -130,7 +121,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
                 {pkg.location}
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Content */}
           <div className="p-6">
@@ -144,25 +135,17 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Starting from</p>
-                <motion.p 
-                  className="text-2xl font-serif font-bold text-secondary"
-                  whileHover={{ scale: 1.05 }}
-                >
+                <p className="text-2xl font-serif font-bold text-secondary">
                   {pkg.price}
-                </motion.p>
+                </p>
               </div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Button
+                onClick={handleWhatsApp}
+                className="btn-ocean px-6 py-3 text-sm"
               >
-                <Button
-                  onClick={handleWhatsApp}
-                  className="btn-ocean px-6 py-3 text-sm"
-                >
-                  Inquire
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </motion.div>
+                Inquire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </div>
           </div>
         </div>

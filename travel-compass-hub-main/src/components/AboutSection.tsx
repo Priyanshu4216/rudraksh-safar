@@ -10,8 +10,8 @@ const features = [
   },
   {
     icon: Award,
-    title: 'Award Winning',
-    description: 'Recognized for excellence in curating unforgettable travel experiences.',
+    title: 'Expert Team',
+    description: 'Experienced travel professionals dedicated to curating unforgettable journeys.',
   },
   {
     icon: Heart,
@@ -53,71 +53,59 @@ const AboutSection = () => {
             className="relative"
             style={{ 
               scale: imageScale,
-              rotateY: imageRotateY,
               opacity: imageOpacity,
-              transformStyle: 'preserve-3d',
-              perspective: '1000px'
             }}
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <motion.div 
-                  className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl"
-                  whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop"
                     alt="Travelers exploring nature"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
-                </motion.div>
-                <motion.div 
-                  className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl"
-                  whileHover={{ scale: 1.05, rotateY: -5, z: 50 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                </div>
+                <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop"
                     alt="Beautiful beach destination"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
-                </motion.div>
+                </div>
               </div>
               <div className="space-y-4 pt-8">
-                <motion.div 
-                  className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl"
-                  whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
                     alt="Road trip adventure"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
-                </motion.div>
-                <motion.div 
-                  className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl"
-                  whileHover={{ scale: 1.05, rotateY: -5, z: 50 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                </div>
+                <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=2031&auto=format&fit=crop"
                     alt="Cultural experience"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
-                </motion.div>
+                </div>
               </div>
             </div>
 
-            {/* Floating Badge with 3D pop */}
+            {/* Floating Badge */}
             <motion.div 
               className="absolute -bottom-6 -right-6 glass-card p-6 max-w-xs hidden lg:block shadow-2xl"
-              initial={{ opacity: 0, scale: 0.8, rotateX: 20 }}
-              whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center">

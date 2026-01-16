@@ -60,11 +60,32 @@ const SecurityProvider = ({ children }: { children: React.ReactNode }) => {
       }
     };
 
+    // Detect DevTools open (basic detection)
+    const detectDevTools = () => {
+      const threshold = 160;
+      const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+      const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      
+      if (widthThreshold || heightThreshold) {
+        // DevTools might be open - you can log this or take action
+        console.clear();
+      }
+    };
+
+    // Disable print screen (partial - browser dependent)
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('');
+      }
+    };
+
     // Add event listeners
     document.addEventListener('contextmenu', handleContextMenu);
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
     document.addEventListener('selectstart', handleSelectStart);
     document.addEventListener('dragstart', handleDragStart);
+    window.addEventListener('resize', detectDevTools);
 
     // Add CSS to prevent text selection on protected elements
     const style = document.createElement('style');
@@ -83,15 +104,26 @@ const SecurityProvider = ({ children }: { children: React.ReactNode }) => {
         -ms-user-select: none;
         user-select: none;
       }
+      /* Prevent printing */
+      @media print {
+        body {
+          display: none !important;
+        }
+      }
     `;
     document.head.appendChild(style);
+
+    // Initial DevTools check
+    detectDevTools();
 
     // Cleanup
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
       document.removeEventListener('selectstart', handleSelectStart);
       document.removeEventListener('dragstart', handleDragStart);
+      window.removeEventListener('resize', detectDevTools);
       document.head.removeChild(style);
     };
   }, []);

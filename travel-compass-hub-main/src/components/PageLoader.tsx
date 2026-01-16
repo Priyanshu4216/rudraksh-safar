@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 interface PageLoaderProps {
-  type: 'domestic' | 'international';
+  type: 'domestic' | 'international' | 'honeymoon' | 'family' | 'adventure' | 'luxury';
 }
 
 const DomesticLoader = () => {
@@ -589,7 +589,739 @@ const InternationalLoader = () => {
   );
 };
 
+// Honeymoon Loader - Romantic theme with birds, hearts, sunset
+const HoneymoonLoader = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      {/* Scene Container with sunset gradient */}
+      <div className="relative w-72 h-44 overflow-hidden rounded-2xl bg-gradient-to-b from-rose-400/30 via-pink-300/20 to-purple-400/30 border border-rose-200/30">
+        
+        {/* Sunset sun */}
+        <motion.div
+          className="absolute bottom-16 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-b from-amber-300 to-rose-400"
+          animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+        
+        {/* Sunset glow */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-rose-500/20 to-transparent" />
+        
+        {/* Heart-shaped flight path (dotted) */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 288 176">
+          <motion.path
+            d="M144 140 C144 140 80 100 80 60 C80 30 110 20 144 50 C178 20 208 30 208 60 C208 100 144 140 144 140"
+            fill="none"
+            stroke="hsl(var(--secondary))"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            opacity="0.4"
+          />
+        </svg>
+        
+        {/* Two birds flying together on heart path */}
+        <motion.svg
+          className="absolute"
+          width="40"
+          height="20"
+          viewBox="0 0 40 20"
+          initial={{ offsetDistance: "0%" }}
+          animate={{ offsetDistance: "100%" }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          style={{
+            offsetPath: "path('M144 140 C144 140 80 100 80 60 C80 30 110 20 144 50 C178 20 208 30 208 60 C208 100 144 140 144 140')",
+            offsetRotate: "0deg"
+          }}
+        >
+          {/* Bird 1 */}
+          <motion.path
+            d="M5 10 Q10 5 15 10 Q10 8 5 10"
+            fill="hsl(var(--foreground))"
+            animate={{ d: ["M5 10 Q10 5 15 10 Q10 8 5 10", "M5 10 Q10 3 15 10 Q10 12 5 10", "M5 10 Q10 5 15 10 Q10 8 5 10"] }}
+            transition={{ duration: 0.3, repeat: Infinity }}
+          />
+          {/* Bird 2 */}
+          <motion.path
+            d="M25 12 Q30 7 35 12 Q30 10 25 12"
+            fill="hsl(var(--foreground))"
+            animate={{ d: ["M25 12 Q30 7 35 12 Q30 10 25 12", "M25 12 Q30 5 35 12 Q30 14 25 12", "M25 12 Q30 7 35 12 Q30 10 25 12"] }}
+            transition={{ duration: 0.3, repeat: Infinity, delay: 0.1 }}
+          />
+        </motion.svg>
+        
+        {/* Floating hearts */}
+        {[...Array(5)].map((_, i) => (
+          <motion.svg
+            key={i}
+            className="absolute text-rose-400"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            initial={{ 
+              x: 50 + i * 45, 
+              y: 150,
+              opacity: 0,
+              scale: 0.5
+            }}
+            animate={{ 
+              y: [150, 20],
+              opacity: [0, 0.8, 0],
+              scale: [0.5, 1, 0.8]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              delay: i * 0.6,
+              ease: "easeOut"
+            }}
+          >
+            <path 
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              fill="currentColor"
+            />
+          </motion.svg>
+        ))}
+        
+        {/* Couple silhouette */}
+        <motion.svg
+          className="absolute bottom-4 left-1/2 -translate-x-1/2"
+          width="50"
+          height="40"
+          viewBox="0 0 50 40"
+          animate={{ y: [0, -2, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          {/* Person 1 */}
+          <circle cx="18" cy="12" r="6" fill="hsl(var(--foreground))" />
+          <path d="M12 18 Q18 35 18 38 L24 38 Q24 35 18 18" fill="hsl(var(--foreground))" />
+          {/* Person 2 */}
+          <circle cx="32" cy="10" r="5" fill="hsl(var(--foreground))" />
+          <path d="M27 16 Q32 32 32 38 L37 38 Q37 32 32 16" fill="hsl(var(--foreground))" />
+          {/* Holding hands heart */}
+          <motion.path
+            d="M22 25 Q25 22 28 25"
+            stroke="hsl(var(--secondary))"
+            strokeWidth="2"
+            fill="none"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </motion.svg>
+      </div>
+
+      {/* Romantic text */}
+      <motion.p
+        className="text-lg font-serif italic text-rose-400"
+        animate={{ opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        ✨ Creating your romantic escape… ✨
+      </motion.p>
+
+      {/* Heart progress indicator */}
+      <div className="flex gap-3">
+        {[0, 1, 2].map((i) => (
+          <motion.svg
+            key={i}
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            className="text-rose-400"
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.4, 1, 0.4]
+            }}
+            transition={{ 
+              duration: 1,
+              repeat: Infinity,
+              delay: i * 0.3
+            }}
+          >
+            <path 
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              fill="currentColor"
+            />
+          </motion.svg>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Family Loader - Friendly theme with walking family, suitcases, camera
+const FamilyLoader = () => {
+  const [flash, setFlash] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlash(true);
+      setTimeout(() => setFlash(false), 150);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      {/* Scene Container with friendly gradient */}
+      <div className="relative w-80 h-44 overflow-hidden rounded-2xl bg-gradient-to-b from-cyan-100/30 via-sky-200/20 to-blue-300/30 border border-cyan-200/30">
+        
+        {/* Camera flash effect */}
+        <AnimatePresence>
+          {flash && (
+            <motion.div
+              className="absolute inset-0 bg-white z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Background - simple landscape */}
+        <svg className="absolute bottom-8 left-0 w-full h-16 text-emerald-500/30" viewBox="0 0 320 60">
+          <path d="M0 60 Q40 40 80 50 T160 45 T240 50 T320 45 L320 60 Z" fill="currentColor" />
+        </svg>
+        
+        {/* Ground */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-amber-200/40 to-transparent" />
+        
+        {/* Walking family */}
+        <motion.g
+          initial={{ x: -100 }}
+          animate={{ x: 400 }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        >
+          <motion.svg
+            className="absolute bottom-6"
+            width="120"
+            height="60"
+            viewBox="0 0 120 60"
+          >
+            {/* Dad */}
+            <g>
+              <circle cx="20" cy="15" r="7" fill="hsl(var(--primary))" />
+              <motion.rect 
+                x="16" y="22" width="8" height="20" rx="2" 
+                fill="hsl(var(--primary))"
+              />
+              <motion.rect 
+                x="15" y="40" width="4" height="12" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [-15, 15, -15] }}
+                transition={{ duration: 0.4, repeat: Infinity }}
+                style={{ transformOrigin: '17px 40px' }}
+              />
+              <motion.rect 
+                x="21" y="40" width="4" height="12" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [15, -15, 15] }}
+                transition={{ duration: 0.4, repeat: Infinity }}
+                style={{ transformOrigin: '23px 40px' }}
+              />
+            </g>
+            
+            {/* Mom */}
+            <g>
+              <circle cx="45" cy="18" r="6" fill="hsl(var(--secondary))" />
+              <path d="M39 24 L45 45 L51 24 Z" fill="hsl(var(--secondary))" />
+              <motion.rect 
+                x="41" y="43" width="3" height="10" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [-12, 12, -12] }}
+                transition={{ duration: 0.4, repeat: Infinity }}
+                style={{ transformOrigin: '42px 43px' }}
+              />
+              <motion.rect 
+                x="46" y="43" width="3" height="10" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [12, -12, 12] }}
+                transition={{ duration: 0.4, repeat: Infinity }}
+                style={{ transformOrigin: '47px 43px' }}
+              />
+            </g>
+            
+            {/* Kid 1 */}
+            <g>
+              <circle cx="70" cy="28" r="5" fill="hsl(var(--primary))" />
+              <rect x="67" y="33" width="6" height="12" rx="2" fill="hsl(var(--primary))" />
+              <motion.rect 
+                x="67" y="44" width="2.5" height="8" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [-20, 20, -20] }}
+                transition={{ duration: 0.3, repeat: Infinity }}
+                style={{ transformOrigin: '68px 44px' }}
+              />
+              <motion.rect 
+                x="70.5" y="44" width="2.5" height="8" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [20, -20, 20] }}
+                transition={{ duration: 0.3, repeat: Infinity }}
+                style={{ transformOrigin: '72px 44px' }}
+              />
+            </g>
+            
+            {/* Kid 2 (smaller) */}
+            <g>
+              <circle cx="90" cy="32" r="4" fill="hsl(var(--secondary))" />
+              <rect x="87" y="36" width="6" height="10" rx="2" fill="hsl(var(--secondary))" />
+              <motion.rect 
+                x="87" y="45" width="2" height="7" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [-20, 20, -20] }}
+                transition={{ duration: 0.25, repeat: Infinity }}
+                style={{ transformOrigin: '88px 45px' }}
+              />
+              <motion.rect 
+                x="91" y="45" width="2" height="7" rx="1" 
+                fill="hsl(var(--foreground))"
+                animate={{ rotate: [20, -20, 20] }}
+                transition={{ duration: 0.25, repeat: Infinity }}
+                style={{ transformOrigin: '92px 45px' }}
+              />
+            </g>
+          </motion.svg>
+        </motion.g>
+
+        {/* Rolling suitcases */}
+        <motion.svg
+          className="absolute bottom-4"
+          width="40"
+          height="30"
+          viewBox="0 0 40 30"
+          animate={{ x: [-60, 420] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear", delay: 0.3 }}
+        >
+          {/* Suitcase 1 */}
+          <rect x="5" y="5" width="12" height="18" rx="2" fill="hsl(var(--primary))" />
+          <rect x="9" y="2" width="4" height="4" rx="1" fill="hsl(var(--foreground))" />
+          <motion.circle 
+            cx="8" cy="24" r="3" 
+            fill="hsl(var(--foreground))"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle 
+            cx="14" cy="24" r="3" 
+            fill="hsl(var(--foreground))"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: "linear" }}
+          />
+          
+          {/* Suitcase 2 */}
+          <rect x="22" y="8" width="10" height="14" rx="2" fill="hsl(var(--secondary))" />
+          <rect x="25" y="5" width="4" height="4" rx="1" fill="hsl(var(--foreground))" />
+          <motion.circle 
+            cx="25" cy="23" r="2.5" 
+            fill="hsl(var(--foreground))"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle 
+            cx="29" cy="23" r="2.5" 
+            fill="hsl(var(--foreground))"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: "linear" }}
+          />
+        </motion.svg>
+
+        {/* Camera icon with flash */}
+        <motion.svg
+          className="absolute top-4 right-4"
+          width="30"
+          height="24"
+          viewBox="0 0 30 24"
+          animate={{ rotate: [0, -5, 5, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <rect x="3" y="6" width="24" height="16" rx="3" fill="hsl(var(--foreground))" />
+          <rect x="10" y="2" width="10" height="5" rx="1" fill="hsl(var(--foreground))" />
+          <circle cx="15" cy="14" r="5" fill="hsl(var(--primary))" />
+          <circle cx="15" cy="14" r="3" fill="hsl(var(--secondary))" />
+          <motion.circle 
+            cx="23" cy="9" r="2" 
+            fill="hsl(var(--secondary))"
+            animate={{ opacity: flash ? 1 : 0.3 }}
+          />
+        </motion.svg>
+      </div>
+
+      {/* Friendly text */}
+      <motion.p
+        className="text-lg font-medium text-cyan-600"
+        animate={{ opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        📸 Finding perfect family memories…
+      </motion.p>
+
+      {/* Progress - family icons */}
+      <div className="flex gap-4 text-2xl">
+        {['👨', '👩', '👧', '👦'].map((emoji, i) => (
+          <motion.span
+            key={i}
+            animate={{ y: [0, -8, 0] }}
+            transition={{ 
+              duration: 0.5,
+              repeat: Infinity,
+              delay: i * 0.15
+            }}
+          >
+            {emoji}
+          </motion.span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Adventure Loader - Rugged theme with mountain, compass, backpack
+const AdventureLoader = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      {/* Scene Container with rugged texture */}
+      <div className="relative w-80 h-48 overflow-hidden rounded-xl bg-gradient-to-b from-orange-900/20 via-amber-800/15 to-stone-700/20 border-2 border-amber-600/30">
+        
+        {/* Rough texture overlay */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`
+        }} />
+
+        {/* Mountain silhouette being drawn */}
+        <svg className="absolute bottom-0 left-0 w-full h-32" viewBox="0 0 320 120">
+          <motion.path
+            d="M0 120 L40 80 L80 100 L120 50 L160 70 L200 30 L240 60 L280 40 L320 80 L320 120 Z"
+            fill="none"
+            stroke="hsl(var(--primary))"
+            strokeWidth="3"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.path
+            d="M0 120 L40 80 L80 100 L120 50 L160 70 L200 30 L240 60 L280 40 L320 80 L320 120 Z"
+            fill="hsl(var(--primary) / 0.2)"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+          {/* Snow caps */}
+          <motion.path
+            d="M115 50 L120 50 L125 60 Z M195 30 L200 30 L210 45 Z M275 40 L280 40 L288 55 Z"
+            fill="hsl(var(--secondary))"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+          />
+        </svg>
+
+        {/* Rotating compass */}
+        <motion.svg
+          className="absolute top-4 left-4"
+          width="50"
+          height="50"
+          viewBox="0 0 50 50"
+        >
+          <circle cx="25" cy="25" r="22" fill="none" stroke="hsl(var(--secondary))" strokeWidth="2" />
+          <circle cx="25" cy="25" r="18" fill="hsl(var(--background))" stroke="hsl(var(--secondary))" strokeWidth="1" />
+          
+          {/* Cardinal directions */}
+          <text x="25" y="10" textAnchor="middle" fill="hsl(var(--secondary))" fontSize="6" fontWeight="bold">N</text>
+          <text x="25" y="44" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="5">S</text>
+          <text x="8" y="27" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="5">W</text>
+          <text x="42" y="27" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="5">E</text>
+          
+          {/* Rotating needle */}
+          <motion.g
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: '25px 25px' }}
+          >
+            <polygon points="25,8 22,25 25,22 28,25" fill="hsl(var(--destructive))" />
+            <polygon points="25,42 22,25 25,28 28,25" fill="hsl(var(--foreground))" />
+          </motion.g>
+          
+          <circle cx="25" cy="25" r="3" fill="hsl(var(--secondary))" />
+        </motion.svg>
+
+        {/* Bouncing backpack */}
+        <motion.svg
+          className="absolute bottom-16 right-8"
+          width="40"
+          height="50"
+          viewBox="0 0 40 50"
+          animate={{ y: [0, -10, 0], rotate: [-5, 5, -5] }}
+          transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {/* Backpack body */}
+          <rect x="8" y="15" width="24" height="30" rx="4" fill="hsl(var(--primary))" />
+          <rect x="12" y="20" width="16" height="10" rx="2" fill="hsl(var(--secondary))" />
+          
+          {/* Top flap */}
+          <path d="M8 15 Q20 5 32 15" fill="hsl(var(--primary))" />
+          
+          {/* Straps */}
+          <rect x="10" y="12" width="4" height="8" rx="1" fill="hsl(var(--foreground))" />
+          <rect x="26" y="12" width="4" height="8" rx="1" fill="hsl(var(--foreground))" />
+          
+          {/* Side pockets */}
+          <rect x="4" y="25" width="6" height="12" rx="2" fill="hsl(var(--primary) / 0.8)" />
+          <rect x="30" y="25" width="6" height="12" rx="2" fill="hsl(var(--primary) / 0.8)" />
+          
+          {/* Buckle */}
+          <rect x="17" y="32" width="6" height="4" rx="1" fill="hsl(var(--secondary))" />
+        </motion.svg>
+
+        {/* Climbing rope animation */}
+        <motion.svg
+          className="absolute top-8 right-24"
+          width="60"
+          height="80"
+          viewBox="0 0 60 80"
+        >
+          <motion.path
+            d="M30 0 Q35 20 25 40 Q20 60 30 80"
+            fill="none"
+            stroke="hsl(var(--secondary))"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray="5 5"
+            animate={{ strokeDashoffset: [0, -20] }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          />
+          {/* Carabiner */}
+          <motion.circle
+            cx="30"
+            cy="40"
+            r="6"
+            fill="none"
+            stroke="hsl(var(--foreground))"
+            strokeWidth="2"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+          />
+        </motion.svg>
+      </div>
+
+      {/* Adventure text */}
+      <motion.p
+        className="text-xl font-bold uppercase tracking-widest text-amber-500"
+        animate={{ 
+          opacity: [0.7, 1, 0.7],
+          letterSpacing: ['0.1em', '0.15em', '0.1em']
+        }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        ⚡ Adventure loading… ⚡
+      </motion.p>
+
+      {/* Progress - adventure icons */}
+      <div className="flex gap-4 text-xl">
+        {['🏔️', '🧗', '🎒', '🧭'].map((emoji, i) => (
+          <motion.span
+            key={i}
+            animate={{ 
+              scale: [1, 1.3, 1],
+              rotate: [0, 10, -10, 0]
+            }}
+            transition={{ 
+              duration: 0.8,
+              repeat: Infinity,
+              delay: i * 0.2
+            }}
+          >
+            {emoji}
+          </motion.span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Luxury Loader - Elegant black and gold theme
+const LuxuryLoader = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      {/* Scene Container - black with gold accents */}
+      <div className="relative w-80 h-48 overflow-hidden rounded-xl bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 border border-amber-500/30">
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `repeating-linear-gradient(45deg, hsl(var(--secondary)) 0, hsl(var(--secondary)) 1px, transparent 0, transparent 50%)`,
+          backgroundSize: '10px 10px'
+        }} />
+
+        {/* Golden line forming elegant logo/shape */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 320 192">
+          {/* Outer elegant frame being drawn */}
+          <motion.rect
+            x="40"
+            y="30"
+            width="240"
+            height="132"
+            rx="8"
+            fill="none"
+            stroke="url(#goldGradient)"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+          
+          {/* Inner decorative lines */}
+          <motion.path
+            d="M60 50 L260 50 M60 142 L260 142"
+            fill="none"
+            stroke="url(#goldGradient)"
+            strokeWidth="0.5"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
+          
+          {/* Crown forming */}
+          <motion.path
+            d="M130 85 L140 65 L150 80 L160 55 L170 80 L180 65 L190 85 L185 95 L135 95 Z"
+            fill="none"
+            stroke="url(#goldGradient)"
+            strokeWidth="2"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+          
+          {/* Diamond accents */}
+          <motion.path
+            d="M80 96 L90 86 L100 96 L90 106 Z"
+            fill="url(#goldGradient)"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+            style={{ transformOrigin: '90px 96px' }}
+          />
+          <motion.path
+            d="M220 96 L230 86 L240 96 L230 106 Z"
+            fill="url(#goldGradient)"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.7 }}
+            style={{ transformOrigin: '230px 96px' }}
+          />
+          
+          <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#D4AF37" />
+              <stop offset="50%" stopColor="#F5E6A3" />
+              <stop offset="100%" stopColor="#D4AF37" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Sparkle effects */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              left: `${20 + (i % 4) * 25}%`,
+              top: `${20 + Math.floor(i / 4) * 50}%`,
+            }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ 
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+              rotate: [0, 180]
+            }}
+            transition={{ 
+              duration: 1.5,
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeOut"
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24">
+              <path
+                d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"
+                fill="#D4AF37"
+              />
+            </svg>
+          </motion.div>
+        ))}
+        
+        {/* Slow moving golden particles */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 rounded-full bg-amber-400"
+            style={{ left: `${10 + i * 20}%` }}
+            animate={{
+              y: [192, -10],
+              opacity: [0, 0.8, 0]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              delay: i * 0.8,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Luxury text - elegant and slow */}
+      <motion.p
+        className="text-lg font-serif tracking-[0.3em] uppercase"
+        style={{ color: '#D4AF37' }}
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
+        Curating luxury experiences…
+      </motion.p>
+
+      {/* Elegant progress - golden dots */}
+      <div className="flex gap-4">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <motion.div
+            key={i}
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: '#D4AF37' }}
+            animate={{ 
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.2, 0.8]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const PageLoader = ({ type }: PageLoaderProps) => {
+  const renderLoader = () => {
+    switch (type) {
+      case 'domestic':
+        return <DomesticLoader />;
+      case 'international':
+        return <InternationalLoader />;
+      case 'honeymoon':
+        return <HoneymoonLoader />;
+      case 'family':
+        return <FamilyLoader />;
+      case 'adventure':
+        return <AdventureLoader />;
+      case 'luxury':
+        return <LuxuryLoader />;
+      default:
+        return <DomesticLoader />;
+    }
+  };
+
   return (
     <motion.div
       className="fixed inset-0 z-50 bg-background flex items-center justify-center"
@@ -602,7 +1334,7 @@ const PageLoader = ({ type }: PageLoaderProps) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        {type === 'domestic' ? <DomesticLoader /> : <InternationalLoader />}
+        {renderLoader()}
       </motion.div>
     </motion.div>
   );

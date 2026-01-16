@@ -9,11 +9,11 @@ const CookieConsent = () => {
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
-      // Delay showing the banner for better UX
+      // Delay showing the banner - show after page loads
       const timer = setTimeout(() => {
         setIsVisible(true);
-        setTimeout(() => setIsAnimating(true), 50);
-      }, 1500);
+        requestAnimationFrame(() => setIsAnimating(true));
+      }, 2500);
       return () => clearTimeout(timer);
     }
   }, []);

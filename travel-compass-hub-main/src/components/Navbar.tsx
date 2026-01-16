@@ -12,6 +12,10 @@ const navLinks = [
     dropdown: [
       { name: 'Domestic Tours', href: '/domestic-packages', isRoute: true },
       { name: 'International Tours', href: '/international-packages', isRoute: true },
+      { name: 'Honeymoon', href: '/honeymoon-packages', isRoute: true },
+      { name: 'Family', href: '/family-packages', isRoute: true },
+      { name: 'Adventure', href: '/adventure-packages', isRoute: true },
+      { name: 'Luxury', href: '/luxury-packages', isRoute: true },
     ],
   },
   { name: 'Services', href: '#services' },

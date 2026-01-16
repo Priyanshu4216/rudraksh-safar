@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
+import { useBotProtection } from '@/hooks/useBotProtection';
+import { contactFormSchema, sanitizeUrlParam } from '@/lib/validation';
 
 const PHONE_NUMBER = '919229150311';
 
@@ -38,23 +40,70 @@ const ContactSection = () => {
     destination: '',
     message: '',
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Bot protection hook
+  const { honeypotProps, validateSubmission, recordSubmission, isRateLimited } = useBotProtection();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: '' });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Create WhatsApp message
-    const message = `New Inquiry from Website:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nDestination Interest: ${formData.destination}\n\nMessage: ${formData.message}`;
     
-    window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+    // Bot protection check
+    if (!validateSubmission()) {
+      if (isRateLimited) {
+        toast({
+          title: 'Too Many Requests',
+          description: 'Please wait a moment before submitting again.',
+          variant: 'destructive',
+        });
+      }
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({});
+
+    // Validate form data with zod
+    const result = contactFormSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      setIsSubmitting(false);
+      toast({
+        title: 'Validation Error',
+        description: 'Please check the form for errors.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Record submission for rate limiting
+    recordSubmission();
+
+    // Simulate form submission delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Create sanitized WhatsApp message
+    const sanitizedData = result.data;
+    const message = `New Inquiry from Website:\n\nName: ${sanitizedData.name}\nEmail: ${sanitizedData.email}\nPhone: ${sanitizedData.phone}\nDestination Interest: ${sanitizedData.destination || 'Not specified'}\n\nMessage: ${sanitizedData.message}`;
+    
+    window.open(`https://wa.me/${PHONE_NUMBER}?text=${sanitizeUrlParam(message)}`, '_blank');
 
     toast({
       title: 'Inquiry Sent!',
@@ -66,7 +115,7 @@ const ContactSection = () => {
   };
 
   const handleWhatsAppDirect = () => {
-    window.open(`https://wa.me/${PHONE_NUMBER}?text=Hello! I am interested in planning a trip. Please help me with the details.`, '_blank');
+    window.open(`https://wa.me/${PHONE_NUMBER}?text=${sanitizeUrlParam('Hello! I am interested in planning a trip. Please help me with the details.')}`, '_blank');
   };
 
   return (
@@ -123,9 +172,15 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10">
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
-                Send Us an Inquiry
-              </h3>
+              <div className="flex items-center gap-2 mb-6">
+                <h3 className="text-2xl font-serif font-bold text-foreground">
+                  Send Us an Inquiry
+                </h3>
+                <ShieldCheck className="w-5 h-5 text-green-500" aria-label="Secure form" />
+              </div>
+
+              {/* Honeypot field - hidden from humans, traps bots */}
+              <input {...honeypotProps} type="text" />
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -139,8 +194,10 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
-                    className="bg-background/50"
+                    maxLength={100}
+                    className={`bg-background/50 ${errors.name ? 'border-red-500' : ''}`}
                   />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -154,8 +211,10 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="your@email.com"
                     required
-                    className="bg-background/50"
+                    maxLength={255}
+                    className={`bg-background/50 ${errors.email ? 'border-red-500' : ''}`}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
               </div>
 
@@ -172,8 +231,10 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="+91 92291 50311"
                     required
-                    className="bg-background/50"
+                    maxLength={15}
+                    className={`bg-background/50 ${errors.phone ? 'border-red-500' : ''}`}
                   />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
                 <div>
                   <label htmlFor="destination" className="block text-sm font-medium text-foreground mb-2">
@@ -185,6 +246,7 @@ const ContactSection = () => {
                     value={formData.destination}
                     onChange={handleChange}
                     placeholder="e.g., Bali, Switzerland"
+                    maxLength={100}
                     className="bg-background/50"
                   />
                 </div>
@@ -202,8 +264,10 @@ const ContactSection = () => {
                   placeholder="Tell us about your travel preferences, dates, and any special requirements..."
                   rows={5}
                   required
-                  className="bg-background/50"
+                  maxLength={1000}
+                  className={`bg-background/50 ${errors.message ? 'border-red-500' : ''}`}
                 />
+                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
               </div>
 
               <Button

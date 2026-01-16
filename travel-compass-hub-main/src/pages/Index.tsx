@@ -20,24 +20,24 @@ const Index = () => {
   const [videoReady, setVideoReady] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
-  // Preload the hero video
+  // Preload the hero video with optimized loading
   useEffect(() => {
     const video = document.createElement('video');
     video.src = heroVideo;
-    video.preload = 'auto';
+    video.preload = 'metadata'; // Faster - just load metadata first
     
     const handleCanPlay = () => {
       setVideoReady(true);
     };
     
-    video.addEventListener('canplaythrough', handleCanPlay);
+    video.addEventListener('loadedmetadata', handleCanPlay);
     video.load();
     
-    // Fallback timeout in case video takes too long
-    const timeout = setTimeout(() => setVideoReady(true), 5000);
+    // Shorter fallback timeout for faster perceived loading
+    const timeout = setTimeout(() => setVideoReady(true), 2000);
     
     return () => {
-      video.removeEventListener('canplaythrough', handleCanPlay);
+      video.removeEventListener('loadedmetadata', handleCanPlay);
       clearTimeout(timeout);
     };
   }, []);

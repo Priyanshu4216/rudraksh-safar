@@ -109,40 +109,19 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 80, rotateX: 25 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
               transition={{ 
-                duration: 0.6, 
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100
+                duration: 0.4, 
+                delay: index * 0.08,
               }}
-              whileHover={{ 
-                scale: 1.03, 
-                rotateY: 5, 
-                z: 50,
-                transition: { duration: 0.3 }
-              }}
-              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
             >
-              <div className="glass-card p-8 h-full group hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                {/* Animated hover gradient */}
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-primary/10"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-                
+              <div className="glass-card p-8 h-full group hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                 <div className="relative z-10">
-                  <motion.div 
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-6"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="w-8 h-8 text-secondary" aria-hidden="true" />
-                  </motion.div>
+                  </div>
                   <h3 className="text-xl font-serif font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
                     {service.title}
                   </h3>
@@ -150,14 +129,6 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                 </div>
-
-                {/* Animated corner accent */}
-                <motion.div 
-                  className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-secondary/20 to-transparent rounded-tl-full"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
               </div>
             </motion.div>
           ))}

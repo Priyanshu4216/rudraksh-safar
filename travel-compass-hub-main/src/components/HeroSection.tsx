@@ -96,10 +96,10 @@ const HeroSection = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-hidden="true"
-            title=" Rudraksh Safar- Beautiful travel destinations background video"
-            className={`w-full h-full object-cover scale-110 transition-opacity duration-700 ${
+            title="Rudraksh Safar - Beautiful travel destinations background video"
+            className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -245,7 +245,7 @@ const HeroSection = () => {
             {[
               { value: '50+', label: 'Destinations', delay: 0 },
               { value: '10+', label: 'Years Experience', delay: 0.1 },
-              { value: '500+', label: 'Happy Travelers', delay: 0.2 },
+              { value: '1000+', label: 'Happy Travelers', delay: 0.2 },
             ].map((stat, index) => (
               <motion.div 
                 key={stat.label} 

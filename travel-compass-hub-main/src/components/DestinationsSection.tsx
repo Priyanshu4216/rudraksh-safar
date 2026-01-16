@@ -17,9 +17,9 @@ const destinations = [
     size: 'small',
   },
   {
-    id: 'kedarnath',
-    name: 'Kedarnath',
-    description: 'Sacred temple in the Himalayas',
+    id: 'char-dham',
+    name: 'Char Dham',
+    description: 'Sacred pilgrimage to four holy shrines',
     image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
     size: 'small',
   },
@@ -56,7 +56,8 @@ const DestinationCard = ({ destination }: { destination: typeof destinations[0] 
         src={destination.image}
         alt={`${destination.name} - ${destination.description} travel destination`}
         loading="lazy"
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
       

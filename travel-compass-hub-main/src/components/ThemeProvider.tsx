@@ -13,7 +13,7 @@ const ThemeProviderContext = createContext<ThemeProviderContextType | undefined>
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
-  storageKey = 'wanderlux-theme',
+  storageKey = 'rudraksh-safar-theme',
 }: {
   children: React.ReactNode;
   defaultTheme?: Theme;
