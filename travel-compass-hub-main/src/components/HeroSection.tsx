@@ -47,19 +47,6 @@ const HeroSection = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Handle video loaded
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const handleCanPlay = () => setVideoLoaded(true);
-      video.addEventListener('canplay', handleCanPlay);
-      // Check if already loaded
-      if (video.readyState >= 3) {
-        setVideoLoaded(true);
-      }
-      return () => video.removeEventListener('canplay', handleCanPlay);
-    }
-  }, []);
 
   const handleScroll = (href: string) => {
     const element = document.querySelector(href);
@@ -91,21 +78,22 @@ const HeroSection = () => {
           }}
         >
           <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-            title="Rudraksh Safar - Beautiful travel destinations background video"
-            className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${
-              videoLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <source src={heroVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+  ref={videoRef}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  aria-hidden="true"
+  title="Rudraksh Safar - Beautiful travel destinations background video"
+  onCanPlay={() => setVideoLoaded(true)}
+  className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${
+    videoLoaded ? 'opacity-100' : 'opacity-0'
+  }`}
+>
+  <source src={heroVideo} type="video/mp4" />
+</video>
+
         </motion.div>
         
         {/* Gradient overlays */}
