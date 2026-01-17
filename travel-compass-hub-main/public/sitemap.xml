@@ -6,7 +6,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://rudrakshsafar.com/</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,10 +16,18 @@
     </image:image>
   </url>
   
+  <!-- For Travellers - High Authority Content -->
+  <url>
+    <loc>https://rudrakshsafar.com/for-travellers</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
   <!-- Domestic Packages Listing -->
   <url>
     <loc>https://rudrakshsafar.com/domestic-packages</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -31,7 +39,7 @@
   <!-- International Packages Listing -->
   <url>
     <loc>https://rudrakshsafar.com/international-packages</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -40,10 +48,42 @@
     </image:image>
   </url>
   
+  <!-- Honeymoon Packages Listing -->
+  <url>
+    <loc>https://rudrakshsafar.com/honeymoon-packages</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Family Packages Listing -->
+  <url>
+    <loc>https://rudrakshsafar.com/family-packages</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Adventure Packages Listing -->
+  <url>
+    <loc>https://rudrakshsafar.com/adventure-packages</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Luxury Packages Listing -->
+  <url>
+    <loc>https://rudrakshsafar.com/luxury-packages</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
   <!-- Travel Guides - High Authority Pages -->
   <url>
     <loc>https://rudrakshsafar.com/guides</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -53,7 +93,7 @@
   <!-- Andaman -->
   <url>
     <loc>https://rudrakshsafar.com/package/andaman</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -66,7 +106,7 @@
   <!-- Kashmir -->
   <url>
     <loc>https://rudrakshsafar.com/package/kashmir</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -79,7 +119,7 @@
   <!-- Udaipur -->
   <url>
     <loc>https://rudrakshsafar.com/package/udaipur</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -91,7 +131,7 @@
   <!-- Shimla Manali -->
   <url>
     <loc>https://rudrakshsafar.com/package/shimla-manali</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -104,7 +144,7 @@
   <!-- Kodaikanal -->
   <url>
     <loc>https://rudrakshsafar.com/package/kodaikanal</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -116,7 +156,7 @@
   <!-- Char Dham Yatra -->
   <url>
     <loc>https://rudrakshsafar.com/package/chardham</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -129,7 +169,7 @@
   <!-- Ladakh -->
   <url>
     <loc>https://rudrakshsafar.com/package/ladakh</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -142,7 +182,7 @@
   <!-- Goa -->
   <url>
     <loc>https://rudrakshsafar.com/package/goa</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -155,7 +195,7 @@
   <!-- Manali -->
   <url>
     <loc>https://rudrakshsafar.com/package/manali</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -167,7 +207,7 @@
   <!-- Munnar Kerala -->
   <url>
     <loc>https://rudrakshsafar.com/package/munnar</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -179,7 +219,7 @@
   <!-- Haridwar Rishikesh -->
   <url>
     <loc>https://rudrakshsafar.com/package/haridwar-rishikesh</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -191,7 +231,7 @@
   <!-- Gangtok Darjeeling -->
   <url>
     <loc>https://rudrakshsafar.com/package/gangtok-darjeeling</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -203,7 +243,7 @@
   <!-- Darjeeling -->
   <url>
     <loc>https://rudrakshsafar.com/package/darjeeling</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -215,7 +255,7 @@
   <!-- Spiti Valley -->
   <url>
     <loc>https://rudrakshsafar.com/package/spiti</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -229,7 +269,7 @@
   <!-- Phuket -->
   <url>
     <loc>https://rudrakshsafar.com/package/phuket</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -242,7 +282,7 @@
   <!-- Singapore -->
   <url>
     <loc>https://rudrakshsafar.com/package/singapore</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -255,7 +295,7 @@
   <!-- Dubai -->
   <url>
     <loc>https://rudrakshsafar.com/package/dubai</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -268,7 +308,7 @@
   <!-- Thailand -->
   <url>
     <loc>https://rudrakshsafar.com/package/thailand</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -281,7 +321,7 @@
   <!-- Sri Lanka -->
   <url>
     <loc>https://rudrakshsafar.com/package/srilanka</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -293,7 +333,7 @@
   <!-- Nepal -->
   <url>
     <loc>https://rudrakshsafar.com/package/nepal</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -306,7 +346,7 @@
   <!-- Maldives -->
   <url>
     <loc>https://rudrakshsafar.com/package/maldives</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -319,7 +359,7 @@
   <!-- Bali -->
   <url>
     <loc>https://rudrakshsafar.com/package/bali</loc>
-    <lastmod>2026-01-14</lastmod>
+    <lastmod>2026-01-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -327,6 +367,182 @@
       <image:title>Bali Paradise Package - ₹64,999 | 6 Days Indonesia from Bhilai</image:title>
       <image:caption>Bali Indonesia tour with Ubud temples, beaches, rice terraces from India</image:caption>
     </image:image>
+  </url>
+  
+  <!-- ===== HONEYMOON PACKAGES ===== -->
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/manali-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/kashmir-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/goa-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/bali-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/maldives-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/paris-honeymoon</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ===== FAMILY PACKAGES ===== -->
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/kerala-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/rajasthan-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/singapore-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/dubai-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/thailand-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/himachal-family</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ===== ADVENTURE PACKAGES ===== -->
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/ladakh-bike</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/rishikesh-rafting</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/nepal-trek</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/andaman-scuba</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/meghalaya-caving</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/spiti-expedition</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ===== LUXURY PACKAGES ===== -->
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/udaipur-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/maldives-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/swiss-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/dubai-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/kashmir-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://rudrakshsafar.com/package/bali-luxury</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
 </urlset>

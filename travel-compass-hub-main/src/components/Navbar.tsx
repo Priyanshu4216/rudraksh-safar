@@ -5,7 +5,6 @@ import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
-  { name: 'About Us', href: '#about' },
   {
     name: 'Packages',
     href: '#packages',
@@ -18,6 +17,7 @@ const navLinks = [
       { name: 'Luxury', href: '/luxury-packages', isRoute: true },
     ],
   },
+  { name: 'For Travellers', href: '/for-travellers', isRoute: true },
   { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -70,9 +70,9 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+<header>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
           isScrolled 
             ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50' 
             : 'bg-transparent py-4'
@@ -241,7 +241,7 @@ const Navbar = () => {
                   </button>
                   <div
                     className={`overflow-hidden transition-all duration-300 ${
-                      openDropdown === link.name ? 'max-h-40 pb-2' : 'max-h-0'
+                      openDropdown === link.name ? 'max-h-[300px] pb-2' : 'max-h-0'
                     }`}
                   >
                     {link.dropdown.map((item) => (

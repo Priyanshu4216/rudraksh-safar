@@ -2,7 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 interface PageLoaderProps {
-  type: 'domestic' | 'international' | 'honeymoon' | 'family' | 'adventure' | 'luxury';
+  type: 'domestic' | 'international' | 'honeymoon' | 'family' | 'adventure' | 'luxury' | 'traveller';
+  onLoadComplete?: () => void;
 }
 
 const DomesticLoader = () => {
@@ -1302,7 +1303,220 @@ const LuxuryLoader = () => {
   );
 };
 
-const PageLoader = ({ type }: PageLoaderProps) => {
+// Traveller Loader - Globe with passport stamps, compass, and travel icons
+const TravellerLoader = () => {
+  const [currentScene, setCurrentScene] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentScene((prev) => (prev + 1) % 3);
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-8">
+      {/* Scene Container */}
+      <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 bg-gradient-to-br from-blue-500/10 via-background to-cyan-500/10">
+        <AnimatePresence mode="wait">
+          {/* Scene 1: Rotating Globe with Flight Path */}
+          {currentScene === 0 && (
+            <motion.div
+              key="globe"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Globe */}
+              <motion.svg
+                className="text-cyan-500"
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              >
+                <circle cx="40" cy="40" r="35" stroke="currentColor" strokeWidth="2" fill="none" />
+                <ellipse cx="40" cy="40" rx="35" ry="15" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <ellipse cx="40" cy="40" rx="15" ry="35" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <line x1="5" y1="40" x2="75" y2="40" stroke="currentColor" strokeWidth="1" />
+              </motion.svg>
+              
+              {/* Flying Airplane */}
+              <motion.svg
+                className="absolute text-secondary"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                animate={{
+                  x: [-60, 60],
+                  y: [20, -20, 20],
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <path
+                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  fill="currentColor"
+                />
+              </motion.svg>
+            </motion.div>
+          )}
+
+          {/* Scene 2: Passport with Stamps */}
+          {currentScene === 1 && (
+            <motion.div
+              key="passport"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Passport */}
+              <motion.div
+                className="relative w-20 h-28 bg-gradient-to-b from-blue-800 to-blue-900 rounded-lg shadow-lg"
+                animate={{ rotateY: [0, 10, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                {/* Gold emblem */}
+                <div className="absolute inset-x-0 top-4 flex justify-center">
+                  <motion.div
+                    className="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <svg className="w-6 h-6 text-secondary" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/>
+                    </svg>
+                  </motion.div>
+                </div>
+                <div className="absolute bottom-3 inset-x-0 text-center text-[8px] text-white/60 font-semibold tracking-wider">
+                  PASSPORT
+                </div>
+              </motion.div>
+              
+              {/* Stamp animations */}
+              <motion.div
+                className="absolute w-12 h-12 border-4 border-red-500/60 rounded-full"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.6] }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                style={{ top: '20%', right: '25%' }}
+              />
+              <motion.div
+                className="absolute w-10 h-10 border-4 border-green-500/60 rounded-lg rotate-12"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.6] }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                style={{ bottom: '25%', left: '20%' }}
+              />
+            </motion.div>
+          )}
+
+          {/* Scene 3: Compass & Map */}
+          {currentScene === 2 && (
+            <motion.div
+              key="compass"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Map background */}
+              <div className="absolute inset-4 bg-gradient-to-br from-amber-100/20 to-amber-200/10 rounded-lg" />
+              
+              {/* Map lines */}
+              <svg className="absolute inset-0 w-full h-full opacity-30">
+                <line x1="10%" y1="30%" x2="90%" y2="70%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="20%" y1="60%" x2="80%" y2="40%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+              </svg>
+              
+              {/* Compass */}
+              <motion.svg
+                className="text-foreground"
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <circle cx="35" cy="35" r="30" stroke="currentColor" strokeWidth="2" fill="none" />
+                <circle cx="35" cy="35" r="25" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
+                {/* Compass needle */}
+                <motion.g
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  style={{ transformOrigin: '35px 35px' }}
+                >
+                  <polygon points="35,10 38,35 35,38 32,35" fill="#ef4444" />
+                  <polygon points="35,60 38,35 35,32 32,35" fill="#3b82f6" />
+                </motion.g>
+                <circle cx="35" cy="35" r="4" fill="currentColor" />
+                {/* Cardinal directions */}
+                <text x="35" y="8" textAnchor="middle" fontSize="6" fill="currentColor" fontWeight="bold">N</text>
+                <text x="35" y="66" textAnchor="middle" fontSize="6" fill="currentColor">S</text>
+                <text x="6" y="37" textAnchor="middle" fontSize="6" fill="currentColor">W</text>
+                <text x="64" y="37" textAnchor="middle" fontSize="6" fill="currentColor">E</text>
+              </motion.svg>
+              
+              {/* Location pins */}
+              <motion.div
+                className="absolute w-3 h-3 bg-red-500 rounded-full"
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                style={{ top: '25%', right: '30%' }}
+              />
+              <motion.div
+                className="absolute w-3 h-3 bg-secondary rounded-full"
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}
+                style={{ bottom: '30%', left: '25%' }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Loading Text */}
+      <div className="text-center">
+        <motion.p
+          className="text-lg font-medium text-foreground"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Preparing your travel guide…
+        </motion.p>
+        
+        {/* Travel icons row */}
+        <div className="flex items-center justify-center gap-4 mt-4">
+          {['✈️', '🧳', '🗺️', '📱', '💳'].map((icon, i) => (
+            <motion.span
+              key={i}
+              className="text-xl"
+              initial={{ opacity: 0.3 }}
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+            >
+              {icon}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PageLoader = ({ type, onLoadComplete }: PageLoaderProps) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onLoadComplete?.();
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [onLoadComplete]);
+
   const renderLoader = () => {
     switch (type) {
       case 'domestic':
@@ -1317,6 +1531,8 @@ const PageLoader = ({ type }: PageLoaderProps) => {
         return <AdventureLoader />;
       case 'luxury':
         return <LuxuryLoader />;
+      case 'traveller':
+        return <TravellerLoader />;
       default:
         return <DomesticLoader />;
     }
