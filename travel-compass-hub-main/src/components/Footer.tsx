@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTheme } from './ThemeProvider';
 
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -699,6 +700,7 @@ const legalContent = {
 };
 
 const Footer = () => {
+  const { resolvedTheme } = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<keyof typeof legalContent | null>(null);
   const handleNavClick = (href: string) => {
@@ -727,10 +729,11 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <span className="text-2xl font-serif font-bold">Rudraksh</span>
-                <span className="text-secondary text-sm font-medium tracking-widest uppercase ml-2">
-                  Safar
-                </span>
+                <img
+                  src={resolvedTheme === 'dark' ? "/images/logo-dark-original.jpg" : "/images/logo-light-theme.png"}
+                  alt="Rudraksh Safar Logo"
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-primary-foreground/70 mb-6 text-sm leading-relaxed">
                 Crafting extraordinary travel experiences since 2010. Your journey, our passion.

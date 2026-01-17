@@ -1,4 +1,5 @@
 import React from 'react';
+import SmartImage from '@/components/ui/SmartImage';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Star, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -17,7 +18,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
   const isSpiritual = pkg.tag === 'Spiritual' || pkg.tag === 'Pilgrimage';
   const isBeach = pkg.tag === 'Beach Escape' || pkg.tag === 'Romantic' || pkg.tag === 'Beach & Culture';
   const isAdventure = pkg.tag === 'Adventure' || pkg.tag === 'Expedition' || pkg.tag === 'Trekking';
-  
+
   const faqs = [
     {
       question: `What is included in the ${pkg.title} package?`,
@@ -25,13 +26,13 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
     },
     {
       question: `What is the best time to visit ${pkg.location}?`,
-      answer: isSpiritual 
+      answer: isSpiritual
         ? `The best time for ${pkg.title} is April to June and September to November when weather is pleasant for pilgrimage. Avoid monsoon season (July-August) due to landslides and road closures.`
-        : isBeach 
-        ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
-        : isAdventure
-        ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
-        : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
+        : isBeach
+          ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
+          : isAdventure
+            ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
+            : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
@@ -52,8 +53,8 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: isSpiritual
         ? `Yes, we offer special arrangements for senior citizens including helicopter services, pony/doli for treks, and comfortable accommodations. Our guides are trained to assist elderly travelers throughout the journey.`
         : isAdventure
-        ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
-        : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
+          ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
+          : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
     },
     {
       question: `What is the payment and cancellation policy?`,
@@ -64,7 +65,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: `With 10+ years of experience, 500+ happy travelers, and being Bhilai's trusted travel partner, we offer the best value packages. Our highlights: 24/7 support, local expertise, ${isDomestic ? 'home pickup from Chhattisgarh' : 'complete visa assistance'}, and personalized service. We're not just a travel agency - we're your travel family!`
     }
   ];
-  
+
   return faqs;
 };
 
@@ -1511,12 +1512,12 @@ const PackageDetails = () => {
         ogType="product"
         structuredData={structuredData}
       />
-      
+
       {/* Additional Schema Markup */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      
+
       <Navbar />
 
       {/* Hero Section */}
@@ -1527,11 +1528,11 @@ const PackageDetails = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        
+
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="container">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -1700,7 +1701,11 @@ const PackageDetails = () => {
                   <div className="grid grid-cols-3 gap-4">
                     {pkg.gallery.map((img, i) => (
                       <div key={i} className="aspect-square rounded-lg overflow-hidden">
-                        <img src={img} alt={`${pkg.title} ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        <SmartImage
+                          src={img}
+                          alt={`${pkg.title} ${i + 1}`}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                        />
                       </div>
                     ))}
                   </div>
@@ -1783,16 +1788,16 @@ const PackageDetails = () => {
                     </p>
                     <div className="grid gap-3">
                       {relatedPackages.map((rPkg) => (
-                        <Link 
+                        <Link
                           key={rPkg.id}
                           to={`/package/${rPkg.id}`}
                           className="flex items-center gap-4 p-3 rounded-lg bg-muted/30 hover:bg-muted transition-colors group"
                         >
-                          <img 
-                            src={rPkg.image} 
+                          <SmartImage
+                            src={rPkg.image}
                             alt={rPkg.title}
                             className="w-16 h-16 rounded-lg object-cover"
-                            loading="lazy"
+                            containerClassName="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0"
                           />
                           <div className="flex-1">
                             <h3 className="font-medium text-foreground group-hover:text-secondary transition-colors">
@@ -1805,7 +1810,7 @@ const PackageDetails = () => {
                       ))}
                     </div>
                     <div className="mt-4 pt-4 border-t border-border/50">
-                      <Link 
+                      <Link
                         to={pkg.type === 'domestic' ? '/domestic-packages' : '/international-packages'}
                         className="text-secondary hover:underline text-sm font-medium flex items-center gap-2"
                       >

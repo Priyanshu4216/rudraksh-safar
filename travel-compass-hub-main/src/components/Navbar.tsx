@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Compass } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import { useTheme } from './ThemeProvider';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
@@ -29,6 +30,7 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { resolvedTheme } = useTheme();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
@@ -54,16 +56,31 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
+  // Handle intersection observer for sections when arriving from another page
+  useEffect(() => {
+    if (isHomePage && location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [isHomePage, location]);
+
   const handleNavClick = (href: string) => {
     if (href.startsWith('#')) {
       if (!isHomePage) {
-        window.location.href = '/' + href;
+        navigate('/' + href);
         return;
       }
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else {
+      navigate(href);
     }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
@@ -72,7 +89,7 @@ const Navbar = () => {
   return (
     <header>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${isScrolled
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${isScrolled || !isHomePage
           ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
           : 'bg-transparent py-4'
           }`}
@@ -85,21 +102,15 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-3 group"
           >
-            <div className="relative">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg">
-                <Compass className="w-6 h-6 text-secondary-foreground" aria-hidden="true" />
-              </div>
-              <div className="absolute -inset-1 bg-secondary/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            <div className="flex flex-col">
-              <span className={`text-xl md:text-2xl font-serif font-bold transition-colors duration-300 ${isScrolled || !isHomePage ? 'text-foreground' : 'text-primary-foreground'
-                }`}>
-                Rudraksh
-              </span>
-              <span className="text-secondary text-[10px] font-semibold tracking-[0.3em] uppercase -mt-1">
-                Safar
-              </span>
-            </div>
+            <img
+              src={
+                resolvedTheme === 'dark'
+                  ? "/images/logo-dark-original.jpg"
+                  : "/images/logo-light-theme.png"
+              }
+              alt="Rudraksh Safar Logo"
+              className="h-12 w-auto object-contain transition-all duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation - Moved to right */}

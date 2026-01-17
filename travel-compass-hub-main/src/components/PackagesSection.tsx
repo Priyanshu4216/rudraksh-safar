@@ -1,3 +1,4 @@
+import SmartImage from '@/components/ui/SmartImage';
 import { MapPin, Calendar, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -87,13 +88,13 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ 
-          duration: 0.5, 
+        transition={{
+          duration: 0.5,
           delay: index * 0.1,
           type: "spring",
           stiffness: 100
         }}
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
           transition: { duration: 0.2 }
         }}
@@ -101,11 +102,9 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500 cursor-pointer">
           {/* Image */}
           <div className="relative h-64 overflow-hidden">
-            <img
+            <SmartImage
               src={pkg.image}
               alt={`${pkg.title} - ${pkg.location} travel package, ${pkg.duration}`}
-              loading="lazy"
-              decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
@@ -168,11 +167,11 @@ const PackagesSection = () => {
     <section ref={sectionRef} id="packages" className="section-padding overflow-hidden" aria-labelledby="packages-heading">
       <div className="container">
         {/* Header with 3D reveal */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
           style={{ y: headerY, opacity: headerOpacity }}
         >
-          <motion.span 
+          <motion.span
             className="inline-block text-secondary font-medium tracking-widest uppercase text-sm mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -180,7 +179,7 @@ const PackagesSection = () => {
           >
             Our Packages
           </motion.span>
-          <motion.h2 
+          <motion.h2
             id="packages-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 40, rotateX: 15 }}
@@ -190,14 +189,14 @@ const PackagesSection = () => {
           >
             Curated Journeys for Every Explorer
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-muted-foreground text-lg"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            From serene backwaters to majestic mountains, discover handpicked travel experiences 
+            From serene backwaters to majestic mountains, discover handpicked travel experiences
             designed to inspire and delight.
           </motion.p>
         </motion.div>
@@ -243,7 +242,7 @@ const PackagesSection = () => {
         </Tabs>
 
         {/* View All CTA with 3D effect */}
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SmartImage from '@/components/ui/SmartImage';
 
 const destinations = [
   {
@@ -47,20 +48,19 @@ const DestinationCard = ({ destination }: { destination: typeof destinations[0] 
   };
 
   return (
-<Link
+    <Link
       to={`/package/${destination.id}`}
       onClick={() => window.scrollTo(0, 0)}
       className={`group relative overflow-hidden rounded-2xl cursor-pointer block ${sizeClasses[destination.size as keyof typeof sizeClasses]}`}
     >
-      <img
+      <SmartImage
         src={destination.image}
         alt={`${destination.name} - ${destination.description} travel destination`}
-        loading="lazy"
-        decoding="async"
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        containerClassName="w-full h-full absolute inset-0"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-      
+
       {/* Content */}
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -71,7 +71,7 @@ const DestinationCard = ({ destination }: { destination: typeof destinations[0] 
             {destination.description}
           </p>
         </div>
-        
+
         {/* Arrow Button */}
         <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
           <ArrowUpRight className="w-6 h-6 text-secondary-foreground" />
@@ -94,7 +94,7 @@ const DestinationsSection = () => {
             Explore Dream Destinations
           </h2>
           <p className="text-muted-foreground text-lg">
-            From tropical paradises to sacred pilgrimages, discover places that inspire wanderlust 
+            From tropical paradises to sacred pilgrimages, discover places that inspire wanderlust
             and create unforgettable memories.
           </p>
         </div>
