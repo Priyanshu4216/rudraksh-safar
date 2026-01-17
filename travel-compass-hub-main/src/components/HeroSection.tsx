@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import heroVideo from '@/assets/hero-video.mp4';
+import heroPoster from '@/assets/hero-poster.jpg';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -85,7 +86,8 @@ const HeroSection = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
+            poster={heroPoster}
             aria-hidden="true"
             title="Rudraksh Safar - Beautiful travel destinations background video"
             className="w-full h-full object-cover scale-110"
