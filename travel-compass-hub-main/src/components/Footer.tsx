@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -699,8 +701,12 @@ const legalContent = {
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<keyof typeof legalContent | null>(null);
-
   const handleNavClick = (href: string) => {
+    if (location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -755,22 +761,22 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-6 text-lg" id="footer-quick-links">Quick Links</h3>
               <nav aria-labelledby="footer-quick-links">
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                      className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(link.href);
+                        }}
+                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </nav>
             </div>
 
