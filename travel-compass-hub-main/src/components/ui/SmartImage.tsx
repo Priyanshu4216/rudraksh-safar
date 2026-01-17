@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { ImageOff } from 'lucide-react';
 
+import placeholderImg from '@/assets/placeholder.svg';
+
 interface SmartImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     fallbackSrc?: string;
     containerClassName?: string;
@@ -13,7 +15,7 @@ const SmartImage = ({
     alt,
     className,
     containerClassName,
-    fallbackSrc = '/placeholder.svg',
+    fallbackSrc = placeholderImg,
     aspectRatio = 'auto',
     ...props
 }: SmartImageProps) => {
@@ -44,6 +46,13 @@ const SmartImage = ({
             setError(true);
             setIsLoading(false);
         };
+
+        // Safety timeout to prevent infinite loading state
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 5000);
+
+        return () => clearTimeout(timer);
     }, [src]);
 
     const getAspectRatioClass = () => {

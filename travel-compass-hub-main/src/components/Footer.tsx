@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
+import logoDark from '@/assets/images/logo-dark-original.jpg';
+import logoLight from '@/assets/images/logo-light-theme.png';
 
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -730,7 +732,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="mb-6">
                 <img
-                  src={resolvedTheme === 'dark' ? "/images/logo-dark-original.jpg" : "/images/logo-light-theme.png"}
+                  src={resolvedTheme === 'dark' ? logoDark : logoLight}
                   alt="Rudraksh Safar Logo"
                   className="h-16 w-auto object-contain"
                 />

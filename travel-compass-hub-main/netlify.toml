@@ -52,4 +52,4 @@
     # XSS Protection (legacy browsers)
     X-XSS-Protection = "1; mode=block"
     # Content Security Policy
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.whatsapp.com https://wa.me https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob: *; connect-src 'self' https://api.whatsapp.com https://wa.me https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;"

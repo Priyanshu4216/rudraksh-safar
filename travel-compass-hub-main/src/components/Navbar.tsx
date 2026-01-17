@@ -3,6 +3,8 @@ import { Menu, X, ChevronDown, Compass } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
+import logoDark from '@/assets/images/logo-dark-original.jpg';
+import logoLight from '@/assets/images/logo-light-theme.png';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
@@ -105,8 +107,8 @@ const Navbar = () => {
             <img
               src={
                 resolvedTheme === 'dark'
-                  ? "/images/logo-dark-original.jpg"
-                  : "/images/logo-light-theme.png"
+                  ? logoDark
+                  : logoLight
               }
               alt="Rudraksh Safar Logo"
               className="h-12 w-auto object-contain transition-all duration-300"
