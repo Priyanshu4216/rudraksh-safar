@@ -70,7 +70,7 @@ const AIParseableContent = () => {
             <p><strong>Difficulty Level:</strong> {pkg.difficulty}</p>
             <p><strong>Places Covered:</strong> {pkg.highlights.join(', ')}</p>
             <p><strong>Package Includes:</strong> {pkg.includes.join(', ')}</p>
-            <p><strong>Booking:</strong> Call +91-9229150311 or WhatsApp for instant booking. 
+            <p><strong>Booking:</strong> Call +91-9406182174 or WhatsApp for instant booking. 
             Pickup available from Bhilai, Raipur, and Durg.</p>
           </article>
         ))}

@@ -10,7 +10,7 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&amp;w=1200</image:loc>
       <image:title>Rudraksh Safar - Best Travel Agency Bhilai Chhattisgarh | Tour Packages</image:title>
       <image:caption>Best travel agency in Bhilai offering cheapest domestic and international tour packages near Raipur</image:caption>
     </image:image>
@@ -43,7 +43,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&amp;w=1200</image:loc>
       <image:title>Domestic Tour Packages from Bhilai Raipur - Char Dham, Ladakh, Goa, Kashmir</image:title>
     </image:image>
   </url>
@@ -55,7 +55,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&amp;w=1200</image:loc>
       <image:title>International Tour Packages from Bhilai - Dubai, Bali, Thailand, Singapore</image:title>
     </image:image>
   </url>
@@ -109,7 +109,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&amp;w=1200</image:loc>
       <image:title>Andaman Beach Holiday Package from Bhilai - ₹32,999 | 6 Days</image:title>
       <image:caption>Andaman Islands tour with Havelock Island, Radhanagar Beach, Cellular Jail</image:caption>
     </image:image>
@@ -122,7 +122,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&amp;w=1200</image:loc>
       <image:title>Kashmir Paradise Package - ₹22,999 | 6 Days from Bhilai Raipur</image:title>
       <image:caption>Kashmir tour with Dal Lake, Gulmarg, Pahalgam, Srinagar from Chhattisgarh</image:caption>
     </image:image>
@@ -135,7 +135,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&amp;w=1200</image:loc>
       <image:title>Udaipur Royal Escape - ₹14,999 | 4 Days Heritage Tour from Bhilai</image:title>
     </image:image>
   </url>
@@ -147,7 +147,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&amp;w=1200</image:loc>
       <image:title>Shimla Manali Adventure Package - ₹15,999 | 7 Days from Bhilai</image:title>
       <image:caption>Himachal Pradesh tour covering Shimla, Manali, Rohtang, Kufri, Solang Valley</image:caption>
     </image:image>
@@ -160,7 +160,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&amp;w=1200</image:loc>
       <image:title>Kodaikanal Retreat Package - ₹13,999 | 4 Days from Bhilai</image:title>
     </image:image>
   </url>
@@ -172,7 +172,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&amp;w=1200</image:loc>
       <image:title>Char Dham Yatra Package from Bhilai - ₹17,999 | 12 Days</image:title>
       <image:caption>Complete Char Dham pilgrimage covering Yamunotri, Gangotri, Kedarnath, Badrinath</image:caption>
     </image:image>
@@ -185,7 +185,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&amp;w=1200</image:loc>
       <image:title>Ladakh Expedition Package - ₹24,999 | 8 Days from Bhilai Raipur</image:title>
       <image:caption>Leh Ladakh tour with Pangong Lake, Nubra Valley, Khardung La Pass</image:caption>
     </image:image>
@@ -198,7 +198,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&amp;w=1200</image:loc>
       <image:title>Goa Beach Package - ₹11,999 | 4 Days from Bhilai Raipur</image:title>
       <image:caption>Goa vacation package with beach resort, water sports, nightlife</image:caption>
     </image:image>
@@ -211,7 +211,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&amp;w=1200</image:loc>
       <image:title>Manali Adventure Package - ₹9,999 | 5 Days from Bhilai</image:title>
     </image:image>
   </url>
@@ -223,8 +223,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1200</image:loc>
-      <image:title>Munnar Kerala Package - ₹19,999 | Tea Gardens & Hills from Bhilai</image:title>
+      <image:loc>https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&amp;w=1200</image:loc>
+      <image:title>Munnar Kerala Package - ₹19,999 | Tea Gardens &amp; Hills from Bhilai</image:title>
     </image:image>
   </url>
   
@@ -235,7 +235,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&amp;w=1200</image:loc>
       <image:title>Haridwar Rishikesh Spiritual Tour from Bhilai - ₹9,999 | 3 Days</image:title>
     </image:image>
   </url>
@@ -247,7 +247,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&amp;w=1200</image:loc>
       <image:title>Gangtok Darjeeling Package - ₹28,999 | 7 Days Northeast India</image:title>
     </image:image>
   </url>
@@ -259,7 +259,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1506038634487-60a69ae4b7b1?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1506038634487-60a69ae4b7b1?q=80&amp;w=1200</image:loc>
       <image:title>Darjeeling Escape Package - ₹16,999 | 4 Days from Bhilai</image:title>
     </image:image>
   </url>
@@ -271,7 +271,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&amp;w=1200</image:loc>
       <image:title>Spiti Valley Expedition - ₹32,999 | 9 Days Adventure from Bhilai</image:title>
     </image:image>
   </url>
@@ -285,7 +285,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&amp;w=1200</image:loc>
       <image:title>Phuket Beach Paradise - ₹42,999 | 5 Days Thailand from Bhilai</image:title>
       <image:caption>Phuket tour with Phi Phi Islands, Patong Beach, Big Buddha from India</image:caption>
     </image:image>
@@ -298,7 +298,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&amp;w=1200</image:loc>
       <image:title>Singapore City Explorer - ₹58,999 | 5 Days from Bhilai Raipur</image:title>
       <image:caption>Singapore tour with Universal Studios, Marina Bay, Sentosa Island</image:caption>
     </image:image>
@@ -311,7 +311,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&amp;w=1200</image:loc>
       <image:title>Dubai Extravaganza - ₹54,999 | 5 Days from Bhilai Raipur</image:title>
       <image:caption>Dubai tour with Burj Khalifa, Desert Safari, Dubai Mall from Chhattisgarh</image:caption>
     </image:image>
@@ -324,7 +324,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&amp;w=1200</image:loc>
       <image:title>Thailand Explorer Package - ₹38,999 | 6 Days Bangkok Phuket from Bhilai</image:title>
       <image:caption>Thailand tour with Bangkok temples, Phuket beaches, Phi Phi Islands</image:caption>
     </image:image>
@@ -337,7 +337,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1586016413664-864c0dd76f53?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1586016413664-864c0dd76f53?q=80&amp;w=1200</image:loc>
       <image:title>Sri Lanka Heritage Tour - ₹35,999 | 6 Days Sigiriya Kandy from India</image:title>
     </image:image>
   </url>
@@ -349,7 +349,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&amp;w=1200</image:loc>
       <image:title>Nepal Himalayan Trek - ₹24,999 | 7 Days Kathmandu Pokhara from Bhilai</image:title>
       <image:caption>Nepal tour with Pashupatinath, Pokhara, Everest views from India</image:caption>
     </image:image>
@@ -362,7 +362,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&amp;w=1200</image:loc>
       <image:title>Maldives Paradise - ₹85,999 | 4 Days Overwater Villa from India</image:title>
       <image:caption>Luxury Maldives honeymoon with overwater villa, snorkeling, dolphin cruise</image:caption>
     </image:image>
@@ -375,7 +375,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&amp;w=1200</image:loc>
       <image:title>Bali Paradise Package - ₹64,999 | 6 Days Indonesia from Bhilai</image:title>
       <image:caption>Bali Indonesia tour with Ubud temples, beaches, rice terraces from India</image:caption>
     </image:image>

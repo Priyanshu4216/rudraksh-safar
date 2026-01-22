@@ -1,6 +1,7 @@
+import React, { forwardRef } from 'react';
 import { MessageCircle } from 'lucide-react';
 
-const FloatingWhatsApp = () => {
+const FloatingWhatsApp = forwardRef<HTMLButtonElement>((_, ref) => {
   const handleClick = () => {
     window.open(
       'https://wa.me/919406182174?text=Hello! I am interested in your travel packages. Please help me plan my trip.',
@@ -10,6 +11,7 @@ const FloatingWhatsApp = () => {
 
   return (
     <button
+      ref={ref}
       onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
       aria-label="Chat on WhatsApp"
@@ -25,6 +27,8 @@ const FloatingWhatsApp = () => {
       <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-25" />
     </button>
   );
-};
+});
+
+FloatingWhatsApp.displayName = 'FloatingWhatsApp';
 
 export default FloatingWhatsApp;

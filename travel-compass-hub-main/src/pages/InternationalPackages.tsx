@@ -10,6 +10,7 @@ import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
+import SmartImage from '@/components/SmartImage';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -144,11 +145,16 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
 
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
-      <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
+      <Link
+        to={`/package/${pkg.id}`}
+        onClick={() => window.scrollTo(0, 0)}
+        className="block h-full"
+        aria-label={`View package: ${pkg.title}`}
+      >
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500">
           <div className="relative h-64 image-zoom">
-            <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <SmartImage src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
               <span className="bg-secondary px-3 py-1 rounded-full text-xs font-bold text-secondary-foreground flex items-center gap-1">
                 <Sparkles className="w-3 h-3" />

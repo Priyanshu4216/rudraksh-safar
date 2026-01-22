@@ -1,6 +1,7 @@
 import { Shield, Award, Heart, Clock } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import SmartImage from '@/components/SmartImage';
 
 const features = [
   {
@@ -59,7 +60,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
-                  <img
+                  <SmartImage
                     src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop"
                     alt="Travelers exploring nature"
                     loading="lazy"
@@ -68,7 +69,7 @@ const AboutSection = () => {
                   />
                 </div>
                 <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
-                  <img
+                  <SmartImage
                     src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop"
                     alt="Beautiful beach destination"
                     loading="lazy"
@@ -79,7 +80,7 @@ const AboutSection = () => {
               </div>
               <div className="space-y-4 pt-8">
                 <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
-                  <img
+                  <SmartImage
                     src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
                     alt="Road trip adventure"
                     loading="lazy"
@@ -88,7 +89,7 @@ const AboutSection = () => {
                   />
                 </div>
                 <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
-                  <img
+                  <SmartImage
                     src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=2031&auto=format&fit=crop"
                     alt="Cultural experience"
                     loading="lazy"

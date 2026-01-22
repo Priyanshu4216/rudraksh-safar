@@ -831,20 +831,26 @@ const InternationalLoader = () => {
               />
               
               {/* Bubbles */}
-              {[...Array(6)].map((_, i) => (
-                <motion.circle
-                  key={i}
-                  cx={50 + i * 35}
-                  cy={100}
-                  r={3 + Math.random() * 3}
-                  fill="hsl(var(--secondary))"
-                  opacity={0.4}
-                  initial={{ y: 0 }}
-                  animate={{ y: -80, opacity: [0.4, 0.2, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                  style={{ position: 'absolute' }}
-                />
-              ))}
+              <motion.svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 300 140"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                {[...Array(6)].map((_, i) => (
+                  <motion.circle
+                    key={i}
+                    cx={50 + i * 35}
+                    cy={100}
+                    r={3 + Math.random() * 3}
+                    fill="hsl(var(--secondary))"
+                    opacity={0.4}
+                    initial={{ translateY: 0 }}
+                    animate={{ translateY: -80, opacity: [0.4, 0.2, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                  />
+                ))}
+              </motion.svg>
 
               {/* Coral */}
               <svg className="absolute bottom-0 left-0 w-full h-16" viewBox="0 0 300 60">
@@ -1996,7 +2002,7 @@ const PageLoader = ({ type, onLoadComplete }: PageLoaderProps) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-background flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-background flex items-center justify-center pointer-events-none"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}

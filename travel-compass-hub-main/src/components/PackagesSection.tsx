@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
+import SmartImage from '@/components/SmartImage';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -83,7 +84,12 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
   };
 
   return (
-    <Link to={`/package/${pkg.slug}`}>
+    <Link
+      to={`/package/${pkg.slug}`}
+      className="block h-full"
+      onClick={() => window.scrollTo(0, 0)}
+      aria-label={`View package: ${pkg.title}`}
+    >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -102,14 +108,14 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500 cursor-pointer">
           {/* Image */}
           <div className="relative h-64 overflow-hidden">
-            <img
+            <SmartImage
               src={pkg.image}
               alt={`${pkg.title} - ${pkg.location} travel package, ${pkg.duration}`}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
             <span className="absolute top-4 left-4 bg-secondary px-3 py-1 rounded-full text-sm font-medium text-secondary-foreground">
               {pkg.tag}
             </span>

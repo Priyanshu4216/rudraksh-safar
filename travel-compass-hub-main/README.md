@@ -1,73 +1,71 @@
-# Welcome to your Lovable project
+# Rudraksh Safar – Travel & Tour Website
 
-## Project info
+Rudraksh Safar is a professional travel and tour website designed to showcase domestic and international tour packages, travel guides, visa information, and fixed departure group tours. The project focuses on SEO-friendly structure, local business visibility, and scalable content management.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🌍 Project Overview
 
-There are several ways of editing your application.
+This project represents the official website of **Rudraksh Safar**, a travel agency based in **Bhilai, Chhattisgarh (India)**.  
+It includes tour listings, destination pages, blogs, and local SEO components to improve online presence and discoverability.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Domestic & International Tour Packages
+- Fixed Departure Group Tours
+- Honeymoon, Family, Adventure & Luxury Packages
+- Travel Blog (Safar Diaries)
+- Visa & Travel Guide Pages
+- SEO-Optimized Sitemap & URL Structure
+- Image Sitemap Support
+- Local Business SEO Ready
+- Mobile Responsive Design
+- Fast Page Loading & Clean UI
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧭 Major Sections
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Home**
+- **Hot Deals**
+- **Domestic Packages**
+- **International Packages**
+- **Honeymoon Packages**
+- **Family Packages**
+- **Adventure Packages**
+- **Luxury Packages**
+- **Travel Guides**
+- **Visa Guides**
+- **Blog (Safar Diaries)**
+- **Legal Pages**
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- HTML5  
+- CSS3  
+- JavaScript  
+- SEO-Friendly Markup  
+- XML Sitemap  
+- Image Sitemap  
 
-# Step 3: Install the necessary dependencies.
-npm i
+*(Framework-independent, lightweight and scalable)*
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🔍 SEO & Local Optimization
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Structured sitemap with priority hierarchy
+- Image sitemap for better visual search
+- Location-focused content (Bhilai, Chhattisgarh)
+- Optimized meta titles and descriptions
+- Clean and crawlable URLs
+- Local business listing compatibility (Google, Justdial, BhilaiOnline)
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📂 Project Structure (Example)
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

@@ -137,7 +137,7 @@ const legalContent = {
       <p><strong>Rudraksh Safar</strong><br/>
       GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 92291 50311</p>
+      Phone: +91 94061 82174</p>
     `,
   },
   terms: {
@@ -209,7 +209,7 @@ const legalContent = {
       <p><strong>Rudraksh Safar</strong><br/>
       GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 92291 50311</p>
+      Phone: +91 94061 82174</p>
     `,
   },
   cookies: {
@@ -336,7 +336,7 @@ const legalContent = {
       <p><strong>Rudraksh Safar</strong><br/>
       GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 92291 50311</p>
+      Phone: +91 94061 82174</p>
     `,
   },
   refund: {
@@ -407,7 +407,7 @@ const legalContent = {
 
       <h3>9. Contact for Refund Requests</h3>
       <p>Email: rudrakshsafar@gmail.com<br/>
-      WhatsApp: +91 92291 50311<br/>
+      WhatsApp: +91 94061 82174<br/>
       <strong>Subject Line:</strong> Refund Request- [Booking ID]</p>
     `,
   },
@@ -417,7 +417,7 @@ const legalContent = {
       <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
       
       <h3>1. General Cancellation Guidelines</h3>
-      <p>All cancellation requests must be submitted in writing via email (rudrakshsafar@gmail.com) or WhatsApp (+91 92291 50311). Verbal cancellation requests will not be accepted.</p>
+      <p>All cancellation requests must be submitted in writing via email (rudrakshsafar@gmail.com) or WhatsApp (+91 94061 82174). Verbal cancellation requests will not be accepted.</p>
       <p><strong>IMPORTANT:</strong> The cancellation charges outlined below are indicative and subject to the specific policies of Third-Party Service Providers (airlines, hotels, tour operators, etc.). Actual charges may be higher or lower based on their terms.</p>
       
       <h3>2. Standard Cancellation Timeline</h3>
@@ -496,7 +496,7 @@ const legalContent = {
       <h3>11. Contact Us</h3>
       <p>For cancellation assistance, contact us at:<br/>
       <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
-      <strong>Phone/WhatsApp:</strong> +91 92291 50311</p>
+      <strong>Phone/WhatsApp:</strong> +91 94061 82174</p>
     `,
   },
   booking: {
@@ -605,7 +605,7 @@ const legalContent = {
       <h3>13. Contact Us</h3>
       <p>For booking inquiries, contact us at:<br/>
       <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
-      <strong>Phone/WhatsApp:</strong> +91 92291 50311</p>
+      <strong>Phone/WhatsApp:</strong> +91 94061 82174</p>
     `,
   },
   faqs: {
@@ -614,7 +614,7 @@ const legalContent = {
       <h3>Booking & Payments</h3>
       
       <h4>How do I book a trip with Rudraksh Safar?</h4>
-      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 92291 50311, (3) Call us directly, or (4) Email us at rudrakshsafar@gmail.com. Our travel experts will guide you through the entire process.</p>
+      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 94061 82174, (3) Call us directly, or (4) Email us at rudrakshsafar@gmail.com. Our travel experts will guide you through the entire process.</p>
       
       <h4>What payment methods do you accept?</h4>
       <p>We accept bank transfers (NEFT/RTGS/IMPS), credit/debit cards (Visa, MasterCard, Amex), and UPI payments. All online payments are processed securely.</p>
