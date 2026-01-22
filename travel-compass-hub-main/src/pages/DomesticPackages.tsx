@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Star, Sparkles } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Sparkles, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,8 +9,9 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { getBestTimeToVisit } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const domesticPackages = [
   {
@@ -152,7 +153,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
       <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500">
           <div className="relative h-56 image-zoom">
-            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
+            <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <span className="absolute top-4 left-4 bg-secondary px-3 py-1 rounded-full text-xs font-bold text-secondary-foreground flex items-center gap-1">
               <Sparkles className="w-3 h-3" />
@@ -171,6 +172,12 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
                 <Calendar className="w-3.5 h-3.5" />
                 {pkg.duration}
+              </span>
+            </div>
+            <div className="flex items-center mb-4">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5" />
+                Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
@@ -196,7 +203,7 @@ const DomesticPackages = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 450);
     return () => clearTimeout(timer);
   }, []);
 
@@ -279,7 +286,7 @@ const DomesticPackages = () => {
           <div className="container relative z-10 text-center">
             <AnimatedSection animation="scale">
               <div className="glass-card p-10 max-w-2xl mx-auto">
-                <Star className="w-12 h-12 text-secondary mx-auto mb-4" />
+                <Sparkles className="w-12 h-12 text-secondary mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Can't find your dream destination?</h2>
                 <p className="text-muted-foreground mb-6">Let us customize a perfect itinerary just for you</p>
                 <Button onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like a customized domestic travel package.")}`, '_blank'); }} className="btn-gold">

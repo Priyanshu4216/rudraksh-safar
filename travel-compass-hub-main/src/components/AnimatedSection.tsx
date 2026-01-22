@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface AnimatedSectionProps {
@@ -8,12 +8,12 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-const AnimatedSection = ({ 
+const AnimatedSection = forwardRef<HTMLDivElement, AnimatedSectionProps>(({ 
   children, 
   className = '', 
   animation = 'fade-up',
-  delay = 0 
-}: AnimatedSectionProps) => {
+  delay = 0,
+}, forwardedRef) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const animations = {
@@ -41,7 +41,12 @@ const AnimatedSection = ({
 
   return (
     <div
-      ref={ref}
+      ref={(node) => {
+        ref.current = node;
+        if (!forwardedRef) return;
+        if (typeof forwardedRef === 'function') forwardedRef(node);
+        else forwardedRef.current = node;
+      }}
       className={`transition-all duration-700 ease-out ${
         isVisible ? animations[animation].visible : animations[animation].hidden
       } ${className}`}
@@ -50,6 +55,8 @@ const AnimatedSection = ({
       {children}
     </div>
   );
-};
+});
+
+AnimatedSection.displayName = 'AnimatedSection';
 
 export default AnimatedSection;

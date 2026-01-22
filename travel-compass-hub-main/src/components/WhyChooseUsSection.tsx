@@ -1,4 +1,4 @@
-import { Compass, Headphones, CreditCard, Shield, Star, Users } from 'lucide-react';
+import { Compass, Headphones, CreditCard, Shield, Sparkles, Users } from 'lucide-react';
 
 const reasons = [
   {
@@ -22,9 +22,9 @@ const reasons = [
     description: 'Your safety is paramount. We partner only with verified and trusted service providers.',
   },
   {
-    icon: Star,
-    title: 'Premium Experiences',
-    description: 'Access to exclusive experiences, luxury stays, and hidden gems most travelers miss.',
+    icon: Sparkles,
+    title: 'Premium Planning',
+    description: 'Thoughtful trip planning with handpicked stays and experiences that match your budget and style.',
   },
   {
     icon: Users,

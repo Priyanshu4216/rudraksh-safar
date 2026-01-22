@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap&subset=latin');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap&subset=latin');
 
 @tailwind base;
 @tailwind components;
@@ -49,6 +49,8 @@
     --cream: 40 30% 98%;
     --cream-dark: 40 25% 94%;
     --charcoal: 210 25% 15%;
+    /* Brand ink for logo cursive (keep light in both themes) */
+    --logo-ink: 40 30% 98%;
 
     /* Glass Effects */
     --glass-bg: 40 30% 100% / 0.7;
@@ -108,6 +110,9 @@
     --glass-bg: 210 25% 15% / 0.8;
     --glass-border: 210 25% 25% / 0.3;
     --glass-shadow: 0 0% 0% / 0.3;
+
+    /* Brand ink for logo cursive (keep light in both themes) */
+    --logo-ink: 40 30% 98%;
 
     --sidebar-background: 210 25% 10%;
     --sidebar-foreground: 40 30% 90%;
@@ -293,5 +298,106 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    @apply fixed left-0 right-0 top-0 z-[110] h-1;
+    background: hsl(var(--border) / 0.25);
+  }
+  .scroll-progress__bar {
+    @apply h-full origin-left;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    box-shadow:
+      0 0 18px hsl(var(--secondary) / 0.35),
+      0 0 26px hsl(var(--accent) / 0.25);
+    transition: transform 120ms linear;
+  }
+
+  /* Electric fire border for Hot Deals */
+  .hot-deals-fire {
+    @apply relative;
+  }
+  .hot-deals-fire::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 9999px;
+    background: conic-gradient(
+      from 0deg,
+      hsl(var(--secondary) / 0.0),
+      hsl(var(--secondary) / 0.55),
+      hsl(var(--accent) / 0.55),
+      hsl(var(--primary) / 0.45),
+      hsl(var(--secondary) / 0.55),
+      hsl(var(--secondary) / 0.0)
+    );
+    filter: blur(0px);
+    opacity: 0.9;
+    /* Remove revolving effect (keep a refined border without spin) */
+    animation: none;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hot-deals-fire::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: radial-gradient(
+      closest-side,
+      hsl(var(--secondary) / 0.20),
+      hsl(var(--accent) / 0.10),
+      transparent 72%
+    );
+    filter: blur(8px);
+    opacity: 0.7;
+    animation: firePulse 2.1s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  /* Tiny flame lick at the top edge (subtle, refined) */
+  .hot-deals-fire > span::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 18px;
+    right: 18px;
+    height: 14px;
+    border-radius: 9999px;
+    background:
+      radial-gradient(closest-side, hsl(var(--secondary) / 0.35), transparent 70%),
+      radial-gradient(closest-side, hsl(var(--accent) / 0.25), transparent 72%);
+    filter: blur(6px);
+    opacity: 0;
+    transform: translateY(4px) scaleX(0.92);
+    transition: opacity 240ms ease, transform 240ms ease;
+    pointer-events: none;
+  }
+  .hot-deals-fire:hover > span::before {
+    opacity: 1;
+    transform: translateY(0px) scaleX(1);
+  }
+  @keyframes fireSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes firePulse {
+    0%,
+    100% {
+      transform: scale(0.96);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.06);
+      opacity: 1;
+    }
   }
 }

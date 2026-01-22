@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Users, Shield, Sparkles, Baby, Home } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Users, Shield, Sparkles, Baby, Home, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,8 +9,9 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { getBestTimeToVisit } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const familyPackages = [
   {
@@ -92,7 +93,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
           </div>
           
           <div className="relative h-56 overflow-hidden">
-            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent" />
             <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1 rounded-full text-xs font-bold text-white flex items-center gap-1 shadow-lg">
               <Baby className="w-3 h-3" />
@@ -114,6 +115,13 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
                 {pkg.duration}
               </span>
             </div>
+
+            <div className="mb-3">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5" />
+                Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
+              </span>
+            </div>
             
             {/* Features */}
             <div className="flex flex-wrap gap-2 mb-4">
@@ -126,7 +134,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
             
             <div className="flex items-center justify-between pt-4 border-t border-blue-200/50 dark:border-blue-800/30">
               <div>
-                <p className="text-xs text-muted-foreground">Per Family from</p>
+                <p className="text-xs text-muted-foreground">Per Person from</p>
                 <p className="text-xl font-serif font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{pkg.price}</p>
               </div>
               <Button 
@@ -150,7 +158,7 @@ const FamilyPackages = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 450);
     return () => clearTimeout(timer);
   }, []);
 

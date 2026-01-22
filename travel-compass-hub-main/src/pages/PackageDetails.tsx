@@ -1,7 +1,6 @@
 import React from 'react';
-import SmartImage from '@/components/ui/SmartImage';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Calendar, Star, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle } from 'lucide-react';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
+import { ArrowLeft, MapPin, Calendar, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
@@ -9,8 +8,9 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 import SEOHead from '@/components/SEOHead';
+import { getBestTimeToVisit, getVisaGuidePath, HOME_CITY } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 // Generate dynamic FAQs based on package type and details
 const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
@@ -18,7 +18,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
   const isSpiritual = pkg.tag === 'Spiritual' || pkg.tag === 'Pilgrimage';
   const isBeach = pkg.tag === 'Beach Escape' || pkg.tag === 'Romantic' || pkg.tag === 'Beach & Culture';
   const isAdventure = pkg.tag === 'Adventure' || pkg.tag === 'Expedition' || pkg.tag === 'Trekking';
-
+  
   const faqs = [
     {
       question: `What is included in the ${pkg.title} package?`,
@@ -26,17 +26,17 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
     },
     {
       question: `What is the best time to visit ${pkg.location}?`,
-      answer: isSpiritual
+      answer: isSpiritual 
         ? `The best time for ${pkg.title} is April to June and September to November when weather is pleasant for pilgrimage. Avoid monsoon season (July-August) due to landslides and road closures.`
-        : isBeach
-          ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
-          : isAdventure
-            ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
-            : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
+        : isBeach 
+        ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
+        : isAdventure
+        ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
+        : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
-      answer: `Booking is simple! Contact Rudraksh Safar at +91-9229150311 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
+      answer: `Booking is simple! Contact Rudraksh Safar at +91-9406182174 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
     },
     {
       question: `Can I customize the ${pkg.title} itinerary?`,
@@ -53,8 +53,8 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: isSpiritual
         ? `Yes, we offer special arrangements for senior citizens including helicopter services, pony/doli for treks, and comfortable accommodations. Our guides are trained to assist elderly travelers throughout the journey.`
         : isAdventure
-          ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
-          : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
+        ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
+        : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
     },
     {
       question: `What is the payment and cancellation policy?`,
@@ -65,7 +65,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: `With 10+ years of experience, 500+ happy travelers, and being Bhilai's trusted travel partner, we offer the best value packages. Our highlights: 24/7 support, local expertise, ${isDomestic ? 'home pickup from Chhattisgarh' : 'complete visa assistance'}, and personalized service. We're not just a travel agency - we're your travel family!`
     }
   ];
-
+  
   return faqs;
 };
 
@@ -1048,13 +1048,10 @@ const allPackages = [
     whatToEat: ['Pad Thai', 'Tom Yum', 'Mango Sticky Rice', 'Thai Fried Rice', 'Fresh Fruits'],
     attractions: ['Temples', 'Beach Fun', 'Island Hopping', 'Safari World', 'Water Parks'],
     itinerary: [
-      'Day 1: Arrive Bangkok. Transfer to hotel. Evening Asiatique Riverfront - shopping, dining, Ferris wheel.',
-      'Day 2: Bangkok temples - Grand Palace, Wat Pho (Reclining Buddha). Afternoon Safari World - animal shows kids love.',
-      'Day 3: Drive/fly to Pattaya. Coral Island day trip - glass bottom boat, snorkeling, beach fun.',
-      'Day 4: Nong Nooch Tropical Garden, Elephant village. Evening Alcazar Show (family-friendly).',
-      'Day 5: Fly to Phuket. Afternoon leisure at Patong Beach. Evening Fantasea cultural show.',
-      'Day 6: Phi Phi Islands day trip - snorkeling, Maya Bay, beach activities. Seafood dinner.',
-      'Day 7: Morning leisure, shopping. Departure from Phuket.',
+      'Day 1 – Arrival in Bangkok → Pattaya: Arrival at DMK Airport, Bangkok. Private transfer to Pattaya. Hotel check-in (as per hotel timing). Indian lunch. Evening free for leisure / beach walk. Indian dinner. Overnight stay in Pattaya.',
+      'Day 2 – Coral Island Tour: Breakfast at hotel. Speedboat to Coral Island. Free time at the beach & optional water sports (own cost). Indian lunch after the tour. Visit Pattaya View Point. Return to hotel. Indian dinner. Overnight stay in Pattaya.',
+      'Day 3 – Pattaya City Tour + Alcazar Show: Breakfast at hotel. Pattaya city tour (transfers only) including Big Buddha Hill, Pattaya Beach Road, Gems Gallery, Floating Market area, local market (Tiger Park optional). Indian lunch. Rest at hotel. Evening Alcazar Show. Indian dinner. Overnight stay in Pattaya.',
+      'Day 4 – Pattaya → Bangkok → Departure: Early morning check-out. Transfer to Bangkok. Free time for shopping/leisure (subject to time & traffic). Drop at DMK Airport. Tour ends with wonderful memories.',
     ],
     gallery: [
       'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
@@ -1403,7 +1400,7 @@ const PackageDetails = () => {
       "seller": {
         "@type": "TravelAgency",
         "name": "Rudraksh Safar",
-        "telephone": "+91-9229150311",
+        "telephone": "+91-9406182174",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
@@ -1485,12 +1482,21 @@ const PackageDetails = () => {
   };
 
   // Best time and ideal for info
-  const getBestTime = () => {
-    if (pkg.tag === 'Spiritual' || pkg.tag === 'Pilgrimage') return 'April to June, September to November';
-    if (pkg.tag === 'Beach Escape' || pkg.tag === 'Beach & Culture' || pkg.tag === 'Romantic') return 'October to March';
-    if (pkg.tag === 'Adventure' || pkg.tag === 'Expedition' || pkg.tag === 'Trekking') return 'May to October';
-    return 'Year-round, October to March preferred';
-  };
+  const bestTime = getBestTimeToVisit({ tag: pkg.tag, location: pkg.location });
+  const visaGuidePath = getVisaGuidePath(pkg.location);
+  const pickupText = 'Pickup available from Bhilai, Raipur & Durg (Chhattisgarh).';
+
+  const extraSeoKeywords =
+    pkg.id === 'phuket'
+      ? [
+          'cheap Phuket packages from India',
+          'family Phuket tour package',
+          'Phuket honeymoon itinerary',
+          'Phuket trip cost 2026',
+          'Phuket tour packages from Bhilai',
+          'Phuket tour packages from Raipur',
+        ].join(', ')
+      : '';
 
   const getIdealFor = () => {
     if (pkg.tag === 'Spiritual' || pkg.tag === 'Pilgrimage') return 'Families, Senior Citizens, Devotees';
@@ -1501,43 +1507,56 @@ const PackageDetails = () => {
     return 'Families, Couples, Friends, Solo Travelers';
   };
 
+  const destinationSlug = pkg.id;
+  const heroH1 = pkg.id === 'phuket' ? 'Phuket Tour Package from India' : pkg.title;
+  const heroIntro =
+    pkg.id === 'phuket'
+      ? 'Phuket tour package from India with island tours, beaches, and a flexible itinerary.'
+      : `Explore ${pkg.location} with a curated ${pkg.duration} itinerary.`;
+
+  const seoTitle = pkg.id === 'phuket' ? 'Phuket Tour Package from India' : `${pkg.title} Tour Package from ${HOME_CITY}`;
+  const seoDescription =
+    pkg.id === 'phuket'
+      ? `Phuket tour package from India (${pkg.duration}) starting ${pkg.price}. Best time to visit: ${bestTime}. View itinerary, inclusions, and FAQs. WhatsApp +91-9406182174.`
+      : `${pkg.title} tour package from ${HOME_CITY} (${pkg.duration}) starting ${pkg.price}. ${pickupText} Places: ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time to visit: ${bestTime}. WhatsApp +91-9406182174.`;
+
   return (
     <main className="min-h-screen bg-background">
       <SEOHead
-        title={`${pkg.title} ${pkg.duration} | ${pkg.price} | Bhilai`}
-        description={`Book ${pkg.title} tour from Bhilai at ${pkg.price} for ${pkg.duration}. Visit ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time: ${getBestTime()}. Call +91-9229150311.`}
-        keywords={`${pkg.title} package, ${pkg.location} tour from Bhilai, ${pkg.title} ${pkg.duration}, ${pkg.tag} tour Raipur, ${pkg.famousPlaces.slice(0, 4).join(', ')}, ${pkg.type} tour Chhattisgarh`}
+        title={seoTitle}
+        description={seoDescription}
+        keywords={`${pkg.title} tour package, ${pkg.title} tour packages from ${HOME_CITY}, ${pkg.location} tour from ${HOME_CITY}, ${pkg.tag} tour package, best time to visit ${pkg.location}, ${pkg.famousPlaces.slice(0, 4).join(', ')}${extraSeoKeywords ? `, ${extraSeoKeywords}` : ''}`}
         canonicalUrl={`https://rudrakshsafar.com/package/${pkg.id}`}
         ogImage={pkg.image}
         ogType="product"
         structuredData={structuredData}
       />
-
+      
       {/* Additional Schema Markup */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
+      
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img
           src={pkg.image}
-          alt={pkg.title}
+          alt={`${pkg.title} tour package in ${pkg.location}`}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-
+        
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="container">
-            <Link
-              to="/"
+            <button 
+              onClick={() => window.history.back()}
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span className="drop-shadow-md">Back to Home</span>
-            </Link>
+              <span className="drop-shadow-md">Back</span>
+            </button>
 
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="bg-secondary px-4 py-1.5 rounded-full text-sm font-bold text-secondary-foreground flex items-center gap-2">
@@ -1553,8 +1572,11 @@ const PackageDetails = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white drop-shadow-lg mb-4">
-              {pkg.title}
+              {heroH1}
             </h1>
+            <p className="max-w-3xl text-white/85 text-base md:text-lg drop-shadow-md">
+              {heroIntro}
+            </p>
             <div className="flex flex-wrap items-center gap-6 text-white/90">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
@@ -1575,9 +1597,35 @@ const PackageDetails = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
+              {/* Table of contents (quick jump) */}
+              <AnimatedSection animation="fade-up">
+                <div className="glass-card p-6">
+                  <h2 className="text-xl font-serif font-bold text-foreground mb-3">On this page</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { id: 'summary', label: 'Summary' },
+                      { id: 'places', label: 'Famous places' },
+                      { id: 'cuisine', label: 'Food' },
+                      { id: 'attractions', label: 'Attractions' },
+                      { id: 'itinerary', label: 'Itinerary' },
+                      { id: 'gallery', label: 'Gallery' },
+                      { id: 'faqs', label: 'FAQs' },
+                    ].map((x) => (
+                      <a
+                        key={x.id}
+                        href={`#${x.id}`}
+                        className="px-3 py-1.5 rounded-full bg-muted text-foreground text-sm hover:bg-muted/70 transition-colors"
+                      >
+                        {x.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+
               {/* Quick Summary Box - AI Friendly */}
               <AnimatedSection animation="fade-up">
-                <div className="glass-card p-6 border-l-4 border-secondary">
+                <div id="summary" className="glass-card p-6 border-l-4 border-secondary scroll-mt-28">
                   <h2 className="text-xl font-serif font-bold text-foreground mb-4">Quick Summary</h2>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div>
@@ -1590,15 +1638,58 @@ const PackageDetails = () => {
                     </div>
                     <div>
                       <p className="text-muted-foreground">Best Time</p>
-                      <p className="font-semibold text-foreground">{getBestTime()}</p>
+                      <p className="font-semibold text-foreground">{bestTime}</p>
                     </div>
                     <div>
                       <p className="text-muted-foreground">Ideal For</p>
                       <p className="font-semibold text-foreground">{getIdealFor()}</p>
                     </div>
                   </div>
+
+                  {/* Internal links */}
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Button asChild variant="outline">
+                      <Link to="/best-time-to-visit">Read full Best Time guide</Link>
+                    </Button>
+                    {visaGuidePath && (
+                      <Button asChild variant="outline">
+                        <Link to={visaGuidePath} target="_blank" rel="noopener noreferrer">
+                          Visa guide for {pkg.location}
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </AnimatedSection>
+
+              {/* Internal links box (destination content system) */}
+              <AnimatedSection animation="fade-up" delay={60}>
+                <div className="glass-card p-6">
+                  <h2 className="text-xl font-serif font-bold text-foreground">Explore {pkg.location}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Helpful guides to match search intent (things to do, best time, trip cost, FAQs).
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {[
+                      { slug: 'things-to-do', label: 'Things to do' },
+                      { slug: 'best-time-to-visit', label: 'Best time' },
+                      { slug: 'itinerary-5-days', label: '5-day itinerary' },
+                      { slug: 'trip-cost', label: 'Trip cost' },
+                      { slug: 'faqs', label: 'FAQs' },
+                    ].map((l) => (
+                      <Link
+                        key={l.slug}
+                        to={`/${destinationSlug}/${l.slug}`}
+                        className="px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium hover:bg-secondary/15 transition-colors"
+                      >
+                        {l.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* (Removed) Phuket-specific long-tail content block from top area as requested */}
 
               {/* Currency Info (International) */}
               {pkg.currency && (
@@ -1617,7 +1708,7 @@ const PackageDetails = () => {
 
               {/* Famous Places */}
               <AnimatedSection animation="fade-up" delay={100}>
-                <div className="glass-card p-6">
+                <div id="places" className="glass-card p-6 scroll-mt-28">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
                       <Camera className="w-5 h-5 text-secondary" />
@@ -1636,7 +1727,7 @@ const PackageDetails = () => {
 
               {/* Local Cuisine */}
               <AnimatedSection animation="fade-up" delay={200}>
-                <div className="glass-card p-6">
+                <div id="cuisine" className="glass-card p-6 scroll-mt-28">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
                       <Utensils className="w-5 h-5 text-secondary" />
@@ -1655,10 +1746,10 @@ const PackageDetails = () => {
 
               {/* Attractions */}
               <AnimatedSection animation="fade-up" delay={300}>
-                <div className="glass-card p-6">
+                <div id="attractions" className="glass-card p-6 scroll-mt-28">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Star className="w-5 h-5 text-secondary" />
+                      <Sparkles className="w-5 h-5 text-secondary" />
                     </div>
                     <h2 className="text-xl font-serif font-bold text-foreground">Popular Attractions</h2>
                   </div>
@@ -1674,7 +1765,7 @@ const PackageDetails = () => {
 
               {/* Itinerary */}
               <AnimatedSection animation="fade-up" delay={400}>
-                <div className="glass-card p-6">
+                <div id="itinerary" className="glass-card p-6 scroll-mt-28">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
                       <Map className="w-5 h-5 text-secondary" />
@@ -1696,14 +1787,16 @@ const PackageDetails = () => {
 
               {/* Gallery */}
               <AnimatedSection animation="fade-up" delay={500}>
-                <div className="glass-card p-6">
+                <div id="gallery" className="glass-card p-6 scroll-mt-28">
                   <h2 className="text-xl font-serif font-bold text-foreground mb-4">Gallery</h2>
                   <div className="grid grid-cols-3 gap-4">
                     {pkg.gallery.map((img, i) => (
                       <div key={i} className="aspect-square rounded-lg overflow-hidden">
-                        <SmartImage
+                        <img
                           src={img}
-                          alt={`${pkg.title} ${i + 1}`}
+                          alt={`${pkg.title} tour package photo ${i + 1} - ${pkg.location}`}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                         />
                       </div>
@@ -1714,7 +1807,7 @@ const PackageDetails = () => {
 
               {/* Package FAQs */}
               <AnimatedSection animation="fade-up" delay={600}>
-                <div className="glass-card p-6">
+                <div id="faqs" className="glass-card p-6 scroll-mt-28">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
                       <HelpCircle className="w-5 h-5 text-secondary" />
@@ -1766,7 +1859,7 @@ const PackageDetails = () => {
                       </div>
                     </div>
                     <div className="flex items-start gap-3 p-3 rounded-lg bg-background/50">
-                      <Star className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-foreground text-sm">10+ Years Experience</p>
                         <p className="text-xs text-muted-foreground">500+ happy travelers</p>
@@ -1788,29 +1881,31 @@ const PackageDetails = () => {
                     </p>
                     <div className="grid gap-3">
                       {relatedPackages.map((rPkg) => (
-                        <Link
+                        <Link 
                           key={rPkg.id}
                           to={`/package/${rPkg.id}`}
                           className="flex items-center gap-4 p-3 rounded-lg bg-muted/30 hover:bg-muted transition-colors group"
                         >
-                          <SmartImage
-                            src={rPkg.image}
-                            alt={rPkg.title}
+                          <img 
+                            src={rPkg.image} 
+                            alt={`${rPkg.title} tour package - ${rPkg.location}`}
                             className="w-16 h-16 rounded-lg object-cover"
-                            containerClassName="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0"
+                            loading="lazy"
                           />
                           <div className="flex-1">
                             <h3 className="font-medium text-foreground group-hover:text-secondary transition-colors">
                               {rPkg.title}
                             </h3>
-                            <p className="text-sm text-muted-foreground">{rPkg.duration} • {rPkg.price}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {rPkg.duration} • {rPkg.price} • Best time: {getBestTimeToVisit({ tag: rPkg.tag, location: rPkg.location })}
+                            </p>
                           </div>
                           <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-secondary transition-colors" />
                         </Link>
                       ))}
                     </div>
                     <div className="mt-4 pt-4 border-t border-border/50">
-                      <Link
+                      <Link 
                         to={pkg.type === 'domestic' ? '/domestic-packages' : '/international-packages'}
                         className="text-secondary hover:underline text-sm font-medium flex items-center gap-2"
                       >
@@ -1833,6 +1928,8 @@ const PackageDetails = () => {
                       <p className="text-4xl font-serif font-bold text-secondary">{pkg.price}</p>
                       <p className="text-sm text-muted-foreground">per person</p>
                     </div>
+
+                    {/* (Removed) Local pickup/office block from the page UI as requested */}
 
                     <Button onClick={handleWhatsApp} className="w-full btn-gold text-base py-6 mb-4">
                       Book Now

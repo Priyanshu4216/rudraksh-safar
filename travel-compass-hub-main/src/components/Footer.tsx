@@ -1,14 +1,13 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useTheme } from './ThemeProvider';
-import logoDark from '@/assets/images/logo-dark-original.jpg';
-import logoLight from '@/assets/images/logo-light-theme.png';
-
+import { forwardRef, useState } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useTheme } from './ThemeProvider';
+import logoLight from '@/assets/logo-light.png';
+import logoDark from '@/assets/logo-dark.png';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -19,16 +18,16 @@ const quickLinks = [
 ];
 
 const legalLinks = [
-  { name: 'Privacy Policy', id: 'privacy' },
-  { name: 'Terms & Conditions', id: 'terms' },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms & Conditions', href: '/terms-conditions' },
   { name: 'Cookie Policy', id: 'cookies' },
-  { name: 'Disclaimer', id: 'disclaimer' },
-  { name: 'Refund Policy', id: 'refund' },
+  { name: 'Disclaimer', href: '/disclaimer' },
+  { name: 'Refund Policy', href: '/refund-policy' },
 ];
 
 const supportLinks = [
   { name: 'Contact Support', href: '#contact' },
-  { name: 'Cancellation Policy', id: 'cancellation' },
+  { name: 'Cancellation Policy', href: '/cancellation-policy' },
   { name: 'Booking Policy', id: 'booking' },
   { name: 'FAQs', href: '#faqs' },
 ];
@@ -39,395 +38,377 @@ const socialLinks = [
   { icon: Youtube, href: 'https://www.youtube.com/@RudrakshSafar', label: 'YouTube' },
 ];
 
+// Footer uses inverted logos - light logo in light theme (dark footer bg), dark logo in dark theme
+const getFooterLogo = (theme: string) => {
+  return theme === 'dark' ? logoLight : logoDark;
+};
+
 const legalContent = {
   privacy: {
     title: 'Privacy Policy',
     content: `
-      <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
-      
-      <p>Rudraksh Safar ("we," "us," or "our"), located at GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India, is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website or use our travel services.</p>
-      
+      <p><strong>Last Updated:</strong> January 2026</p>
+
+      <p>Rudraksh Safar (“we”, “us”, “our”), located at GE Road, Bhilai 3, Chhattisgarh – 490021, India, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information.</p>
+      <p>By using our website or services, you agree to the terms of this Privacy Policy.</p>
+
       <h3>1. Information We Collect</h3>
-      <p>We may collect the following categories of personal information:</p>
+      <p>We may collect the following types of information:</p>
+      <h4>a) Personal &amp; Identity Information</h4>
       <ul>
-        <li><strong>Identity Information:</strong> Full name, date of birth, gender, nationality, passport details, and government-issued identification numbers as required for travel bookings.</li>
-        <li><strong>Contact Information:</strong> Email address, phone number, postal address, and emergency contact details.</li>
-        <li><strong>Travel Information:</strong> Travel preferences, dietary requirements, medical conditions relevant to travel, frequent flyer numbers, and past travel history with us.</li>
-        <li><strong>Financial Information:</strong> Payment card details, bank account information, and billing address (processed through secure third-party payment gateways).</li>
-        <li><strong>Technical Information:</strong> IP address, browser type, device information, operating system, and cookies data.</li>
-        <li><strong>Communication Data:</strong> Records of correspondence, feedback, and reviews you provide to us.</li>
+        <li>Full name</li>
+        <li>Date of birth</li>
+        <li>Passport details (for travel bookings only)</li>
       </ul>
-      
-      <h3>2. Legal Basis for Processing</h3>
-      <p>We process your personal data based on:</p>
+      <h4>b) Contact Information</h4>
       <ul>
-        <li><strong>Contractual Necessity:</strong> To fulfill our obligations under travel booking contracts.</li>
-        <li><strong>Legal Obligations:</strong> To comply with applicable laws, including visa requirements and tax regulations.</li>
-        <li><strong>Legitimate Interests:</strong> To improve our services and prevent fraud.</li>
-        <li><strong>Consent:</strong> For marketing communications and non-essential cookies.</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Residential address</li>
       </ul>
-      
-      <h3>3. How We Use Your Information</h3>
+      <h4>c) Travel Information</h4>
       <ul>
-        <li>Processing and managing your travel bookings, reservations, and inquiries.</li>
-        <li>Communicating booking confirmations, travel updates, and itinerary changes.</li>
-        <li>Facilitating visa applications and travel documentation requirements.</li>
-        <li>Processing payments and issuing invoices and receipts.</li>
-        <li>Providing customer support and resolving complaints.</li>
-        <li>Sending promotional offers and newsletters (with your consent).</li>
-        <li>Improving our website, services, and customer experience.</li>
-        <li>Complying with legal and regulatory requirements.</li>
-        <li>Detecting and preventing fraud and security threats.</li>
+        <li>Travel preferences</li>
+        <li>Dietary or special requirements</li>
+        <li>Booking history with us</li>
       </ul>
-      
-      <h3>4. Sharing of Information</h3>
-      <p>We may share your personal information with:</p>
+      <h4>d) Financial Information</h4>
+      <p>Payment details processed only through secure third-party payment gateways (We do not store card or banking details on our servers.)</p>
+      <h4>e) Technical Information</h4>
       <ul>
-        <li><strong>Service Providers:</strong> Airlines, hotels, transport operators, tour guides, and other third-party suppliers necessary to fulfill your travel arrangements.</li>
-        <li><strong>Government Authorities:</strong> Immigration, customs, and security agencies as required by law.</li>
-        <li><strong>Payment Processors:</strong> Secure third-party payment gateways for transaction processing.</li>
-        <li><strong>Insurance Providers:</strong> When you purchase travel insurance through us.</li>
-        <li><strong>Legal Requirements:</strong> When required by law, court order, or governmental authority.</li>
+        <li>IP address</li>
+        <li>Browser type</li>
+        <li>Device information</li>
+        <li>Cookies and usage data</li>
       </ul>
-      <p>We do not sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
-      
-      <h3>5. International Data Transfers</h3>
-      <p>Your information may be transferred to and processed in countries outside India for the purpose of fulfilling international travel bookings. We ensure appropriate safeguards are in place to protect your data in accordance with applicable data protection laws.</p>
-      
-      <h3>6. Data Retention</h3>
-      <p>We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, typically for a period of 7 years from the date of your last transaction, or as required by applicable laws and regulations.</p>
-      
-      <h3>7. Your Rights</h3>
-      <p>Subject to applicable law, you have the right to:</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We use your data to:</p>
       <ul>
-        <li>Access and obtain a copy of your personal data.</li>
-        <li>Rectify inaccurate or incomplete information.</li>
-        <li>Request deletion of your personal data (subject to legal retention requirements).</li>
-        <li>Object to or restrict processing of your data.</li>
-        <li>Withdraw consent for marketing communications.</li>
-        <li>Data portability where technically feasible.</li>
+        <li>Process and manage bookings and inquiries</li>
+        <li>Send booking confirmations, updates, and itinerary details</li>
+        <li>Assist with visa and documentation processes</li>
+        <li>Process payments and generate invoices</li>
+        <li>Provide customer support and complaint resolution</li>
+        <li>Improve our services and website experience</li>
+        <li>Send promotional communication only with your consent</li>
+        <li>Comply with legal and regulatory requirements</li>
       </ul>
-      <p>To exercise these rights, contact us at rudrakshsafar@gmail.com or call +91 92291 50311.</p>
-      
-      <h3>8. Data Security</h3>
-      <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
-      
-      <h3>9. Children's Privacy</h3>
-      <p>Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children without parental consent. Travel bookings for minors must be made by a parent or legal guardian.</p>
-      
-      <h3>10. Third-Party Links</h3>
-      <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to read their privacy policies before providing any personal information.</p>
-      
-      <h3>11. Changes to This Policy</h3>
-      <p>We may update this Privacy Policy periodically. The "Last Updated" date at the top indicates when revisions were made. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
-      
-      <h3>12. Contact Us</h3>
-      <p>For any privacy-related questions or concerns, contact us at:</p>
+
+      <h3>3. Data Sharing</h3>
+      <p>We may share your information only with:</p>
+      <ul>
+        <li><strong>Service Providers:</strong> Airlines, hotels, transport operators, tour partners</li>
+        <li><strong>Government Authorities:</strong> Immigration, customs, or regulatory bodies as required by law</li>
+        <li><strong>Payment Processors:</strong> Secure third-party gateways for transaction processing</li>
+      </ul>
+      <p><strong>We do not sell, rent, or trade your personal data to any third party.</strong></p>
+
+      <h3>4. Data Retention</h3>
+      <ul>
+        <li>Up to 7 years from your last transaction, or</li>
+        <li>As required by applicable laws and regulations</li>
+      </ul>
+      <p>After this period, data is securely deleted or anonymized.</p>
+
+      <h3>5. Your Rights</h3>
+      <p>Subject to applicable Indian laws, you have the right to:</p>
+      <ul>
+        <li>Access your personal data</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion (subject to legal obligations)</li>
+        <li>Withdraw consent for marketing communication</li>
+      </ul>
+      <p>Requests can be made using the contact details below.</p>
+
+      <h3>6. Data Security</h3>
+      <p>We implement appropriate technical and organizational security measures to protect your information against unauthorized access, loss, or misuse. However, no method of online transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+      <h3>7. Cookies</h3>
+      <p>Our website may use cookies to improve user experience, analyze traffic, and personalize content. You may disable cookies through your browser settings if you choose.</p>
+
+      <h3>8. Third-Party Links</h3>
+      <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those websites.</p>
+
+      <h3>9. Policy Updates</h3>
+      <p>This Privacy Policy may be updated periodically. Any changes will be posted on this page. Continued use of our website or services after updates constitutes acceptance of the revised policy.</p>
+
+      <h3>10. Contact Us</h3>
       <p><strong>Rudraksh Safar</strong><br/>
-      GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021<br/>
-      Email: rudrakshsafar@gmail.com | Phone: +91 92291 50311</p>
+      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Email: rudrakshsafar@gmail.com<br/>
+      Phone: +91 92291 50311</p>
     `,
   },
   terms: {
     title: 'Terms & Conditions',
     content: `
-      <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
-      
-      <p>These Terms and Conditions ("Terms") govern your use of the Rudraksh Safar website and all travel services provided by Rudraksh Safar ("Company," "we," "us," or "our"). By accessing our website or booking any travel service, you agree to be bound by these Terms. If you do not agree, please do not use our services.</p>
-      
-      <h3>1. Definitions</h3>
+      <p><strong>Last Updated:</strong> January 2026</p>
+
+      <p>By accessing this website or booking any service through Rudraksh Safar, you agree to be bound by the following Terms &amp; Conditions. Please read them carefully before proceeding.</p>
+
+      <h3>1. Role of Rudraksh Safar</h3>
+      <p>Rudraksh Safar acts solely as an intermediary between customers and third-party service providers such as airlines, hotels, transport operators, cruise lines, and tour operators.</p>
+      <p>We do not own, operate, or control these services. All services are provided directly by the respective suppliers under their own terms and conditions.</p>
+      <p>Rudraksh Safar is not responsible for any changes, deficiencies, delays, or failures in services provided by third-party suppliers.</p>
+
+      <h3>2. Booking &amp; Confirmation</h3>
       <ul>
-        <li><strong>"Client," "You," "Your":</strong> Any person or entity using our services or website.</li>
-        <li><strong>"Services":</strong> All travel-related services including but not limited to tour packages, flight bookings, hotel reservations, visa assistance, and travel consultancy.</li>
-        <li><strong>"Third-Party Suppliers":</strong> Airlines, hotels, transport operators, tour operators, and other service providers engaged to fulfill your travel arrangements.</li>
-        <li><strong>"Booking":</strong> A confirmed reservation for any travel service.</li>
+        <li>All inquiries are non-binding expressions of interest.</li>
+        <li>Bookings are confirmed only after receipt of required deposit/payment, written confirmation from Rudraksh Safar, and availability confirmation from service providers.</li>
+        <li>All prices quoted are indicative and subject to change until final confirmation.</li>
+        <li>Rudraksh Safar reserves the right to correct any pricing or typographical errors.</li>
       </ul>
-      
-      <h3>2. Role of Rudraksh Safar</h3>
-      <p><strong>IMPORTANT:</strong> Rudraksh Safar acts solely as an intermediary and facilitator between you and Third-Party Suppliers. We are not the principal provider of travel services such as accommodation, transportation, tours, or activities. All such services are provided directly by the respective Third-Party Suppliers under their own terms and conditions.</p>
-      <p>We exercise reasonable care in selecting reputable suppliers but do not own, operate, manage, or control any aircraft, hotels, transportation, or other facilities used in connection with the travel services. Our responsibility is limited to making reservations on your behalf.</p>
-      
-      <h3>3. Booking Process & Confirmation</h3>
+
+      <h3>3. Payment Terms</h3>
       <ul>
-        <li>All inquiries submitted through our website or WhatsApp are non-binding expressions of interest.</li>
-        <li>A booking is confirmed only upon: (a) receipt of required deposit/payment, (b) written confirmation from Rudraksh Safar, and (c) subject to availability from Third-Party Suppliers.</li>
-        <li>Prices quoted are estimates based on current rates and may change until confirmed in writing.</li>
-        <li>Final itineraries, prices, and terms will be communicated in the booking confirmation document.</li>
+        <li>A non-refundable deposit (typically 25%–50%) is required to initiate bookings.</li>
+        <li>Full payment must be completed 30 days before domestic travel and 45 days before international travel.</li>
+        <li>Failure to make timely payment may result in automatic cancellation without liability to Rudraksh Safar.</li>
       </ul>
-      
-      <h3>4. Payment Terms</h3>
-      <ul>
-        <li>A non-refundable deposit (typically 25-50% of total cost) is required to initiate booking.</li>
-        <li>Full payment is due as specified in your booking confirmation, typically 30 days before departure for domestic trips and 45 days for international trips.</li>
-        <li>Payment can be made via bank transfer, credit/debit card, or UPI. All payment processing is handled through secure third-party gateways.</li>
-        <li>Failure to make timely payments may result in automatic cancellation of your booking.</li>
-        <li>All prices are quoted in Indian Rupees (INR) unless otherwise specified.</li>
-      </ul>
-      
-      <h3>5. Travel Documentation</h3>
+
+      <h3>4. Cancellations &amp; Refunds</h3>
+      <p>All cancellations and refunds are governed strictly by our Cancellation Policy and Refund Policy available on our website. Refund timelines depend on supplier processing and may take 7–21 working days after approval.</p>
+
+      <h3>5. Your Responsibilities</h3>
       <p>You are solely responsible for:</p>
       <ul>
-        <li>Ensuring valid passports with at least 6 months validity from return date.</li>
-        <li>Obtaining necessary visas, travel permits, and entry requirements.</li>
-        <li>Carrying required health certificates, vaccination records, and travel insurance documents.</li>
-        <li>Complying with all immigration, customs, and security regulations.</li>
+        <li>Holding a valid passport with minimum 6 months validity</li>
+        <li>Obtaining required visas, permits, and approvals</li>
+        <li>Carrying necessary health certificates and travel insurance</li>
+        <li>Complying with immigration, customs, and local laws</li>
+        <li>Declaring any medical conditions affecting travel</li>
       </ul>
-      <p>While we may provide visa assistance services, obtaining the visa remains your responsibility. We are not liable for any denied entry, deportation, or travel disruption due to documentation issues.</p>
-      
-      <h3>6. Health & Fitness</h3>
-      <p>You must disclose any medical conditions, disabilities, dietary requirements, or mobility limitations that may affect your travel. Certain tours require a minimum level of physical fitness. We reserve the right to refuse participation if we reasonably believe your health condition poses a risk to yourself or others.</p>
-      
-      <h3>7. Changes & Modifications</h3>
-      <ul>
-        <li><strong>By You:</strong> Requests for changes to confirmed bookings are subject to availability and may incur additional charges imposed by Third-Party Suppliers.</li>
-        <li><strong>By Us:</strong> We reserve the right to modify itineraries due to weather conditions, safety concerns, local regulations, or operational requirements. We will endeavor to provide equivalent alternatives without additional cost.</li>
-        <li><strong>By Third-Party Suppliers:</strong> Airlines, hotels, and other suppliers may change schedules, routes, or services. We will communicate such changes promptly but are not liable for disruptions caused by suppliers.</li>
-      </ul>
-      
+      <p>Rudraksh Safar shall not be liable for denied boarding, denied entry, or trip disruption due to documentation or compliance failures.</p>
+
+      <h3>6. Travel Insurance</h3>
+      <p>We strongly recommend comprehensive travel insurance covering trip cancellation, medical emergencies, evacuation, and baggage loss. Rudraksh Safar assumes no responsibility for losses arising from lack of insurance coverage.</p>
+
+      <h3>7. Supplier Changes</h3>
+      <p>Airlines, hotels, and service providers may change schedules, services, routes, or facilities without prior notice. Rudraksh Safar is not responsible for such operational changes.</p>
+
       <h3>8. Limitation of Liability</h3>
-      <p><strong>To the maximum extent permitted by law:</strong></p>
+      <p>To the maximum extent permitted by law:</p>
       <ul>
-        <li>Rudraksh Safar shall not be liable for any death, injury, illness, damage, delay, loss, or expense arising from acts or omissions of Third-Party Suppliers, including airlines, hotels, transport operators, tour guides, or any other service providers.</li>
-        <li>We are not liable for any losses arising from Force Majeure events including but not limited to natural disasters, pandemics, civil unrest, war, terrorism, strikes, or government actions.</li>
-        <li>Our maximum aggregate liability for any claim shall not exceed the total amount paid by you for the specific service giving rise to the claim.</li>
-        <li>We are not liable for indirect, incidental, consequential, or punitive damages.</li>
+        <li>Rudraksh Safar is not liable for acts or omissions of third-party suppliers.</li>
+        <li>Rudraksh Safar is not liable for force majeure events including natural disasters, pandemics, strikes, or civil unrest.</li>
+        <li>Maximum liability shall not exceed the amount paid for the specific service booked.</li>
+        <li>Rudraksh Safar is not liable for indirect, incidental, or consequential damages.</li>
       </ul>
-      
-      <h3>9. Indemnification</h3>
-      <p>You agree to indemnify and hold harmless Rudraksh Safar, its directors, employees, and agents from any claims, damages, losses, or expenses arising from your breach of these Terms, your violation of any law, or your conduct during travel.</p>
-      
-      <h3>10. Travel Insurance</h3>
-      <p>We strongly recommend purchasing comprehensive travel insurance covering trip cancellation, medical emergencies, evacuation, baggage loss, and personal liability. Rudraksh Safar is not an insurance provider and assumes no liability for uninsured losses.</p>
-      
-      <h3>11. Intellectual Property</h3>
-      <p>All content on our website including text, images, logos, and graphics is the intellectual property of Rudraksh Safar or its licensors. Unauthorized use, reproduction, or distribution is prohibited.</p>
-      
-      <h3>12. Governing Law & Dispute Resolution</h3>
-      <ul>
-        <li>These Terms are governed by the laws of India.</li>
-        <li>Any disputes shall first be attempted to be resolved through mutual negotiation.</li>
-        <li>Unresolved disputes shall be subject to the exclusive jurisdiction of the courts in Durg, Chhattisgarh, India.</li>
-      </ul>
-      
-      <h3>13. Severability</h3>
-      <p>If any provision of these Terms is found invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
-      
-      <h3>14. Contact Information</h3>
+
+      <h3>9. Website Usage</h3>
+      <p>Unauthorized copying, scraping, reproduction, or commercial use of website content, images, or text is strictly prohibited.</p>
+
+      <h3>10. Modification of Terms</h3>
+      <p>Rudraksh Safar reserves the right to update or modify these Terms &amp; Conditions at any time without prior notice. Continued use of the website constitutes acceptance of revised terms.</p>
+
+      <h3>11. Governing Law &amp; Jurisdiction</h3>
+      <p>These Terms shall be governed by the laws of India. All disputes shall be subject to the exclusive jurisdiction of courts in Durg, Chhattisgarh, India.</p>
+
+      <h3>12. Contact Information</h3>
       <p><strong>Rudraksh Safar</strong><br/>
-      GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021<br/>
-      Email: rudrakshsafar@gmail.com | Phone: +91 92291 50311</p>
+      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Email: rudrakshsafar@gmail.com<br/>
+      Phone: +91 92291 50311</p>
     `,
   },
   cookies: {
     title: 'Cookie Policy',
     content: `
-      <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
-      
-      <p>This Cookie Policy explains how Rudraksh Safar uses cookies and similar tracking technologies on our website. By continuing to use our website, you consent to the use of cookies as described herein.</p>
-      
+      <p><strong>Effective Date:</strong> January 14, 2026<br/>
+      <strong>Last Updated:</strong> January 14, 2026</p>
+
+      <p>This Cookie Policy explains how Rudraksh Safar (“we”, “us”, “our”) uses cookies and similar tracking technologies on our website. By continuing to use our website, you consent to the use of cookies in accordance with this policy.</p>
+
       <h3>1. What Are Cookies?</h3>
-      <p>Cookies are small text files stored on your device (computer, tablet, or mobile) when you visit a website. They help websites remember your preferences, understand how you use the site, and improve your browsing experience.</p>
-      
+      <p>Cookies are small text files stored on your device (computer, tablet, or mobile) when you visit a website. They help websites remember user preferences, improve website functionality, analyze website performance, and provide personalized experiences. Cookies do not give us access to your device or personal files.</p>
+
       <h3>2. Types of Cookies We Use</h3>
-      
       <h4>a) Strictly Necessary Cookies</h4>
-      <p>Essential for website functionality. These cookies enable core features like security, network management, and accessibility. You cannot opt out of these cookies as they are necessary for the website to function.</p>
-      
-      <h4>b) Performance & Analytics Cookies</h4>
-      <p>Help us understand how visitors interact with our website by collecting anonymous information about page visits, traffic sources, and user behavior. We use this data to improve our website and services.</p>
-      
+      <p>These cookies are essential for the website to function properly. They enable core features such as security, network management, and accessibility. These cookies cannot be disabled.</p>
+
+      <h4>b) Performance &amp; Analytics Cookies</h4>
+      <p>These cookies collect anonymous information about page visits, traffic sources, and user behavior. We use this data to improve website performance and user experience.</p>
+
       <h4>c) Functionality Cookies</h4>
-      <p>Remember your preferences and settings (such as language, region, or display preferences) to provide a more personalized experience.</p>
-      
-      <h4>d) Marketing & Advertising Cookies</h4>
-      <p>Used to deliver relevant advertisements and track the effectiveness of our marketing campaigns. These cookies may be set by third-party advertising networks with our permission.</p>
-      
+      <p>These cookies remember your preferences such as language selection, region, and display settings. They help provide a more personalized browsing experience.</p>
+
+      <h4>d) Marketing &amp; Advertising Cookies</h4>
+      <p>These cookies are used to deliver relevant advertisements, measure campaign effectiveness, and support remarketing activities. They may be placed by third-party advertising partners with our permission.</p>
+
       <h3>3. Third-Party Cookies</h3>
-      <p>We may allow third-party service providers to place cookies on your device for:</p>
+      <p>We may allow third-party service providers to place cookies for:</p>
       <ul>
         <li>Analytics services (e.g., Google Analytics)</li>
         <li>Social media integration (e.g., Facebook, Instagram)</li>
         <li>Advertising and remarketing</li>
         <li>Payment processing</li>
       </ul>
-      <p>These third parties have their own privacy and cookie policies, which we encourage you to review.</p>
-      
+      <p>These third parties operate under their own privacy and cookie policies. We encourage you to review their policies separately.</p>
+
       <h3>4. Cookie Retention</h3>
       <ul>
-        <li><strong>Session Cookies:</strong> Temporary cookies deleted when you close your browser.</li>
-        <li><strong>Persistent Cookies:</strong> Remain on your device for a set period (typically 30 days to 2 years) or until you delete them.</li>
+        <li><strong>Session Cookies:</strong> Deleted automatically when you close your browser.</li>
+        <li><strong>Persistent Cookies:</strong> Remain on your device for a defined period (typically 30 days to 2 years) or until manually deleted.</li>
       </ul>
-      
+
       <h3>5. Managing Cookies</h3>
-      <p>You can control and manage cookies through your browser settings:</p>
+      <p>You can manage or disable cookies through your browser settings:</p>
       <ul>
-        <li><strong>Chrome:</strong> Settings > Privacy and Security > Cookies</li>
-        <li><strong>Firefox:</strong> Options > Privacy & Security > Cookies</li>
-        <li><strong>Safari:</strong> Preferences > Privacy > Cookies</li>
-        <li><strong>Edge:</strong> Settings > Privacy & Security > Cookies</li>
+        <li><strong>Chrome:</strong> Settings → Privacy &amp; Security → Cookies</li>
+        <li><strong>Firefox:</strong> Options → Privacy &amp; Security → Cookies</li>
+        <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
+        <li><strong>Edge:</strong> Settings → Privacy &amp; Security → Cookies</li>
       </ul>
-      <p><strong>Note:</strong> Disabling cookies may affect website functionality and your user experience.</p>
-      
-      <h3>6. Do Not Track</h3>
-      <p>Some browsers offer a "Do Not Track" feature. Our website does not currently respond to DNT signals as there is no industry standard for compliance.</p>
-      
+      <p>Please note that disabling cookies may affect certain website features and overall user experience.</p>
+
+      <h3>6. Do Not Track (DNT)</h3>
+      <p>Some browsers provide a “Do Not Track” feature. At present, our website does not respond to DNT signals, as there is no universally accepted standard for implementation.</p>
+
       <h3>7. Updates to This Policy</h3>
-      <p>We may update this Cookie Policy periodically. The "Last Updated" date indicates when changes were made.</p>
-      
+      <p>We may update this Cookie Policy from time to time. Any changes will be reflected by updating the “Last Updated” date at the top of this page. Continued use of the website after changes constitutes acceptance of the updated policy.</p>
+
       <h3>8. Contact Us</h3>
-      <p>For questions about our use of cookies, contact us at rudrakshsafar@gmail.com.</p>
+      <p>If you have any questions regarding this Cookie Policy, please contact:</p>
+      <p>Email: rudrakshsafar@gmail.com</p>
     `,
   },
   disclaimer: {
     title: 'Disclaimer',
     content: `
-      <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
-      
-      <p>Please read this disclaimer carefully before using the Rudraksh Safar website or services. By accessing our website or engaging our services, you acknowledge and accept the following disclaimers.</p>
-      
-      <h3>1. General Disclaimer</h3>
-      <p>The information provided on this website is for general informational purposes only. While we strive to keep information accurate and up-to-date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on this website.</p>
-      
-      <h3>2. Visual Representations</h3>
-      <p>Photographs, images, and videos displayed on this website are for illustrative purposes only. They may not accurately represent actual accommodations, destinations, attractions, or experiences. Images may be sourced from suppliers, stock libraries, or promotional materials. Actual conditions may vary significantly due to seasonality, renovation, or other factors.</p>
-      
-      <h3>3. Pricing Disclaimer</h3>
+      <p><strong>Last Updated:</strong> January 2026</p>
+
+      <p>Please read this Disclaimer carefully before using the Rudraksh Safar website or services. By accessing or using our website, you agree to the terms stated below.</p>
+
+      <h3>1. General Information</h3>
+      <p>All information provided on this website is for general informational purposes only. While we strive to keep content accurate and up to date, Rudraksh Safar makes no warranties or representations, express or implied, regarding the completeness, accuracy, reliability, suitability, or availability of any information, products, services, or related graphics.</p>
+      <p>Any reliance you place on such information is strictly at your own risk.</p>
+
+      <h3>2. Role as an Intermediary</h3>
+      <p>Rudraksh Safar acts solely as an intermediary between travelers and third-party service providers, including but not limited to airlines, hotels, transport operators, tour operators, and visa processing agencies. We do not own, operate, manage, or control these services. All services are provided directly by the respective suppliers under their own terms and conditions.</p>
+
+      <h3>3. Travel Information Disclaimer</h3>
       <ul>
-        <li>"Starting from" prices are indicative only and based on specific dates, seasons, room categories, and occupancy.</li>
-        <li>Prices are subject to change without notice based on availability, currency fluctuations, taxes, and surcharges.</li>
-        <li>Final confirmed prices will be communicated in your booking confirmation.</li>
-        <li>Additional costs such as visa fees, travel insurance, tips, personal expenses, and optional activities are not included unless explicitly stated.</li>
+        <li>Visa requirements, travel advisories, health regulations, and entry rules are subject to frequent change. Travelers must verify requirements with official government or embassy sources before travel.</li>
+        <li>Prices, availability, and itineraries are subject to change without prior notice.</li>
+        <li>Images on the website are for illustrative purposes only and may not reflect actual accommodations, transport, or destinations.</li>
+        <li>Weather conditions, seasonal information, and best travel periods are indicative and may vary.</li>
       </ul>
-      
-      <h3>4. Itinerary Disclaimer</h3>
-      <p>Published itineraries are subject to change without prior notice due to:</p>
+      <p>Rudraksh Safar shall not be responsible for discrepancies arising from such variations.</p>
+
+      <h3>4. No Professional Advice</h3>
+      <p>Content on this website does not constitute legal, financial, medical, immigration, or professional advice.</p>
       <ul>
-        <li>Weather and natural conditions</li>
-        <li>Local regulations and government directives</li>
-        <li>Safety and security concerns</li>
-        <li>Supplier operational requirements</li>
-        <li>Force Majeure events</li>
+        <li>For visa or immigration matters, consult the relevant embassy or authorized professionals.</li>
+        <li>For health-related travel advice, consult qualified medical professionals.</li>
       </ul>
-      <p>We will endeavor to provide equivalent alternatives when changes are necessary, but we are not liable for any inconvenience or losses resulting from such changes.</p>
-      
-      <h3>5. Third-Party Services Disclaimer</h3>
-      <p><strong>IMPORTANT:</strong> Rudraksh Safar acts as an intermediary and does not own, operate, or control any aircraft, hotels, vehicles, restaurants, or other facilities used in travel arrangements. All services are provided by independent Third-Party Suppliers under their own terms, conditions, and liability limitations. We expressly disclaim all liability for:</p>
+      <p>Rudraksh Safar is not responsible for decisions made based on website content.</p>
+
+      <h3>5. Third-Party Links</h3>
+      <p>Our website may contain links to external websites for user convenience. Rudraksh Safar has no control over the content, policies, or practices of such websites and accepts no responsibility for them. Inclusion of any external link does not imply endorsement.</p>
+
+      <h3>6. Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law:</p>
       <ul>
-        <li>Acts, omissions, or negligence of Third-Party Suppliers</li>
-        <li>Quality, safety, or suitability of third-party services</li>
-        <li>Delays, cancellations, or schedule changes by suppliers</li>
-        <li>Loss, damage, or theft of personal belongings</li>
-        <li>Injury, illness, or death during travel</li>
+        <li>Rudraksh Safar shall not be liable for any loss, damage, or inconvenience arising from the use of this website or services.</li>
+        <li>We are not responsible for acts, omissions, delays, or failures of third-party service providers.</li>
+        <li>We are not liable for losses caused by force majeure events including natural disasters, pandemics, war, terrorism, strikes, or government actions.</li>
+        <li>Travelers are solely responsible for their safety, insurance coverage, and compliance with local laws.</li>
       </ul>
-      
-      <h3>6. Travel Advisory Disclaimer</h3>
-      <p>Travelers are solely responsible for reviewing current travel advisories, health requirements, and entry regulations for their chosen destinations. We recommend checking official government sources such as the Ministry of External Affairs (MEA) travel advisories. We are not responsible for changes in entry requirements, health protocols, or travel restrictions.</p>
-      
-      <h3>7. Health & Safety Disclaimer</h3>
-      <p>Travel involves inherent risks. You travel at your own risk and are responsible for your own health, safety, and well-being. We strongly recommend:</p>
+
+      <h3>7. User Responsibility</h3>
+      <p>Users are responsible for:</p>
       <ul>
-        <li>Consulting healthcare providers before travel</li>
-        <li>Obtaining necessary vaccinations and medications</li>
-        <li>Purchasing comprehensive travel and medical insurance</li>
-        <li>Following all safety guidelines during travel</li>
+        <li>Verifying travel requirements with official sources</li>
+        <li>Ensuring valid travel documents</li>
+        <li>Reading supplier terms and conditions before booking</li>
+        <li>Obtaining comprehensive travel insurance</li>
+        <li>Respecting local laws, customs, and regulations</li>
       </ul>
-      
-      <h3>8. No Professional Advice</h3>
-      <p>Content on this website does not constitute professional travel, legal, financial, medical, or visa advice. For specific advice, please consult qualified professionals.</p>
-      
-      <h3>9. External Links Disclaimer</h3>
-      <p>Our website may contain links to external websites. We have no control over the content, privacy policies, or practices of these third-party sites and assume no responsibility for them.</p>
-      
-      <h3>10. Limitation of Liability</h3>
-      <p>To the fullest extent permitted by law, Rudraksh Safar, its directors, employees, and agents shall not be liable for any direct, indirect, incidental, consequential, special, or exemplary damages arising from your use of this website or our services.</p>
-      
-      <h3>11. Copyright Notice</h3>
-      <p>All content on this website is protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of any content is strictly prohibited.</p>
-      
-      <h3>12. Changes to Disclaimer</h3>
-      <p>We reserve the right to modify this disclaimer at any time. Continued use of our website constitutes acceptance of any changes.</p>
+
+      <h3>8. Changes to Disclaimer</h3>
+      <p>Rudraksh Safar reserves the right to modify this Disclaimer at any time without prior notice. Changes take effect immediately upon posting. Continued use of the website or services constitutes acceptance of the revised Disclaimer.</p>
+
+      <h3>9. Governing Law &amp; Jurisdiction</h3>
+      <p>This Disclaimer shall be governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Durg, Chhattisgarh, India.</p>
+
+      <h3>10. Contact Information</h3>
+      <p><strong>Rudraksh Safar</strong><br/>
+      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Email: rudrakshsafar@gmail.com<br/>
+      Phone: +91 92291 50311</p>
     `,
   },
   refund: {
     title: 'Refund Policy',
     content: `
-      <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
-      
-      <p><strong>PLEASE READ THIS POLICY CAREFULLY. IT CONTAINS IMPORTANT INFORMATION ABOUT REFUNDS AND YOUR RIGHTS.</strong></p>
-      
-      <h3>1. Understanding Our Role</h3>
-      <p><strong>IMPORTANT NOTICE:</strong> Rudraksh Safar operates as an intermediary travel agent and facilitator between you (the traveler) and various Third-Party Service Providers including, but not limited to, airlines, hotels, resorts, transport operators, tour companies, and other hospitality and travel service providers ("Service Providers").</p>
-      <p>We do not own, manage, or operate the hotels, flights, vehicles, or other services included in your travel arrangements. Therefore, <strong>refund decisions, policies, and processing are primarily governed by the respective Service Providers' terms and conditions</strong>, not solely by Rudraksh Safar.</p>
-      
-      <h3>2. How Refunds Are Determined</h3>
-      <p>When you request a cancellation or refund:</p>
+      <p><strong>Last Updated:</strong> January 2026</p>
+
+      <p>Rudraksh Safar acts solely as an intermediary between customers and third-party service providers such as airlines, hotels, transport operators, and tour suppliers. All refunds are governed primarily by the refund policies of these respective suppliers.</p>
+      <p>We facilitate the refund process on your behalf but do not control refund approvals, amounts, or timelines.</p>
+
+      <h3>1. Refund Eligibility</h3>
+      <p>Refunds may be applicable only under the following circumstances:</p>
       <ul>
-        <li>We will communicate your request to the relevant Service Providers (hotels, airlines, etc.).</li>
-        <li>The Service Providers will assess your request based on their own cancellation and refund policies.</li>
-        <li>The refund amount, if any, is determined entirely by the Service Providers' policies, booking conditions, and applicable laws.</li>
-        <li>We will relay the Service Providers' decision to you accurately and transparently.</li>
+        <li>Cancellation is made in accordance with our Cancellation Policy.</li>
+        <li>Services were not delivered as confirmed in writing.</li>
+        <li>Duplicate or excess payment was made due to technical or processing error.</li>
       </ul>
-      <p><strong>We have no authority to override, modify, or guarantee refunds from Service Providers.</strong></p>
-      
-      <h3>3. Service Provider Refund Policies</h3>
-      <p>Refund policies vary significantly among Service Providers:</p>
+      <p>Refund eligibility is always subject to supplier approval.</p>
+
+      <h3>2. Refund Process</h3>
       <ul>
-        <li><strong>Airlines:</strong> Most airline tickets have strict cancellation policies. Low-cost carriers often offer non-refundable fares. Refunds, if available, may be subject to cancellation fees.</li>
-        <li><strong>Hotels & Resorts:</strong> Policies range from fully refundable to non-refundable. Peak season and special rate bookings often have stricter policies.</li>
-        <li><strong>Tour Operators:</strong> Group tours and fixed departures typically have tiered cancellation charges based on proximity to departure date.</li>
-        <li><strong>Transport Services:</strong> Trains, buses, and cab services have their own cancellation policies.</li>
+        <li>Customer submits a cancellation or refund request via email or WhatsApp.</li>
+        <li>Rudraksh Safar verifies booking details and applicable supplier refund rules.</li>
+        <li>Refund request is formally initiated with the concerned suppliers.</li>
+        <li>Once refund is received from suppliers, the amount is transferred to the original payment method used by the customer.</li>
       </ul>
-      
-      <h3>4. Rudraksh Safar Service Fee</h3>
-      <p>Our service fee (if applicable) for booking facilitation, consultation, and itinerary planning is generally non-refundable as it compensates for services already rendered. This fee is separate from amounts paid to Service Providers.</p>
-      
-      <h3>5. Refund Processing</h3>
+
+      <h3>3. Refund Timeline</h3>
+      <p>Refund timelines depend on supplier processing and banking systems. Indicative timelines are:</p>
       <ul>
-        <li>Refund requests must be submitted in writing via email to rudrakshsafar@gmail.com or through WhatsApp.</li>
-        <li>Processing time depends on the Service Providers and may take 15-45 business days from the date of cancellation approval.</li>
-        <li>Refunds will be processed to the original payment method unless otherwise agreed.</li>
-        <li>Bank processing times may add additional days for the refund to reflect in your account.</li>
-        <li>Currency fluctuations and conversion fees may affect refund amounts for international transactions.</li>
+        <li><strong>Credit / Debit Card</strong> — 7–14 business days</li>
+        <li><strong>UPI / Net Banking</strong> — 5–10 business days</li>
+        <li><strong>Bank Transfer</strong> — 7–14 business days</li>
+        <li><strong>Forex Card</strong> — 14–21 business days</li>
       </ul>
-      
-      <h3>6. Non-Refundable Circumstances</h3>
-      <p>Refunds are typically not available in the following circumstances:</p>
+      <p>These timelines are approximate and may vary based on supplier response and bank processing cycles.</p>
+
+      <h3>4. Non-Refundable Items</h3>
+      <p>The following are generally non-refundable:</p>
       <ul>
-        <li>No-shows or failure to use booked services without prior cancellation.</li>
-        <li>Early departure or voluntary termination of travel.</li>
-        <li>Denied boarding or entry due to invalid travel documents.</li>
-        <li>Cancellation of non-refundable bookings as per Service Provider terms.</li>
-        <li>Force Majeure events beyond anyone's control.</li>
-        <li>Services already utilized or partially consumed.</li>
+        <li>Visa processing fees</li>
+        <li>Travel insurance premiums</li>
+        <li>Non-refundable airline tickets</li>
+        <li>Special event or attraction tickets</li>
+        <li>Service, convenience, and administrative fees</li>
+        <li>Peak season or promotional booking deposits (as per supplier policy)</li>
       </ul>
-      
-      <h3>7. Cancellations Due to Force Majeure</h3>
-      <p>In cases of Force Majeure (natural disasters, pandemics, civil unrest, war, government restrictions, etc.), refund policies of Service Providers shall apply. We will assist in communicating with Service Providers but cannot guarantee refunds. We encourage purchasing travel insurance to cover such events.</p>
-      
-      <h3>8. Disputes</h3>
-      <p>If you disagree with a refund decision:</p>
+
+      <h3>5. Partial Refunds</h3>
+      <p>If only part of a booking is cancelled or affected, refunds will be calculated proportionately based on supplier refund rules for each service component.</p>
+
+      <h3>6. Currency &amp; Charges</h3>
       <ul>
-        <li>Contact us first with your concerns and supporting documentation.</li>
-        <li>We will escalate your case to the relevant Service Providers on your behalf.</li>
-        <li>Final resolution rests with the Service Providers and applicable consumer protection laws.</li>
+        <li>Refunds are processed in the same currency as the original payment.</li>
+        <li>Any currency conversion differences or bank charges are not compensated by Rudraksh Safar.</li>
       </ul>
-      
-      <h3>9. Travel Insurance Recommendation</h3>
-      <p>We strongly recommend purchasing comprehensive travel insurance that includes trip cancellation coverage. Insurance can protect you against financial losses when refunds are not available from Service Providers.</p>
-      
-      <h3>10. Your Acknowledgment</h3>
-      <p>By booking with Rudraksh Safar, you acknowledge and accept that:</p>
+
+      <h3>7. Refund Disputes</h3>
+      <p>If you believe your refund has been incorrectly calculated:</p>
       <ul>
-        <li>Refund decisions are made by Service Providers, not Rudraksh Safar.</li>
-        <li>We act in good faith to communicate your requests but cannot guarantee outcomes.</li>
-        <li>You have reviewed and understood the cancellation policies of Service Providers before booking.</li>
+        <li>Contact us within 30 days of refund receipt.</li>
+        <li>Provide your booking ID and supporting documentation.</li>
+        <li>We will review and respond within 7 business days.</li>
       </ul>
-      
-      <h3>11. Contact Us</h3>
-      <p>For refund inquiries, contact us at:<br/>
-      <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
-      <strong>Phone:</strong> +91 92291 50311<br/>
-      <strong>WhatsApp:</strong> +91 92291 50311</p>
+
+      <h3>8. Important Disclaimer</h3>
+      <p>Rudraksh Safar does not guarantee refund approval, refund amount, or refund timelines, as these depend entirely on third-party suppliers. Our responsibility is limited to facilitating communication and refund processing.</p>
+
+      <h3>9. Contact for Refund Requests</h3>
+      <p>Email: rudrakshsafar@gmail.com<br/>
+      WhatsApp: +91 92291 50311<br/>
+      <strong>Subject Line:</strong> Refund Request- [Booking ID]</p>
     `,
   },
   cancellation: {
@@ -701,19 +682,23 @@ const legalContent = {
   },
 };
 
-const Footer = () => {
-  const { resolvedTheme } = useTheme();
+const Footer = forwardRef<HTMLElement>((_, ref) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<keyof typeof legalContent | null>(null);
-  const handleNavClick = (href: string) => {
-    if (location.pathname !== '/') {
-      window.location.href = '/' + href;
-      return;
-    }
+  const { theme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string) => {
+    // If on homepage, scroll to section
+    if (location.pathname === '/') {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on another page, go to homepage WITH hash (ensures the browser applies the anchor)
+      window.location.href = '/' + href;
     }
   };
 
@@ -724,17 +709,17 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-foreground text-primary-foreground" role="contentinfo" aria-label="Site footer">
+      <footer ref={ref} className="bg-foreground text-primary-foreground" role="contentinfo" aria-label="Site footer">
         {/* Main Footer */}
         <div className="container py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <img
-                  src={resolvedTheme === 'dark' ? logoDark : logoLight}
-                  alt="Rudraksh Safar Logo"
-                  className="h-16 w-auto object-contain"
+                <img 
+                  src={getFooterLogo(theme)} 
+                  alt="Rudraksh Safar" 
+                  className="h-12 w-auto object-contain"
                 />
               </div>
               <p className="text-primary-foreground/70 mb-6 text-sm leading-relaxed">
@@ -750,7 +735,7 @@ const Footer = () => {
                 <p className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-secondary" />
                   <a href={`tel:+${PHONE_NUMBER}`} className="text-primary-foreground/70 hover:text-secondary transition-colors">
-                    +91 92291 50311
+                    +91 94061 82174
                   </a>
                 </p>
                 <p className="flex items-center gap-3">
@@ -766,22 +751,22 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-6 text-lg" id="footer-quick-links">Quick Links</h3>
               <nav aria-labelledby="footer-quick-links">
-                <ul className="space-y-3">
-                  {quickLinks.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(link.href);
-                        }}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }}
+                      className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
               </nav>
             </div>
 
@@ -791,12 +776,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {legalLinks.map((link) => (
                   <li key={link.name}>
-                    <button
-                      onClick={() => openModal(link.id as keyof typeof legalContent)}
-                      className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left"
-                    >
-                      {link.name}
-                    </button>
+                    {'href' in link && link.href ? (
+                      <Link
+                        to={link.href}
+                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => openModal(link.id as keyof typeof legalContent)}
+                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left"
+                      >
+                        {link.name}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -808,17 +802,26 @@ const Footer = () => {
               <ul className="space-y-3 mb-8">
                 {supportLinks.map((link) => (
                   <li key={link.name}>
-                    {link.href ? (
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(link.href);
-                        }}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                      >
-                        {link.name}
-                      </a>
+                    {'href' in link && link.href ? (
+                      link.href.startsWith('#') ? (
+                        <a
+                          href={link.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavClick(link.href);
+                          }}
+                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        >
+                          {link.name}
+                        </Link>
+                      )
                     ) : (
                       <button
                         onClick={() => openModal(link.id as keyof typeof legalContent)}
@@ -838,6 +841,8 @@ const Footer = () => {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
                   >
@@ -868,12 +873,21 @@ const Footer = () => {
                   <ul className="space-y-3 pt-2">
                     {legalLinks.map((link) => (
                       <li key={link.name}>
-                        <button
-                          onClick={() => openModal(link.id as keyof typeof legalContent)}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                        >
-                          {link.name}
-                        </button>
+                        {'href' in link && link.href ? (
+                          <Link
+                            to={link.href}
+                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                          >
+                            {link.name}
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={() => openModal(link.id as keyof typeof legalContent)}
+                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                          >
+                            {link.name}
+                          </button>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -946,6 +960,8 @@ const Footer = () => {
       </Dialog>
     </>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

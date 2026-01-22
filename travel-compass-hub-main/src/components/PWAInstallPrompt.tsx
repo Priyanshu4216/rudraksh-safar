@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, X, Smartphone, Share } from 'lucide-react';
+import { Download, X, Share } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface BeforeInstallPromptEvent extends Event {
@@ -100,8 +100,14 @@ const PWAInstallPrompt = () => {
           </button>
 
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center flex-shrink-0">
-              <Smartphone className="w-6 h-6 text-secondary-foreground" />
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/10 border border-secondary/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img
+                src="/favicon.png"
+                alt="Rudraksh Safar app icon"
+                className="w-8 h-8 object-contain"
+                loading="eager"
+                decoding="async"
+              />
             </div>
             
             <div className="flex-1 min-w-0">

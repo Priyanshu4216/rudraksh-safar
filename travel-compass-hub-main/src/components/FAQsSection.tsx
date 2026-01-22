@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AnimatedSection from './AnimatedSection';
 import {
@@ -6,11 +7,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 
 const faqs = [
   {
     question: 'Which is the best travel agency in Bhilai for tour packages?',
-    answer: 'Rudraksh Safar is the best travel agency in Bhilai with 10+ years of experience and 500+ satisfied customers. Located on GE Road, we offer the cheapest domestic and international tour packages with 24/7 customer support. Contact us at +91-9229150311 for instant booking.',
+    answer: 'Rudraksh Safar is the best travel agency in Bhilai with 10+ years of experience and 500+ satisfied customers. Located on GE Road, we offer the cheapest domestic and international tour packages with 24/7 customer support. Contact us at +91-9406182174 for instant booking.',
   },
   {
     question: 'What are the cheapest tour packages available from Bhilai?',
@@ -30,7 +32,7 @@ const faqs = [
   },
   {
     question: 'How can I book a tour package with Rudraksh Safar?',
-    answer: 'Booking is simple! Contact us via WhatsApp at +91-9229150311, call our office, or visit us at GE Road, Bhilai 3. We offer instant booking confirmation, EMI options on packages above ₹25,000, and fully customizable itineraries. Home pickup available across Chhattisgarh.',
+    answer: 'Booking is simple! Contact us via WhatsApp at +91-9406182174, call our office, or visit us at GE Road, Bhilai 3. We offer instant booking confirmation, EMI options on packages above ₹25,000, and fully customizable itineraries. Home pickup available across Chhattisgarh.',
   },
   {
     question: 'What destinations do you offer packages for?',
@@ -89,6 +91,9 @@ const faqSchema = {
 };
 
 const FAQsSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleFaqs = useMemo(() => (showAll ? faqs : faqs.slice(0, 4)), [showAll]);
+
   return (
     <>
       {/* Inject FAQ Schema for AEO */}
@@ -117,7 +122,7 @@ const FAQsSection = () => {
 
           <AnimatedSection animation="fade-up" delay={200}>
             <Accordion type="single" collapsible className="w-full space-y-4">
-              {faqs.map((faq, index) => (
+              {visibleFaqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
@@ -143,6 +148,16 @@ const FAQsSection = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+
+            <div className="mt-8 flex justify-center">
+              <Button
+                variant="outline"
+                className="rounded-full"
+                onClick={() => setShowAll((v) => !v)}
+              >
+                {showAll ? 'Show less' : 'See more FAQs'}
+              </Button>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={400}>
@@ -153,7 +168,7 @@ const FAQsSection = () => {
                   href="#contact"
                   className="text-gold hover:text-gold/80 font-medium transition-colors"
                 >
-                  Contact us at +91-9229150311
+                  Contact us at +91-9406182174
                 </a>{' '}
                 and we'll be happy to help!
               </p>

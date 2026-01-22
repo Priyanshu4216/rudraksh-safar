@@ -7,7 +7,7 @@ import { toast } from '@/hooks/use-toast';
 import { useBotProtection } from '@/hooks/useBotProtection';
 import { contactFormSchema, sanitizeUrlParam } from '@/lib/validation';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const contactInfo = [
   {
@@ -18,7 +18,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Call Us',
-    details: ['+91 92291 50311'],
+    details: ['+91 94061 82174'],
   },
   {
     icon: Mail,
@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: 'Working Hours',
-    details: ['Mon - Sat: 9:00 AM - 7:00 PM', 'Sun: 10:00 AM - 4:00 PM'],
+    details: ['Everyday: 10:00 AM - 9:00 PM'],
   },
 ];
 
@@ -229,7 +229,7 @@ const ContactSection = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 92291 50311"
+                    placeholder="+91 94061 82174"
                     required
                     maxLength={15}
                     className={`bg-background/50 ${errors.phone ? 'border-red-500' : ''}`}
@@ -287,11 +287,11 @@ const ContactSection = () => {
 
               <p className="text-sm text-muted-foreground text-center mt-4">
                 By submitting, you agree to our{' '}
-                <a href="#privacy" className="text-secondary hover:underline">
+                <a href="/privacy-policy" className="text-secondary hover:underline">
                   Privacy Policy
                 </a>{' '}
                 and{' '}
-                <a href="#terms" className="text-secondary hover:underline">
+                <a href="/terms-conditions" className="text-secondary hover:underline">
                   Terms of Service
                 </a>
               </p>

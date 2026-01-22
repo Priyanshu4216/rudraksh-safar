@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -25,19 +26,83 @@ import {
   FileText,
   AlertTriangle,
   Globe,
-  ChevronDown,
-  ChevronRight,
   MapPin,
-  Plane
+  Plane,
+  ArrowRight,
+  Lightbulb,
+  Stethoscope,
+  CheckSquare
 } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
+// Guide pages with links
+const guidePages = [
+  {
+    title: 'Visa Guide',
+    description: 'Complete visa requirements for popular destinations',
+    icon: FileCheck,
+    href: '/visa-guide',
+    color: 'from-blue-500 to-indigo-600',
+  },
+  {
+    title: 'Passport Rules',
+    description: 'Validity, blank pages & documentation requirements',
+    icon: FileText,
+    href: '/passport-guide',
+    color: 'from-green-500 to-emerald-600',
+  },
+  {
+    title: 'Visa-Free Countries',
+    description: 'Destinations with easy entry for Indians',
+    icon: Globe,
+    href: '/visa-free-countries',
+    color: 'from-purple-500 to-violet-600',
+  },
+  {
+    title: 'Packing Checklist',
+    description: 'Interactive checklist for your trip essentials',
+    icon: CheckSquare,
+    href: '/travel-checklist',
+    color: 'from-orange-500 to-red-600',
+  },
+  {
+    title: 'Currency Guide',
+    description: 'Forex tips, cards & money management abroad',
+    icon: CreditCard,
+    href: '/currency-guide',
+    color: 'from-yellow-500 to-amber-600',
+  },
+  {
+    title: 'Best Time to Visit',
+    description: 'Weather, seasons & festivals for destinations',
+    icon: Cloud,
+    href: '/best-time-to-visit',
+    color: 'from-cyan-500 to-teal-600',
+  },
+  {
+    title: 'Travel Health',
+    description: 'Vaccinations, insurance & medical kit essentials',
+    icon: Stethoscope,
+    href: '/travel-health',
+    color: 'from-rose-500 to-pink-600',
+  },
+  {
+    title: 'Travel Tips',
+    description: 'Expert tips for a smooth travel experience',
+    icon: Lightbulb,
+    href: '/travel-tips',
+    color: 'from-indigo-500 to-purple-600',
+  },
+];
+
 const ForTravellers = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  const quickNavExcludedIds = new Set(['visa', 'passport', 'health', 'currency', 'weather']);
+
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
+    const timer = setTimeout(() => setIsLoading(false), 450);
     return () => clearTimeout(timer);
   }, []);
 
@@ -519,15 +584,8 @@ const ForTravellers = () => {
     }
   ];
 
-  const quickLinks = [
-    { title: 'Visa Guide', href: '#visa', icon: FileCheck },
-    { title: 'Country Guides', href: '#transport', icon: Globe },
-    { title: 'Travel Tips', href: '#safety', icon: CheckCircle },
-    { title: 'Emergency Info', href: '#emergency', icon: Phone },
-  ];
-
   if (isLoading) {
-    return <PageLoader type="traveller" />;
+    return <PageLoader type="hub" />;
   }
 
   return (
@@ -559,21 +617,33 @@ const ForTravellers = () => {
                 Your Complete Travel Companion
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Everything you need to know before your international trip. Visa guides, safety tips, 
-                cultural insights, and practical advice from experienced travellers.
+                Everything you need to know before your international trip. Click on any guide below to explore detailed information.
               </p>
 
-              {/* Quick Links */}
-              <div className="flex flex-wrap justify-center gap-3">
-                {quickLinks.map((link) => (
-                  <a
-                    key={link.title}
-                    href={link.href}
-                    className="inline-flex items-center gap-2 bg-background border border-border px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/10 hover:border-secondary transition-colors"
+              {/* Guide Pages Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                {guidePages.map((guide, index) => (
+                  <Link
+                    key={guide.title}
+                    to={guide.href}
+                    className="group"
                   >
-                    <link.icon className="w-4 h-4 text-secondary" />
-                    {link.title}
-                  </a>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${guide.color} p-4 h-full text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+                    >
+                      <div className="flex flex-col items-center text-center gap-2">
+                        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <guide.icon className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-semibold text-sm leading-tight">{guide.title}</h3>
+                        <p className="text-xs text-white/80 line-clamp-2">{guide.description}</p>
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </motion.div>
+                  </Link>
                 ))}
               </div>
             </motion.div>
@@ -589,7 +659,9 @@ const ForTravellers = () => {
                 <div className="sticky top-24 bg-card border border-border rounded-2xl p-4 shadow-lg">
                   <h3 className="font-semibold text-foreground mb-4">Quick Navigation</h3>
                   <nav className="space-y-1">
-                    {travelGuideCategories.map((category) => (
+                    {travelGuideCategories
+                      .filter((category) => !quickNavExcludedIds.has(category.id))
+                      .map((category) => (
                       <a
                         key={category.id}
                         href={`#${category.id}`}
@@ -600,6 +672,23 @@ const ForTravellers = () => {
                       </a>
                     ))}
                   </nav>
+                  
+                  {/* Dedicated Pages Links */}
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <h4 className="text-sm font-medium text-foreground mb-3">Detailed Guides</h4>
+                    <nav className="space-y-1">
+                      {guidePages.slice(0, 4).map((guide) => (
+                        <Link
+                          key={guide.title}
+                          to={guide.href}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/10 transition-colors"
+                        >
+                          <guide.icon className="w-4 h-4" />
+                          {guide.title}
+                        </Link>
+                      ))}
+                    </nav>
+                  </div>
                 </div>
               </div>
 

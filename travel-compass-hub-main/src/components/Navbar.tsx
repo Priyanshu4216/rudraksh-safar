@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Compass } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
-import logoDark from '@/assets/images/logo-dark-original.jpg';
-import logoLight from '@/assets/images/logo-light-theme.png';
+import logoLight from '@/assets/logo-light.png';
+import logoDark from '@/assets/logo-dark.png';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
+  { name: 'Hot Deals', href: '/hot-deals', isRoute: true, highlight: true },
   {
     name: 'Packages',
     href: '#packages',
@@ -21,7 +22,6 @@ const navLinks = [
     ],
   },
   { name: 'For Travellers', href: '/for-travellers', isRoute: true },
-  { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -31,9 +31,18 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { resolvedTheme } = useTheme();
   const isHomePage = location.pathname === '/';
+  const { theme } = useTheme();
+
+  // Determine which logo to use based on theme and scroll state
+  const getLogo = () => {
+    if (isHomePage && !isScrolled) {
+      // On hero section, always use dark logo (visible on dark overlay)
+      return logoDark;
+    }
+    // Otherwise, use theme-appropriate logo
+    return theme === 'dark' ? logoDark : logoLight;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,177 +67,187 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
-  // Handle intersection observer for sections when arriving from another page
-  useEffect(() => {
-    if (isHomePage && location.hash) {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }, [isHomePage, location]);
-
   const handleNavClick = (href: string) => {
     if (href.startsWith('#')) {
       if (!isHomePage) {
-        navigate('/' + href);
+        window.location.href = '/' + href;
         return;
       }
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      navigate(href);
     }
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   };
 
   return (
-    <header>
+<header>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${isScrolled || !isHomePage
-          ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
-          : 'bg-transparent py-4'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+          isScrolled 
+            ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50' 
+            : 'bg-transparent py-4'
+        }`}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 group"
-          >
-            <img
-              src={
-                resolvedTheme === 'dark'
-                  ? logoDark
-                  : logoLight
-              }
-              alt="Rudraksh Safar Logo"
-              className="h-12 w-auto object-contain transition-all duration-300"
-            />
-          </Link>
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="flex items-center gap-3 group"
+        >
+          <img 
+            src={getLogo()} 
+            alt="Rudraksh Safar" 
+            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </Link>
 
-          {/* Desktop Navigation - Moved to right */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${isScrolled
-              ? 'bg-muted/80'
-              : isHomePage
+        {/* Desktop Navigation - Moved to right */}
+        <div className="hidden lg:flex items-center gap-4">
+          <div className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-muted/80' 
+              : isHomePage 
                 ? 'bg-background/10 backdrop-blur-md border border-white/10'
                 : 'bg-muted/80'
-              }`}>
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative group">
-                  {link.dropdown ? (
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                      className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.replace('#', '')
+          }`}>
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative group">
+                {link.dropdown ? (
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                    className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeSection === link.href.replace('#', '')
                         ? 'bg-secondary text-secondary-foreground shadow-md'
                         : isScrolled || !isHomePage
                           ? 'text-foreground hover:bg-secondary/10'
                           : 'text-primary-foreground/90 hover:bg-white/10'
-                        }`}
-                    >
-                      {link.name}
-                      <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
-                    </button>
-                  ) : link.isRoute ? (
-                    <Link
-                      to={link.href}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${(link.href === '/' && isHomePage && activeSection === 'home')
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
+                  </button>
+                ) : link.isRoute ? (
+                  <Link
+                    to={link.href}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
+                      link.highlight
+                        ? `hot-deals-fire relative overflow-hidden ${
+                            (link.href === '/' && isHomePage && activeSection === 'home')
+                              ? 'bg-secondary text-secondary-foreground shadow-md'
+                              : isScrolled || !isHomePage
+                                ? 'text-foreground hover:bg-secondary/10'
+                                : 'text-primary-foreground/90 hover:bg-white/10'
+                          }`
+                        : (link.href === '/' && isHomePage && activeSection === 'home')
+                          ? 'bg-secondary text-secondary-foreground shadow-md'
+                          : isScrolled || !isHomePage
+                            ? 'text-foreground hover:bg-secondary/10'
+                            : 'text-primary-foreground/90 hover:bg-white/10'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
+                      activeSection === link.href.replace('#', '')
                         ? 'bg-secondary text-secondary-foreground shadow-md'
                         : isScrolled || !isHomePage
                           ? 'text-foreground hover:bg-secondary/10'
                           : 'text-primary-foreground/90 hover:bg-white/10'
-                        }`}
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${activeSection === link.href.replace('#', '')
-                        ? 'bg-secondary text-secondary-foreground shadow-md'
-                        : isScrolled || !isHomePage
-                          ? 'text-foreground hover:bg-secondary/10'
-                          : 'text-primary-foreground/90 hover:bg-white/10'
-                        }`}
-                    >
-                      {link.name}
-                    </a>
-                  )}
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                )}
 
-                  {/* Dropdown Menu */}
-                  {link.dropdown && (
-                    <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                      <div className="bg-background/95 backdrop-blur-xl rounded-2xl p-2 min-w-[200px] border border-border shadow-xl">
-                        {link.dropdown.map((item) => (
-                          item.isRoute ? (
-                            <Link
-                              key={item.name}
-                              to={item.href}
-                              className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              <div className="w-2 h-2 rounded-full bg-secondary/50" />
-                              {item.name}
-                            </Link>
-                          ) : (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handleNavClick(item.href);
-                              }}
-                              className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
-                            >
-                              <div className="w-2 h-2 rounded-full bg-secondary/50" />
-                              {item.name}
-                            </a>
-                          )
-                        ))}
-                      </div>
+                {/* Dropdown Menu */}
+                {link.dropdown && (
+                  <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl p-2 min-w-[200px] border border-border shadow-xl">
+                      {link.dropdown.map((item) => (
+                        item.isRoute ? (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <div className="w-2 h-2 rounded-full bg-secondary/50" />
+                            {item.name}
+                          </Link>
+                        ) : (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick(item.href);
+                            }}
+                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
+                          >
+                            <div className="w-2 h-2 rounded-full bg-secondary/50" />
+                            {item.name}
+                          </a>
+                        )
+                      ))}
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
-            <ThemeToggle />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-3">
-            <ThemeToggle />
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
-                ? 'bg-muted text-foreground'
-                : 'glass text-primary-foreground'
-                }`}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden fixed inset-x-0 top-full transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
+        {/* Mobile Menu Button */}
+        <div className="flex lg:hidden items-center gap-3">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`p-2.5 rounded-xl transition-all duration-300 ${
+              isScrolled || !isHomePage
+                ? 'bg-muted text-foreground' 
+                : 'glass text-primary-foreground'
             }`}
-        >
-          <div className="bg-background/95 backdrop-blur-xl mx-4 mt-2 rounded-2xl p-5 max-h-[80vh] overflow-y-auto border border-border shadow-xl">
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu (full-screen overlay so it always opens on mobile/tablet) */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[101] transition-all duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        {/* Backdrop */}
+        <button
+          type="button"
+          className="absolute inset-0 bg-background/30 backdrop-blur-sm"
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setOpenDropdown(null);
+          }}
+          aria-label="Close menu"
+        />
+
+        {/* Panel */}
+        <div className="relative mt-[72px]">
+          <div className="bg-background/95 backdrop-blur-xl mx-4 rounded-2xl p-5 max-h-[80vh] overflow-y-auto border border-border shadow-xl">
             {navLinks.map((link) => (
               <div key={link.name} className="border-b border-border/30 last:border-0">
                 {link.dropdown ? (
@@ -239,21 +258,26 @@ const Navbar = () => {
                     >
                       {link.name}
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : ''
-                          }`}
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          openDropdown === link.name ? 'rotate-180' : ''
+                        }`}
                       />
                     </button>
                     <div
-                      className={`overflow-hidden transition-all duration-300 ${openDropdown === link.name ? 'max-h-[300px] pb-2' : 'max-h-0'
-                        }`}
+                      className={`overflow-hidden transition-all duration-300 ${
+                        openDropdown === link.name ? 'max-h-[300px] pb-2' : 'max-h-0'
+                      }`}
                     >
-                      {link.dropdown.map((item) => (
+                      {link.dropdown.map((item) =>
                         item.isRoute ? (
                           <Link
                             key={item.name}
                             to={item.href}
                             className="flex items-center gap-3 py-3 pl-4 text-muted-foreground hover:text-secondary transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setOpenDropdown(null);
+                            }}
                           >
                             <div className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
                             {item.name}
@@ -272,19 +296,32 @@ const Navbar = () => {
                             {item.name}
                           </a>
                         )
-                      ))}
+                      )}
                     </div>
                   </div>
                 ) : link.isRoute ? (
                   <Link
                     to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-4 font-medium transition-colors ${link.href === '/' && isHomePage
-                      ? 'text-secondary'
-                      : 'text-foreground'
-                      }`}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setOpenDropdown(null);
+                    }}
+                    className={`block py-4 font-medium transition-colors ${
+                      link.highlight
+                        ? 'text-foreground'
+                        : link.href === '/' && isHomePage
+                          ? 'text-secondary'
+                          : 'text-foreground'
+                    }`}
                   >
-                    {link.name}
+                    {link.highlight ? (
+                      <span className="inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-secondary/10 px-3 py-1">
+                        <span className="inline-block h-2 w-2 rounded-full bg-secondary shadow-[0_0_14px_hsl(var(--secondary)/0.7)]" />
+                        {link.name}
+                      </span>
+                    ) : (
+                      link.name
+                    )}
                   </Link>
                 ) : (
                   <a
@@ -293,10 +330,9 @@ const Navbar = () => {
                       e.preventDefault();
                       handleNavClick(link.href);
                     }}
-                    className={`block py-4 font-medium transition-colors ${activeSection === link.href.replace('#', '')
-                      ? 'text-secondary'
-                      : 'text-foreground'
-                      }`}
+                    className={`block py-4 font-medium transition-colors ${
+                      activeSection === link.href.replace('#', '') ? 'text-secondary' : 'text-foreground'
+                    }`}
                   >
                     {link.name}
                   </a>
@@ -305,7 +341,8 @@ const Navbar = () => {
             ))}
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
     </header>
   );
 };

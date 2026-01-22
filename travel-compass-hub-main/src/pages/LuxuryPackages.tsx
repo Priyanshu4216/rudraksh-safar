@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Crown, Star, Gem, Wine } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Crown, Gem, Wine, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,8 +9,9 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { getBestTimeToVisit } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const luxuryPackages = [
   {
@@ -20,7 +21,7 @@ const luxuryPackages = [
     duration: '4 Days / 3 Nights',
     price: '₹89,999',
     image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=2070&auto=format&fit=crop',
-    tag: '5-Star Heritage',
+    tag: 'Heritage Luxury',
     perks: ['Royal Palace Suite', 'Private Butler', 'Lake View Dining'],
   },
   {
@@ -50,7 +51,7 @@ const luxuryPackages = [
     duration: '7 Days / 6 Nights',
     price: '₹2,99,999',
     image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2070&auto=format&fit=crop',
-    tag: '5-Star Chalet',
+    tag: 'Chalet Luxury',
     perks: ['Mountain Chalet', 'First Class Train', 'Fine Dining'],
   },
   {
@@ -82,7 +83,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
           </div>
           
           <div className="relative h-64 overflow-hidden">
-            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <img src={pkg.image} alt={`${pkg.title} luxury tour package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <h3 className="text-2xl font-serif font-bold text-white drop-shadow-lg mb-2 tracking-wide">{pkg.title}</h3>
@@ -99,11 +100,17 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
                 <Calendar className="w-3.5 h-3.5" />
                 {pkg.duration}
               </span>
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 text-amber-500 fill-amber-500" />
-                ))}
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Gem className="w-3.5 h-3.5 text-secondary" aria-hidden="true" />
+                Handpicked
               </div>
+            </div>
+
+            <div className="mb-4">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground tracking-wide">
+                <Clock className="w-3.5 h-3.5" />
+                Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
+              </span>
             </div>
             
             {/* Perks */}
@@ -141,7 +148,7 @@ const LuxuryPackages = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 450);
     return () => clearTimeout(timer);
   }, []);
 
@@ -213,7 +220,7 @@ const LuxuryPackages = () => {
                     <h3 className="font-serif font-bold text-foreground tracking-wide">Premium Only</h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    5-star stays, private experiences, and dedicated concierge service
+                    Premium stays, private experiences, and dedicated concierge service
                   </p>
                 </div>
               </AnimatedSection>
@@ -226,10 +233,10 @@ const LuxuryPackages = () => {
           <div className="container">
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                { icon: Crown, text: '5-Star Properties' },
+                { icon: Crown, text: 'Premium Properties' },
                 { icon: Gem, text: 'Exclusive Access' },
                 { icon: Wine, text: 'Fine Dining' },
-                { icon: Star, text: 'Concierge Service' },
+                { icon: Clock, text: 'Concierge Support' },
               ].map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-2 bg-amber-100/30 dark:bg-amber-900/10 text-amber-800 dark:text-amber-300 px-5 py-2.5 rounded-full text-sm font-medium border border-amber-200/30 dark:border-amber-700/20 tracking-wide">
                   <badge.icon className="w-4 h-4" />

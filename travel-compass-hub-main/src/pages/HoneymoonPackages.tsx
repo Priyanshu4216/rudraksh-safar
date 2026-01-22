@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Heart, Sparkles } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Heart, Sparkles, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,8 +9,9 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { getBestTimeToVisit } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const honeymoonPackages = [
   {
@@ -122,7 +123,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof honeymoonPackages[0]; index: 
           </div>
           
           <div className="relative h-56 overflow-hidden">
-            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={pkg.image} alt={`${pkg.title} honeymoon package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-rose-900/80 via-rose-900/40 to-transparent" />
             <span className="absolute top-4 left-4 bg-gradient-to-r from-rose-500 to-pink-500 px-3 py-1 rounded-full text-xs font-bold text-white flex items-center gap-1 shadow-lg">
               <Heart className="w-3 h-3 fill-current" />
@@ -146,6 +147,13 @@ const PackageCard = ({ pkg, index }: { pkg: typeof honeymoonPackages[0]; index: 
               <span className="text-xs text-rose-600 dark:text-rose-400 font-medium flex items-center gap-1">
                 <Sparkles className="w-3 h-3" />
                 {pkg.highlight}
+              </span>
+            </div>
+
+            <div className="mb-3">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5" />
+                Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
             
@@ -175,7 +183,7 @@ const HoneymoonPackages = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 450);
     return () => clearTimeout(timer);
   }, []);
 

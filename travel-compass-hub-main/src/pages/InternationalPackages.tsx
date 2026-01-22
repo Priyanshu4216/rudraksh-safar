@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Star, Plane, Sparkles, Banknote } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Plane, Sparkles, Banknote, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,8 +9,9 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { getBestTimeToVisit } from '@/lib/travelMeta';
 
-const PHONE_NUMBER = '919229150311';
+const PHONE_NUMBER = '919406182174';
 
 const internationalPackages = [
   {
@@ -77,7 +78,7 @@ const internationalPackages = [
     id: 'thailand',
     title: 'Thailand Explorer',
     location: 'Thailand',
-    duration: '6 Days / 5 Nights',
+    duration: '4 Days / 3 Nights',
     price: '₹38,999',
     image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
     tag: 'Beach & Culture',
@@ -86,7 +87,7 @@ const internationalPackages = [
     famousPlaces: ['Grand Palace Bangkok', 'Phi Phi Islands', 'Phuket Old Town', 'Wat Arun'],
     whatToEat: ['Pad Thai', 'Tom Yum Soup', 'Green Curry', 'Mango Sticky Rice'],
     attractions: ['Island Hopping', 'Floating Markets', 'Muay Thai Show', 'Night Markets'],
-    itinerary: ['Day 1: Bangkok Arrival', 'Day 2: Bangkok Temples Tour', 'Day 3: Fly to Phuket', 'Day 4: Phi Phi Island Day Trip', 'Day 5: Beach & Leisure', 'Day 6: Departure'],
+    itinerary: ['Day 1: Bangkok → Pattaya (Arrival + leisure)', 'Day 2: Coral Island speedboat tour', 'Day 3: Pattaya city tour + Alcazar show', 'Day 4: Pattaya → Bangkok (Departure)'],
   },
   {
     id: 'srilanka',
@@ -146,7 +147,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
       <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500">
           <div className="relative h-64 image-zoom">
-            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
+            <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
               <span className="bg-secondary px-3 py-1 rounded-full text-xs font-bold text-secondary-foreground flex items-center gap-1">
@@ -177,6 +178,12 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
                 {pkg.duration}
               </span>
             </div>
+            <div className="flex items-center mb-4">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="w-3.5 h-3.5" />
+                Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
+              </span>
+            </div>
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
               <div>
                 <p className="text-xs text-muted-foreground">Starting from</p>
@@ -200,7 +207,7 @@ const InternationalPackages = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 450);
     return () => clearTimeout(timer);
   }, []);
 
@@ -227,9 +234,9 @@ const InternationalPackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="International Tour Packages - Dubai, Bali, Maldives, Thailand"
-          description="Book best international tour packages from India. Dubai ₹54,999, Bali ₹64,999, Maldives ₹85,999, Thailand ₹38,999. Visa assistance included. 100% customizable trips."
-          keywords="international tour packages India, Dubai tour package, Bali honeymoon, Maldives trip, Thailand package, Sri Lanka tour, Nepal trek, visa assistance, abroad travel"
+          title="International Tour Packages from Bhilai/Raipur - Dubai, Bali, Thailand"
+          description="International tour packages from Bhilai & Raipur with visa assistance and pickup support. Dubai ₹54,999, Bali ₹64,999, Maldives ₹85,999, Thailand ₹38,999. 100% customizable trips. WhatsApp +91-9406182174."
+          keywords="international tour packages from Bhilai, international tour packages from Raipur, Dubai tour package from Bhilai, Bali honeymoon from Raipur, Maldives trip from Chhattisgarh, Thailand package from Bhilai, visa assistance Bhilai, abroad travel Chhattisgarh"
           canonicalUrl="https://rudrakshsafar.com/international-packages"
           structuredData={structuredData}
         />
@@ -334,7 +341,7 @@ const InternationalPackages = () => {
           <div className="container relative z-10 text-center">
             <AnimatedSection animation="scale">
               <div className="glass-card p-10 max-w-2xl mx-auto">
-                <Star className="w-12 h-12 text-secondary mx-auto mb-4" />
+                <Sparkles className="w-12 h-12 text-secondary mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">
                   Dreaming of a different destination?
                 </h2>

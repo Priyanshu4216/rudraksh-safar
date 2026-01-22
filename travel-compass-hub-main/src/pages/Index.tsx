@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
-import PackagesSection from '@/components/PackagesSection';
-import DestinationsSection from '@/components/DestinationsSection';
-import WhyChooseUsSection from '@/components/WhyChooseUsSection';
-import ContactSection from '@/components/ContactSection';
-import FAQsSection from '@/components/FAQsSection';
+const AboutSection = lazy(() => import('@/components/AboutSection'));
+const ServicesSection = lazy(() => import('@/components/ServicesSection'));
+const PackagesSection = lazy(() => import('@/components/PackagesSection'));
+const DestinationsSection = lazy(() => import('@/components/DestinationsSection'));
+const WhyChooseUsSection = lazy(() => import('@/components/WhyChooseUsSection'));
+const ContactSection = lazy(() => import('@/components/ContactSection'));
+const FAQsSection = lazy(() => import('@/components/FAQsSection'));
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import LoadingScreen from '@/components/LoadingScreen';
 import AEOStructuredData from '@/components/AEOStructuredData';
 import AIParseableContent from '@/components/AIParseableContent';
+import PattayaPromoPopup from '@/components/PattayaPromoPopup';
 import heroVideo from '@/assets/hero-video.mp4';
 
 const Index = () => {
@@ -20,8 +21,29 @@ const Index = () => {
   const [videoReady, setVideoReady] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
+  const shouldPreloadVideo = useMemo(() => {
+    try {
+      const nav = navigator as Navigator & {
+        connection?: {
+          effectiveType?: string;
+          saveData?: boolean;
+        };
+      };
+      const effectiveType = nav.connection?.effectiveType;
+      const saveData = nav.connection?.saveData;
+      const slow = effectiveType === 'slow-2g' || effectiveType === '2g' || effectiveType === '3g';
+      return !saveData && !slow;
+    } catch {
+      return true;
+    }
+  }, []);
+
   // Preload the hero video with optimized loading
   useEffect(() => {
+    if (!shouldPreloadVideo) {
+      setVideoReady(true);
+      return;
+    }
     const video = document.createElement('video');
     video.src = heroVideo;
     video.preload = 'metadata'; // Faster - just load metadata first
@@ -40,7 +62,7 @@ const Index = () => {
       video.removeEventListener('loadedmetadata', handleCanPlay);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [shouldPreloadVideo]);
 
   // Complete loading when both animation and video are ready
   useEffect(() => {
@@ -76,25 +98,25 @@ const Index = () => {
       
       <main id="main-content" className="min-h-screen bg-background" role="main">
         <HeroSection />
-        
-        <AboutSection />
 
-        <ServicesSection />
-        
-        <PackagesSection />
-        
-        <DestinationsSection />
-        
-        <WhyChooseUsSection />
-        
-        <ContactSection />
-
-        <FAQsSection />
+        {/* Below-the-fold sections are code-split for faster first load */}
+        <Suspense fallback={<div className="h-24" aria-hidden="true" />}>
+          <AboutSection />
+          <ServicesSection />
+          <PackagesSection />
+          <DestinationsSection />
+          <WhyChooseUsSection />
+          <ContactSection />
+          <FAQsSection />
+        </Suspense>
       </main>
       
       <Footer />
       
       <FloatingWhatsApp />
+
+      {/* Promo popup: triggers after 15s or when user reaches Packages section */}
+      <PattayaPromoPopup />
     </>
   );
 };

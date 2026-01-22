@@ -2,9 +2,443 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 interface PageLoaderProps {
-  type: 'domestic' | 'international' | 'honeymoon' | 'family' | 'adventure' | 'luxury' | 'traveller';
+  type:
+    | 'domestic'
+    | 'international'
+    | 'honeymoon'
+    | 'family'
+    | 'adventure'
+    | 'luxury'
+    | 'traveller'
+    | 'legal'
+    | 'visa'
+    | 'passport'
+    | 'tips'
+    | 'health'
+    | 'currency'
+    | 'deals'
+    | 'hub'
+    | 'season'
+    | 'visaFree'
+    | 'checklist';
   onLoadComplete?: () => void;
 }
+
+const QUICK_LOADER_MS = 450;
+
+const LegalLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+
+      <motion.div
+        className="relative"
+        initial={{ scale: 0.96, opacity: 0 }}
+        animate={{ scale: [0.96, 1, 0.96], opacity: 1 }}
+        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <svg width="84" height="84" viewBox="0 0 84 84" className="text-foreground">
+          <rect x="18" y="14" width="40" height="56" rx="10" fill="hsl(var(--card))" stroke="currentColor" strokeWidth="2" />
+          <rect x="26" y="26" width="24" height="2" rx="1" fill="currentColor" opacity="0.6" />
+          <rect x="26" y="34" width="20" height="2" rx="1" fill="currentColor" opacity="0.5" />
+          <rect x="26" y="42" width="22" height="2" rx="1" fill="currentColor" opacity="0.5" />
+          <rect x="26" y="50" width="18" height="2" rx="1" fill="currentColor" opacity="0.5" />
+          <path d="M58 24 L68 14" stroke="hsl(var(--secondary))" strokeWidth="4" strokeLinecap="round" />
+          <path d="M62 36 L72 26" stroke="hsl(var(--secondary))" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+        </svg>
+      </motion.div>
+    </div>
+
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading policy…
+    </motion.p>
+  </div>
+);
+
+const VisaLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="120"
+        height="80"
+        viewBox="0 0 120 80"
+        className="relative"
+        initial={{ y: 6, opacity: 0 }}
+        animate={{ y: [6, 0, 6], opacity: 1 }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <rect x="10" y="14" width="100" height="52" rx="14" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+        <rect x="20" y="26" width="42" height="6" rx="3" fill="hsl(var(--foreground))" opacity="0.6" />
+        <rect x="20" y="38" width="30" height="6" rx="3" fill="hsl(var(--foreground))" opacity="0.45" />
+        <motion.circle
+          cx="86"
+          cy="40"
+          r="14"
+          fill="none"
+          stroke="hsl(var(--secondary))"
+          strokeWidth="4"
+          strokeDasharray="6 6"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: 'linear' }}
+          style={{ transformOrigin: '86px 40px' }}
+        />
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Preparing visa info…
+    </motion.p>
+  </div>
+);
+
+const PassportLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="104"
+        height="84"
+        viewBox="0 0 104 84"
+        className="relative"
+        initial={{ scale: 0.96, opacity: 0 }}
+        animate={{ scale: [0.96, 1, 0.96], opacity: 1 }}
+        transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <path d="M26 12 h46 a12 12 0 0 1 12 12 v36 a12 12 0 0 1-12 12H26 a10 10 0 0 0-10 10V22a10 10 0 0 1 10-10Z" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+        <path d="M26 12 h10 v60 h-10" fill="hsl(var(--muted))" opacity="0.5" />
+        <circle cx="58" cy="44" r="10" fill="none" stroke="hsl(var(--secondary))" strokeWidth="3" opacity="0.9" />
+        <path d="M58 32 v24 M46 44 h24" stroke="hsl(var(--secondary))" strokeWidth="3" opacity="0.7" />
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Checking passport rules…
+    </motion.p>
+  </div>
+);
+
+const TipsLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.55, 1, 0.55] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="90"
+        height="90"
+        viewBox="0 0 90 90"
+        className="relative"
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: [6, 0, 6] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <motion.circle
+          cx="45"
+          cy="38"
+          r="20"
+          fill="hsl(var(--secondary) / 0.18)"
+          animate={{ scale: [1, 1.06, 1] }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <path d="M45 18c-10 0-18 8-18 18 0 7 4 13 10 16v6h16v-6c6-3 10-9 10-16 0-10-8-18-18-18Z" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+        <rect x="34" y="60" width="22" height="8" rx="4" fill="hsl(var(--foreground))" opacity="0.5" />
+        <rect x="36" y="70" width="18" height="6" rx="3" fill="hsl(var(--foreground))" opacity="0.35" />
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading travel tips…
+    </motion.p>
+  </div>
+);
+
+const HealthLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="120"
+        height="70"
+        viewBox="0 0 120 70"
+        className="relative text-secondary"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <path
+          d="M10 40h18l6-14 10 28 10-22 7 8h49"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray="140"
+          strokeDashoffset="140"
+        >
+          <animate attributeName="stroke-dashoffset" values="140;0;140" dur="2.2s" repeatCount="indefinite" />
+        </path>
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading health guide…
+    </motion.p>
+  </div>
+);
+
+const CurrencyLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.div
+        className="relative flex items-end gap-3"
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        {[18, 32, 24, 38].map((h, i) => (
+          <motion.div
+            key={i}
+            className="w-4 rounded-full bg-secondary/70"
+            style={{ height: h }}
+            animate={{ height: [h * 0.7, h, h * 0.8, h] }}
+            transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.15 }}
+          />
+        ))}
+      </motion.div>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading currency guide…
+    </motion.p>
+  </div>
+);
+
+const DealsLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="110"
+        height="70"
+        viewBox="0 0 110 70"
+        className="relative"
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: [0.96, 1, 0.96] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <path d="M20 18h60l10 17-10 17H20L10 35 20 18Z" fill="hsl(var(--card))" stroke="hsl(var(--border))" strokeWidth="2" />
+        <circle cx="28" cy="35" r="3" fill="hsl(var(--secondary))" />
+        <path d="M40 28h26" stroke="hsl(var(--foreground))" strokeWidth="3" opacity="0.6" strokeLinecap="round" />
+        <path d="M40 42h18" stroke="hsl(var(--foreground))" strokeWidth="3" opacity="0.45" strokeLinecap="round" />
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading hot deals…
+    </motion.p>
+  </div>
+);
+
+const HubLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.div
+        className="relative"
+        animate={{ rotate: [0, 6, -6, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <svg width="90" height="90" viewBox="0 0 90 90" className="text-foreground">
+          <circle cx="45" cy="45" r="26" fill="hsl(var(--secondary) / 0.12)" />
+          <circle cx="45" cy="45" r="22" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.7" />
+          <path d="M23 45h44" stroke="currentColor" strokeWidth="2" opacity="0.5" />
+          <path d="M45 23v44" stroke="currentColor" strokeWidth="2" opacity="0.5" />
+          <motion.path
+            d="M45 45 L63 35"
+            stroke="hsl(var(--secondary))"
+            strokeWidth="3"
+            strokeLinecap="round"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: 'linear' }}
+            style={{ transformOrigin: '45px 45px' }}
+          />
+        </svg>
+      </motion.div>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading traveller hub…
+    </motion.p>
+  </div>
+);
+
+const SeasonLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <div className="relative flex items-center gap-3">
+        {[
+          { c: 'hsl(var(--secondary))', d: 0 },
+          { c: 'hsl(var(--primary))', d: 0.2 },
+          { c: 'hsl(var(--muted-foreground))', d: 0.4 },
+        ].map((x, i) => (
+          <motion.div
+            key={i}
+            className="w-10 h-10 rounded-full"
+            style={{ background: x.c, opacity: 0.6 }}
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 1.1, repeat: Infinity, delay: x.d }}
+          />
+        ))}
+      </div>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading season guide…
+    </motion.p>
+  </div>
+);
+
+const VisaFreeLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <motion.svg
+        width="110"
+        height="80"
+        viewBox="0 0 110 80"
+        className="relative text-secondary"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <circle cx="55" cy="40" r="24" fill="hsl(var(--secondary) / 0.12)" />
+        <circle cx="55" cy="40" r="22" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.7" />
+        <motion.path
+          d="M55 18v44"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          animate={{ opacity: [0.2, 0.9, 0.2] }}
+          transition={{ duration: 1.2, repeat: Infinity }}
+        />
+        <motion.path
+          d="M33 40h44"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          animate={{ opacity: [0.9, 0.2, 0.9] }}
+          transition={{ duration: 1.2, repeat: Infinity }}
+        />
+      </motion.svg>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading visa-free list…
+    </motion.p>
+  </div>
+);
+
+const ChecklistLoader = () => (
+  <div className="flex flex-col items-center justify-center gap-6">
+    <div className="relative w-72 h-40 overflow-hidden rounded-2xl border border-border/30 flex items-center justify-center">
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 1.6, repeat: Infinity }}
+      />
+      <div className="relative flex flex-col gap-3">
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            className="flex items-center gap-3"
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
+          >
+            <div className="w-5 h-5 rounded border border-border bg-card" />
+            <div className="h-2 w-44 rounded bg-muted" />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+    <motion.p
+      className="text-muted-foreground text-sm tracking-widest uppercase"
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    >
+      Loading checklist…
+    </motion.p>
+  </div>
+);
 
 const DomesticLoader = () => {
   const [currentScene, setCurrentScene] = useState(0);
@@ -1513,7 +1947,7 @@ const PageLoader = ({ type, onLoadComplete }: PageLoaderProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onLoadComplete?.();
-    }, 1500);
+    }, QUICK_LOADER_MS);
     return () => clearTimeout(timer);
   }, [onLoadComplete]);
 
@@ -1533,6 +1967,28 @@ const PageLoader = ({ type, onLoadComplete }: PageLoaderProps) => {
         return <LuxuryLoader />;
       case 'traveller':
         return <TravellerLoader />;
+      case 'legal':
+        return <LegalLoader />;
+      case 'visa':
+        return <VisaLoader />;
+      case 'passport':
+        return <PassportLoader />;
+      case 'tips':
+        return <TipsLoader />;
+      case 'health':
+        return <HealthLoader />;
+      case 'currency':
+        return <CurrencyLoader />;
+      case 'deals':
+        return <DealsLoader />;
+      case 'hub':
+        return <HubLoader />;
+      case 'season':
+        return <SeasonLoader />;
+      case 'visaFree':
+        return <VisaFreeLoader />;
+      case 'checklist':
+        return <ChecklistLoader />;
       default:
         return <DomesticLoader />;
     }

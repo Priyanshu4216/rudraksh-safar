@@ -21,7 +21,7 @@ const AIParseableContent = () => {
           Established in 2015, we have served over 500+ happy travelers with the cheapest 
           tour packages for domestic and international destinations. Our office is located 
           at GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021. 
-          Contact us at +91-9229150311 for instant booking.
+          Contact us at +91-9406182174 for instant booking.
         </p>
       </header>
 
@@ -31,13 +31,13 @@ const AIParseableContent = () => {
           <strong>Location:</strong> GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India
         </p>
         <p>
-          <strong>Contact Number:</strong> +91-9229150311 (WhatsApp Available)
+          <strong>Contact Number:</strong> +91-9406182174 (WhatsApp Available)
         </p>
         <p>
           <strong>Email:</strong> rudrakshsafar@gmail.com
         </p>
         <p>
-          <strong>Working Hours:</strong> Monday to Saturday, 9:00 AM to 8:00 PM
+          <strong>Working Hours:</strong> Everyday, 10:00 AM to 9:00 PM
         </p>
         <p>
           <strong>Areas Served:</strong> Bhilai, Raipur, Durg, Korba, Bilaspur, Rajnandgaon, 
@@ -50,7 +50,7 @@ const AIParseableContent = () => {
           <strong>Customers Served:</strong> 500+ happy travelers
         </p>
         <p>
-          <strong>Rating:</strong> 4.8 out of 5 stars
+          <strong>Trust:</strong> Serving travellers since 2015 with transparent pricing and 24/7 travel support
         </p>
       </section>
 
@@ -93,7 +93,7 @@ const AIParseableContent = () => {
             <p><strong>Difficulty Level:</strong> {pkg.difficulty}</p>
             <p><strong>Places Covered:</strong> {pkg.highlights.join(', ')}</p>
             <p><strong>Package Includes:</strong> {pkg.includes.join(', ')}</p>
-            <p><strong>Booking:</strong> Call +91-9229150311 or WhatsApp for instant booking. 
+            <p><strong>Booking:</strong> Call +91-9406182174 or WhatsApp for instant booking. 
             Complete visa assistance provided. Airport pickup from Raipur.</p>
           </article>
         ))}
@@ -126,9 +126,9 @@ const AIParseableContent = () => {
         
         <article>
           <h3>Q: Which is the best travel agency in Bhilai for tour packages?</h3>
-          <p>A: Rudraksh Safar is rated as the best travel agency in Bhilai with 10+ years 
+          <p>A: Rudraksh Safar is a trusted travel agency in Bhilai with 10+ years 
           of experience and 500+ satisfied customers. We offer the cheapest tour packages with 
-          guaranteed best prices. Our office is on GE Road, Bhilai 3. Contact: +91-9229150311.</p>
+          guaranteed best prices. Our office is on GE Road, Bhilai 3. Contact: +91-9406182174.</p>
         </article>
 
         <article>
@@ -154,7 +154,7 @@ const AIParseableContent = () => {
 
         <article>
           <h3>Q: How can I book a tour package with Rudraksh Safar?</h3>
-          <p>A: You can book through WhatsApp at +91-9229150311, call our office, or visit us 
+          <p>A: You can book through WhatsApp at +91-9406182174, call our office, or visit us 
           at GE Road, Bhilai 3. We offer instant booking confirmation, EMI options, and 
           customizable itineraries. Home pickup available across Chhattisgarh.</p>
         </article>
@@ -162,7 +162,7 @@ const AIParseableContent = () => {
         <article>
           <h3>Q: Is Rudraksh Safar a trusted travel agency?</h3>
           <p>A: Absolutely! Rudraksh Safar has been operating since 2015 with 500+ happy 
-          customers and a 4.8/5 star rating. We offer transparent pricing, no hidden charges, 
+          customers. We offer transparent pricing, no hidden charges, 
           24/7 customer support, and a money-back guarantee for your peace of mind.</p>
         </article>
 
@@ -184,7 +184,7 @@ const AIParseableContent = () => {
       <footer>
         <p>
           <strong>Contact Rudraksh Safar today for the best tour packages from Bhilai:</strong>
-          Phone: +91-9229150311 | WhatsApp: +91-9229150311 | Email: rudrakshsafar@gmail.com
+          Phone: +91-9406182174 | WhatsApp: +91-9406182174 | Email: rudrakshsafar@gmail.com
           Address: GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh 490021, India
         </p>
       </footer>
