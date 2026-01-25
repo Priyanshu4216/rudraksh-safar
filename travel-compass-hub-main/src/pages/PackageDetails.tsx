@@ -1532,9 +1532,8 @@ const PackageDetails = () => {
         structuredData={structuredData}
       />
       
-      {/* Additional Schema Markup */}
+      {/* Additional Schema Markup - Product and Breadcrumb only, FAQ removed to prevent duplicate schema errors */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       <Navbar />

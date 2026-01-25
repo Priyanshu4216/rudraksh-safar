@@ -14,6 +14,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 import AEOStructuredData from '@/components/AEOStructuredData';
 import AIParseableContent from '@/components/AIParseableContent';
 import PattayaPromoPopup from '@/components/PattayaPromoPopup';
+import SEOHead from '@/components/SEOHead';
 import heroVideo from '@/assets/hero-video.mp4';
 
 const Index = () => {
@@ -85,6 +86,13 @@ const Index = () => {
 
   return (
     <>
+      <SEOHead
+        title="Best Travel Agency in Bhilai"
+        description="Rudraksh Safar is a trusted travel agency in Bhilai. Book affordable domestic & international tour packages from Bhilai/Raipur with visa help, hotel booking, and 24/7 trip support."
+        keywords="best travel agency Bhilai, tour packages Bhilai, travel agent Raipur, tour operator Chhattisgarh, domestic packages Bhilai, international packages Bhilai"
+        canonicalUrl="https://rudrakshsafar.com/"
+        ogType="website"
+      />
       {/* AEO Structured Data for AI platforms */}
       <AEOStructuredData />
       

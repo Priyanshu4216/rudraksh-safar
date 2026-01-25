@@ -2,8 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import SecurityProvider from "./components/SecurityProvider";
@@ -56,7 +56,33 @@ const CancellationPolicy = lazy(() => import("./pages/legal/CancellationPolicy")
 const RefundPolicy = lazy(() => import("./pages/legal/RefundPolicy"));
 const Disclaimer = lazy(() => import("./pages/legal/Disclaimer"));
 
+// Local SEO Pages
+const TravelAgentBhilai = lazy(() => import("./pages/local/TravelAgentBhilai"));
+const VisaAgentBhilai = lazy(() => import("./pages/local/VisaAgentBhilai"));
+const TourPackagesBhilai = lazy(() => import("./pages/local/TourPackagesBhilai"));
+
 const queryClient = new QueryClient();
+
+const SpaRedirectHandler = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If the user hit Netlify's 404 fallback (public/404.html), we store the
+    // intended URL in sessionStorage and land on '/'. Rehydrate it here.
+    try {
+      const target = sessionStorage.getItem("spa:redirect");
+      if (!target) return;
+      sessionStorage.removeItem("spa:redirect");
+
+      // Avoid loops; only navigate if it's a non-root route.
+      if (target !== "/") navigate(target, { replace: true });
+    } catch {
+      // noop
+    }
+  }, [navigate]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -66,6 +92,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <SpaRedirectHandler />
             <ScrollProgressBar />
             <ScrollToTop />
             <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -112,6 +139,11 @@ const App = () => (
                 <Route path="/cancellation-policy" element={<CancellationPolicy />} />
                 <Route path="/refund-policy" element={<RefundPolicy />} />
                 <Route path="/disclaimer" element={<Disclaimer />} />
+
+                {/* Local SEO Routes */}
+                <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
+                <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
+                <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

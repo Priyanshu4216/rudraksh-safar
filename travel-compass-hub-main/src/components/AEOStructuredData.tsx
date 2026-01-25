@@ -93,61 +93,10 @@ const AEOStructuredData = () => {
     ]
   };
 
-  // Speakable schema for voice search
-  const speakableSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Rudraksh Safar - Best Travel Agency Bhilai",
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": ["#about-heading", "#packages-heading", "#services-heading", "#contact-heading", "#faqs-heading"]
-    },
-    "url": "https://rudrakshsafar.com"
-  };
-
-  // Service schema
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Travel Agency Services",
-    "provider": {
-      "@type": "TravelAgency",
-      "name": "Rudraksh Safar",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
-        "addressLocality": "Bhilai",
-        "addressRegion": "Chhattisgarh",
-        "postalCode": "490021",
-        "addressCountry": "IN"
-      }
-    },
-    "areaServed": ["Bhilai", "Raipur", "Durg", "Chhattisgarh", "India"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Travel Services",
-      "itemListElement": [
-        {"@type": "OfferCatalog", "name": "Flight Booking", "description": "Domestic and international flight tickets at best prices"},
-        {"@type": "OfferCatalog", "name": "Train Booking", "description": "Hassle-free train reservations across India"},
-        {"@type": "OfferCatalog", "name": "Hotel Booking", "description": "Premium hotels and resorts worldwide"},
-        {"@type": "OfferCatalog", "name": "Visa Assistance", "description": "Complete visa consultancy for all countries"},
-        {"@type": "OfferCatalog", "name": "Passport Services", "description": "New passport and renewal assistance"},
-        {"@type": "OfferCatalog", "name": "Cruise Booking", "description": "Luxury cruise packages worldwide"},
-        {"@type": "OfferCatalog", "name": "Travel Insurance", "description": "Comprehensive travel insurance coverage"}
-      ]
-    }
-  };
-
   return (
     <Helmet>
       <script type="application/ld+json">
         {JSON.stringify(packageListSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(speakableSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(serviceSchema)}
       </script>
     </Helmet>
   );

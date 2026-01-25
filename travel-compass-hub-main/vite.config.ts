@@ -42,6 +42,11 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
+        // Force new service worker to take control immediately
+        skipWaiting: true,
+        clientsClaim: true,
+        // Clean old caches on update
+        cleanupOutdatedCaches: true,
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB limit, exclude large videos
         runtimeCaching: [

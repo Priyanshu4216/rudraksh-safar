@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import AnimatedSection from './AnimatedSection';
 import {
   Accordion,
@@ -76,34 +75,12 @@ const faqs = [
   },
 ];
 
-// Extended FAQ schema for comprehensive AEO
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
-};
-
 const FAQsSection = () => {
   const [showAll, setShowAll] = useState(false);
   const visibleFaqs = useMemo(() => (showAll ? faqs : faqs.slice(0, 4)), [showAll]);
 
   return (
-    <>
-      {/* Inject FAQ Schema for AEO */}
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      </Helmet>
-      
-      <section id="faqs" className="py-20 bg-secondary/30" aria-labelledby="faqs-heading">
+    <section id="faqs" className="py-20 bg-secondary/30" aria-labelledby="faqs-heading">
         <div className="container mx-auto px-4 max-w-4xl">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
@@ -127,23 +104,16 @@ const FAQsSection = () => {
                   key={index}
                   value={`item-${index}`}
                   className="bg-card border border-border/50 rounded-xl px-6 overflow-hidden"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
                   <AccordionTrigger 
                     className="text-left text-foreground hover:text-gold hover:no-underline py-5 text-base md:text-lg font-medium"
-                    itemProp="name"
                   >
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent 
                     className="text-muted-foreground pb-5 text-sm md:text-base leading-relaxed"
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
                   >
-                    <span itemProp="text">{faq.answer}</span>
+                    {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -176,7 +146,6 @@ const FAQsSection = () => {
           </AnimatedSection>
         </div>
       </section>
-    </>
   );
 };
 
