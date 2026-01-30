@@ -20,12 +20,12 @@ const quickLinks = [
 // Local SEO internal links - critical for Google Local Pack ranking
 const localSeoLinks = [
   { name: 'Travel Agent in Bhilai', href: '/travel-agent-bhilai' },
-  { name: 'International Tours from Bhilai', href: '/international-tour-packages-bhilai' },
-  { name: 'India Tours from Bhilai', href: '/india-tour-packages-bhilai' },
-  { name: 'Tour Packages Bhilai', href: '/tour-packages-bhilai' },
-  { name: 'Visa Agent Bhilai', href: '/visa-agent-bhilai' },
-  { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai' },
-  { name: 'Flight & Train Booking Bhilai', href: '/ticket-booking-bhilai' },
+  { name: 'Train Ticket Booking', href: '/train-booking-bhilai' },
+  { name: 'Flight Ticket Booking', href: '/flight-booking-bhilai' },
+  { name: 'Bus Ticket Booking', href: '/bus-booking-bhilai' },
+  { name: 'Passport Agent Bhilai', href: '/passport-agent-bhilai' },
+  { name: 'International Tours', href: '/international-tour-packages-bhilai' },
+  { name: 'Weekend Getaways', href: '/weekend-getaways-bhilai' },
 ];
 
 const legalLinks = [

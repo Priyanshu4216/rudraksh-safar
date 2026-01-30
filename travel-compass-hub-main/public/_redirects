@@ -1,4 +1,2 @@
-/sitemap.xml  /sitemap.xml  200
-/robots.txt   /robots.txt   200
-/manifest.webmanifest  /manifest.webmanifest  200
-/*    /index.html   200
+# Cloudflare Pages SPA Catch-all
+/*  /index.html  200
