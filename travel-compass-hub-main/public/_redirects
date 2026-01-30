@@ -1,2 +1,10 @@
 # Cloudflare Pages SPA Catch-all
 /*  /index.html  200
+
+# Explicit definitions for deep links (Safety Net)
+/ticket-booking-bhilai  /index.html  200
+/train-booking-bhilai   /index.html  200
+/flight-booking-bhilai  /index.html  200
+/bus-booking-bhilai     /index.html  200
+/weekend-getaways-bhilai /index.html 200
+/passport-agent-bhilai  /index.html  200
