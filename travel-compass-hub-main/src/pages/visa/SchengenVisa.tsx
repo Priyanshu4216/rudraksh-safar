@@ -65,7 +65,7 @@ const SchengenVisa = () => {
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <Banknote className="w-6 h-6 text-secondary mx-auto mb-2" />
                 <p className="text-sm text-muted-foreground">Visa Fee</p>
-                <p className="font-semibold">€80 (~₹7,200)</p>
+                <p className="font-semibold">€90 (~₹8,100)</p>
               </div>
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <Calendar className="w-6 h-6 text-secondary mx-auto mb-2" />
@@ -196,9 +196,9 @@ const SchengenVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Visa requirements vary by country and change frequently. Always verify on the specific embassy website before applying.
                   </p>
-                  <a 
-                    href="https://www.schengenvisainfo.com/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.schengenvisainfo.com/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

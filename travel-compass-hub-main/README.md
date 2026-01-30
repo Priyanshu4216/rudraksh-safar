@@ -1,145 +1,73 @@
-# Rudraksh Safar 🌏  
-**Travel & Visa Services | Bhilai • Durg • Raipur**
+# Welcome to your Lovable project
 
-Rudraksh Safar is a full-service travel agency offering **domestic & international tour packages**, **fixed departure group tours**, and **visa assistance** for Indian travelers.  
-The platform is optimized for **SEO-first growth**, structured indexing, and scalable content expansion.
+## Project info
 
----
+**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-## Website
-🔗 https://rudrakshsafar.com
+## How can I edit this code?
 
----
+There are several ways of editing your application.
 
-##  Core Services
+**Use Lovable**
 
-###  Tour Packages
-- Domestic Tour Packages
-- International Tour Packages
-- Honeymoon Packages
-- Family Holidays
-- Adventure Trips
-- Luxury Travel Experiences
-- Fixed Departure Group Tours (Hot Deals)
+Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
 
-###  Visa & Travel Assistance
-- Tourist Visa Services
-- Country-wise Visa Guides
-- Passport Guidance
-- Visa-Free Country Information
-- Travel Documentation Support
+Changes made via Lovable will be committed automatically to this repo.
 
----
+**Use your preferred IDE**
 
-##  Site Structure (High-Level)
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-/
-├── domestic-packages
-├── international-packages
-├── hot-deals
-├── for-travellers
-├── package/
-│ ├── goa
-│ ├── kashmir
-│ ├── manali
-│ ├── ladakh
-│ ├── dubai
-│ ├── thailand
-│ └── bali
-├── guides/
-├── visa/
-│ ├── dubai
-│ ├── thailand
-│ ├── singapore
-│ └── schengen
-└── legal/
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-yaml
-Copy code
+Follow these steps:
 
----
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-##  SEO & Indexing Strategy
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-###  Indexing Philosophy
-- **Progressive indexing** (not all pages at once)
-- Priority to **core, high-intent pages**
-- Variants (honeymoon/family/luxury) indexed later
-- Guides used to build topical authority
+# Step 3: Install the necessary dependencies.
+npm i
 
-###  Pages Indexed First
-- Homepage
-- Domestic & International category pages
-- Hot Deals
-- Top destination packages (Goa, Kashmir, Manali, Dubai, Thailand)
-- Core travel & visa guides
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-###  Pages Delayed / Noindex Initially
-- Honeymoon variants
-- Family variants
-- Luxury variants
-- Adventure niche pages
-- Legal pages
+**Edit a file directly in GitHub**
 
----
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-##  Sitemap Strategy
+**Use GitHub Codespaces**
 
-The site follows a **segmented sitemap approach** (recommended):
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-- `sitemap-core.xml`
-- `sitemap-packages-primary.xml`
-- `sitemap-guides.xml`
-- `sitemap-visa.xml`
-- `sitemap-variants.xml` (low priority)
+## What technologies are used for this project?
 
-This helps with:
-- Better crawl budget control
-- Faster indexing of important pages
-- Reduced keyword cannibalization
+This project is built with:
 
----
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-##  Target Audience
-- Travelers from **Bhilai, Durg, Raipur (Chhattisgarh)**
-- Families, honeymooners, and group travelers
-- First-time international travelers
-- Customers looking for visa assistance with travel booking
+## How can I deploy this project?
 
----
+Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
-##  Tech Stack (Indicative)
-- Frontend: React / Next.js
-- SEO: XML Sitemaps, Schema Markup, Internal Linking
-- Performance: Optimized images, clean URLs
-- Analytics: Google Search Console, Google Analytics
+## Can I connect a custom domain to my Lovable project?
 
----
+Yes, you can!
 
-##  Growth Roadmap
-- Add city-based landing pages (Local SEO)
-- Expand visa country coverage
-- Publish destination-specific travel guides
-- Improve internal linking between packages and guides
-- Introduce seasonal offers & deal pages
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
----
-
-##  Business Information
-
-**Brand Name:** Rudraksh Safar  
-**Industry:** Travel & Tourism  
-**Services:** Tour Packages, Visa Assistance  
-**Location:** Chhattisgarh, India  
-
----
-
-##  Legal
-- Privacy Policy
-- Terms & Conditions
-- Cancellation & Refund Policy
-- Disclaimer
-
----
-
-© Rudraksh Safar. All rights reserved.
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

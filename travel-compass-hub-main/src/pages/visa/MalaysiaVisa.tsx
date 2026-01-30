@@ -55,7 +55,7 @@ const MalaysiaVisa = () => {
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <FileCheck className="w-6 h-6 text-secondary mx-auto mb-2" />
                 <p className="text-sm text-muted-foreground">Visa Type</p>
-                <p className="font-semibold">eVisa/eNTRI</p>
+                <p className="font-semibold">Visa Free / MDAC</p>
               </div>
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <Clock className="w-6 h-6 text-secondary mx-auto mb-2" />
@@ -65,7 +65,7 @@ const MalaysiaVisa = () => {
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <Banknote className="w-6 h-6 text-secondary mx-auto mb-2" />
                 <p className="text-sm text-muted-foreground">Visa Fee</p>
-                <p className="font-semibold">₹1,500-4,000</p>
+                <p className="font-semibold text-green-600">FREE</p>
               </div>
               <div className="bg-card border border-border rounded-xl p-4 text-center">
                 <Calendar className="w-6 h-6 text-secondary mx-auto mb-2" />
@@ -76,19 +76,17 @@ const MalaysiaVisa = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-6 mb-6">
-              <h2 className="text-xl font-serif font-bold mb-3 text-blue-800 dark:text-blue-200">
-                Two Online Options
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-2xl p-6 mb-6">
+              <h2 className="text-xl font-serif font-bold mb-3 text-green-800 dark:text-green-200">
+                🎉 Visa Free Entry!
               </h2>
-              <div className="grid md:grid-cols-2 gap-4 text-blue-700 dark:text-blue-300">
-                <div>
-                  <h3 className="font-semibold">eNTRI (Simpler)</h3>
-                  <p className="text-sm">15 days stay, single entry, ₹1,500 fee. Best for short trips.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold">eVisa (Flexible)</h3>
-                  <p className="text-sm">30 days stay, single/multiple entry, ₹3,000-4,000 fee.</p>
-                </div>
+              <div className="text-green-700 dark:text-green-300">
+                <p className="mb-2">
+                  Indian citizens can enter Malaysia <strong>Visa Free</strong> for up to 30 days. No eVisa or eNTRI needed currently.
+                </p>
+                <p className="text-sm">
+                  <strong>Mandatory:</strong> You must complete the <strong>Malaysia Digital Arrival Card (MDAC)</strong> online 3 days before arrival.
+                </p>
               </div>
             </div>
           </AnimatedSection>
@@ -181,9 +179,9 @@ const MalaysiaVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Always apply through the official Malaysia eVisa portal. Beware of unofficial websites.
                   </p>
-                  <a 
-                    href="https://www.windowmalaysia.my/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.windowmalaysia.my/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

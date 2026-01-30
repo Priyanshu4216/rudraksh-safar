@@ -17,6 +17,15 @@ const quickLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
+// Local SEO internal links - critical for Google Local Pack ranking
+const localSeoLinks = [
+  { name: 'Travel Agent in Bhilai', href: '/travel-agent-bhilai' },
+  { name: 'International Tours from Bhilai', href: '/international-tour-packages-bhilai' },
+  { name: 'India Tours from Bhilai', href: '/india-tour-packages-bhilai' },
+  { name: 'Tour Packages Bhilai', href: '/tour-packages-bhilai' },
+  { name: 'Visa Agent Bhilai', href: '/visa-agent-bhilai' },
+];
+
 const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy-policy' },
   { name: 'Terms & Conditions', href: '/terms-conditions' },
@@ -860,7 +869,22 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 </a>
               </div>
             </div>
+          {/* Local SEO Links Section - Critical for Google Local Pack */}
+          <div className="border-t border-primary-foreground/10 mt-12 pt-8">
+            <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Serving Bhilai, Durg & Raipur</h3>
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Local SEO links">
+              {localSeoLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
           </div>
+        </div>
 
           {/* Mobile Accordion for Footer Links */}
           <div className="lg:hidden mt-8 border-t border-primary-foreground/10 pt-8">

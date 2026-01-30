@@ -3,9 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
 import SmartImage from '@/components/SmartImage';
+
 
 const PHONE_NUMBER = '919406182174';
 
@@ -91,18 +92,17 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
       aria-label={`View package: ${pkg.title}`}
     >
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ 
-          duration: 0.5, 
-          delay: index * 0.1,
-          type: "spring",
-          stiffness: 100
+          duration: 0.7, 
+          delay: index * 0.15,
+          ease: [0.22, 1, 0.36, 1] // Premium ease-out curve
         }}
         whileHover={{ 
-          scale: 1.02,
-          transition: { duration: 0.2 }
+          y: -12,
+          transition: { duration: 0.3, ease: "easeOut" }
         }}
       >
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500 cursor-pointer">

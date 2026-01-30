@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import heroVideo from '@/assets/hero-video.mp4';
 import heroPoster from '@/assets/hero-poster.jpg';
 
+
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -206,37 +207,39 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Main Headline with Staggered 3D Animation */}
-          <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[0.9] drop-shadow-2xl"
+          {/* Main Headline */}
+          <motion.div 
+            className="mb-8"
             initial={{ opacity: 0, z: -100 }}
             animate={{ opacity: 1, z: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <motion.span 
-              className="block overflow-hidden"
-              initial={{ opacity: 0, y: 60, rotateX: -30 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Explore
-            </motion.span>
-            <motion.span 
-              className="block overflow-hidden mt-2"
-              initial={{ opacity: 0, y: 60, rotateX: -30 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Beyond{' '}
-              <span className="relative inline-block">
-                <span className="text-secondary drop-shadow-[0_0_30px_hsl(var(--secondary)/0.5)]">Horizons</span>
-              </span>
-            </motion.span>
-          </motion.h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[0.9] drop-shadow-2xl">
+              <motion.span 
+                className="block overflow-hidden"
+                initial={{ opacity: 0, y: 60, rotateX: -30 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Explore
+              </motion.span>
+              <motion.span 
+                className="block overflow-hidden mt-2"
+                initial={{ opacity: 0, y: 60, rotateX: -30 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Beyond{' '}
+                <span className="relative inline-block">
+                  <span className="text-secondary drop-shadow-[0_0_30px_hsl(var(--secondary)/0.5)]">Horizons</span>
+                </span>
+              </motion.span>
+            </h1>
+          </motion.div>
 
           {/* Subheadline */}
-          <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg"
+          <motion.p
+            className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg font-sans"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}

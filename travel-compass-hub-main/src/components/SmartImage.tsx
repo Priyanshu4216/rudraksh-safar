@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, forwardRef } from "react";
 
 type SmartImageProps = Omit<
   React.ImgHTMLAttributes<HTMLImageElement>,
@@ -12,11 +12,11 @@ type SmartImageProps = Omit<
  * A tiny <img> wrapper that swaps to a local fallback if the primary image fails.
  * Useful when using external CDN images (Unsplash) on slow/blocked networks.
  */
-export default function SmartImage({
+const SmartImage = forwardRef<HTMLImageElement, SmartImageProps>(({
   src,
   fallbackSrc = "/placeholder.svg",
   ...props
-}: SmartImageProps) {
+}, ref) => {
   const [currentSrc, setCurrentSrc] = useState(src);
 
   const handleError = useCallback(() => {
@@ -24,5 +24,9 @@ export default function SmartImage({
     setCurrentSrc((prev) => (prev === fallbackSrc ? prev : fallbackSrc));
   }, [fallbackSrc]);
 
-  return <img {...props} src={currentSrc} onError={handleError} />;
-}
+  return <img ref={ref} {...props} src={currentSrc} onError={handleError} />;
+});
+
+SmartImage.displayName = 'SmartImage';
+
+export default SmartImage;

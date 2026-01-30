@@ -60,6 +60,8 @@ const Disclaimer = lazy(() => import("./pages/legal/Disclaimer"));
 const TravelAgentBhilai = lazy(() => import("./pages/local/TravelAgentBhilai"));
 const VisaAgentBhilai = lazy(() => import("./pages/local/VisaAgentBhilai"));
 const TourPackagesBhilai = lazy(() => import("./pages/local/TourPackagesBhilai"));
+const InternationalPackagesBhilai = lazy(() => import("./pages/local/InternationalPackagesBhilai"));
+const IndiaPackagesBhilai = lazy(() => import("./pages/local/IndiaPackagesBhilai"));
 
 const queryClient = new QueryClient();
 
@@ -144,6 +146,8 @@ const App = () => (
                 <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
                 <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
                 <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
+                <Route path="/international-tour-packages-bhilai" element={<InternationalPackagesBhilai />} />
+                <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

@@ -1,7 +1,6 @@
 import { Shield, Award, Heart, Clock } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import SmartImage from '@/components/SmartImage';
 
 const features = [
   {
@@ -59,44 +58,60 @@ const AboutSection = () => {
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
-                  <SmartImage
+<motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                  <img
                     src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop"
                     alt="Travelers exploring nature"
                     loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
+                    className="rounded-2xl h-48 w-full object-cover shadow-xl"
                   />
-                </div>
-                <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
-                  <SmartImage
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <img
                     src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop"
                     alt="Beautiful beach destination"
                     loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
+                    className="rounded-2xl h-64 w-full object-cover shadow-xl"
                   />
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="image-zoom rounded-2xl overflow-hidden h-64 shadow-xl">
-                  <SmartImage
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                >
+                  <img
                     src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
                     alt="Road trip adventure"
                     loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
+                    className="rounded-2xl h-64 w-full object-cover shadow-xl"
                   />
-                </div>
-                <div className="image-zoom rounded-2xl overflow-hidden h-48 shadow-xl">
-                  <SmartImage
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.25 }}
+                >
+                  <img
                     src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=2031&auto=format&fit=crop"
                     alt="Cultural experience"
                     loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
+                    className="rounded-2xl h-48 w-full object-cover shadow-xl"
                   />
-                </div>
+                </motion.div>
               </div>
             </div>
 
