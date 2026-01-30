@@ -24,6 +24,7 @@ const localSeoLinks = [
   { name: 'India Tours from Bhilai', href: '/india-tour-packages-bhilai' },
   { name: 'Tour Packages Bhilai', href: '/tour-packages-bhilai' },
   { name: 'Visa Agent Bhilai', href: '/visa-agent-bhilai' },
+  { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai' },
 ];
 
 const legalLinks = [
@@ -725,9 +726,9 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <img 
-                  src={getFooterLogo(theme)} 
-                  alt="Rudraksh Safar" 
+                <img
+                  src={getFooterLogo(theme)}
+                  alt="Rudraksh Safar"
                   className="h-12 w-auto object-contain"
                 />
               </div>
@@ -760,22 +761,22 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <div>
               <h3 className="font-semibold mb-6 text-lg" id="footer-quick-links">Quick Links</h3>
               <nav aria-labelledby="footer-quick-links">
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                      className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(link.href);
+                        }}
+                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </nav>
             </div>
 
@@ -869,22 +870,22 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 </a>
               </div>
             </div>
-          {/* Local SEO Links Section - Critical for Google Local Pack */}
-          <div className="border-t border-primary-foreground/10 mt-12 pt-8">
-            <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Serving Bhilai, Durg & Raipur</h3>
-            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Local SEO links">
-              {localSeoLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+            {/* Local SEO Links Section - Critical for Google Local Pack */}
+            <div className="border-t border-primary-foreground/10 mt-12 pt-8">
+              <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Serving Bhilai, Durg & Raipur</h3>
+              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Local SEO links">
+                {localSeoLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
-        </div>
 
           {/* Mobile Accordion for Footer Links */}
           <div className="lg:hidden mt-8 border-t border-primary-foreground/10 pt-8">
