@@ -63,6 +63,11 @@ const TourPackagesBhilai = lazy(() => import("./pages/local/TourPackagesBhilai")
 const InternationalPackagesBhilai = lazy(() => import("./pages/local/InternationalPackagesBhilai"));
 const IndiaPackagesBhilai = lazy(() => import("./pages/local/IndiaPackagesBhilai"));
 const WeekendGetawaysBhilai = lazy(() => import("./pages/local/WeekendGetawaysBhilai"));
+const TicketBookingBhilai = lazy(() => import("./pages/local/TicketBookingBhilai"));
+const TrainBookingBhilai = lazy(() => import("./pages/local/TrainBookingBhilai"));
+const FlightBookingBhilai = lazy(() => import("./pages/local/FlightBookingBhilai"));
+const BusBookingBhilai = lazy(() => import("./pages/local/BusBookingBhilai"));
+const PassportAgentBhilai = lazy(() => import("./pages/local/PassportAgentBhilai"));
 
 const queryClient = new QueryClient();
 
@@ -150,6 +155,11 @@ const App = () => (
                 <Route path="/international-tour-packages-bhilai" element={<InternationalPackagesBhilai />} />
                 <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
                 <Route path="/weekend-getaways-bhilai" element={<WeekendGetawaysBhilai />} />
+                <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
+                <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
+                <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
+                <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
+                <Route path="/passport-agent-bhilai" element={<PassportAgentBhilai />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

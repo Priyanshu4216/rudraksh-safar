@@ -25,6 +25,7 @@ const localSeoLinks = [
   { name: 'Tour Packages Bhilai', href: '/tour-packages-bhilai' },
   { name: 'Visa Agent Bhilai', href: '/visa-agent-bhilai' },
   { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai' },
+  { name: 'Flight & Train Booking Bhilai', href: '/ticket-booking-bhilai' },
 ];
 
 const legalLinks = [

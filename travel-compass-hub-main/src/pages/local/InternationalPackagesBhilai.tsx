@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, MessageCircle, Plane, Globe, CheckCircle } from 'lucide-react';
+import { MapPin, MessageCircle, Plane, Globe, CheckCircle, Palmtree, Building2, Building, Waves, Mountain, LandPlot } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -71,14 +71,14 @@ const InternationalPackagesBhilai = () => {
   };
 
   const destinations = [
-    { name: "Thailand", price: "₹25,000", days: "5N/6D", image: "🇹🇭", highlights: ["Bangkok", "Pattaya", "Phi Phi Islands"] },
-    { name: "Dubai", price: "₹45,000", days: "5N/6D", image: "🇦🇪", highlights: ["Burj Khalifa", "Desert Safari", "Dubai Mall"] },
-    { name: "Bali", price: "₹35,000", days: "5N/6D", image: "🇮🇩", highlights: ["Ubud", "Kuta Beach", "Temples"] },
-    { name: "Singapore", price: "₹55,000", days: "4N/5D", image: "🇸🇬", highlights: ["Marina Bay", "Sentosa", "Gardens"] },
-    { name: "Maldives", price: "₹65,000", days: "4N/5D", image: "🇲🇻", highlights: ["Beach Villa", "Snorkeling", "Sunset"] },
-    { name: "Malaysia", price: "₹40,000", days: "5N/6D", image: "🇲🇾", highlights: ["KL Tower", "Langkawi", "Genting"] },
-    { name: "Vietnam", price: "₹35,000", days: "6N/7D", image: "🇻🇳", highlights: ["Ha Long Bay", "Ho Chi Minh", "Hanoi"] },
-    { name: "Sri Lanka", price: "₹30,000", days: "5N/6D", image: "🇱🇰", highlights: ["Colombo", "Kandy", "Sigiriya"] },
+    { name: "Thailand", price: "₹25,000", days: "5N/6D", icon: <Palmtree className="w-12 h-12 text-primary mx-auto" />, highlights: ["Bangkok", "Pattaya", "Phi Phi Islands"] },
+    { name: "Dubai", price: "₹45,000", days: "5N/6D", icon: <Building2 className="w-12 h-12 text-primary mx-auto" />, highlights: ["Burj Khalifa", "Desert Safari", "Dubai Mall"] },
+    { name: "Bali", price: "₹35,000", days: "5N/6D", icon: <Waves className="w-12 h-12 text-primary mx-auto" />, highlights: ["Ubud", "Kuta Beach", "Temples"] },
+    { name: "Singapore", price: "₹55,000", days: "4N/5D", icon: <Building className="w-12 h-12 text-primary mx-auto" />, highlights: ["Marina Bay", "Sentosa", "Gardens"] },
+    { name: "Maldives", price: "₹65,000", days: "4N/5D", icon: <Palmtree className="w-12 h-12 text-primary mx-auto" />, highlights: ["Beach Villa", "Snorkeling", "Sunset"] },
+    { name: "Malaysia", price: "₹40,000", days: "5N/6D", icon: <Mountain className="w-12 h-12 text-primary mx-auto" />, highlights: ["KL Tower", "Langkawi", "Genting"] },
+    { name: "Vietnam", price: "₹35,000", days: "6N/7D", icon: <LandPlot className="w-12 h-12 text-primary mx-auto" />, highlights: ["Ha Long Bay", "Ho Chi Minh", "Hanoi"] },
+    { name: "Sri Lanka", price: "₹30,000", days: "5N/6D", icon: <Globe className="w-12 h-12 text-primary mx-auto" />, highlights: ["Colombo", "Kandy", "Sigiriya"] },
   ];
 
   const faqs = [
@@ -111,22 +111,22 @@ const InternationalPackagesBhilai = () => {
         <meta name="description" content="Book international tour packages from Bhilai to Thailand, Dubai, Bali, Singapore, Maldives & more. Starting ₹25,000. Visa assistance included. Call +91 94061 82174." />
         <meta name="keywords" content="international tour packages bhilai, thailand package from bhilai, dubai tour from bhilai, bali package bhilai, singapore tour bhilai, foreign tour from bhilai" />
         <link rel="canonical" href="https://rudrakshsafar.com/international-tour-packages-bhilai" />
-        
+
         <meta property="og:title" content="International Tour Packages from Bhilai | Rudraksh Safar" />
         <meta property="og:description" content="Book international holidays from Bhilai. Thailand, Dubai, Bali, Singapore & more from ₹25,000." />
         <meta property="og:url" content="https://rudrakshsafar.com/international-tour-packages-bhilai" />
         <meta property="og:type" content="website" />
-        
+
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="Bhilai, Chhattisgarh" />
         <meta name="geo.position" content="21.206181;81.424916" />
-        
+
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Navbar />
-      
+
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10">
@@ -140,7 +140,7 @@ const InternationalPackagesBhilai = () => {
                 International Tour Packages from <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Book international holiday packages from Bhilai to Thailand, Dubai, Bali, Singapore, Maldives, and Europe. 
+                Book international holiday packages from Bhilai to Thailand, Dubai, Bali, Singapore, Maldives, and Europe.
                 Complete visa assistance and end-to-end travel support from Rudraksh Safar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,7 +165,7 @@ const InternationalPackagesBhilai = () => {
               {destinations.map((dest, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
                   <CardContent className="p-6">
-                    <div className="text-5xl mb-4 text-center">{dest.image}</div>
+                    <div className="mb-4 flex justify-center">{dest.icon}</div>
                     <h3 className="text-xl font-bold text-foreground mb-2 text-center">{dest.name}</h3>
                     <p className="text-sm text-muted-foreground text-center mb-3">{dest.days}</p>
                     <p className="text-2xl font-bold text-primary text-center mb-4">From {dest.price}</p>

@@ -100,12 +100,12 @@ const TravelAgentBhilai = () => {
   };
 
   const services = [
-    { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Domestic & international flights from Raipur (RPR) at best prices." },
-    { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Hotel Reservations", desc: "Budget to luxury accommodations worldwide with meal plans." },
-    { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New passport application, renewal, and police verification assistance." },
-    { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "99% success rate for Dubai, Thailand, Singapore & Schengen visas." },
-    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family, honeymoon, and group tour packages." },
-    { icon: <Shield className="w-10 h-10 text-primary mx-auto" />, title: "Travel Insurance", desc: "Comprehensive travel insurance for stress-free international trips." },
+    { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Domestic & international flights from Raipur (RPR) at best prices.", link: "/flight-booking-bhilai" },
+    { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed seats & Tatkal assistance for trains from Durg/Raipur.", link: "/train-booking-bhilai" },
+    { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New passport application, renewal, and police verification assistance.", link: "/passport-agent-bhilai" },
+    { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "99% success rate for Dubai, Thailand, Singapore & Schengen visas.", link: "/visa-agent-bhilai" },
+    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family, honeymoon, and group tour packages.", link: "/tour-packages-bhilai" },
+    { icon: <Shield className="w-10 h-10 text-primary mx-auto" />, title: "Bus Booking", desc: "Comfortable AC sleeper bus booking to Hyderabad, Pune & Nagpur.", link: "/bus-booking-bhilai" },
   ];
 
   const popularRoutes = [
@@ -270,13 +270,15 @@ const TravelAgentBhilai = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {services.map((service, index) => (
-                <Card key={index} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-8 text-center bg-background rounded-xl h-full flex flex-col items-center justify-center">
-                    <div className="mb-6 p-4 bg-accent/20 rounded-full">{service.icon}</div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
-                  </CardContent>
-                </Card>
+                <Link key={index} to={service.link}>
+                  <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
+                    <CardContent className="p-8 text-center bg-background rounded-xl h-full flex flex-col items-center justify-center">
+                      <div className="mb-6 p-4 bg-accent/20 rounded-full">{service.icon}</div>
+                      <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>

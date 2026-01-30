@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Banknote, CreditCard, Smartphone, AlertTriangle, CheckCircle, ArrowRight, Globe, Wallet } from 'lucide-react';
+import { Banknote, CreditCard, Smartphone, AlertTriangle, CheckCircle, ArrowRight, Globe, Wallet, XCircle, Building2, Palmtree, Mountain } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -24,14 +24,14 @@ const currencies = [
 ];
 
 const upiCountries = [
-  { country: 'Singapore', icon: '🇸🇬', status: 'Live', merchants: 'All major outlets, hawker centers', notes: 'Scan PayNow/NETS QR' },
-  { country: 'UAE', icon: '🇦🇪', status: 'Live', merchants: 'Most retail, malls, restaurants', notes: 'Look for NPCI/UPI logo' },
-  { country: 'Bhutan', icon: '🇧🇹', status: 'Live', merchants: 'Widespread', notes: 'RuPay cards also work' },
-  { country: 'Nepal', icon: '🇳🇵', status: 'Live', merchants: 'Growing', notes: 'Via Fonepay QR' },
-  { country: 'Sri Lanka', icon: '🇱🇰', status: 'Live', merchants: 'Major cities', notes: 'LankaQR integration' },
-  { country: 'France', icon: '🇫🇷', status: 'Live', merchants: 'Eiffel Tower, major tourist spots', notes: 'Pilot phase active' },
-  { country: 'Mauritius', icon: '🇲🇺', status: 'Live', merchants: 'Major tourist areas', notes: 'RuPay cards accepted' },
-  { country: 'Malaysia', icon: '🇲🇾', status: 'Live', merchants: 'PayNet enabled merchants', notes: 'DuitNow linkage live' },
+  { country: 'Singapore', icon: <Building2 className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'All major outlets, hawker centers', notes: 'Scan PayNow/NETS QR' },
+  { country: 'UAE', icon: <Building2 className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Most retail, malls, restaurants', notes: 'Look for NPCI/UPI logo' },
+  { country: 'Bhutan', icon: <Mountain className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Widespread', notes: 'RuPay cards also work' },
+  { country: 'Nepal', icon: <Mountain className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Growing', notes: 'Via Fonepay QR' },
+  { country: 'Sri Lanka', icon: <Palmtree className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Major cities', notes: 'LankaQR integration' },
+  { country: 'France', icon: <Globe className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Eiffel Tower, major tourist spots', notes: 'Pilot phase active' },
+  { country: 'Mauritius', icon: <Palmtree className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Major tourist areas', notes: 'RuPay cards accepted' },
+  { country: 'Malaysia', icon: <Globe className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'PayNet enabled merchants', notes: 'DuitNow linkage live' },
 ];
 
 const forexTips = [
@@ -101,8 +101,8 @@ const CurrencyGuide = () => {
                       <span className="font-semibold">{item.country}</span>
                     </div>
                     <span className={`text-xs px-2 py-1 rounded-full ${item.status === 'Live'
-                        ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
-                        : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
+                      ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                      : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
                       }`}>
                       {item.status}
                     </span>
@@ -146,7 +146,17 @@ const CurrencyGuide = () => {
                         <td className="p-4 font-semibold text-secondary">{c.rate}</td>
                         <td className="p-4 text-sm">{c.cashTip}</td>
                         <td className="p-4 text-sm">{c.cardTip}</td>
-                        <td className="p-4 text-sm">{c.upi}</td>
+                        <td className="p-4 text-sm">
+                          {c.upi.includes('Available') ? (
+                            <div className="flex items-center gap-1 text-green-600 font-medium">
+                              <CheckCircle className="w-4 h-4" /> Available
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <XCircle className="w-4 h-4" /> Not available
+                            </div>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>

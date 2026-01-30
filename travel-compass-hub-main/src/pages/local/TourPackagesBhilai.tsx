@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Plane, Hotel, Users, Heart, Mountain, Crown, ArrowRight, Star } from 'lucide-react';
+import { MapPin, Phone, Plane, Hotel, Users, Heart, Mountain, Crown, ArrowRight, Star, Car, Utensils, Camera, FileCheck, ShieldCheck, Headphones } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -107,7 +107,7 @@ const TourPackagesBhilai = () => {
       </Helmet>
 
       <Navbar />
-      
+
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10">
@@ -121,7 +121,7 @@ const TourPackagesBhilai = () => {
                 Best Tour Packages from <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Discover amazing holiday packages for every budget. From weekend getaways to international 
+                Discover amazing holiday packages for every budget. From weekend getaways to international
                 adventures - we plan it all for you.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -221,18 +221,18 @@ const TourPackagesBhilai = () => {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { icon: "🏨", label: "Hotels" },
-                  { icon: "🚗", label: "Transfers" },
-                  { icon: "🍽️", label: "Meals" },
-                  { icon: "🎫", label: "Sightseeing" },
-                  { icon: "✈️", label: "Flights*" },
-                  { icon: "📋", label: "Visa Help" },
-                  { icon: "🛡️", label: "Insurance*" },
-                  { icon: "📞", label: "24/7 Support" },
+                  { icon: <Hotel className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Hotels" },
+                  { icon: <Car className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Transfers" },
+                  { icon: <Utensils className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Meals" },
+                  { icon: <Camera className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Sightseeing" },
+                  { icon: <Plane className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Flights*" },
+                  { icon: <FileCheck className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Visa Help" },
+                  { icon: <ShieldCheck className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "Insurance*" },
+                  { icon: <Headphones className="w-8 h-8 mb-2 text-primary mx-auto" />, label: "24/7 Support" },
                 ].map((item, index) => (
                   <div key={index} className="bg-background rounded-xl p-4 text-center shadow-sm">
-                    <span className="text-3xl mb-2 block">{item.icon}</span>
-                    <span className="font-medium text-foreground">{item.label}</span>
+                    {item.icon}
+                    <span className="font-medium text-foreground block">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -250,7 +250,7 @@ const TourPackagesBhilai = () => {
               Ready to Book Your Dream Vacation?
             </h2>
             <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-              Get personalized tour packages tailored to your preferences and budget. 
+              Get personalized tour packages tailored to your preferences and budget.
               Free consultation available!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -272,9 +272,9 @@ const TourPackagesBhilai = () => {
             <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert">
               <h2>Book Tour Packages from Bhilai with Rudraksh Safar</h2>
               <p>
-                Planning a holiday from Bhilai? Rudraksh Safar offers the best tour packages for travelers 
-                from Bhilai, Durg, Raipur, and across Chhattisgarh. Whether you're looking for a relaxing 
-                beach vacation in Goa, a spiritual journey to Varanasi, or an international adventure in 
+                Planning a holiday from Bhilai? Rudraksh Safar offers the best tour packages for travelers
+                from Bhilai, Durg, Raipur, and across Chhattisgarh. Whether you're looking for a relaxing
+                beach vacation in Goa, a spiritual journey to Varanasi, or an international adventure in
                 Thailand or Dubai, we have packages to suit every need.
               </p>
               <h3>Why Book with Us?</h3>
@@ -287,13 +287,13 @@ const TourPackagesBhilai = () => {
               </ul>
               <h3>Popular Packages from Bhilai</h3>
               <p>
-                Our most popular packages include Goa beach holidays, Kerala backwater tours, Rajasthan 
-                heritage circuits, Kashmir valley trips, and international destinations like Thailand, 
-                Dubai, Singapore, and Bali. We also specialize in honeymoon packages, family vacations, 
+                Our most popular packages include Goa beach holidays, Kerala backwater tours, Rajasthan
+                heritage circuits, Kashmir valley trips, and international destinations like Thailand,
+                Dubai, Singapore, and Bali. We also specialize in honeymoon packages, family vacations,
                 group tours, and corporate travel.
               </p>
               <p>
-                Contact us today at <strong>+91 94061 82174</strong> or visit our office in Bhilai to 
+                Contact us today at <strong>+91 94061 82174</strong> or visit our office in Bhilai to
                 discuss your travel plans. We're open 10 AM to 9 PM, every day.
               </p>
             </div>

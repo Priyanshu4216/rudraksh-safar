@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, MessageCircle, CheckCircle } from 'lucide-react';
+import { MapPin, MessageCircle, CheckCircle, Palmtree, Sailboat, MountainSnow, Landmark, Mountain, TreePine, Waves } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -71,14 +71,14 @@ const IndiaPackagesBhilai = () => {
   };
 
   const destinations = [
-    { name: "Goa", price: "₹9,999", days: "3N/4D", icon: "🏖️", highlights: ["Beaches", "Nightlife", "Water Sports"] },
-    { name: "Kerala", price: "₹14,999", days: "5N/6D", icon: "🌴", highlights: ["Backwaters", "Munnar", "Alleppey"] },
-    { name: "Kashmir", price: "₹17,999", days: "5N/6D", icon: "🏔️", highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
-    { name: "Rajasthan", price: "₹12,999", days: "5N/6D", icon: "🏰", highlights: ["Jaipur", "Udaipur", "Jaisalmer"] },
-    { name: "Himachal", price: "₹11,999", days: "5N/6D", icon: "❄️", highlights: ["Manali", "Shimla", "Dharamshala"] },
-    { name: "Ladakh", price: "₹24,999", days: "6N/7D", icon: "🏔️", highlights: ["Leh", "Pangong", "Nubra"] },
-    { name: "North-East", price: "₹19,999", days: "6N/7D", icon: "🌿", highlights: ["Shillong", "Kaziranga", "Tawang"] },
-    { name: "Andaman", price: "₹22,999", days: "5N/6D", icon: "🏝️", highlights: ["Havelock", "Neil Island", "Scuba"] },
+    { name: "Goa", price: "₹9,999", days: "3N/4D", icon: <Palmtree className="w-12 h-12 text-primary mx-auto" />, highlights: ["Beaches", "Nightlife", "Water Sports"] },
+    { name: "Kerala", price: "₹14,999", days: "5N/6D", icon: <Sailboat className="w-12 h-12 text-primary mx-auto" />, highlights: ["Backwaters", "Munnar", "Alleppey"] },
+    { name: "Kashmir", price: "₹17,999", days: "5N/6D", icon: <MountainSnow className="w-12 h-12 text-primary mx-auto" />, highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
+    { name: "Rajasthan", price: "₹12,999", days: "5N/6D", icon: <Landmark className="w-12 h-12 text-primary mx-auto" />, highlights: ["Jaipur", "Udaipur", "Jaisalmer"] },
+    { name: "Himachal", price: "₹11,999", days: "5N/6D", icon: <Mountain className="w-12 h-12 text-primary mx-auto" />, highlights: ["Manali", "Shimla", "Dharamshala"] },
+    { name: "Ladakh", price: "₹24,999", days: "6N/7D", icon: <MountainSnow className="w-12 h-12 text-primary mx-auto" />, highlights: ["Leh", "Pangong", "Nubra"] },
+    { name: "North-East", price: "₹19,999", days: "6N/7D", icon: <TreePine className="w-12 h-12 text-primary mx-auto" />, highlights: ["Shillong", "Kaziranga", "Tawang"] },
+    { name: "Andaman", price: "₹22,999", days: "5N/6D", icon: <Waves className="w-12 h-12 text-primary mx-auto" />, highlights: ["Havelock", "Neil Island", "Scuba"] },
   ];
 
   const faqs = [
@@ -111,22 +111,22 @@ const IndiaPackagesBhilai = () => {
         <meta name="description" content="Book national tour packages from Bhilai to Goa, Kashmir, Kerala, Rajasthan, Himachal & more. Starting ₹9,999. Family & honeymoon packages available. Call +91 94061 82174." />
         <meta name="keywords" content="india tour packages bhilai, goa package from bhilai, kashmir tour from bhilai, kerala package bhilai, domestic tour from bhilai, national tour packages bhilai" />
         <link rel="canonical" href="https://rudrakshsafar.com/india-tour-packages-bhilai" />
-        
+
         <meta property="og:title" content="India Tour Packages from Bhilai | Rudraksh Safar" />
         <meta property="og:description" content="Book domestic holidays from Bhilai. Goa, Kashmir, Kerala & more from ₹9,999." />
         <meta property="og:url" content="https://rudrakshsafar.com/india-tour-packages-bhilai" />
         <meta property="og:type" content="website" />
-        
+
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="Bhilai, Chhattisgarh" />
         <meta name="geo.position" content="21.206181;81.424916" />
-        
+
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Navbar />
-      
+
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10">
@@ -140,7 +140,7 @@ const IndiaPackagesBhilai = () => {
                 India Tour Packages from <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Explore India with our national tour packages from Bhilai covering Goa, Kashmir, Kerala, Rajasthan, 
+                Explore India with our national tour packages from Bhilai covering Goa, Kashmir, Kerala, Rajasthan,
                 Himachal, Ladakh, and North-East India. Complete travel support from Rudraksh Safar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,7 +165,7 @@ const IndiaPackagesBhilai = () => {
               {destinations.map((dest, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
                   <CardContent className="p-6">
-                    <div className="text-5xl mb-4 text-center">{dest.icon}</div>
+                    <div className="mb-4 flex justify-center">{dest.icon}</div>
                     <h3 className="text-xl font-bold text-foreground mb-2 text-center">{dest.name}</h3>
                     <p className="text-sm text-muted-foreground text-center mb-3">{dest.days}</p>
                     <p className="text-2xl font-bold text-primary text-center mb-4">From {dest.price}</p>

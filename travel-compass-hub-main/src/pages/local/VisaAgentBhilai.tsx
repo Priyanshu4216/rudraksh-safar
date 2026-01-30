@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, FileText, CheckCircle, Clock, Shield, Globe, Star } from 'lucide-react';
+import { MapPin, Phone, FileText, CheckCircle, Clock, Shield, Globe, Star, BookOpen } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -77,7 +77,7 @@ const VisaAgentBhilai = () => {
       </Helmet>
 
       <Navbar />
-      
+
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10">
@@ -91,7 +91,7 @@ const VisaAgentBhilai = () => {
                 Visa Agent in <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Expert visa consultancy services for Dubai, Thailand, Singapore, Schengen & 50+ countries. 
+                Expert visa consultancy services for Dubai, Thailand, Singapore, Schengen & 50+ countries.
                 High approval rate with hassle-free documentation support.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,6 +165,73 @@ const VisaAgentBhilai = () => {
               ))}
             </div>
           </div>
+
+
+        </section>
+
+        {/* Passport Services - SEO Boost */}
+        <section className="py-16 bg-blue-50 dark:bg-blue-950/20">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  <BookOpen className="w-4 h-4" />
+                  <span>Passport Services</span>
+                </div>
+                <h2 className="text-3xl font-bold text-foreground mb-4">
+                  Passport Agent in Bhilai
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Need a new passport or renewal? We provide complete assistance for the <strong>Raipur Passport Seva Kendra (PSK)</strong> process.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold">New Passport Application</h4>
+                      <p className="text-sm text-muted-foreground">Form filling & appointment booking.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold">Passport Renewal / Re-issue</h4>
+                      <p className="text-sm text-muted-foreground">For expired or damaged passports.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold">Police Verification Guide</h4>
+                      <p className="text-sm text-muted-foreground">Guidance on required documents.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Card className="border-blue-200 shadow-md">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4 text-center">Passport Service Charges</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between border-b pb-2">
+                      <span>Consultation & Form Filling</span>
+                      <span className="font-bold text-primary">₹500</span>
+                    </div>
+                    <div className="flex justify-between border-b pb-2">
+                      <span>Appointment Booking</span>
+                      <span className="font-bold text-primary">Included</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Document Verification</span>
+                      <span className="font-bold text-primary">Included</span>
+                    </div>
+                  </div>
+                  <Button className="w-full mt-6" asChild>
+                    <a href="https://wa.me/919406182174?text=I need passport help">Book Appointment</a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </section>
 
         {/* Why Choose Us */}
@@ -213,32 +280,43 @@ const VisaAgentBhilai = () => {
           </div>
         </section>
 
+        {/* Legal Disclaimer */}
+        <section className="bg-background pb-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto opacity-70">
+              <p className="text-xs text-muted-foreground text-center">
+                <strong>Disclaimer:</strong> Rudraksh Safar acts as a visa consultancy agent. We assist with documentation and filing. The final decision to grant or reject a visa lies solely with the respective Embassy/Consulate. Visa fees are non-refundable once applied.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Local SEO Content */}
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert">
               <h2>Best Visa Agent in Bhilai - Rudraksh Safar</h2>
               <p>
-                Looking for a reliable visa agent in Bhilai? Rudraksh Safar is your trusted visa consultancy 
-                partner in the Bhilai-Durg-Raipur region. We specialize in tourist visas, business visas, 
+                Looking for a reliable visa agent in Bhilai? Rudraksh Safar is your trusted visa consultancy
+                partner in the Bhilai-Durg-Raipur region. We specialize in tourist visas, business visas,
                 and travel documentation for all major international destinations.
               </p>
               <h3>Our Visa Expertise</h3>
               <p>
-                With years of experience in visa processing, our team understands the specific requirements 
-                of each embassy and consulate. We provide end-to-end support from document preparation to 
+                With years of experience in visa processing, our team understands the specific requirements
+                of each embassy and consulate. We provide end-to-end support from document preparation to
                 visa stamping, ensuring a smooth and stress-free experience for our clients.
               </p>
               <h3>Serving All of Chhattisgarh</h3>
               <p>
-                While based in Bhilai, we serve clients from across Chhattisgarh including Raipur, Durg, 
-                Rajnandgaon, Bilaspur, and Korba. Our online consultation and doorstep document pickup 
+                While based in Bhilai, we serve clients from across Chhattisgarh including Raipur, Durg,
+                Rajnandgaon, Bilaspur, and Korba. Our online consultation and doorstep document pickup
                 services make visa processing convenient for everyone.
               </p>
             </div>
           </div>
         </section>
-      </main>
+      </main >
 
       <Footer />
       <FloatingWhatsApp />
