@@ -69,7 +69,7 @@ const familyPackages = [
     title: 'Thailand Family Holiday',
     location: 'Thailand',
     duration: '7 Days / 6 Nights',
-    price: '₹54,999',
+    price: '₹22,999',
     image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
     tag: 'Beach & Culture',
     features: ['Beach Activities', 'Temple Tours', 'Island Hopping'],
@@ -91,7 +91,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
             <Users className="w-3 h-3" />
             Family Safe
           </div>
-          
+
           <div className="relative h-56 overflow-hidden">
             <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-transparent" />
@@ -107,7 +107,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
               </div>
             </div>
           </div>
-          
+
           <div className="p-5">
             <div className="flex items-center justify-between mb-3">
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -122,7 +122,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
                 Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
-            
+
             {/* Features */}
             <div className="flex flex-wrap gap-2 mb-4">
               {pkg.features.map((feature, idx) => (
@@ -131,14 +131,14 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
                 </span>
               ))}
             </div>
-            
+
             <div className="flex items-center justify-between pt-4 border-t border-blue-200/50 dark:border-blue-800/30">
               <div>
                 <p className="text-xs text-muted-foreground">Per Person from</p>
                 <p className="text-xl font-serif font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{pkg.price}</p>
               </div>
-              <Button 
-                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} 
+              <Button
+                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }}
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-5 py-2.5 text-sm rounded-full shadow-lg hover:shadow-blue-500/25 transition-all"
               >
                 Book Now
@@ -191,19 +191,19 @@ const FamilyPackages = () => {
           structuredData={structuredData}
         />
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 via-background to-cyan-100/30 dark:from-blue-950/20 dark:to-cyan-950/10" />
           <div className="absolute top-20 right-10 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-cyan-300/20 rounded-full blur-3xl" />
-          
+
           <div className="container relative z-10">
             <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-blue-600 transition-colors mb-8 group">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Home
             </Link>
-            
+
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
@@ -217,11 +217,11 @@ const FamilyPackages = () => {
                   Family <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Packages</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Create lasting memories with your loved ones. Kid-friendly destinations, comfortable stays, 
+                  Create lasting memories with your loved ones. Kid-friendly destinations, comfortable stays,
                   and guided tours designed for the whole family.
                 </p>
               </AnimatedSection>
-              
+
               <AnimatedSection animation="fade-up" delay={200}>
                 <div className="glass-card p-5 border border-blue-300/30 bg-gradient-to-br from-blue-50/80 to-cyan-50/80 dark:from-blue-950/30 dark:to-cyan-950/30 max-w-xs">
                   <div className="flex items-center gap-3 mb-2">
@@ -238,7 +238,7 @@ const FamilyPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Trust Badges */}
         <section className="pb-10">
           <div className="container">
@@ -257,7 +257,7 @@ const FamilyPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Packages Grid */}
         <section className="pb-20">
           <div className="container">
@@ -268,7 +268,7 @@ const FamilyPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-100/50 to-cyan-100/50 dark:from-blue-950/20 dark:to-cyan-950/20" />
@@ -278,8 +278,8 @@ const FamilyPackages = () => {
                 <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Plan Your Family Vacation</h2>
                 <p className="text-muted-foreground mb-6">Let us create a customized family-friendly itinerary for you</p>
-                <Button 
-                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like to plan a family vacation package.")}`, '_blank'); }} 
+                <Button
+                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like to plan a family vacation package.")}`, '_blank'); }}
                   className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-blue-500/25 transition-all"
                 >
                   <Users className="w-4 h-4 mr-2" />
@@ -289,7 +289,7 @@ const FamilyPackages = () => {
             </AnimatedSection>
           </div>
         </section>
-        
+
         <Footer />
         <FloatingWhatsApp />
       </main>

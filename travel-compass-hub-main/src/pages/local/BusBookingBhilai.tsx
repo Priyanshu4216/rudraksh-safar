@@ -1,14 +1,25 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Bus, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Wifi, Armchair } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import PageLoader from '@/components/PageLoader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const BusBookingBhilai = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
+
     const popularRoutes = [
         { dest: "Hyderabad", type: "AC Sleeper / Volvo", time: "Overnight (12-14 hrs)", fare: "₹1200 - ₹2500" },
         { dest: "Pune", type: "AC Sleeper", time: "Overnight (16-18 hrs)", fare: "₹1800 - ₹3000" },
@@ -39,6 +50,10 @@ const BusBookingBhilai = () => {
         },
         "priceRange": "₹"
     };
+
+    if (isLoading) {
+        return <PageLoader type="bus" />;
+    }
 
     return (
         <>

@@ -2,41 +2,50 @@ import { Plane, Train, Hotel, Bus, FileText, Stamp, Ship } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
+import { Link } from 'react-router-dom';
+
 const services = [
   {
     icon: Plane,
     title: 'Flight Tickets',
     description: 'Domestic & international flight bookings at best prices',
+    link: '/flight-booking-bhilai'
   },
   {
     icon: Train,
     title: 'Train Tickets',
     description: 'Hassle-free train reservations across India',
+    link: '/train-booking-bhilai'
   },
   {
     icon: Hotel,
     title: 'Hotel Booking',
     description: 'Premium hotels & resorts at competitive rates',
+    link: '/#packages'
   },
   {
     icon: Bus,
     title: 'Bus & Cab Booking',
     description: 'Comfortable road travel solutions',
+    link: '/cab-rental'
   },
   {
     icon: Ship,
     title: 'Cruise Booking',
     description: 'Luxury cruise packages for unforgettable voyages',
+    link: '/cruise-booking'
   },
   {
     icon: FileText,
     title: 'Visa Consultancy',
     description: 'Expert guidance for all visa applications',
+    link: '/visa-guide'
   },
   {
     icon: Stamp,
     title: 'Passport Consultancy',
     description: 'Quick passport services & renewals',
+    link: '/passport-guide'
   },
 ];
 
@@ -55,16 +64,16 @@ const ServicesSection = () => {
   return (
     <section ref={sectionRef} id="services" className="section-padding bg-muted/30 relative overflow-hidden" aria-labelledby="services-heading">
       {/* Animated Background Elements */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
       >
-        <motion.div 
+        <motion.div
           className="absolute top-20 right-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 6, repeat: Infinity }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.7, 0.5] }}
           transition={{ duration: 8, repeat: Infinity, delay: 2 }}
@@ -73,12 +82,12 @@ const ServicesSection = () => {
 
       <div className="container relative z-10">
         {/* Header with 3D zoom effect */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
           style={{ y: headerY, opacity: headerOpacity, scale: headerScale }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <motion.div 
+            <motion.div
               className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent to-secondary"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -88,7 +97,7 @@ const ServicesSection = () => {
             <span className="text-secondary font-medium tracking-widest uppercase text-sm">
               Our Services
             </span>
-            <motion.div 
+            <motion.div
               className="h-px flex-1 max-w-[60px] bg-gradient-to-l from-transparent to-secondary"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -112,24 +121,26 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ 
-                duration: 0.4, 
+              transition={{
+                duration: 0.4,
                 delay: index * 0.08,
               }}
             >
-              <div className="glass-card p-8 h-full group hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-secondary" aria-hidden="true" />
+              <Link to={service.link} className="block h-full">
+                <div className="glass-card p-8 h-full group hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 relative overflow-hidden cursor-pointer">
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-8 h-8 text-secondary" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {service.description}
-                  </p>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

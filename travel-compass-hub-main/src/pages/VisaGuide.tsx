@@ -9,16 +9,16 @@ import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
 
 const visaCountries = [
-  { id: 'dubai', name: 'Dubai (UAE)', flag: '🇦🇪', type: 'e-Visa', processing: '3-5 days', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400' },
-  { id: 'thailand', name: 'Thailand', flag: '🇹🇭', type: 'Visa on Arrival', processing: 'On arrival', image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400' },
-  { id: 'singapore', name: 'Singapore', flag: '🇸🇬', type: 'e-Visa', processing: '3-5 days', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400' },
-  { id: 'bali', name: 'Bali (Indonesia)', flag: '🇮🇩', type: 'Visa on Arrival', processing: 'On arrival', image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400' },
-  { id: 'maldives', name: 'Maldives', flag: '🇲🇻', type: 'Visa on Arrival', processing: 'On arrival', image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400' },
-  { id: 'turkey', name: 'Turkey', flag: '🇹🇷', type: 'e-Visa', processing: '24-48 hours', image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400' },
-  { id: 'schengen', name: 'Schengen (Europe)', flag: '🇪🇺', type: 'Appointment', processing: '15-30 days', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400' },
-  { id: 'sri-lanka', name: 'Sri Lanka', flag: '🇱🇰', type: 'ETA Online', processing: '24-48 hours', image: 'https://images.unsplash.com/photo-1586016413664-864c0dd76f53?w=400' },
-  { id: 'nepal', name: 'Nepal', flag: '🇳🇵', type: 'Visa on Arrival', processing: 'On arrival', image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400' },
-  { id: 'malaysia', name: 'Malaysia', flag: '🇲🇾', type: 'eNTRI/e-Visa', processing: '24-72 hours', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400' },
+  { id: 'dubai', name: 'Dubai (UAE)', flag: '🇦🇪', type: 'e-Visa', processing: '3-5 days' },
+  { id: 'thailand', name: 'Thailand', flag: '🇹🇭', type: 'Visa on Arrival', processing: 'On arrival' },
+  { id: 'singapore', name: 'Singapore', flag: '🇸🇬', type: 'e-Visa', processing: '3-5 days' },
+  { id: 'bali', name: 'Bali (Indonesia)', flag: '🇮🇩', type: 'Visa on Arrival', processing: 'On arrival' },
+  { id: 'maldives', name: 'Maldives', flag: '🇲🇻', type: 'Visa on Arrival', processing: 'On arrival' },
+  { id: 'turkey', name: 'Turkey', flag: '🇹🇷', type: 'e-Visa', processing: '24-48 hours' },
+  { id: 'schengen', name: 'Schengen (Europe)', flag: '🇪🇺', type: 'Appointment', processing: '15-30 days' },
+  { id: 'sri-lanka', name: 'Sri Lanka', flag: '🇱🇰', type: 'ETA Online', processing: '24-48 hours' },
+  { id: 'nepal', name: 'Nepal', flag: '🇳🇵', type: 'Visa on Arrival', processing: 'On arrival' },
+  { id: 'malaysia', name: 'Malaysia', flag: '🇲🇾', type: 'eNTRI/e-Visa', processing: '24-72 hours' },
 ];
 
 const VisaGuide = () => {
@@ -36,9 +36,9 @@ const VisaGuide = () => {
   return (
     <>
       <SEOHead
-        title="Visa Guide for Indians - Complete Visa Requirements 2026 | Rudraksh Safar"
-        description="Complete visa guide for Indian passport holders. Check visa requirements, processing time, fees, and documents for Dubai, Thailand, Singapore, Europe & more."
-        keywords="visa for Indians, Indian passport visa, visa requirements India, e-visa, visa on arrival, Schengen visa India"
+        title="Visa Guide for Indians 2026 - Requirements, Fees & E-Visa Process | Rudraksh Safar"
+        description="Comprehensive visa guide for Indian citizens. detailed requirements for Dubai, Thailand, Schengen, and Singapore visas. Learn about E-Visa application, visa-on-arrival fees, and processing times."
+        keywords="visa for Indians 2026, Indian passport visa requirements, Dubai e-visa price, Thailand visa on arrival for Indians, Schengen visa appointment, Singapore visa processing time, visa documents checklist"
         canonicalUrl="https://rudrakshsafar.com/visa-guide"
       />
 
@@ -50,13 +50,13 @@ const VisaGuide = () => {
             <div className="text-center mb-12">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <Globe className="w-4 h-4" />
-                Visa Information
+                Global Access
               </span>
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                Visa Guide for Indian Travellers
+                Visa Requirements for Indian Citizens
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Find complete visa requirements, processing times, fees, and documents needed for popular international destinations. Click on any country for detailed information.
+                Navigating visa rules can be complex. We simplify the process with up-to-date information on documents, fees, and photo specifications for top destinations. Select a country to start your application journey.
               </p>
             </div>
           </AnimatedSection>
@@ -87,14 +87,9 @@ const VisaGuide = () => {
                   rel="noopener noreferrer"
                   className="group bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="aspect-video relative overflow-hidden">
-                    <img
-                      src={country.image}
-                      alt={country.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3 text-3xl">{country.flag}</div>
-                    <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
+                  <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
+                    <div className="text-6xl">{country.flag}</div>
+                    <div className="absolute top-3 right-3 bg-white/90 dark:bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium border border-black/10">
                       {country.type}
                     </div>
                   </div>

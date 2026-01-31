@@ -68,29 +68,22 @@ const TrainBookingBhilai = lazy(() => import("./pages/local/TrainBookingBhilai")
 const FlightBookingBhilai = lazy(() => import("./pages/local/FlightBookingBhilai"));
 const BusBookingBhilai = lazy(() => import("./pages/local/BusBookingBhilai"));
 const PassportAgentBhilai = lazy(() => import("./pages/local/PassportAgentBhilai"));
+const TravelAgentRaipur = lazy(() => import("./pages/local/TravelAgentRaipur"));
+const TourPackagesRaipur = lazy(() => import("./pages/local/TourPackagesRaipur"));
+const WeekendGetawaysRaipur = lazy(() => import("./pages/local/WeekendGetawaysRaipur"));
+const CorporateTourPackagesBhilai = lazy(() => import("./pages/local/CorporateTourPackagesBhilai"));
+const CabRental = lazy(() => import("./pages/CabRental"));
+const CruiseBooking = lazy(() => import("./pages/CruiseBooking"));
+
+const BudgetTourPackages = lazy(() => import("./pages/BudgetTourPackages"));
+const SummerHolidayPackages = lazy(() => import("./pages/SummerHolidayPackages"));
+const GroupTourPackages = lazy(() => import("./pages/GroupTourPackages"));
+const BeachHolidayPackages = lazy(() => import("./pages/BeachHolidayPackages"));
+const MountainHolidayPackages = lazy(() => import("./pages/MountainHolidayPackages"));
+const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 
 const queryClient = new QueryClient();
 
-const SpaRedirectHandler = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // If the user hit Netlify's 404 fallback (public/404.html), we store the
-    // intended URL in sessionStorage and land on '/'. Rehydrate it here.
-    try {
-      const target = sessionStorage.getItem("spa:redirect");
-      if (!target) return;
-      sessionStorage.removeItem("spa:redirect");
-
-      // Avoid loops; only navigate if it's a non-root route.
-      if (target !== "/") navigate(target, { replace: true });
-    } catch {
-      // noop
-    }
-  }, [navigate]);
-
-  return null;
-};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -100,7 +93,6 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <SpaRedirectHandler />
             <ScrollProgressBar />
             <ScrollToTop />
             <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -138,8 +130,24 @@ const App = () => (
                 <Route path="/visa/turkey" element={<TurkeyVisa />} />
                 <Route path="/visa/schengen" element={<SchengenVisa />} />
                 <Route path="/visa/sri-lanka" element={<SriLankaVisa />} />
+
+                {/* Local SEO Pages - Raipur & Bhilai */}
+                <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
+                <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
+                <Route path="/weekend-getaways-raipur" element={<WeekendGetawaysRaipur />} />
+                <Route path="/corporate-tour-packages-bhilai" element={<CorporateTourPackagesBhilai />} />
+
+                {/* Thematic SEO Pages */}
+                <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
+                <Route path="/summer-holiday-packages" element={<SummerHolidayPackages />} />
+                <Route path="/group-tour-packages" element={<GroupTourPackages />} />
+                <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
+                <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
+                <Route path="/why-choose-us" element={<WhyChooseUs />} />
                 <Route path="/visa/nepal" element={<NepalVisa />} />
                 <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
+                <Route path="/cab-rental" element={<CabRental />} />
+                <Route path="/cruise-booking" element={<CruiseBooking />} />
 
                 {/* Legal Routes */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -167,11 +175,11 @@ const App = () => (
             </Suspense>
             <CookieConsent />
             <PWAInstallPrompt />
-          </BrowserRouter>
-        </TooltipProvider>
-      </SecurityProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+          </BrowserRouter >
+        </TooltipProvider >
+      </SecurityProvider >
+    </ThemeProvider >
+  </QueryClientProvider >
 );
 
 export default App;

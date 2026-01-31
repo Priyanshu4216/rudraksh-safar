@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Train, Clock, MapPin, AlertTriangle, CheckCircle, ShieldCheck, Phone, Calendar, Users, ChevronDown, ChevronUp } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import PageLoader from '@/components/PageLoader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -11,7 +12,16 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const TrainBookingBhilai = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const [showAllFaqs, setShowAllFaqs] = useState(false);
+
+    useEffect(() => {
+        // Simulate loading time for the train animation
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
 
     const popularTrains = [
         { name: "Vande Bharat Express", route: "Durg to Visakhapatnam / Nagpur", time: "Daytime", availability: "High Demand" },
@@ -40,8 +50,8 @@ const TrainBookingBhilai = () => {
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
-        "name": "Rudraksh Safar - Railway Ticket Agent Bhilai",
-        "intro": "Authorized railway ticket booking services in Bhilai & Durg.",
+        "name": "Rudraksh Safar - Train Ticket Booking Agent Bhilai",
+        "intro": "Authorized IRCTC Agent for Tatkal and Normal train tickets.",
         "telephone": "+919406182174",
         "address": {
             "@type": "PostalAddress",
@@ -52,6 +62,10 @@ const TrainBookingBhilai = () => {
         },
         "priceRange": "₹"
     };
+
+    if (isLoading) {
+        return <PageLoader type="train" />;
+    }
 
     return (
         <>
@@ -105,8 +119,8 @@ const TrainBookingBhilai = () => {
                                 <AlertDescription className="mt-2 ml-2 text-sm leading-relaxed">
                                     <p className="mb-2">To comply with Indian Railway regulations, authorized agents are <strong>not permitted</strong> to book Tatkal tickets during the exclusive opening window:</p>
                                     <ul className="list-disc list-inside font-medium opacity-90 space-y-1">
-                                        <li>AC Class (10:00 AM - 10:15 AM)</li>
-                                        <li>Non-AC Class (11:00 AM - 11:15 AM)</li>
+                                        <li>AC Class (10:00 AM - 10:30 AM)</li>
+                                        <li>Non-AC Class (11:00 AM - 11:30 AM)</li>
                                     </ul>
                                     <p className="mt-2">We can legally assist you with Tatkal bookings <strong>after</strong> this restrictive time slot, subject to availability. We prioritize transparency and compliance.</p>
                                 </AlertDescription>

@@ -1,14 +1,28 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Plane, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Globe, CreditCard, FileText, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import PageLoader from '@/components/PageLoader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const FlightBookingBhilai = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return <PageLoader type="flight" />;
+    }
     const directFlights = [
         { dest: "Delhi (DEL)", freq: "Daily (Multiple)", airline: "IndiGo, Vistara", time: "2h 00m" },
         { dest: "Mumbai (BOM)", freq: "Daily", airline: "IndiGo, Air India", time: "1h 50m" },

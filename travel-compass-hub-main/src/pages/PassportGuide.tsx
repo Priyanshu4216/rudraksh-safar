@@ -22,9 +22,9 @@ const PassportGuide = () => {
   return (
     <>
       <SEOHead
-        title="Indian Passport Rules & Requirements for International Travel | Rudraksh Safar"
-        description="Complete guide to Indian passport rules for international travel. Learn about validity requirements, blank pages, name mismatch rules, and damaged passport policy."
-        keywords="Indian passport rules, passport validity for travel, passport requirements India, passport renewal, blank pages passport"
+        title="Indian Passport Rules 2026 - Validity, Damage & Renewal Guide | Rudraksh Safar"
+        description="Essential guide to Indian passport regulations. Verify your passport's validity, understand the '6-month rule', check for damage that could bar travel, and learn about blank page requirements."
+        keywords="Indian passport rules 2026, passport validity check, damaged passport rules India, minimum 6 months validity, passport blank pages requirement, name mismatch in passport and ticket"
         canonicalUrl="https://rudrakshsafar.com/passport-guide"
       />
 
@@ -36,13 +36,13 @@ const PassportGuide = () => {
             <div className="text-center mb-12">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <FileCheck className="w-4 h-4" />
-                Passport Rules
+                Travel Documents
               </span>
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                Indian Passport Requirements
+                Essential Indian Passport Rules
               </h1>
               <p className="text-muted-foreground">
-                Essential passport rules every Indian traveller must know before international travel.
+                Don't let a document error ruin your trip. Master the critical passport regulations—from validity dates to physical condition—required for seamless international travel.
               </p>
             </div>
           </AnimatedSection>

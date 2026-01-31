@@ -80,7 +80,7 @@ const internationalPackages = [
     title: 'Thailand Explorer',
     location: 'Thailand',
     duration: '4 Days / 3 Nights',
-    price: '₹38,999',
+    price: '₹18,999',
     image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
     tag: 'Beach & Culture',
     visa: 'On Arrival',
@@ -247,7 +247,7 @@ const InternationalPackages = () => {
           structuredData={structuredData}
         />
         <Navbar />
-        
+
         {/* Hero Banner */}
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/5" />
@@ -257,8 +257,8 @@ const InternationalPackages = () => {
           </div>
 
           <div className="container relative z-10">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

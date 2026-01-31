@@ -118,10 +118,10 @@ const TravelAgentBhilai = () => {
   ];
 
   const whyChooseUs = [
-    { icon: Users, title: "Local Expert Since 2010", desc: "We are not just a website; we are your neighbors on GE Road, Bhilai. Trusted by 5000+ local families." },
-    { icon: Shield, title: "100% Transparency", desc: "No hidden charges. We explain every inclusion and exclusion clearly before booking." },
-    { icon: Clock, title: "24/7 Trip Support", desc: "Stuck at an airport? Facing an issue at a hotel? We are just one call away, anytime." },
-    { icon: Award, title: "Best Rate Guarantee", desc: "We challenge you to find a better price for the same hotel & flight combination." },
+    { icon: Users, title: "Local Expert Since 2010", desc: "We are the leading Bhilai tour operator and neighbor on GE Road. Trusted by 5000+ local families." },
+    { icon: Shield, title: "100% Transparency", desc: "No hidden charges. Your verified local travel agency Bhilai for safe and secure bookings." },
+    { icon: Clock, title: "24/7 Trip Support", desc: "Stuck at an airport? We are the best travel agent near me because we pick up calls 24/7." },
+    { icon: Award, title: "Best Rate Guarantee", desc: "We challenge you to find a better price for the same hotel & flight from any other tour and travels Bhilai." },
   ];
 
   const faqs = [
@@ -154,14 +154,14 @@ const TravelAgentBhilai = () => {
   return (
     <>
       <Helmet>
-        <title>Best Travel Agent in Bhilai | Tour Operator for Goa, Kashmir, Thailand</title>
-        <meta name="description" content="Rudraksh Safar: Top-rated travel agent in Bhilai. customized tour packages from Bhilai to Goa, Kashmir, Manali, Thailand & Dubai. Passport & Visa agents." />
-        <meta name="keywords" content="travel agent bhilai, tour operator in bhilai, bhilai to goa tour package, bhilai to kashmir package, bhilai to thailand tour, travel agency near me, bhilai to kedarnath" />
+        <title>Best Travel Agency in Bhilai | Tour and Travels Bhilai | Rudraksh Safar</title>
+        <meta name="description" content="Looking for the best travel agent near me? Rudraksh Safar is the trusted local travel agency in Bhilai. Domestic & International tour packages, Visa, and Passport services. Call 9406182174." />
+        <meta name="keywords" content="travel agency in Bhilai, tour and travels Bhilai, best travel agent near me, local travel agency Bhilai, Bhilai tour operator, travel agent Bhilai number, tour operator in bhilai, bhilai to goa tour package" />
         <link rel="canonical" href="https://rudrakshsafar.com/travel-agent-bhilai" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Best Travel Agent in Bhilai | Rudraksh Safar" />
-        <meta property="og:description" content="Trusted travel agent in Bhilai offering national & international tour packages. Office on GE Road, Bhilai." />
+        <meta property="og:title" content="Best Travel Agency in Bhilai | Tour and Travels Bhilai" />
+        <meta property="og:description" content="Rudraksh Safar - Your trusted local travel agency in Bhilai. Unbeatable deals on tour packages. Call for best rates." />
         <meta property="og:url" content="https://rudrakshsafar.com/travel-agent-bhilai" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://rudrakshsafar.com/og-image.png" />
@@ -223,7 +223,7 @@ const TravelAgentBhilai = () => {
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4">Trending Now</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Popular Tours form Bhilai
+                Popular Tours from Bhilai
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Our most requested packages by travelers from Bhilai & Durg this season.
@@ -262,10 +262,10 @@ const TravelAgentBhilai = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                One-Stop Travel Shop in Bhilai
+                One-Stop Tour and Travels in Bhilai
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Why run to different agents? Get Flights, Hotels, Visas, and Insurance all under one roof.
+                As a leading <strong>local travel agency in Bhilai</strong>, we offer Flights, Hotels, Visas, and Insurance under one roof.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -291,6 +291,9 @@ const TravelAgentBhilai = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Why 5000+ Travelers Trust Rudraksh Safar
               </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We are proud to be the <strong>best travel agent near me</strong> for thousands of happy customers.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {whyChooseUs.map((item, index) => (
@@ -323,6 +326,18 @@ const TravelAgentBhilai = () => {
                     <div>
                       <h3 className="font-semibold text-lg">Our Office</h3>
                       <p className="text-muted-foreground">GE Road, In Front of Petrol Pump, Bhilai 3<br />(Near SBI Branch), Chhattisgarh 490021</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg">Travel Agent Bhilai Number</h3>
+                      <p className="text-muted-foreground">
+                        <a href="tel:+919406182174" className="hover:text-primary transition-colors">+91 94061 82174</a>
+                      </p>
                     </div>
                   </div>
 
