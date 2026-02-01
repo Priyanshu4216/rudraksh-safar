@@ -14,25 +14,30 @@ const PHONE_NUMBER = '919406182174';
 
 // Generate dynamic FAQs based on package type and details
 const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
+  // If specific AEO FAQs are provided in the package data, use them partially or fully
+  // For this implementation, we will prioritize AEO FAQs if they exist, and append generic ones if needed, 
+  // but the user request implies replacing them for these specific pages to match the "Answer Engine" strategy.
+  // Let's prepend them to ensure they appear first and are picked up by Schema.
+
   const isDomestic = pkg.type === 'domestic';
   const isSpiritual = pkg.tag === 'Spiritual' || pkg.tag === 'Pilgrimage';
   const isBeach = pkg.tag === 'Beach Escape' || pkg.tag === 'Romantic' || pkg.tag === 'Beach & Culture';
   const isAdventure = pkg.tag === 'Adventure' || pkg.tag === 'Expedition' || pkg.tag === 'Trekking';
-  
-  const faqs = [
+
+  const genericFaqs = [
     {
       question: `What is included in the ${pkg.title} package?`,
       answer: `Our ${pkg.title} package (${pkg.duration}) includes comfortable accommodation, all transfers and sightseeing as per itinerary, experienced tour guide, ${isDomestic ? 'all meals on MAP plan' : 'breakfast at hotels'}, and 24/7 on-trip support. Visit ${pkg.famousPlaces.slice(0, 3).join(', ')} and more iconic destinations.`
     },
     {
       question: `What is the best time to visit ${pkg.location}?`,
-      answer: isSpiritual 
+      answer: isSpiritual
         ? `The best time for ${pkg.title} is April to June and September to November when weather is pleasant for pilgrimage. Avoid monsoon season (July-August) due to landslides and road closures.`
-        : isBeach 
-        ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
-        : isAdventure
-        ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
-        : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
+        : isBeach
+          ? `${pkg.location} is best visited from October to March when the weather is pleasant with clear skies, perfect for beach activities and sightseeing. Avoid monsoon months for the best experience.`
+          : isAdventure
+            ? `The ideal time for ${pkg.title} is May to October when roads are open and weather is suitable for adventure activities. Winter months offer snow experiences but some routes may be closed.`
+            : `${pkg.location} is best visited year-round, but October to March offers the most pleasant weather. Check seasonal festivals and local events for a richer experience.`
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
@@ -53,8 +58,8 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: isSpiritual
         ? `Yes, we offer special arrangements for senior citizens including helicopter services, pony/doli for treks, and comfortable accommodations. Our guides are trained to assist elderly travelers throughout the journey.`
         : isAdventure
-        ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
-        : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
+          ? `Our ${pkg.title} is designed for all fitness levels. We provide proper acclimatization time, experienced guides, and alternative options for challenging activities. Beginners are welcome!`
+          : `Absolutely! ${pkg.title} is perfect for families with customizable activities for all ages. We arrange child-friendly accommodations, safe transport, and engaging activities for the whole family.`
     },
     {
       question: `What is the payment and cancellation policy?`,
@@ -65,8 +70,16 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
       answer: `With 10+ years of experience, 500+ happy travelers, and being Bhilai's trusted travel partner, we offer the best value packages. Our highlights: 24/7 support, local expertise, ${isDomestic ? 'home pickup from Chhattisgarh' : 'complete visa assistance'}, and personalized service. We're not just a travel agency - we're your travel family!`
     }
   ];
-  
-  return faqs;
+
+  // If AEO FAQs exist, use EXCLUSIVELY specific questions if requested, or prepend them.
+  // The user request suggests specific Q&A for SEO. Let's return the AEO FAQs if present, 
+  // but maybe keep 1-2 generic ones if they don't overlap. 
+  // Simpler approach: If 'aeoFaqs' is present, return it. If not, return generic.
+  if ((pkg as any).aeoFaqs) {
+    return (pkg as any).aeoFaqs;
+  }
+
+  return genericFaqs;
 };
 
 const allPackages = [
@@ -147,6 +160,12 @@ const allPackages = [
       'Day 5: Visit Uluwatu Temple perched on cliffs, witness the magical Kecak Fire Dance at sunset with ocean backdrop.',
       'Day 6: Leisure morning for shopping at local markets, airport transfer for departure.',
     ],
+    aeoFaqs: [
+      { question: "Can Bali tour packages be booked from Bhilai?", answer: "Yes, Bali tour packages can be booked from Bhilai with complete support including flights, hotels, sightseeing, airport transfers, and visa guidance through Rudraksh Safar." },
+      { question: "Is visa required for Bali from India?", answer: "Yes, Indian travelers require a visa for Bali. Rudraksh Safar assists with visa application guidance and documentation to ensure a smooth process." },
+      { question: "What is included in a Bali tour package?", answer: "Bali tour packages usually include hotel stays, airport transfers, island tours, temple visits, beach experiences, and optional water sports." },
+      { question: "What is the best time to visit Bali?", answer: "The best time to visit Bali is from April to October when the weather is dry and ideal for sightseeing, beaches, and outdoor activities." }
+    ],
     gallery: [
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2038&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=2070&auto=format&fit=crop',
@@ -199,6 +218,12 @@ const allPackages = [
       'Day 3: Full day Desert Safari - dune bashing in 4x4, camel riding, sandboarding, BBQ dinner with belly dance and tanoura show.',
       'Day 4: Palm Jumeirah and Atlantis tour, Dubai Marina yacht cruise, afternoon at JBR beach, evening at Global Village.',
       'Day 5: Morning shopping at Gold Souk and Spice Souk in Old Dubai, visit Al Fahidi Historical District, airport transfer.',
+    ],
+    aeoFaqs: [
+      { question: "Can Dubai tour packages be booked from Bhilai?", answer: "Yes, Dubai tour packages can be booked directly from Bhilai through Rudraksh Safar, including flights, hotels, sightseeing, visa assistance, and airport transfers." },
+      { question: "What documents are required for a Dubai tour from India?", answer: "Indian travelers require a valid passport, visa, photographs, and travel documents. Rudraksh Safar provides complete Dubai visa guidance and documentation support." },
+      { question: "How much does a Dubai trip from Bhilai cost?", answer: "The cost of a Dubai trip from Bhilai depends on hotel category, travel duration, flight prices, and sightseeing inclusions such as desert safari, Burj Khalifa, and city tours." },
+      { question: "What is the best time to visit Dubai?", answer: "The best time to visit Dubai is from November to March when the weather is ideal for sightseeing, shopping festivals, and outdoor activitiy" }
     ],
     gallery: [
       'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop',
@@ -337,6 +362,12 @@ const allPackages = [
       'Day 4: Sonmarg day trip - Meadow of Gold with Thajiwas Glacier. Stunning landscape of snow-capped peaks and flower meadows. Return to Srinagar.',
       'Day 5: Visit famous Mughal Gardens - Nishat Bagh, Shalimar Bagh, and Chashme Shahi. Afternoon at Shankaracharya Temple for panoramic views. Evening shopping at local markets for Pashmina.',
       'Day 6: Morning leisure at houseboat, last Shikara ride. Transfer to Srinagar airport for departure.',
+    ],
+    aeoFaqs: [
+      { question: "How to plan a Kashmir trip from Bhilai?", answer: "A Kashmir trip from Bhilai is usually planned via flight or train to Delhi, followed by a flight to Srinagar. Rudraksh Safar assists with complete planning, hotel bookings, sightseeing, transfers, and on-ground support." },
+      { question: "What is included in a Kashmir tour package from Bhilai?", answer: "Kashmir tour packages generally include hotels, meals, local sightseeing, airport transfers, and visits to Srinagar, Gulmarg, Pahalgam, and Sonmarg." },
+      { question: "Is Kashmir safe for tourists?", answer: "Yes, Kashmir is safe for tourists when trips are planned through authorized travel agencies. Rudraksh Safar ensures safe hotels, verified transport, and guided sightseeing." },
+      { question: "What is the best time to visit Kashmir?", answer: "The best time to visit Kashmir is from April to October for greenery and sightseeing, and December to February for snowfall and winter experiences." }
     ],
     gallery: [
       'https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=2070&auto=format&fit=crop',
@@ -523,6 +554,12 @@ const allPackages = [
       'Day 4: Visit Hadimba Devi Temple (ancient wooden temple), Manu Temple, Vashisht Hot Springs for natural thermal bath. Afternoon river rafting on Beas River (seasonal). Overnight Manali.',
       'Day 5: Morning visit to Naggar Castle and Roerich Art Gallery. Drive to Kullu for departure or shopping at Kullu markets.',
     ],
+    aeoFaqs: [
+      { question: "How to reach Manali from Bhilai?", answer: "Travelers from Bhilai usually reach Manali by train or flight to Chandigarh or Delhi, followed by a road journey. Rudraksh Safar assists with route planning, transfers, and hotel bookings." },
+      { question: "What is included in a Manali tour package from Bhilai?", answer: "Manali tour packages generally include hotel accommodation, local sightseeing, meals, and transfers. Popular attractions include Solang Valley, Rohtang Pass, Hidimba Temple, and Old Manali." },
+      { question: "Is Manali good for honeymoon couples?", answer: "Yes, Manali is one of the most popular honeymoon destinations from Bhilai due to its snowfall views, cozy hotels, scenic valleys, and romantic weather." },
+      { question: "What is the best season to visit Manali?", answer: "The best season to visit Manali is from March to June for pleasant weather and December to February for snowfall experiences." }
+    ],
     gallery: [
       'https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=2070&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?q=80&w=2070&auto=format&fit=crop',
@@ -546,6 +583,12 @@ const allPackages = [
       'Day 2: North Goa exploration - Fort Aguada, Chapora Fort (Dil Chahta Hai fame), Anjuna Flea Market. Water sports at Baga - parasailing, jet ski, banana ride. Evening casino cruise or beach party. Overnight North Goa.',
       'Day 3: South Goa heritage tour - Basilica of Bom Jesus (UNESCO), Se Cathedral, Church of St. Francis. Drive to Palolem Beach for serene experience. Optional: Dudhsagar Falls excursion. Overnight South Goa.',
       'Day 4: Morning beach leisure, last-minute shopping for cashews, feni, and souvenirs at local markets. Transfer to airport/station for departure.',
+    ],
+    aeoFaqs: [
+      { question: "How to plan a Goa trip from Bhilai?", answer: "A Goa trip from Bhilai can be planned by booking flights or trains via Raipur, selecting hotels near beaches, and choosing sightseeing options like North Goa, South Goa, and water sports. Rudraksh Safar helps with complete planning, bookings, and local assistance." },
+      { question: "What is the cost of a Goa tour package from Bhilai?", answer: "The cost of a Goa tour package from Bhilai depends on travel duration, hotel category, and season. Packages are available in budget, standard, and premium options, with prices varying based on inclusions like flights and activities." },
+      { question: "What is the best time to visit Goa from Bhilai?", answer: "The best time to visit Goa from Bhilai is from October to March when the weather is pleasant for beaches, sightseeing, and nightlife. Monsoon months are suitable for budget travelers and peaceful stays." },
+      { question: "Is Goa suitable for family and honeymoon trips?", answer: "Yes, Goa is suitable for both family vacations and honeymoon trips. Families prefer South Goa for peaceful beaches, while honeymoon couples enjoy beach resorts, cruises, and nightlife experiences." }
     ],
     gallery: [
       'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2074&auto=format&fit=crop',
@@ -599,6 +642,12 @@ const allPackages = [
       'Day 2: Morning visit to Eravikulam National Park (home of Nilgiri Tahr). Drive to Mattupetty Dam for boating, Echo Point for its natural echo phenomenon. Evening visit Tea Museum to learn tea processing. Overnight Munnar.',
       'Day 3: Early morning trip to Top Station (highest point in Munnar) for sunrise and views of Tamil Nadu. Visit Kundala Lake for shikara boating. Afternoon at spice plantation - see cardamom, pepper, cinnamon. Ayurvedic massage in evening. Overnight Munnar.',
       'Day 4: Morning leisure, visit Blossom Park and Rose Garden. Buy fresh tea and spices. Drive to Cochin for departure.',
+    ],
+    aeoFaqs: [
+      { question: "How to reach Kerala from Bhilai?", answer: "Travelers from Bhilai usually reach Kerala via flights from Raipur to Kochi or Trivandrum. Rudraksh Safar helps with flight bookings, transfers, and hotel planning." },
+      { question: "What destinations are covered in Kerala tour packages?", answer: "Kerala tour packages commonly cover Munnar, Alleppey houseboats, Thekkady, Kochi, and Kovalam beaches depending on trip duration." },
+      { question: "Is Kerala suitable for family trips?", answer: "Yes, Kerala is ideal for family trips due to its peaceful hill stations, houseboat stays, wildlife sanctuaries, and relaxed environment." },
+      { question: "What is the best time to visit Kerala?", answer: "The best time to visit Kerala is from October to March for pleasant weather. Monsoon season is preferred for Ayurveda treatments and budget travel." }
     ],
     gallery: [
       'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070&auto=format&fit=crop',
@@ -951,6 +1000,12 @@ const allPackages = [
       'Day 4: Drive to Thekkady. Periyar Wildlife Sanctuary boat safari - spot elephants, deer. Spice plantation tour.',
       'Day 5: Drive to Alleppey. Board family houseboat. Backwater cruise, village sights. Overnight on houseboat.',
       'Day 6: Disembark, transfer to Cochin airport. Departure with happy memories.',
+    ],
+    aeoFaqs: [
+      { question: "How to reach Kerala from Bhilai?", answer: "Travelers from Bhilai usually reach Kerala via flights from Raipur to Kochi or Trivandrum. Rudraksh Safar helps with flight bookings, transfers, and hotel planning." },
+      { question: "What destinations are covered in Kerala tour packages?", answer: "Kerala tour packages commonly cover Munnar, Alleppey houseboats, Thekkady, Kochi, and Kovalam beaches depending on trip duration." },
+      { question: "Is Kerala suitable for family trips?", answer: "Yes, Kerala is ideal for family trips due to its peaceful hill stations, houseboat stays, wildlife sanctuaries, and relaxed environment." },
+      { question: "What is the best time to visit Kerala?", answer: "The best time to visit Kerala is from October to March for pleasant weather. Monsoon season is preferred for Ayurveda treatments and budget travel." }
     ],
     gallery: [
       'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070&auto=format&fit=crop',
@@ -1359,7 +1414,7 @@ const PackageDetails = () => {
   }
 
   const handleWhatsApp = () => {
-    const message = `Hi! I'm interested in the ${pkg.title} package (${pkg.duration}) starting from ${pkg.price}. Please share more details.`;
+    const message = `Hello Rudraksh Safar, I am interested in the ${pkg.title} package (${pkg.duration}) starting from ${pkg.price}. Please share the detailed itinerary and inclusions.`;
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -1489,13 +1544,13 @@ const PackageDetails = () => {
   const extraSeoKeywords =
     pkg.id === 'phuket'
       ? [
-          'cheap Phuket packages from India',
-          'family Phuket tour package',
-          'Phuket honeymoon itinerary',
-          'Phuket trip cost 2026',
-          'Phuket tour packages from Bhilai',
-          'Phuket tour packages from Raipur',
-        ].join(', ')
+        'cheap Phuket packages from India',
+        'family Phuket tour package',
+        'Phuket honeymoon itinerary',
+        'Phuket trip cost 2026',
+        'Phuket tour packages from Bhilai',
+        'Phuket tour packages from Raipur',
+      ].join(', ')
       : '';
 
   const getIdealFor = () => {
@@ -1517,25 +1572,27 @@ const PackageDetails = () => {
   const seoTitle = pkg.id === 'phuket' ? 'Phuket Tour Package from India' : `${pkg.title} Tour Package from ${HOME_CITY}`;
   const seoDescription =
     pkg.id === 'phuket'
-      ? `Phuket tour package from India (${pkg.duration}) starting ${pkg.price}. Best time to visit: ${bestTime}. View itinerary, inclusions, and FAQs. WhatsApp +91-9406182174.`
-      : `${pkg.title} tour package from ${HOME_CITY} (${pkg.duration}) starting ${pkg.price}. ${pickupText} Places: ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time to visit: ${bestTime}. WhatsApp +91-9406182174.`;
+      ? `Phuket tour package from India (${pkg.duration}) starting ${pkg.price}. Cheapest price guarantee. Best time to visit: ${bestTime}. View itinerary, inclusions, and FAQs. WhatsApp +91-9406182174.`
+      : `${pkg.title} tour package from ${HOME_CITY} (${pkg.duration}) starting ${pkg.price}. Lowest price budget deal. ${pickupText} Places: ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time to visit: ${bestTime}. WhatsApp +91-9406182174.`;
+
+  const budgetKeywords = `cheapest ${pkg.title} package from Bhilai, budget ${pkg.location} trip, low cost ${pkg.title} tour, affordable holiday in ${pkg.location}`;
 
   return (
     <main className="min-h-screen bg-background">
       <SEOHead
         title={seoTitle}
         description={seoDescription}
-        keywords={`${pkg.title} tour package, ${pkg.title} tour packages from ${HOME_CITY}, ${pkg.location} tour from ${HOME_CITY}, ${pkg.tag} tour package, best time to visit ${pkg.location}, ${pkg.famousPlaces.slice(0, 4).join(', ')}${extraSeoKeywords ? `, ${extraSeoKeywords}` : ''}`}
+        keywords={`${pkg.title} tour package, ${pkg.title} tour packages from ${HOME_CITY}, ${pkg.location} tour from ${HOME_CITY}, ${pkg.tag} tour package, ${budgetKeywords}, best time to visit ${pkg.location}, ${pkg.famousPlaces.slice(0, 4).join(', ')}${extraSeoKeywords ? `, ${extraSeoKeywords}` : ''}`}
         canonicalUrl={`https://rudrakshsafar.com/package/${pkg.id}`}
         ogImage={pkg.image}
         ogType="product"
         structuredData={structuredData}
       />
-      
+
       {/* Additional Schema Markup - Product and Breadcrumb only, FAQ removed to prevent duplicate schema errors */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      
+
       <Navbar />
 
       {/* Hero Section */}
@@ -1546,10 +1603,10 @@ const PackageDetails = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
-        
+
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="container">
-            <button 
+            <button
               onClick={() => window.history.back()}
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
             >
@@ -1880,13 +1937,13 @@ const PackageDetails = () => {
                     </p>
                     <div className="grid gap-3">
                       {relatedPackages.map((rPkg) => (
-                        <Link 
+                        <Link
                           key={rPkg.id}
                           to={`/package/${rPkg.id}`}
                           className="flex items-center gap-4 p-3 rounded-lg bg-muted/30 hover:bg-muted transition-colors group"
                         >
-                          <img 
-                            src={rPkg.image} 
+                          <img
+                            src={rPkg.image}
                             alt={`${rPkg.title} tour package - ${rPkg.location}`}
                             className="w-16 h-16 rounded-lg object-cover"
                             loading="lazy"
@@ -1904,7 +1961,7 @@ const PackageDetails = () => {
                       ))}
                     </div>
                     <div className="mt-4 pt-4 border-t border-border/50">
-                      <Link 
+                      <Link
                         to={pkg.type === 'domestic' ? '/domestic-packages' : '/international-packages'}
                         className="text-secondary hover:underline text-sm font-medium flex items-center gap-2"
                       >

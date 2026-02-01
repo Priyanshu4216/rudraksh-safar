@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import FAQsSection from '@/components/FAQsSection';
 
 const VisaAgentBhilai = () => {
   const structuredData = {
@@ -233,6 +234,66 @@ const VisaAgentBhilai = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQs */}
+        <FAQsSection
+          title="Common Questions About Visa Services"
+          description="Get answers to your queries about visa processing, timelines, and requirements."
+          faqs={[
+            {
+              question: "Which travel agent provides visa service in Bhilai?",
+              answer: "Rudraksh Safar is a specialized visa agent in Bhilai providing services for Dubai, Thailand, Singapore, Schengen, US, and UK visas. We handle the entire process from documentation to submission."
+            },
+            {
+              question: "What documents are required for Dubai visa from India?",
+              answer: "For a Dubai visa, you generally need: 1. Scanned color copy of Passport (First & Last Page). 2. Passport size photograph (white background). 3. Pan Card copy. 4. Confirmed return flight ticket (optional but recommended)."
+            },
+            {
+              question: "What are the visa-free countries for Indians in 2026?",
+              answer: "Popular visa-free or visa-on-arrival countries for Indians include Thailand, Malaysia, Sri Lanka, Nepal, Maldives (free on arrival), and Kenya. Regulations update frequently, so check with us before booking."
+            },
+            {
+              question: "What countries do you provide visa services for?",
+              answer: "We provide visa assistance for over 50 countries including popular destinations like Dubai (UAE), Thailand, Singapore, Malaysia, Bali (Indonesia), Schengen countries (Europe), USA, UK, Canada, Australia, and Turkey."
+            },
+            {
+              question: "How much time does it take to get a Dubai visa?",
+              answer: "Dubai (UAE) tourist visas are typically processed very quickly. We usually get approvals within 24 to 72 hours (1-3 working days). We also handle urgent or express visa requests."
+            },
+            {
+              question: "Do I need to visit the embassy for my visa interview?",
+              answer: "It depends on the country. For Dubai, Thailand, Sri Lanka, and many Southeast Asian countries, the process is completely online (E-Visa) and no interview is needed. For USA and Schengen visas, personal appearance for biometrics and interview is mandatory. We guide you through the appointment booking."
+            },
+            {
+              question: "Can you help with passport renewal in Bhilai?",
+              answer: "Yes, we are a full-service passport agent in Bhilai. We assist with online form filling, document verification, and appointment booking for the Passport Seva Kendra (PSK) in Raipur. We help with Fresh Passports, Renewals, and Tatkaal applications."
+            },
+            {
+              question: "What documents are needed for a Schengen visa?",
+              answer: "Schengen visas require a strict set of documents: Original Passport, Photos, Flight Itinerary, Hotel Bookings, Travel Insurance, 6 months bank statement, ITR for last 3 years, and employment proof. We prioritize arranging these correctly to maximize approval chances."
+            },
+            {
+              question: "Is the visa fee refundable if my application is rejected?",
+              answer: "No, embassy visa fees are generally non-refundable once the application has been submitted, regardless of the outcome. This is a standard policy of all consulates. However, our service fee covers the expertise to ensure your application is error-free to minimize rejection risk."
+            },
+            {
+              question: "Do you provide travel insurance along with the visa?",
+              answer: "Yes, travel insurance is mandatory for many visas (like Schengen) and highly recommended for others. We provide comprehensive travel insurance that covers comprehensive medical emergencies, trip cancellations, and lost baggage at very competitive rates."
+            },
+            {
+              question: "Can you handle visas for urgent travel needs?",
+              answer: "Yes, for countries that offer 'Express' or 'Priority' processing (like UK, Dubai), we can expedite your application. Please inform us immediately about your travel dates so we can choose the fastest processing channel."
+            },
+            {
+              question: "Do you serve clients outside Bhilai?",
+              answer: "Absolutely. While our office is in Bhilai, we serve clients from Raipur, Durg, Bilaspur, Korba, and Jagdalpur. We can handle the entire process via WhatsApp and Email for E-Visas, and courier physical passports for sticker visas if needed."
+            },
+            {
+              question: "What is your success rate for visa approvals?",
+              answer: "We have a success rate of over 95% for tourist visas. Our team reviews every document minutely before submission to ensure it meets the strict embassy standards, significantly reducing the chances of rejection due to technical errors."
+            }
+          ]}
+        />
 
         {/* Why Choose Us */}
         <section className="py-16 bg-muted/30">

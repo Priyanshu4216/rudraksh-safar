@@ -92,6 +92,55 @@ const BeachHolidayPackages = () => {
                     </div>
                 </section>
 
+                {/* Beach Guide - SEO Content */}
+                <section className="py-16 bg-muted/20">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-3xl font-serif font-bold mb-8 text-center text-foreground">Guide to Best Beach Holidays in India</h2>
+
+                            <div className="space-y-8 text-muted-foreground leading-relaxed">
+                                <div className="bg-background p-6 rounded-xl border shadow-sm">
+                                    <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
+                                        <Sun className="w-5 h-5 text-orange-500" />
+                                        Best Time for Beach Vacations
+                                    </h3>
+                                    <p>
+                                        The ideal time for a beach holiday in India and nearby destinations like Maldives or Thailand is generally from <strong>October to March</strong>. During these months, the weather is pleasant, dry, and perfect for water sports.
+                                        <br /><br />
+                                        However, if you're looking for budget deals, the shoulder seasons (April-May or September) offer significantly lower rates on luxury resorts, though you might encounter some humidity or light showers.
+                                    </p>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="bg-background p-6 rounded-xl border shadow-sm">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">For Couples & Honeymooners</h3>
+                                        <p>
+                                            <strong>Maldives</strong> and <strong>Andaman</strong> are the top choices. Maldives offers private water villas for unmatched privacy, while Havelock Island in Andaman offers secluded beaches like Radhanagar with romantic sunset cruises.
+                                        </p>
+                                    </div>
+                                    <div className="bg-background p-6 rounded-xl border shadow-sm">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">For Families & Adventure</h3>
+                                        <p>
+                                            <strong>Goa</strong> and <strong>Bali</strong> are unbeatable. Goa has safe beaches for kids and plenty of water sports. Bali offers a mix of beach fun, cultural temples, and wildlife parks that keep children entertained.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-background p-6 rounded-xl border shadow-sm">
+                                    <h3 className="text-xl font-bold text-foreground mb-3">Packing Essentials</h3>
+                                    <ul className="list-disc list-inside space-y-2">
+                                        <li>High SPF Sunscreen (reef-safe preferred) and UV sunglasses.</li>
+                                        <li>Quick-dry swimwear and a microfiber travel towel.</li>
+                                        <li>Waterproof phone case for capturing underwater moments.</li>
+                                        <li>Light cotton clothes and comfortable flip-flops.</li>
+                                        <li>Mosquito repellent, especially for tropical evenings.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* CTA */}
                 <section className="py-20 bg-cyan-500 text-white">
                     <div className="container mx-auto px-4 text-center">

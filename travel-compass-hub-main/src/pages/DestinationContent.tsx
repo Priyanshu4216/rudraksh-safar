@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import {
   DESTINATION_PAGE_ORDER,
   getDestinationBestTime,
+  getDestinationData,
   getDestinationDisplayName,
   getPageConfig,
   HONEYMOON_DESTINATIONS,
@@ -71,15 +72,17 @@ const DestinationContent = () => {
   };
 
   const renderBody = () => {
+    const data = getDestinationData(destinationSlug ?? '');
+
     switch (pageSlug) {
       case 'best-time-to-visit':
         return (
           <>
             <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Month-wise overview</h2>
             <ul className="mt-3 space-y-2 text-muted-foreground">
-              <li><strong className="text-foreground">Peak season:</strong> Great weather, higher prices, more crowds.</li>
-              <li><strong className="text-foreground">Shoulder season:</strong> Best value + decent weather for most travellers.</li>
-              <li><strong className="text-foreground">Budget season:</strong> Lower prices, some rain/heat depending on destination.</li>
+              <li><strong className="text-foreground">Peak season:</strong> Great weather, vibrant atmosphere, but higher prices.</li>
+              <li><strong className="text-foreground">Shoulder season:</strong> Best value with decent weather and fewer crowds.</li>
+              <li><strong className="text-foreground">Off-season:</strong> Lowest prices, suitable for budget travelers comfortable with some rain/heat.</li>
             </ul>
             <div className="mt-6 rounded-2xl border border-border bg-card p-5">
               <p className="text-sm text-muted-foreground">Quick answer</p>
@@ -88,15 +91,21 @@ const DestinationContent = () => {
           </>
         );
       case 'trip-cost':
+        const cost = data?.tripCost ?? {
+          flights: 'Varies by season & origin',
+          hotels: 'Budget to Luxury options available',
+          transfers: 'Taxis & Public Transport',
+          activities: 'Entry fees & guided tours'
+        };
         return (
           <>
             <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Trip cost breakdown (est.)</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {[
-                { k: 'Flights', v: 'Varies by month + origin city' },
-                { k: 'Hotels', v: 'Budget / Mid / Premium options' },
-                { k: 'Transfers', v: 'Airport + local sightseeing' },
-                { k: 'Activities', v: 'Island tours / tickets / experiences' },
+                { k: 'Flights', v: cost.flights },
+                { k: 'Hotels', v: cost.hotels },
+                { k: 'Transfers', v: cost.transfers },
+                { k: 'Activities', v: cost.activities },
               ].map((x) => (
                 <div key={x.k} className="rounded-2xl border border-border bg-card p-5">
                   <p className="text-sm text-muted-foreground">{x.k}</p>
@@ -105,47 +114,57 @@ const DestinationContent = () => {
               ))}
             </div>
             <p className="mt-6 text-muted-foreground">
-              For the exact {destinationName} trip cost for your dates, share your travel month and number of people—we’ll suggest the best value options.
+              *Prices are approximate estimates. For the exact {destinationName} trip cost for your dates, please contact us for a custom quote.
             </p>
           </>
         );
       case 'nearby-places':
+        const places = data?.nearbyPlaces ?? [];
         return (
           <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Nearby places (ideas)</h2>
-            <p className="mt-2 text-muted-foreground">Clean template you can expand per destination with exact distance + time.</p>
-            <div className="mt-4 overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="grid grid-cols-3 gap-0 border-b border-border px-4 py-3 text-sm text-muted-foreground">
-                <span>Place</span>
-                <span>Distance</span>
-                <span>Travel time</span>
-              </div>
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="grid grid-cols-3 gap-0 px-4 py-3 text-sm">
-                  <span className="font-medium text-foreground">Nearby spot #{i}</span>
-                  <span className="text-muted-foreground">— km</span>
-                  <span className="text-muted-foreground">— mins</span>
+            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Nearby places to visit</h2>
+            {places.length > 0 ? (
+              <div className="mt-4 overflow-hidden rounded-2xl border border-border bg-card">
+                <div className="grid grid-cols-3 gap-0 border-b border-border px-4 py-3 text-sm text-muted-foreground bg-muted/30">
+                  <span>Place</span>
+                  <span>Distance/Mode</span>
+                  <span>Travel time</span>
                 </div>
-              ))}
-            </div>
+                {places.map((place, i) => (
+                  <div key={i} className="grid grid-cols-3 gap-0 px-4 py-3 text-sm border-b border-border last:border-0 hover:bg-muted/10 transition-colors">
+                    <span className="font-medium text-foreground">{place.name}</span>
+                    <span className="text-muted-foreground">{place.distance}</span>
+                    <span className="text-muted-foreground">{place.time}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="mt-4 rounded-2xl border border-border bg-card p-6 text-center">
+                <p className="text-muted-foreground">Explore our integrated tour packages to see all the exciting nearby attractions included in your {destinationName} itinerary.</p>
+                <div className="mt-4">
+                  <Button asChild variant="outline">
+                    <Link to={`/package/${destinationSlug}`}>View Itinerary</Link>
+                  </Button>
+                </div>
+              </div>
+            )}
           </>
         );
       case 'faqs':
+        const faqs = data?.faqs ?? [
+          { question: `What are the top things to do in ${destinationName}?`, answer: `Top attractions include cultural sites, beaches, and local markets. Check our "Things to Do" section for details.` },
+          { question: `How many days are enough for ${destinationName}?`, answer: `We typically recommend 5-7 days to fully explore ${destinationName} at a relaxed pace.` },
+          { question: `Is ${destinationName} good for families?`, answer: `Yes, ${destinationName} offers many family-friendly activities and safe accommodations.` },
+        ];
         return (
           <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">FAQs</h2>
+            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Frequently Asked Questions</h2>
             <div className="mt-4 space-y-4">
-              {[
-                `What are the top things to do in ${destinationName}?`,
-                `How many days are enough for ${destinationName}?`,
-                `What is the best time to visit ${destinationName}?`,
-                `Is ${destinationName} good for family / honeymoon?`,
-                `How much budget is needed for a ${destinationName} trip?`,
-              ].map((q) => (
-                <div key={q} className="rounded-2xl border border-border bg-card p-5">
-                  <p className="font-semibold text-foreground">Q: {q}</p>
+              {faqs.map((faq, i) => (
+                <div key={i} className="rounded-2xl border border-border bg-card p-5">
+                  <p className="font-semibold text-foreground">Q: {faq.question}</p>
                   <p className="mt-2 text-muted-foreground">
-                    A: This is a starter answer block—tell us your travel month and budget, and we’ll share the most suitable plan and package options.
+                    A: {faq.answer}
                   </p>
                 </div>
               ))}
@@ -155,17 +174,31 @@ const DestinationContent = () => {
       default:
         return (
           <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">What you’ll find here</h2>
-            <ul className="mt-3 space-y-2 text-muted-foreground">
-              <li>Clean, SEO-friendly headings and lists (easy to expand for each destination)</li>
-              <li>Scannable sections (Google/AI can parse it well)</li>
-              <li>Internal links back to packages to strengthen conversions</li>
-            </ul>
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5">
-              <p className="text-sm text-muted-foreground">Tip</p>
-              <p className="mt-1 text-foreground">
-                Want this page to rank faster? Add 8–12 specific place names, prices, and 1–2 mini itineraries.
+            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">{title}</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Discover the best of {destinationName} with our comprehensive guide. From hidden gems to popular hotspots, we help you plan the perfect trip.
+              Explore our curated sections for detailed insights on activities, best times to visit, costs, and more.
+            </p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-4">
+                <h3 className="font-semibold mb-2">Plan Your Trip</h3>
+                <p className="text-sm text-muted-foreground">Get expert advice on itineraries, bookings, and visa requirements for {destinationName}.</p>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-4">
+                <h3 className="font-semibold mb-2">Local Insights</h3>
+                <p className="text-sm text-muted-foreground">Explore food, culture, and offbeat locations recommended by our travel experts.</p>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-border bg-secondary/5 p-6">
+              <p className="text-sm font-semibold text-secondary mb-2">Ready to explore?</p>
+              <p className="text-foreground mb-4">
+                Browse our customized tour packages for {destinationName} designed for budget and luxury travelers.
               </p>
+              <Button asChild>
+                <Link to={`/package/${destinationSlug}`}>View {destinationName} Packages</Link>
+              </Button>
             </div>
           </>
         );
@@ -229,11 +262,10 @@ const DestinationContent = () => {
                       <Link
                         key={p.slug}
                         to={`/${destinationSlug}/${p.slug}`}
-                        className={`block rounded-xl px-3 py-2 text-sm transition-colors border border-transparent ${
-                          active
-                            ? 'bg-muted text-foreground'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
-                        }`}
+                        className={`block rounded-xl px-3 py-2 text-sm transition-colors border border-transparent ${active
+                          ? 'bg-muted text-foreground'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
+                          }`}
                       >
                         {p.title(destinationName)}
                       </Link>

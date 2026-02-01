@@ -17,17 +17,19 @@ const BudgetTourPackages = () => {
     ];
 
     const faqs = [
+        { question: "Which is the cheapest travel agency in Bhilai?", answer: "Rudraksh Safar is known as the cheapest travel agency in Bhilai, offering value-for-money domestic and international tour packages with transparent pricing and no hidden costs." },
+        { question: "Do you offer low budget family tours from Bhilai?", answer: "Yes, we specialize in low budget family tour packages from Bhilai to destinations like Goa, Manali, and Puri. We optimize hotels and transport to fit your budget without compromising comfort." },
+        { question: "What are the cheapest international trips from Bhilai?", answer: "The cheapest international trips from Bhilai include Nepal (starting ₹18k), Thailand (starting ₹29k), and Vietnam. We provide budget-friendly flight combinations from Raipur." },
         { question: "Are budget tours safe for families?", answer: "Yes, absolutely. We only partner with verified 3-star hotels that have good safety ratings. We do not compromise on safety to cut costs." },
-        { question: "Are there any hidden charges?", answer: "No. Our packages clearly list inclusions (Hotel, Transport, Meals). Exclusions like lunch, entry tickets, and personal expenses are informed upfront." },
-        { question: "Can we pay in installments?", answer: "For packages above ₹20,000, we accept payment in 2 parts (Booking amount + Balance before travel)." },
+        { question: "Can I get an affordable honeymoon package from Bhilai?", answer: "Yes, we offer affordable honeymoon packages starting from ₹15,000 for couples. Popular budget destinations include Goa, Manali, and Kerala with special romantic inclusions." },
     ];
 
     return (
         <>
             <Helmet>
-                <title>Budget Tour Packages India 2026 | Cheap Holidays Starting ₹4,999</title>
-                <meta name="description" content="Curated budget trips to Manali, Goa, Thailand & Kerala. Experience verified 3-star stays, sleeper bus/train options, and included meals. Travel smart, spend less." />
-                <meta name="keywords" content="budget travel India, cheap tour packages 2026, backpacker trips Manali, budget Goa holiday, affordable Thailand tour, group travel discounts" />
+                <title>Cheapest Travel Agency in Bhilai | Budget Tour Packages Starting ₹4,999</title>
+                <meta name="description" content="Looking for the cheapest tour packages from Bhilai? Rudraksh Safar offers low cost holiday packages to Goa, Manali, Thailand & Dubai. Best budget travel agency near you." />
+                <meta name="keywords" content="cheapest travel agency in Bhilai, budget tour packages from Bhilai, low cost tour packages, cheap holiday packages from Bhilai, affordable travel agency near me, budget trips from Bhilai, cheapest international trip from Bhilai" />
                 <link rel="canonical" href="https://rudrakshsafar.com/budget-tour-packages" />
             </Helmet>
 
@@ -37,12 +39,12 @@ const BudgetTourPackages = () => {
                 {/* Hero */}
                 <section className="relative py-20 bg-yellow-50 dark:bg-yellow-950/20">
                     <div className="container mx-auto px-4 text-center">
-                        <Badge variant="outline" className="mb-4 border-yellow-600 text-yellow-700">Pocket Friendly</Badge>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                            Explore the World <span className="text-yellow-600">Without Breaking the Bank</span>
+                        <Badge variant="outline" className="mb-4 border-yellow-600 text-yellow-700 bg-yellow-50">Cheapest & Best</Badge>
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+                            Cheapest Tour Packages <span className="text-yellow-600">From Bhilai</span>
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                            Experience the joy of travel with our smart-budget itineraries. Curated trips starting @ ₹4,999/-
+                            Rudraksh Safar is the best budget travel agency in Bhilai. Explore low cost holiday packages for family, couples, and friends starting @ ₹4,999/-.
                         </p>
                         <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white" asChild>
                             <a href="#deals">View Budget Deals</a>
@@ -138,7 +140,7 @@ const BudgetTourPackages = () => {
                             <Accordion type="single" collapsible className="w-full">
                                 {faqs.map((faq, index) => (
                                     <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-lg font-medium">{faq.question}</AccordionTrigger>
+                                        <AccordionTrigger className="text-lg font-medium text-left">{faq.question}</AccordionTrigger>
                                         <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
                                     </AccordionItem>
                                 ))}
@@ -146,7 +148,6 @@ const BudgetTourPackages = () => {
                         </div>
                     </div>
                 </section>
-
             </main>
             <Footer />
             <FloatingWhatsApp />

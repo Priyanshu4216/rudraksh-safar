@@ -58,42 +58,82 @@ const TravelAgentBhilai = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Which is the best travel agent in Bhilai?",
+        "name": "Which is the best travel agency in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Rudraksh Safar is a trusted travel agent in Bhilai offering national and international tour packages with customized travel planning. Located on GE Road, we provide complete travel solutions including visa assistance, hotel booking, and 24/7 trip support."
+          "text": "Rudraksh Safar is one of the best travel agencies in Bhilai, offering domestic and international tour packages, honeymoon trips, family holidays, and visa assistance. With local support, customized itineraries, and transparent pricing, travelers from Bhilai and nearby areas trust Rudraksh Safar for hassle-free travel planning."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you provide tour packages from Bhilai to Goa and Kashmir?",
+        "name": "Does Rudraksh Safar provide tour packages from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we specialize in Bhilai to Goa and Bhilai to Kashmir tour packages. We handle flight bookings from Raipur, hotel stays, and local sightseeing."
+          "text": "Yes, Rudraksh Safar provides complete tour packages from Bhilai, including pickup planning, hotel bookings, sightseeing, and travel assistance. Tours are available for popular destinations like Goa, Manali, Kashmir, Kerala, Dubai, Bali, and more."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer international tour packages from Bhilai?",
+        "name": "What types of tour packages are available from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Rudraksh Safar provides international tour packages from Bhilai to Thailand, Dubai, Bali, Singapore, Malaysia, and Maldives. We handle visa processing, flight booking, and complete itinerary planning."
+          "text": "Rudraksh Safar offers: Family tour packages, Honeymoon packages, Group tours, Corporate travel packages, and Budget and luxury holidays. All packages can be customized based on budget, duration, and travel preferences."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer passport assistance services?",
+        "name": "Can international tours be booked from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we provide end-to-end passport assistance including new applications, renewals, tatkal schemes, and guidance for police verification."
+          "text": "Yes, international tour packages can be booked directly from Bhilai through Rudraksh Safar. Popular international destinations include Dubai, Thailand, Singapore, Bali, Maldives, Sri Lanka, and Nepal, along with visa guidance and documentation support."
         }
       },
       {
         "@type": "Question",
-        "name": "Where is Rudraksh Safar office located in Bhilai?",
+        "name": "Is passport and visa service available in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Rudraksh Safar office is located at GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh – 490021. We are open from 10:00 AM to 9:00 PM every day."
+          "text": "Yes, Rudraksh Safar provides passport and visa assistance in Bhilai, helping travelers with document verification, application guidance, appointment support, and visa processing for multiple countries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a tour package from Bhilai cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tour package costs from Bhilai vary. Domestic tours usually start from budget-friendly ranges (₹8,000 - ₹25,000+), while international tours depend on visa, flights, and inclusions. Exact pricing is shared after understanding travel requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I book a tour from Bhilai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To book a tour from Bhilai: 1) Contact Rudraksh Safar via phone or WhatsApp. 2) Share destination, travel dates, and budget. 3) Receive a customized itinerary. 4) Confirm booking with flexible payment options. Local assistance is available throughout the journey."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Rudraksh Safar offer customized tour packages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all tour packages are customizable. Travelers can modify hotels, sightseeing, travel dates, and activities based on personal preferences, making each trip flexible and personalized."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are weekend getaways available from Bhilai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, weekend getaway packages from Bhilai are available for nearby destinations, hill stations, beaches, and spiritual locations. These short trips are ideal for families, couples, and working professionals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why choose Rudraksh Safar as your travel agent in Bhilai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rudraksh Safar is preferred because of local Bhilai-based support, customized travel planning, transparent pricing, trusted vendor network, and end-to-end travel assistance."
         }
       }
     ]
@@ -126,28 +166,44 @@ const TravelAgentBhilai = () => {
 
   const faqs = [
     {
-      question: "Do you provide tour packages from Bhilai to Goa and Kashmir?",
-      answer: "Yes, we specialize in Bhilai to Goa and Bhilai to Kashmir tour packages. We handle flight bookings from Raipur, hotel stays, and local sightseeing. We can also arrange train tickets if booked in advance."
+      question: "Which is the best travel agency in Bhilai?",
+      answer: "Rudraksh Safar is one of the best travel agencies in Bhilai, offering domestic and international tour packages, honeymoon trips, family holidays, and visa assistance. With local support, customized itineraries, and transparent pricing, travelers from Bhilai and nearby areas trust Rudraksh Safar for hassle-free travel planning."
     },
     {
-      question: "Which is the best travel agent in Bhilai?",
-      answer: "Rudraksh Safar is a trusted travel agent in Bhilai offering national and international tour packages with customized travel planning. Located on GE Road, we provide complete travel solutions including visa assistance, hotel booking, and 24/7 trip support."
+      question: "Does Rudraksh Safar provide tour packages from Bhilai?",
+      answer: "Yes, Rudraksh Safar provides complete tour packages from Bhilai, including pickup planning, hotel bookings, sightseeing, and travel assistance. Tours are available for popular destinations like Goa, Manali, Kashmir, Kerala, Dubai, Bali, and more."
     },
     {
-      question: "Do you provide international tour packages from Bhilai?",
-      answer: "Yes, Rudraksh Safar provides international tour packages from Bhilai including Thailand, Dubai, Bali, Singapore, Malaysia, Maldives, and Europe. We handle visa processing, flight booking, and complete itinerary planning."
+      question: "What types of tour packages are available from Bhilai?",
+      answer: "Rudraksh Safar offers: Family tour packages, Honeymoon packages, Group tours, Corporate travel packages, and Budget and luxury holidays. All packages can be customized based on budget, duration, and travel preferences."
     },
     {
-      question: "Do you offer passport assistance services?",
-      answer: "Yes, we provide end-to-end passport assistance including new applications, renewals, tatkal schemes, and guidance for police verification. We help you with online form filling and appointment scheduling."
+      question: "Can international tours be booked from Bhilai?",
+      answer: "Yes, international tour packages can be booked directly from Bhilai through Rudraksh Safar. Popular international destinations include Dubai, Thailand, Singapore, Bali, Maldives, Sri Lanka, and Nepal, along with visa guidance and documentation support."
     },
     {
-      question: "Do you offer home visit services for bookings?",
-      answer: "Yes, for senior citizens and large group bookings in Bhilai-Durg, we offer complimentary home visit services. Our travel expert will come to your doorstep to discuss and finalize your travel plans."
+      question: "Is passport and visa service available in Bhilai?",
+      answer: "Yes, Rudraksh Safar provides passport and visa assistance in Bhilai, helping travelers with document verification, application guidance, appointment support, and visa processing for multiple countries."
     },
     {
-      question: "How can I contact Rudraksh Safar for travel booking?",
-      answer: "You can contact Rudraksh Safar via WhatsApp at +91 94061 82174, email at rudrakshsafar@gmail.com, or visit our office on GE Road, Bhilai. We offer both office visits and online consultation."
+      question: "How much does a tour package from Bhilai cost?",
+      answer: "Tour package costs from Bhilai vary depending on destination, duration, hotel category, and travel season. Domestic tours usually start from budget-friendly ranges, while international tours depend on visa, flights, and inclusions. Exact pricing is shared after understanding travel requirements."
+    },
+    {
+      question: "How can I book a tour from Bhilai?",
+      answer: "To book a tour from Bhilai: Contact Rudraksh Safar via phone or WhatsApp, Share destination, travel dates, and budget, Receive a customized itinerary, Confirm booking with flexible payment options. Local assistance is available throughout the journey."
+    },
+    {
+      question: "Does Rudraksh Safar offer customized tour packages?",
+      answer: "Yes, all tour packages are customizable. Travelers can modify hotels, sightseeing, travel dates, and activities based on personal preferences, making each trip flexible and personalized."
+    },
+    {
+      question: "Are weekend getaways available from Bhilai?",
+      answer: "Yes, weekend getaway packages from Bhilai are available for nearby destinations, hill stations, beaches, and spiritual locations. These short trips are ideal for families, couples, and working professionals."
+    },
+    {
+      question: "Why choose Rudraksh Safar as your travel agent in Bhilai?",
+      answer: "Rudraksh Safar is preferred because of: Local Bhilai-based support, Customized travel planning, Transparent pricing, Trusted vendor network, and End-to-end travel assistance."
     }
   ];
 

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import FAQsSection from '@/components/FAQsSection';
 
 const FlightBookingBhilai = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -172,21 +173,44 @@ const FlightBookingBhilai = () => {
                 </section>
 
                 {/* FAQs */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold mb-8 text-center">Flight Booking FAQs</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection
+                    title="Frequently Asked Questions on Flight Booking"
+                    description="Everything you need to know about booking air tickets from Raipur with Rudraksh Safar."
+                    faqs={[
+                        {
+                            question: "How can I get the cheapest flight tickets from Raipur?",
+                            answer: "To get the cheapest rates from Raipur (RPR), we recommend booking 2-3 weeks in advance. Rudraksh Safar compares fares across multiple B2B portals and airline systems to find you 'Series Fares' and 'Coupon Fares' that are often cheaper than online websites."
+                        },
+                        {
+                            question: "Do you charge extra hidden fees like online apps?",
+                            answer: "No! Unlike online apps that add 'Convenience Fees', 'Meal Charges', and 'Seat Selection Costs' at the last step, our pricing is transparent. The price we quote is the final price you pay. No surprises."
+                        },
+                        {
+                            question: "Can I get a GST Invoice for my corporate flight booking?",
+                            answer: "Yes, absolutely. We provide valid GST invoices for all business travel. Just share your company's GST details at the time of booking, and you can claim 100% Tax Credit (ITC) for your business expenses."
+                        },
+                        {
+                            question: "Do you handle web check-in for passengers?",
+                            answer: "Yes, this is a complimentary service for our clients. We track your flight window, complete your web check-in, select the best available seats, and send the boarding pass directly to your WhatsApp 24-48 hours before departure."
+                        },
+                        {
+                            question: "What happens if my flight is cancelled or rescheduled?",
+                            answer: "This is where a travel agent shines. Instead of you waiting on hold with airline customer care for hours, we handle the rescheduling or refund process for you. We fight for your refund and ensure you get the best alternative flight options immediately."
+                        },
+                        {
+                            question: "Can you book international flights from Raipur with visa support?",
+                            answer: "Yes, we book flights to all major international destinations including Dubai, Thailand, Singapore, USA, London, and Canada. We also provide complete visa assistance, travel insurance, and foreign exchange (Forex) services as a one-stop solution."
+                        },
+                        {
+                            question: "Do you offer group discounts for family or wedding travel?",
+                            answer: "Yes! If you are traveling with 9 or more people, we can access special 'Group Fares' from airlines which are significantly lower than individual ticket prices. Perfect for family vacations, weddings, or corporate team outings."
+                        },
+                        {
+                            question: "How can I pay for my flight ticket?",
+                            answer: "We offer flexible payment options including UPI (Google Pay, PhonePe), Bank Transfer (IMPS/NEFT), and Cash at our Bhilai office. For expensive international tickets, we can effectively manage payment schedules."
+                        },
+                    ]}
+                />
 
                 {/* CTA */}
                 <section className="py-16 bg-blue-600 text-white">

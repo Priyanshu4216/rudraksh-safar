@@ -67,7 +67,7 @@ const DubaiVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Dubai visa application. Please help.";
+    const message = "Hello Rudraksh Safar, I need expert assistance with my Dubai Visa application. Please guide me through the process and document requirements.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -418,9 +418,9 @@ const DubaiVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     UAE visa policies are subject to change. Always verify current requirements on the official UAE ICP portal before applying. Rudraksh Safar provides guidance only and is not responsible for visa decisions.
                   </p>
-                  <a 
-                    href="https://icp.gov.ae/en/" 
-                    target="_blank" 
+                  <a
+                    href="https://icp.gov.ae/en/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

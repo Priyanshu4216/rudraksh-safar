@@ -139,7 +139,7 @@ const internationalPackages = [
 
 const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; index: number }) => {
   const handleWhatsApp = () => {
-    const message = `Hi! I'm interested in the ${pkg.title} package (${pkg.duration}) starting from ${pkg.price}. Please share more details including visa assistance.`;
+    const message = `Hello Rudraksh Safar, I am interested in the ${pkg.title} package (${pkg.duration}) starting from ${pkg.price}. Please share the detailed itinerary and inclusions.`;
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -326,7 +326,7 @@ const InternationalPackages = () => {
                   </div>
                   <Button
                     onClick={() => {
-                      const message = "Hi! I need visa assistance for my international travel. Can you help?";
+                      const message = "Hello, I require visa assistance for my international travel. Please guide me through the document requirements and process.";
                       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
                     }}
                     variant="outline"
@@ -356,7 +356,7 @@ const InternationalPackages = () => {
                 </p>
                 <Button
                   onClick={() => {
-                    const message = "Hi! I'd like a customized international travel package. Please help me plan my trip abroad.";
+                    const message = "Hello, I am looking for a customized international travel package. Please assist me in planning my trip abroad.";
                     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
                   }}
                   className="btn-gold"

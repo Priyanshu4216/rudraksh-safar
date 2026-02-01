@@ -121,29 +121,29 @@ const CorporateTourPackagesBhilai = () => {
                                 <li className="flex items-start gap-3">
                                     <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                                     <div>
-                                        <h4 className="font-bold">GST Billing</h4>
-                                        <p className="text-sm text-muted-foreground">Proper tax invoices for Input Tax Credit (ITC).</p>
+                                        <h4 className="font-bold">MICE Travel Services</h4>
+                                        <p className="text-sm text-muted-foreground">Expert handling of Meetings, Incentives, Conferences, and Exhibitions.</p>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <Award className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                                     <div>
-                                        <h4 className="font-bold">Dedicated Manager</h4>
-                                        <p className="text-sm text-muted-foreground">Single point of contact for your HR/Admin team.</p>
+                                        <h4 className="font-bold">Incentive Travel Programs</h4>
+                                        <p className="text-sm text-muted-foreground">Motivate your team with curated luxury travel experiences and rewards.</p>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <Plane className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                                     <div>
-                                        <h4 className="font-bold">End-to-End Logistics</h4>
-                                        <p className="text-sm text-muted-foreground">Flights, Cabs, Hotels & Gala Event management.</p>
+                                        <h4 className="font-bold">Employee Travel Management</h4>
+                                        <p className="text-sm text-muted-foreground">Complete logistics support: Flights, Cabs, Hotels & Gala Event management.</p>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                                     <div>
-                                        <h4 className="font-bold">On-Time Execution</h4>
-                                        <p className="text-sm text-muted-foreground">Strict adherence to itinerary without delays.</p>
+                                        <h4 className="font-bold">Company Offsite Tour Planner</h4>
+                                        <p className="text-sm text-muted-foreground">We design itineraries that balance work sessions with team bonding fun.</p>
                                     </div>
                                 </li>
                             </ul>

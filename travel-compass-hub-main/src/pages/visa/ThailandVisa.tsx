@@ -67,7 +67,7 @@ const ThailandVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Thailand travel planning. Please help.";
+    const message = "Hello Rudraksh Safar, I am planning a trip to Thailand and need assistance with travel arrangements/visa guidance. Please help me plan my trip.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -287,9 +287,9 @@ const ThailandVisa = () => {
                   <span>Travelers are advised to follow current official rules only</span>
                 </li>
               </ul>
-              <a 
-                href="https://www.thaiembassy.com/" 
-                target="_blank" 
+              <a
+                href="https://www.thaiembassy.com/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-4 font-medium"
               >
@@ -429,8 +429,8 @@ const ThailandVisa = () => {
                 Subject to Thai immigration rules
               </p>
               <p className="mt-4">
-                <strong>Rudraksh Safar</strong> | Bhilai, Chhattisgarh | 
-                <a href="tel:+919406182174" className="text-secondary hover:underline ml-1">+91 94061 82174</a> | 
+                <strong>Rudraksh Safar</strong> | Bhilai, Chhattisgarh |
+                <a href="tel:+919406182174" className="text-secondary hover:underline ml-1">+91 94061 82174</a> |
                 <a href="mailto:rudrakshsafar@gmail.com" className="text-secondary hover:underline ml-1">rudrakshsafar@gmail.com</a>
               </p>
             </div>

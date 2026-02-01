@@ -11,6 +11,8 @@ import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import Index from "./pages/Index";
 import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
+import GlobalError from "./components/GlobalError";
 
 // Traveller Guide Pages
 
@@ -75,6 +77,13 @@ const CorporateTourPackagesBhilai = lazy(() => import("./pages/local/CorporateTo
 const CabRental = lazy(() => import("./pages/CabRental"));
 const CruiseBooking = lazy(() => import("./pages/CruiseBooking"));
 
+// New High Reach SEO Pages
+const TourPackagesFromBhilai = lazy(() => import("./pages/local/TourPackagesFromBhilai"));
+const TourPackagesFromRaipur = lazy(() => import("./pages/local/TourPackagesFromRaipur"));
+const InternationalToursFromRaipur = lazy(() => import("./pages/local/InternationalToursFromRaipur"));
+const InternationalToursFromBhilai = lazy(() => import("./pages/local/InternationalToursFromBhilai"));
+const HoneymoonPackagesFromBhilai = lazy(() => import("./pages/local/HoneymoonPackagesFromBhilai"));
+
 const BudgetTourPackages = lazy(() => import("./pages/BudgetTourPackages"));
 const SummerHolidayPackages = lazy(() => import("./pages/SummerHolidayPackages"));
 const GroupTourPackages = lazy(() => import("./pages/GroupTourPackages"));
@@ -95,84 +104,93 @@ const App = () => (
           <BrowserRouter>
             <ScrollProgressBar />
             <ScrollToTop />
-            <Suspense fallback={<div className="min-h-screen bg-background" />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/domestic-packages" element={<DomesticPackages />} />
-                <Route path="/international-packages" element={<InternationalPackages />} />
-                <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
-                <Route path="/family-packages" element={<FamilyPackages />} />
-                <Route path="/adventure-packages" element={<AdventurePackages />} />
-                <Route path="/luxury-packages" element={<LuxuryPackages />} />
-                <Route path="/for-travellers" element={<ForTravellers />} />
-                <Route path="/package/:packageId" element={<PackageDetails />} />
+            <GlobalError>
+              <Suspense fallback={<GlobalLoader />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/domestic-packages" element={<DomesticPackages />} />
+                  <Route path="/international-packages" element={<InternationalPackages />} />
+                  <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
+                  <Route path="/family-packages" element={<FamilyPackages />} />
+                  <Route path="/adventure-packages" element={<AdventurePackages />} />
+                  <Route path="/luxury-packages" element={<LuxuryPackages />} />
+                  <Route path="/for-travellers" element={<ForTravellers />} />
+                  <Route path="/package/:packageId" element={<PackageDetails />} />
 
-                {/* Traveller Guide Routes */}
-                <Route path="/visa-guide" element={<VisaGuide />} />
-                <Route path="/passport-guide" element={<PassportGuide />} />
-                <Route path="/visa-free-countries" element={<VisaFreeCountries />} />
-                <Route path="/travel-checklist" element={<TravelChecklist />} />
-                <Route path="/currency-guide" element={<CurrencyGuide />} />
-                <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
-                <Route path="/travel-health" element={<TravelHealth />} />
-                <Route path="/travel-tips" element={<TravelTips />} />
-                <Route path="/hot-deals" element={<HotDeals />} />
+                  {/* Traveller Guide Routes */}
+                  <Route path="/visa-guide" element={<VisaGuide />} />
+                  <Route path="/passport-guide" element={<PassportGuide />} />
+                  <Route path="/visa-free-countries" element={<VisaFreeCountries />} />
+                  <Route path="/travel-checklist" element={<TravelChecklist />} />
+                  <Route path="/currency-guide" element={<CurrencyGuide />} />
+                  <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
+                  <Route path="/travel-health" element={<TravelHealth />} />
+                  <Route path="/travel-tips" element={<TravelTips />} />
+                  <Route path="/hot-deals" element={<HotDeals />} />
 
-                {/* Destination SEO Pages (Top brand style) */}
-                <Route path="/:destinationSlug/:pageSlug" element={<DestinationContent />} />
+                  {/* Destination SEO Pages (Top brand style) */}
+                  <Route path="/:destinationSlug/:pageSlug" element={<DestinationContent />} />
 
-                {/* Visa Country Routes */}
-                <Route path="/visa/dubai" element={<DubaiVisa />} />
-                <Route path="/visa/thailand" element={<ThailandVisa />} />
-                <Route path="/visa/singapore" element={<SingaporeVisa />} />
-                <Route path="/visa/bali" element={<BaliVisa />} />
-                <Route path="/visa/maldives" element={<MaldivesVisa />} />
-                <Route path="/visa/turkey" element={<TurkeyVisa />} />
-                <Route path="/visa/schengen" element={<SchengenVisa />} />
-                <Route path="/visa/sri-lanka" element={<SriLankaVisa />} />
+                  {/* Visa Country Routes */}
+                  <Route path="/visa/dubai" element={<DubaiVisa />} />
+                  <Route path="/visa/thailand" element={<ThailandVisa />} />
+                  <Route path="/visa/singapore" element={<SingaporeVisa />} />
+                  <Route path="/visa/bali" element={<BaliVisa />} />
+                  <Route path="/visa/maldives" element={<MaldivesVisa />} />
+                  <Route path="/visa/turkey" element={<TurkeyVisa />} />
+                  <Route path="/visa/schengen" element={<SchengenVisa />} />
+                  <Route path="/visa/sri-lanka" element={<SriLankaVisa />} />
 
-                {/* Local SEO Pages - Raipur & Bhilai */}
-                <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
-                <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
-                <Route path="/weekend-getaways-raipur" element={<WeekendGetawaysRaipur />} />
-                <Route path="/corporate-tour-packages-bhilai" element={<CorporateTourPackagesBhilai />} />
+                  {/* Local SEO Pages - Raipur & Bhilai */}
+                  <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
+                  <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
+                  <Route path="/weekend-getaways-raipur" element={<WeekendGetawaysRaipur />} />
+                  <Route path="/corporate-tour-packages-bhilai" element={<CorporateTourPackagesBhilai />} />
 
-                {/* Thematic SEO Pages */}
-                <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
-                <Route path="/summer-holiday-packages" element={<SummerHolidayPackages />} />
-                <Route path="/group-tour-packages" element={<GroupTourPackages />} />
-                <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
-                <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
-                <Route path="/why-choose-us" element={<WhyChooseUs />} />
-                <Route path="/visa/nepal" element={<NepalVisa />} />
-                <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
-                <Route path="/cab-rental" element={<CabRental />} />
-                <Route path="/cruise-booking" element={<CruiseBooking />} />
+                  {/* Thematic SEO Pages */}
+                  <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
+                  <Route path="/summer-holiday-packages" element={<SummerHolidayPackages />} />
+                  <Route path="/group-tour-packages" element={<GroupTourPackages />} />
+                  <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
+                  <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
+                  <Route path="/why-choose-us" element={<WhyChooseUs />} />
+                  <Route path="/visa/nepal" element={<NepalVisa />} />
+                  <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
+                  <Route path="/cab-rental" element={<CabRental />} />
+                  <Route path="/cruise-booking" element={<CruiseBooking />} />
 
-                {/* Legal Routes */}
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-conditions" element={<TermsConditions />} />
-                <Route path="/cancellation-policy" element={<CancellationPolicy />} />
-                <Route path="/refund-policy" element={<RefundPolicy />} />
-                <Route path="/disclaimer" element={<Disclaimer />} />
+                  {/* Legal Routes */}
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-conditions" element={<TermsConditions />} />
+                  <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+                  <Route path="/refund-policy" element={<RefundPolicy />} />
+                  <Route path="/disclaimer" element={<Disclaimer />} />
 
-                {/* Local SEO Routes */}
-                <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
-                <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
-                <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
-                <Route path="/international-tour-packages-bhilai" element={<InternationalPackagesBhilai />} />
-                <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
-                <Route path="/weekend-getaways-bhilai" element={<WeekendGetawaysBhilai />} />
-                <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
-                <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
-                <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
-                <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
-                <Route path="/passport-agent-bhilai" element={<PassportAgentBhilai />} />
+                  {/* Local SEO Routes */}
+                  <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
+                  <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
+                  <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
+                  <Route path="/international-tour-packages-bhilai" element={<InternationalPackagesBhilai />} />
+                  <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
+                  <Route path="/weekend-getaways-bhilai" element={<WeekendGetawaysBhilai />} />
+                  <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
+                  <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
+                  <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
+                  <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
+                  <Route path="/passport-agent-bhilai" element={<PassportAgentBhilai />} />
 
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
+                  {/* New High Reach SEO Routes */}
+                  <Route path="/tour-packages-from-bhilai" element={<TourPackagesFromBhilai />} />
+                  <Route path="/tour-packages-from-raipur" element={<TourPackagesFromRaipur />} />
+                  <Route path="/international-tours-from-raipur" element={<InternationalToursFromRaipur />} />
+                  <Route path="/international-tours-from-bhilai" element={<InternationalToursFromBhilai />} />
+                  <Route path="/honeymoon-packages-from-bhilai" element={<HoneymoonPackagesFromBhilai />} />
+
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </GlobalError>
             <CookieConsent />
             <PWAInstallPrompt />
           </BrowserRouter >

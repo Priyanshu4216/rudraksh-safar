@@ -10,12 +10,12 @@ import { Badge } from '@/components/ui/badge';
 
 const MountainHolidayPackages = () => {
     const destinations = [
-        { name: "Kashmir", tag: "Heaven on Earth", title: "Srinagar & Gulmarg", desc: "Houseboat stays, Shikara rides on Dal Lake, and snow activities in Gulmarg." },
-        { name: "Manali", tag: "Crowd Favorite", title: "Manali & Solang", desc: "Perfect blend of adventure and peace. Visit Rohtang pass and Hadimba temple." },
-        { name: "Leh Ladakh", tag: "Adventure", title: "Leh, Nubra, Pangong", desc: "High passes, monasteries, and the famous 3-Idiots lake. For the brave hearts." },
-        { name: "Shimla", tag: "Colonial Charm", title: "Shimla & Kufri", desc: "The Queen of Hills. Walk down the Mall road and enjoy colonial architecture." },
-        { name: "Sikkim", tag: "North East Gem", title: "Gangtok & Nathula", desc: "Experience organic living, high altitude lakes, and view of Kanchenjunga." },
-        { name: "Uttarakhand", tag: "Devbhoomi", title: "Nainital & Mussoorie", desc: "Lake city vibes in Nainital and waterfalls in Mussoorie." },
+        { name: "Kashmir", tag: "Heaven on Earth", title: "Srinagar & Gulmarg", desc: "Houseboat stays, Shikara rides on Dal Lake, and snow activities in Gulmarg.", link: "/package/kashmir" },
+        { name: "Manali", tag: "Crowd Favorite", title: "Manali & Solang", desc: "Perfect blend of adventure and peace. Visit Rohtang pass and Hadimba temple.", link: "/package/manali" },
+        { name: "Leh Ladakh", tag: "Adventure", title: "Leh, Nubra, Pangong", desc: "High passes, monasteries, and the famous 3-Idiots lake. For the brave hearts.", link: "/package/ladakh" },
+        { name: "Shimla", tag: "Colonial Charm", title: "Shimla & Kufri", desc: "The Queen of Hills. Walk down the Mall road and enjoy colonial architecture.", link: "/package/shimla-manali" },
+        { name: "Sikkim", tag: "North East Gem", title: "Gangtok & Nathula", desc: "Experience organic living, high altitude lakes, and view of Kanchenjunga.", link: "/package/gangtok-darjeeling" },
+        { name: "Uttarakhand", tag: "Devbhoomi", title: "Nainital & Mussoorie", desc: "Lake city vibes in Nainital and waterfalls in Mussoorie.", link: "/package/haridwar-rishikesh" },
     ];
 
     return (
@@ -76,26 +76,26 @@ const MountainHolidayPackages = () => {
                         <h2 className="text-3xl font-bold text-center mb-12">Top Hill Stations</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {destinations.map((dest, index) => (
-                                <Card key={index} className="overflow-hidden hover:shadow-xl transition-all group">
-                                    <div className="h-48 relative overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-950 dark:to-purple-950 flex items-center justify-center">
-                                        <Mountain className="w-24 h-24 text-indigo-300 dark:text-indigo-800 opacity-50" />
-                                        <div className="absolute inset-0 flex items-end p-6">
-                                            <div>
-                                                <Badge className="mb-2 bg-white/20 text-indigo-900 dark:text-indigo-100 dark:bg-black/40 backdrop-blur-md border-0">{dest.tag}</Badge>
-                                                <h3 className="text-2xl font-bold text-indigo-950 dark:text-indigo-50">{dest.name}</h3>
+                                <Link to={dest.link} key={index} className="block group">
+                                    <Card className="overflow-hidden hover:shadow-xl transition-all h-full">
+                                        <div className="h-48 relative overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-950 dark:to-purple-950 flex items-center justify-center">
+                                            <Mountain className="w-24 h-24 text-indigo-300 dark:text-indigo-800 opacity-50" />
+                                            <div className="absolute inset-0 flex items-end p-6">
+                                                <div>
+                                                    <Badge className="mb-2 bg-white/20 text-indigo-900 dark:text-indigo-100 dark:bg-black/40 backdrop-blur-md border-0">{dest.tag}</Badge>
+                                                    <h3 className="text-2xl font-bold text-indigo-950 dark:text-indigo-50">{dest.name}</h3>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <CardContent className="p-6">
-                                        <h4 className="font-bold text-lg mb-2 text-indigo-600">{dest.title}</h4>
-                                        <p className="text-muted-foreground mb-6">{dest.desc}</p>
-                                        <Button className="w-full" variant="secondary" asChild>
-                                            <a href={`https://wa.me/919406182174?text=Quote for ${dest.name} mountain trip`}>
-                                                Get Itinerary
-                                            </a>
-                                        </Button>
-                                    </CardContent>
-                                </Card>
+                                        <CardContent className="p-6">
+                                            <h4 className="font-bold text-lg mb-2 text-indigo-600">{dest.title}</h4>
+                                            <p className="text-muted-foreground mb-6 line-clamp-2">{dest.desc}</p>
+                                            <Button className="w-full" variant="secondary">
+                                                View Itinerary
+                                            </Button>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -110,7 +110,7 @@ const MountainHolidayPackages = () => {
                         </p>
                         <div className="flex gap-4 justify-center">
                             <Button size="lg" variant="secondary" asChild className="text-lg px-8 text-indigo-950">
-                                <a href="https://wa.me/919406182174?text=Plan my mountain trip">
+                                <a href="https://wa.me/919406182174?text=Hello Rudraksh Safar, I am interested in a Mountain Holiday Trip. Please share the itinerary and cost details for Kashmir/Manali/Ladakh packages.">
                                     Book Now
                                 </a>
                             </Button>

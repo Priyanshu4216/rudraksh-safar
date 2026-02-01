@@ -3,8 +3,9 @@ import { MessageCircle } from 'lucide-react';
 
 const FloatingWhatsApp = forwardRef<HTMLButtonElement>((_, ref) => {
   const handleClick = () => {
+    const message = "Hello Rudraksh Safar, I visited your website and would like to inquire about your travel packages. Please share the details.";
     window.open(
-      'https://wa.me/919406182174?text=Hello! I am interested in your travel packages. Please help me plan my trip.',
+      `https://wa.me/919406182174?text=${encodeURIComponent(message)}`,
       '_blank'
     );
   };
@@ -17,12 +18,12 @@ const FloatingWhatsApp = forwardRef<HTMLButtonElement>((_, ref) => {
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-7 h-7 md:w-8 md:h-8" />
-      
+
       {/* Tooltip */}
       <span className="absolute right-full mr-3 px-3 py-2 rounded-lg bg-foreground text-primary-foreground text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
         Chat with us!
       </span>
-      
+
       {/* Pulse animation */}
       <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-25" />
     </button>

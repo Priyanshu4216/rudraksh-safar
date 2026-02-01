@@ -18,7 +18,7 @@ const SriLankaVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I want to plan a Sri Lanka trip. Please help.";
+    const message = "Hello Rudraksh Safar, I am planning a trip to Sri Lanka (Free ETA). Please assist with travel packages and ETA process.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -151,9 +151,9 @@ const SriLankaVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Always apply through the official Sri Lanka ETA website to avoid scams.
                   </p>
-                  <a 
-                    href="https://eta.gov.lk/" 
-                    target="_blank" 
+                  <a
+                    href="https://eta.gov.lk/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

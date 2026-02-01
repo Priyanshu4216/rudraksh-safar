@@ -18,7 +18,7 @@ const MaldivesVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I want to plan a Maldives trip. Please help.";
+    const message = "Hello Rudraksh Safar, I want to plan a Maldives trip. Please assist with packages and travel requirements (Visa on Arrival).";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -169,9 +169,9 @@ const MaldivesVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Entry requirements may change. Verify on the official Maldives Immigration website before travel.
                   </p>
-                  <a 
-                    href="https://immigration.gov.mv/" 
-                    target="_blank" 
+                  <a
+                    href="https://immigration.gov.mv/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

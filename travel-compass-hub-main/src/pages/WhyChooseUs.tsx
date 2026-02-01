@@ -59,35 +59,38 @@ const WhyChooseUs = () => {
                     </div>
                 </section>
 
-                {/* Comparison Table */}
+                {/* Comparison Table - Top 1% Strategy */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-12">Us vs Online Portals</h2>
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold mb-4">Local Travel Agent vs Online Booking</h2>
+                            <p className="text-muted-foreground">Why 5000+ travelers chose our <strong>hassle-free tour packages</strong> over Faceless Apps.</p>
+                        </div>
                         <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-sm border overflow-hidden">
                             <div className="grid grid-cols-3 text-center border-b bg-muted p-4 font-bold text-lg">
                                 <div className="text-left pl-4">Feature</div>
-                                <div className="text-emerald-600">Rudraksh Safar</div>
-                                <div className="text-muted-foreground">Big Online Apps</div>
+                                <div className="text-emerald-600">Rudraksh Safar (Personalized)</div>
+                                <div className="text-muted-foreground">Online Portals (Generic)</div>
                             </div>
                             <div className="grid grid-cols-3 text-center border-b p-4 items-center">
-                                <div className="text-left pl-4 font-medium">On-Trip Support</div>
-                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> Dedicated Agent</div>
-                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Chatbots / IVR</div>
+                                <div className="text-left pl-4 font-medium">End-to-End Assistance</div>
+                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> <strong>Door-to-Door Care</strong></div>
+                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> DIY (Do It Yourself)</div>
                             </div>
                             <div className="grid grid-cols-3 text-center border-b p-4 items-center">
-                                <div className="text-left pl-4 font-medium">Itinerary Flexibility</div>
-                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> Fully Customizable</div>
-                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Fixed Packages</div>
+                                <div className="text-left pl-4 font-medium">Itinerary Planning</div>
+                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> <strong>Customized Packages</strong></div>
+                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Rigid Fixed Plans</div>
                             </div>
                             <div className="grid grid-cols-3 text-center border-b p-4 items-center">
-                                <div className="text-left pl-4 font-medium">Payment Options</div>
-                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> Part Payment / Cash</div>
-                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Full Advance Only</div>
+                                <div className="text-left pl-4 font-medium">Emergency Support</div>
+                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> <strong>Direct Agent Mobile</strong></div>
+                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> IVR / Chatbot</div>
                             </div>
                             <div className="grid grid-cols-3 text-center p-4 items-center">
                                 <div className="text-left pl-4 font-medium">Trust Factor</div>
-                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> Local Office</div>
-                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Virtual Existence</div>
+                                <div className="text-emerald-600 flex justify-center items-center gap-2"><CheckCircle2 className="w-5 h-5" /> <strong>Verified Agent</strong></div>
+                                <div className="text-muted-foreground flex justify-center items-center gap-2"><XCircle className="w-5 h-5" /> Virtual Brand</div>
                             </div>
                         </div>
                     </div>

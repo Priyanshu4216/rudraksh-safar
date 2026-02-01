@@ -8,7 +8,19 @@ import {
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 
-const faqs = [
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface FAQsSectionProps {
+  faqs?: FAQ[];
+  title?: string;
+  description?: string;
+  showContactInfo?: boolean;
+}
+
+const defaultFaqs: FAQ[] = [
   {
     question: 'Which is the best travel agency in Bhilai for tour packages?',
     answer: 'Rudraksh Safar is the best travel agency in Bhilai with 10+ years of experience and 500+ satisfied customers. Located on GE Road, we offer the cheapest domestic and international tour packages with 24/7 customer support. Contact us at +91-9406182174 for instant booking.',
@@ -75,50 +87,55 @@ const faqs = [
   },
 ];
 
-const FAQsSection = () => {
+const FAQsSection = ({
+  faqs = defaultFaqs,
+  title = "Frequently Asked Questions About Travel Packages from Bhilai",
+  description = "Get answers about our tour packages, booking process, prices, and services. Rudraksh Safar - Best Travel Agency in Bhilai, Chhattisgarh.",
+  showContactInfo = true
+}: FAQsSectionProps) => {
   const [showAll, setShowAll] = useState(false);
-  const visibleFaqs = useMemo(() => (showAll ? faqs : faqs.slice(0, 4)), [showAll]);
+  const visibleFaqs = useMemo(() => (showAll ? faqs : faqs.slice(0, 4)), [showAll, faqs]);
 
   return (
     <section id="faqs" className="py-20 bg-secondary/30" aria-labelledby="faqs-heading">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <AnimatedSection animation="fade-up">
-            <div className="text-center mb-12">
-              <span className="text-gold text-sm font-medium tracking-widest uppercase">
-                Common Questions
-              </span>
-              <h2 id="faqs-heading" className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
-                Frequently Asked Questions About Travel Packages from Bhilai
-              </h2>
+      <div className="container mx-auto px-4 max-w-4xl">
+        <AnimatedSection animation="fade-up">
+          <div className="text-center mb-12">
+            <span className="text-gold text-sm font-medium tracking-widest uppercase">
+              Common Questions
+            </span>
+            <h2 id="faqs-heading" className="text-3xl md:text-4xl font-display font-bold text-foreground mt-2">
+              {title}
+            </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Get answers about our tour packages, booking process, prices, and services. 
-              Rudraksh Safar - Best Travel Agency in Bhilai, Chhattisgarh.
+              {description}
             </p>
-            </div>
-          </AnimatedSection>
+          </div>
+        </AnimatedSection>
 
-          <AnimatedSection animation="fade-up" delay={200}>
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {visibleFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-card border border-border/50 rounded-xl px-6 overflow-hidden"
+        <AnimatedSection animation="fade-up" delay={200}>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {visibleFaqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="bg-card border border-border/50 rounded-xl px-6 overflow-hidden"
+              >
+                <AccordionTrigger
+                  className="text-left text-foreground hover:text-gold hover:no-underline py-5 text-base md:text-lg font-medium"
                 >
-                  <AccordionTrigger 
-                    className="text-left text-foreground hover:text-gold hover:no-underline py-5 text-base md:text-lg font-medium"
-                  >
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent 
-                    className="text-muted-foreground pb-5 text-sm md:text-base leading-relaxed"
-                  >
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent
+                  className="text-muted-foreground pb-5 text-sm md:text-base leading-relaxed"
+                >
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
 
+          {faqs.length > 4 && (
             <div className="mt-8 flex justify-center">
               <Button
                 variant="outline"
@@ -128,8 +145,10 @@ const FAQsSection = () => {
                 {showAll ? 'Show less' : 'See more FAQs'}
               </Button>
             </div>
-          </AnimatedSection>
+          )}
+        </AnimatedSection>
 
+        {showContactInfo && (
           <AnimatedSection animation="fade-up" delay={400}>
             <div className="text-center mt-12">
               <p className="text-muted-foreground">
@@ -144,8 +163,9 @@ const FAQsSection = () => {
               </p>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        )}
+      </div>
+    </section>
   );
 };
 

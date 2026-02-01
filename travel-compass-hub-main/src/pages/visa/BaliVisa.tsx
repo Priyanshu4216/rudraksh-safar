@@ -67,7 +67,7 @@ const BaliVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Bali/Indonesia visa. Please help.";
+    const message = "Hello Rudraksh Safar, I need expert assistance with my Bali Visa application (e-VOA). Please guide me through the process.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 

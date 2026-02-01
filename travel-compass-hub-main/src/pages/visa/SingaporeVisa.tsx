@@ -67,7 +67,7 @@ const SingaporeVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Singapore visa application. Please help.";
+    const message = "Hello Rudraksh Safar, I need expert assistance with my Singapore e-Visa application. Please guide me through the documentation and process.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -397,9 +397,9 @@ const SingaporeVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Singapore visa policies may change. Always verify current requirements on the official ICA Singapore website before applying.
                   </p>
-                  <a 
-                    href="https://www.ica.gov.sg/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.ica.gov.sg/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

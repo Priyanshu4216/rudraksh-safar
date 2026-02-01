@@ -18,7 +18,7 @@ const NepalVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I want to plan a Nepal trip. Please help.";
+    const message = "Hello Rudraksh Safar, I am planning a trip to Nepal. Please assist me with packages and travel details.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -152,9 +152,9 @@ const NepalVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     While no visa is needed, always carry valid ID. For trekking in restricted areas (like Upper Mustang, Manaslu), permits are required. Check Nepal Tourism Board for latest updates.
                   </p>
-                  <a 
-                    href="https://www.tourism.gov.np/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.tourism.gov.np/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

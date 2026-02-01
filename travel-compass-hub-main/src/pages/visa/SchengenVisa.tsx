@@ -18,7 +18,7 @@ const SchengenVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Schengen visa application. Please help.";
+    const message = "Hello Rudraksh Safar, I am interested in applying for a Schengen Visa. Please assist me with the documentation, appointment, and application process.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 

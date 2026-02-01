@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import FAQsSection from '@/components/FAQsSection';
 
 const PassportAgentBhilai = () => {
     const documents = [
@@ -171,21 +172,56 @@ const PassportAgentBhilai = () => {
                 </section>
 
                 {/* FAQs */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold mb-8 text-center">Passport FAQs</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection
+                    title="Frequently Asked Questions on Passports"
+                    description="Clear answers to your doubts about New Passports, Renewals, and Tatkaal applications."
+                    faqs={[
+                        {
+                            question: "How to apply for passport in Bhilai?",
+                            answer: "To apply for a passport in Bhilai: 1. Visit Rudraksh Safar office with documents. 2. We verify details and fill the online form. 3. We book your appointment at PSK Raipur. 4. You visit PSK for biometrics. 5. Police verification completes the process."
+                        },
+                        {
+                            question: "What documents are needed for a fresh passport?",
+                            answer: "For a fresh passport, you strictly need 3 types of proof: 1. Address Proof (Aadhaar, Voter ID, Bank Passbook), 2. Date of Birth Proof (Birth Certificate or Pan Card/Aadhaar/School Certificate), and 3. Non-ECR Proof (10th Marksheet) if you are educated."
+                        },
+                        {
+                            question: "How do I book an appointment at PSK Raipur?",
+                            answer: "Appointments at PSK Raipur (Magneto/Ambuja Mall) are booked online after paying the government fee. We handle this entire process for you—finding the earliest available slot, paying the fee securely, and giving you the appointment receipt."
+                        },
+                        {
+                            question: "What is the difference between Normal and Tatkaal passport?",
+                            answer: "Processing time! Normal passports take 20-30 days as police verification happens *before* dispatch. Tatkaal passports are dispatched within 3-5 days, and police verification happens *after* you receive the booklet. Tatkaal has higher fees and requires specific verification documents."
+                        },
+                        {
+                            question: "How long does it take to get a passport in Bhilai?",
+                            answer: "In the Normal scheme, you can expect your passport in about 25-30 days from the appointment date, depending on how fast the local police (Thana) completes verification. Tatkaal applications usually arrive within a week."
+                        },
+                        {
+                            question: "Do you help with police verification?",
+                            answer: "We guide you on the process. When the file reaches your local Thana, you will be called. We tell you exactly which documents to carry (originals + copies) and how to answer questions to ensure a positive report."
+                        },
+                        {
+                            question: "Can I renew my passport before it expires?",
+                            answer: "Yes! You can apply for renewal (re-issue) up to 1 year before the expiry date. We recommend applying at least 6 months before expiry to avoid travel issues, as many countries require 6 months validity for visas."
+                        },
+                        {
+                            question: "My passport is damaged, what should I do?",
+                            answer: "A damaged passport is not valid for travel. You must apply for a 'Re-issue' under the 'Damaged' category immediately. The process is similar to renewal, but you might need an affidavit explaining the damage."
+                        },
+                        {
+                            question: "Do you handle passport for minors (children)?",
+                            answer: "Yes. For minors, parent's passports are crucial documents. The process usually doesn't require police verification if parents have valid passports. We specialize in handling minor applications to ensure smooth processing."
+                        },
+                        {
+                            question: "What if my address in Aadhar is different from current address?",
+                            answer: "You must apply with your *current* residential address where police can verify you. If your Aadhaar has an old address, you can use a valid Rent Agreement, Bank Passbook, or Gas Connection bill as current address proof. We help you identify the best accepted document."
+                        },
+                        {
+                            question: "Can I track my passport application status?",
+                            answer: "Yes. Once your application is submitted, we provide you with a File Number. You can use this to track exactly where your passport is—whether it's at the PSK, with Police, or Printed and Dispatched."
+                        },
+                    ]}
+                />
 
                 {/* CTA */}
                 <section className="py-16 bg-indigo-600 text-white">

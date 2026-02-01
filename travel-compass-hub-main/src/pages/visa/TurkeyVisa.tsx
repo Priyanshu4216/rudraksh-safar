@@ -18,7 +18,7 @@ const TurkeyVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Turkey visa application. Please help.";
+    const message = "Hello Rudraksh Safar, I need expert assistance with my Turkey e-Visa application. Please guide me through the process.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -169,9 +169,9 @@ const TurkeyVisa = () => {
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     Always apply through the official Turkey e-Visa website to avoid scams.
                   </p>
-                  <a 
-                    href="https://www.evisa.gov.tr/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.evisa.gov.tr/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-amber-800 dark:text-amber-200 underline text-sm mt-2"
                   >

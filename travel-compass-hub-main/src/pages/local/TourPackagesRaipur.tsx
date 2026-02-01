@@ -7,6 +7,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import FAQsSection from '@/components/FAQsSection';
 
 const TourPackagesRaipur = () => {
     return (
@@ -321,6 +322,54 @@ const TourPackagesRaipur = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* FAQs */}
+                <FAQsSection
+                    title="Frequently Asked Questions (Raipur Tour Packages)"
+                    description="Everything you need to know about booking domestic and international tours from Raipur."
+                    faqs={[
+                        {
+                            question: "What domestic tour packages are available from Raipur?",
+                            answer: "We offer direct flight/train included packages from Raipur to Goa, Kashmir, Manali, Kerala, Rajasthan, and Andaman. Weekend trips to Kanha, Pench, and Pachmarhi are also very popular."
+                        },
+                        {
+                            question: "Do you have international packages starting from Raipur?",
+                            answer: "Yes! We have seamless international itineraries starting from Swami Vivekananda Airport (RPR) to Dubai, Thailand, Singapore, Bali, and Vietnam. We handle the layovers and visa process."
+                        },
+                        {
+                            question: "Do you have a physical office in Raipur for consultation?",
+                            answer: "Our head office is in Bhilai (GE Road), a short drive from Raipur. However, for our Raipur clients, we offer doorstep consultation and digital booking. You can also visit our Bhilai office for a face-to-face planning session."
+                        },
+                        {
+                            question: "What are the best weekend getaways from Raipur?",
+                            answer: "For a quick break, we recommend Kanha National Park (Safari), Pachmarhi (Hill Station), Gangrel Dam (Water Sports), or Mainpat (Shimla of Chhattisgarh). We can arrange cab and hotel packages for 2-3 days."
+                        },
+                        {
+                            question: "Do you organize school or college industrial visits?",
+                            answer: "Yes, Rudraksh Safar specializes in educational tours for schools and colleges in Raipur & Bhilai. We organize industrial visits to places like Manali, Goa, and Hyderabad with complete student safety and budget-friendly pricing."
+                        },
+                        {
+                            question: "Can I get a customized honeymoon package?",
+                            answer: "Absolutely. Our honeymoon specials include candlelight dinners, flower bed decoration, private houseboats (Kerala), and couple photoshoots. Popular choices are Kashmir, Manali, Bali, and Maldives."
+                        },
+                        {
+                            question: "Is flight ticket included in the package cost?",
+                            answer: "It depends on the plan you choose. We offer 'Land-Only Packages' (Hotel + Cab + Sightseeing) if you want to book your own flights, and 'All-Inclusive Packages' where we bundle the cheapest flight rates from Raipur for you."
+                        },
+                        {
+                            question: "Do you provide EMI options for expensive packages?",
+                            answer: "Yes, we understand that travel can be big investment. We offer credit card EMI options and installment payment plans for packages above ₹50,000 to help you travel now and pay later."
+                        },
+                        {
+                            question: "Are there any hidden charges?",
+                            answer: "Never. Our quotation clearly mentions what is included (GST, Taxes, Meals, Entry Fees). We believe in 100% pricing transparency so you don't face surprises during your trip."
+                        },
+                        {
+                            question: "Is vegetarian food available on international tours?",
+                            answer: "Yes, for our Indian travelers, we ensure Indian restaurants are part of the itinerary in places like Dubai, Thailand, and Bali. We can specifically request Jain or Pure Veg meals at hotels as well."
+                        },
+                    ]}
+                />
 
                 {/* Internal Link Section */}
                 <section className="py-20">

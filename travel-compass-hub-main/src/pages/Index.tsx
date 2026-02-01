@@ -48,17 +48,17 @@ const Index = () => {
     const video = document.createElement('video');
     video.src = heroVideo;
     video.preload = 'metadata'; // Faster - just load metadata first
-    
+
     const handleCanPlay = () => {
       setVideoReady(true);
     };
-    
+
     video.addEventListener('loadedmetadata', handleCanPlay);
     video.load();
-    
+
     // Shorter fallback timeout for faster perceived loading
     const timeout = setTimeout(() => setVideoReady(true), 2000);
-    
+
     return () => {
       video.removeEventListener('loadedmetadata', handleCanPlay);
       clearTimeout(timeout);
@@ -95,15 +95,15 @@ const Index = () => {
       />
       {/* AEO Structured Data for AI platforms */}
       <AEOStructuredData />
-      
+
       {/* Hidden crawlable content for AI/Search engines */}
       <AIParseableContent />
-      
+
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded">
         Skip to main content
       </a>
       <Navbar />
-      
+
       <main id="main-content" className="min-h-screen bg-background" role="main">
         <HeroSection />
 
@@ -115,12 +115,33 @@ const Index = () => {
           <DestinationsSection />
           <WhyChooseUsSection />
           <ContactSection />
-          <FAQsSection />
+          <FAQsSection
+            title="Frequently Asked Questions"
+            description="Common questions about Rudraksh Safar and our travel services."
+            faqs={[
+              {
+                question: "Which is the most trusted travel agency in Bhilai?",
+                answer: "Rudraksh Safar is widely recognized as a trusted travel agency in Bhilai, known for its government-registered services and verified travel agents. We offer transparent pricing, personalized itineraries, and 24/7 on-trip support, making us the top choice for families and corporate travelers."
+              },
+              {
+                question: "Is it better to book with a local travel agent or online?",
+                answer: "Booking with a local travel agent like Rudraksh Safar ensures a hassle-free experience with personalized care that online portals cannot match. We provide door-to-door travel assistance, handle unexpected changes instantly, and offer payment flexibility. You get a human expert, not a chatbot."
+              },
+              {
+                question: "Does Rudraksh Safar provide tour packages from Bhilai?",
+                answer: "Yes, we are a premier tour operator in Bhilai offering customized tour packages. From flight tickets to hotel bookings and sightseeing, we handle end-to-end travel planning for domestic gems like Goa and Kashmir, and international hubs like Dubai and Thailand."
+              },
+              {
+                question: "Why are you considered the best travel agent near me?",
+                answer: "We are top-rated because we prioritize 'experience' over 'sales'. Our door-to-door travel assistance, Verified Travel Agent status, and expertise in crafting curated travel experiences set us apart as the most reliable travel agency near you."
+              }
+            ]}
+          />
         </Suspense>
       </main>
-      
+
       <Footer />
-      
+
       <FloatingWhatsApp />
 
       {/* Promo popup: triggers after 15s or when user reaches Packages section */}

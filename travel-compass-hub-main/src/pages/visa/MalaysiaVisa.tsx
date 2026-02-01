@@ -18,7 +18,7 @@ const MalaysiaVisa = () => {
   }, []);
 
   const handleWhatsApp = () => {
-    const message = "Hi! I need assistance with Malaysia visa application. Please help.";
+    const message = "Hello Rudraksh Safar, I am planning a trip to Malaysia. Please assist me with MDAC and travel arrangements.";
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
