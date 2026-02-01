@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, MessageCircle, CheckCircle, Palmtree, Sailboat, MountainSnow, Landmark, Mountain, TreePine, Waves } from 'lucide-react';
+import { MapPin, MessageCircle, CheckCircle, Palmtree, Sailboat, MountainSnow, Landmark, Mountain, TreePine, Waves, Info, HelpCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const IndiaPackagesBhilai = () => {
@@ -83,6 +84,18 @@ const IndiaPackagesBhilai = () => {
 
   const faqs = [
     {
+      question: "Are India tour packages customizable?",
+      answer: "Yes, tours can be customized based on duration, destination, and preferences. Whether you need a relaxing leisure trip or an action-packed adventure, we tailor it for you."
+    },
+    {
+      question: "Do India tours include transport?",
+      answer: "Transport inclusion depends on the selected package. Most of our packages include private cab transfers for sightseeing, but flight/train tickets can be added as per your choice."
+    },
+    {
+      question: "Are India tours suitable for families?",
+      answer: "Yes, family-friendly itineraries are commonly planned with comfortable hotels, easy pace, and activities suitable for all age groups."
+    },
+    {
       question: "What are the best India tour packages from Bhilai?",
       answer: "Popular India tour packages from Bhilai include Goa (₹9,999), Kerala (₹14,999), Kashmir (₹17,999), Rajasthan (₹12,999), Himachal (₹11,999), and North-East (₹19,999). All packages include accommodation, transport, and sightseeing."
     },
@@ -94,14 +107,6 @@ const IndiaPackagesBhilai = () => {
       question: "Do you offer Kashmir packages from Bhilai?",
       answer: "Yes, we offer Kashmir tour packages from Bhilai starting ₹17,999 for 5N/6D covering Srinagar, Gulmarg, Pahalgam, and Sonmarg with hotel, houseboat stay, and sightseeing."
     },
-    {
-      question: "Can I book a honeymoon package to Kerala from Bhilai?",
-      answer: "Absolutely! We have special Kerala honeymoon packages from Bhilai starting ₹18,999 per couple including romantic houseboat stay, Munnar tea gardens, and Alleppey backwaters."
-    },
-    {
-      question: "What is the best time for Ladakh trip from Bhilai?",
-      answer: "The best time for Ladakh from Bhilai is May to September when roads are open and weather is pleasant. Our Ladakh packages include acclimatization days and all permits."
-    }
   ];
 
   return (
@@ -150,6 +155,87 @@ const IndiaPackagesBhilai = () => {
                     Get Quote on WhatsApp
                   </a>
                 </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TL;DR Summary */}
+        <section className="py-12 relative z-20">
+          <div className="container mx-auto px-4">
+            <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-primary max-w-4xl mx-auto">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-xl shrink-0 hidden md:block">
+                    <Info className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                      <span className="md:hidden"><Info className="w-6 h-6 text-primary" /></span>
+                      TL;DR (AI Summary)
+                    </h2>
+                    <p className="text-muted-foreground leading-relaxed">
+                      India tour packages are planned travel itineraries covering popular destinations like hill stations, heritage cities, spiritual locations, beaches, and cultural regions. We assist travellers with domestic tour planning, accommodation, transport coordination, and sightseeing arrangements for smooth and memorable journeys.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Discover India & Types */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto space-y-16">
+              {/* Discover India */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Discover India Through Well-Planned Tour Packages</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  India offers a diverse range of travel experiences — from mountains and beaches to heritage sites and spiritual destinations. Tour packages are designed to reduce planning effort and ensure smooth travel flow.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card className="border-none shadow-none bg-accent/20">
+                    <CardContent className="p-6">
+                      <h3 className="font-bold text-lg mb-2">Why Packages?</h3>
+                      <ul className="space-y-2">
+                        <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary" /> Cover important attractions efficiently</li>
+                        <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle className="w-4 h-4 text-primary" /> Balance comfort, time, and budget</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Types of Packages */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Types of India Tour Packages</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">👨‍👩‍👧‍👦</div>
+                    <div className="font-medium">Family Holiday</div>
+                  </div>
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">💍</div>
+                    <div className="font-medium">Honeymoon Tours</div>
+                  </div>
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">🌄</div>
+                    <div className="font-medium">Adventure Trips</div>
+                  </div>
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">🕉️</div>
+                    <div className="font-medium">Spiritual Tours</div>
+                  </div>
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">🏰</div>
+                    <div className="font-medium">Heritage Tours</div>
+                  </div>
+                  <div className="p-4 rounded-xl border hover:shadow-md transition-all">
+                    <div className="text-2xl mb-2">👥</div>
+                    <div className="font-medium">Group Travel</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -267,6 +353,10 @@ const IndiaPackagesBhilai = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
+
+              <p className="mt-8 text-sm text-center text-muted-foreground">
+                <strong>Important Information:</strong> Tour itineraries, pricing, and services depend on third-party providers and are subject to availability and seasonal conditions.
+              </p>
             </div>
           </div>
         </section>
@@ -310,7 +400,7 @@ const IndiaPackagesBhilai = () => {
             </div>
           </div>
         </section>
-      </main>
+      </main >
 
       <Footer />
       <FloatingWhatsApp />

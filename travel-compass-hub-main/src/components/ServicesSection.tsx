@@ -21,7 +21,7 @@ const services = [
     icon: Hotel,
     title: 'Hotel Booking',
     description: 'Premium hotels & resorts at competitive rates',
-    link: '/#packages'
+    link: '/hotel-booking'
   },
   {
     icon: Bus,

@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Briefcase, Users, Award, CheckCircle, Building2, Plane, Bus, FileText } from 'lucide-react';
+import { Briefcase, Users, Award, CheckCircle, Building2, Plane, Bus, FileText, Info, HelpCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const CorporateTourPackagesBhilai = () => {
     return (
@@ -36,6 +37,69 @@ const CorporateTourPackagesBhilai = () => {
                             <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
                                 <a href="https://wa.me/919406182174?text=We need corporate tour quote">Get Corporate Quote</a>
                             </Button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* TL;DR Summary */}
+                <section className="py-12 relative z-20">
+                    <div className="container mx-auto px-4">
+                        <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-blue-500 max-w-4xl mx-auto">
+                            <CardContent className="p-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl shrink-0 hidden md:block">
+                                        <Info className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                            <span className="md:hidden"><Info className="w-6 h-6 text-blue-600" /></span>
+                                            TL;DR (AI Summary)
+                                        </h2>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Corporate tour packages are organized travel plans designed for companies, startups, and organizations to manage meetings, offsites, conferences, training programs, and team outings efficiently. We assist with corporate travel planning, hotel and venue selection, logistics coordination, and group accommodation management to ensure smooth and productive business travel experiences.
+                                        </p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
+                {/* Detailed Info Sections */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto space-y-16">
+                            {/* What Are Corporate Packages */}
+                            <div>
+                                <h2 className="text-3xl font-bold mb-6">What Are Corporate Tour Packages?</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
+                                    Corporate tour packages are professionally planned travel arrangements created for business teams and organizations. These packages focus on efficiency, coordination, comfort, and cost control.
+                                </p>
+                                <ul className="grid md:grid-cols-2 gap-4">
+                                    <li className="flex items-center gap-3"><CheckCircle className="text-blue-500 w-5 h-5 flex-shrink-0" /> Team outings and bonding trips</li>
+                                    <li className="flex items-center gap-3"><CheckCircle className="text-blue-500 w-5 h-5 flex-shrink-0" /> Corporate offsite meetings</li>
+                                    <li className="flex items-center gap-3"><CheckCircle className="text-blue-500 w-5 h-5 flex-shrink-0" /> Conferences and seminars</li>
+                                    <li className="flex items-center gap-3"><CheckCircle className="text-blue-500 w-5 h-5 flex-shrink-0" /> Training programs and workshops</li>
+                                </ul>
+                            </div>
+
+                            {/* Planning Made Simple */}
+                            <div className="bg-blue-50 dark:bg-blue-950/20 p-8 rounded-2xl border border-blue-100 dark:border-blue-900">
+                                <h2 className="text-3xl font-bold mb-6">Corporate Travel Planning Made Simple</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
+                                    Planning corporate travel involves multiple variables such as schedules, accommodation capacity, meeting spaces, transportation, and budget approvals. We assist organizations by handling these complexities.
+                                </p>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="bg-background p-4 rounded-xl shadow-sm">
+                                        <h3 className="font-bold flex items-center gap-2 mb-2"><Plane className="w-5 h-5 text-blue-600" /> Logistics Handling</h3>
+                                        <p className="text-sm text-muted-foreground">Ensuring smooth check-ins, transfers, and transport coordination.</p>
+                                    </div>
+                                    <div className="bg-background p-4 rounded-xl shadow-sm">
+                                        <h3 className="font-bold flex items-center gap-2 mb-2"><Building2 className="w-5 h-5 text-blue-600" /> Venue Selection</h3>
+                                        <p className="text-sm text-muted-foreground">Identifying hotels with conference halls, banquet spaces, and business amenities.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -151,6 +215,38 @@ const CorporateTourPackagesBhilai = () => {
                     </div>
                 </section>
 
+                {/* FAQs */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold mb-8 text-center">Corporate Travel FAQs</h2>
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="item-1">
+                                    <AccordionTrigger className="text-left font-medium text-lg">Do corporate tour packages include meeting halls?</AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                                        Yes, assistance is provided to book hotels with suitable meeting and conference facilities, projecters, and sound systems.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="item-2">
+                                    <AccordionTrigger className="text-left font-medium text-lg">Can corporate tours be customized?</AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                                        Yes, itineraries can be fully customized based on company requirements, team size, and focused activities.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="item-3">
+                                    <AccordionTrigger className="text-left font-medium text-lg">Are group discounts available?</AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                                        Group pricing depends on hotel policies, dates, and availability, but we always negotiate the best bulk rates for our clients.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                            <p className="mt-8 text-sm text-center text-muted-foreground">
+                                <strong>Important Information:</strong> Corporate tour services involve coordination with independent hotels, transport providers, and venues. Availability, pricing, and inclusions are subject to supplier terms.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* CTA */}
                 <section className="py-16 bg-blue-700 text-white">
                     <div className="container mx-auto px-4 text-center">
@@ -166,7 +262,7 @@ const CorporateTourPackagesBhilai = () => {
                     </div>
                 </section>
 
-            </main>
+            </main >
             <Footer />
             <FloatingWhatsApp />
         </>

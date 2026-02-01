@@ -29,7 +29,7 @@ const HeroSection = () => {
       return true;
     }
   }, []);
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
@@ -39,15 +39,15 @@ const HeroSection = () => {
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
   const videoY = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const videoOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.5, 0]);
-  
+
   // Content parallax - moves faster than video
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-  
+
   // 3D perspective rotation
   const rotateX = useTransform(scrollYProgress, [0, 0.5], [0, 15]);
-  
+
   // Stats parallax - different speeds for depth effect
   const statsY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const statsOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
@@ -90,24 +90,24 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="home" 
+      id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ perspective: '1000px' }}
     >
       {/* Video Background with 3D Parallax */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
-        style={{ 
+        style={{
           scale: videoScale,
           y: videoY,
           opacity: videoOpacity,
         }}
       >
-        <motion.div 
+        <motion.div
           className="absolute inset-0 transition-transform duration-300 ease-out"
-          style={{ 
+          style={{
             transform: `translate(${mousePosition.x * 0.3}px, ${mousePosition.y * 0.3}px)`,
           }}
         >
@@ -115,9 +115,8 @@ const HeroSection = () => {
           <img
             src={heroPoster}
             alt="Scenic travel destination background"
-            className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${
-              shouldUseVideo ? (videoLoaded ? 'opacity-0' : 'opacity-100') : 'opacity-100'
-            }`}
+            className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${shouldUseVideo ? (videoLoaded ? 'opacity-0' : 'opacity-100') : 'opacity-100'
+              }`}
             loading="eager"
           />
 
@@ -131,9 +130,8 @@ const HeroSection = () => {
               preload="metadata"
               aria-hidden="true"
               title="Rudraksh Safar - Beautiful travel destinations background video"
-              className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${
-                videoLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
               onLoadedData={() => setVideoLoaded(true)}
               onCanPlayThrough={() => setVideoLoaded(true)}
             >
@@ -142,29 +140,29 @@ const HeroSection = () => {
             </video>
           ) : null}
         </motion.div>
-        
+
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/5" />
       </motion.div>
 
       {/* Animated Glow Orbs with parallax */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 overflow-hidden pointer-events-none"
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
       >
-        <div 
+        <div
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-[120px] animate-pulse"
           style={{ animationDuration: '4s' }}
         />
-        <div 
+        <div
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[140px] animate-pulse"
           style={{ animationDuration: '6s', animationDelay: '2s' }}
         />
       </motion.div>
 
       {/* Animated Grid Overlay */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--secondary) / 0.5) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary) / 0.5) 1px, transparent 1px)`,
@@ -174,9 +172,9 @@ const HeroSection = () => {
       />
 
       {/* Main Content with 3D Transform */}
-      <motion.div 
+      <motion.div
         className="container relative z-10 text-center pt-20"
-        style={{ 
+        style={{
           y: contentY,
           opacity: contentOpacity,
           scale: contentScale,
@@ -186,7 +184,7 @@ const HeroSection = () => {
       >
         <div className="max-w-5xl mx-auto">
           {/* Animated Badge with separate parallax */}
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-10 border border-white/20 group hover:border-secondary/60 transition-all duration-500 cursor-default"
             style={{ y: badgeY, scale: badgeScale }}
             initial={{ opacity: 0, y: 30 }}
@@ -208,48 +206,37 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Main Headline */}
-          <motion.div 
+          <motion.div
             className="mb-8"
             initial={{ opacity: 0, z: -100 }}
             animate={{ opacity: 1, z: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[0.9] drop-shadow-2xl">
-              <motion.span 
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] drop-shadow-2xl mb-6">
+              <motion.span
                 className="block overflow-hidden"
                 initial={{ opacity: 0, y: 60, rotateX: -30 }}
                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Explore
-              </motion.span>
-              <motion.span 
-                className="block overflow-hidden mt-2"
-                initial={{ opacity: 0, y: 60, rotateX: -30 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Beyond{' '}
-                <span className="relative inline-block">
-                  <span className="text-secondary drop-shadow-[0_0_30px_hsl(var(--secondary)/0.5)]">Horizons</span>
-                </span>
+                Trusted Travel Agency from <span className="text-secondary drop-shadow-[0_0_30px_hsl(var(--secondary)/0.5)]">Bhilai</span>
               </motion.span>
             </h1>
           </motion.div>
 
           {/* Subheadline */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg font-sans"
+            className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed drop-shadow-lg font-sans"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Discover handcrafted journeys to India's sacred destinations and exotic international escapes. 
-            <span className="text-secondary font-medium"> Your adventure awaits.</span>
+            Best deals from Bhilai, Raipur, Durg & nearby — Domestic & International Tour Packages.
+            <span className="text-secondary font-medium block mt-2"> Call / WhatsApp for customised itineraries.</span>
           </motion.p>
 
           {/* CTA Buttons with 3D hover effect */}
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -271,11 +258,11 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
             </motion.div>
-            
+
           </motion.div>
 
           {/* Stats Row with Staggered 3D Animation */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto"
             style={{ y: statsY, opacity: statsOpacity }}
           >
@@ -284,8 +271,8 @@ const HeroSection = () => {
               { value: '10+', label: 'Years Experience', delay: 0.1 },
               { value: '1000+', label: 'Happy Travelers', delay: 0.2 },
             ].map((stat, index) => (
-              <motion.div 
-                key={stat.label} 
+              <motion.div
+                key={stat.label}
                 className="text-center group cursor-default relative"
                 initial={{ opacity: 0, y: 50, rotateY: -20 }}
                 animate={{ opacity: 1, y: 0, rotateY: 0 }}

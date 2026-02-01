@@ -168,107 +168,107 @@ const BusBookingBhilai = () => {
                     </div>
                 </section>
 
-            </section>
 
-            {/* Local Boarding Points - SEO Rich */}
-            <section className="py-16 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center mb-10">
-                        <h2 className="text-3xl font-bold mb-4">Boarding Points in Bhilai-Durg</h2>
-                        <p className="text-muted-foreground">We ensure you catch your bus from the nearest convenient stop.</p>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-                        {[
-                            { name: "Power House", loc: "Bus Stand" },
-                            { name: "Supela", loc: "Chowk" },
-                            { name: "Durg", loc: "Bus Stand / Bypass" },
-                            { name: "Nehru Nagar", loc: "Square" },
-                            { name: "Kumhari", loc: "Toll Plaza" },
-                            { name: "Bhilai 3", loc: "Main Road" },
-                            { name: "Charoda", loc: "Railway Crossing" },
-                            { name: "Rajeshwari Travels", loc: "GE Road Office" }
-                        ].map((point, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center p-4 rounded-xl border border-purple-100 dark:border-purple-900 bg-purple-50/50 dark:bg-purple-950/10 hover:bg-purple-100 transition-colors">
-                                <MapPin className="w-6 h-6 text-purple-600 mb-2" />
-                                <span className="font-bold text-foreground">{point.name}</span>
-                                <span className="text-xs text-muted-foreground">{point.loc}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* Routes Table */}
-            <section className="py-20 bg-muted/30">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-10 text-center">Top Bus Routes from Bhilai</h2>
-                    <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
-                        <Table>
-                            <TableHeader>
-                                <TableRow className="bg-purple-50 dark:bg-purple-950/20">
-                                    <TableHead className="font-bold text-foreground">Destination</TableHead>
-                                    <TableHead className="font-bold text-foreground">Bus Type</TableHead>
-                                    <TableHead className="font-bold text-foreground">Travel Time</TableHead>
-                                    <TableHead className="font-bold text-foreground">Est. Fare</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {popularRoutes.map((route, index) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="font-medium">{route.dest}</TableCell>
-                                        <TableCell>{route.type}</TableCell>
-                                        <TableCell>{route.time}</TableCell>
-                                        <TableCell>{route.fare}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQs */}
-            <section className="py-20">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-8 text-center">Bus Booking FAQs</h2>
-                        <Accordion type="single" collapsible className="w-full">
-                            {faqs.map((faq, index) => (
-                                <AccordionItem key={index} value={`faq-${index}`}>
-                                    <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                </AccordionItem>
+                {/* Local Boarding Points - SEO Rich */}
+                <section className="py-16 bg-background">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto text-center mb-10">
+                            <h2 className="text-3xl font-bold mb-4">Boarding Points in Bhilai-Durg</h2>
+                            <p className="text-muted-foreground">We ensure you catch your bus from the nearest convenient stop.</p>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                            {[
+                                { name: "Power House", loc: "Bus Stand" },
+                                { name: "Supela", loc: "Chowk" },
+                                { name: "Durg", loc: "Bus Stand / Bypass" },
+                                { name: "Nehru Nagar", loc: "Square" },
+                                { name: "Kumhari", loc: "Toll Plaza" },
+                                { name: "Bhilai 3", loc: "Main Road" },
+                                { name: "Charoda", loc: "Railway Crossing" },
+                                { name: "Rajeshwari Travels", loc: "GE Road Office" }
+                            ].map((point, i) => (
+                                <div key={i} className="flex flex-col items-center justify-center p-4 rounded-xl border border-purple-100 dark:border-purple-900 bg-purple-50/50 dark:bg-purple-950/10 hover:bg-purple-100 transition-colors">
+                                    <MapPin className="w-6 h-6 text-purple-600 mb-2" />
+                                    <span className="font-bold text-foreground">{point.name}</span>
+                                    <span className="text-xs text-muted-foreground">{point.loc}</span>
+                                </div>
                             ))}
-                        </Accordion>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* CTA */}
-            <section className="py-16 bg-purple-600 text-white">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-6">Ready to Ride?</h2>
-                    <p className="text-lg opacity-90 mb-8">Secure your preferred seat before the bus fills up.</p>
-                    <Button size="lg" variant="secondary" className="text-lg px-8 text-purple-700" asChild>
-                        <a href="https://wa.me/919406182174?text=Bus ticket enquiry">
-                            <Phone className="w-5 h-5 mr-2" /> Book Bus Ticket
-                        </a>
-                    </Button>
-                </div>
-            </section>
-
-            {/* Legal Disclaimer */}
-            <section className="bg-background py-6 border-t">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto opacity-70">
-                        <p className="text-xs text-muted-foreground text-center">
-                            <strong>Disclaimer:</strong> Rudraksh Safar is a booking partner. Amenities like WiFi/AC usage and arrival timings are dependent on the respective Bus Operator. We assist with refunds but are not liable for operational delays.
-                        </p>
+                {/* Routes Table */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold mb-10 text-center">Top Bus Routes from Bhilai</h2>
+                        <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
+                            <Table>
+                                <TableHeader>
+                                    <TableRow className="bg-purple-50 dark:bg-purple-950/20">
+                                        <TableHead className="font-bold text-foreground">Destination</TableHead>
+                                        <TableHead className="font-bold text-foreground">Bus Type</TableHead>
+                                        <TableHead className="font-bold text-foreground">Travel Time</TableHead>
+                                        <TableHead className="font-bold text-foreground">Est. Fare</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {popularRoutes.map((route, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell className="font-medium">{route.dest}</TableCell>
+                                            <TableCell>{route.type}</TableCell>
+                                            <TableCell>{route.time}</TableCell>
+                                            <TableCell>{route.fare}</TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-        </main >
+                {/* FAQs */}
+                <section className="py-20">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold mb-8 text-center">Bus Booking FAQs</h2>
+                            <Accordion type="single" collapsible className="w-full">
+                                {faqs.map((faq, index) => (
+                                    <AccordionItem key={index} value={`faq-${index}`}>
+                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
+                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        </div>
+                    </div>
+                </section>
+
+                {/* CTA */}
+                <section className="py-16 bg-purple-600 text-white">
+                    <div className="container mx-auto px-4 text-center">
+                        <h2 className="text-3xl font-bold mb-6">Ready to Ride?</h2>
+                        <p className="text-lg opacity-90 mb-8">Secure your preferred seat before the bus fills up.</p>
+                        <Button size="lg" variant="secondary" className="text-lg px-8 text-purple-700" asChild>
+                            <a href="https://wa.me/919406182174?text=Bus ticket enquiry">
+                                <Phone className="w-5 h-5 mr-2" /> Book Bus Ticket
+                            </a>
+                        </Button>
+                    </div>
+                </section>
+
+                {/* Legal Disclaimer */}
+                <section className="bg-background py-6 border-t">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto opacity-70">
+                            <p className="text-xs text-muted-foreground text-center">
+                                <strong>Disclaimer:</strong> Rudraksh Safar is a booking partner. Amenities like WiFi/AC usage and arrival timings are dependent on the respective Bus Operator. We assist with refunds but are not liable for operational delays.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </main >
             <Footer />
             <FloatingWhatsApp />
         </>

@@ -6,22 +6,22 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import PageLoader from '@/components/PageLoader';
-import { 
-  FileCheck, 
-  CreditCard, 
-  Smartphone, 
-  Bus, 
-  Shield, 
-  Utensils, 
-  Cloud, 
-  Heart, 
-  ShoppingBag, 
-  Languages, 
-  Coins, 
-  Plug, 
-  Calendar, 
-  AppWindow, 
-  Phone, 
+import {
+  FileCheck,
+  CreditCard,
+  Smartphone,
+  Bus,
+  Shield,
+  Utensils,
+  Cloud,
+  Heart,
+  ShoppingBag,
+  Languages,
+  Coins,
+  Plug,
+  Calendar,
+  AppWindow,
+  Phone,
   CheckCircle,
   FileText,
   AlertTriangle,
@@ -31,7 +31,8 @@ import {
   ArrowRight,
   Lightbulb,
   Stethoscope,
-  CheckSquare
+  CheckSquare,
+  Sparkles
 } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -240,20 +241,20 @@ const ForTravellers = () => {
       description: 'Getting around at your destination',
       sections: [
         {
-          title: 'Airport Transfers',
-          content: 'Pre-book transfers for peace of mind. Options: hotel shuttle, taxi, train/metro, private car. Compare prices on Rome2Rio.'
+          title: 'Choosing Safe Transport Options',
+          content: 'Prefer licensed taxis and ride-hailing apps like Uber/Grab. Avoid unofficial transport offers at airports. Always verify routes and fares before starting the journey.'
         },
         {
-          title: 'Public Transport',
-          content: 'Metro/subway is cheapest in most cities. Buy day passes for unlimited travel. Google Maps works for public transport in most countries.'
+          title: 'Public Transport Tips',
+          content: 'Learn basic routes in advance using maps. Avoid peak rush hours with luggage. Keep belongings secure in crowded trains or buses. Buy day passes for cost savings.'
         },
         {
           title: 'Ride Apps',
-          content: 'Uber works globally. Regional apps: Grab (SEA), Bolt (Europe), Careem (Middle East), Ola (India, UK, Australia).'
+          content: 'Uber works globally. Regional apps: Grab (SEA), Bolt (Europe), Careem (Middle East), Ola (India, UK). Always check the car number plate before entering.'
         },
         {
           title: 'Transport Cards',
-          content: 'Octopus (Hong Kong), Oyster (London), Suica (Japan), EZ-Link (Singapore) - buy at airports, saves time and money.'
+          content: 'Octopus (Hong Kong), Oyster (London), Suica (Japan), EZ-Link (Singapore) - buy at airports. They are cheaper and convenient for all public transport.'
         }
       ]
     },
@@ -265,20 +266,20 @@ const ForTravellers = () => {
       description: 'Stay safe and avoid tourist scams',
       sections: [
         {
-          title: 'Common Scams',
-          content: 'Taxi meter fraud, fake tour guides, friendship bracelet scam, bird poop scam, petition signers, broken camera trick, overpriced restaurants near attractions.'
+          title: 'Common Travel Scams',
+          content: 'Be aware of fake tour guides, overcharging taxis, friend-making scams, fake hotel booking emails, and ATM skimming. Always use official service providers.'
+        },
+        {
+          title: 'How to Stay Safe',
+          content: 'Use verified services only. Avoid sharing personal details with strangers. Keep valuables secure (use hotel safe). Stay aware of your surroundings.'
         },
         {
           title: 'Safety Zones',
-          content: 'Research neighborhoods before booking. Avoid deserted areas at night. Keep valuables in hotel safe. Use hotel taxi service after dark.'
+          content: 'Research safe neighborhoods. Avoid unlit or deserted areas at night. Stick to main tourist areas if unsure. Ask hotel staff for advice on areas to avoid.'
         },
         {
           title: 'Emergency Numbers',
-          content: 'Save local emergency numbers. Register with Indian Embassy. Share itinerary with family. Keep embassy contact handy.'
-        },
-        {
-          title: 'Travel Insurance',
-          content: 'Always buy comprehensive travel insurance. Covers medical emergencies, trip cancellation, lost baggage, theft.'
+          content: 'Save local emergency numbers (Police/Ambulance). Register with Indian Embassy (MADAD). Share your live location/itinerary with family.'
         }
       ]
     },
@@ -340,20 +341,20 @@ const ForTravellers = () => {
       description: 'Stay healthy while travelling',
       sections: [
         {
-          title: 'Vaccinations',
-          content: 'Yellow fever required for some African/South American countries. Check CDC/WHO recommendations 6-8 weeks before travel.'
+          title: 'Why Travel Insurance Is Essential',
+          content: 'Protects against unexpected expenses like medical emergencies, cancellations, baggage loss, and accidents. Mandatory for entry in many countries.'
         },
         {
-          title: 'Travel Insurance',
-          content: 'Buy policy covering: Medical emergency, evacuation, trip cancellation, baggage loss. Cost: ₹500-2000 for 7-day trip.'
+          title: 'Situations Where Insurance Is Useful',
+          content: 'Medical treatment/hospitalization, emergency evacuation, flight delays/cancellations, lost/stolen baggage, and accidental injury.'
         },
         {
-          title: 'Medical Kit',
-          content: 'Carry: Prescription medicines (with doctor letter), antacids, pain relievers, band-aids, antiseptic, motion sickness pills.'
+          title: 'How to Use Insurance Helpline',
+          content: 'Keep policy number accessible. Call the helpline BEFORE hospital admission if possible. Follow insurer instructions for cashless claims. Retain all bills.'
         },
         {
-          title: 'Emergency Healthcare',
-          content: 'Know nearest hospital location. Save insurance helpline. Keep medical documents accessible. Carry blood group card.'
+          title: 'Vaccinations & Medical Kit',
+          content: 'Check required vaccines 6-8 weeks prior. Carry prescription meds with doctor\'s note, first-aid basics, and personal hygiene items.'
         }
       ]
     },
@@ -390,20 +391,20 @@ const ForTravellers = () => {
       description: 'Communicate effectively abroad',
       sections: [
         {
-          title: 'Essential Phrases',
-          content: 'Learn: Hello, Thank you, Please, Sorry, Help, How much?, Where is...?, I don\'t understand. Locals appreciate the effort.'
+          title: 'Why Language Basics Help',
+          content: 'Knowing basic phrases makes navigation easier, improves local interaction, and reduces misunderstandings. Locals appreciate the effort.'
+        },
+        {
+          title: 'Essential Phrases to Learn',
+          content: 'Hello, Thank you, Please, Sorry, Help, How much?, Where is...?, I don\'t understand. Numbers 1-10 are also very useful.'
         },
         {
           title: 'Translation Apps',
-          content: 'Google Translate: Download offline language packs. Camera translation for menus/signs. Voice translation for conversations.'
-        },
-        {
-          title: 'English Usage',
-          content: 'High in Singapore, UAE, Europe. Moderate in Thailand, Vietnam. Low in Japan, China, Korea - carry translation apps.'
+          content: 'Google Translate (offline mode), Camera translation for signs/menus. Voice translation for conversations is very effective.'
         },
         {
           title: 'Non-Verbal Communication',
-          content: 'Learn culturally appropriate gestures. Some gestures offensive in certain countries. When in doubt, smile and be polite.'
+          content: 'Be aware of body language. A smile is universal. Learn culturally appropriate gestures (e.g., bowing in Japan, namaste in India/Nepal).'
         }
       ]
     },
@@ -440,20 +441,20 @@ const ForTravellers = () => {
       description: 'Electrical compatibility abroad',
       sections: [
         {
-          title: 'Plug Types',
-          content: 'India uses Type C, D, M. USA/Japan: Type A, B. UK/Singapore: Type G. Europe: Type C, F. Australia: Type I. Carry universal adapter.'
+          title: 'Power & Charging Information',
+          content: 'Check voltage compatibility (110V vs 230V). Most modern phone/laptop chargers are dual voltage, but hair dryers may need a converter.'
         },
         {
-          title: 'Voltage',
-          content: 'India: 230V. USA/Japan: 110V. Most electronics are dual voltage (100-240V). Check device label before use.'
+          title: 'Plug Types & Adapters',
+          content: 'Carry a universal travel adapter to fit different socket types (Type A, G, C, etc.). It’s the most essential tech accessory.'
         },
         {
-          title: 'Converters',
-          content: 'Needed only if device isn\'t dual voltage. Most phone chargers, laptops are dual voltage. Hair dryers, curling irons may need converters.'
+          title: 'Device Safety',
+          content: 'Use surge protectors if possible. Avoid using public charging stations (USB ports) due to data theft risks—use your own power bank instead.'
         },
         {
-          title: 'Recommended Gear',
-          content: 'Universal travel adapter, power bank (10000mAh+), multi-USB charger, cable organizer.'
+          title: 'Power Banks',
+          content: 'Carry a 10000mAh+ power bank. Must be in cabin baggage (carry-on), not check-in luggage, per airline safety rules.'
         }
       ]
     },
@@ -490,20 +491,20 @@ const ForTravellers = () => {
       description: 'Plan your travel expenses',
       sections: [
         {
-          title: 'Budget Destinations',
-          content: 'Southeast Asia: ₹3000-5000/day. Nepal, Sri Lanka: ₹2500-4000/day. Europe budget: ₹8000-12000/day. Middle East: ₹6000-10000/day.'
+          title: 'Smart Budgeting Tips',
+          content: 'Keep mixed payment options (Cash + Cards). Inform your bank before international travel to avoid card blocking. Track daily expenses.'
+        },
+        {
+          title: 'Money Management',
+          content: 'Avoid carrying excessive cash. Use hotel safes. Split cash in different bags. Use low-markup forex cards (like Niyoman, BookMyForex).'
         },
         {
           title: 'Hidden Costs',
-          content: 'Visa fees, airport transfers, tips, city taxes, tourist taxes, luggage fees, roaming charges, travel insurance.'
+          content: 'Watch out for city taxes, exorbitant roaming charges, foreign transaction fees on cards, and dynamic currency conversion at ATMs.'
         },
         {
-          title: 'Money-Saving Tips',
-          content: 'Book flights 6-8 weeks early. Travel shoulder season. Use public transport. Eat where locals eat. Book combo tickets for attractions.'
-        },
-        {
-          title: 'Budget Tracking',
-          content: 'Use apps like Trail Wallet, Splitwise. Set daily budget. Track expenses in local and home currency.'
+          title: 'Money-Saving',
+          content: 'Eat local, use public transport, book attractions online in advance, and travel during shoulder seasons for better rates.'
         }
       ]
     },
@@ -515,20 +516,20 @@ const ForTravellers = () => {
       description: 'Must-have apps for travellers',
       sections: [
         {
-          title: 'Navigation',
-          content: 'Google Maps (download offline), Maps.me (offline maps), Citymapper (public transport), Waze (driving).'
+          title: 'Recommended App Categories',
+          content: 'Maps (Google Maps/Citymapper), Currency (XE), Rides (Uber/Grab), Translation (Google Translate), Emergency (local apps).'
         },
         {
-          title: 'Translation',
-          content: 'Google Translate (offline packs), iTranslate, Microsoft Translator. Download languages before travel.'
-        },
-        {
-          title: 'Transport',
-          content: 'Uber, Grab (SEA), Bolt (Europe), Rome2Rio (route planning), Skyscanner, Google Flights.'
+          title: 'Map & Navigation',
+          content: 'Download offline maps on Google Maps. Use Waze for driving info. Citymapper is excellent for public transport in major cities.'
         },
         {
           title: 'Utilities',
-          content: 'XE Currency, VPN (ExpressVPN, NordVPN), TripIt (itinerary), PackPoint (packing), HappyCow (veg food).'
+          content: 'TripIt for itinerary management. Splitwise for group expenses. VPN for secure browsing. PackPoint for packing lists.'
+        },
+        {
+          title: 'Why Use Apps',
+          content: 'They improve safety, efficiency, and convenience. Ensure you have roaming data or WiFi to use them effectively.'
         }
       ]
     },
@@ -540,20 +541,20 @@ const ForTravellers = () => {
       description: 'Important numbers to save',
       sections: [
         {
+          title: 'Indian Embassy & Consular Support',
+          content: 'Primary contact for Indian citizens. Contact for: Passport loss/theft, legal issues, arrest, death, or major emergencies. Always save embassy details.'
+        },
+        {
+          title: 'Family & Emergency Contact Planning',
+          content: 'Share itinerary with family. Save local emergency numbers (Police, Ambulance). Set up international roaming. Use location sharing for long trips.'
+        },
+        {
+          title: 'Recommended Contacts',
+          content: 'Family members, Insurance provider (24/7 Helpline), Local emergency services, Indian Embassy/Consulate. Keep both digital and physical copies.'
+        },
+        {
           title: 'Universal Emergency',
-          content: '112 works in most countries (EU, India, many others). USA/Canada: 911. UK: 999. Japan: 110 (Police), 119 (Fire/Ambulance).'
-        },
-        {
-          title: 'Indian Embassy',
-          content: 'Register on MADAD portal before travel. Save embassy number and address. Contact for passport loss, legal issues, emergencies.'
-        },
-        {
-          title: 'Insurance Helpline',
-          content: 'Save 24/7 insurance helpline. Keep policy number accessible. Know claim procedure for medical emergencies.'
-        },
-        {
-          title: 'Family Contact',
-          content: 'Share complete itinerary with family. Schedule regular check-ins. Have emergency contact card in wallet.'
+          content: '112 is the common emergency number in many countries (EU, India). Know the specific numbers for your destination (e.g., 911 for USA).'
         }
       ]
     },
@@ -565,20 +566,20 @@ const ForTravellers = () => {
       description: 'Quick reference travel tips',
       sections: [
         {
-          title: "Do's",
-          content: "Research before you go. Respect local customs. Learn basic phrases. Keep copies of documents. Stay hydrated. Try local food. Be open-minded."
+          title: 'Travel Do\'s',
+          content: 'Respect local laws and customs. Carry valid ID. Stay aware of surroundings. Follow safety advisories. Keep emergency cash. Register with embassy for long stays.'
         },
         {
-          title: "Don'ts",
-          content: "Don't disrespect religious sites. Avoid political discussions. Don't carry all cash together. Never leave bags unattended. Don't overshare on social media."
+          title: 'Travel Don\'ts',
+          content: 'Avoid unsafe areas at night. Do not engage in illegal activities. Avoid unverified transport. Do not ignore local regulations. Don\'t leave drinks unattended.'
         },
         {
-          title: 'Cultural Sensitivity',
-          content: 'Dress modestly at religious sites. Remove shoes where required. Ask before photographing people. Follow local customs around food and drink.'
+          title: 'Cultural Sensitivity & Etiquette',
+          content: 'Dress modestly where required (temples, conservative countries). Follow religious norms. Be polite and patient. Avoid sensitive political discussions.'
         },
         {
-          title: 'Photo Etiquette',
-          content: 'No photos at some religious sites, military areas. Ask permission for portraits. Be aware of drone restrictions. Respect privacy.'
+          title: 'Photography & Privacy',
+          content: 'Ask permission before photographing people. Avoid restricted/military areas. Respect rules at religious sites. Follow drone regulations strictly.'
         }
       ]
     }
@@ -599,7 +600,7 @@ const ForTravellers = () => {
 
       <div className="min-h-screen bg-background">
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container mx-auto px-4">
@@ -662,17 +663,17 @@ const ForTravellers = () => {
                     {travelGuideCategories
                       .filter((category) => !quickNavExcludedIds.has(category.id))
                       .map((category) => (
-                      <a
-                        key={category.id}
-                        href={`#${category.id}`}
-                        className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/10 transition-colors"
-                      >
-                        <category.icon className="w-4 h-4" />
-                        {category.title}
-                      </a>
-                    ))}
+                        <a
+                          key={category.id}
+                          href={`#${category.id}`}
+                          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/10 transition-colors"
+                        >
+                          <category.icon className="w-4 h-4" />
+                          {category.title}
+                        </a>
+                      ))}
                   </nav>
-                  
+
                   {/* Dedicated Pages Links */}
                   <div className="mt-6 pt-4 border-t border-border">
                     <h4 className="text-sm font-medium text-foreground mb-3">Detailed Guides</h4>
@@ -694,6 +695,20 @@ const ForTravellers = () => {
 
               {/* Content */}
               <div className="lg:col-span-3 space-y-12">
+                {/* AI Summary Block */}
+                <div className="mb-12 bg-card border border-border rounded-xl p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground mb-2">Travel Safety & Essentials Guide</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        This page provides essential travel safety information, emergency contacts, cultural guidelines, insurance awareness, and practical tips to help travellers stay informed, safe, and prepared during domestic and international journeys.
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 {travelGuideCategories.map((category, index) => (
                   <motion.div
                     key={category.id}

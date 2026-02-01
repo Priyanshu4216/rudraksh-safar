@@ -1,100 +1,161 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { MapPin, Car, Clock, Users, Coffee, Camera, ArrowRight, Star } from 'lucide-react';
+import { Clock, MapPin, Calendar, Car, Smile, UserCheck, Phone, MessageCircle, Info, Mountain, TreePine, Heart } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const WeekendGetawaysRaipur = () => {
-    const shortTrips = [
-        { name: "Pachmarhi (MP)", dist: "350 km", time: "8-9 Hours", type: "Hill Station", desc: "Queen of Satpura. Waterfalls, caves & viewpoints.", img: "https://loremflickr.com/800/600/pachmarhi,forest" },
-        { name: "Amarkantak", dist: "200 km", time: "4-5 Hours", type: "Pilgrimage/Nature", desc: "Source of Narmada River. Lush forests & temples.", img: "https://loremflickr.com/800/600/amarkantak,temple" },
-        { name: "Kanha National Park", dist: "200 km", time: "4-5 Hours", type: "Wildlife", desc: "Tiger Reserve. Jungle Safari & Nature Trails.", img: "https://loremflickr.com/800/600/tiger,jungle" },
-        { name: "Chitrakote Falls", dist: "280 km", time: "6 Hours", type: "Adventure", desc: "Niagara of India. Monsoon special destination.", img: "https://loremflickr.com/800/600/waterfall,india" },
-    ];
-
-    const longTrips = [
-        { name: "Visakhapatnam", dist: "Overnight Train", time: "10 Hours", type: "Beach", desc: "Nearest beach destination. Araku Valley & submarine museum.", img: "https://loremflickr.com/800/600/visakhapatnam,beach" },
-        { name: "Nagpur + Pench", dist: "280 km", time: "5 Hours", type: "City + Wildlife", desc: "Tiger safari in Pench & shopping in Nagpur.", img: "https://loremflickr.com/800/600/tiger,pench" },
+    const faqs = [
+        {
+            question: "How far should a weekend destination be?",
+            answer: "Ideally within 300 km or 6–7 hours travel to ensure you spend more time enjoying the destination than travelling."
+        },
+        {
+            question: "Can weekend trips be budget-friendly?",
+            answer: "Yes, weekend trips are usually economical due to shorter stays and nearby destinations."
+        },
+        {
+            question: "Do you arrange transport for weekend trips?",
+            answer: "Yes, we can arrange private cabs, tempo travellers, or bus bookings for your weekend getaway."
+        },
+        {
+            question: "What are the best places near Raipur for 2 days?",
+            answer: "Kanha National Park, Amarkantak, Sirpur, and Mainpat are excellent options for a 2-day trip."
+        },
+        {
+            question: "Is it safe for couples?",
+            answer: "Yes, we select safe and verified hotels and resorts suitable for couples and families."
+        }
     ];
 
     return (
         <>
             <Helmet>
-                <title>Best Weekend Getaways from Raipur | Short Trips & Road Trips</title>
-                <meta name="description" content="Plan perfect weekend trips from Raipur. Top destinations under 300km: Pachmarhi, Kanha, Amarkantak & Chitrakote. Book hotels & cabs with Rudraksh Safar." />
-                <meta name="keywords" content="weekend getaways from raipur, places to visit near raipur, raipur to pachmarhi package, kanha tour from raipur, short trips from raipur" />
-                <link rel="canonical" href="https://rudrakshsafar.com/weekend-getaways-raipur" />
+                <title>Weekend Getaways from Raipur | Short Trips & Nearby Destinations</title>
+                <meta name="description" content="Plan the perfect weekend getaway from Raipur. Explore nearby hill stations, wildlife sanctuaries, and heritage sites with our short trip packages." />
+                <meta name="keywords" content="weekend getaways from raipur, short trips from raipur, 2 day trips near raipur, quick weekend vacation, nearby holiday destinations" />
             </Helmet>
 
             <Navbar />
 
-            <main className="min-h-screen bg-background">
-                {/* Hero */}
-                <section className="relative py-20 bg-green-50 dark:bg-green-950/20">
-                    <div className="container mx-auto px-4 text-center">
-                        <Badge variant="outline" className="mb-4 border-green-600 text-green-700">Refresh & Recharge</Badge>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                            Perfect Weekend Trips from <span className="text-green-600">Raipur</span>
+            <main className="min-h-screen bg-background pt-20">
+                {/* Hero Section */}
+                <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-emerald-950 text-white">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-slate-900"></div>
+                    <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
+                    <div className="container relative z-10 text-center px-4">
+                        <Badge className="mb-6 bg-emerald-500/20 text-emerald-300 border-emerald-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
+                            Refresh & Recharge
+                        </Badge>
+                        <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                            Weekend Getaways <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300">Short Trips from Raipur</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                            Escape the city chaos. Discover waterfalls, tigers, and hills just a few hours drive away from Raipur.
+                        <p className="text-lg md:text-xl text-emerald-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+                            Escape the routine with quick 2-3 day trips to nature, heritage, and wildlife destinations near you.
                         </p>
-                        <div className="flex gap-4 justify-center">
-                            <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
-                                <a href="https://wa.me/919406182174?text=Suggest weekend trips from Raipur">Plan My Getaway</a>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg h-14 px-8 rounded-full shadow-lg" asChild>
+                                <a href="https://wa.me/919406182174?text=Hi, suggest me a weekend trip from Raipur">
+                                    <MessageCircle className="w-5 h-5 mr-2" /> Plan My Weekend
+                                </a>
                             </Button>
                         </div>
                     </div>
                 </section>
 
-                {/* Filters / Distances */}
-                <section className="py-12 border-b">
+                {/* TL;DR Summary */}
+                <section className="py-12 -mt-16 relative z-20">
                     <div className="container mx-auto px-4">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                            <div className="p-6 bg-background rounded-xl shadow-sm border">
-                                <Car className="w-10 h-10 text-green-600 mx-auto mb-3" />
-                                <h3 className="font-bold text-lg">Under 200 KM</h3>
-                                <p className="text-sm text-muted-foreground">Kanha, Amarkantak, Sirpur</p>
+                        <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-emerald-500 max-w-4xl mx-auto">
+                            <CardContent className="p-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl shrink-0 hidden md:block">
+                                        <Info className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                            <span className="md:hidden"><Info className="w-6 h-6 text-emerald-600" /></span>
+                                            TL;DR (AI Summary)
+                                        </h2>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Weekend getaways are short trips designed for 2–3 days, ideal for quick breaks from routine life. Rudraksh Safar helps plan weekend getaways from Raipur with nearby destinations, easy travel options, and short, well-planned itineraries.
+                                        </p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
+                {/* Why Weekend Getaways */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                            <div>
+                                <h2 className="text-3xl font-bold mb-6">Why Weekend Getaways Are Perfect</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
+                                    Weekend trips are the easiest way to travel frequently without disrupting your work or school schedule.
+                                </p>
+                                <ul className="space-y-4 mb-8">
+                                    <li className="flex items-center gap-3"><Clock className="text-emerald-500 w-5 h-5" /> No long leave required</li>
+                                    <li className="flex items-center gap-3"><Smile className="text-emerald-500 w-5 h-5" /> Quick mental refresh</li>
+                                    <li className="flex items-center gap-3"><Calendar className="text-emerald-500 w-5 h-5" /> Low budget & easy planning</li>
+                                    <li className="flex items-center gap-3"><UserCheck className="text-emerald-500 w-5 h-5" /> Ideal for families, couples & friends</li>
+                                </ul>
                             </div>
-                            <div className="p-6 bg-background rounded-xl shadow-sm border">
-                                <MapPin className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                                <h3 className="font-bold text-lg">200 - 500 KM</h3>
-                                <p className="text-sm text-muted-foreground">Pachmarhi, Chitrakote, Mainpat</p>
-                            </div>
-                            <div className="p-6 bg-background rounded-xl shadow-sm border">
-                                <Clock className="w-10 h-10 text-purple-600 mx-auto mb-3" />
-                                <h3 className="font-bold text-lg">Overnight Journey</h3>
-                                <p className="text-sm text-muted-foreground">Visakhapatnam, Hyderabad, Puri</p>
+                            <div className="grid grid-cols-2 gap-4">
+                                <Card className="bg-emerald-50 border-none">
+                                    <CardContent className="p-6 text-center">
+                                        <TreePine className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
+                                        <div className="font-bold text-lg mb-1">Nature</div>
+                                        <div className="text-sm text-muted-foreground">Reconnect with outdoors</div>
+                                    </CardContent>
+                                </Card>
+                                <Card className="bg-lime-50 border-none">
+                                    <CardContent className="p-6 text-center">
+                                        <Car className="w-10 h-10 text-lime-600 mx-auto mb-4" />
+                                        <div className="font-bold text-lg mb-1">Road Trips</div>
+                                        <div className="text-sm text-muted-foreground">Scenic drives nearby</div>
+                                    </CardContent>
+                                </Card>
+                                <Card className="bg-green-50 border-none col-span-2">
+                                    <CardContent className="p-6 text-center">
+                                        <Heart className="w-10 h-10 text-green-600 mx-auto mb-4" />
+                                        <div className="font-bold text-lg mb-1">Quality Time</div>
+                                        <div className="text-sm text-muted-foreground">Bond with your loved ones away from screens</div>
+                                    </CardContent>
+                                </Card>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Destinations Grid - Short Trips */}
-                <section className="py-20">
+                {/* Destinations */}
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <div className="flex items-center justify-between mb-10">
-                            <h2 className="text-3xl font-bold">Road Trips (Under 6 Hours)</h2>
-                            <Button variant="ghost" asChild><a href="https://wa.me/919406182174?text=Car rental for weekend trip">Need a Cab? <ArrowRight className="w-4 h-4 ml-2" /></a></Button>
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl font-bold mb-4">Best Weekend Getaway Destinations from Raipur</h2>
+                            <p className="text-muted-foreground">Destinations carefully chosen for short travel time and maximum relaxation.</p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {shortTrips.map((trip, index) => (
-                                <Card key={index} className="overflow-hidden hover:shadow-lg transition-all">
-                                    <div className="h-48 bg-muted relative">
-                                        <img src={trip.img} alt={trip.name} className="w-full h-full object-cover" />
-                                        <Badge className="absolute top-2 left-2 bg-white/90 text-black">{trip.dist}</Badge>
-                                    </div>
-                                    <CardContent className="p-4">
-                                        <h3 className="font-bold text-lg mb-1">{trip.name}</h3>
-                                        <p className="text-sm font-medium text-green-600 mb-2">{trip.type}</p>
-                                        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-3">
-                                            <Clock className="w-3 h-3" /> {trip.time} Drive
-                                        </div>
-                                        <p className="text-sm text-muted-foreground">{trip.desc}</p>
+                        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                            {[
+                                { title: "Kanha & Wildlife", icon: "🐅", desc: "Jungle safaris and forest resorts." },
+                                { title: "Amarkantak", icon: "🏔️", desc: "Hill station and spiritual retreat." },
+                                { title: "Sirpur Heritage", icon: "🏛️", desc: "Ancient temples and history." },
+                                { title: "Gangrel Dam", icon: "🌊", desc: "Water sports and island camping." },
+                                { title: "Mainpat", icon: "❄️", desc: "Shimla of Chhattisgarh - Tibetan culture." },
+                                { title: "Chitrakote", icon: "🌊", desc: "Niagara of India - Waterfalls." }
+                            ].map((place, i) => (
+                                <Card key={i} className="hover:shadow-lg transition-all border-none shadow-md">
+                                    <CardContent className="p-6 text-center">
+                                        <div className="text-4xl mb-4">{place.icon}</div>
+                                        <h3 className="font-bold text-xl mb-2">{place.title}</h3>
+                                        <p className="text-muted-foreground">{place.desc}</p>
                                     </CardContent>
                                 </Card>
                             ))}
@@ -102,79 +163,112 @@ const WeekendGetawaysRaipur = () => {
                     </div>
                 </section>
 
-                {/* Destinations Grid - Long Trips */}
-                <section className="py-20 bg-muted/30">
+                {/* Types of Getaways & Inclusions */}
+                <section className="py-20">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold mb-10">Long Weekend Specials</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-                            {longTrips.map((trip, index) => (
-                                <Card key={index} className="flex flex-col md:flex-row overflow-hidden hover:shadow-lg transition-all">
-                                    <div className="w-full md:w-2/5 h-48 md:h-auto bg-muted">
-                                        <img src={trip.img} alt={trip.name} className="w-full h-full object-cover" />
-                                    </div>
-                                    <div className="w-full md:w-3/5 p-6 flex flex-col justify-center">
-                                        <h3 className="font-bold text-xl mb-2">{trip.name}</h3>
-                                        <div className="flex gap-3 text-sm text-muted-foreground mb-4">
-                                            <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {trip.dist}</span>
-                                            <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {trip.time}</span>
+                        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                            <div>
+                                <h2 className="text-2xl font-bold mb-6">Types of Weekend Getaways</h2>
+                                <ul className="space-y-4">
+                                    <li className="p-4 bg-muted rounded-xl flex items-center gap-4">
+                                        <span className="text-2xl">🌿</span>
+                                        <div>
+                                            <h4 className="font-bold">Nature & Eco Retreats</h4>
+                                            <p className="text-sm text-muted-foreground">Disconnect in bamboo cottages and forests.</p>
                                         </div>
-                                        <p className="text-muted-foreground mb-4">{trip.desc}</p>
-                                        <Button size="sm" variant="secondary" className="w-fit" asChild>
-                                            <a href="https://wa.me/919406182174?text=Book hotel for Vizag trip">Check Hotels</a>
-                                        </Button>
-                                    </div>
+                                    </li>
+                                    <li className="p-4 bg-muted rounded-xl flex items-center gap-4">
+                                        <span className="text-2xl">🛕</span>
+                                        <div>
+                                            <h4 className="font-bold">Spiritual Tours</h4>
+                                            <p className="text-sm text-muted-foreground">Visit Dongargarh, Rajim, or Amarkantak.</p>
+                                        </div>
+                                    </li>
+                                    <li className="p-4 bg-muted rounded-xl flex items-center gap-4">
+                                        <span className="text-2xl">💑</span>
+                                        <div>
+                                            <h4 className="font-bold">Romantic Escapes</h4>
+                                            <p className="text-sm text-muted-foreground">Privacy and luxury for couples.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-bold mb-6">What We Include</h2>
+                                <Card>
+                                    <CardContent className="p-8 space-y-6">
+                                        <div className="flex items-center gap-4">
+                                            <Car className="w-8 h-8 text-emerald-600" />
+                                            <div>
+                                                <h4 className="font-bold">Transport Planning</h4>
+                                                <p className="text-sm text-muted-foreground">Private Cab or AC Bus</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <MapPin className="w-8 h-8 text-emerald-600" />
+                                            <div>
+                                                <h4 className="font-bold">Comfortable Stay</h4>
+                                                <p className="text-sm text-muted-foreground">Select hotels/resorts for 1-2 nights</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <Calendar className="w-8 h-8 text-emerald-600" />
+                                            <div>
+                                                <h4 className="font-bold">Flexible Timings</h4>
+                                                <p className="text-sm text-muted-foreground">Departure as per your office hours</p>
+                                            </div>
+                                        </div>
+                                    </CardContent>
                                 </Card>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Who is it for? */}
-                <section className="py-20">
+                {/* FAQs */}
+                <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-12">Who are these trips for?</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
-                            <div className="p-6">
-                                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Coffee className="w-8 h-8 text-pink-600" />
-                                </div>
-                                <h3 className="font-bold text-xl mb-2">Couples</h3>
-                                <p className="text-muted-foreground">Romantic resorts in Pachmarhi or serene beaches in Vizag.</p>
-                            </div>
-                            <div className="p-6">
-                                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Users className="w-8 h-8 text-blue-600" />
-                                </div>
-                                <h3 className="font-bold text-xl mb-2">Families</h3>
-                                <p className="text-muted-foreground">Kid-friendly resorts in Kanha with swimming pools and safari.</p>
-                            </div>
-                            <div className="p-6">
-                                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Camera className="w-8 h-8 text-orange-600" />
-                                </div>
-                                <h3 className="font-bold text-xl mb-2">Friends</h3>
-                                <p className="text-muted-foreground">Camping in Amarkantak or trekking adventure in Mainpat.</p>
-                            </div>
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold mb-8 text-center">Weekend Getaway FAQs</h2>
+                            <Accordion type="single" collapsible className="w-full">
+                                {faqs.map((faq, index) => (
+                                    <AccordionItem key={index} value={`item-${index}`}>
+                                        <AccordionTrigger className="text-left font-medium text-lg">
+                                            {faq.question}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="text-muted-foreground leading-relaxed">
+                                            {faq.answer}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
                         </div>
                     </div>
                 </section>
 
                 {/* CTA */}
-                <section className="py-16 bg-green-600 text-white">
+                <section className="py-20 bg-slate-900 text-white border-t border-white/10">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold mb-6">Need a Quick Break?</h2>
-                        <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-                            We arrange Cabs, Hotels, and Jungle Safaris. Just pack your bags and go!
+                        <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                            Let us plan a refreshing weekend trip for you. Just pack your bags and go!
                         </p>
-                        <Button size="lg" variant="secondary" asChild className="text-lg px-8 text-green-800">
-                            <a href="https://wa.me/919406182174?text=Book weekend trip from Raipur">
-                                Book Weekend Trip
-                            </a>
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white h-14 px-8 rounded-full" asChild>
+                                <a href="https://wa.me/919406182174?text=Hi, need weekend trip options">
+                                    <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
+                                </a>
+                            </Button>
+                            <Button size="lg" variant="outline" className="text-slate-900 border-white hover:bg-white/90 h-14 px-8 rounded-full" asChild>
+                                <a href="tel:+919406182174">
+                                    <Phone className="w-5 h-5 mr-2" /> Call Now
+                                </a>
+                            </Button>
+                        </div>
                     </div>
                 </section>
-
             </main>
+
             <Footer />
             <FloatingWhatsApp />
         </>

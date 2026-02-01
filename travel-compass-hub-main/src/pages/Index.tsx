@@ -107,6 +107,88 @@ const Index = () => {
       <main id="main-content" className="min-h-screen bg-background" role="main">
         <HeroSection />
 
+        {/* Service Summary - What We Do */}
+        <section className="py-16 bg-white dark:bg-slate-950">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Comprehensive Travel Solutions</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-10">
+              Rudraksh Safar specializes in affordable <strong>Domestic Tour Packages</strong> (Kashmir, Himachal, Goa, Kerala) and <strong>International Holidays</strong> (Thailand, Dubai, Vietnam).
+              We also provide hassle-free <strong>Flight & Train Booking</strong>, <strong>Honeymoon Specials</strong>, and <strong>Corporate Group Tours</strong>.
+            </p>
+          </div>
+        </section>
+
+        {/* Search Intent Quick Links */}
+        <section className="py-8 bg-slate-50 dark:bg-slate-900 border-y">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <a href="/budget-tour-packages" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+                <span className="block font-bold text-primary">Budget Deals</span>
+                <span className="text-xs text-muted-foreground">Starting ₹10,000</span>
+              </a>
+              <a href="/mountain-holiday-packages" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+                <span className="block font-bold text-indigo-600">Mountain Trips</span>
+                <span className="text-xs text-muted-foreground">Kashmir, Manali</span>
+              </a>
+              <a href="/international-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+                <span className="block font-bold text-rose-600">International</span>
+                <span className="text-xs text-muted-foreground">Dubai, Thailand</span>
+              </a>
+              <a href="/corporate-tour-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+                <span className="block font-bold text-blue-600">Group Tours</span>
+                <span className="text-xs text-muted-foreground">Corporate & Family</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Who We Serve */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Trusted by Travellers from Chhattisgarh</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Whether you are a <strong>Family</strong> looking for a safe vacation, a <strong>Couple</strong> planning a romantic honeymoon, or a <strong>Corporate Team</strong> needing a stress-free offsite, we have you covered.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <li className="flex items-center gap-2 font-medium"><div className="w-2 h-2 bg-secondary rounded-full"></div>Families (Kids & Seniors)</li>
+                  <li className="flex items-center gap-2 font-medium"><div className="w-2 h-2 bg-secondary rounded-full"></div>Honeymoon Couples</li>
+                  <li className="flex items-center gap-2 font-medium"><div className="w-2 h-2 bg-secondary rounded-full"></div>Corporate Groups</li>
+                  <li className="flex items-center gap-2 font-medium"><div className="w-2 h-2 bg-secondary rounded-full"></div>Solo Adventurers</li>
+                </ul>
+              </div>
+              <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl p-8 border hover:border-secondary/50 transition-colors">
+                <h3 className="text-xl font-bold mb-4">Why Book With Us?</h3>
+                <p className="text-muted-foreground mb-4">
+                  "We don't just sell packages; we design experiences. Being local to Bhilai & Raipur, we offer door-to-door support that online apps can't match."
+                </p>
+                <div className="flex items-center gap-4 mt-6">
+                  <div className="text-left">
+                    <p className="font-bold text-foreground">Local Travel Experts</p>
+                    <p className="text-xs text-muted-foreground">Travel Compass Hub</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Local Intent Block */}
+        <section className="py-12 bg-indigo-950 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold mb-4">Travel Agency in Bhilai & Raipur</h2>
+            <p className="opacity-80 max-w-3xl mx-auto mb-6">
+              Rudraksh Safar is your neighbourhood travel partner in Chhattisgarh. We provide personalized counseling, visa assistance, and easy EMI options for your dream holidays. Visit our office or call us for a consultation.
+            </p>
+            <div className="inline-flex gap-4 flex-wrap justify-center">
+              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Bhilai Operations</span>
+              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Raipur Connectivity</span>
+              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Durg Services</span>
+            </div>
+          </div>
+        </section>
+
         {/* Below-the-fold sections are code-split for faster first load */}
         <Suspense fallback={<div className="h-24" aria-hidden="true" />}>
           <AboutSection />

@@ -51,14 +51,15 @@ const TourPackagesFromBhilai = () => {
     ];
 
     const faqs = [
-        { question: "What are the cheapest tour packages from Bhilai?", answer: "Our cheapest tour packages include Manali (starting ₹7,999), Goa (starting ₹8,999), and Puri (starting ₹5,999). We offer budget-friendly sleeper bus and train combinations to keep costs low." },
-        { question: "Do you offer low budget family tours from Bhilai?", answer: "Yes, we specialize in budget family trips. We can arrange comfortable yet affordable hotels and shared transport options for families to destinations like Himachal, Kerala, and Rajasthan." },
-        { question: "How much does a Goa trip from Bhilai cost?", answer: "A Goa trip from Bhilai starts from approximately ₹8,999 to ₹15,000 per person depending on the season, hotel category (3-star/4-star), and mode of transport (Train vs Flight)." },
-        { question: "Which international trips can be booked from Bhilai under budget?", answer: "For budget international travel, we recommend Nepal (₹18k+), Thailand (₹29k+), and Vietnam. These are the most affordable international destinations from India right now." },
-        { question: "How to plan a honeymoon from Bhilai on a budget?", answer: "To plan a budget honeymoon: 1. Choose off-season dates. 2. Pick destinations like Manali, Goa, or Udaipur. 3. Book 2-3 months in advance. Rudraksh Safar can help you get the best couple deals." },
-        { question: "What are the best weekend getaways from Bhilai?", answer: "Top weekend getaways from Bhilai include Kanha Kisli, Amarkantak, Pachmarhi, Mainpat, and Gangrel Dam. These are perfect for 2-3 day refreshing trips." },
-        { question: "Is visa assistance included in international packages?", answer: "Absolutely. We handle all visa documentation and appointments for destinations like Dubai, Thailand, Singapore, and Europe as part of our package." },
-        { question: "What is the starting price for a Thailand trip from Bhilai?", answer: "Our Thailand tour packages from Bhilai start at approximately ₹29,999 per person, including accommodation, breakfast, and sightseeing. Flights are extra based on current rates." },
+        { question: "What are the best tour packages from Bhilai?", answer: "The best tour packages from Bhilai include Goa (Beach), Kashmir (Honeymoon), and Manali (Adventure). For international travel, our Dubai and Thailand packages are top-rated for being all-inclusive and budget-friendly." },
+        { question: "What is the cheapest tour package from Bhilai?", answer: "Our cheapest tour packages start at ₹5,999 for Puri/Konark and ₹7,999 for Manali (via sleeper bus). We specialize in creating high-value trips for students and large families." },
+        { question: "How much does a tour package from Bhilai cost?", answer: "Domestic packages typically range from ₹8,000 to ₹25,000 per person. International packages start from ₹29,000 (Thailand) to ₹65,000 (Maldives). Prices vary based on travel dates and hotel choices." },
+        { question: "Which international trips are cheapest from Bhilai?", answer: "Nepal (via train/flight), Thailand, and Vietnam are the cheapest international trips from Bhilai. We can arrange budget airlines and cost-effective hostels/hotels to keep expenses low." },
+        { question: "Are budget tour packages from Bhilai reliable?", answer: "Yes! At Rudraksh Safar, 'Budget' means smart planning, not cutting safety. We use vetted budget hotels and trusted transport operators. You get full itinerary transparency before paying." },
+        { question: "How can I reduce the cost of a tour package?", answer: "To reduce costs: 1) Book 60 days in advance. 2) Travel during off-season (avoid May/June & Dec). 3) Choose sleeper trains instead of flights. 4) Opt for standard hotels instead of luxury resorts." },
+        { question: "Is booking through a travel agent cheaper than online booking?", answer: "Often, yes! We have B2B trade rates with hotels that are 20-30% cheaper than public online prices. Plus, we save you from hidden 'convenience fees' charged by booking apps." },
+        { question: "What hidden costs should I check in tour packages?", answer: "Always check for GST, entrance fees, and meal inclusions. Our packages clearly list 'Inclusions' and 'Exclusions' so you never face surprise costs during your trip." },
+        { question: "What happens after I pay for the package?", answer: "Once you pay the booking amount, you instantly receive a booking confirmation. Within 24 hours, you get your hotel vouchers and flight tickets. We then create a WhatsApp group with your 'Trip Manager' who stays with you virtually throughout the trip." },
     ];
 
     const jsonLd = {
@@ -121,7 +122,10 @@ const TourPackagesFromBhilai = () => {
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-bold font-serif mb-2 text-foreground">Budget Friendly Tours</h2>
-                            <p className="text-muted-foreground">High on experience, low on price. Specially curated for budget travelers from Bhilai.</p>
+                            <p className="text-muted-foreground mb-4">High on experience, low on price. Specially curated for budget travelers from Bhilai.</p>
+                            <p className="text-xs text-muted-foreground bg-background inline-block px-3 py-1 rounded-full border border-border shadow-sm">
+                                ℹ️ Prices depend on travel dates, hotel category, and inclusions.
+                            </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {[

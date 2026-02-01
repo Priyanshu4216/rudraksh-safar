@@ -129,6 +129,66 @@ const WhyChooseUs = () => {
                     </div>
                 </section>
 
+                {/* Why Bhilai Agent - SEO Content Block */}
+                <section className="py-20">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-3xl font-bold mb-8 text-center">Why Book from a Bhilai-Based Agent?</h2>
+                            <div className="prose prose-lg dark:prose-invert mx-auto text-muted-foreground">
+                                <p className="mb-6">
+                                    When you search for <strong>"travel agency near me advantages"</strong>, you aren't just looking for a shop; you are looking for accountability.
+                                    Booking a tour package from a local Bhilai agent like Rudraksh Safar gives you something no online app can provide: <strong>Peace of Mind</strong>.
+                                </p>
+                                <div className="grid md:grid-cols-2 gap-8 mt-8">
+                                    <div className="bg-card p-6 rounded-xl border">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">✅ Accountability</h3>
+                                        <p>We live here. Our office is on GE Road. You know exactly where to find us if something goes wrong. Try finding the "office" of a faceless website when you are stuck at an airport.</p>
+                                    </div>
+                                    <div className="bg-card p-6 rounded-xl border">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">✅ Face-to-Face Trust</h3>
+                                        <p>Sit with us, drink a cup of coffee, and plan your itinerary. We explain visa rules, flight timings, and hotel locations personally, eliminating all confusion.</p>
+                                    </div>
+                                    <div className="bg-card p-6 rounded-xl border">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">✅ Easy Cash/Local Payments</h3>
+                                        <p>Don't want to risky large online transactions? We accept cash, cheques, and local bank transfers at our office. Your money is safe with a known local entity.</p>
+                                    </div>
+                                    <div className="bg-card p-6 rounded-xl border">
+                                        <h3 className="text-xl font-bold text-foreground mb-3">✅ Chhattisgarh Specific Knowledge</h3>
+                                        <p>We know the flight connections from Raipur better than anyone. We know which train from Durg is best for your connecting tour. Local expertise matters.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQs Section */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4 max-w-3xl">
+                        <h2 className="text-3xl font-bold mb-8 text-center">Common Questions About Local Booking</h2>
+                        <div className="space-y-4">
+                            <Card className="p-0 overflow-hidden">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold text-lg mb-2">Is it cheaper to book with a local agent vs online?</h3>
+                                    <p className="text-muted-foreground">Often, yes! We have B2B rates with hotels and transporters that are lower than public online prices. Plus, you save on hidden convenience fees.</p>
+                                </CardContent>
+                            </Card>
+                            <Card className="p-0 overflow-hidden">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold text-lg mb-2">What if I face an emergency during my trip?</h3>
+                                    <p className="text-muted-foreground">This is our biggest advantage. You call our personal mobile number (24/7), not a toll-free call center. We solve issues immediately.</p>
+                                </CardContent>
+                            </Card>
+                            <Card className="p-0 overflow-hidden">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold text-lg mb-2">Can I customize my package?</h3>
+                                    <p className="text-muted-foreground">100%. Unlike rigid online combos, we build your trip from scratch. Add a day, change a hotel, upgrade a car - it's all your choice.</p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
             </main>
             <Footer />
             <FloatingWhatsApp />

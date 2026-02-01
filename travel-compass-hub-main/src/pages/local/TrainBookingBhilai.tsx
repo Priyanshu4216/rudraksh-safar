@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Train, Clock, MapPin, AlertTriangle, CheckCircle, ShieldCheck, Phone, Calendar, Users, ChevronDown, ChevronUp } from 'lucide-react';
+import { Train, Clock, MapPin, AlertTriangle, CheckCircle, ShieldCheck, Phone, Calendar, Users, ChevronDown, ChevronUp, Info, HelpCircle, FileQuestion } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -43,6 +43,8 @@ const TrainBookingBhilai = () => {
         { question: "Do you help with Ladies or Senior Citizen Quota?", answer: "Absolutely. We verify age proof (60+ for men, 45+ for women) to book under the Lower Berth Quota for Senior Citizens. We also prioritize the specific Ladies Quota for female travelers traveling alone or with children." },
         { question: "Can I change my boarding point from Durg to Raipur?", answer: "Yes, boarding points can be changed up to 24 hours before the train's departure. Just inform us on WhatsApp, and we will update it in the official system." },
         { question: "What if my ticket is stuck in Waitlist (WL)?", answer: "We monitor PNR status daily. If it doesn't confirm by the chart preparation time (4 hours before departure), we can help you find alternative trains or buses to ensuring you don't get stranded." },
+        { question: "Do you guarantee confirmed tickets?", answer: "Ticket confirmation depends entirely on railway availability and rules. However, our expertise significantly improves the chances by selecting the right quotas and trains." },
+        { question: "Is ID required for train travel?", answer: "Yes, valid ID Proof (Aadhaar/Voter ID) is required in original during the journey for at least one passenger in the group." },
     ];
 
     const displayedFaqs = showAllFaqs ? faqs : faqs.slice(0, 4);
@@ -109,6 +111,30 @@ const TrainBookingBhilai = () => {
                     </div>
                 </section>
 
+                {/* TL;DR Summary */}
+                <section className="py-12 relative z-20">
+                    <div className="container mx-auto px-4">
+                        <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-orange-500 max-w-4xl mx-auto">
+                            <CardContent className="p-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-xl shrink-0 hidden md:block">
+                                        <Info className="w-8 h-8 text-orange-600 dark:text-orange-400" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                            <span className="md:hidden"><Info className="w-6 h-6 text-orange-600" /></span>
+                                            TL;DR (AI Summary)
+                                        </h2>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Train booking services assist travellers with railway ticket reservations, availability checks, and travel planning. We help passengers understand train options, seat availability, travel classes, and booking procedures for smoother railway journeys from Durg and Raipur.
+                                        </p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
                 {/* Tatkal Alert Section */}
                 <section className="py-12 bg-background border-b">
                     <div className="container mx-auto px-4">
@@ -125,6 +151,35 @@ const TrainBookingBhilai = () => {
                                     <p className="mt-2">We can legally assist you with Tatkal bookings <strong>after</strong> this restrictive time slot, subject to availability. We prioritize transparency and compliance.</p>
                                 </AlertDescription>
                             </Alert>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Planning & Types */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto space-y-16">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-6">Train Travel Planning Made Easy</h2>
+                                    <p className="text-lg text-muted-foreground mb-6">
+                                        Train travel is one of the most economical modes of transport. However, availability rules, waiting lists, and class options can be confusing.
+                                    </p>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center gap-3"><CheckCircle className="text-green-500 w-5 h-5 flex-shrink-0" /> Check real-time availability</li>
+                                        <li className="flex items-center gap-3"><CheckCircle className="text-green-500 w-5 h-5 flex-shrink-0" /> Explain quota options (Tatkal/Ladies)</li>
+                                        <li className="flex items-center gap-3"><CheckCircle className="text-green-500 w-5 h-5 flex-shrink-0" /> Assist with waiting list prediction</li>
+                                    </ul>
+                                </div>
+                                <div className="bg-orange-50 dark:bg-orange-950/20 p-6 rounded-2xl border border-orange-100">
+                                    <h3 className="font-bold text-xl mb-4">Types of Bookings We Assist With</h3>
+                                    <div className="grid grid-cols-1 gap-3">
+                                        <div className="bg-background p-3 rounded-lg shadow-sm font-medium">🚄 General & Tatkal Reservations</div>
+                                        <div className="bg-background p-3 rounded-lg shadow-sm font-medium">🛌 Sleeper (SL) & AC Classes (1A, 2A, 3A)</div>
+                                        <div className="bg-background p-3 rounded-lg shadow-sm font-medium">👥 Group Travel Coordination</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -177,117 +232,125 @@ const TrainBookingBhilai = () => {
                     </div>
                 </section>
 
-            </section>
 
-            {/* Station Insights */}
-            <section className="py-16 bg-background border-t">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <MapPin className="w-6 h-6 text-orange-600" />
-                                    <h3 className="text-xl font-bold">Durg Junction (DURG)</h3>
+
+                {/* Station Insights */}
+                <section className="py-16 bg-background border-t">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <MapPin className="w-6 h-6 text-orange-600" />
+                                        <h3 className="text-xl font-bold">Durg Junction (DURG)</h3>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mb-4">
+                                        Starting point for major long-distance trains like Gitanjali and Amarkantak Express. Higher quota availability for Tatkal bookings compared to Raipur.
+                                    </p>
+                                    <ul className="text-xs space-y-2 text-foreground font-medium">
+                                        <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> 5+ Platforms</li>
+                                        <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> AC Waiting Rooms</li>
+                                    </ul>
                                 </div>
-                                <p className="text-sm text-muted-foreground mb-4">
-                                    Starting point for major long-distance trains like Gitanjali and Amarkantak Express. Higher quota availability for Tatkal bookings compared to Raipur.
-                                </p>
-                                <ul className="text-xs space-y-2 text-foreground font-medium">
-                                    <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> 5+ Platforms</li>
-                                    <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> AC Waiting Rooms</li>
-                                </ul>
-                            </div>
-                            <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <MapPin className="w-6 h-6 text-orange-600" />
-                                    <h3 className="text-xl font-bold">Raipur Junction (R)</h3>
+                                <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <MapPin className="w-6 h-6 text-orange-600" />
+                                        <h3 className="text-xl font-bold">Raipur Junction (R)</h3>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground mb-4">
+                                        Ideal boarding point for trains coming from Bilaspur/Nagpur direction. Has premium lounge facilities and better food options for waiting passengers.
+                                    </p>
+                                    <ul className="text-xs space-y-2 text-foreground font-medium">
+                                        <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> Escallators & Lifts</li>
+                                        <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> 24x7 Food Plaza</li>
+                                    </ul>
                                 </div>
-                                <p className="text-sm text-muted-foreground mb-4">
-                                    Ideal boarding point for trains coming from Bilaspur/Nagpur direction. Has premium lounge facilities and better food options for waiting passengers.
-                                </p>
-                                <ul className="text-xs space-y-2 text-foreground font-medium">
-                                    <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> Escallators & Lifts</li>
-                                    <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /> 24x7 Food Plaza</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Popular Trains Table */}
-            <section id="trains" className="py-20 bg-muted/30">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-10 text-center">Popular Trains from Durg & Raipur</h2>
-                    <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
-                        <Table>
-                            <TableHeader>
-                                <TableRow className="bg-orange-50 dark:bg-orange-950/20">
-                                    <TableHead className="font-bold text-foreground">Train Name</TableHead>
-                                    <TableHead className="font-bold text-foreground">Route</TableHead>
-                                    <TableHead className="font-bold text-foreground">Timing</TableHead>
-                                    <TableHead className="font-bold text-foreground">Booking Tip</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {popularTrains.map((train, index) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="font-medium">{train.name}</TableCell>
-                                        <TableCell>{train.route}</TableCell>
-                                        <TableCell>{train.time}</TableCell>
-                                        <TableCell>
-                                            <span className={`text-xs px-2 py-1 rounded-full ${train.availability === 'High Demand' || train.availability === 'Heavy Rush' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
-                                                {train.availability}
-                                            </span>
-                                        </TableCell>
+                {/* Popular Trains Table */}
+                <section id="trains" className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold mb-10 text-center">Popular Trains from Durg & Raipur</h2>
+                        <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
+                            <Table>
+                                <TableHeader>
+                                    <TableRow className="bg-orange-50 dark:bg-orange-950/20">
+                                        <TableHead className="font-bold text-foreground">Train Name</TableHead>
+                                        <TableHead className="font-bold text-foreground">Route</TableHead>
+                                        <TableHead className="font-bold text-foreground">Timing</TableHead>
+                                        <TableHead className="font-bold text-foreground">Booking Tip</TableHead>
                                     </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
+                                </TableHeader>
+                                <TableBody>
+                                    {popularTrains.map((train, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell className="font-medium">{train.name}</TableCell>
+                                            <TableCell>{train.route}</TableCell>
+                                            <TableCell>{train.time}</TableCell>
+                                            <TableCell>
+                                                <span className={`text-xs px-2 py-1 rounded-full ${train.availability === 'High Demand' || train.availability === 'Heavy Rush' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                                                    {train.availability}
+                                                </span>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </div>
+                        <p className="text-center text-sm text-muted-foreground mt-4">*Schedules subject to change by Indian Railways.</p>
                     </div>
-                    <p className="text-center text-sm text-muted-foreground mt-4">*Schedules subject to change by Indian Railways.</p>
-                </div>
-            </section>
+                </section>
 
-            {/* FAQs */}
-            <section className="py-20">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-8 text-center">Train Booking FAQs</h2>
-                        <Accordion type="single" collapsible className="w-full">
-                            {displayedFaqs.map((faq, index) => (
-                                <AccordionItem key={index} value={`faq-${index}`}>
-                                    <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
-                        <div className="text-center mt-8">
-                            <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
-                                {showAllFaqs ? (
-                                    <>Show Less <ChevronUp className="ml-2 w-4 h-4" /></>
-                                ) : (
-                                    <>Load More Guide <ChevronDown className="ml-2 w-4 h-4" /></>
-                                )}
-                            </Button>
+                {/* FAQs */}
+                <section className="py-20">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold mb-8 text-center">Train Booking FAQs</h2>
+                            <Accordion type="single" collapsible className="w-full">
+                                {displayedFaqs.map((faq, index) => (
+                                    <AccordionItem key={index} value={`faq-${index}`}>
+                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
+                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                            <div className="text-center mt-8">
+                                <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
+                                    {showAllFaqs ? (
+                                        <>Show Less <ChevronUp className="ml-2 w-4 h-4" /></>
+                                    ) : (
+                                        <>Load More Guide <ChevronDown className="ml-2 w-4 h-4" /></>
+                                    )}
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* CTA */}
-            <section className="py-16 bg-orange-600 text-white">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-6">Plan Your Journey Today</h2>
-                    <p className="text-lg opacity-90 mb-8">Don't wait for tickets to sell out. Secure your seat now.</p>
-                    <Button size="lg" variant="secondary" className="text-lg px-8 text-orange-700" asChild>
-                        <a href="https://wa.me/919406182174?text=Check train availability for me">
-                            <Phone className="w-5 h-5 mr-2" /> Check Availability
-                        </a>
-                    </Button>
-                </div>
-            </section>
-        </main >
+                <section className="pb-16 pt-4 bg-background">
+                    <div className="container mx-auto px-4">
+                        <p className="text-sm text-center text-muted-foreground max-w-3xl mx-auto">
+                            <strong>Important Information:</strong> Train services are governed by railway authorities. Schedule changes, delays, and availability are outside booking assistance control.
+                        </p>
+                    </div>
+                </section>
+
+                {/* CTA */}
+                <section className="py-16 bg-orange-600 text-white">
+                    <div className="container mx-auto px-4 text-center">
+                        <h2 className="text-3xl font-bold mb-6">Plan Your Journey Today</h2>
+                        <p className="text-lg opacity-90 mb-8">Don't wait for tickets to sell out. Secure your seat now.</p>
+                        <Button size="lg" variant="secondary" className="text-lg px-8 text-orange-700" asChild>
+                            <a href="https://wa.me/919406182174?text=Check train availability for me">
+                                <Phone className="w-5 h-5 mr-2" /> Check Availability
+                            </a>
+                        </Button>
+                    </div>
+                </section>
+            </main >
             <Footer />
             <FloatingWhatsApp />
         </>

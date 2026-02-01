@@ -3,12 +3,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
 interface WhyTravelProps {
-    city: 'Bhilai' | 'Raipur';
+    city: 'Bhilai' | 'Raipur' | 'Durg';
 }
 
 const WhyTravelSection = ({ city }: WhyTravelProps) => {
     const airport = "Swami Vivekananda Airport (Raipur)";
-    const railway = city === 'Bhilai' ? "Durg Junction (Just 15 mins away)" : "Raipur Junction";
+    let railway = "Raipur Junction";
+    if (city === 'Bhilai') railway = "Durg Junction (Just 15 mins away)";
+    if (city === 'Durg') railway = "Durg Junction (Home Hub)";
 
     const features = [
         {

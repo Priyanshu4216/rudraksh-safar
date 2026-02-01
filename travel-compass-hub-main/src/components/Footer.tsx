@@ -17,63 +17,8 @@ const quickLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
-// Local SEO internal links - critical for Google Local Pack ranking
-const localSeoLinks = [
-  { name: 'Travel Agent in Bhilai', href: '/travel-agent-bhilai' },
-  { name: 'Train Ticket Booking', href: '/train-booking-bhilai' },
-  { name: 'Flight Ticket Booking', href: '/flight-booking-bhilai' },
-  { name: 'Bus Ticket Booking', href: '/bus-booking-bhilai' },
-  { name: 'Passport Agent Bhilai', href: '/passport-agent-bhilai' },
-  { name: 'International Tours', href: '/international-tour-packages-bhilai' },
-  { name: 'Weekend Getaways', href: '/weekend-getaways-bhilai' },
-  { name: 'Travel Agent Raipur', href: '/travel-agent-raipur' },
-  { name: 'Tour Packages Raipur', href: '/tour-packages-raipur' },
-  { name: 'Weekend Getaways Raipur', href: '/weekend-getaways-raipur' },
-  { name: 'Corporate Tour Packages Bhilai', href: '/corporate-tour-packages-bhilai' },
-  { name: 'India Tour Packages Bhilai', href: '/india-tour-packages-bhilai' },
-  { name: 'Ticket Booking Service', href: '/ticket-booking-bhilai' },
-  { name: 'Tour Packages Bhilai', href: '/tour-packages-bhilai' },
-  { name: 'Visa Agent Bhilai', href: '/visa-agent-bhilai' },
-];
-
-const themeLinks = [
-  { name: 'Budget Tours', href: '/budget-tour-packages' },
-  { name: 'Summer Holidays', href: '/summer-holiday-packages' },
-  { name: 'Group Tours', href: '/group-tour-packages' },
-  { name: 'Beach Holidays', href: '/beach-holiday-packages' },
-  { name: 'Mountain Trips', href: '/mountain-holiday-packages' },
-  { name: 'Luxury Packages', href: '/luxury-packages' },
-  { name: 'Adventure Tours', href: '/adventure-packages' },
-  { name: 'Honeymoon Specials', href: '/honeymoon-packages' },
-  { name: 'Family Vacations', href: '/family-packages' },
-  { name: 'Cruise Booking', href: '/cruise-booking' },
-  { name: 'Cab Rental', href: '/cab-rental' },
-];
-
-const guideLinks = [
-  { name: 'Visa Guide', href: '/visa-guide' },
-  { name: 'Passport Guide', href: '/passport-guide' },
-  { name: 'Visa Free Countries', href: '/visa-free-countries' },
-  { name: 'Travel Checklist', href: '/travel-checklist' },
-  { name: 'Currency Guide', href: '/currency-guide' },
-  { name: 'Best Time to Visit', href: '/best-time-to-visit' },
-  { name: 'Travel Health', href: '/travel-health' },
-  { name: 'Travel Tips', href: '/travel-tips' },
-  { name: 'Hot Deals', href: '/hot-deals' },
-];
-
-const visaLinks = [
-  { name: 'Dubai Visa', href: '/visa/dubai' },
-  { name: 'Thailand Visa', href: '/visa/thailand' },
-  { name: 'Singapore Visa', href: '/visa/singapore' },
-  { name: 'Bali Visa', href: '/visa/bali' },
-  { name: 'Schengen Visa', href: '/visa/schengen' },
-  { name: 'Sri Lanka Visa', href: '/visa/sri-lanka' },
-  { name: 'Nepal Visa', href: '/visa/nepal' },
-  { name: 'Malaysia Visa', href: '/visa/malaysia' },
-  { name: 'Turkey Visa', href: '/visa/turkey' },
-  { name: 'Maldives Visa', href: '/visa/maldives' },
-];
+// Link arrays removed as they are now in Sitemap.tsx
+// Keeping essential arrays only
 
 const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy-policy' },
@@ -87,6 +32,7 @@ const supportLinks = [
   { name: 'Contact Support', href: '#contact' },
   { name: 'Cancellation Policy', href: '/cancellation-policy' },
   { name: 'Booking Policy', id: 'booking' },
+  { name: 'How It Works', href: '/how-it-works' },
   { name: 'FAQs', href: '#faqs' },
 ];
 
@@ -824,6 +770,12 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                       </a>
                     </li>
                   ))}
+                  {/* Sitemap Link */}
+                  <li>
+                    <Link to="/sitemap" className="text-secondary hover:underline font-medium text-sm flex items-center gap-1">
+                      View Full Sitemap
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -918,135 +870,13 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 </a>
               </div>
             </div>
-            {/* Local SEO Links Section - Critical for Google Local Pack */}
-            <div className="border-t border-primary-foreground/10 mt-12 pt-8">
-              <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Serving Bhilai, Durg & Raipur</h3>
-              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Local SEO links">
-                {localSeoLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            {/* Theme Links Section */}
-            <div className="border-t border-primary-foreground/10 mt-8 pt-8">
-              <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Popular Themes</h3>
-              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Theme links">
-                {themeLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            {/* Guide Links Section */}
-            <div className="border-t border-primary-foreground/10 mt-8 pt-8">
-              <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Travel Guides</h3>
-              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Guide links">
-                {guideLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            {/* Visa Links Section */}
-            <div className="border-t border-primary-foreground/10 mt-8 pt-8">
-              <h3 className="font-semibold mb-4 text-center text-sm text-primary-foreground/80">Visa Services</h3>
-              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Visa links">
-                {visaLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
           </div>
 
-          {/* Mobile Accordion for Footer Links */}
-          <div className="lg:hidden mt-8 border-t border-primary-foreground/10 pt-8">
-            <Accordion type="single" collapsible className="space-y-2">
-              <AccordionItem value="legal" className="border-primary-foreground/10">
-                <AccordionTrigger className="text-primary-foreground hover:text-secondary">
-                  Legal & Policies
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-3 pt-2">
-                    {legalLinks.map((link) => (
-                      <li key={link.name}>
-                        {'href' in link && link.href ? (
-                          <Link
-                            to={link.href}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                          >
-                            {link.name}
-                          </Link>
-                        ) : (
-                          <button
-                            onClick={() => openModal(link.id as keyof typeof legalContent)}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                          >
-                            {link.name}
-                          </button>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="support" className="border-primary-foreground/10">
-                <AccordionTrigger className="text-primary-foreground hover:text-secondary">
-                  Help & Support
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-3 pt-2">
-                    {supportLinks.map((link) => (
-                      <li key={link.name}>
-                        {link.href ? (
-                          <a
-                            href={link.href}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleNavClick(link.href);
-                            }}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                          >
-                            {link.name}
-                          </a>
-                        ) : (
-                          <button
-                            onClick={() => openModal(link.id as keyof typeof legalContent)}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                          >
-                            {link.name}
-                          </button>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+          {/* Quick Access Bar - Reduced clutter */}
+          <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
+            <p className="text-sm text-primary-foreground/60">
+              Looking for something specific? Check our <Link to="/sitemap" className="text-secondary hover:underline">Full Sitemap</Link> for all packages, guides, and local services.
+            </p>
           </div>
         </div>
 

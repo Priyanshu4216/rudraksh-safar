@@ -8,23 +8,23 @@ const reasons = [
   },
   {
     icon: CreditCard,
-    title: 'Best Price Guarantee',
-    description: 'We ensure competitive pricing without compromising on quality or experience.',
+    title: 'Transparent Pricing',
+    description: 'No hidden costs. We ensure competitive pricing without compromising on quality or experience.',
   },
   {
     icon: Headphones,
     title: '24/7 Travel Support',
-    description: 'Round-the-clock assistance from booking to your safe return home.',
+    description: 'Round-the-clock assistance from booking to your safe return home via WhatsApp/Phone.',
   },
   {
     icon: Shield,
-    title: 'Safe & Secure Travel',
+    title: 'Verified Partners',
     description: 'Your safety is paramount. We partner only with verified and trusted service providers.',
   },
   {
     icon: Sparkles,
-    title: 'Premium Planning',
-    description: 'Thoughtful trip planning with handpicked stays and experiences that match your budget and style.',
+    title: 'Local Expertise',
+    description: 'Based in Bhilai, we understand the needs of travellers from Chhattisgarh better than anyone.',
   },
   {
     icon: Users,
@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
             Travel with Confidence & Comfort
           </h2>
           <p className="text-muted-foreground text-lg">
-            We go beyond booking flights and hotels. We create seamless travel experiences 
+            We go beyond booking flights and hotels. We create seamless travel experiences
             that let you focus on what matters — making memories.
           </p>
         </div>

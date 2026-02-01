@@ -1,13 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, Clock, Car, Camera, ArrowRight, Sun, Droplets, Mountain, Trees, Calendar, Info } from 'lucide-react';
+import { MapPin, Clock, Car, Camera, ArrowRight, Sun, Droplets, Mountain, Trees, Calendar, Info, HelpCircle, Umbrella, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import FAQsSection from '@/components/FAQsSection';
 
 const WeekendGetawaysBhilai = () => {
     const structuredData = {
@@ -27,107 +29,79 @@ const WeekendGetawaysBhilai = () => {
     const destinations = [
         {
             name: "Kanha National Park",
-            distance: "200 km from Bhilai",
-            time: "4-5 hours drive",
+            distance: "200 km",
+            time: "4-5 hrs",
             type: "Wildlife Safari",
             icon: Trees,
-            desc: "Kanha Tiger Reserve is one of India's finest wildlife sanctuaries. Famous for its significant population of Royal Bengal Tigers, Indian leopards, and the sloth bear. It was the inspiration for Rudyard Kipling's 'The Jungle Book'.",
-            bestTime: "October to June (Park closed in Monsoon)",
-            tip: "Book your jungle safari permits at least 90 days in advance, especially for weekends.",
-            highlights: ["Tiger Safari", "Bamni Dadar Sunset Point", "Bird Watching"]
+            desc: "One of India's finest tiger reserves. Inspiration for 'The Jungle Book'. Famous for Royal Bengal Tigers and Barasingha.",
+            bestTime: "Oct to Jun",
+            tip: "Book safari permits 90 days in advance.",
+            highlights: ["Tiger Safari", "Bamni Dadar Sunset", "Jungle Stay"]
         },
         {
             name: "Chitrakote Waterfalls",
-            distance: "300 km from Bhilai",
-            time: "6-7 hours drive",
+            distance: "300 km",
+            time: "6-7 hrs",
             type: "Nature Wonder",
             icon: Droplets,
-            desc: "Often called the 'Niagara of India', Chitrakote is the widest waterfall in India. Located on the Indravati river in Bastar district, it offers a spectacular view, especially during and after the monsoon season.",
-            bestTime: "August to January (For full flow)",
-            tip: "Visit during sunrise or sunset for mesmerizing photography. Boating near the falls is a must-do.",
-            highlights: ["Boating", "Camping", "Jagdalpur City Tour"]
+            desc: "The 'Niagara of India'. Widest waterfall in India on Indravati river. Spectacular during monsoon.",
+            bestTime: "Aug to Jan",
+            tip: "Visit during sunrise/sunset for best photos.",
+            highlights: ["Boating", "Camping", "Jagdalpur City"]
         },
         {
             name: "Gangrel Dam",
-            distance: "80 km from Bhilai",
-            time: "1.5-2 hours drive",
-            type: "Leisure & Water Sports",
+            distance: "80 km",
+            time: "2 hrs",
+            type: "Water Sports",
             icon: Sun,
-            desc: "Gangrel Dam (Ravishankar Sagar) is a perfect spot for a quick day trip or an overnight stay. The Chhattisgarh Tourism Board operates a resort here offering water sports like jet-skiing and speed boating.",
-            bestTime: "August to February",
-            tip: "Book the island cottages for a unique stay experience right in the middle of the reservoir.",
-            highlights: ["Jet Skiing", "Island Camping", "Angharn Motim Mata Temple"]
+            desc: "Perfect for quick day trips. Features a massive reservoir, water sports (jet ski), and island cottages.",
+            bestTime: "Aug to Feb",
+            tip: "Book island cottages for a unique stay.",
+            highlights: ["Jet Skiing", "Island Camping", "Temple Visit"]
         },
         {
             name: "Mainpat",
-            distance: "350 km from Bhilai",
-            time: "7-8 hours drive",
+            distance: "350 km",
+            time: "7-8 hrs",
             type: "Hill Station",
             icon: Mountain,
-            desc: "Known as the 'Shimla of Chhattisgarh', Mainpat is a charming hill station with lush green pastures, waterfalls, and a significant Tibetan settlement. It's famous for its 'Ulta Pani' where water seems to flow upwards.",
-            bestTime: "September to March",
-            tip: "Don't miss the Tibetan Refugee Camp to buy authentic woolens and try Tibetan food.",
-            highlights: ["Tiger Point", "Tibetan Monastery", "Ulta Pani"]
+            desc: "'Shimla of Chhattisgarh'. Lush green pastures, waterfalls, and a Tibetan settlement.",
+            bestTime: "Sep to Mar",
+            tip: "Try Tibetan food and buy woolens.",
+            highlights: ["Tiger Point", "Monastery", "Ulta Pani"]
         },
         {
-            name: "Sirpur Heritage Site",
-            distance: "90 km from Bhilai",
-            time: "2 hours drive",
-            type: "Historical",
+            name: "Amarkantak",
+            distance: "250 km",
+            time: "5-6 hrs",
+            type: "Pilgrimage & Nature",
+            icon: Mountain,
+            desc: "Origin of rivers Narmada and Sone. A spiritual town surrounded by dense forests and waterfalls.",
+            bestTime: "Year Round",
+            tip: "Visit Narmada Udgam temple early morning.",
+            highlights: ["Narmada Temple", "Kapil Dhara Fall", "Forests"]
+        },
+        {
+            name: "Bhoramdeo",
+            distance: "130 km",
+            time: "3 hrs",
+            type: "Heritage",
             icon: Camera,
-            desc: "A treasure trove for history buffs, Sirpur helps you travel back in time to the 5th-8th century. It houses ancient Buddhist viharas, Hindu temples (Laxman Temple), and Jain monuments showcasing exquisite architecture.",
-            bestTime: "November to March",
-            tip: "Ideally hire a local guide to understand the rich history of the excavated sites.",
-            highlights: ["Laxman Temple", "Buddhist Viharas", "Sirpur Festival (Feb)"]
-        },
-        {
-            name: "Bhoramdeo Temple",
-            distance: "130 km from Bhilai",
-            time: "3 hours drive",
-            type: "Culture & Architecture",
-            icon: MapPin,
-            desc: "Situated amidst the Satpura ranges, the Bhoramdeo Temple is dedicated to Lord Shiva. Its intricate erotic sculptures have earned it the title 'Khajuraho of Chhattisgarh'. The drive through the Chilpi Ghati is equally scenic.",
-            bestTime: "October to March",
-            tip: "Combine this trip with a visit to the nearby Saroda Dadar dam for a peaceful sunset.",
-            highlights: ["Ancient Architecture", "Chilpi Ghati Drive", "Tribal Culture"]
+            desc: "'Khajuraho of Chhattisgarh'. Ancient Shiva temple with intricate erotic sculptures in Satpura range.",
+            bestTime: "Oct to Mar",
+            tip: "Drive through Chilpi Ghati is scenic.",
+            highlights: ["Ancient Temple", "Tribal Culture", "Scenic Drive"]
         }
     ];
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5
-            }
-        }
-    };
 
     return (
         <>
             <Helmet>
-                <title>Top Weekend Getaways from Bhilai | Short Trips to Kanha, Chitrakote & More</title>
-                <meta name="description" content="Plan your perfect weekend getaway from Bhilai. Explore Kanha National Park, Chitrakote Falls, Mainpat, and Gangrel Dam with Rudraksh Safar. Cab & Hotel booking available." />
-                <meta name="keywords" content="weekend getaways from bhilai, kanha tour package from bhilai, chitrakote trip cost, gangrel dam resorts, picnic spots near durg bhilai, hill stations near bhilai" />
+                <title>Weekend Getaways from Bhilai | Short Trips to Kanha, Amarkantak & Chitrakote</title>
+                <meta name="description" content="Best weekend trips near Bhilai & Raipur. Plan 2-3 day holidays to Kanha, Mainpat, Gangrel, and Amarkantak. Affordable packages with cab and hotel." />
+                <meta name="keywords" content="weekend getaways bhilai, short trips from bhilai, picnic spots near durg, kanha tour package, chitrakote trip, amarkantak packages" />
                 <link rel="canonical" href="https://rudrakshsafar.com/weekend-getaways-bhilai" />
-
-                <meta property="og:title" content="Best Weekend Getaways from Bhilai | Rudraksh Safar" />
-                <meta property="og:description" content="Escape the city! Discover top picnic spots and weekend trips near Bhilai like Kanha, Mainpat & Chitrakote." />
-                <meta property="og:image" content="https://rudrakshsafar.com/og-image.png" />
-                <meta property="og:url" content="https://rudrakshsafar.com/weekend-getaways-bhilai" />
-                <meta name="geo.region" content="IN-CT" />
-                <meta name="geo.placename" content="Bhilai, Chhattisgarh" />
                 <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
             </Helmet>
 
@@ -135,166 +109,222 @@ const WeekendGetawaysBhilai = () => {
 
             <main className="min-h-screen bg-background">
                 {/* Hero Section */}
-                <section className="relative py-24 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
-                    {/* Decorative Elements */}
-                    <div className="absolute top-20 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-50 -z-10" />
-                    <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl opacity-50 -z-10" />
-
-                    <div className="container mx-auto px-4">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="max-w-4xl mx-auto text-center"
-                        >
-                            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20 backdrop-blur-sm">
-                                <MapPin className="w-4 h-4" />
-                                <span className="text-sm font-medium">Explore Chhattisgarh & Beyond</span>
-                            </div>
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight">
-                                Weekend Getaways from <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground/80">Bhilai</span>
-                            </h1>
-                            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-                                Need a break from the routine? Discover breathtaking waterfalls, serene jungles, and cool hill stations just a drive away from Bhilai & Durg.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button size="lg" asChild className="text-lg px-8 h-12 shadow-lg hover:shadow-xl transition-all hover:scale-105">
-                                    <a href="https://wa.me/919406182174?text=Hi, I want to plan a weekend trip from Bhilai" target="_blank" rel="noopener noreferrer">
-                                        <Car className="w-5 h-5 mr-2" />
-                                        Plan My Trip
-                                    </a>
-                                </Button>
-                                <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12 hover:bg-muted/50">
-                                    <a href="#destinations">View Destinations</a>
-                                </Button>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* Destinations Grid */}
-                <section id="destinations" className="py-20">
-                    <div className="container mx-auto px-4">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-                        >
-                            {destinations.map((dest, index) => (
-                                <motion.div key={index} variants={itemVariants}>
-                                    <Card className="flex flex-col h-full hover:shadow-2xl transition-all duration-300 hover:border-primary/40 group overflow-hidden border-muted">
-                                        <CardContent className="p-0 flex-1 flex flex-col">
-                                            {/* Icon Header */}
-                                            <div className="p-6 pb-0 flex items-start justify-between mb-4">
-                                                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                                    <dest.icon className="w-7 h-7 text-primary" />
-                                                </div>
-                                                <Badge variant="outline" className="font-medium px-3 py-1 text-xs uppercase tracking-wider bg-background/50 backdrop-blur-sm">{dest.type}</Badge>
-                                            </div>
-
-                                            <div className="px-6">
-                                                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                                                    {dest.name}
-                                                </h3>
-
-                                                <div className="flex flex-col gap-2 text-sm text-muted-foreground mb-5 bg-muted/30 p-3 rounded-lg border border-muted/50">
-                                                    <div className="flex items-center gap-2">
-                                                        <Car className="w-4 h-4 text-primary" />
-                                                        <span>{dest.distance}</span>
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <Clock className="w-4 h-4 text-primary" />
-                                                        <span>{dest.time}</span>
-                                                    </div>
-                                                </div>
-
-                                                <p className="text-muted-foreground mb-6 leading-relaxed">
-                                                    {dest.desc}
-                                                </p>
-                                            </div>
-
-                                            <div className="mt-auto bg-muted/10 p-6 space-y-4 border-t">
-                                                <div className="space-y-1">
-                                                    <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-                                                        <Calendar className="w-4 h-4 text-primary" />
-                                                        Best Time to Visit
-                                                    </div>
-                                                    <p className="text-sm text-muted-foreground pl-6">{dest.bestTime}</p>
-                                                </div>
-
-                                                <div className="space-y-1">
-                                                    <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-                                                        <Info className="w-4 h-4 text-primary" />
-                                                        Local Tip
-                                                    </div>
-                                                    <p className="text-sm text-muted-foreground pl-6 italic">{dest.tip}</p>
-                                                </div>
-
-                                                <div className="pt-4 flex flex-wrap gap-2">
-                                                    {dest.highlights.map((tag, i) => (
-                                                        <span key={i} className="text-xs bg-background border px-2 py-1 rounded-md text-foreground/80 shadow-sm">
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="py-20 bg-primary/5 border-y border-primary/10">
+                <section className="relative py-20 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
                     <div className="container mx-auto px-4 text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                                Ready to Hit the Road?
-                            </h2>
-                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-                                Whether you need a <strong>Luxury Cab</strong> for a comfortable drive, a
-                                <strong>Resort Booking</strong> at Gangrel, or a complete <strong>Safari Permit</strong> for Kanha
-                                – Rudraksh Safar handles it all.
-                            </p>
-                            <Button size="lg" className="h-14 px-8 text-lg shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I need details about weekend trips" target="_blank" rel="noopener noreferrer">
-                                    Contact Us for Custom Packages <ArrowRight className="w-5 h-5 ml-2" />
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20 backdrop-blur-sm">
+                            <MapPin className="w-4 h-4" />
+                            <span className="text-sm font-medium">Short Breaks & Road Trips</span>
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                            Weekend Getaways from <span className="text-primary">Bhilai</span>
+                        </h1>
+                        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                            Recharge with a quick 2-3 day trip. Explore hills, waterfalls, and jungles just a few hours drive away.
+                        </p>
+
+                        {/* TL;DR Summary */}
+                        <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl p-6 shadow-sm text-left mb-10">
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
+                                    <Info className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-foreground mb-2">Why Plan a Weekend Getaway?</h3>
+                                    <p className="text-muted-foreground leading-relaxed text-sm">
+                                        Weekend getaways are short trips (2-3 days) designed for quick relaxation without needing long leave.
+                                        Destinations like <strong>Kanha, Amarkantak, and Gangrel</strong> offer a perfect mix of nature and adventure within <strong>5-8 hours drive</strong> from Bhilai.
+                                        Rudraksh Safar provides complete packages including <strong>cab, hotel, and sightseeing</strong> for a hassle-free break.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-4 justify-center">
+                            <Button size="lg" asChild className="text-lg px-8 shadow-lg">
+                                <a href="https://wa.me/919406182174?text=Hi, I want to plan a weekend trip from Bhilai" target="_blank" rel="noopener noreferrer">
+                                    <Car className="w-5 h-5 mr-2" /> Plan My Trip
                                 </a>
                             </Button>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* Internal Linking */}
-                <section className="py-12 bg-background">
-                    <div className="container mx-auto px-4 text-center">
-                        <div className="inline-flex flex-wrap justify-center gap-3 text-sm font-medium">
-                            <Link to="/travel-agent-bhilai" className="px-4 py-2 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                                Travel Agent in Bhilai
-                            </Link>
-                            <Link to="/tour-packages-bhilai" className="px-4 py-2 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                                Tour Packages from Bhilai
-                            </Link>
-                            <Link to="/domestic-packages" className="px-4 py-2 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                                India Tour Packages
-                            </Link>
-                            <Link to="/international-packages" className="px-4 py-2 bg-muted rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                                International Packages
-                            </Link>
                         </div>
                     </div>
                 </section>
-            </main>
 
+                {/* Top Destinations */}
+                <section id="destinations" className="py-20">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold text-center mb-12">Top Weekend Destinations</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {destinations.map((dest, index) => (
+                                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-muted group h-full flex flex-col">
+                                    <CardHeader>
+                                        <div className="flex justify-between items-start mb-2">
+                                            <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                                <dest.icon className="w-6 h-6" />
+                                            </div>
+                                            <Badge variant="secondary">{dest.type}</Badge>
+                                        </div>
+                                        <CardTitle className="text-xl">{dest.name}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="flex flex-col flex-1">
+                                        <div className="flex gap-4 text-sm text-muted-foreground mb-4">
+                                            <div className="flex items-center gap-1">
+                                                <Car className="w-4 h-4" /> {dest.distance}
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <Clock className="w-4 h-4" /> {dest.time}
+                                            </div>
+                                        </div>
+                                        <p className="text-muted-foreground text-sm mb-6 flex-1">
+                                            {dest.desc}
+                                        </p>
+                                        <div className="bg-muted/50 p-3 rounded-lg text-sm mb-4">
+                                            <p><span className="font-semibold">Best Time:</span> {dest.bestTime}</p>
+                                            <p className="italic text-xs mt-1 text-muted-foreground">Tip: {dest.tip}</p>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2 mt-auto">
+                                            {dest.highlights.map((h, i) => (
+                                                <span key={i} className="text-[10px] uppercase tracking-wider bg-background border px-2 py-1 rounded">
+                                                    {h}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Seasonal Guide */}
+                <section className="py-16 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold text-center mb-8">Best Time to Plan</h2>
+                        <div className="max-w-3xl mx-auto bg-background rounded-xl overflow-hidden shadow-sm border">
+                            <Table>
+                                <TableHeader>
+                                    <TableRow className="bg-muted/50">
+                                        <TableHead>Season</TableHead>
+                                        <TableHead>Months</TableHead>
+                                        <TableHead>Best Destinations</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell className="font-medium text-orange-500 flex items-center gap-2"><Sun className="w-4 h-4" /> Summer</TableCell>
+                                        <TableCell>Mar - Jun</TableCell>
+                                        <TableCell>Mainpat (Hill Station), Gangrel (Water Sports), Amarkantak (Forests)</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-medium text-blue-500 flex items-center gap-2"><Umbrella className="w-4 h-4" /> Monsoon</TableCell>
+                                        <TableCell>Jul - Sep</TableCell>
+                                        <TableCell>Chitrakote (Full flow), Teerathgarh, Amarkantak</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-medium text-green-600 flex items-center gap-2"><Trees className="w-4 h-4" /> Winter</TableCell>
+                                        <TableCell>Oct - Feb</TableCell>
+                                        <TableCell>Kanha/Pench (Safari), Sirpur (Heritage), Mainpat</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Planning & Safety */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4 max-w-4xl">
+                        <div className="grid md:grid-cols-2 gap-12">
+                            <div>
+                                <h3 className="text-2xl font-bold mb-6">What's Included?</h3>
+                                <ul className="space-y-4">
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-green-100 p-1 rounded-full text-green-600"><Camera className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Transport:</strong> Comfortable AC Cab (Sedan/SUV) from your doorstep.</p>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-green-100 p-1 rounded-full text-green-600"><Camera className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Stay:</strong> Pre-booked Hotels/Resorts based on budget.</p>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-green-100 p-1 rounded-full text-green-600"><Camera className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Sightseeing:</strong> Local sightseeing as per itinerary.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold mb-6">Travel Smart Tips</h3>
+                                <ul className="space-y-4">
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-amber-100 p-1 rounded-full text-amber-600"><Shield className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Start Early:</strong> Leave by 6 AM to maximize time at destination.</p>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-amber-100 p-1 rounded-full text-amber-600"><Shield className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Pre-book:</strong> Hotels in Kanha/Mainpat fill up fast on weekends.</p>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-amber-100 p-1 rounded-full text-amber-600"><Shield className="w-4 h-4" /></div>
+                                        <p className="text-sm"><strong>Carry Cash:</strong> Network can be poor in forest areas.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQs */}
+                <FAQsSection
+                    title="Weekend Getaway FAQs"
+                    description="Common questions about planning short trips from Bhilai."
+                    faqs={[
+                        {
+                            question: "What is the best weekend getaway for families?",
+                            answer: "For families, Gangrel Dam (water sports & resort) and Amarkantak (temples & nature) are excellent choices. They offer safe accommodation and activities for all ages."
+                        },
+                        {
+                            question: "Which destination is closest to Bhilai?",
+                            answer: "Gangrel Dam is the closest, just about 1.5 - 2 hours drive (80 km). Sirpur Heritage site is also very close (90 km)."
+                        },
+                        {
+                            question: "Do needed safari permits for Kanha?",
+                            answer: "Yes! Kanha safari permits are mandatory and limited. For weekend dates, we highly recommend booking at least 60-90 days in advance."
+                        },
+                        {
+                            question: "Is it safe to drive to these places?",
+                            answer: "Yes, roads to all listed destinations are generally good. However, driving in forest areas (Kanha/Bhoramdeo) should be avoided after sunset due to wildlife movement."
+                        },
+                        {
+                            question: "Can I customize a weekend package?",
+                            answer: "Absolutely. You can choose your vehicle (Sedan/SUV), hotel category (Budget/Luxury), and duration (1 Night or 2 Nights). We tailor it to your needs."
+                        }
+                    ]}
+                />
+
+                {/* CTA */}
+                <section className="py-20 bg-primary/5 text-center">
+                    <div className="container mx-auto px-4">
+                        <h2 className="text-3xl font-bold mb-6">Need a Quick Break?</h2>
+                        <p className="text-lg text-muted-foreground mb-8">
+                            Let us plan your perfect weekend escape. Cab, Hotel, and Peace of Mind included.
+                        </p>
+                        <Button size="lg" className="text-lg px-8" asChild>
+                            <a href="https://wa.me/919406182174?text=I want to book a weekend getaway">
+                                <Car className="w-5 h-5 mr-2" /> Book Now
+                            </a>
+                        </Button>
+                    </div>
+                </section>
+
+                {/* Disclaimer */}
+                <section className="bg-background py-8 border-t">
+                    <div className="container mx-auto px-4 text-center opacity-70">
+                        <p className="text-xs text-muted-foreground">
+                            *Package availability and prices are subject to seasonal changes. Wildlife safari permits are subject to forest department rules.
+                        </p>
+                    </div>
+                </section>
+
+            </main>
             <Footer />
             <FloatingWhatsApp />
         </>

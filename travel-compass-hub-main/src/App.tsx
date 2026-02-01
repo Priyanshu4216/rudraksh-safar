@@ -71,11 +71,20 @@ const FlightBookingBhilai = lazy(() => import("./pages/local/FlightBookingBhilai
 const BusBookingBhilai = lazy(() => import("./pages/local/BusBookingBhilai"));
 const PassportAgentBhilai = lazy(() => import("./pages/local/PassportAgentBhilai"));
 const TravelAgentRaipur = lazy(() => import("./pages/local/TravelAgentRaipur"));
+const TravelAgentDurg = lazy(() => import("./pages/local/TravelAgentDurg"));
 const TourPackagesRaipur = lazy(() => import("./pages/local/TourPackagesRaipur"));
 const WeekendGetawaysRaipur = lazy(() => import("./pages/local/WeekendGetawaysRaipur"));
 const CorporateTourPackagesBhilai = lazy(() => import("./pages/local/CorporateTourPackagesBhilai"));
 const CabRental = lazy(() => import("./pages/CabRental"));
 const CruiseBooking = lazy(() => import("./pages/CruiseBooking"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const TravelDocuments = lazy(() => import("./pages/TravelDocuments"));
+const TravelSafety = lazy(() => import("./pages/TravelSafety"));
+const TravelInspiration = lazy(() => import("./pages/TravelInspiration"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const TravelGuideBhilai = lazy(() => import("./pages/local/TravelGuideBhilai"));
+const LegalDisclaimer = lazy(() => import("./pages/LegalDisclaimer"));
+const HotelBooking = lazy(() => import("./pages/HotelBooking"));
 
 // New High Reach SEO Pages
 const TourPackagesFromBhilai = lazy(() => import("./pages/local/TourPackagesFromBhilai"));
@@ -90,6 +99,7 @@ const GroupTourPackages = lazy(() => import("./pages/GroupTourPackages"));
 const BeachHolidayPackages = lazy(() => import("./pages/BeachHolidayPackages"));
 const MountainHolidayPackages = lazy(() => import("./pages/MountainHolidayPackages"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
+const Sitemap = lazy(() => import("./pages/Sitemap"));
 
 const queryClient = new QueryClient();
 
@@ -143,6 +153,7 @@ const App = () => (
 
                   {/* Local SEO Pages - Raipur & Bhilai */}
                   <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
+                  <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
                   <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
                   <Route path="/weekend-getaways-raipur" element={<WeekendGetawaysRaipur />} />
                   <Route path="/corporate-tour-packages-bhilai" element={<CorporateTourPackagesBhilai />} />
@@ -158,6 +169,14 @@ const App = () => (
                   <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
                   <Route path="/cab-rental" element={<CabRental />} />
                   <Route path="/cruise-booking" element={<CruiseBooking />} />
+                  <Route path="/how-it-works" element={<HowItWorks />} />
+                  <Route path="/travel-documents" element={<TravelDocuments />} />
+                  <Route path="/travel-safety" element={<TravelSafety />} />
+                  <Route path="/travel-inspiration" element={<TravelInspiration />} />
+                  <Route path="/about-rudraksh-safar" element={<AboutUs />} />
+                  <Route path="/travel-guide-from-bhilai" element={<TravelGuideBhilai />} />
+                  <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
+                  <Route path="/hotel-booking" element={<HotelBooking />} />
 
                   {/* Legal Routes */}
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -185,6 +204,9 @@ const App = () => (
                   <Route path="/international-tours-from-raipur" element={<InternationalToursFromRaipur />} />
                   <Route path="/international-tours-from-bhilai" element={<InternationalToursFromBhilai />} />
                   <Route path="/honeymoon-packages-from-bhilai" element={<HoneymoonPackagesFromBhilai />} />
+
+                  {/* Sitemap */}
+                  <Route path="/sitemap" element={<Sitemap />} />
 
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

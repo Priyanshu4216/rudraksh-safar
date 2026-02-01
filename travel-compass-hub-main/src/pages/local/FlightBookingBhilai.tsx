@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Plane, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Globe, CreditCard, FileText, Users } from 'lucide-react';
+import { Plane, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Globe, CreditCard, FileText, Users, Info, HelpCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -91,6 +91,71 @@ const FlightBookingBhilai = () => {
                                     </a>
                                 </Button>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* TL;DR Summary */}
+                <section className="py-12 relative z-20">
+                    <div className="container mx-auto px-4">
+                        <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-blue-500 max-w-4xl mx-auto">
+                            <CardContent className="p-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl shrink-0 hidden md:block">
+                                        <Info className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                            <span className="md:hidden"><Info className="w-6 h-6 text-blue-600" /></span>
+                                            TL;DR (AI Summary)
+                                        </h2>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            Flight booking services assist travellers with airfare selection, route planning, ticket reservation, and fare understanding. We help travellers choose suitable flight options based on schedule, budget, and destination requirements, ensuring a transparent booking experience.
+                                        </p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </section>
+
+                {/* Understanding Options */}
+                <section className="py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h2 className="text-3xl font-bold mb-6">Understanding Flight Booking Options</h2>
+                                <p className="text-lg text-muted-foreground mb-6">
+                                    Air travel involves multiple fare types, baggage rules, and airline policies. Without proper understanding, travellers may face unexpected charges.
+                                </p>
+                                <div className="space-y-4">
+                                    <div className="flex gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0 font-bold text-blue-600">1</div>
+                                        <div>
+                                            <h4 className="font-bold">Comparing Options</h4>
+                                            <p className="text-sm text-muted-foreground">Checking across airlines for best timing and price.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0 font-bold text-blue-600">2</div>
+                                        <div>
+                                            <h4 className="font-bold">Fare Families</h4>
+                                            <p className="text-sm text-muted-foreground">Explaining Saver vs Flexi fares and baggage limits.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
+                                <CardHeader>
+                                    <CardTitle>Types of Flight Bookings</CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-3">
+                                    <div className="flex items-center gap-2"><Plane className="w-4 h-4 text-blue-500" /> Domestic flight bookings</div>
+                                    <div className="flex items-center gap-2"><Globe className="w-4 h-4 text-blue-500" /> International flight planning</div>
+                                    <div className="flex items-center gap-2"><Users className="w-4 h-4 text-blue-500" /> Group & Corporate travel</div>
+                                    <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-blue-500" /> Multi-city itineraries</div>
+                                </CardContent>
+                            </Card>
                         </div>
                     </div>
                 </section>
@@ -209,8 +274,25 @@ const FlightBookingBhilai = () => {
                             question: "How can I pay for my flight ticket?",
                             answer: "We offer flexible payment options including UPI (Google Pay, PhonePe), Bank Transfer (IMPS/NEFT), and Cash at our Bhilai office. For expensive international tickets, we can effectively manage payment schedules."
                         },
+                        {
+                            question: "Are flight prices fixed?",
+                            answer: "No, airfare changes based on demand and availability. We recommend booking early to lock in the best rates."
+                        },
+                        {
+                            question: "Is baggage included in flight tickets?",
+                            answer: "Baggage rules depend on airline and fare type. Saver fares usually include 15kg check-in, but some budget fares may be hand-baggage only."
+                        },
+
                     ]}
                 />
+
+                <section className="pb-16 pt-4 bg-background">
+                    <div className="container mx-auto px-4">
+                        <p className="text-sm text-center text-muted-foreground max-w-3xl mx-auto">
+                            <strong>Important Information:</strong> Flight schedules, pricing, baggage rules, and cancellations are governed by airlines. Booking assistance does not control airline policies.
+                        </p>
+                    </div>
+                </section>
 
                 {/* CTA */}
                 <section className="py-16 bg-blue-600 text-white">
