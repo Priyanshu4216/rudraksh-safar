@@ -8,6 +8,9 @@ import PageLoader from '@/components/PageLoader';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FileCheck, Clock, Banknote, AlertCircle, FileText, Plane, Calendar, MessageCircle, ExternalLink, CheckCircle2, XCircle } from 'lucide-react';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -82,9 +85,6 @@ const DubaiVisa = () => {
         <meta name="description" content="Dubai visa for Indian citizens – updated 2026. Apply for e-visa online or get Visa on Arrival with USA/UK/EU residence. Check fees, processing time, documents & travel tips." />
         <meta name="keywords" content="Dubai visa for Indians, UAE visa for Indians, Dubai e-visa, Dubai visa on arrival, Dubai tourist visa India, Dubai visa requirements" />
         <link rel="canonical" href="https://rudrakshsafar.com/visa/dubai" />
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
       </Helmet>
 
       <Navbar />
@@ -94,13 +94,16 @@ const DubaiVisa = () => {
           {/* Header */}
           <AnimatedSection>
             <div className="text-center mb-12">
+              <div className="flex justify-center mb-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Visa Services', path: '/visa-guide' }, { label: 'Dubai Visa', path: '/visa/dubai' }]} />
+              </div>
               <span className="text-6xl mb-4 block">🇦🇪</span>
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
                 Dubai Visa for Indians
               </h1>
-              <p className="text-muted-foreground text-lg">
-                Latest & Updated Information (2026)
-              </p>
+              <div className="flex justify-center mt-4">
+                <LastUpdated />
+              </div>
             </div>
           </AnimatedSection>
 
@@ -337,43 +340,32 @@ const DubaiVisa = () => {
           </AnimatedSection>
 
           {/* FAQs */}
-          <AnimatedSection delay={550}>
-            <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-              <h2 className="text-2xl font-serif font-bold mb-4">FAQs – Dubai Visa for Indians</h2>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="faq-1">
-                  <AccordionTrigger>Do Indians need a visa to visit Dubai?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes, Indian passport holders require a visa to enter Dubai/UAE. However, Indians with valid USA visa, UK residence, or EU residence can get Visa on Arrival for 14 days (USD 63).
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="faq-2">
-                  <AccordionTrigger>What is the Dubai visa fee for Indians?</AccordionTrigger>
-                  <AccordionContent>
-                    Dubai e-visa fees for Indians: 30-day single entry costs approximately ₹7,500-8,500, 60-day single entry costs ₹15,000-18,000. Fees vary by visa type and processing speed.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="faq-3">
-                  <AccordionTrigger>How long does Dubai visa processing take?</AccordionTrigger>
-                  <AccordionContent>
-                    Standard processing takes 3-4 working days. Express processing is available in 24-36 hours for an additional fee.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="faq-4">
-                  <AccordionTrigger>Can Indians get Visa on Arrival in Dubai?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes, Indians with a valid USA visa (6+ months validity), USA Green Card, UK residence card, or EU residence permit from select countries can get a 14-day Visa on Arrival for USD 63.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="faq-5">
-                  <AccordionTrigger>What documents are required for Dubai visa?</AccordionTrigger>
-                  <AccordionContent>
-                    Required documents include: passport with 6+ months validity, passport-size photo with white background, confirmed return flight, hotel booking, and bank statement showing sufficient funds.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </AnimatedSection>
+          {/* FAQs */}
+          <FAQsSection
+            title="FAQs – Dubai Visa for Indians"
+            faqs={[
+              {
+                question: "Do Indians need a visa to visit Dubai?",
+                answer: "Yes, Indian passport holders require a visa to enter Dubai/UAE. However, Indians with valid USA visa, UK residence, or EU residence can get Visa on Arrival for 14 days (USD 63)."
+              },
+              {
+                question: "What is the Dubai visa fee for Indians?",
+                answer: "Dubai e-visa fees for Indians: 30-day single entry costs approximately ₹7,500-8,500, 60-day single entry costs ₹15,000-18,000. Fees vary by visa type and processing speed."
+              },
+              {
+                question: "How long does Dubai visa processing take?",
+                answer: "Standard processing takes 3-4 working days. Express processing is available in 24-36 hours for an additional fee."
+              },
+              {
+                question: "Can Indians get Visa on Arrival in Dubai?",
+                answer: "Yes, Indians with a valid USA visa (6+ months validity), USA Green Card, UK residence card, or EU residence permit from select countries can get a 14-day Visa on Arrival for USD 63."
+              },
+              {
+                question: "What documents are required for Dubai visa?",
+                answer: "Required documents include: passport with 6+ months validity, passport-size photo with white background, confirmed return flight, hotel booking, and bank statement showing sufficient funds."
+              }
+            ]}
+          />
 
           {/* Quick Summary Table */}
           <AnimatedSection delay={600}>
@@ -447,7 +439,6 @@ const DubaiVisa = () => {
           {/* Trust Signals */}
           <AnimatedSection delay={720}>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground mb-6">
-              <span>✅ Information updated: January 2026</span>
               <span>✅ Subject to UAE immigration rules</span>
             </div>
           </AnimatedSection>

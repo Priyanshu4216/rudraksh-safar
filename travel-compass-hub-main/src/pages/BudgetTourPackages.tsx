@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import RelatedServices from '@/components/RelatedServices';
 
 const BudgetTourPackages = () => {
     const faqs = [
@@ -38,6 +39,28 @@ const BudgetTourPackages = () => {
                 <title>Budget Tour Packages | Affordable Holidays - Rudraksh Safar</title>
                 <meta name="description" content="Plan affordable holidays with our budget tour packages. Cost-effective trips to Goa, Himachal, Thailand, and Dubai with no hidden charges." />
                 <meta name="keywords" content="budget tour packages, cheap holiday packages, low cost tour packages, budget family tours, affordable travel packages" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CollectionPage",
+                        "name": "Budget Tour Packages",
+                        "description": "Affordable holiday packages for budget travelers.",
+                        "provider": {
+                            "@type": "TravelAgency",
+                            "name": "Rudraksh Safar"
+                        },
+                        "mainEntity": {
+                            "@type": "ItemList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Goa Budget Holiday" },
+                                { "@type": "ListItem", "position": 2, "name": "Himachal Budget Trip" },
+                                { "@type": "ListItem", "position": 3, "name": "Rajasthan Budget Tour" },
+                                { "@type": "ListItem", "position": 4, "name": "Thailand Budget Trip" },
+                                { "@type": "ListItem", "position": 5, "name": "Dubai Budget Holiday" }
+                            ]
+                        }
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -142,7 +165,7 @@ const BudgetTourPackages = () => {
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold mb-4">Popular Budget Tour Destinations</h2>
+                            <h2 className="text-3xl font-bold mb-4">Which are the popular budget tour destinations?</h2>
                             <p className="text-muted-foreground">Top picks for affordable adventures.</p>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -265,7 +288,7 @@ const BudgetTourPackages = () => {
                 {/* CTA */}
                 <section className="py-20 bg-slate-900 text-white border-t border-white/10">
                     <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-6">Plan Your Affordable Escape</h2>
+                        <h2 className="text-3xl font-bold mb-6">Ready to plan your affordable escape?</h2>
                         <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                             Don't let budget stop you from exploring. Let us build the perfect low-cost itinerary for you.
                         </p>
@@ -284,6 +307,7 @@ const BudgetTourPackages = () => {
                     </div>
                 </section>
             </main>
+            <RelatedServices mode="packages" />
 
             <Footer />
             <FloatingWhatsApp />

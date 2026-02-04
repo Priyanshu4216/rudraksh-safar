@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import RelatedServices from '@/components/RelatedServices';
 
 const TourPackagesBhilai = () => {
   const structuredData = {
@@ -299,6 +300,7 @@ const TourPackagesBhilai = () => {
             </div>
           </div>
         </section>
+        <RelatedServices mode="packages" />
       </main>
 
       <Footer />

@@ -9,6 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 
 const TravelAgentRaipur = () => {
     // LocalBusiness Schema - Optimized for Raipur
@@ -38,36 +41,34 @@ const TravelAgentRaipur = () => {
         }
     };
 
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Which is the best travel agent in Raipur?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Rudraksh Safar is a top-rated travel agent serving Raipur. We provide customized domestic and international tour packages with office support nearby in Bhilai, ensuring trust and on-ground assistance."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Do you offer international tour packages from Raipur?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we offer comprehensive international packages from Raipur to Dubai, Thailand, Bali, Singapore, and more. We handle flights from Swami Vivekananda Airport (RPR), visas, and hotel bookings."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What are the payment options available?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We accept all major payment modes including UPI, Bank Transfer, Cheque, and Cash at our office. We also offer EMI options for select high-value international packages."
-                }
+    // FAQ Schema handled by FAQsSection component
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which is the best travel agent in Raipur?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rudraksh Safar is a top-rated travel agent serving Raipur. We provide customized domestic and international tour packages with office support nearby in Bhilai, ensuring trust and on-ground assistance."
             }
-        ]
-    };
+        },
+        {
+            "@type": "Question",
+            "name": "Do you offer international tour packages from Raipur?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we offer comprehensive international packages from Raipur to Dubai, Thailand, Bali, Singapore, and more. We handle flights from Swami Vivekananda Airport (RPR), visas, and hotel bookings."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the payment options available?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We accept all major payment modes including UPI, Bank Transfer, Cheque, and Cash at our office. We also offer EMI options for select high-value international packages."
+            }
+        }
+    ]
+
 
     const services = [
         { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Domestic Tours", desc: "Kashmir, Goa, Kerala, and Himachal packages from Raipur.", link: "/domestic-packages" },
@@ -121,7 +122,7 @@ const TravelAgentRaipur = () => {
                 <meta name="keywords" content="travel agent in raipur, tour packages from raipur, travel agency raipur, international tours from raipur, raipur to goa package" />
                 <link rel="canonical" href="https://rudrakshsafar.com/travel-agent-raipur" />
                 <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
             </Helmet>
 
             <Navbar />
@@ -134,8 +135,10 @@ const TravelAgentRaipur = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="max-w-4xl mx-auto text-center"
-                        >
+                            <div className="max-w-4xl mx-auto text-center">
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Travel Agent Raipur', path: '/travel-agent-raipur' }]} />
+                            </div>
                             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-4 py-2 rounded-full mb-6 border border-blue-200">
                                 <CheckCircle className="w-4 h-4" />
                                 <span className="text-sm font-medium">Trusted by Travelers in Raipur & Bhilai</span>
@@ -163,6 +166,9 @@ const TravelAgentRaipur = () => {
 
                 {/* Local Trust Block */}
                 <section className="py-12 bg-muted/20 border-y">
+                    <div className="container mx-auto px-4 mb-4">
+                        <LastUpdated className="justify-center" />
+                    </div>
                     <div className="container mx-auto px-4">
                         <div className="grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border">
                             <div className="p-4">
@@ -258,21 +264,7 @@ const TravelAgentRaipur = () => {
                 </section>
 
                 {/* FAQs */}
-                <section className="py-20 bg-muted/30">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
-                            <Accordion type="single" collapsible className="w-full bg-background rounded-xl p-6 shadow-sm">
-                                {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-left font-medium text-lg">{faq.question}</AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection faqs={faqs} title="Frequently Asked Questions" />
 
                 {/* CTA */}
                 <section className="py-16 bg-primary text-primary-foreground">

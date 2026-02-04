@@ -596,6 +596,25 @@ const ForTravellers = () => {
         <meta name="description" content="Complete travel guide for Indian travellers. Visa requirements, safety tips, currency exchange, packing checklist, emergency contacts and more. Your trusted travel companion from Bhilai." />
         <meta name="keywords" content="travel guide India, visa for Indians, travel tips, currency exchange abroad, travel safety, packing list, Indian embassy contacts" />
         <link rel="canonical" href="https://rudrakshsafar.com/for-travellers" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Travel Guide for Indian Tourists",
+            "description": "A comprehensive travel companion covering visa rules, passport validity, safety tips, currency, and packing checklists for Indian travellers.",
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Visa Guide", "url": "https://rudrakshsafar.com/visa-guide" },
+                { "@type": "ListItem", "position": 2, "name": "Passport Rules", "url": "https://rudrakshsafar.com/passport-guide" },
+                { "@type": "ListItem", "position": 3, "name": "Travel Health & Insurance" },
+                { "@type": "ListItem", "position": 4, "name": "Currency & Payments" },
+                { "@type": "ListItem", "position": 5, "name": "Safety & Scams" },
+                { "@type": "ListItem", "position": 6, "name": "Packing Checklist" }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

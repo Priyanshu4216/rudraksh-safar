@@ -9,6 +9,9 @@ import DestinationBuckets, { Destination } from '@/components/DestinationBuckets
 import LogisticsSection from '@/components/LogisticsSection';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
+import RelatedServices from '@/components/RelatedServices';
+
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 const HoneymoonPackagesFromBhilai = () => {
     const [loading, setLoading] = useState(true);
@@ -70,7 +73,7 @@ const HoneymoonPackagesFromBhilai = () => {
                 <title>Honeymoon Packages from Bhilai | Best Couple Tours</title>
                 <meta name="description" content="Book romantic honeymoon packages from Bhilai. Maldives, Bali, Goa, Manali trips with private car, candlelight dinner & flower decoration. Call +91 94061 82174." />
                 <meta name="keywords" content="honeymoon packages from bhilai, couple tour packages bhilai, manali honeymoon from bhilai, maldives honeymoon package bhilai, best honeymoon travel agent bhilai" />
-                <link rel="canonical" href="https://rudrakshsafar.com/honeymoon-packages-from-bhilai" />
+                <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai/honeymoon-packages" />
                 <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
             </Helmet>
 
@@ -82,7 +85,11 @@ const HoneymoonPackagesFromBhilai = () => {
                     title="Honeymoon Packages from Bhilai"
                     subtitle="Start your new life with a magical journey. Exotic destinations with touches of romance & privacy."
                     bgImage="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000"
-                />
+                >
+                    <div className="container mx-auto px-4 mt-6">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Bhilai Packages', path: '/tour-packages-from-bhilai' }, { label: 'Honeymoon Packages', path: '/tour-packages-from-bhilai/honeymoon-packages' }]} />
+                    </div>
+                </LocationHero>
 
                 <WhyTravelSection city="Bhilai" />
 
@@ -99,6 +106,7 @@ const HoneymoonPackagesFromBhilai = () => {
                     title="Honeymoon Planning FAQs"
                     description="Tips for planning your perfect romantic vacation."
                 />
+                <RelatedServices mode="packages" />
             </main>
 
             <Footer />

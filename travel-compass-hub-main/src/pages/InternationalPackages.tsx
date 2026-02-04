@@ -11,6 +11,10 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
 import SmartImage from '@/components/SmartImage';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
+import RelatedServices from '@/components/RelatedServices';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -257,13 +261,9 @@ const InternationalPackages = () => {
           </div>
 
           <div className="container relative z-10">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
-            </Link>
+            <div className="flex justify-center mb-6">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'International Packages', path: '/international-packages' }]} />
+            </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
@@ -301,6 +301,25 @@ const InternationalPackages = () => {
         {/* Packages Grid */}
         <section className="pb-20">
           <div className="container">
+
+            {/* TL;DR Summary */}
+            <AnimatedSection animation="fade-up" delay={100} className="mb-12">
+              <div className="glass-card p-8 border-l-4 border-l-primary bg-primary/5">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="p-3 bg-primary/10 rounded-full shrink-0 hidden md:block">
+                    <Plane className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">TL;DR (Quick Summary)</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      Experience world-class travel with our International Tour Packages. Whether it's a luxury Dubai trip, a romantic Bali getaway, or a budget-friendly Thailand tour, we handle everything including Visa assistance, flights, and forex for a stress-free vacation.
+                    </p>
+                    <LastUpdated />
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {internationalPackages.map((pkg, index) => (
                 <PackageCard key={pkg.id} pkg={pkg} index={index} />
@@ -367,6 +386,31 @@ const InternationalPackages = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* PAA - Frequently Asked Travel Questions */}
+        <FAQsSection
+          title="Frequently Asked Travel Questions (India & International)"
+          faqs={[
+            {
+              question: "What is the cheapest international trip from India?",
+              answer: "The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates."
+            },
+            {
+              question: "Which international trip is best?",
+              answer: "The best international trip depends on travel preferences. Thailand and Bali are popular for first-time international travelers, Dubai is ideal for luxury and short stays, Singapore suits families, and Nepal is best for budget and nature travel."
+            },
+            {
+              question: "What are the visa requirements for Indians?",
+              answer: "Many popular destinations like Thailand, Sri Lanka, and Malaysia offer Visa-on-Arrival or E-Visa facilities for Indian citizens. Some, like Nepal and Maldives (for tourists), are often visa-free or have simplified entry processes."
+            },
+            {
+              question: "Which country is best for a 4 day trip?",
+              answer: "For a 4-day international trip from India, destinations like Dubai, Nepal, Sri Lanka, Thailand, and Singapore are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration."
+            }
+          ]}
+        />
+
+        <RelatedServices mode="packages" />
 
         <Footer />
         <FloatingWhatsApp />

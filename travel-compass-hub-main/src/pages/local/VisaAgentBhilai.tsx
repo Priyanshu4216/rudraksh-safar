@@ -1,12 +1,18 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, FileText, CheckCircle, Clock, Shield, Globe, Star, BookOpen } from 'lucide-react';
+import { MapPin, Phone, FileText, CheckCircle, Clock, Shield, Globe, Star, BookOpen, Calendar, Info, AlertTriangle, UserCheck } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import FAQsSection from '@/components/FAQsSection';
+import TLDRSection from '@/components/TLDRSection';
+import TravelReality from '@/components/TravelReality';
+import { Badge } from '@/components/ui/badge';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import RelatedServices from '@/components/RelatedServices';
 
 const VisaAgentBhilai = () => {
   const structuredData = {
@@ -84,6 +90,9 @@ const VisaAgentBhilai = () => {
         <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <Breadcrumbs items={[{ label: 'Services', path: '/services' }, { label: 'Visa Agent', path: '/visa-agent-bhilai' }]} />
+              </div>
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
                 <Globe className="w-4 h-4" />
                 <span className="text-sm font-medium">Trusted Visa Consultancy in Bhilai</span>
@@ -110,12 +119,63 @@ const VisaAgentBhilai = () => {
           </div>
         </section>
 
+        {/* TL;DR & Updated Signal */}
+        <section className="bg-background -mt-8 relative z-20 container mx-auto px-4">
+          <LastUpdated className="justify-center mb-6" />
+          <TLDRSection
+            title="TL;DR: Visa Services Overview"
+            summary="We provide Express Visa processing for Dubai (UAE), Thailand, Singapore, and 50+ countries. Our services include End-to-End Documentation, Appointment Booking, and Travel Insurance with a 99% success rate."
+            areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
+          />
+        </section>
+
+        {/* Power-Up: Visa Reality Check */}
+        <div className="container mx-auto px-4 mt-8 mb-12">
+          <TravelReality
+            title="Visa Reality Check: Why Rejections Happen"
+            items={[
+              { type: 'negative', text: "Using dummy flight tickets? Embassies are now stricter and can detect fake PNRS." },
+              { type: 'positive', text: "We create genuine confirmed flight itineraries for visa purposes to ensure safety." },
+              { type: 'neutral', text: "Bank statements must be attested by the bank. Online printouts often get rejected." },
+              { type: 'positive', text: "For Schengen visas, we write a personalized cover letter explaining your strong ties to India." }
+            ]}
+          />
+        </div>
+
+        {/* Power-Up: Document Checklist Preview */}
+        <section className="py-12 bg-blue-50/50 dark:bg-blue-900/10">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold mb-2">Essential Document Checker</h2>
+              <p className="text-muted-foreground text-sm">Do not apply without these ready.</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                "Original Passport (Min 6 months validity)",
+                "2 Recent Photographs (White background, Matt finish)",
+                "Last 6 Months Bank Statement (Updated)",
+                "ITR Acknowledgement (Last 3 Years)",
+                "Leave Sanction Letter (from Employer)",
+                "Hotel Confirmation Voucher"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 bg-white dark:bg-card p-3 rounded-lg border shadow-sm">
+                  <FileText className="w-5 h-5 text-blue-500 shrink-0" />
+                  <span className="text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-xs text-muted-foreground italic">* Additional documents needed for business/student visas.</p>
+            </div>
+          </div>
+        </section>
+
         {/* Visa Services Grid */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Visa Services We Offer
+                Which visa services do we offer?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Fast & reliable visa processing for popular destinations
@@ -147,7 +207,7 @@ const VisaAgentBhilai = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Our Visa Process
+                What is our visa application process?
               </h2>
               <p className="text-muted-foreground">Simple 4-step visa application process</p>
             </div>
@@ -180,7 +240,7 @@ const VisaAgentBhilai = () => {
                   <span>Passport Services</span>
                 </div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">
-                  Passport Agent in Bhilai
+                  Do we provide passport services in Bhilai?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
                   Need a new passport or renewal? We provide complete assistance for the <strong>Raipur Passport Seva Kendra (PSK)</strong> process.
@@ -295,6 +355,8 @@ const VisaAgentBhilai = () => {
           ]}
         />
 
+        <RelatedServices mode="booking" />
+
         {/* Why Choose Us */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
@@ -302,7 +364,7 @@ const VisaAgentBhilai = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                    Why Choose Our Visa Services?
+                    Why choose our visa services?
                   </h2>
                   <div className="space-y-4">
                     {[
@@ -356,7 +418,7 @@ const VisaAgentBhilai = () => {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert">
-              <h2>Best Visa Agent in Bhilai - Rudraksh Safar</h2>
+              <h2>Who is the best visa agent in Bhilai?</h2>
               <p>
                 Looking for a reliable visa agent in Bhilai? Rudraksh Safar is your trusted visa consultancy
                 partner in the Bhilai-Durg-Raipur region. We specialize in tourist visas, business visas,

@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 
 const WhyChooseUs = () => {
     const reasons = [
@@ -34,9 +37,15 @@ const WhyChooseUs = () => {
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
                             Peace of Mind <span className="text-emerald-600">Guaranteed</span>
                         </h1>
+                        <div className="flex justify-center mb-6">
+                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Why Choose Us', path: '/why-choose-us' }]} />
+                        </div>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                             Your holiday is precious. Don't risk it with unknown online portals. Trust the local experts.
                         </p>
+                        <div className="flex justify-center mt-4">
+                            <LastUpdated />
+                        </div>
                     </div>
                 </section>
 
@@ -163,31 +172,23 @@ const WhyChooseUs = () => {
                 </section>
 
                 {/* FAQs Section */}
-                <section className="py-20 bg-muted/30">
-                    <div className="container mx-auto px-4 max-w-3xl">
-                        <h2 className="text-3xl font-bold mb-8 text-center">Common Questions About Local Booking</h2>
-                        <div className="space-y-4">
-                            <Card className="p-0 overflow-hidden">
-                                <CardContent className="p-6">
-                                    <h3 className="font-bold text-lg mb-2">Is it cheaper to book with a local agent vs online?</h3>
-                                    <p className="text-muted-foreground">Often, yes! We have B2B rates with hotels and transporters that are lower than public online prices. Plus, you save on hidden convenience fees.</p>
-                                </CardContent>
-                            </Card>
-                            <Card className="p-0 overflow-hidden">
-                                <CardContent className="p-6">
-                                    <h3 className="font-bold text-lg mb-2">What if I face an emergency during my trip?</h3>
-                                    <p className="text-muted-foreground">This is our biggest advantage. You call our personal mobile number (24/7), not a toll-free call center. We solve issues immediately.</p>
-                                </CardContent>
-                            </Card>
-                            <Card className="p-0 overflow-hidden">
-                                <CardContent className="p-6">
-                                    <h3 className="font-bold text-lg mb-2">Can I customize my package?</h3>
-                                    <p className="text-muted-foreground">100%. Unlike rigid online combos, we build your trip from scratch. Add a day, change a hotel, upgrade a car - it's all your choice.</p>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection
+                    title="Common Questions About Local Booking"
+                    faqs={[
+                        {
+                            question: "Is it cheaper to book with a local agent vs online?",
+                            answer: "Often, yes! We have B2B rates with hotels and transporters that are lower than public online prices. Plus, you save on hidden convenience fees."
+                        },
+                        {
+                            question: "What if I face an emergency during my trip?",
+                            answer: "This is our biggest advantage. You call our personal mobile number (24/7), not a toll-free call center. We solve issues immediately."
+                        },
+                        {
+                            question: "Can I customize my package?",
+                            answer: "100%. Unlike rigid online combos, we build your trip from scratch. Add a day, change a hotel, upgrade a car - it's all your choice."
+                        }
+                    ]}
+                />
 
             </main>
             <Footer />

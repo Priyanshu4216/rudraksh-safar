@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import RelatedServices from '@/components/RelatedServices';
 
 const CorporateTourPackagesBhilai = () => {
     return (
@@ -16,7 +17,7 @@ const CorporateTourPackagesBhilai = () => {
                 <title>Corporate Tour Packages Bhilai | MICE & Offsite Trips - Rudraksh Safar</title>
                 <meta name="description" content="Best corporate tour operator in Bhilai-Durg for office trips, team building, and MICE events. GST billing available. Packages for Goa, Dubai, Udaipur." />
                 <meta name="keywords" content="corporate tour packages bhilai, corporate travel agent bhilai, office trips from bhilai, mice tourism bhilai, corporate outing organizers" />
-                <link rel="canonical" href="https://rudrakshsafar.com/corporate-tour-packages-bhilai" />
+                <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai/corporate-tours" />
             </Helmet>
 
             <Navbar />
@@ -261,6 +262,8 @@ const CorporateTourPackagesBhilai = () => {
                         </Button>
                     </div>
                 </section>
+
+                <RelatedServices mode="packages" />
 
             </main >
             <Footer />

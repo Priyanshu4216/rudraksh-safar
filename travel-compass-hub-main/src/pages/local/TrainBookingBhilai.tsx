@@ -10,18 +10,24 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import FAQsSection from '@/components/FAQsSection';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import RelatedServices from '@/components/RelatedServices';
 
 const TrainBookingBhilai = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('rudraksh_train_loader_shown'));
     const [showAllFaqs, setShowAllFaqs] = useState(false);
 
     useEffect(() => {
         // Simulate loading time for the train animation
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
-    }, []);
+        if (isLoading) {
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+                sessionStorage.setItem('rudraksh_train_loader_shown', 'true');
+            }, 1200);
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading]);
 
     const popularTrains = [
         { name: "Vande Bharat Express", route: "Durg to Visakhapatnam / Nagpur", time: "Daytime", availability: "High Demand" },
@@ -86,6 +92,9 @@ const TrainBookingBhilai = () => {
                 <section className="relative py-20 bg-gradient-to-br from-orange-50 via-background to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center">
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Train Booking', path: '/train-booking-bhilai' }]} />
+                            </div>
                             <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-4 py-2 rounded-full mb-6 border border-green-200 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
                                 <CheckCircle className="w-5 h-5 fill-green-600 text-white" />
                                 <span className="text-sm font-bold tracking-wide">Authorised IRCTC Agent</span>
@@ -128,6 +137,9 @@ const TrainBookingBhilai = () => {
                                         <p className="text-muted-foreground leading-relaxed">
                                             Train booking services assist travellers with railway ticket reservations, availability checks, and travel planning. We help passengers understand train options, seat availability, travel classes, and booking procedures for smoother railway journeys from Durg and Raipur.
                                         </p>
+                                        <div className="mt-4 flex items-center gap-2 text-xs font-medium text-orange-800 bg-orange-50 px-2 py-1 rounded w-fit">
+                                            <Clock className="w-3 h-3" /> Last Updated: February 2026
+                                        </div>
                                     </div>
                                 </div>
                             </CardContent>
@@ -161,7 +173,7 @@ const TrainBookingBhilai = () => {
                         <div className="max-w-4xl mx-auto space-y-16">
                             <div className="grid md:grid-cols-2 gap-8 items-center">
                                 <div>
-                                    <h2 className="text-3xl font-bold mb-6">Train Travel Planning Made Easy</h2>
+                                    <h2 className="text-3xl font-bold mb-6">How do we simplify train travel planning?</h2>
                                     <p className="text-lg text-muted-foreground mb-6">
                                         Train travel is one of the most economical modes of transport. However, availability rules, waiting lists, and class options can be confusing.
                                     </p>
@@ -188,7 +200,7 @@ const TrainBookingBhilai = () => {
                 <section className="py-20">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Why Book Train Tickets with Us?</h2>
+                            <h2 className="text-3xl font-bold mb-4">Why book train tickets with Rudraksh Safar?</h2>
                             <p className="text-muted-foreground">Expertise that increases your chances of a confirmed seat.</p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -242,7 +254,7 @@ const TrainBookingBhilai = () => {
                                 <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
                                     <div className="flex items-center gap-3 mb-4">
                                         <MapPin className="w-6 h-6 text-orange-600" />
-                                        <h3 className="text-xl font-bold">Durg Junction (DURG)</h3>
+                                        <h3 className="text-xl font-bold">What to know about Durg Junction?</h3>
                                     </div>
                                     <p className="text-sm text-muted-foreground mb-4">
                                         Starting point for major long-distance trains like Gitanjali and Amarkantak Express. Higher quota availability for Tatkal bookings compared to Raipur.
@@ -255,7 +267,7 @@ const TrainBookingBhilai = () => {
                                 <div className="p-6 rounded-2xl border border-orange-100 bg-orange-50/50 dark:border-orange-900 dark:bg-orange-950/10">
                                     <div className="flex items-center gap-3 mb-4">
                                         <MapPin className="w-6 h-6 text-orange-600" />
-                                        <h3 className="text-xl font-bold">Raipur Junction (R)</h3>
+                                        <h3 className="text-xl font-bold">What to know about Raipur Junction?</h3>
                                     </div>
                                     <p className="text-sm text-muted-foreground mb-4">
                                         Ideal boarding point for trains coming from Bilaspur/Nagpur direction. Has premium lounge facilities and better food options for waiting passengers.
@@ -273,7 +285,7 @@ const TrainBookingBhilai = () => {
                 {/* Popular Trains Table */}
                 <section id="trains" className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold mb-10 text-center">Popular Trains from Durg & Raipur</h2>
+                        <h2 className="text-3xl font-bold mb-10 text-center">Which are the popular trains from Durg & Raipur?</h2>
                         <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
                             <Table>
                                 <TableHeader>
@@ -304,31 +316,13 @@ const TrainBookingBhilai = () => {
                     </div>
                 </section>
 
-                {/* FAQs */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold mb-8 text-center">Train Booking FAQs</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {displayedFaqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                            <div className="text-center mt-8">
-                                <Button variant="outline" onClick={() => setShowAllFaqs(!showAllFaqs)}>
-                                    {showAllFaqs ? (
-                                        <>Show Less <ChevronUp className="ml-2 w-4 h-4" /></>
-                                    ) : (
-                                        <>Load More Guide <ChevronDown className="ml-2 w-4 h-4" /></>
-                                    )}
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection
+                    title="Frequently Asked Questions about Train Booking"
+                    description="Everything you need to know about booking train tickets from Durg & Raipur with Rudraksh Safar."
+                    faqs={faqs}
+                />
+
+                <RelatedServices mode="booking" />
 
                 <section className="pb-16 pt-4 bg-background">
                     <div className="container mx-auto px-4">

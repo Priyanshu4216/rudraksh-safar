@@ -10,9 +10,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import DisclaimerSection from '@/components/DisclaimerSection';
+import FAQsSection from '@/components/FAQsSection';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import TLDRSection from '@/components/TLDRSection';
+import RelatedServices from '@/components/RelatedServices';
 
 const CruiseBooking = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(() => !sessionStorage.getItem('rudraksh_cruise_loader_shown'));
 
     const cruiseTypes = [
         {
@@ -84,7 +89,10 @@ const CruiseBooking = () => {
     return (
         <>
             <AnimatePresence>
-                {loading && <CruiseLoader onComplete={() => setLoading(false)} />}
+                {loading && <CruiseLoader onComplete={() => {
+                    setLoading(false);
+                    sessionStorage.setItem('rudraksh_cruise_loader_shown', 'true');
+                }} />}
             </AnimatePresence>
 
             {!loading && (
@@ -98,6 +106,23 @@ const CruiseBooking = () => {
                         <meta name="description" content="Book domestic & international cruise packages with Rudraksh Safar. All-inclusive luxury cruises for families, couples & first-timers. Expert guidance & best prices." />
                         <meta name="keywords" content="cruise booking india, luxury cruise holidays, cordelia cruise booking, international cruise packages, family cruise vacation, honeymoon cruise" />
                         <link rel="canonical" href="https://rudrakshsafar.com/cruise-booking" />
+                        <script type="application/ld+json">
+                            {JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@graph": [
+                                    {
+                                        "@type": "Service",
+                                        "name": "Cruise Booking Services",
+                                        "provider": {
+                                            "@type": "TravelAgency",
+                                            "name": "Rudraksh Safar"
+                                        },
+                                        "serviceType": "Travel Booking",
+                                        "description": "Domestic and International cruise booking assistance for Cordelia, Royal Caribbean, and more."
+                                    }
+                                ]
+                            })}
+                        </script>
                     </Helmet>
 
                     <Navbar />
@@ -115,6 +140,9 @@ const CruiseBooking = () => {
                                     transition={{ delay: 0.2 }}
                                     className="max-w-4xl mx-auto"
                                 >
+                                    <div className="flex justify-center mb-6">
+                                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Cruise Booking', path: '/cruise-booking' }]} />
+                                    </div>
                                     <Badge className="mb-6 bg-cyan-500/20 text-cyan-300 border-cyan-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                                         Premium Ocean Voyages
                                     </Badge>
@@ -133,6 +161,16 @@ const CruiseBooking = () => {
                                         </Button>
                                     </div>
                                 </motion.div>
+                            </div>
+                        </section>
+
+                        <section className="py-12 bg-white dark:bg-slate-950 relative z-20">
+                            <div className="container mx-auto px-4">
+                                <TLDRSection
+                                    title="Quick Answer: Cruise Booking"
+                                    summary="Cruise holidays offer an all-inclusive travel experience combining accommodation, dining, and entertainment on a sailing resort. We simplify the booking process for domestic (Cordelia) and international voyages, ensuring you choose the right cabin and itinerary for a hassle-free vacation."
+                                    areasServed={["Pan India", "International"]}
+                                />
                             </div>
                         </section>
 
@@ -200,7 +238,7 @@ const CruiseBooking = () => {
                         <section className="py-20 bg-muted/20">
                             <div className="container mx-auto px-4">
                                 <div className="text-center mb-16">
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Types of Cruise Holidays</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-4">What are the different types of cruise holidays?</h2>
                                     <p className="text-muted-foreground max-w-2xl mx-auto">
                                         We help travellers plan and book a wide range of cruise holidays tailored to your needs.
                                     </p>
@@ -234,7 +272,7 @@ const CruiseBooking = () => {
                                             <div className="inline-flex items-center gap-2 text-primary font-bold tracking-wider uppercase text-sm mb-2">
                                                 <MapPin className="w-4 h-4" /> Pan-India Service
                                             </div>
-                                            <h2 className="text-3xl font-bold mb-6">Cruise Booking Assistance</h2>
+                                            <h2 className="text-3xl font-bold mb-6">How do we assist with cruise booking?</h2>
                                             <p className="text-muted-foreground mb-6">
                                                 Travellers from different cities often need guidance on choosing the right cruise and planning travel to the cruise departure port. Rudraksh Safar provides complete assistance:
                                             </p>
@@ -345,7 +383,7 @@ const CruiseBooking = () => {
                         <section className="py-20 bg-muted/20">
                             <div className="container mx-auto px-4">
                                 <div className="text-center mb-12">
-                                    <h2 className="text-3xl font-bold mb-4">Experience Life on Deck</h2>
+                                    <h2 className="text-3xl font-bold mb-4">What is the experience like on a cruise ship?</h2>
                                     <p className="text-muted-foreground">From water parks at sea to sunset cocktails, the ship is your playground.</p>
                                 </div>
 
@@ -368,47 +406,19 @@ const CruiseBooking = () => {
 
                         </section>
 
-                        {/* FAQs */}
+                        <FAQsSection
+                            title="Frequently asked questions about cruise holidays"
+                            description="Answers to common questions for first-time cruisers."
+                            faqs={faqs}
+                        />
+
+                        <RelatedServices mode="booking" />
+
                         <section className="py-20 bg-background">
-                            <div className="container mx-auto px-4">
-                                <div className="max-w-3xl mx-auto">
-                                    <div className="text-center mb-12">
-                                        <h2 className="text-3xl font-bold mb-4">Cruise Holidays – FAQs</h2>
-                                        <p className="text-muted-foreground">Answers to common questions for first-time cruisers.</p>
-                                    </div>
-
-                                    <Accordion type="single" collapsible className="w-full">
-                                        {faqs.map((faq, index) => (
-                                            <AccordionItem key={index} value={`item-${index}`}>
-                                                <AccordionTrigger className="text-left font-medium text-lg">
-                                                    {faq.question}
-                                                </AccordionTrigger>
-                                                <AccordionContent className="text-muted-foreground leading-relaxed">
-                                                    {faq.answer}
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        ))}
-                                    </Accordion>
-                                </div>
-                            </div>
-                        </section>
-
-                        import DisclaimerSection from '@/components/DisclaimerSection';
-
-                        // ...
-
-                        {/* FAQs */}
-// ...
-
-                        {/* Disclaimer & CTA */}
-                        <section className="py-12 bg-muted/50">
                             <div className="container mx-auto px-4 text-center">
-                                <div className="max-w-4xl mx-auto mb-12">
-                                    <DisclaimerSection variant="cruise" />
-                                </div>
 
                                 <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-12 text-white text-center shadow-2xl">
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Plan Your Cruise Holiday with Confidence</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-6">How to plan your cruise holiday?</h2>
                                     <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
                                         Whether you are planning a domestic cruise or an international voyage, we simplify the process with clear guidance and personalised assistance.
                                     </p>

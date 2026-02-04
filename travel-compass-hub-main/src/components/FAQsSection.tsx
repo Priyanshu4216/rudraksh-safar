@@ -96,8 +96,26 @@ const FAQsSection = ({
   const [showAll, setShowAll] = useState(false);
   const visibleFaqs = useMemo(() => (showAll ? faqs : faqs.slice(0, 4)), [showAll, faqs]);
 
+  // Generate FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section id="faqs" className="py-20 bg-secondary/30" aria-labelledby="faqs-heading">
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+
       <div className="container mx-auto px-4 max-w-4xl">
         <AnimatedSection animation="fade-up">
           <div className="text-center mb-12">

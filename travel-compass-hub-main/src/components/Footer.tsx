@@ -733,7 +733,8 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 <p className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                   <span className="text-primary-foreground/70">
-                    GE Road, In Front of Petrol Pump<br />Bhilai 3, Chhattisgarh 490021
+                    GE Road, In Front of Petrol Pump<br />Bhilai 3, Chhattisgarh 490021<br />
+                    <span className="text-xs opacity-80 mt-1 block">Serving: Bhilai, Durg, Raipur & Chhattisgarh</span>
                   </span>
                 </p>
                 <p className="flex items-center gap-3">

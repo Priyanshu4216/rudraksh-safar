@@ -89,6 +89,53 @@ const HowItWorks = () => {
                 <title>How it Works - Tour Booking Process | Rudraksh Safar</title>
                 <meta name="description" content="Understand our simple step-by-step tour booking process. From inquiry to travel, see how Rudraksh Safar makes your journey hassle-free. Transparent payments and easy refunds." />
                 <meta name="keywords" content="how tour booking process works, step by step tour booking, travel agency payment methods, tour refund policy, travel agency process, Rudraksh Safar booking" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "HowTo",
+                                "name": "How to Book a Tour Package with Rudraksh Safar",
+                                "description": "A simple step-by-step guide to booking your dream vacation.",
+                                "step": [
+                                    {
+                                        "@type": "HowToStep",
+                                        "name": "Inquiry & Consultation",
+                                        "text": "Share your destination, budget, and dates via Call or WhatsApp for a free consultation."
+                                    },
+                                    {
+                                        "@type": "HowToStep",
+                                        "name": "Itinerary Customization",
+                                        "text": "Our experts craft a personalized plan including hotels, flights, and sightseeing."
+                                    },
+                                    {
+                                        "@type": "HowToStep",
+                                        "name": "Booking & Confirmation",
+                                        "text": "Approve the plan and pay a booking token to lock rates. We book your tickets immediately."
+                                    },
+                                    {
+                                        "@type": "HowToStep",
+                                        "name": "Visa & Documentation",
+                                        "text": "We handle visa paperwork and travel insurance while you relax."
+                                    },
+                                    {
+                                        "@type": "HowToStep",
+                                        "name": "Enjoy Your Trip",
+                                        "text": "Receive your travel kit and enjoy your trip with our 24/7 support."
+                                    }
+                                ]
+                            },
+                            {
+                                "@type": "FAQPage",
+                                "mainEntity": [
+                                    { "@type": "Question", "name": "How does the tour booking process work with a travel agent?", "acceptedAnswer": { "@type": "Answer", "text": "It's a simple stress-free process: Consultation -> Custom Itinerary -> Booking Token -> Vouchers & Tickets -> Travel with 24/7 Support." } },
+                                    { "@type": "Question", "name": "What happens after I book a tour package?", "acceptedAnswer": { "@type": "Answer", "text": "You receive a Booking Confirmation, then we reserve approvals. Within 24-48 hours, you get verified vouchers." } },
+                                    { "@type": "Question", "name": "How are payments and refunds handled?", "acceptedAnswer": { "@type": "Answer", "text": "We accept UPI, Bank Transfer, and Cash. Refunds follow a transparent policy based on airline/hotel cancellation rules." } }
+                                ]
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />

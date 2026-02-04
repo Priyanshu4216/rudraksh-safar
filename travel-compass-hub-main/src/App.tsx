@@ -13,6 +13,7 @@ import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
 import GlobalError from "./components/GlobalError";
+import GlobalSchema from "./components/seo/GlobalSchema";
 
 // Traveller Guide Pages
 
@@ -68,7 +69,9 @@ const WeekendGetawaysBhilai = lazy(() => import("./pages/local/WeekendGetawaysBh
 const TicketBookingBhilai = lazy(() => import("./pages/local/TicketBookingBhilai"));
 const TrainBookingBhilai = lazy(() => import("./pages/local/TrainBookingBhilai"));
 const FlightBookingBhilai = lazy(() => import("./pages/local/FlightBookingBhilai"));
+const CheapestTripsFromBhilai = lazy(() => import("./pages/local/CheapestTripsFromBhilai"));
 const BusBookingBhilai = lazy(() => import("./pages/local/BusBookingBhilai"));
+const PicnicSpotsBhilai = lazy(() => import("./pages/local/PicnicSpotsBhilai"));
 const PassportAgentBhilai = lazy(() => import("./pages/local/PassportAgentBhilai"));
 const TravelAgentRaipur = lazy(() => import("./pages/local/TravelAgentRaipur"));
 const TravelAgentDurg = lazy(() => import("./pages/local/TravelAgentDurg"));
@@ -100,6 +103,7 @@ const BeachHolidayPackages = lazy(() => import("./pages/BeachHolidayPackages"));
 const MountainHolidayPackages = lazy(() => import("./pages/MountainHolidayPackages"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
+const WhereToGoFromBhilai = lazy(() => import("./pages/guides/WhereToGoFromBhilai"));
 
 const queryClient = new QueryClient();
 
@@ -114,6 +118,7 @@ const App = () => (
           <BrowserRouter>
             <ScrollProgressBar />
             <ScrollToTop />
+            <GlobalSchema />
             <GlobalError>
               <Suspense fallback={<GlobalLoader />}>
                 <Routes>
@@ -155,8 +160,12 @@ const App = () => (
                   <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
                   <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
                   <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
-                  <Route path="/weekend-getaways-raipur" element={<WeekendGetawaysRaipur />} />
-                  <Route path="/corporate-tour-packages-bhilai" element={<CorporateTourPackagesBhilai />} />
+                  {/* Local SEO Pages - Raipur & Bhilai */}
+                  <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
+                  <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
+                  <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
+                  <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
+                  <Route path="/tour-packages-from-bhilai/corporate-tours" element={<CorporateTourPackagesBhilai />} />
 
                   {/* Thematic SEO Pages */}
                   <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
@@ -191,22 +200,31 @@ const App = () => (
                   <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
                   <Route path="/international-tour-packages-bhilai" element={<InternationalPackagesBhilai />} />
                   <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
-                  <Route path="/weekend-getaways-bhilai" element={<WeekendGetawaysBhilai />} />
+                  <Route path="/tour-packages-from-bhilai/weekend-getaways" element={<WeekendGetawaysBhilai />} />
                   <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
                   <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
                   <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
+                  <Route path="/tour-packages-from-bhilai/cheapest-trips" element={<CheapestTripsFromBhilai />} />
                   <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
+                  <Route path="/tour-packages-from-bhilai/picnic-spots" element={<PicnicSpotsBhilai />} />
                   <Route path="/passport-agent-bhilai" element={<PassportAgentBhilai />} />
 
-                  {/* New High Reach SEO Routes */}
+                  {/* New High Reach SEO Routes - SILO STRUCTURE */}
                   <Route path="/tour-packages-from-bhilai" element={<TourPackagesFromBhilai />} />
                   <Route path="/tour-packages-from-raipur" element={<TourPackagesFromRaipur />} />
-                  <Route path="/international-tours-from-raipur" element={<InternationalToursFromRaipur />} />
-                  <Route path="/international-tours-from-bhilai" element={<InternationalToursFromBhilai />} />
-                  <Route path="/honeymoon-packages-from-bhilai" element={<HoneymoonPackagesFromBhilai />} />
+
+                  {/* Raipur Silo Children */}
+                  <Route path="/tour-packages-from-raipur/international-tours" element={<InternationalToursFromRaipur />} />
+
+                  {/* Bhilai Silo Children */}
+                  <Route path="/tour-packages-from-bhilai/international-tours" element={<InternationalToursFromBhilai />} />
+                  <Route path="/tour-packages-from-bhilai/honeymoon-packages" element={<HoneymoonPackagesFromBhilai />} />
 
                   {/* Sitemap */}
                   <Route path="/sitemap" element={<Sitemap />} />
+
+                  {/* New Content Hub Routes - Phase 9 */}
+                  <Route path="/guides/where-to-go-from-bhilai" element={<WhereToGoFromBhilai />} />
 
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

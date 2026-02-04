@@ -103,33 +103,30 @@ const VisaFreeCountries = () => {
             <div className="flex justify-center gap-4 mb-8">
               <button
                 onClick={() => setActiveTab('free')}
-                className={`px-6 py-3 rounded-xl font-medium transition-all ${
-                  activeTab === 'free'
+                className={`px-6 py-3 rounded-xl font-medium transition-all ${activeTab === 'free'
                     ? 'bg-secondary text-secondary-foreground shadow-lg'
                     : 'bg-muted hover:bg-muted/80'
-                }`}
+                  }`}
               >
                 <Globe className="w-4 h-4 inline mr-2" />
                 Visa-Free ({visaFreeDestinations.length})
               </button>
               <button
                 onClick={() => setActiveTab('arrival')}
-                className={`px-6 py-3 rounded-xl font-medium transition-all ${
-                  activeTab === 'arrival'
+                className={`px-6 py-3 rounded-xl font-medium transition-all ${activeTab === 'arrival'
                     ? 'bg-secondary text-secondary-foreground shadow-lg'
                     : 'bg-muted hover:bg-muted/80'
-                }`}
+                  }`}
               >
                 <Plane className="w-4 h-4 inline mr-2" />
                 Visa on Arrival ({visaOnArrivalDestinations.length})
               </button>
               <button
                 onClick={() => setActiveTab('evisa')}
-                className={`px-6 py-3 rounded-xl font-medium transition-all ${
-                  activeTab === 'evisa'
+                className={`px-6 py-3 rounded-xl font-medium transition-all ${activeTab === 'evisa'
                     ? 'bg-secondary text-secondary-foreground shadow-lg'
                     : 'bg-muted hover:bg-muted/80'
-                }`}
+                  }`}
               >
                 <FileCheck className="w-4 h-4 inline mr-2" />
                 e-Visa ({eVisaCountries.length})
@@ -324,6 +321,71 @@ const VisaFreeCountries = () => {
           </AnimatedSection>
         </div>
       </main>
+
+      {/* PAA - Frequently Asked Travel Questions */}
+      <section className="py-12 bg-slate-50 dark:bg-slate-900/50 rounded-2xl my-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-center mb-8">Frequently Asked Travel Questions (India & International)</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> What is the cheapest international trip from India?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> Which international trip is best?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  The best international trip depends on travel preferences. Thailand and Bali are popular for first-time international travelers, Dubai is ideal for luxury and short stays, Singapore suits families, and Nepal is best for budget and nature travel. The “best” trip varies based on budget, duration, and interests.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> What is Bhilai famous for?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Bhilai is famous for the Bhilai Steel Plant, one of India’s largest steel manufacturing units. The city is also known for Maitri Bagh, educational institutions, and its planned urban layout. Bhilai serves as an important industrial and residential hub in Chhattisgarh.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> Which is the nearest airport to Bhilai?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  The nearest airport to Bhilai is Swami Vivekananda Airport, Raipur (RPR), located approximately 35–40 km away. It is well connected to major Indian cities like Delhi, Mumbai, Bangalore, and Hyderabad, making it the primary airport for travelers from Bhilai.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> Which 57 countries are visa-free for Indians?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Indian passport holders can travel visa-free or get visa-on-arrival access to countries such as Nepal, Bhutan, Maldives, Mauritius, Sri Lanka, Thailand, Indonesia, Seychelles, Kenya, and Qatar. The exact number and list may change based on diplomatic agreements and travel rules.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="font-bold text-lg mb-3 flex items-start gap-2">
+                  <span className="text-primary mt-1">❓</span> Which country is best for a 4 day trip?
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  For a 4-day international trip from India, destinations like Dubai, Nepal, Sri Lanka, Thailand, and Singapore are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration without rushing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
       <FloatingWhatsApp />

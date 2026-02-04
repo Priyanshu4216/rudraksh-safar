@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import FAQsSection from '@/components/FAQsSection';
+import RelatedServices from '@/components/RelatedServices';
 
 const TourPackagesRaipur = () => {
     return (
@@ -88,7 +89,7 @@ const TourPackagesRaipur = () => {
                             {/* Goa */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/goa,beach" alt="Goa" className="w-full h-full object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Goa" className="w-full h-full object-cover" />
                                     <Badge className="absolute top-4 right-4 bg-yellow-500">Bestseller</Badge>
                                 </div>
                                 <CardHeader>
@@ -120,7 +121,7 @@ const TourPackagesRaipur = () => {
                             {/* Kashmir */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/kashmir,houseboat" alt="Kashmir" className="w-full h-full object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kashmir" className="w-full h-full object-cover" />
                                     <Badge className="absolute top-4 right-4 bg-blue-500">Popular</Badge>
                                 </div>
                                 <CardHeader>
@@ -152,7 +153,7 @@ const TourPackagesRaipur = () => {
                             {/* Thailand */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/thailand,temple" alt="Thailand" className="w-full h-full object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800" alt="Thailand" className="w-full h-full object-cover" />
                                 </div>
                                 <CardHeader>
                                     <div className="flex justify-between items-center mb-2">
@@ -183,7 +184,7 @@ const TourPackagesRaipur = () => {
                             {/* Dubai */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/dubai,skyline" alt="Dubai" className="w-full h-full object-cover" />
+                                    <img src="https://plus.unsplash.com/premium_photo-1697729914552-368899dc4757?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dubai" className="w-full h-full object-cover" />
                                 </div>
                                 <CardHeader>
                                     <div className="flex justify-between items-center mb-2">
@@ -214,7 +215,7 @@ const TourPackagesRaipur = () => {
                             {/* Kerala */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/kerala,backwaters" alt="Kerala" className="w-full h-full object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kerala" className="w-full h-full object-cover" />
                                     <Badge className="absolute top-4 right-4 bg-pink-500">Honeymoon</Badge>
                                 </div>
                                 <CardHeader>
@@ -246,7 +247,7 @@ const TourPackagesRaipur = () => {
                             {/* Manali */}
                             <Card className="overflow-hidden hover:shadow-xl transition-all">
                                 <div className="h-48 bg-gray-200 relative">
-                                    <img src="https://loremflickr.com/800/600/manali,snow" alt="Manali" className="w-full h-full object-cover" />
+                                    <img src="https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Manali" className="w-full h-full object-cover" />
                                 </div>
                                 <CardHeader>
                                     <div className="flex justify-between items-center mb-2">
@@ -372,16 +373,7 @@ const TourPackagesRaipur = () => {
                 />
 
                 {/* Internal Link Section */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-2xl font-bold mb-6">Explore More Options</h2>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="secondary" asChild><Link to="/weekend-getaways-raipur">Weekend Getaways near Raipur</Link></Button>
-                            <Button variant="secondary" asChild><Link to="/honeymoon-packages">Honeymoon Packages</Link></Button>
-                            <Button variant="secondary" asChild><Link to="/group-tour-packages">Group Tour Quotes</Link></Button>
-                        </div>
-                    </div>
-                </section>
+                <RelatedServices mode="packages" />
 
             </main>
             <Footer />

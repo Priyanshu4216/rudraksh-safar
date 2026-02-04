@@ -10,6 +10,8 @@ import LogisticsSection from '@/components/LogisticsSection';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
 
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+
 const InternationalToursFromBhilai = () => {
     const [loading, setLoading] = useState(true);
 
@@ -23,14 +25,14 @@ const InternationalToursFromBhilai = () => {
     if (loading) return <LocationPageLoader />;
 
     const highDemandRoutes: Destination[] = [
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/visa/thailand", rating: "4.8" },
-        { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea936a7fe48?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "5N/6D", link: "/visa/dubai", rating: "4.9" },
-        { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/visa/bali", rating: "4.9" },
-        { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "Starts ₹55,999", duration: "5N/6D", link: "/visa/singapore", rating: "4.8" },
-        { name: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800", price: "Starts ₹38,999", duration: "5N/6D", link: "/visa/malaysia", rating: "4.7" },
-        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/visa/maldives", tag: "Luxury" },
-        { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800", price: "Starts ₹35,999", duration: "6N/7D", link: "/international-packages", tag: "Trending" },
-        { name: "Nepal", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", price: "Starts ₹18,999", duration: "5N/6D", link: "/visa/nepal", tag: "Budget" },
+        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/package/thailand", rating: "4.8" },
+        { name: "Dubai", image: "https://plus.unsplash.com/premium_photo-1697729914552-368899dc4757?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹45,999", duration: "5N/6D", link: "/package/dubai", rating: "4.9" },
+        { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/package/bali", rating: "4.9" },
+        { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "Starts ₹55,999", duration: "5N/6D", link: "/package/singapore", rating: "4.8" },
+        { name: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800", price: "Starts ₹38,999", duration: "5N/6D", link: "/package/malaysia", rating: "4.7" },
+        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/package/maldives-honeymoon", tag: "Luxury" },
+        { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800", price: "Starts ₹35,999", duration: "6N/7D", link: "/package/vietnam", tag: "Trending" },
+        { name: "Nepal", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", price: "Starts ₹18,999", duration: "5N/6D", link: "/package/nepal", tag: "Budget" },
     ];
 
     const bestTimeData = [
@@ -70,7 +72,7 @@ const InternationalToursFromBhilai = () => {
                 <title>International Tours from Bhilai | Thailand, Dubai, Bali Packages</title>
                 <meta name="description" content="Best international tour packages from Bhilai. Plan your trip to Thailand, Dubai, Bali, Maldives. Includes visa, flights & local pickup from Bhilai." />
                 <meta name="keywords" content="international tours from bhilai, foreign trips from bhilai, travel agent bhilai for international tour, thailand package bhilai, dubai tour bhilai" />
-                <link rel="canonical" href="https://rudrakshsafar.com/international-tours-from-bhilai" />
+                <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai/international-tours" />
                 <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
             </Helmet>
 
@@ -82,7 +84,11 @@ const InternationalToursFromBhilai = () => {
                     title="International Tours from Bhilai"
                     subtitle="Your dream international vacation starts here. Hassle-free planning, visas, and transfers."
                     bgImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=2000"
-                />
+                >
+                    <div className="container mx-auto px-4 mt-6">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Bhilai Packages', path: '/tour-packages-from-bhilai' }, { label: 'International Tours', path: '/tour-packages-from-bhilai/international-tours' }]} />
+                    </div>
+                </LocationHero>
 
                 <WhyTravelSection city="Bhilai" />
 

@@ -32,6 +32,27 @@ const TurkeyVisa = () => {
         <title>Turkey Visa for Indians 2026 - e-Visa Requirements & Fees | Rudraksh Safar</title>
         <meta name="description" content="Turkey e-Visa guide for Indians. Apply online for 30-day multiple entry visa. Processing in 24-48 hours, fees $60, documents required & entry rules." />
         <link rel="canonical" href="https://rudrakshsafar.com/visa/turkey" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Turkey e-Visa Assistance",
+            "description": "Professional assistance for Turkey e-Visa application for Indian citizens. 24-48 hour processing.",
+            "image": "https://rudrakshsafar.com/visa-turkey.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "Rudraksh Safar"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://rudrakshsafar.com/visa/turkey",
+              "priceCurrency": "USD",
+              "price": "60",
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2025-12-31"
+            }
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

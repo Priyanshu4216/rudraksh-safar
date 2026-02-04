@@ -1,15 +1,17 @@
 import { MapPin, Phone, ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 
 interface LocationHeroProps {
     city: string;
     title: string;
     subtitle: string;
     bgImage?: string;
+    children?: ReactNode;
 }
 
-const LocationHero = ({ city, title, subtitle, bgImage }: LocationHeroProps) => {
+const LocationHero = ({ city, title, subtitle, bgImage, children }: LocationHeroProps) => {
     return (
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
             {/* Background Image/Video Placeholder */}
@@ -58,7 +60,7 @@ const LocationHero = ({ city, title, subtitle, bgImage }: LocationHeroProps) => 
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                    <Button size="lg" className="h-14 px-8 text-lg font-bold bg-secondary hover:bg-secondary/90 text-primary rounded-full group">
+                    <Button size="lg" className="h-14 px-8 text-lg font-bold bg-secondary hover:bg-secondary/90 text-primary rounded-full group" asChild>
                         <a href={`https://wa.me/919406182174?text=${encodeURIComponent(`Hello, I am interested in Tour Packages from ${city}. Please share the best deals and itineraries.`)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                             <Phone className="w-5 h-5 fill-current" />
                             Get Quote
@@ -66,12 +68,25 @@ const LocationHero = ({ city, title, subtitle, bgImage }: LocationHeroProps) => 
                         </a>
                     </Button>
 
-                    <Button size="lg" variant="outline" className="h-14 px-8 text-lg text-white border-white/30 hover:bg-white/10 rounded-full backdrop-blur-sm">
+                    <Button size="lg" variant="outline" className="h-14 px-8 text-lg text-white border-white/30 hover:bg-white/10 rounded-full backdrop-blur-sm" asChild>
                         <a href="#packages" className="flex items-center gap-2">
                             Explore Packages
                         </a>
                     </Button>
                 </motion.div>
+
+                {/* Optional Children (e.g., Breadcrumbs) */}
+                {children && (
+                    <motion.div
+                        className="mt-8"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.7 }}
+                    >
+                        {children}
+                    </motion.div>
+                )}
+
 
                 {/* Trust Signals */}
                 <motion.div

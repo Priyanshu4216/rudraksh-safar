@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import RelatedServices from '@/components/RelatedServices';
 
 const IndiaPackagesBhilai = () => {
   const localBusinessSchema = {
@@ -72,14 +73,14 @@ const IndiaPackagesBhilai = () => {
   };
 
   const destinations = [
-    { name: "Goa", price: "₹9,999", days: "3N/4D", icon: <Palmtree className="w-12 h-12 text-primary mx-auto" />, highlights: ["Beaches", "Nightlife", "Water Sports"] },
-    { name: "Kerala", price: "₹14,999", days: "5N/6D", icon: <Sailboat className="w-12 h-12 text-primary mx-auto" />, highlights: ["Backwaters", "Munnar", "Alleppey"] },
-    { name: "Kashmir", price: "₹17,999", days: "5N/6D", icon: <MountainSnow className="w-12 h-12 text-primary mx-auto" />, highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
-    { name: "Rajasthan", price: "₹12,999", days: "5N/6D", icon: <Landmark className="w-12 h-12 text-primary mx-auto" />, highlights: ["Jaipur", "Udaipur", "Jaisalmer"] },
-    { name: "Himachal", price: "₹11,999", days: "5N/6D", icon: <Mountain className="w-12 h-12 text-primary mx-auto" />, highlights: ["Manali", "Shimla", "Dharamshala"] },
-    { name: "Ladakh", price: "₹24,999", days: "6N/7D", icon: <MountainSnow className="w-12 h-12 text-primary mx-auto" />, highlights: ["Leh", "Pangong", "Nubra"] },
-    { name: "North-East", price: "₹19,999", days: "6N/7D", icon: <TreePine className="w-12 h-12 text-primary mx-auto" />, highlights: ["Shillong", "Kaziranga", "Tawang"] },
-    { name: "Andaman", price: "₹22,999", days: "5N/6D", icon: <Waves className="w-12 h-12 text-primary mx-auto" />, highlights: ["Havelock", "Neil Island", "Scuba"] },
+    { name: "Goa", price: "₹9,999", days: "3N/4D", image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/package/goa", highlights: ["Beaches", "Nightlife", "Water Sports"] },
+    { name: "Kerala", price: "₹14,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800", link: "/package/kerala-family", highlights: ["Backwaters", "Munnar", "Alleppey"] },
+    { name: "Kashmir", price: "₹17,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/package/kashmir", highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
+    { name: "Rajasthan", price: "₹12,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800", link: "/package/rajasthan-family", highlights: ["Jaipur", "Udaipur", "Jaisalmer"] },
+    { name: "Himachal", price: "₹11,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/package/shimla-manali", highlights: ["Manali", "Shimla", "Dharamshala"] },
+    { name: "Ladakh", price: "₹24,999", days: "6N/7D", image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&q=80&w=800", link: "/package/ladakh", highlights: ["Leh", "Pangong", "Nubra"] },
+    { name: "North-East", price: "₹19,999", days: "6N/7D", image: "https://images.unsplash.com/photo-1596482855174-8b067332da2f?auto=format&fit=crop&q=80&w=800", link: "/package/gangtok-darjeeling", highlights: ["Shillong", "Kaziranga", "Tawang"] },
+    { name: "Andaman", price: "₹22,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=80&w=800", link: "/package/andaman", highlights: ["Havelock", "Neil Island", "Scuba"] },
   ];
 
   const faqs = [
@@ -249,27 +250,33 @@ const IndiaPackagesBhilai = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {destinations.map((dest, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="mb-4 flex justify-center">{dest.icon}</div>
-                    <h3 className="text-xl font-bold text-foreground mb-2 text-center">{dest.name}</h3>
-                    <p className="text-sm text-muted-foreground text-center mb-3">{dest.days}</p>
-                    <p className="text-2xl font-bold text-primary text-center mb-4">From {dest.price}</p>
-                    <ul className="space-y-1 mb-4">
-                      {dest.highlights.map((h, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="w-3 h-3 text-primary" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button asChild className="w-full" variant="outline">
-                      <a href={`https://wa.me/919406182174?text=Hi, I want ${dest.name} tour package from Bhilai`} target="_blank" rel="noopener noreferrer">
-                        Enquire Now
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
+                <Link to={dest.link} key={index} className="group h-full">
+                  <Card className="overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
+                    <div className="h-48 overflow-hidden">
+                      <img
+                        src={dest.image}
+                        alt={dest.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <CardContent className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-foreground mb-2 text-center">{dest.name}</h3>
+                      <p className="text-sm text-muted-foreground text-center mb-3">{dest.days}</p>
+                      <p className="text-2xl font-bold text-primary text-center mb-4">From {dest.price}</p>
+                      <ul className="space-y-1 mb-6 flex-1">
+                        {dest.highlights.map((h, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground justify-center">
+                            <CheckCircle className="w-3 h-3 text-primary" />
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
+                      <Button className="w-full mt-auto" variant="outline">
+                        View Details
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
@@ -380,26 +387,7 @@ const IndiaPackagesBhilai = () => {
         </section>
 
         {/* Internal Links */}
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Related Pages</h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/travel-agent-bhilai" className="text-primary hover:underline font-medium">
-                  Best Travel Agent in Bhilai
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link to="/international-tour-packages-bhilai" className="text-primary hover:underline font-medium">
-                  International Tour Packages from Bhilai
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link to="/tour-packages-bhilai" className="text-primary hover:underline font-medium">
-                  Tour Packages from Bhilai
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <RelatedServices mode="packages" />
       </main >
 
       <Footer />

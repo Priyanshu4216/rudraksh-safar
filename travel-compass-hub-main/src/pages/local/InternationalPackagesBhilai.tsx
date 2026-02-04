@@ -7,6 +7,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import RelatedServices from '@/components/RelatedServices';
 
 const InternationalPackagesBhilai = () => {
   const localBusinessSchema = {
@@ -290,26 +291,7 @@ const InternationalPackagesBhilai = () => {
         </section>
 
         {/* Internal Links */}
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Related Pages</h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/travel-agent-bhilai" className="text-primary hover:underline font-medium">
-                  Best Travel Agent in Bhilai
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link to="/india-tour-packages-bhilai" className="text-primary hover:underline font-medium">
-                  National Tour Packages from Bhilai
-                </Link>
-                <span className="text-muted-foreground">•</span>
-                <Link to="/visa-agent-bhilai" className="text-primary hover:underline font-medium">
-                  Visa Agent in Bhilai
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <RelatedServices mode="packages" />
       </main>
 
       <Footer />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Car, Bus, MapPin, CheckCircle, Phone, Star, Shield, Clock, Users } from 'lucide-react';
+import { Car, Bus, MapPin, CheckCircle, Phone, Star, Shield, Clock, Users, Calendar, Info } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import RelatedServices from '@/components/RelatedServices';
 
 const CabRental = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +55,41 @@ const CabRental = () => {
                 <meta name="description" content="Book premium cabs, Tempo Travellers, and luxury buses for weddings, outstation trips, and corporate events. Service available in Bhilai, Raipur, and across India." />
                 <meta name="keywords" content="cab rental bhilai, taxi service raipur, luxury bus rental, tempo traveller hire, wedding car rental, outstation cabs" />
                 <link rel="canonical" href="https://rudrakshsafar.com/cab-rental" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "Service",
+                                "name": "Cab & Bus Rental Service",
+                                "provider": {
+                                    "@type": "TravelAgency",
+                                    "name": "Rudraksh Safar"
+                                },
+                                "areaServed": ["Bhilai", "Raipur", "Durg", "India"],
+                                "description": "Premium cab, tempo traveller, and luxury bus rental services.",
+                                "offers": {
+                                    "@type": "Offer",
+                                    "priceCurrency": "INR",
+                                    "priceSpecification": [
+                                        { "@type": "UnitPriceSpecification", "price": "10", "referenceQuantity": { "@type": "QuantitativeValue", "unitCode": "KMT", "value": "1" }, "name": "Premium Sedan per km" },
+                                        { "@type": "UnitPriceSpecification", "price": "18", "referenceQuantity": { "@type": "QuantitativeValue", "unitCode": "KMT", "value": "1" }, "name": "Innova Crysta per km" },
+                                        { "@type": "UnitPriceSpecification", "price": "26", "referenceQuantity": { "@type": "QuantitativeValue", "unitCode": "KMT", "value": "1" }, "name": "Tempo Traveller per km" }
+                                    ]
+                                }
+                            },
+                            {
+                                "@type": "FAQPage",
+                                "mainEntity": [
+                                    { "@type": "Question", "name": "Are the fuel and driver charges included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for standard outstation packages, fuel and driver allowance are usually included." } },
+                                    { "@type": "Question", "name": "Can I book a bus for a wedding in Bhilai?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We specialize in wedding transportation with luxury buses and Tempo Travellers." } },
+                                    { "@type": "Question", "name": "Is it safe for solo female travelers?", "acceptedAnswer": { "@type": "Answer", "text": "Safety is our priority. We have verified drivers and GPS-tracked vehicles." } },
+                                    { "@type": "Question", "name": "How do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "You can pay via UPI, Bank Transfer, or Cash." } }
+                                ]
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -79,6 +115,28 @@ const CabRental = () => {
                             <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-xl py-8 px-10 rounded-full" asChild>
                                 <a href="tel:+919406182174">Call +91 94061 82174</a>
                             </Button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* TL;DR & Updated Signal */}
+                <section className="bg-background -mt-8 relative z-20 container mx-auto px-4">
+                    <div className="bg-yellow-50/90 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-lg max-w-5xl mx-auto backdrop-blur-sm">
+                        <div className="flex flex-col md:flex-row gap-6 items-start">
+                            <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Info className="w-5 h-5 text-yellow-700" />
+                                    <h3 className="font-bold text-lg text-yellow-900">TL;DR: Cab & Bus Pricing</h3>
+                                </div>
+                                <p className="text-sm text-yellow-800 leading-relaxed mb-2">
+                                    <strong>Premium Sedan:</strong> ₹10-12/km | <strong>Innova Crysta:</strong> ₹18-22/km | <strong>Tempo Traveller:</strong> ₹26-30/km.
+                                    All vehicles include professional drivers, GPS tracking, and clean interiors.
+                                    <span className="font-semibold px-2">No Hidden Night Charges on One-Way drops.</span>
+                                </p>
+                                <div className="flex items-center gap-2 text-xs font-medium text-yellow-800 bg-yellow-100 px-2 py-1 rounded w-fit">
+                                    <Calendar className="w-3 h-3" /> Rates Updated: February 2026
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -200,6 +258,8 @@ const CabRental = () => {
                         </AccordionItem>
                     </Accordion>
                 </section>
+
+                <RelatedServices mode="booking" />
 
                 {/* Final CTA */}
                 <section className="py-20 bg-yellow-500 text-black text-center">

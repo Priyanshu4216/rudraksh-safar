@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -24,6 +25,10 @@ const DestinationContent = () => {
   if (!destinationSlug || !pageSlug || !isValidDestinationPage(pageSlug)) {
     return (
       <>
+        <Helmet>
+          <meta name="robots" content="noindex" />
+          <title>Page Not Found | Rudraksh Safar</title>
+        </Helmet>
         <Navbar />
         <main className="min-h-screen bg-background pt-28">
           <div className="container">

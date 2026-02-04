@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Plane, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Globe, CreditCard, FileText, Users, Info, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Plane, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Globe, CreditCard, FileText, Users, Info, HelpCircle, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -10,16 +12,24 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import FAQsSection from '@/components/FAQsSection';
+import TLDRSection from '@/components/TLDRSection';
+import LastUpdated from '@/components/LastUpdated';
+import TravelReality from '@/components/TravelReality';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import RelatedServices from '@/components/RelatedServices';
 
 const FlightBookingBhilai = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('rudraksh_flight_loader_shown'));
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
-    }, []);
+        if (isLoading) {
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+                sessionStorage.setItem('rudraksh_flight_loader_shown', 'true');
+            }, 1200);
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading]);
 
     if (isLoading) {
         return <PageLoader type="flight" />;
@@ -73,6 +83,9 @@ const FlightBookingBhilai = () => {
                 <section className="relative py-20 bg-gradient-to-br from-blue-50 via-background to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center">
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Travel Agent Bhilai', path: '/travel-agent-bhilai' }, { label: 'Flight Booking', path: '/flight-booking-bhilai' }]} />
+                            </div>
                             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 px-4 py-2 rounded-full mb-6">
                                 <Plane className="w-4 h-4" />
                                 <span className="text-sm font-medium">Flight Booking Specialist in Bhilai</span>
@@ -95,36 +108,80 @@ const FlightBookingBhilai = () => {
                     </div>
                 </section>
 
+                {/* Airline Partners Marquee */}
+                <section className="bg-slate-900 border-y border-white/10 overflow-hidden py-10">
+                    <div className="container mx-auto px-4 text-center mb-8">
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Which airlines do we book?</h2>
+                    </div>
+
+                    <div className="relative w-full overflow-hidden mb-8">
+                        <div className="flex w-[200%] animate-marquee">
+                            {/* First Set */}
+                            <div className="flex justify-around items-center w-1/2 shrink-0 px-4 gap-8 md:gap-16">
+                                {["IndiGo Airlines", "Air India", "Vistara", "Akasa Air", "SpiceJet", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airway"].map((brand, i) => (
+                                    <span key={i} className="text-xl md:text-2xl font-bold font-serif text-slate-300 whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">
+                                        {brand}
+                                    </span>
+                                ))}
+                            </div>
+                            {/* Duplicate Set for Loop */}
+                            <div className="flex justify-around items-center w-1/2 shrink-0 px-4 gap-8 md:gap-16">
+                                {["IndiGo Airlines", "Air India", "Vistara", "Akasa Air", "SpiceJet", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airway"].map((brand, i) => (
+                                    <span key={`dup-${i}`} className="text-xl md:text-2xl font-bold font-serif text-slate-300 whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">
+                                        {brand}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="container mx-auto px-4 text-center max-w-4xl">
+                        <p className="text-xs text-slate-500 font-light border-t border-slate-800 pt-4">
+                            Rudraksh Safar provides flight booking assistance. Flight prices, schedules, and availability are controlled by airlines and may change without notice. We do not claim official affiliation with any airline.
+                        </p>
+                    </div>
+                </section>
+
                 {/* TL;DR Summary */}
                 <section className="py-12 relative z-20">
                     <div className="container mx-auto px-4">
-                        <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-blue-500 max-w-4xl mx-auto">
-                            <CardContent className="p-8">
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl shrink-0 hidden md:block">
-                                        <Info className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                                    </div>
-                                    <div>
-                                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                            <span className="md:hidden"><Info className="w-6 h-6 text-blue-600" /></span>
-                                            TL;DR (AI Summary)
-                                        </h2>
-                                        <p className="text-muted-foreground leading-relaxed">
-                                            Flight booking services assist travellers with airfare selection, route planning, ticket reservation, and fare understanding. We help travellers choose suitable flight options based on schedule, budget, and destination requirements, ensuring a transparent booking experience.
-                                        </p>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <LastUpdated className="justify-center mb-8" />
+                        </motion.div>
+
+                        <div className="max-w-4xl mx-auto">
+                            <TLDRSection
+                                title="TL;DR: Flight Booking Specialist"
+                                summary="Flight booking services assist travellers with airfare selection, route planning, ticket reservation, and fare understanding. We help travellers choose suitable flight options based on schedule, budget, and destination requirements, ensuring a transparent booking experience."
+                                areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
+                            />
+                        </div>
                     </div>
                 </section>
+
+                {/* Power-Up: Local Reality Check */}
+                <div className="container mx-auto px-4 py-8">
+                    <TravelReality
+                        title="Flight Booking Reality: What Online Apps Don't Tell You"
+                        items={[
+                            { type: 'neutral', text: "Most cheap fares on portals are 'Non-Refundable'. We can hold block seats with flexible cancellation." },
+                            { type: 'positive', text: "For Raipur departures, we can arrange cab pickup from your home in Bhilai along with the flight ticket." },
+                            { type: 'negative', text: "Online portals charge convenience fees of ₹300-500 per person. We charge zero convenience fee on counter bookings." },
+                            { type: 'positive', text: "If a flight is cancelled, getting a refund from portals takes 7-14 days. We provide immediate cash/credit adjustments." }
+                        ]}
+                    />
+                </div>
 
                 {/* Understanding Options */}
                 <section className="py-16">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h2 className="text-3xl font-bold mb-6">Understanding Flight Booking Options</h2>
+                                <h2 className="text-3xl font-bold mb-6">What are the different flight booking options?</h2>
                                 <p className="text-lg text-muted-foreground mb-6">
                                     Air travel involves multiple fare types, baggage rules, and airline policies. Without proper understanding, travellers may face unexpected charges.
                                 </p>
@@ -164,7 +221,7 @@ const FlightBookingBhilai = () => {
                 <section className="py-20">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-4">The Rudraksh Application Advantage</h2>
+                            <h2 className="text-3xl font-bold mb-4">Why choose Rudraksh Safar for flight bookings?</h2>
                             <p className="text-muted-foreground">Why 5000+ flyers choose us over websites.</p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -211,7 +268,7 @@ const FlightBookingBhilai = () => {
                 {/* Direct Flights Table */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold mb-10 text-center">Direct Connectivity from Raipur (RPR)</h2>
+                        <h2 className="text-3xl font-bold mb-10 text-center">Which cities have direct flights from Raipur?</h2>
                         <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
                             <Table>
                                 <TableHeader>
@@ -238,8 +295,52 @@ const FlightBookingBhilai = () => {
                 </section>
 
                 {/* FAQs */}
+                {/* Power-Up: Expected Questions After Booking */}
+                <section className="py-16 bg-white dark:bg-background">
+                    <div className="container mx-auto px-4 max-w-4xl">
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl font-bold font-serif mb-2">What are common concerns after booking?</h2>
+                            <p className="text-muted-foreground">We know you have questions even after paying. Here is what happens next.</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <Card className="border shadow-sm">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold flex items-center gap-2 mb-2 text-primary">
+                                        <HelpCircle className="w-5 h-5" /> When will I get the ticket?
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground">For instant bookings, you get it immediately on WhatsApp/Email. For hold bookings, tickets are released 12-24 hours before travel.</p>
+                                </CardContent>
+                            </Card>
+                            <Card className="border shadow-sm">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold flex items-center gap-2 mb-2 text-primary">
+                                        <HelpCircle className="w-5 h-5" /> What if the flight is delayed?
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground">We track your PNR status. If there is a major delay (2+ hours), we inform you via call/SMS before you leave for the airport.</p>
+                                </CardContent>
+                            </Card>
+                            <Card className="border shadow-sm">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold flex items-center gap-2 mb-2 text-primary">
+                                        <HelpCircle className="w-5 h-5" /> Can I change the date?
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground">Yes. Call us directly. We check the airline reschedule penalty and give you the lowest possible difference fare.</p>
+                                </CardContent>
+                            </Card>
+                            <Card className="border shadow-sm">
+                                <CardContent className="p-6">
+                                    <h3 className="font-bold flex items-center gap-2 mb-2 text-primary">
+                                        <HelpCircle className="w-5 h-5" /> Web Check-in Assistance?
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground">Yes! Send us your PNR 24 hours before travel, and our team will complete your web check-in and send the boarding pass.</p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
                 <FAQsSection
-                    title="Frequently Asked Questions on Flight Booking"
+                    title="Frequently asked questions about flight booking"
                     description="Everything you need to know about booking air tickets from Raipur with Rudraksh Safar."
                     faqs={[
                         {
@@ -286,6 +387,8 @@ const FlightBookingBhilai = () => {
                     ]}
                 />
 
+                <RelatedServices mode="booking" />
+
                 <section className="pb-16 pt-4 bg-background">
                     <div className="container mx-auto px-4">
                         <p className="text-sm text-center text-muted-foreground max-w-3xl mx-auto">
@@ -308,8 +411,23 @@ const FlightBookingBhilai = () => {
                 </section>
 
                 {/* Legal Disclaimer */}
-                <section className="bg-background py-6 border-t">
+                <section className="bg-background py-12 border-t">
                     <div className="container mx-auto px-4">
+                        <h3 className="text-xl font-bold text-center mb-6">More Travel Services in Bhilai</h3>
+                        <div className="flex flex-wrap justify-center gap-4 mb-8">
+                            <Button variant="outline" asChild className="rounded-full">
+                                <Link to="/visa-agent-bhilai">Visa Assistance</Link>
+                            </Button>
+                            <Button variant="outline" asChild className="rounded-full">
+                                <Link to="/passport-agent-bhilai">Passport Services</Link>
+                            </Button>
+                            <Button variant="outline" asChild className="rounded-full">
+                                <Link to="/international-tour-packages-bhilai">International Packages</Link>
+                            </Button>
+                            <Button variant="outline" asChild className="rounded-full">
+                                <Link to="/train-booking-bhilai">Train Booking</Link>
+                            </Button>
+                        </div>
                         <div className="max-w-4xl mx-auto opacity-70">
                             <p className="text-xs text-muted-foreground text-center">
                                 <strong>Disclaimer:</strong> Flight prices are dynamic and subject to change until the ticket is issued. Rudraksh Safar is an authorized booking agent; flight delays, cancellations, or schedule changes are under the airline's jurisdiction.

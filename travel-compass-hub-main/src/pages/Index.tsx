@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 const AboutSection = lazy(() => import('@/components/AboutSection'));
@@ -11,14 +12,16 @@ const FAQsSection = lazy(() => import('@/components/FAQsSection'));
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import LoadingScreen from '@/components/LoadingScreen';
+import TLDRSection from '@/components/TLDRSection';
 import AEOStructuredData from '@/components/AEOStructuredData';
 import AIParseableContent from '@/components/AIParseableContent';
 import PattayaPromoPopup from '@/components/PattayaPromoPopup';
 import SEOHead from '@/components/SEOHead';
 import heroVideo from '@/assets/hero-video.mp4';
+import LastUpdated from '@/components/LastUpdated';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('rudraksh_landing_loader_shown'));
   const [videoReady, setVideoReady] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
@@ -57,7 +60,7 @@ const Index = () => {
     video.load();
 
     // Shorter fallback timeout for faster perceived loading
-    const timeout = setTimeout(() => setVideoReady(true), 2000);
+    const timeout = setTimeout(() => setVideoReady(true), 1200);
 
     return () => {
       video.removeEventListener('loadedmetadata', handleCanPlay);
@@ -69,6 +72,7 @@ const Index = () => {
   useEffect(() => {
     if (animationComplete && videoReady) {
       setIsLoading(false);
+      sessionStorage.setItem('rudraksh_landing_loader_shown', 'true');
     }
   }, [animationComplete, videoReady]);
 
@@ -107,10 +111,52 @@ const Index = () => {
       <main id="main-content" className="min-h-screen bg-background" role="main">
         <HeroSection />
 
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Rudraksh Safar",
+              "image": "https://rudrakshsafar.com/logo.png",
+              "telephone": "+919406182174",
+              "url": "https://rudrakshsafar.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Risali Sector",
+                "addressLocality": "Bhilai",
+                "addressRegion": "Chhattisgarh",
+                "postalCode": "490006",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 21.1938,
+                "longitude": 81.3509
+              },
+              "areaServed": ["Bhilai", "Durg", "Raipur", "Chhattisgarh"],
+              "priceRange": "₹₹",
+              "sameAs": [
+                "https://www.facebook.com/rudrakshsafar",
+                "https://www.instagram.com/rudrakshsafar"
+              ]
+            })}
+          </script>
+        </Helmet>
+
+        {/* AEO: TL;DR Summary Block */}
+        <TLDRSection
+          title="Quick Answer: Best Travel Agency in Bhilai"
+          summary="Rudraksh Safar is a premier travel agency in Bhilai offering domestic and international tour packages, flight bookings, and visa services. We specialize in customized family trips, honeymoon packages, and group tours with 24/7 support for travelers from Bhilai, Durg, and Raipur."
+          areasServed={["Bhilai", "Durg", "Raipur", "Risali"]}
+        />
+
         {/* Service Summary - What We Do */}
         <section className="py-16 bg-white dark:bg-slate-950">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Comprehensive Travel Solutions</h2>
+            <div className="inline-flex items-center justify-center mb-6">
+              <LastUpdated />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Why choose Rudraksh Safar for tour packages in Bhilai?</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-10">
               Rudraksh Safar specializes in affordable <strong>Domestic Tour Packages</strong> (Kashmir, Himachal, Goa, Kerala) and <strong>International Holidays</strong> (Thailand, Dubai, Vietnam).
               We also provide hassle-free <strong>Flight & Train Booking</strong>, <strong>Honeymoon Specials</strong>, and <strong>Corporate Group Tours</strong>.
@@ -124,7 +170,7 @@ const Index = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <a href="/budget-tour-packages" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-primary">Budget Deals</span>
-                <span className="text-xs text-muted-foreground">Starting ₹10,000</span>
+                <span className="text-xs text-muted-foreground">Starting ₹6,999</span>
               </a>
               <a href="/mountain-holiday-packages" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-indigo-600">Mountain Trips</span>

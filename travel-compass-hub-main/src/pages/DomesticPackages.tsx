@@ -10,6 +10,10 @@ import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
+import RelatedServices from '@/components/RelatedServices';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -240,10 +244,9 @@ const DomesticPackages = () => {
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/5" />
           <div className="container relative z-10">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
-            </Link>
+            <div className="flex justify-center mb-6">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Domestic Packages', path: '/domestic-packages' }]} />
+            </div>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
@@ -275,6 +278,25 @@ const DomesticPackages = () => {
         </section>
         <section className="pb-20">
           <div className="container">
+
+            {/* TL;DR Summary */}
+            <AnimatedSection animation="fade-up" delay={100} className="mb-12">
+              <div className="glass-card p-8 border-l-4 border-l-secondary bg-secondary/5">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="p-3 bg-secondary/10 rounded-full shrink-0 hidden md:block">
+                    <Sparkles className="w-6 h-6 text-secondary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">TL;DR (Quick Summary)</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      Explore India's most breathtaking destinations with our curated domestic packages. From the spiritual stillness of Char Dham to the beaches of Goa and the peaks of Ladakh, we offer 100% customizable itineraries including hotels, transfers, and sightseeing.
+                    </p>
+                    <LastUpdated />
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {domesticPackages.map((pkg, index) => (
                 <PackageCard key={pkg.id} pkg={pkg} index={index} />
@@ -296,6 +318,28 @@ const DomesticPackages = () => {
             </AnimatedSection>
           </div>
         </section>
+        <FAQsSection
+          title="Common Questions About Domestic Travel"
+          faqs={[
+            {
+              question: "What are the most popular domestic tour packages?",
+              answer: "Our most popular domestic packages include Kerala (Munnar/Alleppey), Goa (Beaches), Himachal (Manali/Shimla), Kashmir (Srinagar/Gulmarg), and Char Dham Yatra. We also see high demand for Rajasthan and Andaman Islands."
+            },
+            {
+              question: "Do your packages include flights/train tickets?",
+              answer: "Yes, we can include flights or train tickets in your package upon request. By default, many of our featured packages are 'Land Packages' (Hotel + Car + Sightseeing) to give you flexibility, but we are a full-service agency and can handle all ticketing."
+            },
+            {
+              question: "Can I customize the itinerary?",
+              answer: "Absolutely! 100% of our domestic tours are customizable. You can add days, upgrade hotels, change sightseeing spots, or combine two destinations (e.g., Shimla + Manali). Just let our travel expert know your preferences."
+            },
+            {
+              question: "Is travel insurance included?",
+              answer: "Travel insurance is usually optional but highly recommended, especially for adventure trips like Ladakh or high-altitude pilgrimages like Char Dham. We can assist you in purchasing the right policy."
+            }
+          ]}
+        />
+        <RelatedServices mode="packages" />
         <Footer />
         <FloatingWhatsApp />
       </main>

@@ -10,9 +10,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import TLDRSection from '@/components/TLDRSection';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import RelatedServices from '@/components/RelatedServices';
 
 const HotelBooking = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(() => !sessionStorage.getItem('rudraksh_hotel_loader_shown'));
     const brands = [
         "Taj Hotels", "The Oberoi Group", "ITC Hotels", "Marriott", "JW Marriott", "Radisson Blu",
         "Club Mahindra", "Sterling Holidays", "Vivanta", "Mayfair Hotels", "Holiday Inn",
@@ -55,7 +60,10 @@ const HotelBooking = () => {
             </Helmet>
 
             <AnimatePresence>
-                {loading && <HotelLoader onComplete={() => setLoading(false)} />}
+                {loading && <HotelLoader onComplete={() => {
+                    setLoading(false);
+                    sessionStorage.setItem('rudraksh_hotel_loader_shown', 'true');
+                }} />}
             </AnimatePresence>
 
             {!loading && (
@@ -72,6 +80,9 @@ const HotelBooking = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
                             <div className="container relative z-10 text-center px-4">
+                                <div className="flex justify-center mb-6">
+                                    <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Hotel Booking', path: '/hotel-booking' }]} />
+                                </div>
                                 <motion.div
                                     initial={{ y: 30, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -89,19 +100,7 @@ const HotelBooking = () => {
                                         From luxury resorts to budget-friendly stays, we get you the best deals on hotels worldwide.
                                     </p>
 
-                                    {/* Search Bar Visual */}
-                                    <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 flex items-center gap-2 mb-8 shadow-2xl">
-                                        <div className="hidden md:flex items-center gap-2 pl-4 text-slate-300">
-                                            <MapPin className="w-5 h-5 text-blue-400" />
-                                            <span>Where to?</span>
-                                        </div>
-                                        <div className="flex-1 px-4 text-white/50 text-lg flex items-center">
-                                            Enter City, Hotel, or Destination
-                                        </div>
-                                        <Button size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700 h-12 px-8">
-                                            <Search className="w-5 h-5 mr-2" /> Search
-                                        </Button>
-                                    </div>
+
 
                                     <div className="flex flex-wrap gap-4 justify-center text-sm text-slate-400">
                                         <span className="flex items-center gap-1"><CheckCircle className="w-4 h-4 text-green-400" /> Free Cancellation</span>
@@ -141,13 +140,15 @@ const HotelBooking = () => {
 
                         {/* Summary */}
                         <section className="py-20 bg-muted/20">
-                            <div className="container mx-auto px-4 text-center">
-                                <h2 className="text-3xl font-bold mb-6">Simplifying Hotel Bookings</h2>
-                                <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                                    Why scroll through endless websites? We offer <strong>consolidated hotel booking services</strong>.
-                                    Whether you need a budget stay, a 5-star experience, or a bulk booking for weddings, we handle it all with
-                                    <strong> unmatched offline rates</strong>.
-                                </p>
+                            <div className="container mx-auto px-4">
+                                <LastUpdated className="mb-6 justify-center" />
+                                <div className="max-w-4xl mx-auto">
+                                    <TLDRSection
+                                        title="Quick Answer: Hotel Booking Services"
+                                        summary="We offer consolidated hotel booking services for budget, luxury, and corporate stays. Rudraksh Safar provides unmatched offline rates, gst invoices for business travel, and coordination for large groups and weddings in Bhilai, Raipur, and across India."
+                                        areasServed={["Bhilai", "Raipur", "Durg", "Pan India"]}
+                                    />
+                                </div>
                             </div>
                         </section>
 
@@ -155,7 +156,7 @@ const HotelBooking = () => {
                         <section className="py-20">
                             <div className="container mx-auto px-4">
                                 <div className="text-center mb-16">
-                                    <h2 className="text-3xl font-bold mb-4">Hotel Categories We Assist With</h2>
+                                    <h2 className="text-3xl font-bold mb-4">What types of hotels do we book?</h2>
                                     <p className="text-muted-foreground">Suited for every travel style.</p>
                                 </div>
                                 <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -185,7 +186,7 @@ const HotelBooking = () => {
                             <div className="container mx-auto px-4 relative z-10">
                                 <div className="text-center mb-16">
                                     <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 mb-4">bulk & corporate</Badge>
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Specialized Hotel Services</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Do we handle corporate and bulk bookings?</h2>
                                     <p className="text-blue-200/80 max-w-2xl mx-auto">
                                         Beyond individual stays, we provide end-to-end coordination for large groups, events, and business needs.
                                     </p>
@@ -256,31 +257,18 @@ const HotelBooking = () => {
                             </div>
                         </section>
 
-                        {/* FAQs */}
-                        <section className="py-20 bg-muted/20">
-                            <div className="container mx-auto px-4">
-                                <div className="max-w-3xl mx-auto">
-                                    <h2 className="text-3xl font-bold mb-8 text-center">Hotel Booking FAQs</h2>
-                                    <Accordion type="single" collapsible className="w-full">
-                                        {faqs.map((faq, index) => (
-                                            <AccordionItem key={index} value={`item-${index}`}>
-                                                <AccordionTrigger className="text-left font-medium text-lg">
-                                                    {faq.question}
-                                                </AccordionTrigger>
-                                                <AccordionContent className="text-muted-foreground leading-relaxed">
-                                                    {faq.answer}
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        ))}
-                                    </Accordion>
-                                </div>
-                            </div>
-                        </section>
+                        <FAQsSection
+                            title="Frequently Asked Questions about Hotel Booking"
+                            description="Common questions about booking hotels with Rudraksh Safar."
+                            faqs={faqs}
+                        />
+
+                        <RelatedServices mode="booking" />
 
                         {/* CTA */}
                         <section className="py-20 bg-primary/5">
                             <div className="container mx-auto px-4 text-center">
-                                <h2 className="text-3xl font-bold mb-6">Need Help Booking a Hotel?</h2>
+                                <h2 className="text-3xl font-bold mb-6">How to get started with booking?</h2>
                                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                     Whether you are planning a budget stay, family vacation, or luxury holiday, we help you choose suitable hotels with clarity.
                                 </p>

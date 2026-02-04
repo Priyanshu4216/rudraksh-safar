@@ -8,6 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import FAQsSection from '@/components/FAQsSection';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import TLDRSection from '@/components/TLDRSection';
+import RelatedServices from '@/components/RelatedServices';
 
 const PassportAgentBhilai = () => {
     const documents = [
@@ -82,21 +85,17 @@ const PassportAgentBhilai = () => {
                                 Expert guidance for New Passports, Renewals, Name Changes, and Tatkal applications. We handle the paperwork so you travel stress-free.
                             </p>
 
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Agent', path: '/passport-agent-bhilai' }]} />
+                            </div>
+
                             {/* TL;DR Summary Block */}
-                            <div className="bg-card border border-border rounded-xl p-6 shadow-sm text-left mb-8">
-                                <div className="flex items-start gap-4">
-                                    <div className="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
-                                        <Info className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground mb-2">Passport Assistance at a Glance</h3>
-                                        <p className="text-muted-foreground leading-relaxed text-sm">
-                                            A passport agent helps individuals in Bhilai, Durg & Raipur navigate the passport application, renewal, and documentation process.
-                                            <strong>Rudraksh Safar</strong> assists with form filling, document verification, appointment scheduling at PSK Raipur, and clarifying queries to avoid rejection.
-                                            Ideal for <strong>First-time applicants</strong>, <strong>Senior Citizens</strong>, and <strong>Urgent Tatkal cases</strong>.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div className="text-left mb-8">
+                                <TLDRSection
+                                    title="Quick Answer: Passport Services"
+                                    summary="A passport agent helps individuals in Bhilai, Durg & Raipur navigate the passport application, renewal, and documentation process. Rudraksh Safar assists with form filling, document verification, appointment scheduling at PSK Raipur, and clarifying queries to avoid rejection. Ideal for First-time applicants, Senior Citizens, and Urgent Tatkal cases."
+                                    areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
+                                />
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -141,7 +140,7 @@ const PassportAgentBhilai = () => {
                             <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border">
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                                     <UserCheck className="w-6 h-6 text-indigo-600" />
-                                    Who We Assist
+                                    Who do we assist?
                                 </h3>
                                 <div className="space-y-4">
                                     <div className="flex gap-3">
@@ -182,7 +181,7 @@ const PassportAgentBhilai = () => {
                 <section className="py-16 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Core Passport Services</h2>
+                            <h2 className="text-3xl font-bold mb-4">What passport services do we offer?</h2>
                             <p className="text-muted-foreground">We focus on clarity, accuracy, and ease of process.</p>
                         </div>
                         <div className="grid md:grid-cols-3 gap-6">
@@ -250,7 +249,7 @@ const PassportAgentBhilai = () => {
                         <div className="grid md:grid-cols-2 gap-12">
                             {/* Documents */}
                             <div>
-                                <h3 className="text-2xl font-bold mb-6">Required Documents Checklist</h3>
+                                <h3 className="text-2xl font-bold mb-6">What documents are required for a passport?</h3>
                                 <div className="bg-background rounded-xl border overflow-hidden">
                                     <Table>
                                         <TableHeader>
@@ -274,7 +273,7 @@ const PassportAgentBhilai = () => {
 
                             {/* Timeline */}
                             <div>
-                                <h3 className="text-2xl font-bold mb-6">Cost & Timeline Estimates</h3>
+                                <h3 className="text-2xl font-bold mb-6">How much does a passport cost and how long does it take?</h3>
                                 <p className="text-sm text-muted-foreground mb-4">While Govt fees are fixed, timelines vary based on Police Verification.</p>
                                 <div className="bg-background rounded-xl border overflow-hidden">
                                     <Table>
@@ -334,10 +333,12 @@ const PassportAgentBhilai = () => {
                     ]}
                 />
 
+                <RelatedServices mode="booking" />
+
                 {/* CTA */}
                 <section className="py-16 bg-indigo-600 text-white">
                     <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-6">Start Your Application Today</h2>
+                        <h2 className="text-3xl font-bold mb-6">How to start your passport application?</h2>
                         <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
                             Avoid confusion and delays. Get professional help for your passport application in Bhilai.
                         </p>

@@ -10,12 +10,12 @@ import { Badge } from '@/components/ui/badge';
 
 const BeachHolidayPackages = () => {
     const destinations = [
-        { name: "Andaman Islands", tag: "Exotic", desc: "Havelock & Neil Island. Scuba diving paradise." },
-        { name: "Maldives", tag: "Luxury", desc: "Water villas & turquoise lagoons. Visa on Arrival." },
-        { name: "Goa", tag: "Party", desc: "North Goa Nightlife or South Goa Peace." },
-        { name: "Bali", tag: "Culture", desc: "Beaches, Temples & Rice Terraces. Affordable luxury." },
-        { name: "Thailand", tag: "Fun", desc: "Phuket & Krabi island hopping tours." },
-        { name: "Lakshadweep", tag: "Trending", desc: "India's own Maldives. Pristine coral reefs." },
+        { name: "Andaman Islands", tag: "Exotic", desc: "Havelock & Neil Island. Scuba diving paradise.", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=80&w=800" },
+        { name: "Maldives", tag: "Luxury", desc: "Water villas & turquoise lagoons. Visa on Arrival.", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800" },
+        { name: "Goa", tag: "Party", desc: "North Goa Nightlife or South Goa Peace.", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=800" },
+        { name: "Bali", tag: "Culture", desc: "Beaches, Temples & Rice Terraces. Affordable luxury.", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800" },
+        { name: "Thailand", tag: "Fun", desc: "Phuket & Krabi island hopping tours.", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800" },
+        { name: "Lakshadweep", tag: "Trending", desc: "India's own Maldives. Pristine coral reefs.", image: "https://images.unsplash.com/photo-1629859546021-9d80d2165215?auto=format&fit=crop&q=80&w=800" },
     ];
 
     return (
@@ -25,6 +25,24 @@ const BeachHolidayPackages = () => {
                 <meta name="description" content="Plan your dream beach vacation. Exclusive deals on Andaman honeymoon packages, Maldives water villas, and Goa party trips. Flight included options available." />
                 <meta name="keywords" content="beach holiday packages, andaman tour package, maldives honeymoon package, goa trip cost, bali tour package" />
                 <link rel="canonical" href="https://rudrakshsafar.com/beach-holiday-packages" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CollectionPage",
+                        "name": "Beach Holiday Packages",
+                        "description": "Explore top beach destinations including Andaman, Maldives, Goa, and Bali.",
+                        "mainEntity": {
+                            "@type": "ItemList",
+                            "itemListElement": destinations.map((dest, index) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "name": dest.name,
+                                "description": dest.desc,
+                                "image": dest.image
+                            }))
+                        }
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -73,9 +91,13 @@ const BeachHolidayPackages = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {destinations.map((dest, index) => (
                                 <Card key={index} className="overflow-hidden hover:shadow-xl transition-all group">
-                                    <div className="h-48 relative overflow-hidden bg-gradient-to-br from-cyan-100 to-teal-100 dark:from-cyan-950 dark:to-teal-950 flex items-center justify-center">
-                                        <Palmtree className="w-24 h-24 text-teal-300 dark:text-teal-800 opacity-50" />
-                                        <Badge className="absolute top-4 right-4 bg-white/90 text-black">{dest.tag}</Badge>
+                                    <div className="h-48 relative overflow-hidden">
+                                        <img
+                                            src={dest.image}
+                                            alt={dest.name}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                        <Badge className="absolute top-4 right-4 bg-white/90 text-black shadow-sm">{dest.tag}</Badge>
                                     </div>
                                     <CardContent className="p-6">
                                         <h3 className="text-2xl font-bold mb-2">{dest.name}</h3>

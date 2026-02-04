@@ -10,7 +10,10 @@ import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
-
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
+import RelatedServices from '@/components/RelatedServices';
 const PHONE_NUMBER = '919406182174';
 
 const honeymoonPackages = [
@@ -121,7 +124,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof honeymoonPackages[0]; index: 
             <Heart className="w-4 h-4 text-rose-400 fill-rose-400 animate-pulse" />
             <Heart className="w-3 h-3 text-rose-300 fill-rose-300 animate-pulse delay-100" />
           </div>
-          
+
           <div className="relative h-56 overflow-hidden">
             <img src={pkg.image} alt={`${pkg.title} honeymoon package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-rose-900/80 via-rose-900/40 to-transparent" />
@@ -137,7 +140,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof honeymoonPackages[0]; index: 
               </div>
             </div>
           </div>
-          
+
           <div className="p-5">
             <div className="flex items-center justify-between mb-3">
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -156,14 +159,14 @@ const PackageCard = ({ pkg, index }: { pkg: typeof honeymoonPackages[0]; index: 
                 Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
-            
+
             <div className="flex items-center justify-between pt-4 border-t border-rose-200/50 dark:border-rose-800/30">
               <div>
                 <p className="text-xs text-muted-foreground">Starting from</p>
                 <p className="text-xl font-serif font-bold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">{pkg.price}</p>
               </div>
-              <Button 
-                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} 
+              <Button
+                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }}
                 className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-5 py-2.5 text-sm rounded-full shadow-lg hover:shadow-rose-500/25 transition-all"
               >
                 Inquire
@@ -216,19 +219,18 @@ const HoneymoonPackages = () => {
           structuredData={structuredData}
         />
         <Navbar />
-        
+
         {/* Hero Section with romantic gradient */}
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-rose-100/50 via-background to-pink-100/30 dark:from-rose-950/20 dark:to-pink-950/10" />
           <div className="absolute top-20 right-10 w-64 h-64 bg-rose-300/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-pink-300/20 rounded-full blur-3xl" />
-          
+
           <div className="container relative z-10">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-rose-600 transition-colors mb-8 group">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
-            </Link>
-            
+            <div className="flex justify-center mb-6">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Honeymoon Packages', path: '/honeymoon-packages' }]} />
+            </div>
+
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
@@ -242,11 +244,14 @@ const HoneymoonPackages = () => {
                   Honeymoon <span className="bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">Packages</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Begin your forever with unforgettable romantic escapes. From serene backwaters to exotic islands, 
+                  Begin your forever with unforgettable romantic escapes. From serene backwaters to exotic islands,
                   create memories that last a lifetime.
                 </p>
+                <div className="mt-4">
+                  <LastUpdated />
+                </div>
               </AnimatedSection>
-              
+
               <AnimatedSection animation="fade-up" delay={200}>
                 <div className="glass-card p-5 border border-rose-300/30 bg-gradient-to-br from-rose-50/80 to-pink-50/80 dark:from-rose-950/30 dark:to-pink-950/30 max-w-xs">
                   <div className="flex items-center gap-3 mb-2">
@@ -263,7 +268,7 @@ const HoneymoonPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Packages Grid */}
         <section className="pb-20">
           <div className="container">
@@ -274,7 +279,30 @@ const HoneymoonPackages = () => {
             </div>
           </div>
         </section>
-        
+
+        {/* FAQs Section */}
+        <FAQsSection
+          title="Common Questions About Honeymoon Packages"
+          faqs={[
+            {
+              question: "Which destination is best for a honeymoon in India?",
+              answer: "For a romantic getaway in India, Kerala (Backwaters), Kashmir (Snow & Valleys), Andaman (Islands), and Manali (Mountains) are top choices. Udaipur is perfect for a royal heritage experience."
+            },
+            {
+              question: "Do you offer international honeymoon packages?",
+              answer: "Yes! Our most popular international honeymoon destinations include Bali (Indonesia), Maldives (Water Villas), Thailand (Phuket/Krabi), Dubai, and Europe (Paris/Switzerland)."
+            },
+            {
+              question: "Can we customize our honeymoon itinerary?",
+              answer: "Absolutely. We specialize in personalized honeymoon itineraries. You can add candlelit dinners, couple spa sessions, private transfers, and specific experiences to make your trip unique."
+            },
+            {
+              question: "What is included in the honeymoon package?",
+              answer: "Most packages include accommodation, breakfast, transfers, sightseeing, and special honeymoon inclusions like a flower bed decoration, cake, or a romantic dinner. Flights can be added upon request."
+            }
+          ]}
+        />
+
         {/* CTA Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-rose-100/50 to-pink-100/50 dark:from-rose-950/20 dark:to-pink-950/20" />
@@ -284,8 +312,8 @@ const HoneymoonPackages = () => {
                 <Heart className="w-12 h-12 text-rose-500 mx-auto mb-4 fill-current" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Plan Your Perfect Honeymoon</h2>
                 <p className="text-muted-foreground mb-6">Let us create a personalized romantic itinerary just for you two</p>
-                <Button 
-                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like to plan a customized honeymoon package.")}`, '_blank'); }} 
+                <Button
+                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like to plan a customized honeymoon package.")}`, '_blank'); }}
                   className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-rose-500/25 transition-all"
                 >
                   <Heart className="w-4 h-4 mr-2 fill-current" />
@@ -295,7 +323,9 @@ const HoneymoonPackages = () => {
             </AnimatedSection>
           </div>
         </section>
-        
+
+        <RelatedServices mode="packages" />
+
         <Footer />
         <FloatingWhatsApp />
       </main>

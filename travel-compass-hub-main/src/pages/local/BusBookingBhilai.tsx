@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Bus, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Wifi, Armchair } from 'lucide-react';
+import { Bus, Clock, MapPin, CheckCircle, ShieldCheck, Phone, Wifi, Armchair, Ticket, Users, Wallet, CreditCard, Info, AlertOctagon, CheckSquare } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -9,6 +10,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import FAQsSection from '@/components/FAQsSection';
+import TLDRSection from '@/components/TLDRSection';
+import LastUpdated from '@/components/LastUpdated';
+import TravelReality from '@/components/TravelReality';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import RelatedServices from '@/components/RelatedServices';
+import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const BusBookingBhilai = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -72,6 +81,9 @@ const BusBookingBhilai = () => {
                 <section className="relative py-20 bg-gradient-to-br from-purple-50 via-background to-fuchsia-50 dark:from-purple-950/20 dark:to-fuchsia-950/20">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center">
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Services', path: '/services' }, { label: 'Bus Booking', path: '/bus-booking-bhilai' }]} />
+                            </div>
                             <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 px-4 py-2 rounded-full mb-6">
                                 <Bus className="w-4 h-4" />
                                 <span className="text-sm font-medium">Interstate Bus Booking Service</span>
@@ -82,6 +94,14 @@ const BusBookingBhilai = () => {
                             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                 Travel to Hyderabad, Pune, or Indore in style. We book only top-rated AC Sleepers with clean linens and GPS tracking.
                             </p>
+
+                            <div className="text-left max-w-4xl mx-auto mb-8">
+                                <TLDRSection
+                                    title="Quick Answer: Luxury Bus Booking"
+                                    summary="We book premium AC sleeper buses from Bhilai to Hyderabad, Pune, Nagpur, and Indore. Our services include seat selection assurance, ladies' seat safety, and instant refunds on cancellations. We partner only with top-rated operators like Hans and Kanker Travels."
+                                    areasServed={["Bhilai", "Durg", "Raipur"]}
+                                />
+                            </div>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
                                     <a href="https://wa.me/919406182174?text=I need bus ticket" target="_blank" rel="noopener noreferrer">
@@ -129,11 +149,85 @@ const BusBookingBhilai = () => {
                     </div>
                 </section>
 
+                {/* Power-Up: Bus Travel Reality Check */}
+                <div className="container mx-auto px-4 -mt-8 mb-16">
+                    <LastUpdated className="justify-center mb-8" />
+                    <TravelReality
+                        title="Bus Travel Reality: AC vs Non-AC"
+                        items={[
+                            { type: 'neutral', text: "Most 'AC Sleepers' turn off AC during night stops to save fuel. We book premium operators who don't." },
+                            { type: 'negative', text: "Lower berths near the engine (front) are noisy and hot. Avoid seat numbers 1-4." },
+                            { type: 'positive', text: "We explicitly check 'Rest Stop Quality' before recommending a bus operator for long routes." },
+                            { type: 'positive', text: "Single Lady Traveler? We ensure you get a seat next to another female passenger or single aisle seat." }
+                        ]}
+                    />
+                </div>
+
+                {/* Power-Up: Boarding Point Checklist */}
+                <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
+                    <div className="container mx-auto px-4">
+                        <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="flex-1">
+                                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                    <MapPin className="w-6 h-6 text-red-500" /> Where are the bus boarding points in Bhilai?
+                                </h2>
+                                <p className="text-muted-foreground mb-6">Don't get confused. Here is where most buses stop.</p>
+                                <div className="space-y-4">
+                                    <div className="flex gap-4 p-4 bg-white dark:bg-card border rounded-lg shadow-sm">
+                                        <div className="font-bold text-lg min-w-[50px] text-primary">01</div>
+                                        <div>
+                                            <h3 className="font-bold">Power House Bus Stand</h3>
+                                            <p className="text-sm text-muted-foreground">Main pickup for Raipur/Nagpur buses. Crowded but reliable.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 p-4 bg-white dark:bg-card border rounded-lg shadow-sm">
+                                        <div className="font-bold text-lg min-w-[50px] text-primary">02</div>
+                                        <div>
+                                            <h3 className="font-bold">Supela Chowk</h3>
+                                            <p className="text-sm text-muted-foreground">Quick stop for express buses. Be ready 15 mins early.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 p-4 bg-white dark:bg-card border rounded-lg shadow-sm">
+                                        <div className="font-bold text-lg min-w-[50px] text-primary">03</div>
+                                        <div>
+                                            <h3 className="font-bold">Nehru Nagar Square</h3>
+                                            <p className="text-sm text-muted-foreground">Best for travelers from Durg/Pulgaon side.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-1 w-full">
+                                <Card className="bg-yellow-50 dark:bg-yellow-950/20 border-yellow-200">
+                                    <CardHeader>
+                                        <CardTitle className="text-yellow-800 dark:text-yellow-500 flex items-center gap-2">
+                                            <AlertOctagon className="w-5 h-5" /> 3 Golden Rules
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <ul className="space-y-4">
+                                            {[
+                                                "Arrive at boarding point 20 mins before time.",
+                                                "Keep operator number saved (we provide this).",
+                                                "Keep your phone charged; GPS tracking link is sent via SMS."
+                                            ].map((rule, i) => (
+                                                <li key={i} className="flex items-start gap-3">
+                                                    <CheckSquare className="w-5 h-5 text-yellow-600 mt-0.5" />
+                                                    <span className="text-sm font-medium">{rule}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Why Choose Us - Agent Benefits */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Why Book with Rudraksh Safar?</h2>
+                            <h2 className="text-3xl font-bold mb-4">Why book bus tickets with Rudraksh Safar?</h2>
                             <p className="text-muted-foreground">More than just a ticket - we provide travel assurance.</p>
                         </div>
                         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -174,7 +268,7 @@ const BusBookingBhilai = () => {
                 <section className="py-16 bg-background">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto text-center mb-10">
-                            <h2 className="text-3xl font-bold mb-4">Boarding Points in Bhilai-Durg</h2>
+                            <h2 className="text-3xl font-bold mb-4">List of boarding points in Bhilai-Durg</h2>
                             <p className="text-muted-foreground">We ensure you catch your bus from the nearest convenient stop.</p>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -201,7 +295,7 @@ const BusBookingBhilai = () => {
                 {/* Routes Table */}
                 <section className="py-20 bg-muted/30">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold mb-10 text-center">Top Bus Routes from Bhilai</h2>
+                        <h2 className="text-3xl font-bold mb-10 text-center">What are the top bus routes from Bhilai?</h2>
                         <div className="max-w-4xl mx-auto bg-background rounded-xl shadow-lg overflow-hidden">
                             <Table>
                                 <TableHeader>
@@ -228,26 +322,14 @@ const BusBookingBhilai = () => {
                 </section>
 
                 {/* FAQs */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold mb-8 text-center">Bus Booking FAQs</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`faq-${index}`}>
-                                        <AccordionTrigger className="text-left text-lg font-medium">{faq.question}</AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground text-base">{faq.answer}</AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection faqs={faqs} title="Bus Booking FAQs" />
+
+                <RelatedServices mode="booking" />
 
                 {/* CTA */}
                 <section className="py-16 bg-purple-600 text-white">
                     <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-6">Ready to Ride?</h2>
+                        <h2 className="text-3xl font-bold mb-6">How to book a bus seat?</h2>
                         <p className="text-lg opacity-90 mb-8">Secure your preferred seat before the bus fills up.</p>
                         <Button size="lg" variant="secondary" className="text-lg px-8 text-purple-700" asChild>
                             <a href="https://wa.me/919406182174?text=Bus ticket enquiry">

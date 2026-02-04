@@ -10,7 +10,9 @@ import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
-
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 const PHONE_NUMBER = '919406182174';
 
 const familyPackages = [
@@ -199,10 +201,9 @@ const FamilyPackages = () => {
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-cyan-300/20 rounded-full blur-3xl" />
 
           <div className="container relative z-10">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-blue-600 transition-colors mb-8 group">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
-            </Link>
+            <div className="flex justify-center mb-6">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Family Packages', path: '/family-packages' }]} />
+            </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
@@ -220,6 +221,9 @@ const FamilyPackages = () => {
                   Create lasting memories with your loved ones. Kid-friendly destinations, comfortable stays,
                   and guided tours designed for the whole family.
                 </p>
+                <div className="mt-4">
+                  <LastUpdated />
+                </div>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={200}>
@@ -268,6 +272,29 @@ const FamilyPackages = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQs Section */}
+        <FAQsSection
+          title="Common Questions About Family Travel"
+          faqs={[
+            {
+              question: "Which destinations are best for kids?",
+              answer: "Singapore (Zoo, Sentosa), Dubai (Parks, Aquarium), Thailand (Safari World), and in India, places like Munnar, Ooty, and Manali are excellent for children due to their engaging activities and mild weather."
+            },
+            {
+              question: "Do you provide child-friendly food?",
+              answer: "We ensure that hotels and restaurants in our itinerary offer kid-friendly meal options. If you have specific dietary requirements (e.g., for infants), please let us know in advance."
+            },
+            {
+              question: "Is the itinerary relaxed for seniors/kids?",
+              answer: "Yes, our family packages are designed with a 'relaxed pace'. We avoid rushing between spots and include leisure time. We can also arrange private vehicles for convenience."
+            },
+            {
+              question: "Are entry tickets to theme parks included?",
+              answer: "In most packages (like Singapore or Dubai), major attraction tickets are included. We can add or remove attractions based on your family's interests."
+            }
+          ]}
+        />
 
         {/* CTA Section */}
         <section className="py-20 relative overflow-hidden">

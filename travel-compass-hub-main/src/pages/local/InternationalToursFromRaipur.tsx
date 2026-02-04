@@ -10,6 +10,9 @@ import LogisticsSection from '@/components/LogisticsSection';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
 
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import RelatedServices from '@/components/RelatedServices';
+
 const InternationalToursFromRaipur = () => {
     const [loading, setLoading] = useState(true);
 
@@ -72,7 +75,7 @@ const InternationalToursFromRaipur = () => {
                 <title>International Tours from Raipur | Dubai, Thailand, Bali Packages</title>
                 <meta name="description" content="Book international tour packages from Raipur. Best deals on Dubai, Thailand, Bali, Singapore trips with visa & flight support. Start your world tour today!" />
                 <meta name="keywords" content="international tours from raipur, foreign trips from raipur, dubai package from raipur, thailand tour from raipur, visa agent raipur" />
-                <link rel="canonical" href="https://rudrakshsafar.com/international-tours-from-raipur" />
+                <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-raipur/international-tours" />
                 <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
             </Helmet>
 
@@ -84,7 +87,11 @@ const InternationalToursFromRaipur = () => {
                     title="International Tours from Raipur"
                     subtitle="Explore the world with tailored international packages starting from Raipur via major hubs."
                     bgImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=2000"
-                />
+                >
+                    <div className="container mx-auto px-4 mt-6">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Raipur Packages', path: '/tour-packages-from-raipur' }, { label: 'International Tours', path: '/tour-packages-from-raipur/international-tours' }]} />
+                    </div>
+                </LocationHero>
 
                 <WhyTravelSection city="Raipur" />
 
@@ -101,6 +108,7 @@ const InternationalToursFromRaipur = () => {
                     title="International Travel FAQs"
                     description="Clear answers for your international travel plans from Raipur."
                 />
+                <RelatedServices mode="packages" />
             </main>
 
             <Footer />

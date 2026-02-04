@@ -36,6 +36,8 @@ import {
 
 import pattayaHero from "@/assets/hot-deals-pattaya-hero.jpg";
 import coralIslandImg from "@/assets/hot-deals-coral-island.jpg";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import LastUpdated from "@/components/LastUpdated";
 
 const PHONE_NUMBER = "919406182174";
 
@@ -113,9 +115,16 @@ const HotDeals = () => {
 
           <div className="relative container mx-auto px-4 pb-10 md:pb-16">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/20 px-4 py-2 text-sm text-foreground backdrop-blur-md">
+              <div className="flex justify-center md:justify-start mb-6 -ml-4">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Hot Deals', path: '/hot-deals' }]} />
+              </div>
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/20 px-4 py-2 text-sm text-foreground backdrop-blur-md mb-4">
                 <span className="inline-block h-2 w-2 rounded-full bg-secondary shadow-[0_0_18px_hsl(var(--secondary)/0.65)]" />
                 Hot Deals – Fixed Departure Group Tours
+              </div>
+              <div className="mb-4">
+                <LastUpdated className="text-foreground justify-start" />
               </div>
 
               <h1 className="mt-5 text-balance font-serif text-4xl md:text-5xl lg:text-6xl text-foreground">

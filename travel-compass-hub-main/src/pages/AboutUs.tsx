@@ -6,13 +6,16 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
 
 const AboutUs = () => {
     const stats = [
         { label: "Years Experience", value: "12+", icon: Award },
         { label: "Happy Travellers", value: "5000+", icon: Smile },
         { label: "Destinations", value: "40+", icon: Globe },
-        { label: "Support", value: "24/7", icon: Phone }
+        { label: "Support", value: "24/7", icon: Phone },
+        { label: "Last Updated", value: "Feb 2026", icon: CheckCircle }
     ];
 
     const values = [
@@ -40,6 +43,36 @@ const AboutUs = () => {
                 <meta name="description" content="Learn about Rudraksh Safar, Bhilai's most trusted travel agency since 2010. Our story, our values, and why 5000+ travellers choose us for their dream vacations." />
                 <meta name="keywords" content="about Rudraksh Safar, Rudraksh Safar reviews, reliable travel agency Bhilai, Rudraksh Safar owner, travel agency history" />
                 <link rel="canonical" href="https://rudrakshsafar.com/about-rudraksh-safar" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "AboutPage",
+                        "mainEntity": {
+                            "@type": "TravelAgency",
+                            "name": "Rudraksh Safar",
+                            "legalName": "Rudraksh Safar",
+                            "foundingDate": "2010",
+                            "description": "Bhilai's most trusted travel agency offering domestic and international tour packages.",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Bhilai",
+                                "addressRegion": "Chhattisgarh",
+                                "addressCountry": "IN"
+                            },
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+91-9406182174",
+                                "contactType": "customer service",
+                                "areaServed": "IN",
+                                "availableLanguage": ["English", "Hindi"]
+                            },
+                            "sameAs": [
+                                "https://www.facebook.com/rudrakshsafar",
+                                "https://www.instagram.com/rudrakshsafar"
+                            ]
+                        }
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -56,9 +89,15 @@ const AboutUs = () => {
                             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-foreground">
                                 We Are <span className="text-primary">Rudraksh Safar</span>
                             </h1>
+                            <div className="flex justify-center mb-6">
+                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/about-rudraksh-safar' }]} />
+                            </div>
                             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
                                 More than just a travel agency. We are your neighbours, your travel guides, and your safety net in foreign lands.
                             </p>
+                            <div className="flex justify-center mt-4">
+                                <LastUpdated />
+                            </div>
                         </motion.div>
                     </div>
                 </section>

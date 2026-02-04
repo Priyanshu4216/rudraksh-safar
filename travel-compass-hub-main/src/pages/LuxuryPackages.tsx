@@ -10,7 +10,9 @@ import PageLoader from '@/components/PageLoader';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
-
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 const PHONE_NUMBER = '919406182174';
 
 const luxuryPackages = [
@@ -81,7 +83,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
             <Crown className="w-3 h-3" />
             {pkg.tag}
           </div>
-          
+
           <div className="relative h-64 overflow-hidden">
             <img src={pkg.image} alt={`${pkg.title} luxury tour package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent" />
@@ -93,7 +95,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
               </div>
             </div>
           </div>
-          
+
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
               <span className="flex items-center gap-1 text-xs text-muted-foreground tracking-wide">
@@ -112,7 +114,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
                 Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
-            
+
             {/* Perks */}
             <div className="flex flex-wrap gap-2 mb-5">
               {pkg.perks.map((perk, idx) => (
@@ -121,14 +123,14 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
                 </span>
               ))}
             </div>
-            
+
             <div className="flex items-center justify-between pt-5 border-t border-amber-200/30 dark:border-amber-800/20">
               <div>
                 <p className="text-xs text-muted-foreground tracking-wide uppercase">Starting from</p>
                 <p className="text-2xl font-serif font-bold text-amber-700 dark:text-amber-400">{pkg.price}</p>
               </div>
-              <Button 
-                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} 
+              <Button
+                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }}
                 className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white px-6 py-3 text-sm rounded-full shadow-lg hover:shadow-amber-600/20 transition-all tracking-wide"
               >
                 Reserve
@@ -181,18 +183,17 @@ const LuxuryPackages = () => {
           structuredData={structuredData}
         />
         <Navbar />
-        
+
         {/* Hero Section - Minimal & Elegant */}
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-background to-stone-50/20 dark:from-amber-950/10 dark:to-stone-950/10" />
           <div className="absolute top-20 right-10 w-96 h-96 bg-amber-200/10 rounded-full blur-3xl" />
-          
+
           <div className="container relative z-10">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-amber-700 transition-colors mb-8 group">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
-            </Link>
-            
+            <div className="flex justify-center mb-6">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Luxury Packages', path: '/luxury-packages' }]} />
+            </div>
+
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
@@ -206,11 +207,11 @@ const LuxuryPackages = () => {
                   Luxury <span className="text-amber-700 dark:text-amber-400">Escapes</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                  For the discerning traveler who seeks nothing but the finest. 
+                  For the discerning traveler who seeks nothing but the finest.
                   Curated experiences at the world's most exclusive destinations.
                 </p>
               </AnimatedSection>
-              
+
               <AnimatedSection animation="fade-up" delay={200}>
                 <div className="p-6 border border-amber-200/30 dark:border-amber-800/20 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/20 rounded-2xl max-w-xs">
                   <div className="flex items-center gap-3 mb-3">
@@ -227,7 +228,7 @@ const LuxuryPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Premium Badges */}
         <section className="pb-12">
           <div className="container">
@@ -246,7 +247,7 @@ const LuxuryPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Packages Grid */}
         <section className="pb-20">
           <div className="container">
@@ -257,7 +258,7 @@ const LuxuryPackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-amber-50/30 to-stone-50/30 dark:from-amber-950/10 dark:to-stone-950/10" />
@@ -267,8 +268,8 @@ const LuxuryPackages = () => {
                 <Crown className="w-14 h-14 text-amber-600 mx-auto mb-6" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4 tracking-tight">Bespoke Luxury Experiences</h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">Our luxury travel specialists will craft a personalized itinerary tailored to your preferences</p>
-                <Button 
-                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Good day. I'm interested in a bespoke luxury travel experience. Kindly connect me with your luxury travel specialist.")}`, '_blank'); }} 
+                <Button
+                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Good day. I'm interested in a bespoke luxury travel experience. Kindly connect me with your luxury travel specialist.")}`, '_blank'); }}
                   className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white px-10 py-4 rounded-full shadow-lg hover:shadow-amber-600/20 transition-all tracking-wide text-base"
                 >
                   <Crown className="w-4 h-4 mr-2" />
@@ -278,7 +279,7 @@ const LuxuryPackages = () => {
             </AnimatedSection>
           </div>
         </section>
-        
+
         <Footer />
         <FloatingWhatsApp />
       </main>

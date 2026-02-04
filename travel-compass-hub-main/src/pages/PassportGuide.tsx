@@ -6,6 +6,9 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 
 const PassportGuide = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +37,8 @@ const PassportGuide = () => {
         <div className="container max-w-4xl">
           <AnimatedSection>
             <div className="text-center mb-12">
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Guide', path: '/passport-guide' }]} />
+
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <FileCheck className="w-4 h-4" />
                 Travel Documents
@@ -44,6 +49,9 @@ const PassportGuide = () => {
               <p className="text-muted-foreground">
                 Don't let a document error ruin your trip. Master the critical passport regulations—from validity dates to physical condition—required for seamless international travel.
               </p>
+              <div className="flex justify-center mt-4">
+                <LastUpdated />
+              </div>
             </div>
           </AnimatedSection>
 
@@ -234,7 +242,30 @@ const PassportGuide = () => {
             </div>
           </AnimatedSection>
         </div>
-      </main>
+
+        {/* FAQs */}
+        <FAQsSection
+          title="Common Passport Questions"
+          faqs={[
+            {
+              question: "Can I travel if my passport expires in 5 months?",
+              answer: "For most international destinations (Dubai, Thailand, Europe, USA), NO. You typically need 6 months validity. However, some countries may accept 3 months, but it's risky."
+            },
+            {
+              question: "My passport has a small water stain. Is it valid?",
+              answer: "If the personal details, photo, or chip are affected, it is INVALID. If it is just a small stain on a blank page, it *might* be okay, but airlines can deny boarding. It is best to reissue."
+            },
+            {
+              question: "Do children need a separate passport?",
+              answer: "Yes, every individual, including infants, must have their own separate passport."
+            },
+            {
+              question: "How do I fix a name mismatch on my ticket?",
+              answer: "You cannot change the name on the passport easily. You must ensure your ticket is booked with the EXACT name as in the passport. If booked wrong, contact the airline immediately to correct it."
+            }
+          ]}
+        />
+      </main >
 
       <Footer />
       <FloatingWhatsApp />

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Users, GraduationCap, Briefcase, UserCheck, Heart, MapPin, CheckCircle, HelpCircle, Phone, MessageCircle, Info, Plane, Train, Hotel, Calendar } from 'lucide-react';
+import { Users, GraduationCap, Briefcase, UserCheck, Heart, MapPin, CheckCircle, HelpCircle, Phone, MessageCircle, Info, Plane, Train, Hotel, Calendar, Bus, DollarSign } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
+import FAQsSection from '@/components/FAQsSection';
 
 const GroupTourPackages = () => {
     const faqs = [
@@ -41,6 +44,41 @@ const GroupTourPackages = () => {
             <Helmet>
                 <title>Group Tour Packages | Friends, Family, Corporate & College Trips</title>
                 <meta name="description" content="Discover the best group tour packages for family, friends, corporate teams, and students. Affordable, customized, and managed group trips from India." />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "CollectionPage",
+                                "name": "Group Tour Packages",
+                                "description": "Customized group tour packages for friends, families, corporate teams, and students.",
+                                "provider": {
+                                    "@type": "TravelAgency",
+                                    "name": "Rudraksh Safar"
+                                },
+                                "mainEntity": {
+                                    "@type": "ItemList",
+                                    "itemListElement": [
+                                        { "@type": "ListItem", "position": 1, "name": "Family Group Tours" },
+                                        { "@type": "ListItem", "position": 2, "name": "Corporate Offsites" },
+                                        { "@type": "ListItem", "position": 3, "name": "Student & College Trips" },
+                                        { "@type": "ListItem", "position": 4, "name": "Friends & Bachelors Trip" },
+                                        { "@type": "ListItem", "position": 5, "name": "Pilgrimage Groups" }
+                                    ]
+                                }
+                            },
+                            {
+                                "@type": "FAQPage",
+                                "mainEntity": [
+                                    { "@type": "Question", "name": "What is a group tour package?", "acceptedAnswer": { "@type": "Answer", "text": "A group tour package is a travel plan organized for a group of people travelling together under a coordinated itinerary." } },
+                                    { "@type": "Question", "name": "How many people make a group?", "acceptedAnswer": { "@type": "Answer", "text": "Generally 6 or more travellers define a group. Discounts often start from this number." } },
+                                    { "@type": "Question", "name": "Can we customize a group tour?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can customize group tours based on budget, dates, and preference." } },
+                                    { "@type": "Question", "name": "Do group tours cost less than individual travel?", "acceptedAnswer": { "@type": "Answer", "text": "Usually yes, because group rates on hotels and transports reduce overall costs." } }
+                                ]
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -51,6 +89,9 @@ const GroupTourPackages = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 to-slate-900"></div>
                     <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                     <div className="container relative z-10 text-center px-4">
+                        <div className="flex justify-center mb-6">
+                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Group Tours', path: '/group-tour-packages' }]} />
+                        </div>
                         <Badge className="mb-6 bg-indigo-500/20 text-indigo-300 border-indigo-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                             Best Rates for Groups
                         </Badge>
@@ -76,6 +117,9 @@ const GroupTourPackages = () => {
                     <div className="container mx-auto px-4">
                         <Card className="bg-background/95 backdrop-blur shadow-xl border-t-4 border-t-indigo-500 max-w-4xl mx-auto">
                             <CardContent className="p-8">
+                                <div className="mb-4">
+                                    <LastUpdated />
+                                </div>
                                 <div className="flex items-start gap-4">
                                     <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl shrink-0 hidden md:block">
                                         <Info className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
@@ -338,25 +382,35 @@ const GroupTourPackages = () => {
                 </section>
 
                 {/* FAQs */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-3xl mx-auto">
-                            <h2 className="text-3xl font-bold mb-8 text-center">Group Travel FAQs</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`item-${index}`}>
-                                        <AccordionTrigger className="text-left font-medium text-lg">
-                                            {faq.question}
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground leading-relaxed">
-                                            {faq.answer}
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
-                </section>
+                <FAQsSection
+                    title="Group Travel FAQs"
+                    faqs={[
+                        {
+                            question: "What is a group tour package?",
+                            answer: "A group tour package is a travel plan organized for a group of people travelling together under a coordinated itinerary."
+                        },
+                        {
+                            question: "How many people make a group?",
+                            answer: "Generally 6 or more travellers define a group. Discounts often start from this number."
+                        },
+                        {
+                            question: "Can we customize a group tour?",
+                            answer: "Yes. You can customize group tours based on budget, dates, and preference."
+                        },
+                        {
+                            question: "Do group tours cost less than individual travel?",
+                            answer: "Usually yes, because group rates on hotels and transports reduce overall costs."
+                        },
+                        {
+                            question: "Will we have a tour coordinator?",
+                            answer: "Yes, every group gets a dedicated coordinator for itinerary, logistics, and support."
+                        },
+                        {
+                            question: "What documents are required for group travel?",
+                            answer: "ID proofs of all travellers and travel documents (passport for international tours) are required as per destination."
+                        }
+                    ]}
+                />
 
                 {/* Footer CTA */}
                 <section className="py-20 bg-slate-900 text-white border-t border-white/10">

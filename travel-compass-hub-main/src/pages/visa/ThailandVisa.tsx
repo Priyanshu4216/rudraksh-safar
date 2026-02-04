@@ -85,6 +85,23 @@ const ThailandVisa = () => {
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Thailand Visa Assistance",
+            "provider": {
+              "@type": "TravelAgency",
+              "name": "Rudraksh Safar"
+            },
+            "serviceType": "Visa Consulting",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "description": "Expert guidance for Thailand Visa-Free entry requirements and TDAC filing for Indian citizens."
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

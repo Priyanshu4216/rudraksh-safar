@@ -6,6 +6,8 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import LastUpdated from '@/components/LastUpdated';
 
 const Sitemap = () => {
     // Content Data
@@ -36,9 +38,8 @@ const Sitemap = () => {
                 { name: 'Budget Tour Packages', href: '/budget-tour-packages', desc: 'Affordable travel options' },
                 { name: 'Summer Holiday Packages', href: '/summer-holiday-packages', desc: 'Seasonal vacation planning' },
                 { name: 'Group Tour Packages', href: '/group-tour-packages', desc: 'Travel for families, friends, and organisations' },
-                { name: 'Beach Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' },
+                { name: 'Island Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' }, // Renaming Beach to Island/Beach for var
                 { name: 'Mountain Holiday Packages', href: '/mountain-holiday-packages', desc: 'Hill stations and mountain travel' },
-                { name: 'Cruise Booking', href: '/cruise-booking', desc: 'Domestic and international cruise assistance' },
             ]
         },
         {
@@ -54,6 +55,8 @@ const Sitemap = () => {
                 { name: 'International Tours from Bhilai', href: '/international-tours-from-bhilai', desc: 'Global destinations' },
                 { name: 'India Tour Packages from Bhilai', href: '/india-tour-packages-bhilai', desc: 'Domestic trips' },
                 { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai', desc: 'Short trips nearby' },
+                { name: 'Cheapest Trips from Bhilai', href: '/cheapest-trips-from-bhilai', desc: 'Budget travel guide' },
+                { name: 'Picnic Spots Near Bhilai', href: '/picnic-spots-near-bhilai', desc: 'Day outing places' },
                 { name: 'Corporate Tour Packages Bhilai', href: '/corporate-tour-packages-bhilai', desc: 'Business travel solutions' },
                 { name: 'Honeymoon Packages from Bhilai', href: '/honeymoon-packages-from-bhilai', desc: 'Romantic escapes' },
                 { name: 'Travel Guide from Bhilai', href: '/travel-guide-from-bhilai', desc: 'Local travel tips' },
@@ -72,7 +75,7 @@ const Sitemap = () => {
             ]
         },
         {
-            title: "Booking & Travel Assistance",
+            title: "Services",
             description: "High-intent pages for travellers ready to book specific services.",
             icon: Ticket,
             links: [
@@ -84,6 +87,7 @@ const Sitemap = () => {
                 { name: 'Hotel Booking Assistance', href: '/hotel-booking', desc: 'Stays and accommodation' },
                 { name: 'Passport Agent Services', href: '/passport-agent-bhilai', desc: 'New & Renewal assistance' },
                 { name: 'Visa Agent Services', href: '/visa-agent-bhilai', desc: 'Tourist & Business visas' },
+                { name: 'Cruise Booking', href: '/cruise-booking', desc: 'Domestic and international cruise assistance' },
             ]
         },
         {
@@ -104,6 +108,15 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "Comparisons & Decision Guides (AI-Bait)",
+            description: "Detailed breakdown of destinations and travel modes to help you decide.",
+            icon: Sparkles,
+            links: [
+                { name: 'Where To Go From Bhilai', href: '/guides/where-to-go-from-bhilai', desc: 'Weekend & Long Trip Guide' },
+                { name: 'Goa vs Manali', href: '/comparisons/goa-vs-manali-from-chhattisgarh', desc: 'Detailed cost & vibe comparison' },
+            ]
+        },
+        {
             title: "Travel Guides & Tips",
             description: "Educational resources to help travellers plan better and travel safely.",
             icon: FileText,
@@ -117,6 +130,7 @@ const Sitemap = () => {
                 { name: 'Best Time to Visit', href: '/best-time-to-visit', desc: 'Seasonal planning' },
                 { name: 'Travel Health & Safety', href: '/travel-health', desc: 'Vaccines & insurance' },
                 { name: 'Travel Tips & Advice', href: '/travel-tips', desc: 'Smart travel hacks' },
+                { name: 'After Booking Process', href: '/guides/after-booking-guide', desc: 'Timeline & Next Steps' },
             ]
         },
         {
@@ -156,8 +170,13 @@ const Sitemap = () => {
                             Site Map – Rudraksh Safar
                         </h1>
 
+                        <div className="flex justify-center mb-8">
+                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Sitemap', path: '/sitemap' }]} />
+                        </div>
+
                         {/* TL;DR Summary Block */}
                         <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl p-6 shadow-sm text-left mb-8">
+                            <LastUpdated className="mb-4" />
                             <div className="flex items-start gap-4">
                                 <div className="bg-indigo-100 p-3 rounded-lg text-indigo-700 shrink-0 dark:bg-indigo-900/40 dark:text-indigo-300">
                                     <Sparkles className="w-6 h-6" />
@@ -234,35 +253,7 @@ const Sitemap = () => {
                     </div>
                 </section>
 
-                {/* SEO Benefits Section */}
-                <section className="py-16 bg-slate-50 dark:bg-slate-900/50 border-y">
-                    <div className="container mx-auto px-4 text-center max-w-4xl">
-                        <h2 className="text-2xl font-bold mb-8 flex items-center justify-center gap-3">
-                            <Search className="w-6 h-6 text-indigo-500" />
-                            SEO & AEO Benefits of This Page
-                        </h2>
-                        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
-                            {[
-                                "Strengthens internal linking",
-                                "Improves crawl efficiency",
-                                "Reduces orphan pages",
-                                "Helps AI understand categories",
-                                "Supports 'directory-style' searches",
-                                "Builds topical authority"
-                            ].map((benefit, i) => (
-                                <div key={i} className="flex items-center gap-3 bg-background p-4 rounded-lg border shadow-sm">
-                                    <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 text-xs font-bold">
-                                        ✓
-                                    </div>
-                                    <span className="text-sm font-medium text-muted-foreground">{benefit}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <p className="mt-8 text-sm text-muted-foreground italic">
-                            This page silently boosts every other page on your site.
-                        </p>
-                    </div>
-                </section>
+                {/* SEO Benefits Section Removed as per request */}
 
                 {/* Important Note */}
                 <section className="py-10">

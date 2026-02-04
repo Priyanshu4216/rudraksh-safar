@@ -85,6 +85,23 @@ const SingaporeVisa = () => {
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Singapore Visa Assistance",
+            "provider": {
+              "@type": "TravelAgency",
+              "name": "Rudraksh Safar"
+            },
+            "serviceType": "Visa Consulting",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "description": "Expert guidance for Singapore e-Visa application and SG Arrival Card filing for Indian citizens."
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

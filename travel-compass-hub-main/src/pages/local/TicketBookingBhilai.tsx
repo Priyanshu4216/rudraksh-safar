@@ -7,6 +7,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import RelatedServices from '@/components/RelatedServices';
 
 const TicketBookingBhilai = () => {
     const structuredData = {
@@ -228,6 +229,7 @@ const TicketBookingBhilai = () => {
                         </Button>
                     </div>
                 </section>
+                <RelatedServices mode="booking" />
             </main>
             <Footer />
             <FloatingWhatsApp />

@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+
 const WeekendGetawaysRaipur = () => {
     const faqs = [
         {
@@ -38,6 +40,7 @@ const WeekendGetawaysRaipur = () => {
                 <title>Weekend Getaways from Raipur | Short Trips & Nearby Destinations</title>
                 <meta name="description" content="Plan the perfect weekend getaway from Raipur. Explore nearby hill stations, wildlife sanctuaries, and heritage sites with our short trip packages." />
                 <meta name="keywords" content="weekend getaways from raipur, short trips from raipur, 2 day trips near raipur, quick weekend vacation, nearby holiday destinations" />
+                <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-raipur/weekend-getaways" />
             </Helmet>
 
             <Navbar />
@@ -48,6 +51,9 @@ const WeekendGetawaysRaipur = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-slate-900"></div>
                     <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                     <div className="container relative z-10 text-center px-4">
+                        <div className="flex justify-center mb-6">
+                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Raipur Packages', path: '/tour-packages-from-raipur' }, { label: 'Weekend Getaways', path: '/tour-packages-from-raipur/weekend-getaways' }]} />
+                        </div>
                         <Badge className="mb-6 bg-emerald-500/20 text-emerald-300 border-emerald-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                             Refresh & Recharge
                         </Badge>
