@@ -42,32 +42,7 @@ const TravelAgentRaipur = () => {
     };
 
     // FAQ Schema handled by FAQsSection component
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Which is the best travel agent in Raipur?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Rudraksh Safar is a top-rated travel agent serving Raipur. We provide customized domestic and international tour packages with office support nearby in Bhilai, ensuring trust and on-ground assistance."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Do you offer international tour packages from Raipur?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, we offer comprehensive international packages from Raipur to Dubai, Thailand, Bali, Singapore, and more. We handle flights from Swami Vivekananda Airport (RPR), visas, and hotel bookings."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What are the payment options available?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We accept all major payment modes including UPI, Bank Transfer, Cheque, and Cash at our office. We also offer EMI options for select high-value international packages."
-            }
-        }
-    ]
+
 
 
     const services = [
@@ -134,31 +109,32 @@ const TravelAgentRaipur = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.8 }}>
                             <div className="max-w-4xl mx-auto text-center">
-                            <div className="flex justify-center mb-6">
-                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Travel Agent Raipur', path: '/travel-agent-raipur' }]} />
-                            </div>
-                            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-4 py-2 rounded-full mb-6 border border-blue-200">
-                                <CheckCircle className="w-4 h-4" />
-                                <span className="text-sm font-medium">Trusted by Travelers in Raipur & Bhilai</span>
-                            </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-                                Best Travel Agent in <span className="text-primary">Raipur</span>
-                            </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-                                Expert holiday planning right from your city. Specializing in family trips, honeymoons, and group tours from <strong>Raipur (RPR)</strong>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button size="lg" asChild className="text-lg px-8 h-12 shadow-md hover:shadow-lg transition-all">
-                                    <a href="https://wa.me/919406182174?text=Hi, I am from Raipur and need travel assistance" target="_blank" rel="noopener noreferrer">
-                                        <MessageCircle className="w-5 h-5 mr-2" />
-                                        Chat on WhatsApp
-                                    </a>
-                                </Button>
-                                <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12">
-                                    <a href={`tel:+919406182174`}>Call Expert: 94061 82174</a>
-                                </Button>
+                                <div className="flex justify-center mb-6">
+                                    <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Travel Agent Raipur', path: '/travel-agent-raipur' }]} />
+                                </div>
+                                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-4 py-2 rounded-full mb-6 border border-blue-200">
+                                    <CheckCircle className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Trusted by Travelers in Raipur & Bhilai</span>
+                                </div>
+                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                                    Best Travel Agent in <span className="text-primary">Raipur</span>
+                                </h1>
+                                <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+                                    Expert holiday planning right from your city. Specializing in family trips, honeymoons, and group tours from <strong>Raipur (RPR)</strong>.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Button size="lg" asChild className="text-lg px-8 h-12 shadow-md hover:shadow-lg transition-all">
+                                        <a href="https://wa.me/919406182174?text=Hi, I am from Raipur and need travel assistance" target="_blank" rel="noopener noreferrer">
+                                            <MessageCircle className="w-5 h-5 mr-2" />
+                                            Chat on WhatsApp
+                                        </a>
+                                    </Button>
+                                    <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12">
+                                        <a href={`tel:+919406182174`}>Call Expert: 94061 82174</a>
+                                    </Button>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
