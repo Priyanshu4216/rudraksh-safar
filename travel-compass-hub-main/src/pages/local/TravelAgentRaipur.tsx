@@ -2,6 +2,10 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, CheckCircle, Users, Shield, Award, MessageCircle, FileCheck, Plane, ArrowRight, Sun, Snowflake, Mountain, Palmtree } from 'lucide-react';
 import { motion } from 'framer-motion';
+import GoogleMapEmbed from '@/components/GoogleMapEmbed';
+import CustomerGallery from '@/components/CustomerGallery';
+import TrustBadges from '@/components/TrustBadges';
+import LocalCoverage from '@/components/LocalCoverage';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -137,6 +141,16 @@ const TravelAgentRaipur = () => {
                                 </div>
                             </div>
                         </motion.div>
+                    </div>
+                </section>
+
+                {/* Google Map Section */}
+                <section className="py-12 bg-background">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <GoogleMapEmbed lazyLoad={true} />
+                            <CustomerGallery className="mt-8" />
+                        </div>
                     </div>
                 </section>
 

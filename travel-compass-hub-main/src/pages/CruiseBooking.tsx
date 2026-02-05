@@ -9,15 +9,19 @@ import CruiseLoader from '@/components/CruiseLoader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import DisclaimerSection from '@/components/DisclaimerSection';
 import FAQsSection from '@/components/FAQsSection';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import TLDRSection from '@/components/TLDRSection';
 import RelatedServices from '@/components/RelatedServices';
 
 const CruiseBooking = () => {
-    const [loading, setLoading] = useState(() => !sessionStorage.getItem('rudraksh_cruise_loader_shown'));
+    const [loading, setLoading] = useState(() => {
+        try {
+            return !sessionStorage.getItem('rudraksh_cruise_loader_shown');
+        } catch {
+            return true;
+        }
+    });
 
     const cruiseTypes = [
         {
@@ -106,8 +110,8 @@ const CruiseBooking = () => {
                         <meta name="description" content="Book domestic & international cruise packages with Rudraksh Safar. All-inclusive luxury cruises for families, couples & first-timers. Expert guidance & best prices." />
                         <meta name="keywords" content="cruise booking india, luxury cruise holidays, cordelia cruise booking, international cruise packages, family cruise vacation, honeymoon cruise" />
                         <link rel="canonical" href="https://rudrakshsafar.com/cruise-booking" />
-                        <script type="application/ld+json">
-                            {JSON.stringify({
+                        <script type="application/ld+json" dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
                                 "@context": "https://schema.org",
                                 "@graph": [
                                     {
@@ -121,8 +125,8 @@ const CruiseBooking = () => {
                                         "description": "Domestic and International cruise booking assistance for Cordelia, Royal Caribbean, and more."
                                     }
                                 ]
-                            })}
-                        </script>
+                            })
+                        }} />
                     </Helmet>
 
                     <Navbar />

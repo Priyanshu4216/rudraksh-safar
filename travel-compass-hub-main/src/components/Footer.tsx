@@ -887,9 +887,12 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <p className="text-primary-foreground/60 text-center md:text-left">
               © {new Date().getFullYear()} Rudraksh Safar. All rights reserved.
             </p>
-            <p className="text-primary-foreground/40 text-center md:text-right">
+            <p className="text-primary-foreground/60 text-center md:text-right">
               Designed with care for seamless travel experiences
             </p>
+          </div>
+          <div className="pb-6 text-center">
+            <p className="text-sm font-medium text-primary-foreground/80">⭐⭐⭐⭐⭐ 5.0 Rated on Google | Rudraksh Safar</p>
           </div>
         </div>
       </footer>

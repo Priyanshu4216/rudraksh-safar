@@ -2,6 +2,10 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, CheckCircle, Users, Shield, Award, MessageCircle, FileCheck, Plane, ArrowRight, Sun, Snowflake, Mountain, Palmtree, BrainCircuit, HeartHandshake, Globe, Bus } from 'lucide-react';
 import { motion } from 'framer-motion';
+import GoogleMapEmbed from '@/components/GoogleMapEmbed';
+import CustomerGallery from '@/components/CustomerGallery';
+import TrustBadges from '@/components/TrustBadges';
+import LocalCoverage from '@/components/LocalCoverage';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -189,6 +193,8 @@ const TravelAgentBhilai = () => {
             </div>
           </section>
         </div>
+
+        <TrustBadges />
 
 
         <div className="container mx-auto px-4">
@@ -439,17 +445,8 @@ const TravelAgentBhilai = () => {
               </div>
 
               {/* Map */}
-              <div className="h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-background">
-                <iframe
-                  src="https://www.google.com/maps?q=21.206181,81.424916&hl=en&z=15&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="Rudraksh Safar Office Location"
-                />
-              </div>
+              <GoogleMapEmbed lazyLoad={true} />
+              <CustomerGallery className="mt-8" />
             </div>
           </div>
         </section>

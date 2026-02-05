@@ -10,6 +10,9 @@ import LocationPageLoader from '@/components/LocationPageLoader';
 import { Card, CardContent } from '@/components/ui/card';
 import { Plane, Clock, FileCheck, CheckCircle, Sun, Shield, Users, Award, Palmtree, Snowflake, Mountain } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GoogleMapEmbed from '@/components/GoogleMapEmbed';
+import CustomerGallery from '@/components/CustomerGallery';
+import TrustBadges from '@/components/TrustBadges';
 
 const TravelAgentDurg = () => {
     const [loading, setLoading] = useState(true);
@@ -130,7 +133,14 @@ const TravelAgentDurg = () => {
                     bgImage="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000"
                 />
 
+                <TrustBadges />
+
                 <WhyTravelSection city="Durg" />
+
+                <section className="py-8 container mx-auto px-4">
+                    <GoogleMapEmbed lazyLoad={true} />
+                    <CustomerGallery className="mt-8" />
+                </section>
 
                 {/* Services Grid */}
                 <section className="py-16 bg-muted/30">

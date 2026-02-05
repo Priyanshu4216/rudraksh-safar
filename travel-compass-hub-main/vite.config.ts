@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => ({
         clientsClaim: true,
         // Clean old caches on update
         cleanupOutdatedCaches: true,
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}"],
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB limit, exclude large videos
         runtimeCaching: [
           {

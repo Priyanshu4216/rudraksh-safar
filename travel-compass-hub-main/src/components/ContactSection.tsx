@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import GoogleMapEmbed from './GoogleMapEmbed';
+import CustomerGallery from './CustomerGallery';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -42,7 +44,7 @@ const ContactSection = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Bot protection hook
   const { honeypotProps, validateSubmission, recordSubmission, isRateLimited } = useBotProtection();
 
@@ -57,7 +59,7 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Bot protection check
     if (!validateSubmission()) {
       if (isRateLimited) {
@@ -75,7 +77,7 @@ const ContactSection = () => {
 
     // Validate form data with zod
     const result = contactFormSchema.safeParse(formData);
-    
+
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
       result.error.errors.forEach((err) => {
@@ -102,7 +104,7 @@ const ContactSection = () => {
     // Create sanitized WhatsApp message
     const sanitizedData = result.data;
     const message = `New Inquiry from Website:\n\nName: ${sanitizedData.name}\nEmail: ${sanitizedData.email}\nPhone: ${sanitizedData.phone}\nDestination Interest: ${sanitizedData.destination || 'Not specified'}\n\nMessage: ${sanitizedData.message}`;
-    
+
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${sanitizeUrlParam(message)}`, '_blank');
 
     toast({
@@ -297,6 +299,12 @@ const ContactSection = () => {
               </p>
             </form>
           </div>
+        </div>
+
+        {/* Google Map Embed */}
+        <div className="mt-16 max-w-4xl mx-auto space-y-8">
+          <GoogleMapEmbed lazyLoad={true} />
+          <CustomerGallery />
         </div>
       </div>
     </section>
