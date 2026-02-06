@@ -8,7 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import SecurityProvider from "./components/SecurityProvider";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
-import PWAReloadPrompt from "./components/PWAReloadPrompt";
+import ReloadPrompt from "./components/ReloadPrompt";
 import Index from "./pages/Index";
 import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
@@ -148,7 +148,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <PWAReloadPrompt />
+          <ReloadPrompt />
           <BrowserRouter>
             <ScrollProgressBar />
             <HomeLoader />

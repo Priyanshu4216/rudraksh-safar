@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     VitePWA({
-      registerType: "prompt", // Changed from autoUpdate to prompt
+      registerType: "autoUpdate",
       includeAssets: ["favicon.png", "favicon.ico", "og-image.png"],
       manifest: {
         name: "Rudraksh Safar - Best Travel Agency Bhilai",
