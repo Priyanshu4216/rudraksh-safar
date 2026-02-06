@@ -13,14 +13,39 @@ const GlobalLoader = () => {
                 />
 
                 {/* Logo Image */}
-                <motion.img
-                    src="/images/loader-logo.png"
-                    alt="Loading..."
-                    className="relative z-10 w-48 h-auto object-contain"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                />
+                {/* Animated Compass Icon */}
+                <div className="relative z-10 w-24 h-24 flex items-center justify-center">
+                    <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80" height="80"
+                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                        className="text-primary"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {/* Outer Ring */}
+                        <circle cx="12" cy="12" r="10" className="opacity-30" />
+
+                        {/* Inner Ticks */}
+                        <path d="M12 2v2M12 20v2M2 12h2M20 12h2" className="opacity-50" />
+
+                        {/* Spinning Needle - Wrapped in Group for better pivot control */}
+                        <motion.g
+                            initial={{ rotate: 0 }}
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
+                            style={{ originX: "0.5", originY: "0.5" }}
+                        >
+                            <polygon
+                                points="12 4 14 12 12 20 10 12"
+                                fill="currentColor"
+                                stroke="none"
+                            />
+                        </motion.g>
+                    </motion.svg>
+                </div>
 
                 {/* Pulse Animation Overlay */}
                 <motion.div
