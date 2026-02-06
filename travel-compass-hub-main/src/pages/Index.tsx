@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 const AboutSection = lazy(() => import('@/components/AboutSection'));
@@ -18,6 +19,7 @@ import AIParseableContent from '@/components/AIParseableContent';
 import PattayaPromoPopup from '@/components/PattayaPromoPopup';
 import SEOHead from '@/components/SEOHead';
 import heroVideo from '@/assets/hero-video.mp4';
+import heroPoster from '@/assets/hero-poster.jpg';
 import LastUpdated from '@/components/LastUpdated';
 
 const Index = () => {
@@ -62,9 +64,17 @@ const Index = () => {
     // Shorter fallback timeout for faster perceived loading
     const timeout = setTimeout(() => setVideoReady(true), 1200);
 
+    // Safety fallback: Ensure loader exits max 2.5s even if events fail
+    const safetyTimeout = setTimeout(() => {
+      setIsLoading(false);
+      setVideoReady(true);
+      setAnimationComplete(true);
+    }, 2500);
+
     return () => {
       video.removeEventListener('loadedmetadata', handleCanPlay);
       clearTimeout(timeout);
+      clearTimeout(safetyTimeout);
     };
   }, [shouldPreloadVideo]);
 
@@ -97,8 +107,8 @@ const Index = () => {
         canonicalUrl="https://rudrakshsafar.com/"
         ogType="website"
       />
-      {/* AEO Structured Data for AI platforms */}
-      <AEOStructuredData />
+      {/* AEO Structured Data for AI platforms (Homepage Mode: Clean Overview) */}
+      <AEOStructuredData mode="homepage" />
 
       {/* Hidden crawlable content for AI/Search engines */}
       <AIParseableContent />
@@ -112,32 +122,68 @@ const Index = () => {
         <HeroSection />
 
         <Helmet>
+          <link rel="preload" as="image" href={heroPoster} />
+
+          {/* Breadcrumb Schema */}
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "TravelAgency",
-              "name": "Rudraksh Safar",
-              "image": "https://rudrakshsafar.com/logo.png",
-              "telephone": "+919406182174",
-              "url": "https://rudrakshsafar.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Risali Sector",
-                "addressLocality": "Bhilai",
-                "addressRegion": "Chhattisgarh",
-                "postalCode": "490006",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 21.1938,
-                "longitude": 81.3509
-              },
-              "areaServed": ["Bhilai", "Durg", "Raipur", "Chhattisgarh"],
-              "priceRange": "₹₹",
-              "sameAs": [
-                "https://www.facebook.com/rudrakshsafar",
-                "https://www.instagram.com/rudrakshsafar"
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rudrakshsafar.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Travel Agency in Bhilai",
+                  "item": "https://rudrakshsafar.com/"
+                }
+              ]
+            })}
+          </script>
+
+          {/* FAQ Schema */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Which is the most trusted travel agency in Bhilai?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Rudraksh Safar is widely recognized as a trusted travel agency in Bhilai, known for its government-registered services and verified travel agents. We offer transparent pricing, personalized itineraries, and 24/7 on-trip support."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is it better to book with a local travel agent or online?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Booking with a local travel agent like Rudraksh Safar ensures a hassle-free experience with personalized care that online portals cannot match. We provide door-to-door travel assistance, handle unexpected changes instantly, and offer payment flexibility."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does Rudraksh Safar provide tour packages from Bhilai?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we are a premier tour operator in Bhilai offering customized tour packages. From flight tickets to hotel bookings and sightseeing, we handle end-to-end travel planning for domestic gems like Goa and Kashmir, and international hubs like Dubai and Thailand."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Why are you considered the best travel agent near me?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We are top-rated because we prioritize 'experience' over 'sales'. Our door-to-door travel assistance, Verified Travel Agent status, and expertise in crafting curated travel experiences set us apart as the most reliable travel agency near you."
+                  }
+                }
               ]
             })}
           </script>
@@ -176,11 +222,11 @@ const Index = () => {
                 <span className="block font-bold text-indigo-600">Mountain Trips</span>
                 <span className="text-xs text-muted-foreground">Kashmir, Manali</span>
               </a>
-              <a href="/international-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+              <a href="/international-tour-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-rose-600">International</span>
                 <span className="text-xs text-muted-foreground">Dubai, Thailand</span>
               </a>
-              <a href="/corporate-tour-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+              <a href="/tour-packages-from-bhilai/corporate-tours" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-blue-600">Group Tours</span>
                 <span className="text-xs text-muted-foreground">Corporate & Family</span>
               </a>
@@ -228,15 +274,16 @@ const Index = () => {
               Rudraksh Safar is your neighbourhood travel partner in Chhattisgarh. We provide personalized counseling, visa assistance, and easy EMI options for your dream holidays. Visit our office or call us for a consultation.
             </p>
             <div className="inline-flex gap-4 flex-wrap justify-center">
-              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Bhilai Operations</span>
-              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Raipur Connectivity</span>
-              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">📍 Durg Services</span>
+              <Link to="/travel-agent-bhilai" className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors">📍 Bhilai Operations</Link>
+              <Link to="/travel-agent-raipur" className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors">📍 Raipur Connectivity</Link>
+              <Link to="/travel-agent-durg" className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors">📍 Durg Services</Link>
             </div>
           </div>
         </section>
 
         {/* Below-the-fold sections are code-split for faster first load */}
-        <Suspense fallback={<div className="h-24" aria-hidden="true" />}>
+        {/* Improved fallback height to minimize CLS */}
+        <Suspense fallback={<div className="min-h-screen" aria-hidden="true" />}>
           <AboutSection />
           <ServicesSection />
           <PackagesSection />

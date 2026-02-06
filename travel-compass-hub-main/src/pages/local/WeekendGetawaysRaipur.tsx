@@ -49,7 +49,7 @@ const WeekendGetawaysRaipur = () => {
                 {/* Hero Section */}
                 <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-emerald-950 text-white">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-slate-900"></div>
-                    <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
+                    <div className="absolute inset-0 bg-muted/10"></div>
                     <div className="container relative z-10 text-center px-4">
                         <div className="flex justify-center mb-6">
                             <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Raipur Packages', path: '/tour-packages-from-raipur' }, { label: 'Weekend Getaways', path: '/tour-packages-from-raipur/weekend-getaways' }]} />

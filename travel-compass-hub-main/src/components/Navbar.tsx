@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 import logoLight from '@/assets/logo-light.png';
 import logoDark from '@/assets/logo-dark.png';
+import { Helmet } from 'react-helmet-async';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
@@ -82,267 +83,282 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
     setOpenDropdown(null);
   };
 
+  // Schema for SiteNavigationElement
+  const navSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": navLinks.map((link, index) => ({
+      "@type": "SiteNavigationElement",
+      "position": index + 1,
+      "name": link.name,
+      "url": `https://rudrakshsafar.com${link.href.startsWith('#') ? '/' + link.href : link.href}`
+    }))
+  };
+
   return (
-<header ref={ref}>
+    <header ref={ref}>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(navSchema)}
+        </script>
+      </Helmet>
+
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50' 
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
+            ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
             : 'bg-transparent py-4'
-        }`}
+          }`}
         role="navigation"
         aria-label="Main navigation"
       >
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-3 group"
-        >
-          <img 
-            src={getLogo()} 
-            alt="Rudraksh Safar" 
-            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-          />
-        </Link>
+        <div className="container mx-auto flex items-center justify-between">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="flex items-center gap-3 group"
+            aria-label="Rudraksh Safar Home"
+          >
+            <img
+              src={getLogo()}
+              alt="Rudraksh Safar Logo"
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              width="150"
+              height="50"
+            />
+          </Link>
 
-        {/* Desktop Navigation - Moved to right */}
-        <div className="hidden lg:flex items-center gap-4">
-          <div className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${
-            isScrolled 
-              ? 'bg-muted/80' 
-              : isHomePage 
-                ? 'bg-background/10 backdrop-blur-md border border-white/10'
-                : 'bg-muted/80'
-          }`}>
-            {navLinks.map((link) => (
-              <div key={link.name} className="relative group">
-                {link.dropdown ? (
-                  <button
-                    onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                    className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'bg-secondary text-secondary-foreground shadow-md'
-                        : isScrolled || !isHomePage
-                          ? 'text-foreground hover:bg-secondary/10'
-                          : 'text-primary-foreground/90 hover:bg-white/10'
-                    }`}
-                  >
-                    {link.name}
-                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
-                  </button>
-                ) : link.isRoute ? (
-                  <Link
-                    to={link.href}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
-                      link.highlight
-                        ? `hot-deals-fire relative overflow-hidden ${
-                            (link.href === '/' && isHomePage && activeSection === 'home')
-                              ? 'bg-secondary text-secondary-foreground shadow-md'
-                              : isScrolled || !isHomePage
-                                ? 'text-foreground hover:bg-secondary/10'
-                                : 'text-primary-foreground/90 hover:bg-white/10'
+          {/* Desktop Navigation - Moved to right */}
+          <div className="hidden lg:flex items-center gap-4">
+            <ul className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${isScrolled
+                ? 'bg-muted/80'
+                : isHomePage
+                  ? 'bg-background/10 backdrop-blur-md border border-white/10'
+                  : 'bg-muted/80'
+              }`}>
+              {navLinks.map((link) => (
+                <li key={link.name} className="relative group">
+                  {link.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                        className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.replace('#', '')
+                            ? 'bg-secondary text-secondary-foreground shadow-md'
+                            : isScrolled || !isHomePage
+                              ? 'text-foreground hover:bg-secondary/10'
+                              : 'text-primary-foreground/90 hover:bg-white/10'
+                          }`}
+                        aria-expanded={openDropdown === link.name}
+                        aria-haspopup="true"
+                      >
+                        {link.name}
+                        <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
+                      </button>
+                      {/* Dropdown Menu */}
+                      <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                        <ul className="bg-background/95 backdrop-blur-xl rounded-2xl p-2 min-w-[200px] border border-border shadow-xl">
+                          {link.dropdown.map((item) => (
+                            <li key={item.name}>
+                              {item.isRoute ? (
+                                <Link
+                                  to={item.href}
+                                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  <div className="w-2 h-2 rounded-full bg-secondary/50" />
+                                  {item.name}
+                                </Link>
+                              ) : (
+                                <a
+                                  href={item.href}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavClick(item.href);
+                                  }}
+                                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
+                                >
+                                  <div className="w-2 h-2 rounded-full bg-secondary/50" />
+                                  {item.name}
+                                </a>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  ) : link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${link.highlight
+                          ? `hot-deals-fire relative overflow-hidden ${(link.href === '/' && isHomePage && activeSection === 'home')
+                            ? 'bg-secondary text-secondary-foreground shadow-md'
+                            : isScrolled || !isHomePage
+                              ? 'text-foreground hover:bg-secondary/10'
+                              : 'text-primary-foreground/90 hover:bg-white/10'
                           }`
-                        : (link.href === '/' && isHomePage && activeSection === 'home')
+                          : (link.href === '/' && isHomePage && activeSection === 'home')
+                            ? 'bg-secondary text-secondary-foreground shadow-md'
+                            : isScrolled || !isHomePage
+                              ? 'text-foreground hover:bg-secondary/10'
+                              : 'text-primary-foreground/90 hover:bg-white/10'
+                        }`}
+                      aria-current={location.pathname === link.href ? 'page' : undefined}
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${activeSection === link.href.replace('#', '')
                           ? 'bg-secondary text-secondary-foreground shadow-md'
                           : isScrolled || !isHomePage
                             ? 'text-foreground hover:bg-secondary/10'
                             : 'text-primary-foreground/90 hover:bg-white/10'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'bg-secondary text-secondary-foreground shadow-md'
-                        : isScrolled || !isHomePage
-                          ? 'text-foreground hover:bg-secondary/10'
-                          : 'text-primary-foreground/90 hover:bg-white/10'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                )}
-
-                {/* Dropdown Menu */}
-                {link.dropdown && (
-                  <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl p-2 min-w-[200px] border border-border shadow-xl">
-                      {link.dropdown.map((item) => (
-                        item.isRoute ? (
-                          <Link
-                            key={item.name}
-                            to={item.href}
-                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            <div className="w-2 h-2 rounded-full bg-secondary/50" />
-                            {item.name}
-                          </Link>
-                        ) : (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleNavClick(item.href);
-                            }}
-                            className="flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary/10 hover:text-secondary transition-all duration-200"
-                          >
-                            <div className="w-2 h-2 rounded-full bg-secondary/50" />
-                            {item.name}
-                          </a>
-                        )
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          <ThemeToggle />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex lg:hidden items-center gap-3">
-          <ThemeToggle />
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`p-2.5 rounded-xl transition-all duration-300 ${
-              isScrolled || !isHomePage
-                ? 'bg-muted text-foreground' 
-                : 'glass text-primary-foreground'
-            }`}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu (full-screen overlay so it always opens on mobile/tablet) */}
-      <div
-        className={`lg:hidden fixed inset-0 z-[101] transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-        aria-hidden={!isMobileMenuOpen}
-      >
-        {/* Backdrop */}
-        <button
-          type="button"
-          className="absolute inset-0 bg-background/30 backdrop-blur-sm"
-          onClick={() => {
-            setIsMobileMenuOpen(false);
-            setOpenDropdown(null);
-          }}
-          aria-label="Close menu"
-        />
-
-        {/* Panel */}
-        <div className="relative mt-[72px]">
-          <div className="bg-background/95 backdrop-blur-xl mx-4 rounded-2xl p-5 max-h-[80vh] overflow-y-auto border border-border shadow-xl">
-            {navLinks.map((link) => (
-              <div key={link.name} className="border-b border-border/30 last:border-0">
-                {link.dropdown ? (
-                  <div>
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                      className="flex items-center justify-between w-full py-4 font-medium text-foreground"
+                        }`}
                     >
                       {link.name}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          openDropdown === link.name ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        openDropdown === link.name ? 'max-h-[300px] pb-2' : 'max-h-0'
-                      }`}
-                    >
-                      {link.dropdown.map((item) =>
-                        item.isRoute ? (
-                          <Link
-                            key={item.name}
-                            to={item.href}
-                            className="flex items-center gap-3 py-3 pl-4 text-muted-foreground hover:text-secondary transition-colors"
-                            onClick={() => {
-                              setIsMobileMenuOpen(false);
-                              setOpenDropdown(null);
-                            }}
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
-                            {item.name}
-                          </Link>
-                        ) : (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleNavClick(item.href);
-                            }}
-                            className="flex items-center gap-3 py-3 pl-4 text-muted-foreground hover:text-secondary transition-colors"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
-                            {item.name}
-                          </a>
-                        )
-                      )}
-                    </div>
-                  </div>
-                ) : link.isRoute ? (
-                  <Link
-                    to={link.href}
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      setOpenDropdown(null);
-                    }}
-                    className={`block py-4 font-medium transition-colors ${
-                      link.highlight
-                        ? 'text-foreground'
-                        : link.href === '/' && isHomePage
-                          ? 'text-secondary'
-                          : 'text-foreground'
-                    }`}
-                  >
-                    {link.highlight ? (
-                      <span className="inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-secondary/10 px-3 py-1">
-                        <span className="inline-block h-2 w-2 rounded-full bg-secondary shadow-[0_0_14px_hsl(var(--secondary)/0.7)]" />
-                        {link.name}
-                      </span>
-                    ) : (
-                      link.name
-                    )}
-                  </Link>
-                ) : (
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
-                    className={`block py-4 font-medium transition-colors ${
-                      activeSection === link.href.replace('#', '') ? 'text-secondary' : 'text-foreground'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                )}
-              </div>
-            ))}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2.5 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
+                  ? 'bg-muted text-foreground'
+                  : 'glass text-primary-foreground'
+                }`}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
-      </div>
-    </nav>
+
+        {/* Mobile Menu (full-screen overlay so it always opens on mobile/tablet) */}
+        <div
+          className={`lg:hidden fixed inset-0 z-[101] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+            }`}
+          aria-hidden={!isMobileMenuOpen}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-background/30 backdrop-blur-sm"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setOpenDropdown(null);
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Panel */}
+          <div className="relative mt-[72px]">
+            <div className="bg-background/95 backdrop-blur-xl mx-4 rounded-2xl p-5 max-h-[80vh] overflow-y-auto border border-border shadow-xl">
+              <ul className="flex flex-col">
+                {navLinks.map((link) => (
+                  <li key={link.name} className="border-b border-border/30 last:border-0">
+                    {link.dropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                          className="flex items-center justify-between w-full py-4 font-medium text-foreground"
+                          aria-expanded={openDropdown === link.name}
+                        >
+                          {link.name}
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : ''
+                              }`}
+                          />
+                        </button>
+                        <ul
+                          className={`overflow-hidden transition-all duration-300 ${openDropdown === link.name ? 'max-h-[300px] pb-2' : 'max-h-0'
+                            }`}
+                        >
+                          {link.dropdown.map((item) => (
+                            <li key={item.name}>
+                              {item.isRoute ? (
+                                <Link
+                                  to={item.href}
+                                  className="flex items-center gap-3 py-3 pl-4 text-muted-foreground hover:text-secondary transition-colors"
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <div className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
+                                  {item.name}
+                                </Link>
+                              ) : (
+                                <a
+                                  href={item.href}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavClick(item.href);
+                                  }}
+                                  className="flex items-center gap-3 py-3 pl-4 text-muted-foreground hover:text-secondary transition-colors"
+                                >
+                                  <div className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
+                                  {item.name}
+                                </a>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setOpenDropdown(null);
+                        }}
+                        className={`block py-4 font-medium transition-colors ${link.highlight
+                            ? 'text-foreground'
+                            : link.href === '/' && isHomePage
+                              ? 'text-secondary'
+                              : 'text-foreground'
+                          }`}
+                        aria-current={location.pathname === link.href ? 'page' : undefined}
+                      >
+                        {link.highlight ? (
+                          <span className="inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-secondary/10 px-3 py-1">
+                            <span className="inline-block h-2 w-2 rounded-full bg-secondary shadow-[0_0_14px_hsl(var(--secondary)/0.7)]" />
+                            {link.name}
+                          </span>
+                        ) : (
+                          link.name
+                        )}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(link.href);
+                        }}
+                        className={`block py-4 font-medium transition-colors ${activeSection === link.href.replace('#', '') ? 'text-secondary' : 'text-foreground'
+                          }`}
+                      >
+                        {link.name}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 });

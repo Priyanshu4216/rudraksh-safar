@@ -4,6 +4,7 @@ const GlobalSchema = () => {
     const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
+        "@id": "https://rudrakshsafar.com/#travelagency",
         "name": "Rudraksh Safar",
         "image": "https://rudrakshsafar.com/logo-dark.png",
         "url": "https://rudrakshsafar.com",
@@ -32,7 +33,13 @@ const GlobalSchema = () => {
             "https://www.facebook.com/rudrakshsafar",
             "https://www.instagram.com/rudrakshsafar"
         ],
-        "areaServed": ["Bhilai", "Durg", "Raipur", "Chhattisgarh", "India"],
+        "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Bhilai" },
+            { "@type": "AdministrativeArea", "name": "Durg" },
+            { "@type": "AdministrativeArea", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Chhattisgarh" },
+            { "@type": "Country", "name": "India" }
+        ],
         "priceRange": "₹₹"
     };
 

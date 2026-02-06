@@ -6,7 +6,7 @@ const allPackages = {
     { name: "Andaman Beach Holiday", description: "6-day tropical beach vacation to pristine Andaman Islands with scuba diving, snorkeling, and Cellular Jail visit.", price: 32999, duration: "6 Days / 5 Nights", location: "Andaman Islands, India", highlights: ["Radhanagar Beach", "Havelock Island", "Scuba Diving", "Cellular Jail"], includes: ["Beach resort", "All meals", "Ferry transfers", "Water sports"], bestTime: "October to May", difficulty: "Easy - beach holiday" },
     { name: "Kashmir Paradise", description: "6-day romantic getaway to Kashmir with Dal Lake houseboat stay, Gulmarg gondola, and Mughal gardens.", price: 22999, duration: "6 Days / 5 Nights", location: "Jammu & Kashmir, India", highlights: ["Dal Lake", "Gulmarg", "Pahalgam", "Mughal Gardens"], includes: ["Houseboat + hotel", "All meals", "Shikara ride", "Gondola tickets"], bestTime: "March to October", difficulty: "Easy - romantic" },
     { name: "Udaipur Royal Escape", description: "4-day heritage tour of Udaipur - City of Lakes with palace visits, boat rides, and Rajasthani culture.", price: 14999, duration: "4 Days / 3 Nights", location: "Rajasthan, India", highlights: ["City Palace", "Lake Pichola", "Jag Mandir", "Kumbhalgarh"], includes: ["Heritage hotel", "Breakfast", "Boat rides", "Sightseeing"], bestTime: "October to March", difficulty: "Easy - cultural" },
-    
+
     { name: "Shimla Manali Adventure", description: "7-day adventure tour covering two of India's most popular hill stations with snow activities and paragliding.", price: 15999, duration: "7 Days / 6 Nights", location: "Himachal Pradesh, India", highlights: ["Mall Road Shimla", "Solang Valley", "Rohtang Pass", "Hadimba Temple"], includes: ["Hotels", "Breakfast", "Volvo/cab", "Sightseeing"], bestTime: "October to February for snow", difficulty: "Easy to Moderate" },
     { name: "Kodaikanal Retreat", description: "4-day nature retreat to Princess of Hill Stations with lakes, waterfalls, and pine forests.", price: 13999, duration: "4 Days / 3 Nights", location: "Tamil Nadu, India", highlights: ["Kodaikanal Lake", "Coaker's Walk", "Pillar Rocks", "Silver Cascade"], includes: ["Hotel", "Breakfast", "Transfers", "Sightseeing"], bestTime: "April to June, September to October", difficulty: "Easy - nature retreat" },
     { name: "Char Dham Yatra", description: "Complete 12-day pilgrimage covering Yamunotri, Gangotri, Kedarnath, and Badrinath temples.", price: 17999, duration: "12 Days / 11 Nights", location: "Uttarakhand, India", highlights: ["Yamunotri", "Gangotri", "Kedarnath", "Badrinath"], includes: ["Hotels", "All meals", "Transportation", "Temple assistance"], bestTime: "May to June, September to October", difficulty: "Moderate - pilgrimage" },
@@ -23,73 +23,81 @@ const allPackages = {
   ]
 };
 
-const AEOStructuredData = () => {
-  // Generate comprehensive ItemList schema for all packages
+interface AEOStructuredDataProps {
+  mode?: 'homepage' | 'listing';
+}
+
+const AEOStructuredData = ({ mode = 'homepage' }: AEOStructuredDataProps) => {
+  // Determine packages to show based on mode
+  // Homepage: Limit to top 3 domestic + top 3 international (safe overview)
+  // Listing: Show all packages (full detail)
+  const domesticPackages = mode === 'homepage' ? allPackages.domestic.slice(0, 3) : allPackages.domestic;
+  const internationalPackages = mode === 'homepage' ? allPackages.international.slice(0, 3) : allPackages.international;
+
+  const totalItems = domesticPackages.length + internationalPackages.length;
+
+  // Generate schema items based on mode
+  const generateSchemaItems = (packages: typeof allPackages.domestic, startIndex: number) => {
+    return packages.map((pkg, index) => {
+      const baseItem = {
+        "@type": "TouristTrip",
+        "name": pkg.name,
+        "description": pkg.description,
+        "touristType": "Family, Couples, Groups",
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": pkg.highlights.map((h, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": h
+          }))
+        }
+        // Location inferred from name/description safely
+      };
+
+      // Full schema for listings pages ONLY
+      if (mode === 'listing') {
+        return {
+          "@type": "ListItem",
+          "position": startIndex + index + 1,
+          "item": {
+            ...baseItem,
+            "offers": {
+              "@type": "Offer",
+              "price": pkg.price,
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@id": "https://rudrakshsafar.com/#travelagency"
+              }
+            },
+            // Add visible details only
+            "duration": pkg.duration,
+            "provider": {
+              "@id": "https://rudrakshsafar.com/#travelagency"
+            }
+          }
+        };
+      }
+
+      // Safe, lightweight schema for Homepage
+      return {
+        "@type": "ListItem",
+        "position": startIndex + index + 1,
+        "item": baseItem
+      };
+    });
+  };
+
   const packageListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Tour Packages from Bhilai & Raipur - Rudraksh Safar",
-    "description": "Complete list of domestic and international tour packages available from Rudraksh Safar, Bhilai. Cheapest prices guaranteed with pickup from Bhilai, Raipur, and Durg.",
-    "numberOfItems": allPackages.domestic.length + allPackages.international.length,
+    "name": mode === 'homepage' ? "Popular Tour Packages - Rudraksh Safar Overview" : "Complete Tour Packages Catalog - Rudraksh Safar",
+    "description": "Curated selection of domestic and international tour packages from Bhilai and Raipur.",
+    "numberOfItems": totalItems,
     "itemListElement": [
-      ...allPackages.domestic.map((pkg, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "TouristTrip",
-          "name": pkg.name,
-          "description": pkg.description,
-          "touristType": "Family, Couples, Solo Travelers, Groups",
-          "itinerary": {
-            "@type": "ItemList",
-            "itemListElement": pkg.highlights.map((h, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": h
-            }))
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": pkg.price,
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock",
-            "validFrom": "2024-01-01",
-            "priceValidUntil": "2025-12-31",
-            "seller": {
-              "@type": "TravelAgency",
-              "name": "Rudraksh Safar"
-            }
-          }
-        }
-      })),
-      ...allPackages.international.map((pkg, index) => ({
-        "@type": "ListItem",
-        "position": allPackages.domestic.length + index + 1,
-        "item": {
-          "@type": "TouristTrip",
-          "name": pkg.name,
-          "description": pkg.description,
-          "touristType": "Family, Couples, Honeymoon, Groups",
-          "itinerary": {
-            "@type": "ItemList",
-            "itemListElement": pkg.highlights.map((h, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": h
-            }))
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": pkg.price,
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-              "@type": "TravelAgency",
-              "name": "Rudraksh Safar"
-            }
-          }
-        }
-      }))
+      ...generateSchemaItems(domesticPackages, 0),
+      ...generateSchemaItems(internationalPackages, domesticPackages.length)
     ]
   };
 

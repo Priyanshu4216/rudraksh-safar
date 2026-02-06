@@ -110,51 +110,51 @@ const ForTravellers = () => {
   const travelGuideCategories = [
     {
       id: 'visa',
-      title: 'Visa Guide',
+      title: 'Visa Guide – Document Checklist',
       icon: FileCheck,
       color: 'from-blue-500 to-indigo-600',
       description: 'Complete visa requirements for Indian travellers',
       sections: [
         {
           title: 'Visa Types',
-          content: 'Tourist visa, Transit visa, On-arrival visa, eVisa - each country has different requirements. Tourist visas are most common for leisure travel and typically valid for 30-90 days.'
+          content: 'Tourist visas are issued for leisure travel and sightseeing and usually allow stays between 14 and 90 days depending on the country. Transit visas are required when changing flights in certain countries even if you do not leave the airport. Visa-on-arrival allows Indians to obtain entry permission at the destination airport, while eVisas are applied online before travel and approved electronically. Always confirm visa type before booking flights, as rules differ by passport and destination.'
         },
         {
           title: 'Documents Required',
-          content: 'Valid passport (6+ months validity), passport-size photos, bank statements (3-6 months), flight tickets, hotel bookings, travel insurance, invitation letter (if applicable).'
+          content: 'Indian travellers generally need a passport with at least 6 months validity, recent photographs, confirmed flight tickets, hotel bookings, bank statements for the last 3–6 months, travel insurance, and sometimes an invitation letter. Some countries may also ask for employment proof or income documents. Missing or inconsistent documents are one of the most common reasons for visa delays or rejection.'
         },
         {
           title: 'Processing Time',
-          content: 'Standard processing: 5-15 working days. Express processing: 2-5 days (additional fees apply). Some countries offer visa on arrival or eVisa within 24-72 hours.'
+          content: 'Visa processing times vary widely. eVisas may be approved within 24–72 hours, while embassy visas can take 5–15 working days or longer during peak seasons. Appointment-based visas (such as Schengen) require advance scheduling, so applications should ideally be started 4–6 weeks before travel.'
         },
         {
           title: 'Visa-Free Countries for Indians',
-          content: 'Bhutan, Nepal, Maldives, Thailand (on arrival), Indonesia (on arrival), Mauritius, Seychelles, and several Caribbean nations offer visa-free or visa-on-arrival access.'
+          content: 'Indian passport holders can enter certain countries without a pre-approved visa or obtain a visa on arrival. These typically include neighbouring countries and selected island or tourist destinations. Entry conditions may still require return tickets, hotel bookings, and sufficient funds, so visa-free does not mean document-free.'
         }
       ]
     },
     {
       id: 'passport',
-      title: 'Passport Rules',
+      title: 'Passport Rules – Validity & Requirements',
       icon: FileText,
       color: 'from-green-500 to-emerald-600',
-      description: 'Passport requirements and validity rules',
+      description: 'Check your passport before booking',
       sections: [
         {
           title: 'Minimum Validity',
-          content: 'Most countries require 6 months passport validity beyond your travel dates. Some require validity for the entire trip duration plus 3 months.'
+          content: 'Most countries require passports to remain valid for at least six months beyond the return date. Even if your trip is short, airlines and immigration officers may deny boarding or entry if this rule is not met. Renew your passport early to avoid last-minute issues.'
         },
         {
           title: 'Blank Pages',
-          content: 'Minimum 2 blank pages required for entry stamps. Some countries like USA, UK require blank pages facing each other.'
+          content: 'Immigration stamps and visas require blank pages. A minimum of two blank pages is standard, but some destinations require blank pages facing each other. If your passport is nearly full, renewal is strongly recommended before international travel.'
         },
         {
           title: 'Damaged Passport',
-          content: 'Torn, water-damaged, or heavily worn passports may be rejected at immigration. Get a replacement before travel if your passport shows wear.'
+          content: 'Passports with torn pages, water damage, loose binding, or unclear photographs can be rejected at immigration. Even minor damage can cause denial of boarding. If your passport condition is questionable, apply for a replacement before travel.'
         },
         {
           title: 'Name Mismatch',
-          content: 'Passport name must exactly match flight tickets and visa. Minor spelling variations can cause issues at immigration.'
+          content: 'The name on your passport must exactly match your flight tickets and visa. Differences in spelling, initials, or surname order can result in airline refusal or immigration questioning. Always book tickets strictly as per passport.'
         }
       ]
     },
@@ -167,94 +167,94 @@ const ForTravellers = () => {
       sections: [
         {
           title: 'Arrival Declaration',
-          content: 'Fill arrival cards completely and accurately. Declare cash over $10,000 (or equivalent), gifts above duty-free limits, and any restricted items.'
+          content: 'Many countries require travellers to fill arrival or customs declaration forms. These must be completed honestly and accurately. Declare cash above permitted limits, restricted items, or valuable goods. False declarations can lead to fines or detention.'
         },
         {
           title: 'Customs Limits',
-          content: 'Typically: 200 cigarettes, 1-2 liters alcohol, personal electronics, gifts up to $500. Limits vary by country - check specific rules.'
+          content: 'Each country sets limits on alcohol, cigarettes, electronics, and gifts. Exceeding these limits can result in duties or confiscation. Always check country-specific customs allowances before packing.'
         },
         {
           title: 'Prohibited Items',
-          content: 'Drugs, weapons, counterfeit goods, certain food items (meat, dairy, fruits), wildlife products are universally prohibited.'
+          content: 'Drugs, weapons, counterfeit goods, wildlife products, and certain food items are strictly prohibited worldwide. Even medicines legal in India may be restricted elsewhere. Carry prescriptions for all medications.'
         },
         {
           title: 'Interview Tips',
-          content: 'Be polite and confident. Have hotel bookings and return tickets ready. Know your travel itinerary. Answer questions directly without over-explaining.'
+          content: 'Immigration officers may ask about your stay, accommodation, return plans, or finances. Answer calmly and confidently. Keep documents accessible and avoid unnecessary explanations. Confidence and clarity reduce suspicion.'
         }
       ]
     },
     {
       id: 'currency',
-      title: 'Currency & Payments',
+      title: 'Currency & Payments – How to pay abroad',
       icon: CreditCard,
       color: 'from-yellow-500 to-amber-600',
-      description: 'Money matters and payment options abroad',
+      description: 'Smart money management tips',
       sections: [
         {
           title: 'Forex Tips',
-          content: 'Exchange some currency before departure for immediate expenses. Airport forex has poor rates. Use authorized dealers or bank forex cards for better rates.'
+          content: 'Carry a combination of cash and cards. Exchange a small amount before departure for immediate expenses. Avoid airport exchange counters due to poor rates. Plan currency based on destination cost levels and length of stay.'
         },
         {
           title: 'Cards vs Cash',
-          content: 'Carry mix of cash and cards. International debit/credit cards work in most countries. Inform your bank about travel dates to avoid card blocks.'
+          content: 'International debit and credit cards are widely accepted in cities, but cash is still essential in smaller towns and markets. Inform your bank about international travel to prevent card blocks. Carry at least two cards as backup.'
         },
         {
           title: 'UPI Abroad',
-          content: 'UPI works in Singapore, UAE, Nepal, Bhutan, and expanding to more countries. Check BHIM UPI app for supported destinations.'
+          content: 'UPI acceptance is expanding internationally, but availability varies by country and merchant. Always carry alternative payment options, as UPI cannot be relied upon everywhere.'
         },
         {
           title: 'ATM Usage',
-          content: 'Use bank ATMs over standalone machines. Decline currency conversion offers (dynamic currency conversion) - always pay in local currency.'
+          content: 'Use ATMs located inside banks rather than standalone machines. Always decline currency conversion offers at ATMs and pay in local currency to avoid high conversion charges.'
         }
       ]
     },
     {
       id: 'connectivity',
-      title: 'SIM & Internet',
+      title: 'SIM & Connectivity – Stay Online',
       icon: Smartphone,
       color: 'from-purple-500 to-violet-600',
-      description: 'Stay connected while travelling',
+      description: 'Data and calling options',
       sections: [
         {
           title: 'Tourist SIMs',
-          content: 'Available at airports in most countries. Pricing: $10-30 for 7-15 days with data. Carry passport for registration.'
+          content: 'Tourist SIM cards are easily available at airports in most destinations. They typically include data, local calling, and limited validity. Passport verification is mandatory.'
         },
         {
           title: 'eSIM Options',
-          content: 'Works on newer phones. Services like Airalo, Holafly offer international eSIMs. Activate before travel for seamless connectivity.'
+          content: 'eSIMs allow travellers to activate mobile data without a physical SIM. They are ideal for short trips and dual-SIM phones. Activation should be completed before departure.'
         },
         {
           title: 'WiFi Tips',
-          content: 'Most hotels, cafes offer free WiFi. Use VPN on public networks for security. Download offline maps before travel.'
+          content: 'Free WiFi is common in hotels and cafes, but public networks are insecure. Avoid accessing banking apps on public WiFi and consider using secure networks for sensitive activity.'
         },
         {
           title: 'Roaming Plans',
-          content: 'Check Airtel, Jio, Vi international roaming packs. Often cheaper than buying local SIMs for short trips.'
+          content: 'Indian telecom providers offer international roaming packs that may be economical for short stays. Compare costs with local SIMs before deciding.'
         }
       ]
     },
     {
       id: 'transport',
-      title: 'Transport Guide',
+      title: 'Transport Safety – Getting around',
       icon: Bus,
       color: 'from-cyan-500 to-teal-600',
-      description: 'Getting around at your destination',
+      description: 'Safe commuting advice',
       sections: [
         {
-          title: 'Choosing Safe Transport Options',
-          content: 'Prefer licensed taxis and ride-hailing apps like Uber/Grab. Avoid unofficial transport offers at airports. Always verify routes and fares before starting the journey.'
+          title: 'Verified Rides',
+          content: 'Use official taxi stands or licensed ride-hailing apps. Avoid soliciting drivers at airport arrivals to prevent scams.'
         },
         {
-          title: 'Public Transport Tips',
-          content: 'Learn basic routes in advance using maps. Avoid peak rush hours with luggage. Keep belongings secure in crowded trains or buses. Buy day passes for cost savings.'
+          title: 'Public Transport',
+          content: 'Metro and buses are often the safest and cheapest way to travel. Buying a day-pass is cost-effective in major cities.'
         },
         {
-          title: 'Ride Apps',
-          content: 'Uber works globally. Regional apps: Grab (SEA), Bolt (Europe), Careem (Middle East), Ola (India, UK). Always check the car number plate before entering.'
+          title: 'Ride-Hailing Apps',
+          content: 'Global ride apps work in many countries. Always verify the car license plate and driver name before entering the vehicle.'
         },
         {
-          title: 'Transport Cards',
-          content: 'Octopus (Hong Kong), Oyster (London), Suica (Japan), EZ-Link (Singapore) - buy at airports. They are cheaper and convenient for all public transport.'
+          title: 'Travel Cards',
+          content: 'Prepaid travel cards (like Octopus, Oyster, Suica) save time and money on public transport networks.'
         }
       ]
     },
@@ -267,36 +267,36 @@ const ForTravellers = () => {
       sections: [
         {
           title: 'Common Travel Scams',
-          content: 'Be aware of fake tour guides, overcharging taxis, friend-making scams, fake hotel booking emails, and ATM skimming. Always use official service providers.'
+          content: 'Tourists are often targeted through fake guides, overcharging taxis, ATM skimming, and misleading booking emails. Always verify services through official sources.'
         },
         {
           title: 'How to Stay Safe',
-          content: 'Use verified services only. Avoid sharing personal details with strangers. Keep valuables secure (use hotel safe). Stay aware of your surroundings.'
+          content: 'Avoid sharing personal details with strangers. Use hotel safes, avoid isolated areas at night, and remain alert in crowded places. Situational awareness is your best protection.'
         },
         {
           title: 'Safety Zones',
-          content: 'Research safe neighborhoods. Avoid unlit or deserted areas at night. Stick to main tourist areas if unsure. Ask hotel staff for advice on areas to avoid.'
+          content: 'Research safe areas before arrival. Tourist zones are generally safer. Ask hotel staff for advice on neighbourhoods to avoid.'
         },
         {
           title: 'Emergency Numbers',
-          content: 'Save local emergency numbers (Police/Ambulance). Register with Indian Embassy (MADAD). Share your live location/itinerary with family.'
+          content: 'Save local emergency numbers and embassy contacts before travel. Share your itinerary with family and enable emergency location sharing when possible.'
         }
       ]
     },
     {
       id: 'food',
-      title: 'Food Guide',
+      title: 'Food & Dining – Eat Safe',
       icon: Utensils,
       color: 'from-pink-500 to-rose-600',
-      description: 'Eating well while travelling',
+      description: 'Dietary and hygiene tips',
       sections: [
         {
-          title: 'Dietary Options',
-          content: 'Most tourist destinations have vegetarian options. Look for Indian restaurants for familiar food. Use HappyCow app for veg/vegan options.'
+          title: 'Vegetarian Options',
+          content: 'Indian restaurants are available globally. Use specialized apps to find veg-friendly and vegan dining spots nearby.'
         },
         {
-          title: 'Street Food Safety',
-          content: 'Choose busy stalls with high turnover. Avoid raw foods and ice. Carry hand sanitizer. Watch food being cooked fresh.'
+          title: 'Street Food Caution',
+          content: 'Eat at busy stalls where food is cooked fresh in front of you. Avoid raw salads, cut fruits, and ice in street beverages.'
         },
         {
           title: 'Water Safety',
@@ -342,19 +342,19 @@ const ForTravellers = () => {
       sections: [
         {
           title: 'Why Travel Insurance Is Essential',
-          content: 'Protects against unexpected expenses like medical emergencies, cancellations, baggage loss, and accidents. Mandatory for entry in many countries.'
+          content: 'Travel insurance protects against unexpected medical costs, cancellations, delays, and baggage loss. In many countries, insurance is mandatory for entry.'
         },
         {
-          title: 'Situations Where Insurance Is Useful',
-          content: 'Medical treatment/hospitalization, emergency evacuation, flight delays/cancellations, lost/stolen baggage, and accidental injury.'
+          title: 'Situations Where Insurance Helps',
+          content: 'Insurance is useful during medical emergencies, accidents, hospitalisation, evacuation, flight disruptions, or theft. Without insurance, expenses can be extremely high.'
         },
         {
-          title: 'How to Use Insurance Helpline',
-          content: 'Keep policy number accessible. Call the helpline BEFORE hospital admission if possible. Follow insurer instructions for cashless claims. Retain all bills.'
+          title: 'Using Insurance Helplines',
+          content: 'Contact the insurer before hospital admission whenever possible. Follow instructions for cashless claims and keep all bills and reports.'
         },
         {
           title: 'Vaccinations & Medical Kit',
-          content: 'Check required vaccines 6-8 weeks prior. Carry prescription meds with doctor\'s note, first-aid basics, and personal hygiene items.'
+          content: 'Some destinations require specific vaccinations. Carry basic medicines, prescriptions, and personal hygiene supplies. Always check health advisories before travel.'
         }
       ]
     },
@@ -496,7 +496,7 @@ const ForTravellers = () => {
         },
         {
           title: 'Money Management',
-          content: 'Avoid carrying excessive cash. Use hotel safes. Split cash in different bags. Use low-markup forex cards (like Niyoman, BookMyForex).'
+          content: 'Avoid carrying excessive cash. Use hotel safes. Split cash in different bags. Use zero-markup forex cards for best rates.'
         },
         {
           title: 'Hidden Costs',
@@ -510,26 +510,26 @@ const ForTravellers = () => {
     },
     {
       id: 'apps',
-      title: 'Essential Apps',
+      title: 'Digital Tools – Essential Apps',
       icon: AppWindow,
       color: 'from-violet-500 to-purple-600',
-      description: 'Must-have apps for travellers',
+      description: 'Must-have digital tools',
       sections: [
         {
-          title: 'Recommended App Categories',
-          content: 'Maps (Google Maps/Citymapper), Currency (XE), Rides (Uber/Grab), Translation (Google Translate), Emergency (local apps).'
+          title: 'Navigation & Maps',
+          content: 'Download offline maps (Google Maps) before travel. Essential for finding hotels and attractions without using data.'
         },
         {
-          title: 'Map & Navigation',
-          content: 'Download offline maps on Google Maps. Use Waze for driving info. Citymapper is excellent for public transport in major cities.'
+          title: 'Currency & Translation',
+          content: 'Use currency conversion apps to understand local prices. Translation apps with camera features help read menus and signs.'
         },
         {
-          title: 'Utilities',
-          content: 'TripIt for itinerary management. Splitwise for group expenses. VPN for secure browsing. PackPoint for packing lists.'
+          title: 'Travel Management',
+          content: 'Keep digital copies of tickets and itineraries. Expense tracking apps help manage group spending and stay on budget.'
         },
         {
-          title: 'Why Use Apps',
-          content: 'They improve safety, efficiency, and convenience. Ensure you have roaming data or WiFi to use them effectively.'
+          title: 'Why Use Digital Tools',
+          content: 'They improve safety, efficiency, and convenience. Ensure your phone is charged and has connectivity capabilities.'
         }
       ]
     },
@@ -637,8 +637,31 @@ const ForTravellers = () => {
                 Your Complete Travel Companion
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Everything you need to know before your international trip. Click on any guide below to explore detailed information.
+                The definitive pre-travel guide for Indian citizens. From visa rules to money planning, we clarify everything so you can travel abroad with confidence.
               </p>
+
+              {/* WHO THIS GUIDE IS FOR */}
+              <div className="mb-12 bg-white/50 dark:bg-card/30 backdrop-blur-sm border border-secondary/20 rounded-2xl p-6 text-left">
+                <h2 className="text-xl font-serif font-bold mb-4 text-center md:text-left text-foreground">Who This Travel Guide Is For</h2>
+                <ul className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                    <span><strong>First-time International Travellers</strong> planning their first trip abroad.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                    <span><strong>Families & Seniors</strong> who need safety and comfort assurances.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                    <span><strong>Budget Travellers</strong> looking to save on forex and avoid scams.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
+                    <span><strong>Anyone confused</strong> about visas, passport rules, and currency.</span>
+                  </li>
+                </ul>
+              </div>
 
               {/* Guide Pages Cards */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -721,10 +744,36 @@ const ForTravellers = () => {
                       <Sparkles className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground mb-2">Travel Safety & Essentials Guide</h3>
+                      <h3 className="text-lg font-bold text-foreground mb-2">Quick Answer for Travellers</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        This page provides essential travel safety information, emergency contacts, cultural guidelines, insurance awareness, and practical tips to help travellers stay informed, safe, and prepared during domestic and international journeys.
+                        This page helps Indian travellers understand visa rules, passport validity, money management, safety, insurance, packing, and cultural tips so they can travel confidently without last-minute issues. It acts as a complete pre-travel checklist to prevent common mistakes like carrying invalid documents or paying high forex fees.
                       </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Common Mistakes Section */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-serif font-bold mb-6 flex items-center gap-2">
+                    <AlertTriangle className="w-6 h-6 text-red-500" />
+                    Common Mistakes Indians Make Abroad
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-red-50 dark:bg-red-950/20 p-4 rounded-xl border border-red-100 dark:border-red-900">
+                      <h4 className="font-bold text-red-700 dark:text-red-400 mb-2">❌ Financial Mistakes</h4>
+                      <ul className="text-sm space-y-2 text-red-600/80 dark:text-red-300">
+                        <li>• Exchanging money at airports (High fees)</li>
+                        <li>• Paying in INR on machines (DCC Trap)</li>
+                        <li>• Relying on a single card</li>
+                      </ul>
+                    </div>
+                    <div className="bg-red-50 dark:bg-red-950/20 p-4 rounded-xl border border-red-100 dark:border-red-900">
+                      <h4 className="font-bold text-red-700 dark:text-red-400 mb-2">❌ Documentation Errors</h4>
+                      <ul className="text-sm space-y-2 text-red-600/80 dark:text-red-300">
+                        <li>• Traveling with &lt;6 months passport validity</li>
+                        <li>• Name mismatch in flight vs passport</li>
+                        <li>• Forgetting printed visa copies</li>
+                      </ul>
                     </div>
                   </div>
                 </div>

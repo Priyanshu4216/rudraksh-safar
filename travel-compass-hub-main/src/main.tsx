@@ -1,38 +1,57 @@
+import React from 'react';
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 
-// Force service worker update and clear old caches for returning users
-// Force service worker update and clear old caches for returning users
-if ('serviceWorker' in navigator) {
-  // Unregister existing SWs to force fresh install if needed
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    registrations.forEach((registration) => {
-      registration.update();
-      console.log('SW Updated');
+// SEO-Critical: Explicit Helmet Context for Metadata Hydration
+const helmetContext = {};
+
+/* 
+  🤖 BOT-SAFE SERVICE WORKER STRATEGY 
+  - We strictly prevent aggressive cache clearing when Googlebot/Crawlers are detected.
+  - This ensures search engines always get the full, fresh page without 404s on assets.
+*/
+const isCrawler = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  return ua.includes('googlebot') || ua.includes('bingbot') || ua.includes('linkedinbot') || ua.includes('whatsapp') || ua.includes('twitterbot') || ua.includes('facebookexternalhit');
+};
+
+if ('serviceWorker' in navigator && !isCrawler()) {
+  // Safe SW Registration for Real Users
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      // Only update if we have a valid registration to avoid race conditions
+      registrations.forEach((r) => r.update());
     });
   });
 
-  // Clear old caches that might have stale assets
+  // Garbage Collect Old Caches (ONLY for real users, NEVER for bots)
   if ('caches' in window) {
-    caches.keys().then((cacheNames) => {
-      cacheNames.forEach((cacheName) => {
-        // Clear caches older than current build or unknown caches
-        // We only keep workbox-precache if we are sure it's fresh, but to be safe for this fix:
-        // We will remove anything NOT matching specific expected patterns if needed.
-        // For now, removing non-workbox is good, but let's log it.
-        if (!cacheName.includes('workbox-precache')) {
-          console.log('Deleting old cache:', cacheName);
-          caches.delete(cacheName);
+    caches.keys().then((names) => {
+      names.forEach((name) => {
+        // Remove legacy caches that don't match current versioning if necessary
+        // Keeping this minimal to avoid "Deleting effective assets" issues
+        if (!name.includes('workbox') && !name.includes('images') && !name.includes('fonts')) {
+          console.debug('Cleaning stale cache:', name);
+          caches.delete(name);
         }
       });
     });
   }
 }
 
-createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>
-);
+// ⚡ LCP Optimization: Hydrate immediately
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <HelmetProvider context={helmetContext}>
+        <App />
+      </HelmetProvider>
+    </React.StrictMode>
+  );
+} else {
+  console.error("Critical: Root element not found. SEO rendering failed.");
+}

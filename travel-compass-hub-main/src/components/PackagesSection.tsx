@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import { getBestTimeToVisit } from '@/lib/travelMeta';
 import SmartImage from '@/components/SmartImage';
-
+import { Helmet } from 'react-helmet-async';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -20,6 +20,7 @@ const domesticPackages = [
     image: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=2070&auto=format&fit=crop',
     tag: 'Romantic',
     slug: 'kashmir',
+    description: "Experience the heaven on earth with our Kashmir Paradise package customized for Bhilai travelers.",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const domesticPackages = [
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop',
     tag: 'Beach',
     slug: 'andaman',
+    description: "Tropical beach escape to Andaman Islands with seamless connectivity from Raipur Airport.",
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ const domesticPackages = [
     image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
     tag: 'Hill Station',
     slug: 'shimla-manali',
+    description: "Complete Himachal tour package covering Shimla and Manali, ideal for families from Chhattisgarh.",
   },
 ];
 
@@ -53,6 +56,7 @@ const internationalPackages = [
     image: 'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2001&auto=format&fit=crop',
     tag: 'Beach Escape',
     slug: 'phuket',
+    description: "Affordable Thailand beach vacation with visa assistance from our Bhilai office.",
   },
   {
     id: 5,
@@ -63,6 +67,7 @@ const internationalPackages = [
     image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=2052&auto=format&fit=crop',
     tag: 'City Break',
     slug: 'singapore',
+    description: "Explore the Lion City with our curated Singapore tour package from Raipur.",
   },
   {
     id: 6,
@@ -73,10 +78,11 @@ const internationalPackages = [
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop',
     tag: 'Luxury',
     slug: 'dubai',
+    description: "Luxury Dubai holiday package with desert safari and Burj Khalifa, flights via Mumbai/Delhi.",
   },
 ];
 
-const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: number }) => {
+const PackageCard = ({ pkg, index, type }: { pkg: typeof domesticPackages[0]; index: number; type: 'domestic' | 'international' }) => {
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -89,18 +95,18 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
       to={`/package/${pkg.slug}`}
       className="block h-full"
       onClick={() => window.scrollTo(0, 0)}
-      aria-label={`View package: ${pkg.title}`}
+      aria-label={`View ${pkg.title} ${type} package from Bhilai & Raipur details`}
     >
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ 
-          duration: 0.7, 
+        transition={{
+          duration: 0.7,
           delay: index * 0.15,
           ease: [0.22, 1, 0.36, 1] // Premium ease-out curve
         }}
-        whileHover={{ 
+        whileHover={{
           y: -12,
           transition: { duration: 0.3, ease: "easeOut" }
         }}
@@ -110,7 +116,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
           <div className="relative h-64 overflow-hidden">
             <SmartImage
               src={pkg.image}
-              alt={`${pkg.title} - ${pkg.location} travel package, ${pkg.duration}`}
+              alt={`${pkg.title} - ${pkg.location} tour package`}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -156,6 +162,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
               <Button
                 onClick={handleWhatsApp}
                 className="btn-ocean px-6 py-3 text-sm"
+                aria-label={`Inquire about ${pkg.title} package on WhatsApp`}
               >
                 Inquire
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -178,15 +185,78 @@ const PackagesSection = () => {
   const headerY = useTransform(scrollYProgress, [0, 0.2], [80, 0]);
   const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
 
+  // Aggregated Schema Generation
+  const allPackages = [...domesticPackages, ...internationalPackages];
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Featured Tour Packages",
+    "description": "Curated domestic and international tour packages for travelers from Bhilai and Raipur, Chhattisgarh.",
+    "numberOfItems": allPackages.length,
+    "itemListElement": allPackages.map((pkg, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "TouristTrip",
+        "name": pkg.title,
+        "description": pkg.description,
+        "touristType": "Family, Couples, Groups",
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": `Travel to ${pkg.location}`
+            }
+          ]
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": pkg.price.replace(/[^0-9]/g, ''),
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock"
+        },
+        "provider": {
+          "@type": "TravelAgency",
+          "@id": "https://rudrakshsafar.com/#travelagency",
+          "name": "Rudraksh Safar",
+          "url": "https://rudrakshsafar.com",
+          "areaServed": [
+            { "@type": "City", "name": "Bhilai" },
+            { "@type": "City", "name": "Raipur" }
+          ]
+        },
+        "url": `https://rudrakshsafar.com/package/${pkg.slug}`
+      }
+    }))
+  };
+
   return (
     <section ref={sectionRef} id="packages" className="section-padding overflow-hidden" aria-labelledby="packages-heading">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+
+      {/* AI Context Summary (Hidden but Crawlable) */}
+      <div className="sr-only">
+        <h2>About Our Tour Packages</h2>
+        <p>
+          Rudraksh Safar offers comprehensive domestic and international tour packages specifically designed for travelers from Chhattisgarh.
+          Our packages include logistics support from Raipur Airport (RPR) and Durg Railway Station to destinations worldwide.
+          Whether you are looking for a honeymoon in Kashmir or a family vacation in Dubai, our Bhilai-based team handles all visa, flight, and accommodation needs locally.
+        </p>
+      </div>
+
       <div className="container">
         {/* Header with 3D reveal */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-2xl mx-auto mb-16"
           style={{ y: headerY, opacity: headerOpacity }}
         >
-          <motion.span 
+          <motion.span
             className="inline-block text-secondary font-medium tracking-widest uppercase text-sm mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -194,7 +264,7 @@ const PackagesSection = () => {
           >
             Our Packages
           </motion.span>
-          <motion.h2 
+          <motion.h2
             id="packages-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6"
             initial={{ opacity: 0, y: 40, rotateX: 15 }}
@@ -204,14 +274,14 @@ const PackagesSection = () => {
           >
             Curated Journeys for Every Explorer
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-muted-foreground text-lg"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            From serene backwaters to majestic mountains, discover handpicked travel experiences 
+            From serene backwaters to majestic mountains, discover handpicked travel experiences
             designed to inspire and delight.
           </motion.p>
         </motion.div>
@@ -242,7 +312,7 @@ const PackagesSection = () => {
           <TabsContent value="domestic" className="mt-0">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {domesticPackages.map((pkg, index) => (
-                <PackageCard key={pkg.id} pkg={pkg} index={index} />
+                <PackageCard key={pkg.id} pkg={pkg} index={index} type="domestic" />
               ))}
             </div>
           </TabsContent>
@@ -250,20 +320,20 @@ const PackagesSection = () => {
           <TabsContent value="international" className="mt-0">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {internationalPackages.map((pkg, index) => (
-                <PackageCard key={pkg.id} pkg={pkg} index={index} />
+                <PackageCard key={pkg.id} pkg={pkg} index={index} type="international" />
               ))}
             </div>
           </TabsContent>
         </Tabs>
 
         {/* View All CTA with 3D effect */}
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Link to="/domestic-packages">
+          <Link to="/domestic-packages" aria-label="View all domestic tour packages from Bhilai">
             <motion.div
               whileHover={{ scale: 1.05, rotateY: 5 }}
               whileTap={{ scale: 0.98 }}
@@ -278,7 +348,7 @@ const PackagesSection = () => {
               </Button>
             </motion.div>
           </Link>
-          <Link to="/international-packages">
+          <Link to="/international-packages" aria-label="View all international tour packages from Raipur">
             <motion.div
               whileHover={{ scale: 1.05, rotateY: -5 }}
               whileTap={{ scale: 0.98 }}

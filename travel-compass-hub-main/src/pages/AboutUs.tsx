@@ -49,6 +49,7 @@ const AboutUs = () => {
                         "@type": "AboutPage",
                         "mainEntity": {
                             "@type": "TravelAgency",
+                            "@id": "https://rudrakshsafar.com/#travelagency",
                             "name": "Rudraksh Safar",
                             "legalName": "Rudraksh Safar",
                             "foundingDate": "2010",

@@ -1,126 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Travel Guide Index -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Blog Hub -->
   <url>
-    <loc>https://rudrakshsafar.com/guides</loc>
-    <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://rudrakshsafar.com/blog</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Guides & Articles -->
+  <!-- Location Silos -->
   <url>
-    <loc>https://rudrakshsafar.com/visa-guide</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://rudrakshsafar.com/blog/bhilai</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/passport-guide</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://rudrakshsafar.com/blog/raipur</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/visa-free-countries</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/travel-checklist</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/currency-guide</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/best-time-to-visit</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/travel-health</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/travel-tips</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://rudrakshsafar.com/blog/chhattisgarh</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Visa Information Pages -->
+  <!-- Service Silos -->
   <url>
-    <loc>https://rudrakshsafar.com/visa/dubai</loc>
-    <lastmod>2026-01-20</lastmod>
+    <loc>https://rudrakshsafar.com/blog/tour-packages</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/visa-services</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/passport-services</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/train-booking</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/flight-booking</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/hotel-booking</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/cab-booking</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/cruise-booking</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Traveller Type Silos -->
+  <url>
+    <loc>https://rudrakshsafar.com/blog/budget-travel</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/family-travel</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/honeymoon</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/group-travel</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <!-- Guide Silos -->
+  <url>
+    <loc>https://rudrakshsafar.com/blog/travel-tips</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/travel-safety</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/blog/about-rudraksh-safar</loc>
+    <lastmod>2026-02-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Indexable Posts (Gold Standard Only) -->
+  <url>
+    <loc>https://rudrakshsafar.com/blog/bhilai/best-travel-agency-in-bhilai-guide</loc>
+    <lastmod>2025-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/thailand</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/singapore</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/bali</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/maldives</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/turkey</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/schengen</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/sri-lanka</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/nepal</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rudrakshsafar.com/visa/malaysia</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
+  <!-- Note: Placeholder posts with isIndexable=false are excluded -->
 
 </urlset>

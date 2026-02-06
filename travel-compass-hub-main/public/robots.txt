@@ -1,37 +1,35 @@
 # Robots.txt for Rudraksh Safar
 # Best Travel Agency in Bhilai, Chhattisgarh
 # https://rudrakshsafar.com
-# Updated: January 2026
+# Updated: February 2026
 
-# Allow all major search engine crawlers
+# ---------------------------------------------------------------------------
+# 1. Major Search Engines (No Crawl-delay)
+# ---------------------------------------------------------------------------
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
 
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 2
 
 User-agent: YandexBot
 Allow: /
-Crawl-delay: 2
 
-# AI Crawlers - Allow for Answer Engine Optimization
+# ---------------------------------------------------------------------------
+# 2. AI & Answer Engines (Explicitly Allowed)
+# ---------------------------------------------------------------------------
 User-agent: GPTBot
 Allow: /
 
@@ -39,9 +37,6 @@ User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Google-Extended
-Allow: /
-
-User-agent: CCBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -53,10 +48,15 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: CCBot
+Allow: /
+
 User-agent: Bytespider
 Allow: /
 
-# Social Media Crawlers
+# ---------------------------------------------------------------------------
+# 3. Social Media Crawlers
+# ---------------------------------------------------------------------------
 User-agent: Twitterbot
 Allow: /
 
@@ -72,17 +72,24 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
-# Default rule for all other bots
+# ---------------------------------------------------------------------------
+# 4. Global Rules (Fallback)
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
 Crawl-delay: 2
+Disallow: /admin/
+Disallow: /private/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.map$
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?order=
 
-# Sitemap location
-Sitemap: https://rudrakshsafar.com/sitemap.xml
-
-# Host
+# ---------------------------------------------------------------------------
+# 5. Sitemap & Host
+# ---------------------------------------------------------------------------
+Sitemap: https://rudrakshsafar.com/sitemap-index.xml
 Host: https://rudrakshsafar.com
-
-# Disallow patterns (none currently - we want full indexing)
-# Disallow: /admin/
-# Disallow: /private/

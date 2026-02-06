@@ -12,6 +12,7 @@ export interface Destination {
     link: string;
     tag?: string;
     rating?: string;
+    description?: string;
 }
 
 interface DestinationBucketsProps {
@@ -29,9 +30,6 @@ const DestinationBuckets = ({ title, description, destinations }: DestinationBuc
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
                         <p className="text-muted-foreground text-lg">{description}</p>
                     </div>
-                    {/* <Button variant="outline" className="hidden md:flex items-center gap-2">
-            View All Packages <ArrowRight className="w-4 h-4" />
-          </Button> */}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -67,6 +65,11 @@ const DestinationBuckets = ({ title, description, destinations }: DestinationBuc
                                         )}
                                     </div>
                                     <CardContent className="p-4">
+                                        {dest.description && (
+                                            <div className="mb-3 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                                                {dest.description}
+                                            </div>
+                                        )}
                                         <div className="flex justify-between items-center mb-3">
                                             <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded">
                                                 {dest.duration}

@@ -23,12 +23,14 @@ import RelatedServices from '@/components/RelatedServices';
 
 const TravelAgentBhilai = () => {
   // LocalBusiness Schema - Optimized for Google Local Pack
+  // LocalBusiness Schema - Optimized for Google Local Pack
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
+    "@id": "https://rudrakshsafar.com/#travelagency",
     "name": "Rudraksh Safar",
-    "url": "https://rudrakshsafar.com",
-    "telephone": "+91-9406182174",
+    "url": "https://rudrakshsafar.com/travel-agent-bhilai",
+    "telephone": "+919406182174",
     "email": "rudrakshsafar@gmail.com",
     "priceRange": "₹₹",
     "image": "https://rudrakshsafar.com/og-image.png",
@@ -51,10 +53,91 @@ const TravelAgentBhilai = () => {
       "opens": "10:00",
       "closes": "21:00"
     }],
-    "areaServed": {
-      "@type": "Place",
-      "name": ["Bhilai", "Durg", "Supela", "Smriti Nagar", "Power House", "Raipur", "Chhattisgarh"]
-    }
+    "hasMap": "https://maps.app.goo.gl/rudrakshsafar",
+    "knowsAbout": [
+      "Domestic Tour Packages",
+      "International Holiday Packages",
+      "Visa Assistance",
+      "Flight Booking",
+      "Train Ticket Booking",
+      "Passport Services"
+    ],
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Bhilai" },
+      { "@type": "Place", "name": "Supela, Bhilai" },
+      { "@type": "Place", "name": "Smriti Nagar, Bhilai" },
+      { "@type": "Place", "name": "Power House, Bhilai" },
+      { "@type": "Place", "name": "Nehru Nagar, Bhilai" },
+      { "@type": "Place", "name": "Risali, Bhilai" },
+      { "@type": "Place", "name": "Charoda, Bhilai" },
+      { "@type": "Place", "name": "Hudco, Bhilai" },
+      { "@type": "AdministrativeArea", "name": "Durg" },
+      { "@type": "AdministrativeArea", "name": "Raipur" },
+      { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there a travel agent near me in Bhilai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Rudraksh Safar is a top-rated travel agent located on GE Road, Bhilai 3. We serve clients from Bhilai, Durg, and Raipur with personalized tour packages and booking assistance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is the best travel agency in Bhilai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rudraksh Safar is considered one of the best travel agencies in Bhilai due to our 10+ years of experience, 5000+ happy customers, and transparent pricing with no hidden fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should I choose a local travel agent instead of online portals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When you book with us, you get accountability. Online portals offer chatbots; we offer a personal mobile number. If a problem arises, we solve it instantly. Plus, we accept flexible payments including cash at our Bhilai office."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know Rudraksh Safar is genuine and trustworthy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We have been operating from our physical office on GE Road, Bhilai 3 since 2010. We have served over 5000+ local families. We encourage you to check our Google Reviews or visit our office to meet the team before booking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who will assist me if something goes wrong during my trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You will have a dedicated 'Trip Manager' available 24/7 on WhatsApp and Phone. Whether it's a medical emergency, lost passport, or transport delay, you are never alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide support after booking the tour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our job doesn't end at booking. We manage web check-ins, provide packing lists, handle visa paperwork, and stay connected until you return home safely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Rudraksh Safar different from other travel agencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are not just ticket bookers; we are travel consultants. We inspect hotels personally, we know the actual distance between attractions, and we negotiate exclusive B2B rates to give you luxury for less."
+        }
+      }
+    ]
   };
 
   const services = [
@@ -143,6 +226,7 @@ const TravelAgentBhilai = () => {
         <meta name="ICBM" content="21.206181, 81.424916" />
         {/* Schemas */}
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Phase 13: Reading Progress */}
@@ -169,7 +253,7 @@ const TravelAgentBhilai = () => {
                 </div>
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20">
                   <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-medium">Serving Bhilai, Durg & Raipur Since 2010</span>
+                  <span className="text-sm font-medium">Serving Supela, Smriti Nagar, Nehru Nagar & Entire Bhilai</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                   Your Trusted <span className="text-primary">Travel Agent in Bhilai</span>
@@ -220,10 +304,11 @@ const TravelAgentBhilai = () => {
               {/* TL;DR & Updated Signal */}
               <div className="mb-12">
                 <LastUpdated className="justify-start mb-6" />
+
                 <TLDRSection
                   title="TL;DR: Why Choose Rudraksh Safar?"
                   summary="We are a government-registered travel agency located in Bhilai 3, specializing in customized holidays, visa assistance, and flight bookings. Trusted by 5000+ families for safe and transparent travel since 2010."
-                  areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
+                  areasServed={["Bhilai", "Supela", "Smriti Nagar", "Power House", "Nehru Nagar", "Risali", "Charoda", "Hudco", "Durg", "Raipur", "Chhattisgarh"]}
                 />
               </div>
 
@@ -385,6 +470,10 @@ const TravelAgentBhilai = () => {
 
             </div>
           </div>
+        </div>
+
+        <div className="container mx-auto px-4">
+          <LocalCoverage city="Bhilai" className="mb-16 rounded-2xl" />
         </div>
 
         {/* Office Location & CTA (Full Map Restored) */}

@@ -52,18 +52,22 @@ const FlightBookingBhilai = () => {
 
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "TravelAgency",
-        "name": "Rudraksh Safar - Flight Booking Agent Bhilai",
-        "intro": "Authorized air ticket booking services in Bhilai for Domestic & International flights.",
-        "telephone": "+919406182174",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bhilai",
-            "addressRegion": "Chhattisgarh",
-            "postalCode": "490021",
-            "addressCountry": "IN"
+        "@type": "Service",
+        "serviceType": "Flight Booking",
+        "name": "Flight Booking Agent in Bhilai",
+        "description": "Authorized air ticket booking services in Bhilai for Domestic & International flights with free check-in support.",
+        "provider": {
+            "@id": "https://rudrakshsafar.com/#travelagency"
         },
-        "priceRange": "₹₹"
+        "areaServed": ["Bhilai", "Durg", "Raipur", "Chhattisgarh"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Flight Booking Services",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Domestic Flight Booking" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "International Flight Booking" } }
+            ]
+        }
     };
 
     return (

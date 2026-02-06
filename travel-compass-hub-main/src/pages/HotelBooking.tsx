@@ -15,6 +15,8 @@ import LastUpdated from '@/components/LastUpdated';
 import FAQsSection from '@/components/FAQsSection';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import RelatedServices from '@/components/RelatedServices';
+import SEOHead from '@/components/SEOHead';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const HotelBooking = () => {
     const [loading, setLoading] = useState(() => !sessionStorage.getItem('rudraksh_hotel_loader_shown'));
@@ -27,37 +29,70 @@ const HotelBooking = () => {
 
     const faqs = [
         {
-            question: "Is booking hotels through a travel agency better than online apps?",
-            answer: "A travel agency helps you understand hotel policies, location suitability, and inclusions clearly, reducing chances of surprises during your stay."
+            question: "Can travel agents get cheaper hotel rates than apps?",
+            answer: "Yes. We have offline contracted rates (B2B prices) with many hotels that are not visible on public apps like Agoda or Booking.com."
         },
         {
-            question: "Can I book budget hotels through you?",
-            answer: "Yes. We assist with booking budget, standard, premium, and luxury hotels based on your requirements."
+            question: "Do you provide GST invoices for hotel booking?",
+            answer: "Absolutely. Unlike some international booking apps, we provide 100% compliant Indian GST invoices, which allows businesses to claim input credit."
         },
         {
-            question: "Are hotel prices fixed?",
-            answer: "No. Hotel prices vary based on availability, season, and demand. Final pricing is confirmed at the time of booking."
+            question: "Who supports us if the hotel denies check-in?",
+            answer: "We do. If you book via an app, you talk to a bot. If you book with us, you call our personal support number, and we resolve issues instantly with the hotel management."
         },
         {
-            question: "Do you help with hotel bookings for tour packages?",
-            answer: "Yes. Hotel bookings can be coordinated with tour packages for seamless travel planning."
+            question: "Is it cheaper to book hotels through a travel agent?",
+            answer: "Often yes. Besides lower room rates, we save you money by advising on location (transport costs), hidden fees, and avoiding 'bad' hotels that look good in photos."
         },
         {
-            question: "What documents are required for hotel check-in?",
-            answer: "Most hotels require a valid government-issued ID. Specific requirements depend on hotel policy."
-        },
-        {
-            question: "Can hotel bookings be cancelled or modified?",
-            answer: "Cancellation and modification depend on hotel rules and booking terms, which are explained clearly before confirmation."
+            question: "Can you handle bulk bookings for weddings or corporate?",
+            answer: "Yes, this is our specialty. We negotiate group rates, handle room allocations, and coordinate with the hotel for events, meals, and check-ins."
         }
     ];
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "Hotel Booking Services in India",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Rudraksh Safar",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Bhilai",
+                        "addressRegion": "Chhattisgarh",
+                        "addressCountry": "IN"
+                    }
+                },
+                "serviceType": "Hotel Reservation",
+                "areaServed": ["Bhilai", "Raipur", "Durg", "India", "International"],
+                "description": "Expert hotel booking assistance for business, families, and groups. Offline rates, GST invoices, and 24/7 human support."
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                    "@type": "Question",
+                    "name": faq.question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.answer
+                    }
+                }))
+            }
+        ]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>Hotel Booking & Reservation Services | Rudraksh Safar</title>
-                <meta name="description" content="Book budget, business, and luxury hotels with Rudraksh Safar. Personalised recommendations and booking assistance for stays across India and abroad." />
-            </Helmet>
+            <SEOHead
+                title="Hotel Booking Services in India – Budget, Business & Luxury Stays"
+                description="Expert hotel booking assistance with better offline rates, GST invoices, and human support. Book safe stays in Bhilai, Raipur, India & Abroad."
+                keywords="hotel booking agent, business hotel booking with gst, corporate hotel booking india, hotel reservation service bhilai, group booking travel agency"
+                canonicalUrl="https://rudrakshsafar.com/hotel-booking"
+                structuredData={structuredData}
+            />
 
             <AnimatePresence>
                 {loading && <HotelLoader onComplete={() => {
@@ -76,7 +111,7 @@ const HotelBooking = () => {
                     <main className="min-h-screen bg-background">
                         {/* Hero Section */}
                         <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 text-white">
-                            <div className="absolute inset-0 bg-[url('/images/hotel-hero.jpg')] bg-cover bg-center opacity-40"></div>
+                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070')] bg-cover bg-center opacity-40"></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
                             <div className="container relative z-10 text-center px-4">
@@ -92,12 +127,13 @@ const HotelBooking = () => {
                                     <Badge className="mb-6 bg-blue-500/20 text-blue-300 border-blue-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                                         Best Rates Guaranteed
                                     </Badge>
-                                    <h1 className="text-4xl md:text-7xl font-display font-bold mb-6 leading-tight">
-                                        Find Your Perfect <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-400">Stay Anywhere</span>
+                                    <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                                        Hotel Booking Services <br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-400">in India & Abroad</span>
                                     </h1>
-                                    <p className="text-lg md:text-xl text-blue-100/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                                        From luxury resorts to budget-friendly stays, we get you the best deals on hotels worldwide.
+                                    <p className="text-lg md:text-xl text-blue-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+                                        Expert booking assistance with <strong>better offline rates</strong>, <strong>GST invoices</strong>, and <strong>human support</strong>.
+                                        Don't just book a room; ensure a safe stay.
                                     </p>
 
 
@@ -111,29 +147,99 @@ const HotelBooking = () => {
                             </div>
                         </section>
 
-                        {/* Brand Carousel */}
-                        <section className="bg-slate-950 border-b border-white/5 overflow-hidden py-8 group">
-                            <div className="flex flex-col gap-8 mb-4">
-                                {/* Row 1 */}
-                                <div className="relative w-full overflow-hidden">
-                                    <div className="flex w-max animate-marquee gap-12 px-4 group-hover:[animation-play-state:paused]" style={{ animationDuration: '40s' }}>
-                                        {[...brands.slice(0, 9), ...brands.slice(0, 9)].map((brand, i) => (
-                                            <span key={`r1-${i}`} className="text-xl md:text-2xl font-serif text-slate-400/70 whitespace-nowrap hover:text-slate-200 transition-colors">
-                                                {brand}
-                                            </span>
-                                        ))}
+
+
+                        {/* WHO IS THIS FOR SECTION */}
+                        <section className="py-16 bg-background">
+                            <div className="container mx-auto px-4">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl font-bold mb-4">Who Should Use Our Hotel Booking Service?</h2>
+                                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                                        Online apps are great for quick solo trips. But for everything else, you need an expert.
+                                    </p>
+                                </div>
+                                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                                    <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                                        <h3 className="font-bold text-xl mb-3 text-blue-600">🏢 Business Travelers</h3>
+                                        <p className="text-sm text-muted-foreground">Get <strong>GST Invoices</strong> for input credit. We ensure your hotel allows flexible check-in and provides reliable WiFi.</p>
+                                    </div>
+                                    <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                                        <h3 className="font-bold text-xl mb-3 text-pink-600">👨‍👩‍👧 Families & Couples</h3>
+                                        <p className="text-sm text-muted-foreground">Avoid "couple-unfriendly" hotels. We verify safety, hygiene, and child-friendliness before you pay.</p>
+                                    </div>
+                                    <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                                        <h3 className="font-bold text-xl mb-3 text-green-600">🚌 Groups & Weddings</h3>
+                                        <p className="text-sm text-muted-foreground">Need 10+ rooms? Apps limit you. We negotiate <strong>bulk discounts</strong> and coordinate food/events.</p>
                                     </div>
                                 </div>
+                            </div>
+                        </section>
 
-                                {/* Row 2 */}
-                                <div className="relative w-full overflow-hidden">
-                                    <div className="flex w-max animate-marquee gap-12 px-4 group-hover:[animation-play-state:paused]" style={{ animationDuration: '40s' }}>
-                                        {[...brands.slice(9), ...brands.slice(9)].map((brand, i) => (
-                                            <span key={`r2-${i}`} className="text-xl md:text-2xl font-serif text-slate-400/70 whitespace-nowrap hover:text-slate-200 transition-colors">
-                                                {brand}
-                                            </span>
-                                        ))}
-                                    </div>
+                        {/* HOW IT WORKS */}
+                        <section className="py-16 bg-blue-50/50 dark:bg-blue-950/20">
+                            <div className="container mx-auto px-4">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl font-bold mb-4">How Our Booking Process Works</h2>
+                                    <p className="text-muted-foreground">Simple, transparent, and human-led.</p>
+                                </div>
+                                <div className="grid md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                                    {[
+                                        { step: "1", title: "Share Details", desc: "Dates, Location, Budget." },
+                                        { step: "2", title: "We Shortlist", desc: "Best options sent to WhatsApp." },
+                                        { step: "3", title: "Comparisons", desc: "Price & amenity breakdown." },
+                                        { step: "4", title: "Support", desc: "We manage check-in & issues." }
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="relative p-6 bg-background rounded-xl border shadow-sm text-center">
+                                            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mx-auto mb-4">
+                                                {item.step}
+                                            </div>
+                                            <h3 className="font-bold mb-2">{item.title}</h3>
+                                            <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* WHY BOOK WITH US COMPARISON */}
+                        <section className="py-16 bg-background">
+                            <div className="container mx-auto px-4 max-w-4xl">
+                                <div className="text-center mb-10">
+                                    <h2 className="text-3xl font-bold mb-4">Why Book via Rudraksh Safar?</h2>
+                                    <p className="text-muted-foreground">Travel Agent vs Online Apps</p>
+                                </div>
+                                <div className="overflow-hidden rounded-xl border">
+                                    <Table>
+                                        <TableHeader className="bg-slate-100 dark:bg-slate-800">
+                                            <TableRow>
+                                                <TableHead className="w-[40%]">Feature</TableHead>
+                                                <TableHead className="text-center text-red-500 font-bold">Online Apps (OTAs)</TableHead>
+                                                <TableHead className="text-center text-green-600 font-bold bg-green-50 dark:bg-green-900/20">Rudraksh Safar</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell className="font-medium">Support</TableCell>
+                                                <TableCell className="text-center text-muted-foreground">Chatbots / Email</TableCell>
+                                                <TableCell className="text-center font-bold text-green-700 bg-green-50 dark:bg-green-900/20">Direct Call (24/7)</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell className="font-medium">Pricing</TableCell>
+                                                <TableCell className="text-center text-muted-foreground">Dynamic (High demand = High price)</TableCell>
+                                                <TableCell className="text-center font-bold text-green-700 bg-green-50 dark:bg-green-900/20">Fixed / Negotiated Rates</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell className="font-medium">GST Invoice</TableCell>
+                                                <TableCell className="text-center text-muted-foreground">Often Missing / Complicated</TableCell>
+                                                <TableCell className="text-center font-bold text-green-700 bg-green-50 dark:bg-green-900/20">100% Guaranteed</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell className="font-medium">Check-in Issues</TableCell>
+                                                <TableCell className="text-center text-muted-foreground">"Contact Hotel"</TableCell>
+                                                <TableCell className="text-center font-bold text-green-700 bg-green-50 dark:bg-green-900/20">We Resolve Instantly</TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
                                 </div>
                             </div>
                         </section>
@@ -182,7 +288,7 @@ const HotelBooking = () => {
 
                         {/* Specialized Services */}
                         <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
-                            <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
+                            <div className="absolute inset-0 bg-muted/5"></div>
                             <div className="container mx-auto px-4 relative z-10">
                                 <div className="text-center mb-16">
                                     <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 mb-4">bulk & corporate</Badge>

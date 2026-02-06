@@ -18,7 +18,7 @@ const currencies = [
   { country: 'Sri Lanka', currency: 'Sri Lankan Rupee (LKR)', symbol: 'Rs', rate: '~₹0.26', cashTip: 'Essential', cardTip: 'Limited', upi: '✅ Available' },
   { country: 'Nepal', currency: 'Nepalese Rupee (NPR)', symbol: 'रू', rate: '~₹0.62', cashTip: 'Essential (INR accepted)', cardTip: 'Very limited', upi: '✅ Available' },
   { country: 'Turkey', currency: 'Turkish Lira (TRY)', symbol: '₺', rate: '~₹2.4', cashTip: 'Mixed with cards', cardTip: 'Good', upi: '❌ Not available' },
-  { country: 'Europe (Schengen)', currency: 'Euro (EUR)', symbol: '€', rate: '~₹90-93', cashTip: 'Cards preferred', cardTip: 'Excellent', upi: '✅ Available (Select)' },
+  { country: 'Europe (Schengen)', currency: 'Euro (EUR)', symbol: '€', rate: '~₹90-93', cashTip: 'Cards preferred', cardTip: 'Excellent', upi: 'Select Tourist Spots (Pilot)' },
   { country: 'Japan', currency: 'Japanese Yen (JPY)', symbol: '¥', rate: '~₹0.56', cashTip: 'Still very cash-based', cardTip: 'Improving', upi: '❌ Not available' },
   { country: 'Vietnam', currency: 'Vietnamese Dong (VND)', symbol: '₫', rate: '~₹0.0034', cashTip: 'Essential', cardTip: 'Limited', upi: '❌ Not available' },
 ];
@@ -29,15 +29,15 @@ const upiCountries = [
   { country: 'Bhutan', icon: <Mountain className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Widespread', notes: 'RuPay cards also work' },
   { country: 'Nepal', icon: <Mountain className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Growing', notes: 'Via Fonepay QR' },
   { country: 'Sri Lanka', icon: <Palmtree className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Major cities', notes: 'LankaQR integration' },
-  { country: 'France', icon: <Globe className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Eiffel Tower, major tourist spots', notes: 'Pilot phase active' },
+  { country: 'France', icon: <Globe className="w-8 h-8 text-primary" />, status: 'Pilot (Limited)', merchants: 'Eiffel Tower, select spots', notes: 'Pilot phase active' },
   { country: 'Mauritius', icon: <Palmtree className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'Major tourist areas', notes: 'RuPay cards accepted' },
   { country: 'Malaysia', icon: <Globe className="w-8 h-8 text-primary" />, status: 'Live', merchants: 'PayNet enabled merchants', notes: 'DuitNow linkage live' },
 ];
 
 const forexTips = [
-  { title: 'Best Rates', desc: 'BookMyForex, Thomas Cook online portals offer 2-3% better rates than airport counters' },
+  { title: 'Best Rates', desc: 'Authorized forex dealers & online portals offer 2-3% better rates than airport counters' },
   { title: 'RBI Limits', desc: '$250,000 per year under LRS. Carry up to $3,000 cash for neighbor countries' },
-  { title: 'Forex Cards', desc: 'Niyo, Fi, BookMyForex cards offer zero forex markup and locked-in rates' },
+  { title: 'Forex Cards', desc: 'Zero-markup forex cards are best for shopping. Use credit cards for hotel deposits.' },
   { title: 'Airport Exchange', desc: 'Avoid! Rates are 5-10% worse than market. Only for emergency cash' },
   { title: 'Dynamic Currency Conversion', desc: 'Always decline DCC at ATMs/shops. Pay in local currency for better rates' },
   { title: 'ATM Withdrawals', desc: 'Use bank ATMs, not standalone ones. Expect ₹200-500 fee per withdrawal' },
@@ -58,10 +58,40 @@ const CurrencyGuide = () => {
   return (
     <>
       <SEOHead
-        title="Currency & Money Guide for Indian Travellers | Forex Tips 2026 | Rudraksh Safar"
-        description="Complete currency guide for Indian travellers. UPI abroad, exchange rates, forex tips, card usage, and money management tips for 12+ international destinations."
-        keywords="currency exchange India, forex tips travellers, UPI abroad countries, international travel money, forex card India, UPI in Singapore Dubai"
-        canonicalUrl="https://rudrakshsafar.com/currency-guide"
+        title="Currency & Money Guide for Indian Travellers (UPI, Forex & Cards) | Rudraksh Safar"
+        description="The definitive money guide for Indian international travellers. Learn how to carry money (Cash vs Card vs UPI), avoid forex markups, and plan your travel budget."
+        keywords="currency exchange guide india, upi abroad list 2026, best forex card for indian travellers, how much cash to carry abroad, currency planning guide"
+        canonicalUrl="https://rudrakshsafar.com/currency-guide mb-4"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "HowTo",
+              "name": "How to Carry Money for International Travel",
+              "step": [
+                { "@type": "HowToStep", "name": "Step 1: Calculate Budget", "text": "Estimate daily expenses including food, travel, and shopping." },
+                { "@type": "HowToStep", "name": "Step 2: Split Your Funds", "text": "Carry 60-70% in Forex Card, 15-20% in Cash, and rest as backup in Credit Card/UPI." },
+                { "@type": "HowToStep", "name": "Step 3: Enable International Usage", "text": "Activate international transactions on your cards and UPI apps 24 hours before travel." },
+                { "@type": "HowToStep", "name": "Step 4: Keep Backup", "text": "Always carry one backup card from a different bank." }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Does UPI work internationally?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Yes, UPI works in UAE, Singapore, Bhutan, Nepal, Sri Lanka, and select pilots in France/Mauritius. Ensure 'International UPI' is enabled." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Should I exchange currency at the airport?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "No. Airport exchange rates have high markups (5-10%). Exchange currency at authorized city dealers before reaching the airport." }
+                }
+              ]
+            }
+          ]
+        }}
       />
 
       <Navbar />
@@ -72,14 +102,65 @@ const CurrencyGuide = () => {
             <div className="text-center mb-12">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <Banknote className="w-4 h-4" />
-                Money Guide
+                Money Planning Guide
               </span>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                Currency & Payment Guide
+              <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">
+                Currency & Money Guide <br />
+                <span className="text-primary">for Indian Travellers</span>
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Everything you need to know about managing money abroad - from forex rates to UPI availability, digital payments and local currency tips for 12+ destinations.
+                (UPI, Forex & Cards)
               </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+                The definitive guide to managing money abroad. We help you choose the right mix of Cash, Cards, and UPI to save money and stay safe.
+              </p>
+            </div>
+
+            {/* WHO THIS IS FOR */}
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+              <div className="bg-blue-50 dark:bg-blue-900/10 p-4 rounded-xl text-center">
+                <h3 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛫 First-Time Travellers</h3>
+                <p className="text-xs text-muted-foreground">Avoid airport scams & carry the right cash mix.</p>
+              </div>
+              <div className="bg-purple-50 dark:bg-purple-900/10 p-4 rounded-xl text-center">
+                <h3 className="font-bold text-purple-700 dark:text-purple-300 mb-1">👨‍👩‍👧 Families & Honeymooners</h3>
+                <p className="text-xs text-muted-foreground">Safe payment methods & backup plans.</p>
+              </div>
+              <div className="bg-emerald-50 dark:bg-emerald-900/10 p-4 rounded-xl text-center">
+                <h3 className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">💼 Business Travellers</h3>
+                <p className="text-xs text-muted-foreground">Expense tracking & corporate card usage.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* HOW TO CARRY MONEY STEP-BY-STEP */}
+          <AnimatedSection delay={60}>
+            <div className="bg-white dark:bg-card border-none shadow-lg rounded-2xl p-8 mb-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-100 rounded-bl-full opacity-50"></div>
+              <h2 className="text-2xl font-serif font-bold mb-6">How Indians Should Carry Money Abroad</h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                  <div>
+                    <h3 className="font-bold text-lg">60-70% in Forex Card</h3>
+                    <p className="text-sm text-muted-foreground">Load heavily on a zero-markup Forex Card. It's safe, locks in rates, and works like a debit card.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                  <div>
+                    <h3 className="font-bold text-lg">15-20% in Cash (USD or Local)</h3>
+                    <p className="text-sm text-muted-foreground">Essential for taxis, tips, and small shops. Carry USD for easy exchange anywhere.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                  <div>
+                    <h3 className="font-bold text-lg">10-15% via UPI / Credit Card (Backup)</h3>
+                    <p className="text-sm text-muted-foreground">Use UPI where available (Scan & Pay). Keep one Credit Card for hotel deposits or emergencies.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
 
@@ -245,20 +326,18 @@ const CurrencyGuide = () => {
             <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-2xl p-6 mb-8">
               <div className="flex items-start gap-3 mb-4">
                 <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0" />
-                <h3 className="text-xl font-semibold text-amber-800 dark:text-amber-200">Money Safety Tips</h3>
+                <h3 className="text-xl font-semibold text-amber-800 dark:text-amber-200">Common Money Mistakes Indians Make</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 <ul className="space-y-2 text-sm text-amber-700 dark:text-amber-300">
-                  <li>• Never exchange at airports - worst rates (5-10% loss)</li>
-                  <li>• Use ATMs inside banks, not standalone ones</li>
-                  <li>• Count money before leaving exchange counter</li>
-                  <li>• Keep emergency stash separate from wallet</li>
+                  <li>• <strong>Airport Exchange:</strong> Never exchange INR at airports (5-10% loss).</li>
+                  <li>• <strong>DCC Trap:</strong> If a machine asks "Pay in INR or USD?", ALWAYS choose USD/Local. Paying in INR adds 3-5% markup.</li>
+                  <li>• <strong>Single Card:</strong> Relying on just one card. If it gets blocked, you are stuck.</li>
                 </ul>
                 <ul className="space-y-2 text-sm text-amber-700 dark:text-amber-300">
-                  <li>• Reject worn/torn foreign notes - may not be accepted</li>
-                  <li>• Take photo of exchange receipts for records</li>
-                  <li>• Limit for bringing foreign currency back: ₹7,500</li>
-                  <li>• Report lost cards immediately to block</li>
+                  <li>• <strong>Disabled International Usage:</strong> Forgetting to enable global transactions on your app.</li>
+                  <li>• <strong>Torn Notes:</strong> Foreign exchanges reject notes with writing or tears. Check carefully.</li>
+                  <li>• <strong>Too Much Cash:</strong> Carrying riskily large amounts. Use cards instead.</li>
                 </ul>
               </div>
             </div>
@@ -272,12 +351,12 @@ const CurrencyGuide = () => {
               </h3>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <h4 className="font-medium mb-2 text-green-600">✓ Recommended</h4>
+                  <h4 className="font-medium mb-2 text-green-600">✓ Recommended Channels</h4>
                   <ul className="space-y-1 text-muted-foreground">
-                    <li>• BookMyForex.com (best online rates, doorstep delivery)</li>
-                    <li>• Thomas Cook / ExTravelMoney</li>
-                    <li>• RBI authorized money changers</li>
-                    <li>• Bank forex counters (reliable but slightly higher rates)</li>
+                    <li>• <strong>Forex Consultation by Rudraksh Safar</strong> (We guide on best rates)</li>
+                    <li>• Authorized Dealer (AD-II) license holders</li>
+                    <li>• Bank Forex Counters (Reliable)</li>
+                    <li>• Online Forex Marketplaces (For comparison)</li>
                   </ul>
                 </div>
                 <div>

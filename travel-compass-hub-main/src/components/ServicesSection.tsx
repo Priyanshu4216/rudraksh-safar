@@ -1,51 +1,65 @@
 import { Plane, Train, Hotel, Bus, FileText, Stamp, Ship } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
   {
     icon: Plane,
     title: 'Flight Tickets',
     description: 'Domestic & international flight bookings at best prices',
-    link: '/flight-booking-bhilai'
+    schemaDescription: "Authorized flight booking agent in Bhilai for domestic and international airlines.",
+    link: '/flight-booking-bhilai',
+    serviceType: "FlightReservation"
   },
   {
     icon: Train,
     title: 'Train Tickets',
     description: 'Hassle-free train reservations across India',
-    link: '/train-booking-bhilai'
+    schemaDescription: "IRCTC authorized train ticket booking agent in Bhilai and Raipur for Tatkal and general quota.",
+    link: '/train-booking-bhilai',
+    serviceType: "TrainReservation"
   },
   {
     icon: Hotel,
     title: 'Hotel Booking',
     description: 'Premium hotels & resorts at competitive rates',
-    link: '/hotel-booking'
+    schemaDescription: "Hotel and resort booking service for domestic and international destinations.",
+    link: '/hotel-booking',
+    serviceType: "LodgingReservation"
   },
   {
     icon: Bus,
     title: 'Bus & Cab Booking',
     description: 'Comfortable road travel solutions',
-    link: '/cab-rental'
+    schemaDescription: "Intercity bus and taxi booking service provider in Chhattisgarh.",
+    link: '/cab-rental',
+    serviceType: "TaxiService"
   },
   {
     icon: Ship,
     title: 'Cruise Booking',
     description: 'Luxury cruise packages for unforgettable voyages',
-    link: '/cruise-booking'
+    schemaDescription: "Booking agent for luxury cruises including Cordelia and international liners.",
+    link: '/cruise-booking',
+    serviceType: "TravelAgency"
   },
   {
     icon: FileText,
     title: 'Visa Consultancy',
     description: 'Expert guidance for all visa applications',
-    link: '/visa-guide'
+    schemaDescription: "Visa consultant in Bhilai for tourist, student, and business visas.",
+    link: '/visa-guide',
+    serviceType: "AdministrativeService"
   },
   {
     icon: Stamp,
     title: 'Passport Consultancy',
     description: 'Quick passport services & renewals',
-    link: '/passport-guide'
+    schemaDescription: "Passport application and renewal assistance service in Durg and Bhilai.",
+    link: '/passport-guide',
+    serviceType: "AdministrativeService"
   },
 ];
 
@@ -61,8 +75,56 @@ const ServicesSection = () => {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
   const headerScale = useTransform(scrollYProgress, [0, 0.2], [0.9, 1]);
 
+  // Schema Generation
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Travel Services in Bhilai & Raipur",
+    "description": "Comprehensive travel management services provided by Rudraksh Safar for residents of Chhattisgarh.",
+    "numberOfItems": services.length,
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.schemaDescription,
+        "provider": {
+          "@type": "TravelAgency",
+          "@id": "https://rudrakshsafar.com/#travelagency",
+          "name": "Rudraksh Safar",
+          "url": "https://rudrakshsafar.com",
+          "areaServed": [
+            { "@type": "City", "name": "Bhilai" },
+            { "@type": "City", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
+          ]
+        },
+        "serviceType": service.serviceType,
+        "url": `https://rudrakshsafar.com${service.link}`
+      }
+    }))
+  };
+
   return (
     <section ref={sectionRef} id="services" className="section-padding bg-muted/30 relative overflow-hidden" aria-labelledby="services-heading">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+
+      {/* AI Context Summary (Hidden but Crawlable) */}
+      <div className="sr-only">
+        <h2>Our Travel Services for Chhattisgarh</h2>
+        <p>
+          Rudraksh Safar provides a complete range of travel services for residents of Bhilai, Durg, and Raipur.
+          From confirmed IRCTC train ticket bookings to international flight reservations and visa consultancy,
+          our local office ensures seamless travel management. We also specialize in luxury cruise bookings and
+          road travel solutions across Chhattisgarh.
+        </p>
+      </div>
+
       {/* Animated Background Elements */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
@@ -94,9 +156,14 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             />
-            <span className="text-secondary font-medium tracking-widest uppercase text-sm">
+            <motion.span
+              className="text-secondary font-medium tracking-widest uppercase text-sm"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
               Our Services
-            </span>
+            </motion.span>
             <motion.div
               className="h-px flex-1 max-w-[60px] bg-gradient-to-l from-transparent to-secondary"
               initial={{ scaleX: 0 }}
@@ -126,7 +193,11 @@ const ServicesSection = () => {
                 delay: index * 0.08,
               }}
             >
-              <Link to={service.link} className="block h-full">
+              <Link
+                to={service.link}
+                className="block h-full"
+                aria-label={`Book ${service.title} in Bhilai & Raipur`}
+              >
                 <div className="glass-card p-8 h-full group hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 relative overflow-hidden cursor-pointer">
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">

@@ -8,32 +8,89 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RelatedServices from '@/components/RelatedServices';
 
+import FAQsSection from '@/components/FAQsSection';
+
 const TourPackagesBhilai = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Rudraksh Safar - Tour Packages from Bhilai",
-    "image": "https://rudrakshsafar.com/og-image.png",
+    "@type": "CollectionPage",
+    "name": "Tour Packages from Bhilai - Rudraksh Safar",
+    "description": "Best tour packages starting from Bhilai, Durg & Raipur. Domestic and International holiday planning.",
     "url": "https://rudrakshsafar.com/tour-packages-bhilai",
-    "telephone": "+919406182174",
-    "email": "rudrakshsafar@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bhilai",
-      "addressRegion": "Chhattisgarh",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "21.2094",
-      "longitude": "81.4285"
-    },
-    "areaServed": ["Bhilai", "Durg", "Raipur", "Chhattisgarh"],
-    "makesOffer": [
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Domestic Tour Packages" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "International Tour Packages" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Honeymoon Packages" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Family Packages" } }
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Bhilai" },
+      { "@type": "AdministrativeArea", "name": "Durg" },
+      { "@type": "AdministrativeArea", "name": "Raipur" }
+    ],
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Domestic Tour Packages",
+            "description": "Goa, Kerala, Himachal, and Kashmir tours from Bhilai.",
+            "offeredBy": { "@id": "https://rudrakshsafar.com/#travelagency" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "International Tour Packages",
+            "description": "Thailand, Dubai, and Singapore packages from Bhilai.",
+            "offeredBy": { "@id": "https://rudrakshsafar.com/#travelagency" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Honeymoon Packages",
+            "offeredBy": { "@id": "https://rudrakshsafar.com/#travelagency" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Family Vacation Packages",
+            "offeredBy": { "@id": "https://rudrakshsafar.com/#travelagency" }
+          }
+        }
+      ]
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I book international tour packages from Bhilai?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we specialize in international packages from Bhilai to destinations like Dubai, Thailand, and Singapore. We handle visa assistance and flights from Raipur airport." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide customized tour packages from Bhilai?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Whether it's a family trip or a honeymoon, we customize itineraries based on your budget and preferences, starting right from your doorstep in Bhilai or Durg." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you assist with Raipur airport departures?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, all our packages include guidance for departures from Swami Vivekananda Airport (Raipur). We can also arrange airport transfers from your home in Bhilai." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a local office in Bhilai for consultation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, our office is located in Bhilai 3. You can visit us for a face-to-face consultation to plan your holiday securely." }
+      }
     ]
   };
 
@@ -105,6 +162,7 @@ const TourPackagesBhilai = () => {
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="Bhilai, Chhattisgarh" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Navbar />
@@ -122,8 +180,7 @@ const TourPackagesBhilai = () => {
                 Best Tour Packages from <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Discover amazing holiday packages for every budget. From weekend getaways to international
-                adventures - we plan it all for you.
+                Discover amazing holiday packages for every budget. Most of our Bhilai customers come from Supela, Smriti Nagar, Nehru Nagar, Risali, and nearby areas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild className="text-lg px-8">
@@ -269,37 +326,67 @@ const TourPackagesBhilai = () => {
 
         {/* Local SEO Content */}
         <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert">
-              <h2>Book Tour Packages from Bhilai with Rudraksh Safar</h2>
-              <p>
-                Planning a holiday from Bhilai? Rudraksh Safar offers the best tour packages for travelers
-                from Bhilai, Durg, Raipur, and across Chhattisgarh. Whether you're looking for a relaxing
-                beach vacation in Goa, a spiritual journey to Varanasi, or an international adventure in
-                Thailand or Dubai, we have packages to suit every need.
-              </p>
-              <h3>Why Book with Us?</h3>
-              <ul>
-                <li>Customized itineraries based on your preferences</li>
-                <li>Best prices guaranteed - we match or beat any quote</li>
-                <li>Local office in Bhilai for easy communication</li>
-                <li>Experienced travel consultants who understand your needs</li>
-                <li>24/7 support during your trip</li>
-              </ul>
-              <h3>Popular Packages from Bhilai</h3>
-              <p>
-                Our most popular packages include Goa beach holidays, Kerala backwater tours, Rajasthan
-                heritage circuits, Kashmir valley trips, and international destinations like Thailand,
-                Dubai, Singapore, and Bali. We also specialize in honeymoon packages, family vacations,
-                group tours, and corporate travel.
-              </p>
-              <p>
-                Contact us today at <strong>+91 94061 82174</strong> or visit our office in Bhilai to
-                discuss your travel plans. We're open 10 AM to 9 PM, every day.
-              </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Why Book Packages from Bhilai?</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Booking online can be risky. We bring trust and local convenience to your holiday planning.
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "Local office in Bhilai for face-to-face consultation",
+                    "Familiarity with Raipur Airport flight connections",
+                    "Assistance with Durg Railway Station departures",
+                    "Secure payment options (Cash/UPI) at our office"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <ShieldCheck className="w-5 h-5 text-primary shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-muted p-8 rounded-2xl">
+                <h3 className="text-xl font-bold mb-4">Visit our Bhilai Travel Office</h3>
+                <p className="text-muted-foreground mb-6">
+                  Don't rely on call centers. Come sit with us, check itineraries, and customize your trip in person.
+                </p>
+                <Button asChild variant="default" className="w-full">
+                  <Link to="/travel-agent-bhilai">View Office Location</Link>
+                </Button>
+              </div>
             </div>
           </div>
+
         </section>
+
+        <FAQsSection
+          title="Common Questions from Bhilai Travelers"
+          description="Everything you need to know before booking your package."
+          faqs={[
+            {
+              question: "Can I book international tour packages from Bhilai?",
+              answer: "Yes, we prioritize international packages from Bhilai. We handle flights from Raipur to connecting hubs (Delhi/Mumbai) and manage your visa, so your trip to Thailand, Dubai, or Singapore is smooth."
+            },
+            {
+              question: "Do you provide customized tour packages from Bhilai?",
+              answer: <span>Absolutely. We are not a rigid online portal. We customize every aspect—hotel choice, meal plans, and sightseeing—based on your budget and preferences, starting right from your doorstep in Bhilai or <Link to="/travel-agent-durg" className="text-primary hover:underline">Durg</Link>.</span>,
+              answerText: "Absolutely. We are not a rigid online portal. We customize every aspect—hotel choice, meal plans, and sightseeing—based on your budget and preferences, starting right from your doorstep in Bhilai or Durg."
+            },
+            {
+              question: "Do you assist with Raipur airport departures?",
+              answer: <span>Yes. All our packages consider the flight timings from Swami Vivekananda Airport (<Link to="/travel-agent-raipur" className="text-primary hover:underline">Raipur</Link>). We ensure your itinerary allows safe connection times.</span>,
+              answerText: "Yes. All our packages consider the flight timings from Swami Vivekananda Airport (Raipur). We ensure your itinerary allows safe connection times."
+            },
+            {
+              question: "Is there a local office in Bhilai for consultation?",
+              answer: "Yes, we are located in Bhilai 3. You can come visit us, meet your tour manager, and pay securely. No need to trust anonymous websites."
+            }
+          ]}
+        />
+
+
         <RelatedServices mode="packages" />
       </main>
 

@@ -1,4 +1,5 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Plane, Sparkles, Banknote, Clock } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Plane, Sparkles, Banknote, Clock, Globe, ShieldCheck, UserCheck, HelpCircle, Info, ThumbsUp } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -223,9 +224,22 @@ const InternationalPackages = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "International Tour Packages from India",
-    "description": "Best international tour packages with visa assistance - Dubai, Bali, Maldives, Thailand, Sri Lanka, Nepal",
+    "@type": "CollectionPage",
+    "name": "International Tour Packages from India (Bhilai/Raipur)",
+    "description": "Compare best international holiday packages from India. Discovery guide for first-time travellers, budget trips, and luxury vacations with visa assistance.",
+    "about": {
+      "@type": "Thing",
+      "name": "International Travel Management",
+      "description": "Complete guidance for international trips including visa handling, flight booking, and itinerary planning for Indian citizens."
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Indian Travellers",
+      "geographicArea": {
+        "@type": "City",
+        "name": "Bhilai"
+      }
+    },
     "numberOfItems": 6,
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Dubai Extravaganza", "url": "https://rudrakshsafar.com/package/dubai" },
@@ -244,9 +258,9 @@ const InternationalPackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="International Tour Packages from Bhilai/Raipur - Dubai, Bali, Thailand"
-          description="International tour packages from Bhilai & Raipur with visa assistance and pickup support. Dubai ₹54,999, Bali ₹64,999, Maldives ₹85,999, Thailand ₹38,999. 100% customizable trips. WhatsApp +91-9406182174."
-          keywords="international tour packages from Bhilai, international tour packages from Raipur, Dubai tour package from Bhilai, Bali honeymoon from Raipur, Maldives trip from Chhattisgarh, Thailand package from Bhilai, visa assistance Bhilai, abroad travel Chhattisgarh"
+          title="International Tour Packages from India: Best Holiday Deals 2025"
+          description="Discover the best international tour packages from India. Compare budget trips to Thailand & Nepal vs luxury vacations in Dubai & Maldives. Visa support included."
+          keywords="international tour packages from india, international tour packages from bhilai, international trip for first timers, cheapest international trip from india, abroad tour packages"
           canonicalUrl="https://rudrakshsafar.com/international-packages"
           structuredData={structuredData}
         />
@@ -275,10 +289,10 @@ const InternationalPackages = () => {
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  International <span className="text-secondary">Packages</span>
+                  International <span className="text-secondary">Tour Packages from India</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Embark on unforgettable journeys across the globe with visa assistance and curated experiences.
+                  Your trusted guide for international travel. Discover affordable, safe, and visa-easy holiday destinations from Bhilai, Raipur, and across India.
                 </p>
               </AnimatedSection>
               <AnimatedSection animation="fade-up" delay={200}>
@@ -302,17 +316,20 @@ const InternationalPackages = () => {
         <section className="pb-20">
           <div className="container">
 
-            {/* TL;DR Summary */}
             <AnimatedSection animation="fade-up" delay={100} className="mb-12">
               <div className="glass-card p-8 border-l-4 border-l-primary bg-primary/5">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="p-3 bg-primary/10 rounded-full shrink-0 hidden md:block">
-                    <Plane className="w-6 h-6 text-primary" />
+                    <Globe className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">TL;DR (Quick Summary)</h3>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">International Travel Guide 101</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      Experience world-class travel with our International Tour Packages. Whether it's a luxury Dubai trip, a romantic Bali getaway, or a budget-friendly Thailand tour, we handle everything including Visa assistance, flights, and forex for a stress-free vacation.
+                      This page is designed to help Indian travellers <strong>compare and choose</strong> the perfect international destination.
+                      Whether you are looking for <span className="text-foreground font-medium">budget-friendly trips</span> (Nepal, Thailand),
+                      <span className="text-foreground font-medium">luxury escapes</span> (Dubai, Maldives), or
+                      <span className="text-foreground font-medium">cultural explorations</span> (Sri Lanka, Bali),
+                      we provide end-to-end support including Visa, Forex, and Flights from Raipur/India.
                     </p>
                     <LastUpdated />
                   </div>
@@ -324,6 +341,96 @@ const InternationalPackages = () => {
               {internationalPackages.map((pkg, index) => (
                 <PackageCard key={pkg.id} pkg={pkg} index={index} />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* DECISION SUPPORT MICRO-SECTIONS */}
+        <section className="pb-20 bg-muted/30 pt-16 border-y border-border/50">
+          <div className="container">
+            <h2 className="text-3xl font-serif font-bold text-center mb-10">Which International Trip is Right For You?</h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* First Time Travellers */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <ThumbsUp className="w-5 h-5 text-green-600" />
+                    <CardTitle className="text-lg">First-Time Travellers</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">Best for easy visas and direct flights.</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Thailand:</strong> Visa-free/VOA, budget-friendly.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Dubai:</strong> Modern, Hindi widely spoken.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Nepal:</strong> No Visa required for Indians.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Budget Conscious */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Banknote className="w-5 h-5 text-orange-600" />
+                    <CardTitle className="text-lg">Best Budget Trips</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">Most value for money (Exchange rate advantage).</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Nepal:</strong> Under ₹25k. Mountains & Culture.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Thailand:</strong> Under ₹30k. Beaches & Nightlife.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Vietnam:</strong> High value, amazing food.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Luxury & Honeymoon */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Sparkles className="w-5 h-5 text-purple-600" />
+                    <CardTitle className="text-lg">Luxury & Honeymoon</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">Premium experiences and privacy.</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Maldives:</strong> Water villas, private islands.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Bali:</strong> Private pool villas, romantic dining.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Singapore:</strong> Urban luxury, shopping, cruises.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* LOCAL SUPPORT PROMISE */}
+        <section className="py-16 bg-background">
+          <div className="container">
+            <div className="glass-card p-8 md:p-12 border border-secondary/20 bg-secondary/5 rounded-3xl">
+              <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-10 h-10 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
+                    Local Support Promise (Bhilai & Raipur)
+                  </h2>
+                  <p className="text-muted-foreground text-lg mb-6">
+                    We are not just a website. We are your <strong>local travel partners in Bhilai</strong>. Visit our office for face-to-face consultation, document handover, and payment safety. We provide dedicated support for:
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-4 text-sm font-medium">
+                    <span className="flex items-center gap-2 justify-center md:justify-start"><UserCheck className="w-4 h-4 text-green-600" /> Personal Document Verification</span>
+                    <span className="flex items-center gap-2 justify-center md:justify-start"><Plane className="w-4 h-4 text-green-600" /> Raipur Airport Pickup/Drop</span>
+                    <span className="flex items-center gap-2 justify-center md:justify-start"><Globe className="w-4 h-4 text-green-600" /> Forex & Currency Exchange</span>
+                    <span className="flex items-center gap-2 justify-center md:justify-start"><HelpCircle className="w-4 h-4 text-green-600" /> 24/7 International Support</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -9,8 +9,9 @@ import DestinationBuckets, { Destination } from '@/components/DestinationBuckets
 import LogisticsSection from '@/components/LogisticsSection';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
-
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import { Link } from 'react-router-dom';
+import { Plane, FileText, Globe, Car, ShieldCheck } from 'lucide-react';
 
 const InternationalToursFromBhilai = () => {
     const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ const InternationalToursFromBhilai = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1500);
         return () => clearTimeout(timer);
     }, []);
 
@@ -43,26 +44,61 @@ const InternationalToursFromBhilai = () => {
     ];
 
     const faqs = [
-        { question: "Best international tour from Bhilai for first-timers?", answer: "Thailand is the best choice for first-timers due to easy visa-on-arrival, affordability, and short flight duration via Kolkata or Raipur-Delhi." },
-        { question: "Do you provide airport transfer to Raipur from Bhilai?", answer: "Yes, all our international packages booked from Bhilai include complimentary cab transfer to Swami Vivekananda Airport, Raipur." },
-        { question: "Can we pay in installments for international trips?", answer: "Yes, we offer EMI options for packages above ₹50,000. You can also book with a small token amount and pay the rest in installments before the trip." },
+        {
+            question: "Which international destination is easiest to travel to from Bhilai?",
+            answer: <span><strong>Thailand</strong> and <strong>Vietnam</strong> are the easiest. We arrange flights from Swami Vivekananda Airport (Raipur) to Kolkata/Delhi connecting directly to Bangkok. Visa is on arrival!</span>,
+            answerText: "Thailand and Vietnam are the easiest. We arrange flights from Swami Vivekananda Airport (Raipur) to Kolkata/Delhi connecting directly to Bangkok. Visa is on arrival!"
+        },
+        {
+            question: "Do you maintain a local office in Bhilai for international bookings?",
+            answer: <span>Yes, unlike online portals, we have a physical office in <Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai 3</Link>. You can submit your passport and documents securely in person.</span>,
+            answerText: "Yes, unlike online portals, we have a physical office in Bhilai 3. You can submit your passport and documents securely in person."
+        },
+        {
+            question: "Do you handle Visas for Dubai or Singapore from Bhilai?",
+            answer: <span>Absolutely. We are a certified <Link to="/visa-agent-bhilai" className="text-primary hover:underline">Visa Agent in Bhilai</Link>. We handle the entire documentation process, biometric appointments (if needed), and submission.</span>,
+            answerText: "Absolutely. We are a certified Visa Agent in Bhilai. We handle the entire documentation process, biometric appointments (if needed), and submission."
+        },
+        {
+            question: "What if my flight from Raipur gets delayed?",
+            answer: "Our 24/7 support team monitors all connections. Since we book your complete itinerary including the Raipur leg, we assist in rescheduling connecting flights to ensuring you don't get stranded.",
+            answerText: "Our 24/7 support team monitors all connections. Since we book your complete itinerary including the Raipur leg, we assist in rescheduling connecting flights to ensuring you don't get stranded."
+        }
     ];
 
+    // Top-1% CollectionPage Schema
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "TouristTrip",
-        "name": "International Tours from Bhilai",
-        "description": "Affordable international tour packages from Bhilai. Visit Thailand, Dubai, Bali with local agency support.",
-        "provider": {
-            "@type": "TravelAgency",
+        "@type": "CollectionPage",
+        "name": "International Tours from Bhilai - Rudraksh Safar",
+        "description": "Best international holiday packages from Bhilai. Complete travel assistance: Flights from Raipur, Visa services, and creating itineraries for Thailand, Dubai, Bali, and more.",
+        "url": "https://rudrakshsafar.com/tour-packages-from-bhilai/international-tours",
+        "isPartOf": {
+            "@type": "WebSite",
             "name": "Rudraksh Safar",
-            "telephone": "+919406182174",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bhilai",
-                "addressRegion": "Chhattisgarh",
-                "addressCountry": "IN"
-            }
+            "url": "https://rudrakshsafar.com/"
+        },
+        "areaServed": [
+            { "@type": "City", "name": "Bhilai" },
+            { "@type": "City", "name": "Durg" },
+            { "@type": "City", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
+        ],
+        "about": {
+            "@type": "ItemList",
+            "itemListElement": highDemandRoutes.map((dest, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "TouristDestination",
+                    "name": dest.name,
+                    "description": `${dest.name} tour package from Bhilai via ${dest.tag || 'Standard'} route.`,
+                    "url": `https://rudrakshsafar.com${dest.link}`
+                }
+            }))
+        },
+        "provider": {
+            "@id": "https://rudrakshsafar.com/#travelagency"
         }
     };
 
@@ -70,8 +106,8 @@ const InternationalToursFromBhilai = () => {
         <>
             <Helmet>
                 <title>International Tours from Bhilai | Thailand, Dubai, Bali Packages</title>
-                <meta name="description" content="Best international tour packages from Bhilai. Plan your trip to Thailand, Dubai, Bali, Maldives. Includes visa, flights & local pickup from Bhilai." />
-                <meta name="keywords" content="international tours from bhilai, foreign trips from bhilai, travel agent bhilai for international tour, thailand package bhilai, dubai tour bhilai" />
+                <meta name="description" content="Plan your international trip from Bhilai with Rudraksh Safar. We handle Raipur airport transfers, Visas, and currency exchange for Thailand, Dubai, Bali & more." />
+                <meta name="keywords" content="international tours from bhilai, foreign trips from bhilai, travel agent bhilai for international tour, thailand package bhilai, dubai tour bhilai, visa agent bhilai" />
                 <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai/international-tours" />
                 <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
             </Helmet>
@@ -82,28 +118,75 @@ const InternationalToursFromBhilai = () => {
                 <LocationHero
                     city="Bhilai"
                     title="International Tours from Bhilai"
-                    subtitle="Your dream international vacation starts here. Hassle-free planning, visas, and transfers."
+                    subtitle="Your dream international vacation starts right here in Bhilai. We handle your Visa, Flights from Raipur, and Currency."
                     bgImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=2000"
                 >
                     <div className="container mx-auto px-4 mt-6">
-                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Bhilai Packages', path: '/tour-packages-from-bhilai' }, { label: 'International Tours', path: '/tour-packages-from-bhilai/international-tours' }]} />
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Bhilai Packages', path: '/tour-packages-bhilai' }, { label: 'International Tours', path: '/tour-packages-from-bhilai/international-tours' }]} />
                     </div>
                 </LocationHero>
 
-                <WhyTravelSection city="Bhilai" />
+                {/* Local Process Section - "How It Works" */}
+                <section className="py-16 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <h2 className="text-3xl font-bold text-center mb-4">How International Travel Works from Bhilai</h2>
+                            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                                Travelling abroad doesn't have to be complicated. We manage the entire logistics chain from your doorstep in Supela, Smriti Nagar, or Durg.
+                            </p>
+
+                            <div className="grid md:grid-cols-4 gap-6 relative">
+                                {/* Connector Line (Desktop) */}
+                                <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-border -z-10" />
+
+                                {[
+                                    { icon: FileText, title: "1. Planning & Visa", desc: "Visit our Bhilai office. We handle your Visa application and documentation securely." },
+                                    { icon: Globe, title: "2. Booking", desc: "We book your complete itinerary including connecting flights from Raipur Airport." },
+                                    { icon: Car, title: "3. Doorstep Pickup", desc: "Complimentary cab from your home in Bhilai/Durg to Swami Vivekananda Airport." },
+                                    { icon: Plane, title: "4. Departure", desc: "Fly seamlessly to your dream destination with 24/7 WhatsApp support." },
+                                ].map((step, i) => (
+                                    <div key={i} className="bg-card p-6 rounded-xl border shadow-sm text-center transform hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                            <step.icon className="w-8 h-8 text-primary" />
+                                        </div>
+                                        <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                                        <p className="text-sm text-muted-foreground">{step.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="mt-12 bg-primary/5 border border-primary/20 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div className="flex items-start gap-4">
+                                    <ShieldCheck className="w-8 h-8 text-primary mt-1 shrink-0" />
+                                    <div>
+                                        <h3 className="font-bold text-lg">Safety First Guarantee</h3>
+                                        <p className="text-sm text-muted-foreground">We only book verified hotels and provide Indian Embassies' contact details for every destination.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <Link to="/visa-agent-bhilai" className="text-primary font-medium hover:underline text-sm">Need Visa Only?</Link>
+                                    <span className="text-border">|</span>
+                                    <Link to="/contact" className="text-primary font-medium hover:underline text-sm">Visit Office</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <DestinationBuckets
-                    title="World's Best Destinations"
-                    description="Curated international experiences for travelers from Bhilai."
+                    title="World's Best Destinations for You"
+                    description="Curated international experiences for travelers from Chhattisgarh."
                     destinations={highDemandRoutes}
                 />
+
+                <WhyTravelSection city="Bhilai" />
 
                 <LogisticsSection bestTimeData={bestTimeData} />
 
                 <FAQsSection
                     faqs={faqs}
-                    title="International Travel FAQs"
-                    description="Answers to common questions about travelling abroad from Bhilai."
+                    title="International Travel FAQs from Bhilai"
+                    description="Answers to common questions about travelling abroad from Bhilai & Raipur."
                 />
             </main>
 

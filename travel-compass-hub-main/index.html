@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- NOTE: Route-specific SEO (title/description/canonical/OG/Twitter) is injected per-page via react-helmet-async.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- NOTE: Route-specific SEO (title/description/canonical/OG/Twitter) is injected per-page via react-helmet-async.
          Keeping those tags here causes duplicates across SPA routes and can confuse Google indexing. -->
 
-    <!-- Additional Meta -->
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="format-detection" content="telephone=yes" />
-    
-    <!-- Core Web Vitals Optimization -->
-    <!-- DNS Prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
-    
-    <!-- Preconnect for Performance (with crossorigin for CORS resources) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    
-    <!-- Preload critical fonts for faster text rendering -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkpFhRRiRARry.woff2" as="font" type="font/woff2" crossorigin />
-    
-    <!-- Resource hints for better LCP -->
-    <link rel="prefetch" href="/domestic-packages" />
-    <link rel="prefetch" href="/international-packages" />
-    
-    <!-- Schema.org - LocalBusiness (Optimized for Google Local Pack) -->
-    <script type="application/ld+json">
+  <!-- Additional Meta -->
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=yes" />
+
+  <!-- Core Web Vitals Optimization -->
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://wa.me" />
+
+  <!-- Preconnect for Performance (with crossorigin for CORS resources) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+  <!-- Preload critical fonts for faster text rendering -->
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkpFhRRiRARry.woff2"
+    as="font" type="font/woff2" crossorigin />
+
+  <!-- Resource hints for better LCP -->
+  <link rel="prefetch" href="/domestic-packages" />
+  <link rel="prefetch" href="/international-packages" />
+
+  <!-- Schema.org - LocalBusiness (Optimized for Google Local Pack) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
-      "@id": "https://rudrakshsafar.com/#organization",
+      "@id": "https://rudrakshsafar.com/#travelagency",
       "name": "Rudraksh Safar",
       "alternateName": "Rudraksh Safar Tours",
       "description": "Best travel agency in Bhilai, Chhattisgarh offering national and international tour packages. Trusted travel agent serving Bhilai, Durg, and Raipur with customized holiday planning.",
@@ -48,8 +51,7 @@
       "telephone": "+91-9406182174",
       "email": "rudrakshsafar@gmail.com",
       "priceRange": "₹₹",
-      "currenciesAccepted": "INR",
-      "paymentAccepted": "Cash, UPI, Bank Transfer",
+
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
@@ -63,25 +65,89 @@
         "latitude": "21.206181",
         "longitude": "81.424916"
       },
+      "hasMap": "https://www.google.com/maps?cid=0x3a3bc76b52d82e08",
       "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "10:00",
         "closes": "21:00"
       }],
-      "areaServed": {
-        "@type": "Place",
-        "name": ["Bhilai", "Durg", "Supela", "Smriti Nagar", "Power House", "Raipur", "Charoda", "Khursipar", "Chhattisgarh"]
-      },
-      "knowsAbout": ["Domestic Tours", "International Tours", "Pilgrimage Tours", "Honeymoon Packages", "Family Vacations", "Adventure Travel", "Visa Assistance"],
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Bhilai"
+        },
+        {
+          "@type": "Place",
+          "name": "Khursipar, Bhilai"
+        },
+        {
+          "@type": "Place",
+          "name": "Nehru Nagar, Bhilai"
+        },
+        {
+          "@type": "Place",
+          "name": "Smriti Nagar, Bhilai"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Durg"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Raipur"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Chhattisgarh"
+        }
+      ],
+      "knowsAbout": [
+        "Domestic Tour Packages",
+        "International Holiday Packages",
+        "Customized Tour Packages",
+        "Honeymoon Tour Packages",
+        "Family Vacation Planning",
+        "Group Tour Management",
+        "Luxury Holiday Planning",
+        "Budget-Friendly Tour Planning",
+        "Goa Tour Packages",
+        "Manali Tour Packages",
+        "Kerala Tour Packages",
+        "Munnar Tour Packages",
+        "Kashmir Tour Packages",
+        "North East India Tour Packages",
+        "Rajasthan Tour Packages",
+        "Pilgrimage Tours and Yatra Planning",
+        "Chardham Yatra Packages",
+        "Vaishno Devi Yatra",
+        "Religious and Spiritual Tours",
+        "Thailand Tour Packages",
+        "Dubai Tour Packages",
+        "Singapore Tour Packages",
+        "Malaysia Tour Packages",
+        "Bali Tour Packages",
+        "International Group Tours",
+        "Flight Ticket Booking Assistance",
+        "Train Ticket Booking Assistance",
+        "Bus Ticket Booking Assistance",
+        "Hotel Reservations",
+        "Cruise Holiday Planning",
+        "Cab Booking and Taxi Arrangements",
+        "Airport Transfers",
+        "Outstation Travel Arrangements",
+        "Passport Application Assistance",
+        "Visa Assistance and Documentation",
+        "Travel Insurance Assistance"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Tour Packages",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Thailand Tour from Bhilai", "description": "5N/6D Bangkok Pattaya package"}, "price": "25000", "priceCurrency": "INR"},
-          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Goa Package from Bhilai", "description": "3N/4D beach holiday"}, "price": "9999", "priceCurrency": "INR"},
-          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Dubai Tour from Bhilai", "description": "5N/6D luxury tour"}, "price": "45000", "priceCurrency": "INR"},
-          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Kashmir Package from Bhilai", "description": "5N/6D paradise tour"}, "price": "17999", "priceCurrency": "INR"}
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Thailand Tour from Bhilai", "description": "5N/6D Bangkok Pattaya package"}, "price": "Varies", "priceCurrency": "INR"},
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Goa Package from Bhilai", "description": "3N/4D beach holiday"}, "price": "Varies", "priceCurrency": "INR"},
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Dubai Tour from Bhilai", "description": "5N/6D luxury tour"}, "price": "Varies", "priceCurrency": "INR"},
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Kashmir Package from Bhilai", "description": "5N/6D paradise tour"}, "price": "Varies", "priceCurrency": "INR"}
         ]
       },
       "sameAs": [
@@ -92,9 +158,9 @@
       ]
     }
     </script>
-    
-    <!-- Schema.org - WebSite for Sitelinks Search -->
-    <script type="application/ld+json">
+
+  <!-- Schema.org - WebSite for Sitelinks Search -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -104,19 +170,23 @@
         "@type": "SearchAction",
         "target": "https://rudrakshsafar.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@id": "https://rudrakshsafar.com/#travelagency"
       }
     }
     </script>
-    
-    
-    <!-- Favicon & PWA Icons -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+  <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

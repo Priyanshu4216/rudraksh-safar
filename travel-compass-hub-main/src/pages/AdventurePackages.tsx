@@ -1,4 +1,5 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Mountain, Zap, Flame, Waves, Bike, Clock } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Mountain, Zap, Flame, Waves, Bike, Clock, ShieldAlert, HeartPulse, HardHat, Info } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -92,7 +93,7 @@ const getThrillColor = (thrill: string) => {
 
 const PackageCard = ({ pkg, index }: { pkg: typeof adventurePackages[0]; index: number }) => {
   const handleWhatsApp = () => {
-    const message = `Yo! I'm pumped about the ${pkg.title} package (${pkg.duration}) at ${pkg.price}. Hit me with the details! 🔥`;
+    const message = `Hello, I am interested in the ${pkg.title} package (${pkg.duration}) priced at ${pkg.price}. Please share the detailed itinerary and safety protocols.`;
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -105,7 +106,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof adventurePackages[0]; index: 
             <Flame className="w-3 h-3" />
             {pkg.thrill}
           </div>
-          
+
           <div className="relative h-56 overflow-hidden">
             <img src={pkg.image} alt={`${pkg.title} adventure package - ${pkg.location}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-900/40 to-transparent" />
@@ -121,7 +122,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof adventurePackages[0]; index: 
               </div>
             </div>
           </div>
-          
+
           <div className="p-5">
             <div className="flex items-center justify-between mb-3">
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -140,18 +141,18 @@ const PackageCard = ({ pkg, index }: { pkg: typeof adventurePackages[0]; index: 
                 Best time: {getBestTimeToVisit({ tag: pkg.tag, location: pkg.location })}
               </span>
             </div>
-            
+
             <div className="flex items-center justify-between pt-4 border-t border-orange-200/50 dark:border-orange-800/30">
               <div>
                 <p className="text-xs text-muted-foreground">Starting from</p>
                 <p className="text-xl font-serif font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">{pkg.price}</p>
               </div>
-              <Button 
-                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} 
+              <Button
+                onClick={(e) => { e.preventDefault(); handleWhatsApp(); }}
                 className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-5 py-2.5 text-sm rounded-full shadow-lg hover:shadow-orange-500/25 transition-all font-bold"
               >
-                LET'S GO
-                <Zap className="w-4 h-4 ml-1.5" />
+                Request Details
+                <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </div>
           </div>
@@ -173,9 +174,22 @@ const AdventurePackages = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Adventure Tour Packages",
-    "description": "Thrilling adventure packages - Ladakh bike tour, Rishikesh rafting, Andaman scuba diving, Nepal trekking, Thailand island hopping",
+    "@type": "CollectionPage",
+    "name": "Adventure Tour Packages & Expeditions",
+    "description": "Expert-led adventure tours: Ladakh biking, Rishikesh rafting, scuba diving. Safety-first planning with certified guides.",
+    "about": {
+      "@type": "Thing",
+      "name": "Adventure Travel",
+      "description": "High-altitude trekking, water sports, and expeditions requiring physical fitness and professional guidance."
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Thrill Seekers & Outdoor Enthusiasts",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "India"
+      }
+    },
     "numberOfItems": adventurePackages.length,
     "itemListElement": adventurePackages.map((pkg, idx) => ({
       "@type": "ListItem",
@@ -193,26 +207,26 @@ const AdventurePackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="Adventure Packages - Ladakh Bike Tour, Rafting, Scuba Diving, Trekking"
-          description="Epic adventure trips for thrill seekers! Ladakh bike tour, Rishikesh rafting, Andaman scuba diving, Nepal trekking, Thailand island hopping. YOLO trips starting ₹6,999!"
-          keywords="adventure packages, Ladakh bike tour, Rishikesh rafting, scuba diving Andaman, Nepal trekking, Thailand island hopping, Dubai desert safari, extreme sports, youth travel"
+          title="Adventure Tour Packages for Thrill Seekers: Expert-Led & Safe"
+          description="Book expert-led adventure tours: Ladakh Bike Expeditions, Rishikesh Rafting, Nepal Trekking. Certified guides, safety equipment & medical preparedness included."
+          keywords="adventure tour packages, ladakh bike trip cost, rishikesh rafting packages, scuba diving india, trekking in nepal, adventure travel india, safe adventure tours"
           canonicalUrl="https://rudrakshsafar.com/adventure-packages"
           structuredData={structuredData}
         />
         <Navbar />
-        
+
         {/* Hero Section - Bold & Energetic */}
         <section className="relative pt-28 pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-background to-amber-100/30 dark:from-orange-950/20 dark:to-amber-950/10" />
           <div className="absolute top-20 right-10 w-64 h-64 bg-orange-300/20 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-amber-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          
+
           <div className="container relative z-10">
             <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-orange-600 transition-colors mb-8 group">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Back to Home
             </Link>
-            
+
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
@@ -223,33 +237,88 @@ const AdventurePackages = () => {
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  Adventure <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Awaits</span>
+                  Adventure <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Expeditions</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Life's too short for boring trips. 🔥 Push your limits with epic adventures - 
-                  from mountain peaks to ocean depths. YOLO, right?
+                  Expert-led adventure tours for those who seek the extraordinary. From high-altitude passes to ocean depths,
+                  we ensure <strong>safety, professional guidance, and unforgettable thrills</strong>.
                 </p>
               </AnimatedSection>
-              
+
               <AnimatedSection animation="fade-up" delay={200}>
                 <div className="glass-card p-5 border border-orange-300/30 bg-gradient-to-br from-orange-50/80 to-amber-50/80 dark:from-orange-950/30 dark:to-amber-950/30 max-w-xs">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="font-serif font-bold text-foreground">No Cap Adventures</h3>
+                    <h3 className="font-serif font-bold text-foreground">Safety First</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Real experiences, zero filter. Built for the wild ones 🤙
+                    Certified guides, medical kits & premium gear on every trip.
                   </p>
                 </div>
               </AnimatedSection>
             </div>
           </div>
         </section>
-        
+
+        {/* SAFETY & SUITABILITY SECTION */}
+        <section className="py-12 bg-background border-b border-border/50">
+          <div className="container">
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+
+              {/* Safety Promise */}
+              <div className="bg-orange-50/50 dark:bg-orange-950/20 rounded-2xl p-6 border border-orange-100 dark:border-orange-900/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <ShieldAlert className="w-6 h-6 text-orange-600" />
+                  <h3 className="text-xl font-bold text-foreground">Our Safety & Expertise Promise</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Adventure travel carries inherent risks. We mitigate them with professional planning and strict protocols.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <HardHat className="w-5 h-5 text-orange-500 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Certified Guides:</strong> All trekking and rafting leaders are certified in First Aid and Mountaineering.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <HeartPulse className="w-5 h-5 text-orange-500 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Medical Preparedness:</strong> Oxygen cylinders (for high altitude) and extensive medical kits are standard.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Zap className="w-5 h-5 text-orange-500 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Premium Equipment:</strong> We use only branded, safety-tested gear for biking, diving, and camping.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Suitability Filter */}
+              <div className="bg-background rounded-2xl p-6 border border-border order-first md:order-last">
+                <div className="flex items-center gap-3 mb-4">
+                  <Info className="w-6 h-6 text-blue-600" />
+                  <h3 className="text-xl font-bold text-foreground">Is This Trip For You?</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  These expeditions are designed for active travelers tailored to different skill levels.
+                </p>
+                <div className="space-y-4">
+                  <div className="p-3 bg-red-50 dark:bg-red-950/20 rounded-lg border border-red-100 dark:border-red-900/30">
+                    <h4 className="font-bold text-red-700 dark:text-red-400 text-sm mb-1">⚠️ High Intensity (Trekking/Biking)</h4>
+                    <p className="text-xs text-muted-foreground">Requires good cardiovascular fitness. Not recommended for those with heart conditions or asthma without medical clearance.</p>
+                  </div>
+                  <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-100 dark:border-green-900/30">
+                    <h4 className="font-bold text-green-700 dark:text-green-400 text-sm mb-1">✅ Moderate (Camping/Rafting)</h4>
+                    <p className="text-xs text-muted-foreground">Suitable for beginners and families. Basic swimming skills may be required for water sports.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* Activity Tags */}
-        <section className="pb-10">
+        <section className="py-10">
           <div className="container">
             <div className="flex flex-wrap justify-center gap-3">
               {[
@@ -266,7 +335,7 @@ const AdventurePackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Packages Grid */}
         <section className="pb-20">
           <div className="container">
@@ -277,7 +346,7 @@ const AdventurePackages = () => {
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-100/50 to-amber-100/50 dark:from-orange-950/20 dark:to-amber-950/20" />
@@ -285,20 +354,21 @@ const AdventurePackages = () => {
             <AnimatedSection animation="scale">
               <div className="glass-card p-10 max-w-2xl mx-auto border border-orange-200/50 dark:border-orange-800/30">
                 <Flame className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Got Something Crazier in Mind?</h2>
-                <p className="text-muted-foreground mb-6">Tell us your wildest adventure dreams. We'll make it happen! 🚀</p>
-                <Button 
-                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Yo! I want to plan an epic adventure trip. Let's talk! 🔥")}`, '_blank'); }} 
+                <Flame className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Ready for the Challenge?</h2>
+                <p className="text-muted-foreground mb-6">Speak with our adventure experts to plan a safe and thrilling expedition.</p>
+                <Button
+                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hello! I want to plan an adventure trip. Please assist with options.")}`, '_blank'); }}
                   className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-orange-500/25 transition-all font-bold text-lg"
                 >
                   <Zap className="w-5 h-5 mr-2" />
-                  LET'S GO WILD
+                  Speak to an Expert
                 </Button>
               </div>
             </AnimatedSection>
           </div>
         </section>
-        
+
         <Footer />
         <FloatingWhatsApp />
       </main>

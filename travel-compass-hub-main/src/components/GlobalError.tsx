@@ -12,7 +12,7 @@ interface State {
 }
 
 class GlobalError extends Component<Props, State> {
-    public state: State = {
+    public override state: State = {
         hasError: false,
         isChunkError: false,
     };
@@ -25,7 +25,7 @@ class GlobalError extends Component<Props, State> {
         return { hasError: true, isChunkError };
     }
 
-    public componentDidCatch(error: Error) {
+    public override componentDidCatch(error: Error) {
         console.error("Uncaught error:", error);
 
         // Automatically reload if it's a chunk error (stale cache)
@@ -38,7 +38,7 @@ class GlobalError extends Component<Props, State> {
         }
     }
 
-    public render() {
+    public override render() {
         if (this.state.hasError) {
             if (this.state.isChunkError) {
                 return (

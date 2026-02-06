@@ -12,9 +12,19 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+    // Top-1% Rule: Don't render broken or empty breadcrumbs
+    if (!items || items.length === 0) return null;
+
+    // Helper to ensure valid absolute URLs (prevent double slashes)
+    const getAbsoluteUrl = (path: string) => {
+        const cleanPath = path.startsWith('/') ? path : `/${path}`;
+        return `https://rudrakshsafar.com${cleanPath}`;
+    };
+
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": "https://rudrakshsafar.com/#breadcrumb",
         "itemListElement": [
             {
                 "@type": "ListItem",
@@ -26,7 +36,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
                 "@type": "ListItem",
                 "position": index + 2,
                 "name": item.label,
-                "item": `https://rudrakshsafar.com${item.path}`
+                "item": getAbsoluteUrl(item.path)
             }))
         ]
     };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 
 interface LocalCoverageProps {
-    city: 'Bhilai' | 'Raipur' | 'General';
+    city: 'Bhilai' | 'Raipur' | 'Durg' | 'General';
     className?: string;
 }
 
@@ -16,8 +16,8 @@ const LocalCoverage = ({ city, className }: LocalCoverageProps) => {
                         <p>
                             Rudraksh Safar proudly serves travelers from Bhilai and nearby areas.
                             Our travel services are frequently used by customers from{" "}
-                            <strong>Bhilai, Durg, Supela, Nehru Nagar, Smriti Nagar, Risali, Charoda</strong>{" "}
-                            and surrounding localities.
+                            <strong>Supela, Smriti Nagar, Power House, Nehru Nagar, Risali, Charoda, Hudco</strong>{" "}
+                            and surrounding localities of Bhilai, Durg & Raipur.
                         </p>
                         <p>
                             Whether you are planning a family vacation, honeymoon, group tour, or corporate travel,

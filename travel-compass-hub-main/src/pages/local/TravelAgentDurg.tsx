@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import GoogleMapEmbed from '@/components/GoogleMapEmbed';
 import CustomerGallery from '@/components/CustomerGallery';
 import TrustBadges from '@/components/TrustBadges';
+import LocalCoverage from '@/components/LocalCoverage';
 
 const TravelAgentDurg = () => {
     const [loading, setLoading] = useState(true);
@@ -26,22 +27,47 @@ const TravelAgentDurg = () => {
 
     if (loading) return <LocationPageLoader />;
 
-    // Local Business Schema for Durg
+    // LocalBusiness Schema - Optimized for Durg
     const localBusinessSchema = {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
+        "@id": "https://rudrakshsafar.com/#travelagency",
         "name": "Rudraksh Safar",
         "image": "https://rudrakshsafar.com/logo.png",
         "telephone": "+919406182174",
+        "email": "rudrakshsafar@gmail.com",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Durg",
+            "streetAddress": "Shop No 182/2, GE Road, Bhilai 3",
+            "addressLocality": "Bhilai",
             "addressRegion": "Chhattisgarh",
+            "postalCode": "490021",
             "addressCountry": "IN"
         },
-        "priceRange": "$$",
-        "openingHours": "Mo-Su 10:00-21:00",
-        "url": "https://rudrakshsafar.com/travel-agent-durg"
+        "priceRange": "₹₹",
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "21:00"
+        }],
+        "url": "https://rudrakshsafar.com/travel-agent-durg",
+        "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Durg" },
+            { "@type": "Place", "name": "Mohan Nagar, Durg" },
+            { "@type": "Place", "name": "Padmanabhpur, Durg" },
+            { "@type": "AdministrativeArea", "name": "Bhilai" },
+            { "@type": "AdministrativeArea", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
+        ],
+        "knowsAbout": [
+            "Domestic Tour Packages",
+            "International Holiday Packages",
+            "Visa Assistance",
+            "Flight Booking",
+            "Train Ticket Booking",
+            "Passport Services"
+        ]
     };
 
     const faqSchema = {
@@ -141,6 +167,10 @@ const TravelAgentDurg = () => {
                     <GoogleMapEmbed lazyLoad={true} />
                     <CustomerGallery className="mt-8" />
                 </section>
+
+                <div className="container mx-auto px-4">
+                    <LocalCoverage city="Durg" className="mb-16 rounded-2xl" />
+                </div>
 
                 {/* Services Grid */}
                 <section className="py-16 bg-muted/30">

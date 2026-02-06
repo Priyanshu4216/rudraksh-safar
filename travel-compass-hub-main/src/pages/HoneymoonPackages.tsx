@@ -1,4 +1,5 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Heart, Sparkles, Clock } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Heart, Sparkles, Clock, ShieldCheck, Gem, Trees, Umbrella, Info, Plane, CheckCircle } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -192,9 +193,22 @@ const HoneymoonPackages = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Honeymoon Tour Packages",
-    "description": "Romantic honeymoon packages to India and International destinations - Manali, Kashmir, Bali, Maldives, Paris, Switzerland",
+    "@type": "CollectionPage",
+    "name": "Romantic Honeymoon Packages from India & Abroad",
+    "description": "Compare best honeymoon destinations. Beach vs Mountain, Budget vs Luxury. Private transfers and couple-friendly hotels guaranteed.",
+    "about": {
+      "@type": "Thing",
+      "name": "Honeymoon Planning",
+      "description": "Expert guidance for choosing the perfect romantic getaway based on privacy, budget, and travel style."
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Couples & Newlyweds",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "India"
+      }
+    },
     "numberOfItems": honeymoonPackages.length,
     "itemListElement": honeymoonPackages.map((pkg, idx) => ({
       "@type": "ListItem",
@@ -212,9 +226,9 @@ const HoneymoonPackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="Honeymoon Packages - Romantic Getaways to Bali, Maldives, Paris, Kashmir"
-          description="Plan your dream honeymoon with romantic packages to Bali, Maldives, Paris, Switzerland, Kashmir & more. Candlelight dinners, private villas, sunset experiences. Book now!"
-          keywords="honeymoon packages, romantic getaway, Bali honeymoon, Maldives water villa, Paris honeymoon, Switzerland honeymoon, Kashmir honeymoon, Kerala backwaters honeymoon"
+          title="Romantic Honeymoon Packages from India & Abroad: Best Deals 2025"
+          description="Plan your customized honeymoon with privacy & romance guaranteed. Compare Bali, Maldives (Luxury) vs Manali, Kerala (Budget). Expert couple support included."
+          keywords="honeymoon packages from India, international honeymoon packages, luxury honeymoon trips, budget couple packages, private honeymoon tours, romantic getaways"
           canonicalUrl="https://rudrakshsafar.com/honeymoon-packages"
           structuredData={structuredData}
         />
@@ -241,11 +255,10 @@ const HoneymoonPackages = () => {
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  Honeymoon <span className="bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">Packages</span>
+                  Romantic <span className="bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">Honeymoon Packages</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Begin your forever with unforgettable romantic escapes. From serene backwaters to exotic islands,
-                  create memories that last a lifetime.
+                  Handpicked romantic getaways from India & Abroad. Designed for couples seeking <strong>privacy, luxury, and unforgettable memories</strong>.
                 </p>
                 <div className="mt-4">
                   <LastUpdated />
@@ -269,8 +282,77 @@ const HoneymoonPackages = () => {
           </div>
         </section>
 
+        {/* HONEYMOON DECISION GUIDE */}
+        <section className="py-12 bg-rose-50/50 dark:bg-rose-950/10 border-b border-rose-100 dark:border-rose-900/30">
+          <div className="container">
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300 text-xs font-bold uppercase tracking-wider mb-4">
+                <Heart className="w-3 h-3 fill-current" /> Planning Hub
+              </span>
+              <h2 className="text-3xl font-serif font-bold text-foreground">How to Choose Your Perfect Honeymoon?</h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Beach vs Mountain */}
+              <div className="bg-background rounded-2xl p-6 shadow-sm border border-rose-100 dark:border-rose-900/30">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                  <Umbrella className="w-5 h-5 text-blue-500" /> Beach vs <Trees className="w-5 h-5 text-green-500" /> Mountain
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-sm p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                    <span className="font-medium">Relaxed & Tropical</span>
+                    <span className="text-muted-foreground">Maldives, Bali, Andaman</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                    <span className="font-medium">Cozy & Scenic</span>
+                    <span className="text-muted-foreground">Kashmir, Manali, Switzerland</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Domestic vs International */}
+              <div className="bg-background rounded-2xl p-6 shadow-sm border border-rose-100 dark:border-rose-900/30">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                  <Gem className="w-5 h-5 text-purple-500" /> Luxury & Budget
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-sm p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                    <span className="font-medium">Premium (₹1.5L+)</span>
+                    <span className="text-muted-foreground">Europe, Maldives Water Villa</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
+                    <span className="font-medium">Value (Under ₹50k)</span>
+                    <span className="text-muted-foreground">Kerala, Goa, Thailand</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* PRIVACY PROMISE */}
+            <div className="mt-12 bg-background border border-rose-200 dark:border-rose-800 rounded-3xl p-8 max-w-4xl mx-auto text-center relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-500" />
+              <ShieldCheck className="w-12 h-12 text-rose-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-serif font-bold mb-4">The "Couple Trust" Promise</h3>
+              <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
+                We understand that a honeymoon is a once-in-a-lifetime trip. That's why we guarantee:
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+                <span className="flex items-center gap-2 text-sm font-bold text-foreground bg-rose-50 dark:bg-rose-900/20 px-4 py-2 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-green-500" /> Private Transfers
+                </span>
+                <span className="flex items-center gap-2 text-sm font-bold text-foreground bg-rose-50 dark:bg-rose-900/20 px-4 py-2 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-green-500" /> Verified Couple-Friendly Hotels
+                </span>
+                <span className="flex items-center gap-2 text-sm font-bold text-foreground bg-rose-50 dark:bg-rose-900/20 px-4 py-2 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-green-500" /> 24/7 Human Support
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Packages Grid */}
-        <section className="pb-20">
+        <section className="pb-20 pt-12">
           <div className="container">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {honeymoonPackages.map((pkg, index) => (

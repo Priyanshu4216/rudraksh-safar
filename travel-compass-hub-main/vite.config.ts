@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
+// @ts-ignore
+// import prerender from 'vite-plugin-prerender';
+// @ts-ignore
+// import PuppeteerRenderer from '@prerenderer/renderer-puppeteer';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -14,7 +18,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "prompt", // Changed from autoUpdate to prompt
       includeAssets: ["favicon.png", "favicon.ico", "og-image.png"],
       manifest: {
         name: "Rudraksh Safar - Best Travel Agency Bhilai",
@@ -42,13 +46,9 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        // Force new service worker to take control immediately
-        skipWaiting: true,
-        clientsClaim: true,
-        // Clean old caches on update
-        cleanupOutdatedCaches: true,
+        cleanupOutdatedCaches: true, // Keep this for hygiene
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB limit, exclude large videos
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => ({
               cacheName: "unsplash-images",
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+                maxAgeSeconds: 60 * 60 * 24 * 30
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -78,13 +78,33 @@ export default defineConfig(({ mode }) => ({
               cacheName: "google-fonts-webfonts",
               expiration: {
                 maxEntries: 20,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               }
             }
           }
         ]
       }
+    }),
+    // @ts-ignore
+    /*
+    // @ts-ignore
+    prerender({
+      staticDir: path.join(__dirname, 'dist'),
+      routes: [
+        '/', 
+        '/travel-agent-bhilai', 
+        '/travel-agent-raipur', 
+        '/travel-agent-durg',
+        '/domestic-packages',
+        '/international-packages'
+      ],
+      // @ts-ignore
+      renderer: new PuppeteerRenderer({
+        maxConcurrentRoutes: 1,
+        renderAfterTime: 500,
+      }),
     })
+    */
   ].filter(Boolean),
   resolve: {
     alias: {

@@ -1,4 +1,8 @@
 # Default cache behavior for all files (like index.html): must revalidate
+# 301 Redirects for SEO preservation
+/international-packages-bhilai  /international-tour-packages-bhilai  301!
+/corporate-tour-packages-bhilai  /tour-packages-from-bhilai/corporate-tours  301!
+
 /*
   Cache-Control: public, max-age=0, must-revalidate
 

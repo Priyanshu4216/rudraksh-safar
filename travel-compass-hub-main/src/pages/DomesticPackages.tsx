@@ -1,4 +1,5 @@
-import { MapPin, Calendar, ArrowRight, ArrowLeft, Sparkles, Clock } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, ArrowLeft, Sparkles, Clock, Globe, ShieldCheck, UserCheck, HelpCircle, Info, ThumbsUp, Banknote } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -213,9 +214,22 @@ const DomesticPackages = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "CollectionPage",
     "name": "Domestic Tour Packages in India",
-    "description": "Best domestic tour packages in India - Char Dham, Ladakh, Goa, Manali, Kerala and more",
+    "description": "Compare best domestic holiday packages in India. Compare destinations like Kashmir, Goa, Kerala, and Char Dham based on budget and travel style.",
+    "about": {
+      "@type": "Thing",
+      "name": "Domestic Tourism in India",
+      "description": "Travel packages for popular Indian destinations including pilgrimages, hill stations, and beach holidays."
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Indian Families & Travellers",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "India"
+      }
+    },
     "numberOfItems": 9,
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Char Dham Yatra", "url": "https://rudrakshsafar.com/package/chardham" },
@@ -234,9 +248,9 @@ const DomesticPackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="Domestic Tour Packages India - Char Dham, Ladakh, Goa, Manali"
-          description="Book best domestic tour packages in India starting ₹9,999. Char Dham Yatra ₹17,999, Ladakh ₹24,999, Goa ₹11,999, Manali ₹9,999. 100% customizable trips from Bhilai, Chhattisgarh."
-          keywords="domestic tour packages India, Char Dham Yatra package, Ladakh tour, Goa trip, Manali package, Kerala tour, pilgrimage tours India, adventure tours, hill station packages"
+          title="Domestic Tour Packages in India: Compare Holiday Deals 2025"
+          description="Discover the best domestic tour packages in India. Compare budget trips to Goa & Manali vs spiritual journeys like Char Dham. 100% customizable from Bhilai."
+          keywords="domestic tour packages India, India holiday packages, family tour packages india, budget domestic trips, pilgrimage tours India, best holiday destinations india"
           canonicalUrl="https://rudrakshsafar.com/domestic-packages"
           structuredData={structuredData}
         />
@@ -254,10 +268,10 @@ const DomesticPackages = () => {
                   <span className="text-secondary font-medium tracking-widest uppercase text-sm">Explore India</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  Domestic <span className="text-secondary">Packages</span>
+                  Domestic <span className="text-secondary">Tour Packages in India</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Discover the incredible diversity of India - from spiritual journeys to thrilling adventures.
+                  Compare destinations, budgets, and travel styles. Discover the incredible diversity of India with our curated holiday packages.
                 </p>
               </AnimatedSection>
               <AnimatedSection animation="fade-up" delay={200}>
@@ -279,17 +293,21 @@ const DomesticPackages = () => {
         <section className="pb-20">
           <div className="container">
 
-            {/* TL;DR Summary */}
+            {/* DOMESTIC TRAVEL GUIDE (INTENT DECLARATION) */}
             <AnimatedSection animation="fade-up" delay={100} className="mb-12">
               <div className="glass-card p-8 border-l-4 border-l-secondary bg-secondary/5">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="p-3 bg-secondary/10 rounded-full shrink-0 hidden md:block">
-                    <Sparkles className="w-6 h-6 text-secondary" />
+                    <Globe className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">TL;DR (Quick Summary)</h3>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">India Travel Guide</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      Explore India's most breathtaking destinations with our curated domestic packages. From the spiritual stillness of Char Dham to the beaches of Goa and the peaks of Ladakh, we offer 100% customizable itineraries including hotels, transfers, and sightseeing.
+                      This page helps you <strong>compare & select</strong> the right Indian holiday destination based on your budget and travel style.
+                      Whether you need a <span className="text-foreground font-medium">spiritual pilgrimage</span> (Char Dham),
+                      an <span className="text-foreground font-medium">adventure trip</span> (Ladakh, Spiti), or a
+                      <span className="text-foreground font-medium">family beach vacation</span> (Goa, Andaman),
+                      we provide customizable itineraries with transparent pricing.
                     </p>
                     <LastUpdated />
                   </div>
@@ -301,6 +319,69 @@ const DomesticPackages = () => {
               {domesticPackages.map((pkg, index) => (
                 <PackageCard key={pkg.id} pkg={pkg} index={index} />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* DECISION SUPPORT: MICRO-ANSWERS */}
+        <section className="pb-20 bg-muted/30 pt-16 border-y border-border/50">
+          <div className="container">
+            <h2 className="text-3xl font-serif font-bold text-center mb-10">Compare Trips by Interest</h2>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Budget & Short Trips */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Banknote className="w-5 h-5 text-green-600" />
+                    <CardTitle className="text-lg">Budget & Short Trips</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">Best for long weekends (3-5 Days).</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Manali:</strong> Starts ₹9,999. Adventure & Snow.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Goa:</strong> Starts ₹11,999. Beaches & Nightlife.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Haridwar:</strong> Starts ₹9,999. Spiritual short trip.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Adventure & Nature */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Sparkles className="w-5 h-5 text-orange-600" />
+                    <CardTitle className="text-lg">Adventure & Nature</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">For thrill-seekers and nature lovers.</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Ladakh:</strong> Bike expeditions & high passes.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Spiti Valley:</strong> Remote landscapes & monasteries.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Andaman:</strong> Scuba diving & pristine beaches.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Pilgrimage & Family */}
+              <Card className="bg-background border-border/60">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <UserCheck className="w-5 h-5 text-purple-600" />
+                    <CardTitle className="text-lg">Pilgrimage & Family</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-3">Safe, comfortable family experiences.</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Char Dham:</strong> Complete spiritual Yatra.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Kashmir:</strong> Paradise for families & couples.</li>
+                    <li className="flex items-center gap-2"><strong className="text-foreground">Kerala:</strong> Relaxing houseboats & tea gardens.</li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

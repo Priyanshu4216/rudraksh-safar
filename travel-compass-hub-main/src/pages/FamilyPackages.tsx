@@ -143,7 +143,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof familyPackages[0]; index: num
                 onClick={(e) => { e.preventDefault(); handleWhatsApp(); }}
                 className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-5 py-2.5 text-sm rounded-full shadow-lg hover:shadow-blue-500/25 transition-all"
               >
-                Book Now
+                Talk to Expert
                 <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </div>
@@ -166,16 +166,68 @@ const FamilyPackages = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Family Tour Packages",
-    "description": "Kid-friendly family vacation packages to India and International destinations - Shimla Manali, Kerala, Singapore, Dubai, Thailand",
-    "numberOfItems": familyPackages.length,
-    "itemListElement": familyPackages.map((pkg, idx) => ({
-      "@type": "ListItem",
-      "position": idx + 1,
-      "name": pkg.title,
-      "url": `https://rudrakshsafar.com/package/${pkg.id}`
-    }))
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "Best Family Tour Packages from India",
+        "description": "Safe and kid-friendly family vacation packages. Destinations sorted by age suitability (Toddlers, Teens, Seniors).",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Families with Children"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": familyPackages.map((pkg, idx) => ({
+            "@type": "ListItem",
+            "position": idx + 1,
+            "name": pkg.title,
+            "url": `https://rudrakshsafar.com/package/${pkg.id}`
+          }))
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Family Travel Planning",
+        "provider": {
+          "@type": "TravelAgency",
+          "name": "Rudraksh Safar"
+        },
+        "serviceType": "Family Vacation Planning",
+        "offers": {
+          "@type": "Offer",
+          "description": "Customized itineraries with kid-friendly hotels, private transfers, and relaxed pacing."
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which destinations are best for toddlers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For toddlers (0-4 years), we recommend destinations with short flights and good medical infrastructure like Dubai, Singapore, and Kerala. Avoid high-altitude treks or long road trips."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to travel with kids internationally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We only recommend destinations with high safety standards. Our packages include private transfers (no shared buses), 24/7 support, and hotels vetted for hygiene and child-safety."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide child-friendly food?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We select hotels that offer kid-friendly buffets and can accommodate special requests (milk, boiled water). For international trips, we prioritize locations near Indian restaurants."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -186,9 +238,9 @@ const FamilyPackages = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="Family Tour Packages - Kid Friendly Vacations to Singapore, Dubai, Thailand"
-          description="Best family vacation packages with kid-friendly activities, comfortable stays & guided tours. Singapore, Dubai, Thailand, Shimla Manali, Kerala & more. Safe & memorable trips!"
-          keywords="family tour packages, kid friendly vacation, family holiday, Singapore family trip, Dubai family tour, Thailand family vacation, Shimla Manali family, Kerala family tour"
+          title="Best Family Tour Packages from India (2026) - Safe & Kid-Friendly"
+          description="Plan a stress-free family vacation. Expert-curated packages for toddlers, teens & seniors. Verified safe hotels, private transfers & relaxed itineraries. Book now!"
+          keywords="family tour packages india, best places to visit with toddlers from india, safe international trips for families, kid friendly vacation packages, family trip planner"
           canonicalUrl="https://rudrakshsafar.com/family-packages"
           structuredData={structuredData}
         />
@@ -215,11 +267,11 @@ const FamilyPackages = () => {
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  Family <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Packages</span>
+                  Best Family Packages <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">From India</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
-                  Create lasting memories with your loved ones. Kid-friendly destinations, comfortable stays,
-                  and guided tours designed for the whole family.
+                  <strong>Safe, Relaxed, and Kid-Friendly.</strong> We design vacations that parents trust and kids love.
+                  Private cabs, vetted hotels, and zero-stress itineraries.
                 </p>
                 <div className="mt-4">
                   <LastUpdated />
@@ -243,21 +295,106 @@ const FamilyPackages = () => {
           </div>
         </section>
 
-        {/* Trust Badges */}
-        <section className="pb-10">
-          <div className="container">
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { icon: Baby, text: 'Kid Friendly' },
-                { icon: Home, text: 'Comfortable Stays' },
-                { icon: Shield, text: 'Safe & Secure' },
-                { icon: Users, text: 'Guided Tours' },
-              ].map((badge, idx) => (
-                <div key={idx} className="flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium">
-                  <badge.icon className="w-4 h-4" />
-                  {badge.text}
+        {/* HOW TO CHOOSE GUIDE */}
+        <section className="py-12 bg-background border-b border-border/50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">
+                  <Baby className="w-3 h-3" /> Parents' Guide
+                </span>
+                <h2 className="text-3xl font-bold mb-4">How to Choose the Perfect Family Trip?</h2>
+                <p className="text-muted-foreground">Every age group needs a different pace. Don't guess—choose what fits your family.</p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-blue-600">
+                    👶 With Toddlers (0-4)
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">Focus on short flights (&lt; 4 hrs) and ease.</p>
+                  <ul className="text-sm space-y-1 font-medium">
+                    <li className="text-green-600">✓ Dubai (Stroller friendly)</li>
+                    <li className="text-green-600">✓ Singapore (Safe & Clean)</li>
+                    <li className="text-green-600">✓ Kerala (Relaxed Resorts)</li>
+                  </ul>
                 </div>
-              ))}
+                <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-orange-600">
+                    🎒 With School Kids (5-12)
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">Needs engagement, pools, and activities.</p>
+                  <ul className="text-sm space-y-1 font-medium">
+                    <li className="text-green-600">✓ Thailand (Safaris & Sea)</li>
+                    <li className="text-green-600">✓ Hong Kong (Disneyland)</li>
+                    <li className="text-green-600">✓ Himachal (Snow Fun)</li>
+                  </ul>
+                </div>
+                <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-purple-600">
+                    🕶️ With Teens (13+)
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">Needs adventure, WiFi, and "cool" factors.</p>
+                  <ul className="text-sm space-y-1 font-medium">
+                    <li className="text-green-600">✓ Bali (IG-worthy & Surf)</li>
+                    <li className="text-green-600">✓ Vietnam (Adventure)</li>
+                    <li className="text-green-600">✓ Kashmir (Skiing/Treks)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SAFETY & COMFORT PROMISE */}
+        <section className="py-16 bg-blue-50/50 dark:bg-blue-950/10">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">The "No-Anxiety" Family Promise</h2>
+                <p className="text-muted-foreground mb-6">
+                  We know traveling with kids can be stressful. That's why we don't just book tickets; we ensure peace of mind.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-green-100 text-green-700 rounded-full mt-1"><Shield className="w-4 h-4" /></div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Hotels Vetted for Hygiene</h4>
+                      <p className="text-sm text-muted-foreground">We personally check reviews for cleanliness and kid-friendly food options.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-blue-100 text-blue-700 rounded-full mt-1"><Users className="w-4 h-4" /></div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Private Transfers Only</h4>
+                      <p className="text-sm text-muted-foreground">No waiting for shared buses. Your own decent cab, at your own pace.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-orange-100 text-orange-700 rounded-full mt-1"><Clock className="w-4 h-4" /></div>
+                    <div>
+                      <h4 className="font-bold text-foreground">Relaxed Itineraries</h4>
+                      <p className="text-sm text-muted-foreground">We don't pack 10 spots in a day. We leave room for naps, pool time, and tantrums.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
+                <div className="relative bg-background border p-8 rounded-2xl shadow-xl">
+                  <h3 className="text-xl font-bold mb-4 text-center">Parents Trust Us ❤️</h3>
+                  <div className="space-y-4">
+                    <div className="bg-muted/50 p-4 rounded-lg text-sm">
+                      "Traveled to Dubai with my 2-year-old. The private cab arranged by Rudraksh Safar was a lifesaver. Driver was super patient!"
+                      <br /><span className="text-xs font-bold mt-2 block">- Sneha K., Raipur</span>
+                    </div>
+                    <div className="bg-muted/50 p-4 rounded-lg text-sm">
+                      "Singapore trip was perfect. The hotel had a great pool for kids and was near the MRT, exactly as promised."
+                      <br /><span className="text-xs font-bold mt-2 block">- Amit Verma, Bhilai</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -275,23 +412,24 @@ const FamilyPackages = () => {
 
         {/* FAQs Section */}
         <FAQsSection
-          title="Common Questions About Family Travel"
+          title="Parents Ask Us: Safety & Planning"
+          description="Honest answers to make your family trip stress-free."
           faqs={[
             {
-              question: "Which destinations are best for kids?",
-              answer: "Singapore (Zoo, Sentosa), Dubai (Parks, Aquarium), Thailand (Safari World), and in India, places like Munnar, Ooty, and Manali are excellent for children due to their engaging activities and mild weather."
+              question: "Is it safe to travel with toddlers to these destinations?",
+              answer: "Absolutely. Destinations like Singapore, Dubai, and Kerala have excellent medical infrastructure and hygiene standards. We ensure your hotel is near pharmacies and supermarkets."
             },
             {
-              question: "Do you provide child-friendly food?",
-              answer: "We ensure that hotels and restaurants in our itinerary offer kid-friendly meal options. If you have specific dietary requirements (e.g., for infants), please let us know in advance."
+              question: "Why should I book a package instead of DIY?",
+              answer: "With kids, you can't afford mishaps. We handle the stressful logistics—airport transfers, tickets, and timing—so you can focus on the kids. Plus, we offer 24/7 on-trip support if you need a doctor or help."
             },
             {
-              question: "Is the itinerary relaxed for seniors/kids?",
-              answer: "Yes, our family packages are designed with a 'relaxed pace'. We avoid rushing between spots and include leisure time. We can also arrange private vehicles for convenience."
+              question: "Can we customize the food for children?",
+              answer: "Yes. For international trips, we prioritize hotels with Indian breakfast options. We can also guide you to Indian restaurants nearby for lunch/dinner."
             },
             {
-              question: "Are entry tickets to theme parks included?",
-              answer: "In most packages (like Singapore or Dubai), major attraction tickets are included. We can add or remove attractions based on your family's interests."
+              question: "Are the itineraries tiring for seniors or kids?",
+              answer: "No. Our 'Family' tagged packages are spaced out. We avoid rush-hour travel and include leisure mornings. We can also add a wheelchair-accessible vehicle if informed in advance."
             }
           ]}
         />
@@ -306,11 +444,11 @@ const FamilyPackages = () => {
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Plan Your Family Vacation</h2>
                 <p className="text-muted-foreground mb-6">Let us create a customized family-friendly itinerary for you</p>
                 <Button
-                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like to plan a family vacation package.")}`, '_blank'); }}
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-blue-500/25 transition-all"
+                  onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I want to plan a safe family trip. Please guide me.")}`, '_blank'); }}
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-blue-500/25 transition-all text-lg font-bold"
                 >
-                  <Users className="w-4 h-4 mr-2" />
-                  Plan Family Trip
+                  <Users className="w-5 h-5 mr-2" />
+                  Talk to a Family Expert
                 </Button>
               </div>
             </AnimatedSection>

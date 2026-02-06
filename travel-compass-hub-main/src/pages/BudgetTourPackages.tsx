@@ -69,7 +69,7 @@ const BudgetTourPackages = () => {
                 {/* Hero Section */}
                 <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-teal-950 text-white">
                     <div className="absolute inset-0 bg-gradient-to-br from-teal-900 to-slate-900"></div>
-                    <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
+                    <div className="absolute inset-0 bg-muted/10"></div>
                     <div className="container relative z-10 text-center px-4">
                         <Badge className="mb-6 bg-teal-500/20 text-teal-300 border-teal-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                             Travel More, Spend Less

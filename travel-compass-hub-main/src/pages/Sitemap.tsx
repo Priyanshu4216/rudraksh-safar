@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle } from 'lucide-react';
+import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle, HelpCircle, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import LastUpdated from '@/components/LastUpdated';
+import { getAllCategories } from './blog/BlogData';
 
 const Sitemap = () => {
     // Content Data
@@ -52,13 +53,13 @@ const Sitemap = () => {
                 { name: 'Tour Packages from Bhilai', href: '/tour-packages-bhilai', desc: 'Trips starting from Bhilai' },
                 { name: 'Best Tour Packages from Bhilai', href: '/tour-packages-from-bhilai', desc: 'Top-rated packages' },
                 { name: 'International Packages from Bhilai', href: '/international-tour-packages-bhilai', desc: 'Foreign tours from Bhilai' },
-                { name: 'International Tours from Bhilai', href: '/international-tours-from-bhilai', desc: 'Global destinations' },
+                { name: 'International Tours from Bhilai', href: '/tour-packages-from-bhilai/international-tours', desc: 'Global destinations' },
                 { name: 'India Tour Packages from Bhilai', href: '/india-tour-packages-bhilai', desc: 'Domestic trips' },
                 { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai', desc: 'Short trips nearby' },
-                { name: 'Cheapest Trips from Bhilai', href: '/cheapest-trips-from-bhilai', desc: 'Budget travel guide' },
-                { name: 'Picnic Spots Near Bhilai', href: '/picnic-spots-near-bhilai', desc: 'Day outing places' },
-                { name: 'Corporate Tour Packages Bhilai', href: '/corporate-tour-packages-bhilai', desc: 'Business travel solutions' },
-                { name: 'Honeymoon Packages from Bhilai', href: '/honeymoon-packages-from-bhilai', desc: 'Romantic escapes' },
+                { name: 'Cheapest Trips from Bhilai', href: '/tour-packages-from-bhilai/cheapest-trips', desc: 'Budget travel guide' },
+                { name: 'Picnic Spots Near Bhilai', href: '/tour-packages-from-bhilai/picnic-spots', desc: 'Day outing places' },
+                { name: 'Corporate Tour Packages Bhilai', href: '/tour-packages-from-bhilai/corporate-tours', desc: 'Business travel solutions' },
+                { name: 'Honeymoon Packages from Bhilai', href: '/tour-packages-from-bhilai/honeymoon-packages', desc: 'Romantic escapes' },
                 { name: 'Travel Guide from Bhilai', href: '/travel-guide-from-bhilai', desc: 'Local travel tips' },
             ]
         },
@@ -70,8 +71,8 @@ const Sitemap = () => {
                 { name: 'Travel Agent in Raipur', href: '/travel-agent-raipur', desc: 'Agencies in Raipur' },
                 { name: 'Tour Packages Raipur', href: '/tour-packages-raipur', desc: 'Holiday packages' },
                 { name: 'Tour Packages from Raipur', href: '/tour-packages-from-raipur', desc: 'Trips starting from Raipur' },
-                { name: 'International Tours from Raipur', href: '/international-tours-from-raipur', desc: 'Global travel' },
-                { name: 'Weekend Getaways from Raipur', href: '/weekend-getaways-raipur', desc: 'Short breaks' },
+                { name: 'International Tours from Raipur', href: '/tour-packages-from-raipur/international-tours', desc: 'Global travel' },
+                { name: 'Weekend Getaways from Raipur', href: '/tour-packages-from-raipur/weekend-getaways', desc: 'Short breaks' },
             ]
         },
         {
@@ -84,7 +85,7 @@ const Sitemap = () => {
                 { name: 'Bus Booking Service', href: '/bus-booking-bhilai', desc: 'Intercity bus tickets' },
                 { name: 'Ticket Booking Assistance', href: '/ticket-booking-bhilai', desc: 'General ticketing' },
                 { name: 'Cab Rental Service', href: '/cab-rental', desc: 'Local & Outstation cabs' },
-                { name: 'Hotel Booking Assistance', href: '/hotel-booking', desc: 'Stays and accommodation' },
+                { name: 'Hotel Booking Assistance', href: '/hotel-booking', desc: 'Hotel Booking (GST Invoices & Offline Rates)' },
                 { name: 'Passport Agent Services', href: '/passport-agent-bhilai', desc: 'New & Renewal assistance' },
                 { name: 'Visa Agent Services', href: '/visa-agent-bhilai', desc: 'Tourist & Business visas' },
                 { name: 'Cruise Booking', href: '/cruise-booking', desc: 'Domestic and international cruise assistance' },
@@ -121,16 +122,45 @@ const Sitemap = () => {
             description: "Educational resources to help travellers plan better and travel safely.",
             icon: FileText,
             links: [
-                { name: 'For Travellers Hub', href: '/for-travellers', desc: 'Central guide resource' },
+                { name: 'For Travellers Hub', href: '/for-travellers', desc: 'Pre-Travel Authority (Visa, Safety, Mistakes)' },
                 { name: 'Visa Guide', href: '/visa-guide', desc: 'General visa info' },
                 { name: 'Passport Guide', href: '/passport-guide', desc: 'Passport procedures' },
                 { name: 'Visa Free Countries', href: '/visa-free-countries', desc: 'Where to go without visa' },
                 { name: 'Travel Checklist', href: '/travel-checklist', desc: 'Packing & prep' },
-                { name: 'Currency Guide', href: '/currency-guide', desc: 'Forex tips' },
+                { name: 'Currency Guide', href: '/currency-guide', desc: 'Money Planning (UPI, Forex & Cards)' },
                 { name: 'Best Time to Visit', href: '/best-time-to-visit', desc: 'Seasonal planning' },
                 { name: 'Travel Health & Safety', href: '/travel-health', desc: 'Vaccines & insurance' },
                 { name: 'Travel Tips & Advice', href: '/travel-tips', desc: 'Smart travel hacks' },
                 { name: 'After Booking Process', href: '/guides/after-booking-guide', desc: 'Timeline & Next Steps' },
+            ]
+        },
+        {
+            title: "Travel Blog & Guides (New)",
+            description: "Expert travel advice, itineraries, and local insights from our editorial team.",
+            icon: BookOpen,
+            links: [
+                { name: 'Blog Home', href: '/blog', desc: 'Latest articles and updates' },
+                ...getAllCategories().map(cat => ({
+                    name: cat.title,
+                    href: `/blog/${cat.slug}`,
+                    desc: cat.description
+                }))
+            ]
+        },
+        {
+            title: "Frequently Asked Questions (FAQs)",
+            description: "Direct answers to your specific booking and travel questions.",
+            icon: HelpCircle,
+            links: [
+                { name: 'FAQ Hub', href: '/faqs', desc: 'Central knowledge base' },
+                { name: 'Tour Package FAQs', href: '/faqs/tour-packages', desc: 'Inclusions & booking policies' },
+                { name: 'Flight Booking FAQs', href: '/faqs/flight-booking', desc: 'Cancellation & baggage rules' },
+                { name: 'Train Booking FAQs', href: '/faqs/train-booking', desc: 'Tatkal & IRCTC queries' },
+                { name: 'Hotel Booking FAQs', href: '/faqs/hotel-booking', desc: 'Check-in & policies' },
+                { name: 'Cab Booking FAQs', href: '/faqs/cab-booking', desc: 'Transport queries' },
+                { name: 'Visa FAQs', href: '/faqs/visa-services', desc: 'Visa processing help' },
+                { name: 'Passport FAQs', href: '/faqs/passport-services', desc: 'Passport application help' },
+                { name: 'Cruise FAQs', href: '/faqs/cruise-booking', desc: 'Cruise travel details' },
             ]
         },
         {

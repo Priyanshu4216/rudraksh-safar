@@ -17,6 +17,13 @@ import {
   Download,
   Users,
   Utensils,
+  HelpCircle,
+  Wallet,
+  CalendarClock,
+  Shuffle,
+  ThumbsUp,
+  X,
+  Check,
 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
@@ -54,10 +61,15 @@ const HotDeals = () => {
   const structuredData = useMemo(
     () => ({
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "Hot Deals – Fixed Departure Group Tours",
+      "@type": "CollectionPage",
+      name: "Fixed Departure Group Tour Packages India",
       description:
-        "Fixed departure group tours with best price guarantee, confirmed dates, Indian meals, and tour manager support.",
+        "Affordable fixed departure group tours from India. All-inclusive packages with Indian meals, tour managers, and guaranteed departure dates.",
+      about: {
+        "@type": "Thing",
+        "name": "Fixed Departure Group Tours",
+        "description": "A group travel package with a pre-set itinerary, fixed travel dates, and shared services for a lower cost."
+      },
       url: "https://rudrakshsafar.com/hot-deals",
       isPartOf: {
         "@type": "WebSite",
@@ -90,13 +102,35 @@ const HotDeals = () => {
 
       <main className="min-h-screen bg-background">
         <SEOHead
-          title="Hot Deals – Fixed Departure Group Tours"
-          description="Travel more. Pay less. Experience better — with our Hot Deal fixed departure group tours (Domestic & International)."
-          keywords="hot deals group tours, fixed departure packages, group tour India, Pattaya group tour package"
+          title="Fixed Departure Group Tour Packages India | Best Group Deals 2025"
+          description="Looking for affordable group holidays? Experience our Fixed Departure Group Tours with Indian meals, tour managers, and guaranteed low prices. Book now!"
+          keywords="fixed departure group tours, group tour packages india, budget international group tours, fixed departure travel agents, group holiday packages"
           canonicalUrl="https://rudrakshsafar.com/hot-deals"
           ogType="website"
           ogImage="https://rudrakshsafar.com/og-image.png"
-          structuredData={structuredData}
+          structuredData={{
+            ...structuredData,
+            "mainEntity": {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is a Fixed Departure Tour?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "A Fixed Departure Tour is a group travel package with a pre-set itinerary and specific travel dates. Because seats, hotels, and flights are bulk-booked in advance, these tours are significantly cheaper than customized packages and include a tour manager." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are meals included in group tours?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Yes, most of our fixed departure group tours include daily breakfast, Indian lunches, and Indian dinners to ensure comfort for Indian travellers." }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is it suitable for solo travellers?",
+                  "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Fixed departures are the safest and most social way for solo travellers to explore international destinations without worrying about logistics or safety." }
+                }
+              ]
+            }
+          }}
         />
 
         <Navbar />
@@ -128,10 +162,10 @@ const HotDeals = () => {
               </div>
 
               <h1 className="mt-5 text-balance font-serif text-4xl md:text-5xl lg:text-6xl text-foreground">
-                Hot Deals – Fixed Departure Group Tours
+                Fixed Departure & <span className="text-secondary">Group Tour Packages</span>
               </h1>
               <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-                Travel more. Pay less. Experience better — with our Hot Deal group tours.
+                The smartest way to travel. Join our all-inclusive group tours with fixed dates, Indian meals, and guaranteed low pricing.
               </p>
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -226,7 +260,135 @@ const HotDeals = () => {
           </AnimatedSection>
         </section>
 
-        {/* (Moved) Why Hot Deals section now appears near the bottom */}
+        {/* EDUCATIONAL AUTHORITY: What is Fixed Departure? */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="bg-muted/30 rounded-3xl p-8 md:p-12 border border-border/60">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm text-secondary font-medium mb-6">
+                <HelpCircle className="h-4 w-4" />
+                <span className="uppercase tracking-wide">Travel Explained</span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+                What is a Fixed Departure Tour?
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                A <strong>Fixed Departure Tour</strong> is a premium group travel package where the Dates, Flight Itinerary, and Hotels are
+                <span className="text-foreground font-medium"> pre-booked in bulk</span> by Rudraksh Safar.
+              </p>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                Because we buy seats and rooms in large quantities months in advance, we secure
+                <span className="text-foreground font-medium"> exclusive wholesale rates</span> that are 30-40% cheaper than booking the same trip individually.
+                You get a luxury experience at a budget price, coupled with the safety of a group and an expert Tour Manager.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* DECISION SUPPORT: Who is this for? */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground">Who Should Choose a Group Tour?</h2>
+            <p className="mt-4 text-muted-foreground">
+              Designed for travellers who value safety, social connection, and value for money.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="border-border/60 bg-card hover:border-secondary/40 transition-colors">
+              <CardContent className="pt-6 text-center">
+                <div className="mx-auto w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="font-serif text-xl mb-3">Families & Seniors</h3>
+                <p className="text-sm text-muted-foreground">
+                  Zero planning stress. We handle luggage, transfers, and meals (including pure veg/Jain options) so you can relax.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/60 bg-card hover:border-secondary/40 transition-colors">
+              <CardContent className="pt-6 text-center">
+                <div className="mx-auto w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center mb-4">
+                  <Wallet className="h-6 w-6 text-pink-600" />
+                </div>
+                <h3 className="font-serif text-xl mb-3">Budget Travellers</h3>
+                <p className="text-sm text-muted-foreground">
+                  Get 4-star hotels, rides, and guides for the price of a budget DIY trip. The power of group buying!
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/60 bg-card hover:border-secondary/40 transition-colors">
+              <CardContent className="pt-6 text-center">
+                <div className="mx-auto w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-orange-600" />
+                </div>
+                <h3 className="font-serif text-xl mb-3">Solo Travellers</h3>
+                <p className="text-sm text-muted-foreground">
+                  Never feel alone or unsafe. Make friends, share stories, and explore the world with the security of a group.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* COMPARISON TABLE: Authority Signal */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl text-center mb-8">Group Tour vs. Customized Private Tour</h2>
+            <div className="overflow-hidden rounded-xl border border-border shadow-sm">
+              <table className="w-full text-sm md:text-base">
+                <thead className="bg-muted">
+                  <tr>
+                    <th className="p-4 text-left font-medium">Feature</th>
+                    <th className="p-4 text-left font-medium text-secondary">Fixed Departure Group Tour</th>
+                    <th className="p-4 text-left font-medium text-muted-foreground">Private/Custom Tour</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/60 bg-card">
+                  <tr>
+                    <td className="p-4 font-medium flex items-center gap-2">
+                      <Wallet className="h-4 w-4 text-muted-foreground" /> Cost
+                    </td>
+                    <td className="p-4 font-medium text-green-600">30-40% Cheaper (Wholesale)</td>
+                    <td className="p-4 text-muted-foreground">Higher (Retail Pricing)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium flex items-center gap-2">
+                      <CalendarClock className="h-4 w-4 text-muted-foreground" /> Dates
+                    </td>
+                    <td className="p-4 text-muted-foreground">Fixed Specific Dates only</td>
+                    <td className="p-4 text-green-600">Flexible (Any day)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium flex items-center gap-2">
+                      <Utensils className="h-4 w-4 text-muted-foreground" /> Meals
+                    </td>
+                    <td className="p-4 text-green-600">Indian Meals Included</td>
+                    <td className="p-4 text-muted-foreground">Breakfast only (usually)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium flex items-center gap-2">
+                      <Shuffle className="h-4 w-4 text-muted-foreground" /> Flexibility
+                    </td>
+                    <td className="p-4 text-muted-foreground">Follows set itinerary</td>
+                    <td className="p-4 text-green-600">Fully customizable</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium flex items-center gap-2">
+                      <Users className="h-4 w-4 text-muted-foreground" /> Tour Manager
+                    </td>
+                    <td className="p-4 text-green-600">Included from India</td>
+                    <td className="p-4 text-muted-foreground">NO (Local driver only)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-center text-sm text-muted-foreground">
+              <strong>Verdict:</strong> Choose <span className="text-secondary font-medium">Fixed Departure</span> for best value & social safety. Choose <span className="text-foreground font-medium">Private</span> for flexibility & privacy.
+            </p>
+          </div>
+        </section>
 
         {/* Pattaya Deal */}
         <section id="pattaya-group" className="container mx-auto px-4 pb-16">

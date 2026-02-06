@@ -2,10 +2,10 @@ import { forwardRef, useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useTheme } from './ThemeProvider';
 import logoLight from '@/assets/logo-light.png';
 import logoDark from '@/assets/logo-dark.png';
+import { Helmet } from 'react-helmet-async';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -16,9 +16,6 @@ const quickLinks = [
   { name: 'Destinations', href: '#destinations' },
   { name: 'Contact', href: '#contact' },
 ];
-
-// Link arrays removed as they are now in Sitemap.tsx
-// Keeping essential arrays only
 
 const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy-policy' },
@@ -77,7 +74,9 @@ const legalContent = {
         <li>Booking history with us</li>
       </ul>
       <h4>d) Financial Information</h4>
-      <p>Payment details processed only through secure third-party payment gateways (We do not store card or banking details on our servers.)</p>
+      <ul>
+         <li>Payment details processed only through secure third-party payment gateways (We do not store card or banking details on our servers.)</li>
+      </ul>
       <h4>e) Technical Information</h4>
       <ul>
         <li>IP address</li>
@@ -711,9 +710,27 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
     setModalOpen(true);
   };
 
+  // Footer Schema
+  const footerSchema = {
+    "@context": "https://schema.org",
+    "@type": "WPFooter",
+    "copyrightYear": new Date().getFullYear().toString(),
+    "copyrightHolder": {
+      "@type": "TravelAgency",
+      "name": "Rudraksh Safar",
+      "@id": "https://rudrakshsafar.com/#travelagency"
+    }
+  };
+
   return (
     <>
       <footer ref={ref} className="bg-foreground text-primary-foreground" role="contentinfo" aria-label="Site footer">
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(footerSchema)}
+          </script>
+        </Helmet>
+
         {/* Main Footer */}
         <div className="container py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -734,7 +751,12 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                   <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                   <span className="text-primary-foreground/70">
                     GE Road, In Front of Petrol Pump<br />Bhilai 3, Chhattisgarh 490021<br />
-                    <span className="text-xs opacity-80 mt-1 block">Serving: Bhilai, Durg, Raipur & Chhattisgarh</span>
+                    <span className="text-xs opacity-80 mt-1 block leading-relaxed">
+                      Serving: <Link to="/travel-agent-bhilai" className="hover:text-secondary underline decoration-dotted">Bhilai</Link>,{' '}
+                      <Link to="/travel-agent-durg" className="hover:text-secondary underline decoration-dotted">Durg</Link>,{' '}
+                      <Link to="/travel-agent-raipur" className="hover:text-secondary underline decoration-dotted">Raipur</Link> &{' '}
+                      <Link to="/tour-packages-from-raipur/international-tours" className="hover:text-secondary underline decoration-dotted">International Hub</Link>
+                    </span>
                   </span>
                 </p>
                 <p className="flex items-center gap-3">
@@ -765,7 +787,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                           e.preventDefault();
                           handleNavClick(link.href);
                         }}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
                       >
                         {link.name}
                       </a>
@@ -773,7 +795,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                   ))}
                   {/* Sitemap Link */}
                   <li>
-                    <Link to="/sitemap" className="text-secondary hover:underline font-medium text-sm flex items-center gap-1">
+                    <Link to="/sitemap" className="text-secondary hover:underline font-medium text-sm flex items-center gap-1 py-1">
                       View Full Sitemap
                     </Link>
                   </li>
@@ -783,67 +805,71 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
             {/* Legal & Compliance */}
             <div>
-              <h3 className="font-semibold mb-6 text-lg">Legal</h3>
-              <ul className="space-y-3">
-                {legalLinks.map((link) => (
-                  <li key={link.name}>
-                    {'href' in link && link.href ? (
-                      <Link
-                        to={link.href}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={() => openModal(link.id as keyof typeof legalContent)}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left"
-                      >
-                        {link.name}
-                      </button>
-                    )}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="font-semibold mb-6 text-lg" id="footer-legal-links">Legal</h3>
+              <nav aria-labelledby="footer-legal-links">
+                <ul className="space-y-3">
+                  {legalLinks.map((link) => (
+                    <li key={link.name}>
+                      {'href' in link && link.href ? (
+                        <Link
+                          to={link.href}
+                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
+                        >
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => openModal(link.id as keyof typeof legalContent)}
+                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left block py-1"
+                        >
+                          {link.name}
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
 
             {/* Support */}
             <div>
-              <h3 className="font-semibold mb-6 text-lg">Support</h3>
-              <ul className="space-y-3 mb-8">
-                {supportLinks.map((link) => (
-                  <li key={link.name}>
-                    {'href' in link && link.href ? (
-                      link.href.startsWith('#') ? (
-                        <a
-                          href={link.href}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleNavClick(link.href);
-                          }}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
-                        >
-                          {link.name}
-                        </a>
+              <h3 className="font-semibold mb-6 text-lg" id="footer-support-links">Support</h3>
+              <nav aria-labelledby="footer-support-links">
+                <ul className="space-y-3 mb-8">
+                  {supportLinks.map((link) => (
+                    <li key={link.name}>
+                      {'href' in link && link.href ? (
+                        link.href.startsWith('#') ? (
+                          <a
+                            href={link.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick(link.href);
+                            }}
+                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
+                          >
+                            {link.name}
+                          </a>
+                        ) : (
+                          <Link
+                            to={link.href}
+                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
+                          >
+                            {link.name}
+                          </Link>
+                        )
                       ) : (
-                        <Link
-                          to={link.href}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm"
+                        <button
+                          onClick={() => openModal(link.id as keyof typeof legalContent)}
+                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left block py-1"
                         >
                           {link.name}
-                        </Link>
-                      )
-                    ) : (
-                      <button
-                        onClick={() => openModal(link.id as keyof typeof legalContent)}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left"
-                      >
-                        {link.name}
-                      </button>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
               {/* Social Links */}
               <h4 className="font-semibold mb-4 text-sm">Follow Us</h4>

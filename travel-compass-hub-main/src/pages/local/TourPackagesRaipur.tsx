@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Plane, MapPin, Calendar, Clock, ArrowRight, Star, Heart, Users, Globe, Briefcase } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { Plane, MapPin, Calendar, Clock, ArrowRight, Star, Heart, Users, Globe, Briefcase, CheckCircle, Shield, AlertTriangle, Phone, Check, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -11,13 +12,129 @@ import FAQsSection from '@/components/FAQsSection';
 import RelatedServices from '@/components/RelatedServices';
 
 const TourPackagesRaipur = () => {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // Advanced JSON-LD Schema for Local Authority
+    const raipurSchema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "TravelAgency",
+                "@id": "https://rudrakshsafar.com/#travelagency",
+                "name": "Rudraksh Safar - Best Travel Agent in Raipur",
+                "image": "https://rudrakshsafar.com/logo.png",
+                "telephone": "+91-9406182174",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "GE Road, Bhilai 3",
+                    "addressLocality": "Bhilai",
+                    "addressRegion": "Chhattisgarh",
+                    "postalCode": "490021",
+                    "addressCountry": "IN"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "21.206181",
+                    "longitude": "81.424916"
+                },
+                "priceRange": "₹₹",
+                "areaServed": ["Raipur", "Bhilai", "Durg", "Chhattisgarh"],
+                "knowsAbout": [
+                    "Tour packages from Raipur",
+                    "International travel from Chhattisgarh",
+                    "Visa assistance",
+                    "Group tours",
+                    "Honeymoon packages"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://rudrakshsafar.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Tour Packages from Raipur",
+                        "item": "https://rudrakshsafar.com/tour-packages-raipur"
+                    }
+                ]
+            },
+            {
+                "@type": "Product",
+                "name": "Tour Packages from Raipur",
+                "description": "Affordable domestic and international tour packages from Raipur (RPR) including flights, hotels, and visa assistance.",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Rudraksh Safar"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "reviewCount": "124"
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "5500",
+                    "highPrice": "55000",
+                    "priceCurrency": "INR",
+                    "offerCount": "15"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Which tour packages are best from Raipur?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The most popular tour packages from Raipur include Goa, Kashmir, Kerala, Dubai, Thailand, and Bali due to easy flight connectivity and value-for-money pricing."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you provide international tour packages from Raipur?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, we specialize in international trips from Raipur (RPR) to Dubai, Thailand, Singapore, and Vietnam, handling all visa and flight logistics."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is it cheaper to book with a local Raipur agent?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Often yes. Rudraksh Safar has B2B tie-ups that allow us to offer lower rates than online portals for hotels and bulk flight bookings."
+                        }
+                    }
+                ]
+            }
+        ]
+    };
     return (
         <>
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-orange-600 z-[100] origin-left"
+                style={{ scaleX }}
+            />
             <Helmet>
-                <title>Best Tour Packages from Raipur | Family & Couple Trips - Rudraksh Safar</title>
-                <meta name="description" content="Book affordable tour packages from Raipur. Best deals on Goa, Kashmir, Dubai, Thailand & Bali packages for families, couples & groups. Starts @ ₹9,999." />
-                <meta name="keywords" content="tour packages from raipur, raipur to goa tour package, raipur to kashmir package, international packages from raipur, honeymoon packages from raipur" />
+                <title>Best Tour Packages from Raipur (2025) | Local Agent & Deals</title>
+                <meta name="description" content="Book affordable tour packages from Raipur. #1 Local Agent for Goa, Kashmir, Dubai, Thailand & Bali trips. Verified hotels, visa support & best flight rates." />
+                <meta name="keywords" content="tour packages from raipur, best travel agent in raipur, international tours from raipur, raipur holiday packages, bhilai to international tour" />
                 <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-raipur" />
+                <script type="application/ld+json">
+                    {JSON.stringify(raipurSchema)}
+                </script>
             </Helmet>
 
             <Navbar />
@@ -41,6 +158,22 @@ const TourPackagesRaipur = () => {
                                 <a href="https://wa.me/919406182174?text=Send me package details from Raipur">Enquire Now</a>
                             </Button>
                         </div>
+                    </div>
+                </section>
+
+                {/* Commercial Context (Affordable Packages) */}
+                <section id="raipur-packages-context" className="py-12 bg-orange-50/50 dark:bg-orange-950/10 border-b">
+                    <div className="container mx-auto px-4 max-w-4xl text-center">
+                        <h2 className="text-3xl font-bold mb-4">Affordable Tour Packages in Raipur for Every Travel Style</h2>
+                        <p className="text-lg text-muted-foreground mb-4">
+                            Our tour packages in Raipur are designed for families, honeymoon couples,
+                            students, and corporate groups looking for transparent pricing,
+                            flexible payment options, and reliable local support.
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            Looking for flight logistics? Check our page for <Link to="/tour-packages-from-raipur" className="text-primary hover:underline">planning trips departing from Raipur airport</Link>.
+                            First time traveler? Read our <Link to="/travel-guide-from-bhilai" className="text-primary hover:underline">detailed travel planning guide for Bhilai & Raipur travelers</Link>.
+                        </p>
                     </div>
                 </section>
 
@@ -132,7 +265,7 @@ const TourPackagesRaipur = () => {
                                     <h3 className="text-xl font-bold">Magical Kashmir</h3>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-muted-foreground mb-4 text-sm">Srinagar, Gulmarg, Pahalgam & Sonmarg. Experience Houseboat stay.</p>
+                                    <p className="text-muted-foreground mb-4 text-sm">Srinagar, Gulmarg, Pahalgam & Sonmarg. Experience Houseboat stay with our <Link to="/honeymoon-packages" className="text-primary hover:underline">honeymoon specials</Link>.</p>
                                     <ul className="space-y-2 text-sm">
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5"></div>Shikara Ride included</li>
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5"></div>All Transfers by Cab</li>
@@ -324,59 +457,146 @@ const TourPackagesRaipur = () => {
                     </div>
                 </section>
 
-                {/* FAQs */}
-                <FAQsSection
-                    title="Frequently Asked Questions (Raipur Tour Packages)"
-                    description="Everything you need to know about booking domestic and international tours from Raipur."
-                    faqs={[
-                        {
-                            question: "What domestic tour packages are available from Raipur?",
-                            answer: "We offer direct flight/train included packages from Raipur to Goa, Kashmir, Manali, Kerala, Rajasthan, and Andaman. Weekend trips to Kanha, Pench, and Pachmarhi are also very popular."
-                        },
-                        {
-                            question: "Do you have international packages starting from Raipur?",
-                            answer: "Yes! We have seamless international itineraries starting from Swami Vivekananda Airport (RPR) to Dubai, Thailand, Singapore, Bali, and Vietnam. We handle the layovers and visa process."
-                        },
-                        {
-                            question: "Do you have a physical office in Raipur for consultation?",
-                            answer: "Our head office is in Bhilai (GE Road), a short drive from Raipur. However, for our Raipur clients, we offer doorstep consultation and digital booking. You can also visit our Bhilai office for a face-to-face planning session."
-                        },
-                        {
-                            question: "What are the best weekend getaways from Raipur?",
-                            answer: "For a quick break, we recommend Kanha National Park (Safari), Pachmarhi (Hill Station), Gangrel Dam (Water Sports), or Mainpat (Shimla of Chhattisgarh). We can arrange cab and hotel packages for 2-3 days."
-                        },
-                        {
-                            question: "Do you organize school or college industrial visits?",
-                            answer: "Yes, Rudraksh Safar specializes in educational tours for schools and colleges in Raipur & Bhilai. We organize industrial visits to places like Manali, Goa, and Hyderabad with complete student safety and budget-friendly pricing."
-                        },
-                        {
-                            question: "Can I get a customized honeymoon package?",
-                            answer: "Absolutely. Our honeymoon specials include candlelight dinners, flower bed decoration, private houseboats (Kerala), and couple photoshoots. Popular choices are Kashmir, Manali, Bali, and Maldives."
-                        },
-                        {
-                            question: "Is flight ticket included in the package cost?",
-                            answer: "It depends on the plan you choose. We offer 'Land-Only Packages' (Hotel + Cab + Sightseeing) if you want to book your own flights, and 'All-Inclusive Packages' where we bundle the cheapest flight rates from Raipur for you."
-                        },
-                        {
-                            question: "Do you provide EMI options for expensive packages?",
-                            answer: "Yes, we understand that travel can be big investment. We offer credit card EMI options and installment payment plans for packages above ₹50,000 to help you travel now and pay later."
-                        },
-                        {
-                            question: "Are there any hidden charges?",
-                            answer: "Never. Our quotation clearly mentions what is included (GST, Taxes, Meals, Entry Fees). We believe in 100% pricing transparency so you don't face surprises during your trip."
-                        },
-                        {
-                            question: "Is vegetarian food available on international tours?",
-                            answer: "Yes, for our Indian travelers, we ensure Indian restaurants are part of the itinerary in places like Dubai, Thailand, and Bali. We can specifically request Jain or Pure Veg meals at hotels as well."
-                        },
-                    ]}
-                />
+                {/* Price Comparison Table (Snippet Bait) */}
+                <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+                    <div className="container mx-auto px-4 max-w-4xl">
+                        <h2 className="text-3xl font-bold mb-8 text-center">Why Book Tour Packages in Raipur with Rudraksh Safar?</h2>
+                        <div className="overflow-x-auto">
+                            <table className="w-full bg-background shadow-lg rounded-xl overflow-hidden border">
+                                <thead className="bg-orange-600 text-white">
+                                    <tr>
+                                        <th className="p-4 text-left">Factor</th>
+                                        <th className="p-4 text-left">Online Portals</th>
+                                        <th className="p-4 text-left bg-orange-700">Rudraksh Safar</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y">
+                                    <tr>
+                                        <td className="p-4 font-semibold">Local Consultation</td>
+                                        <td className="p-4 text-muted-foreground text-red-500"><X className="w-5 h-5 inline" /> No</td>
+                                        <td className="p-4 font-bold text-green-600 bg-orange-50/50 dark:bg-orange-900/10"><Check className="w-5 h-5 inline" /> Yes (Doorstep/Office)</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-semibold">Price Transparency</td>
+                                        <td className="p-4 text-muted-foreground text-red-500"><X className="w-5 h-5 inline" /> Hidden Fees</td>
+                                        <td className="p-4 font-bold text-green-600 bg-orange-50/50 dark:bg-orange-900/10"><Check className="w-5 h-5 inline" /> 100% Transparent</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-semibold">EMI / Token Booking</td>
+                                        <td className="p-4 text-muted-foreground text-red-500"><X className="w-5 h-5 inline" /> No</td>
+                                        <td className="p-4 font-bold text-green-600 bg-orange-50/50 dark:bg-orange-900/10"><Check className="w-5 h-5 inline" /> Available</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-semibold">Customization</td>
+                                        <td className="p-4 text-muted-foreground">Limited</td>
+                                        <td className="p-4 font-bold text-green-600 bg-orange-50/50 dark:bg-orange-900/10">Unlimited</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-4 font-semibold">Support During Trip</td>
+                                        <td className="p-4 text-muted-foreground">Chatbot</td>
+                                        <td className="p-4 font-bold text-green-600 bg-orange-50/50 dark:bg-orange-900/10">Personal Agent</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Commercial AEO Blocks */}
+                <section className="py-20 bg-muted/30">
+                    <div className="container mx-auto px-4 max-w-3xl">
+                        <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions (Raipur Tour Packages)</h2>
+                        <div className="space-y-6">
+                            {[
+                                {
+                                    q: "What are the best tour packages available in Raipur?",
+                                    a: "The best tour packages in Raipur include Goa beach holidays, Kashmir family tours, Kerala honeymoon packages, Thailand international trips, and budget Manali tours starting from ₹9,999."
+                                },
+                                {
+                                    q: "Cheapest tour packages Raipur?",
+                                    a: "For budget travelers, we offer Manali, Pachmarhi, and Goa packages starting from as low as ₹5,500 per person including stay and sightseeing."
+                                },
+                                {
+                                    q: "Family tour packages Raipur?",
+                                    a: "Our family bestsellers are Kashmir, Kerala, and Rajasthan. We ensure family-friendly hotels, safe transport, and relaxed itineraries suitable for kids and elders."
+                                },
+                                {
+                                    q: "Honeymoon packages from Raipur?",
+                                    a: "We curate special honeymoon trips to Bali, Maldives, and Kerala Houseboats with inclusions like candlelight dinners, flower decoration, and couple photoshoots."
+                                },
+                                {
+                                    q: "International tour packages Raipur?",
+                                    a: "We organize seamless international trips to Dubai, Thailand, Vietnam, and Singapore. We handle visa processing and flight connections from Raipur via Delhi/Mumbai."
+                                },
+                                {
+                                    q: "Group tour packages Raipur?",
+                                    a: "Yes, we have fixed departure group tours for ladies, seniors, and corporate teams departing from Raipur with a dedicated tour manager."
+                                },
+                                {
+                                    q: "EMI tour packages Raipur?",
+                                    a: "Yes, Rudraksh Safar offers easy EMI options on credit cards for packages above ₹50,000, allowing you to travel now and pay later."
+                                },
+                                {
+                                    q: "Are Raipur tour packages cheaper via agents?",
+                                    a: "Often yes. Local agents like us have bulk deals with hotels and transporters, and we save you from hidden 'convenience fees' charged by online portals."
+                                }
+                            ].map((item, index) => (
+                                <div key={index} itemScope itemType="https://schema.org/Question" className="bg-background p-6 rounded-lg border shadow-sm">
+                                    <h3 itemProp="name" className="font-bold text-lg mb-2 flex items-start gap-2">
+                                        <Briefcase className="w-5 h-5 text-orange-600 shrink-0 mt-1" />
+                                        {item.q}
+                                    </h3>
+                                    <div itemScope itemType="https://schema.org/Answer">
+                                        <p itemProp="text" className="text-muted-foreground">{item.a}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Trust & Local E-E-A-T Section */}
+                <section id="raipur-travel-trust" className="py-20 bg-background border-t">
+                    <div className="container mx-auto px-4 max-w-4xl text-center">
+                        <h2 className="text-3xl font-bold mb-6">Trusted Tour Package Provider for Raipur Travelers</h2>
+                        <div className="bg-orange-50 dark:bg-orange-950/20 p-8 rounded-2xl inline-block text-left relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <Shield className="w-32 h-32 text-orange-600" />
+                            </div>
+                            <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                                <div className="shrink-0">
+                                    <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center">
+                                        <CheckCircle className="w-10 h-10 text-orange-600" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold mb-2">Local Reputation, Personalized Care</h3>
+                                    <p className="text-muted-foreground mb-4">
+                                        Rudraksh Safar is a locally trusted travel agency serving <span className="font-bold text-foreground">Raipur, Bhilai, and Durg</span> travelers with customized holiday packages, transparent pricing, and real human support throughout the journey.
+                                    </p>
+                                    <div className="flex flex-wrap gap-4 text-sm font-medium">
+                                        <span className="flex items-center gap-1 text-green-600"><CheckCircle className="w-4 h-4" /> Bhilai Office for Face-to-Face Meeting</span>
+                                        <span className="flex items-center gap-1 text-green-600"><CheckCircle className="w-4 h-4" /> Doorstep Consultation in Raipur</span>
+                                        <span className="flex items-center gap-1 text-green-600"><CheckCircle className="w-4 h-4" /> No Hidden Charges Policy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Internal Link Section */}
                 <RelatedServices mode="packages" />
-
-            </main>
+            </main >
             <Footer />
+            {/* Sticky Mobile CTA */}
+            <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+                <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white shadow-xl rounded-full font-bold h-14" asChild>
+                    <a href="https://wa.me/919406182174?text=Get Raipur Price for Packages" className="flex items-center justify-center gap-2">
+                        <Phone className="w-5 h-5 fill-current" /> Get Raipur Package Price
+                    </a>
+                </Button>
+            </div>
             <FloatingWhatsApp />
         </>
     );

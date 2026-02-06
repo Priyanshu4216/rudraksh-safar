@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Clock, Info, Trees, Droplets, Camera, Sun, Shield, AlertTriangle, CloudSun, Calendar, CheckCircle, CalendarDays, Users } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { MapPin, Clock, Info, Trees, Droplets, Camera, Sun, Shield, AlertTriangle, CloudSun, Calendar, CheckCircle, CalendarDays, Users, Phone, X, Check, HelpCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -16,18 +17,88 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import RelatedServices from '@/components/RelatedServices';
 
 const PicnicSpotsBhilai = () => {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "TouristDestination",
-        "name": "Picnic Spots Near Bhilai, Raipur & Durg",
-        "description": "Discover the best picnic spots near Bhilai, Raipur, and Durg. From Maitri Bagh to Ghatarani Waterfalls and hidden gems like Kuthrel Dam.",
-        "touristType": ["Family", "Nature Lovers", "Friends"],
-        "provider": {
-            "@type": "TravelAgency",
-            "name": "Rudraksh Safar",
-            "url": "https://rudrakshsafar.com",
-            "telephone": "+919406182174"
-        }
+        "@graph": [
+            {
+                "@type": "TouristDestination",
+                "name": "Picnic Spots Near Bhilai, Raipur & Durg",
+                "description": "Discover the best picnic spots near Bhilai, Raipur, and Durg. From Maitri Bagh to Ghatarani Waterfalls and hidden gems like Kuthrel Dam.",
+                "touristType": ["Family", "Nature Lovers", "Friends"],
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Rudraksh Safar",
+                    "url": "https://rudrakshsafar.com",
+                    "telephone": "+919406182174",
+                    "priceRange": "₹-₹₹",
+                    "areaServed": ["Bhilai", "Raipur", "Durg", "Chhattisgarh"],
+                    "knowsAbout": [
+                        "Picnic spots near Bhilai",
+                        "One day trips from Raipur",
+                        "Local tourism in Chhattisgarh",
+                        "Nature and forest picnic locations"
+                    ]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://rudrakshsafar.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Bhilai Packages",
+                        "item": "https://rudrakshsafar.com/tour-packages-from-bhilai"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Picnic Spots",
+                        "item": "https://rudrakshsafar.com/tour-packages-from-bhilai/picnic-spots"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What are the best picnic spots near Bhilai?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The best picnic spots near Bhilai include Maitri Bagh for families, Tandula Dam for scenic views, Kuthrel Dam for quiet nature lovers, and Bhoramdeo Temple area for heritage and forest surroundings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are there any picnic spots near Raipur for a one-day trip?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, Ghatarani Waterfalls, Jungle Safari, and Barnawapara Wildlife Sanctuary are excellent one-day trip options from Raipur."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which picnic spots are hidden or offbeat near Durg?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Kuthrel Dam and the Shivnath River banks near Durg are less crowded and qualify as hidden gems for a peaceful picnic."
+                        }
+                    }
+                ]
+            }
+        ]
     };
 
     const picnicSpots = {
@@ -154,6 +225,10 @@ const PicnicSpotsBhilai = () => {
 
     return (
         <>
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-orange-600 z-[100] origin-left"
+                style={{ scaleX }}
+            />
             <Helmet>
                 <title>Picnic Spots Near Bhilai, Raipur & Durg | Best One Day Trip Places</title>
                 <meta name="description" content="Explore the best picnic spots near Bhilai, Raipur & Durg. From Maitri Bagh and Tandula Dam to hidden waterfalls like Ghatarani. Perfect guide for one day trips." />
@@ -359,6 +434,49 @@ const PicnicSpotsBhilai = () => {
                             </div>
                         </div>
 
+                        {/* Comparison Table: Free vs Paid */}
+                        <section className="mb-16">
+                            <h2 className="text-2xl font-bold mb-6 text-center">Free vs Paid Picnic Spots (Local Reality)</h2>
+                            <div className="overflow-x-auto">
+                                <table className="w-full bg-background shadow-lg rounded-xl overflow-hidden border">
+                                    <thead className="bg-slate-800 text-white">
+                                        <tr>
+                                            <th className="p-4 text-left">Factor</th>
+                                            <th className="p-4 text-left">Free Spots (Riverbanks, Dams)</th>
+                                            <th className="p-4 text-left bg-slate-900">Paid Spots (Maitri Bagh, Zoo)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y">
+                                        <tr>
+                                            <td className="p-4 font-semibold">Entry Fee</td>
+                                            <td className="p-4 text-green-600 font-bold">₹0</td>
+                                            <td className="p-4">₹20–₹100 per person</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-4 font-semibold">Toilets</td>
+                                            <td className="p-4 text-red-500"><X className="w-4 h-4 inline" /> Rare / Basic</td>
+                                            <td className="p-4 text-green-600"><Check className="w-4 h-4 inline" /> Usually Available</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-4 font-semibold">Crowd Control</td>
+                                            <td className="p-4 text-red-500">Poor (Can get crowded)</td>
+                                            <td className="p-4 text-green-600">Better (Gate entry)</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-4 font-semibold">Safety (Family)</td>
+                                            <td className="p-4 text-yellow-600">Mixed (Avoid isolation)</td>
+                                            <td className="p-4 text-green-600 font-bold">Higher (Guards present)</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="p-4 font-semibold">Best For</td>
+                                            <td className="p-4">Friends, Boys Groups</td>
+                                            <td className="p-4">Families, Kids, Elders</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
                         {/* FAQs */}
                         {/* Power-Up: Picnic Reality Check & Checklist */}
                         <div className="container mx-auto px-4 py-12">
@@ -400,28 +518,91 @@ const PicnicSpotsBhilai = () => {
                             </div>
                         </div>
 
-                        <FAQsSection
-                            title="Picnic Spots FAQs"
-                            description="Common questions about planning a day trip near Bhilai & Raipur."
-                            faqs={[
+                        {/* Local Authority Trust Section */}
+                        <section id="local-expertise" className="mb-16 bg-blue-50 dark:bg-blue-900/10 p-8 rounded-2xl border border-blue-100 dark:border-blue-900">
+                            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                <Shield className="w-6 h-6 text-blue-600" /> Why This Picnic Guide Is Locally Accurate
+                            </h2>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                This guide is curated by local travel planners at <span className="font-semibold text-foreground">Rudraksh Safar</span>,
+                                who regularly organize family outings, school trips, and nature tours
+                                around Bhilai, Raipur, and Durg. The recommendations are based on
+                                real visitor experiences, seasonal conditions, and safety considerations.
+                            </p>
+                        </section>
+
+                        {/* AEO / Near-Me Answer Blocks */}
+                        <div className="space-y-6 mb-16">
+                            <div className="flex items-center gap-3 mb-6">
+                                <HelpCircle className="w-8 h-8 text-purple-600" />
+                                <h2 className="text-3xl font-bold">Common Questions about Picnic Spots</h2>
+                            </div>
+
+                            {[
                                 {
-                                    question: "Which is the cheapest picnic spot near Bhilai?",
-                                    answer: "Maitri Bagh, Tandula Dam, and Shivnath River banks are the cheapest options. Most have very low or no entry fees."
+                                    q: "What are the best picnic spots near Bhilai?",
+                                    a: "The best picnic spots near Bhilai include Maitri Bagh (Zoo), Tandula Dam (Scenic), Kuthrel Dam (Hidden), and Civic Center (Evening Walk). For families, Maitri Bagh is the top choice."
                                 },
                                 {
-                                    question: "Are there any hidden picnic spots near Raipur?",
-                                    answer: "Yes. Sitanadi riverbanks, Keshkal Ghati viewpoints, and forest buffer zones are lesser-known spots perfect for avoiding crowds."
+                                    q: "Picnic spots near Raipur for one day trip?",
+                                    a: "For a one-day trip from Raipur, travel to Ghatarani Waterfalls (85km), Jungle Safari (New Raipur), or Barnawapara Wildlife Sanctuary. These offer full-day engagement."
                                 },
                                 {
-                                    question: "Which picnic spots are best for families?",
-                                    answer: "Maitri Bagh, Jungle Safari Raipur, Nandan Van, and Deobaloda Temple area are very family-friendly with safe environments and basic nature amenities."
+                                    q: "Cheapest picnic spot near me?",
+                                    a: "If you are in Bhilai/Durg, the Shivnath River Anicut and Tandula Dam are the cheapest spots with zero or minimal entry fees. Bring your own food for a budget trip."
                                 },
                                 {
-                                    question: "Are picnic spots safe for one-day trips?",
-                                    answer: "Yes, most are safe during daytime. Avoid isolated areas like deep forests after dark. Always travel in groups for offbeat locations."
+                                    q: "Picnic spots safe for families?",
+                                    a: "Maitri Bagh, Nandan Van Zoo, and Jungle Safari are the safest for families due to boundary walls, security guards, and drinking water facilities."
+                                },
+                                {
+                                    q: "Hidden picnic spots near Raipur?",
+                                    a: "Keshkal Ghati viewpoints and the Sitanadi River stretch are less commercialized and offer a quiet nature experience away from city crowds."
+                                },
+                                {
+                                    q: "Best picnic spots in monsoon?",
+                                    a: "Ghatarani and Jatmai Waterfalls are spectacular during monsoon. Tandula Dam also overflows looking like a mini-ocean. However, be careful near slippery rocks."
+                                },
+                                {
+                                    q: "Picnic spots for kids near Bhilai?",
+                                    a: "Maitri Bagh is #1 for kids due to the Zoo and toy train. Nandan Van in Raipur is also excellent with its mini jungle safari."
+                                },
+                                {
+                                    q: "Offbeat picnic places near Durg?",
+                                    a: "Try the Deobaloda Temple area for a mix of history and open grounds. It's quiet, clean, and has a large ancient pond."
+                                },
+                                {
+                                    q: "Picnic spots reachable within 2 hours?",
+                                    a: "From Bhilai: Tandula, Gangrel (mildly far), Raipur Jungle Safari. From Raipur: Ghatarani, Barnawapara. All are within 2-2.5 hours drive."
+                                },
+                                {
+                                    q: "Is picnic safe during monsoon in Chhattisgarh?",
+                                    a: "Generally yes, but avoid entering waterfalls (Ghatarani) during heavy rain as flash floods occur. Stick to designated viewing areas."
                                 }
-                            ]}
-                        />
+                            ].map((item, index) => (
+                                <div key={index} itemScope itemType="https://schema.org/Question" className="bg-background p-6 rounded-lg border shadow-sm">
+                                    <h3 itemProp="name" className="font-bold text-lg mb-2 flex items-start gap-2">
+                                        <Info className="w-5 h-5 text-purple-600 shrink-0 mt-1" />
+                                        {item.q}
+                                    </h3>
+                                    <div itemScope itemType="https://schema.org/Answer">
+                                        <p itemProp="text" className="text-muted-foreground">
+                                            {item.a}
+                                            {index === 1 && (
+                                                <span className="block mt-2 text-sm">
+                                                    Looking for organized trips? Check our <Link to="/tour-packages-from-raipur" className="text-primary hover:underline">family and group tour options from Raipur</Link>.
+                                                </span>
+                                            )}
+                                            {index === 8 && (
+                                                <span className="block mt-2 text-sm">
+                                                    Need a cab or bus? See our <Link to="/tour-packages-from-bhilai" className="text-primary hover:underline">one-day and weekend trip transport from Bhilai</Link>.
+                                                </span>
+                                            )}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                         {/* Internal Links Grid */}
                         <RelatedServices mode="local" />
@@ -438,9 +619,18 @@ const PicnicSpotsBhilai = () => {
             </main>
 
             <Footer />
+            {/* Sticky Mobile CTA */}
+            <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+                <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white shadow-xl rounded-full font-bold h-14" asChild>
+                    <a href="https://wa.me/919406182174?text=Top picnic spots planning help" className="flex items-center justify-center gap-2">
+                        <MapPin className="w-5 h-5 fill-current" /> Plan a One-Day Trip
+                    </a>
+                </Button>
+            </div>
             <FloatingWhatsApp />
         </>
     );
 };
 
 export default PicnicSpotsBhilai;
+
