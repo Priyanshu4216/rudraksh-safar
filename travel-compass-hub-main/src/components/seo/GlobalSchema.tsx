@@ -40,7 +40,14 @@ const GlobalSchema = () => {
             { "@type": "AdministrativeArea", "name": "Chhattisgarh" },
             { "@type": "Country", "name": "India" }
         ],
-        "priceRange": "₹₹"
+        "priceRange": "₹₹",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "22",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
     };
 
     return (

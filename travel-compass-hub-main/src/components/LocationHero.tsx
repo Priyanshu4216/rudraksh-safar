@@ -95,7 +95,7 @@ const LocationHero = ({ city, title, subtitle, bgImage, children }: LocationHero
                     animate={{ opacity: 0.8 }}
                     transition={{ duration: 1, delay: 0.8 }}
                 >
-                    {['1000+ Happy Travelers', '4.9/5 Google Rating', '24/7 Local Support'].map((item, i) => (
+                    {['1000+ Happy Travelers', '5.0/5 Google Rating', '24/7 Local Support'].map((item, i) => (
                         <div key={i} className="flex items-center gap-2 text-white/90 font-medium">
                             <div className="w-2 h-2 rounded-full bg-secondary" />
                             {item}
