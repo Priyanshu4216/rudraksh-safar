@@ -90,13 +90,13 @@ export default function PattayaPromoPopup({
         tabIndex={0}
         onClick={() => {
           dismiss();
-          navigate("/hot-deals#pattaya-group");
+          navigate("/package/thailand");
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             dismiss();
-            navigate("/hot-deals#pattaya-group");
+            navigate("/package/thailand");
           }
         }}
         className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-card shadow-[0_20px_60px_hsl(var(--foreground)/0.25)] cursor-pointer"

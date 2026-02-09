@@ -18,24 +18,6 @@ const CustomerGallery = ({
             details: "With Rudraksh Safar Team"
         },
         {
-            src: "/images/chardham-group-2.jpeg",
-            destination: "Vaishno Devi Yatra",
-            names: "Subhash Ji & Group",
-            details: "Pilgrimage Tour"
-        },
-        {
-            src: "/images/chardham-group-3.jpeg",
-            destination: "Nepal Tour",
-            names: "Vijay Agrawal Ji & Family",
-            details: "Group Tour"
-        },
-        {
-            src: "/images/chardham-group-4.jpeg",
-            destination: "Munsiyari Trip",
-            names: "Naman Ji & Group",
-            details: "Adventure Tour"
-        },
-        {
             src: "/images/Yamini NayakGroupNepal.jpeg",
             destination: "Nepal Tour",
             names: "Yamini Nayak Ji & Group",

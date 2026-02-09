@@ -5,26 +5,26 @@ const TrustBadges = () => {
         {
             icon: ShieldCheck,
             text: "Verified Local Agency (10+ Years)",
-            color: "text-blue-600",
-            bg: "bg-blue-50"
+            color: "text-blue-600 dark:text-blue-400",
+            bg: "bg-blue-50 dark:bg-blue-900/20"
         },
         {
             icon: Star,
             text: "5.0⭐ Google Rating (20+ Reviews)",
-            color: "text-yellow-500",
-            bg: "bg-yellow-50"
+            color: "text-yellow-500 dark:text-yellow-400",
+            bg: "bg-yellow-50 dark:bg-yellow-900/20"
         },
         {
             icon: MapPin,
             text: "Serving Bhilai, Raipur & Nearby",
-            color: "text-green-600",
-            bg: "bg-green-50"
+            color: "text-green-600 dark:text-green-400",
+            bg: "bg-green-50 dark:bg-green-900/20"
         },
         {
             icon: Users,
             text: "Real Human Support (Call/WhatsApp)",
-            color: "text-purple-600",
-            bg: "bg-purple-50"
+            color: "text-purple-600 dark:text-purple-400",
+            bg: "bg-purple-50 dark:bg-purple-900/20"
         }
     ];
 

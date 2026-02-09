@@ -159,22 +159,22 @@ const GroupTourPackages = () => {
                                 </p>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <Card className="bg-indigo-50 border-none">
+                                <Card className="bg-indigo-50 dark:bg-indigo-900/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <div className="text-3xl font-bold text-indigo-600 mb-2">30%</div>
-                                        <div className="text-sm font-medium">Average cost saving</div>
+                                        <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">30%</div>
+                                        <div className="text-sm font-medium dark:text-indigo-200">Average cost saving</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-purple-50 border-none">
+                                <Card className="bg-purple-50 dark:bg-purple-900/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
-                                        <div className="text-sm font-medium">Trip Support</div>
+                                        <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">24/7</div>
+                                        <div className="text-sm font-medium dark:text-purple-200">Trip Support</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-green-50 border-none col-span-2">
+                                <Card className="bg-green-50 dark:bg-green-900/20 border-none col-span-2">
                                     <CardContent className="p-6 text-center">
-                                        <div className="text-lg font-bold text-green-700 mb-1">Customizable</div>
-                                        <div className="text-sm text-green-600">Tailored to your budget and dates</div>
+                                        <div className="text-lg font-bold text-green-700 dark:text-green-400 mb-1">Customizable</div>
+                                        <div className="text-sm text-green-600 dark:text-green-300">Tailored to your budget and dates</div>
                                     </CardContent>
                                 </Card>
                             </div>
@@ -428,7 +428,7 @@ const GroupTourPackages = () => {
                                     <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
                                 </a>
                             </Button>
-                            <Button size="lg" variant="outline" className="text-slate-900 border-white hover:bg-white/90 h-14 px-8 rounded-full" asChild>
+                            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900 h-14 px-8 rounded-full" asChild>
                                 <a href="tel:+919406182174">
                                     <Phone className="w-5 h-5 mr-2" /> Call Now
                                 </a>

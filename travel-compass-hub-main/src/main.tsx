@@ -20,9 +20,16 @@ const isCrawler = () => {
 if ('serviceWorker' in navigator && !isCrawler()) {
   // Safe SW Registration for Real Users
   window.addEventListener('load', () => {
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      // Only update if we have a valid registration to avoid race conditions
-      registrations.forEach((r) => r.update());
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      // Check for updates on load
+      registration.update();
+
+      // Check for updates every hour
+      setInterval(() => {
+        registration.update();
+      }, 60 * 60 * 1000);
+    }).catch(error => {
+      console.log('SW registration failed:', error);
     });
   });
 

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -184,13 +185,9 @@ const HotDeals = () => {
                   size="lg"
                   variant="outline"
                   className="rounded-full"
-                  onClick={() =>
-                    document
-                      .getElementById("pattaya-group")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                  asChild
                 >
-                  View Pattaya Deal
+                  <Link to="/package/thailand">View Pattaya Deal</Link>
                 </Button>
               </div>
             </div>

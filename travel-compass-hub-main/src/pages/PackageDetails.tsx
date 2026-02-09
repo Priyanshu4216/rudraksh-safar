@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Calendar, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle, X as UtilityX } from 'lucide-react';
+import pattayaHero from "@/assets/hot-deals-pattaya-hero.jpg";
+import coralIslandImg from "@/assets/hot-deals-coral-island.jpg";
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
@@ -262,30 +265,100 @@ const allPackages = [
   },
   {
     id: 'thailand',
-    title: 'Thailand Explorer',
+    title: 'Thailand Explorer (Pattaya)',
     location: 'Thailand',
-    duration: '6 Days / 5 Nights',
-    price: '₹38,999',
-    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
+    duration: '4 Days / 3 Nights',
+    price: '₹22,999',
+    image: pattayaHero,
     tag: 'Beach & Culture',
     type: 'international',
     visa: 'On Arrival',
     currency: 'Thai Baht (THB)',
-    famousPlaces: ['Grand Palace Bangkok', 'Phi Phi Islands', 'Phuket Old Town', 'Wat Arun', 'Patong Beach'],
+    famousPlaces: ['Coral Island', 'Pattaya Beach', 'Gems Gallery', 'Alcazar Show', 'Walking Street'],
     whatToEat: ['Pad Thai', 'Tom Yum Soup', 'Green Curry', 'Mango Sticky Rice', 'Som Tam'],
-    attractions: ['Island Hopping', 'Floating Markets', 'Muay Thai Show', 'Night Markets', 'Thai Massage'],
+    attractions: ['Speedboat Ride', 'Cultural Show', 'Nightlife', 'Shopping', 'Thai Massage'],
     itinerary: [
-      'Day 1: Arrive at Suvarnabhumi Airport Bangkok, transfer to hotel. Evening Chao Phraya River cruise dinner with temple views.',
-      'Day 2: Full day Bangkok temples tour - Grand Palace, Wat Pho (Reclining Buddha), Wat Arun. Evening at Asiatique night market.',
-      'Day 3: Morning at Damnoen Saduak Floating Market, fly to Phuket in afternoon. Evening at Patong Beach and Bangla Road.',
-      'Day 4: Full day Phi Phi Island tour by speedboat - Maya Bay, snorkeling at Monkey Beach, Viking Cave, lunch on Phi Phi Don.',
-      'Day 5: Morning at leisure on Phuket beach, afternoon Phuket Old Town walking tour, evening Thai cooking class.',
-      'Day 6: Last beach time, visit Big Buddha, airport transfer for departure.',
+      'Day 1: Arrival in Bangkok, Transfer to Pattaya. Evening free for leisure or beach walk.',
+      'Day 2: Coral Island Tour by Speedboat with Lunch. Evening free.',
+      'Day 3: Pattaya City Tour (Big Buddha, View Point, Gems Gallery). Evening Alcazar Show.',
+      'Day 4: Transfer to Bangkok Airport for Departure.',
+    ],
+    structuredItinerary: [
+      {
+        day: "Day 1 – Arrival in Bangkok → Pattaya",
+        points: [
+          "Arrival at DMK/BKK Airport, Bangkok",
+          "Transfer to Pattaya by private vehicle",
+          "Hotel check-in (Standard check-in time)",
+          "Lunch at Indian restaurant",
+          "Evening free for leisure / beach walk",
+          "Dinner at Indian restaurant",
+          "Overnight stay in Pattaya",
+        ],
+      },
+      {
+        day: "Day 2 – Coral Island Tour",
+        points: [
+          "Breakfast at hotel",
+          "Speedboat tour to Coral Island (Koh Larn)",
+          "Free time at beach & optional water sports (own cost)",
+          "Lunch after Coral Island tour",
+          "Visit Pattaya View Point",
+          "Return to hotel",
+          "Dinner at Indian restaurant",
+          "Overnight stay in Pattaya",
+        ],
+      },
+      {
+        day: "Day 3 – Pattaya City Tour + Alcazar Show",
+        points: [
+          "Breakfast at hotel",
+          "Pattaya City Tour including:",
+          "• Big Buddha Hill",
+          "• Pattaya Beach Road",
+          "• Gems Gallery World’s Biggest Jewellery Store",
+          "Lunch at Indian restaurant",
+          "Evening Alcazar Show (Cabaret)",
+          "Dinner at Indian restaurant",
+          "Overnight stay in Pattaya",
+        ],
+      },
+      {
+        day: "Day 4 – Pattaya → Bangkok → Departure",
+        points: [
+          "Breakfast at hotel",
+          "Check-out and Transfer to Bangkok",
+          "Free time for shopping (if time permits)",
+          "Drop at Bangkok Airport",
+          "Tour ends with wonderful memories",
+        ],
+      },
+    ],
+    inclusions: [
+      "3 Nights Accommodation in 4★ Pattaya Hotel",
+      "Daily Breakfast at Hotel",
+      "Indian Lunch & Dinner (Verified Restaurants)",
+      "Coral Island Tour with Speedboat & Lunch",
+      "Alcazar Show Tickets",
+      "Pattaya City Tour",
+      "Private Airport Transfers",
+      "All Sightseeing Transfers on Private Basis",
+      "Hindi/English Speaking Guide Support",
+      "Rudraksh Safar 24/7 On-Trip Assistance"
+    ],
+    exclusions: [
+      "International Flight Tickets",
+      "Thailand Visa Fees (Visa on Arrival/E-Visa)",
+      "Travel Insurance",
+      "Water Sports (Parasailing, Jet Ski, etc.)",
+      "Personal Expenses (Shopping, Laundry, Tips)",
+      "Any extra meals or drinks not mentioned",
+      "Peak Season Surcharges (if applicable)"
     ],
     gallery: [
+      pattayaHero,
+      coralIslandImg,
       'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2039&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop',
     ],
   },
   {
@@ -505,6 +578,38 @@ const allPackages = [
       'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1590123714498-a88eb3ea62ff?q=80&w=2070&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1601188067649-f6edfea57a63?q=80&w=2070&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'ladakh-bike',
+    title: 'Ladakh & Spiti Bike Expedition',
+    location: 'Leh-Ladakh & Spiti Valley',
+    duration: '12 Days / 11 Nights',
+    price: '₹34,999',
+    image: 'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Adventure',
+    type: 'domestic',
+    famousPlaces: ['Pangong Lake', 'Nubra Valley', 'Khardung La', 'Chandratal', 'Rohtang Pass'],
+    whatToEat: ['Thukpa', 'Momos', 'Butter Tea', 'Maggie', 'Skyu'],
+    attractions: ['Bike Ride', 'Camping', 'Stargazing', 'Bonfire', 'Monastery Visit'],
+    itinerary: [
+      'Day 1: Arrive Manali, bike allocation and test ride. Acclimatization and briefing session. Overnight Manali.',
+      'Day 2: Manali to Jispa via Atal Tunnel. Ride through Lahaul Valley. Overnight camping in Jispa.',
+      'Day 3: Jispa to Sarchu via Baralacha La (16,040 ft). Stunning landscapes and challenging terrain. Overnight Sarchu.',
+      'Day 4: Sarchu to Leh via Gata Loops and Tanglang La (17,480 ft). Arrive Leh, rest. Overnight Leh.',
+      'Day 5: Leh local sightseeing - Shanti Stupa, Magnetic Hill, Hall of Fame. Permit arrangement. Overnight Leh.',
+      'Day 6: Leh to Nubra Valley via Khardung La (World\'s highest motorable road). Camel safari at Hunder. Overnight Nubra.',
+      'Day 7: Nubra to Pangong Lake via Shyok river route. Camping at Pangong. Overnight Pangong.',
+      'Day 8: Pangong to Leh via Chang La. Evening shopping in Leh market. Overnight Leh.',
+      'Day 9: Leh to Sarchu/Pang. Ride back towards Manali. Overnight camping.',
+      'Day 10: Sarchu to Manali via Rohtang Pass. Bike handover and celebration dinner. Overnight Manali.',
+      'Day 11: Free day in Manali/Departure.',
+      'Day 12: Buffer day/Trip End.',
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1626015365107-aa76a7f48d0e?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1582236531952-192a549d4361?q=80&w=2070&auto=format&fit=crop',
     ],
   },
   {
@@ -1437,13 +1542,20 @@ const PackageDetails = () => {
     "image": pkg.image,
     "itinerary": {
       "@type": "ItemList",
-      "numberOfItems": pkg.itinerary.length,
-      "itemListElement": pkg.itinerary.map((day, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": `Day ${index + 1}`,
-        "description": day
-      }))
+      "numberOfItems": (pkg as any).structuredItinerary ? (pkg as any).structuredItinerary.length : pkg.itinerary.length,
+      "itemListElement": (pkg as any).structuredItinerary
+        ? (pkg as any).structuredItinerary.map((day: any, index: number) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": day.day,
+          "description": day.points.join('. ')
+        }))
+        : pkg.itinerary.map((day, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": `Day ${index + 1}`,
+          "description": day
+        }))
     },
     "offers": {
       "@type": "Offer",
@@ -1828,18 +1940,93 @@ const PackageDetails = () => {
                     </div>
                     <h2 className="text-xl font-serif font-bold text-foreground">Detailed Itinerary</h2>
                   </div>
-                  <div className="space-y-4">
-                    {pkg.itinerary.map((day, i) => (
-                      <div key={i} className="flex items-start gap-4 p-4 bg-muted/30 rounded-lg">
-                        <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-sm font-bold text-secondary">
-                          {i + 1}
+
+                  {(pkg as any).structuredItinerary ? (
+                    <div className="space-y-4">
+                      {((pkg as any).structuredItinerary).map((day: any, i: number) => (
+                        <div key={i} className="bg-muted/30 rounded-lg overflow-hidden border border-border/50">
+                          <div className="p-4 bg-muted/50 font-medium flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-sm font-bold text-secondary">
+                              {i + 1}
+                            </div>
+                            <span className="text-foreground">{day.day}</span>
+                          </div>
+                          <div className="p-4 pt-2">
+                            <ul className="space-y-2">
+                              {day.points.map((point: string, idx: number) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
+                                  {point.startsWith('•') ? (
+                                    <span className="pl-4 font-medium text-foreground">{point}</span>
+                                  ) : (
+                                    <>
+                                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary/60 flex-shrink-0" />
+                                      <span>{point}</span>
+                                    </>
+                                  )}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
-                        <p className="text-foreground leading-relaxed">{day}</p>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {pkg.itinerary.map((day, i) => (
+                        <div key={i} className="flex items-start gap-4 p-4 bg-muted/30 rounded-lg">
+                          <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-sm font-bold text-secondary">
+                            {i + 1}
+                          </div>
+                          <p className="text-foreground leading-relaxed">{day}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </AnimatedSection>
+
+              {/* Inclusions & Exclusions */}
+              {((pkg as any).inclusions || (pkg as any).exclusions) && (
+                <AnimatedSection animation="fade-up" delay={450}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {(pkg as any).inclusions && (
+                      <div className="glass-card p-6 border-l-4 border-green-500/50">
+                        <h3 className="font-serif font-bold text-lg mb-4 flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          Inclusions
+                        </h3>
+                        <ul className="space-y-2">
+                          {(pkg as any).inclusions.map((item: string, i: number) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <ArrowRight className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {(pkg as any).exclusions && (
+                      <div className="glass-card p-6 border-l-4 border-red-500/50">
+                        <h3 className="font-serif font-bold text-lg mb-4 flex items-center gap-2">
+                          <UtilityX className="w-5 h-5 text-red-600" />
+                          Exclusions
+                        </h3>
+                        <ul className="space-y-2">
+                          {(pkg as any).exclusions.map((item: string, i: number) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="w-4 h-4 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </AnimatedSection>
+              )}
 
               {/* Gallery */}
               <AnimatedSection animation="fade-up" delay={500}>
@@ -2005,7 +2192,7 @@ const PackageDetails = () => {
 
       <Footer />
       <FloatingWhatsApp />
-    </main>
+    </main >
   );
 };
 

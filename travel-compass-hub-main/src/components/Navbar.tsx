@@ -23,6 +23,7 @@ const navLinks = [
     ],
   },
   { name: 'For Travellers', href: '/for-travellers', isRoute: true },
+  { name: 'Char Dham Yatra', href: '/chardham-yatra-package', isRoute: true, highlight: 'new' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -105,8 +106,8 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
 
       <nav
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
-            ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
-            : 'bg-transparent py-4'
+          ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
+          : 'bg-transparent py-4'
           }`}
         role="navigation"
         aria-label="Main navigation"
@@ -130,10 +131,10 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           {/* Desktop Navigation - Moved to right */}
           <div className="hidden lg:flex items-center gap-4">
             <ul className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${isScrolled
-                ? 'bg-muted/80'
-                : isHomePage
-                  ? 'bg-background/10 backdrop-blur-md border border-white/10'
-                  : 'bg-muted/80'
+              ? 'bg-muted/80'
+              : isHomePage
+                ? 'bg-background/10 backdrop-blur-md border border-white/10'
+                : 'bg-muted/80'
               }`}>
               {navLinks.map((link) => (
                 <li key={link.name} className="relative group">
@@ -142,10 +143,10 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                       <button
                         onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
                         className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.replace('#', '')
-                            ? 'bg-secondary text-secondary-foreground shadow-md'
-                            : isScrolled || !isHomePage
-                              ? 'text-foreground hover:bg-secondary/10'
-                              : 'text-primary-foreground/90 hover:bg-white/10'
+                          ? 'bg-secondary text-secondary-foreground shadow-md'
+                          : isScrolled || !isHomePage
+                            ? 'text-foreground hover:bg-secondary/10'
+                            : 'text-primary-foreground/90 hover:bg-white/10'
                           }`}
                         aria-expanded={openDropdown === link.name}
                         aria-haspopup="true"
@@ -189,17 +190,17 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                     <Link
                       to={link.href}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${link.highlight
-                          ? `hot-deals-fire relative overflow-hidden ${(link.href === '/' && isHomePage && activeSection === 'home')
-                            ? 'bg-secondary text-secondary-foreground shadow-md'
-                            : isScrolled || !isHomePage
-                              ? 'text-foreground hover:bg-secondary/10'
-                              : 'text-primary-foreground/90 hover:bg-white/10'
-                          }`
-                          : (link.href === '/' && isHomePage && activeSection === 'home')
-                            ? 'bg-secondary text-secondary-foreground shadow-md'
-                            : isScrolled || !isHomePage
-                              ? 'text-foreground hover:bg-secondary/10'
-                              : 'text-primary-foreground/90 hover:bg-white/10'
+                        ? `hot-deals-fire relative overflow-hidden ${(link.href === '/' && isHomePage && activeSection === 'home')
+                          ? 'bg-secondary text-secondary-foreground shadow-md'
+                          : isScrolled || !isHomePage
+                            ? 'text-foreground hover:bg-secondary/10'
+                            : 'text-primary-foreground/90 hover:bg-white/10'
+                        }`
+                        : (link.href === '/' && isHomePage && activeSection === 'home')
+                          ? 'bg-secondary text-secondary-foreground shadow-md'
+                          : isScrolled || !isHomePage
+                            ? 'text-foreground hover:bg-secondary/10'
+                            : 'text-primary-foreground/90 hover:bg-white/10'
                         }`}
                       aria-current={location.pathname === link.href ? 'page' : undefined}
                     >
@@ -213,10 +214,10 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                         handleNavClick(link.href);
                       }}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block ${activeSection === link.href.replace('#', '')
-                          ? 'bg-secondary text-secondary-foreground shadow-md'
-                          : isScrolled || !isHomePage
-                            ? 'text-foreground hover:bg-secondary/10'
-                            : 'text-primary-foreground/90 hover:bg-white/10'
+                        ? 'bg-secondary text-secondary-foreground shadow-md'
+                        : isScrolled || !isHomePage
+                          ? 'text-foreground hover:bg-secondary/10'
+                          : 'text-primary-foreground/90 hover:bg-white/10'
                         }`}
                     >
                       {link.name}
@@ -234,8 +235,8 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
-                  ? 'bg-muted text-foreground'
-                  : 'glass text-primary-foreground'
+                ? 'bg-muted text-foreground'
+                : 'glass text-primary-foreground'
                 }`}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
@@ -323,10 +324,10 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                           setOpenDropdown(null);
                         }}
                         className={`block py-4 font-medium transition-colors ${link.highlight
-                            ? 'text-foreground'
-                            : link.href === '/' && isHomePage
-                              ? 'text-secondary'
-                              : 'text-foreground'
+                          ? 'text-foreground'
+                          : link.href === '/' && isHomePage
+                            ? 'text-secondary'
+                            : 'text-foreground'
                           }`}
                         aria-current={location.pathname === link.href ? 'page' : undefined}
                       >

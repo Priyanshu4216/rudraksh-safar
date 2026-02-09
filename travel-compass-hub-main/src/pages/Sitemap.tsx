@@ -44,6 +44,25 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "Char Dham Yatra (Pilgrimage)",
+            description: "Complete spiritual guide and booking for Uttarakhand's holy circuit.",
+            icon: Map,
+            links: [
+                { name: 'Char Dham Yatra Packages', href: '/chardham-yatra-package', desc: 'The Ultimate Pilgrim\'s Guide' },
+                { name: 'Plan Your Yatra', href: '/plan-your-yatra', desc: 'Custom Yatra Builder' },
+                { name: 'Kedarnath Temple Guide', href: '/kedarnath-temple', desc: 'History, Treks & Darshan' },
+                { name: 'Badrinath Temple Guide', href: '/badrinath-temple', desc: 'Temple & Accessibility' },
+                { name: 'Gangotri Temple Guide', href: '/gangotri-temple', desc: 'Origin of Ganga' },
+                { name: 'Yamunotri Temple Guide', href: '/yamunotri-temple', desc: 'First Dham Information' },
+                { name: 'Yatra Route Map', href: '/chardham-yatra-route-map', desc: 'Visual Map & Distances' },
+                { name: 'Is Yatra Safe?', href: '/is-chardham-yatra-safe', desc: 'Safety & Medical Guide' },
+                { name: 'Registration Process', href: '/chardham-yatra-registration-process', desc: 'Step-by-step permit guide' },
+                { name: 'Yatra for Seniors', href: '/chardham-yatra-for-seniors', desc: 'Elderly care guide' },
+                { name: 'Yatra from Bhilai', href: '/chardham-yatra-from-bhilai', desc: 'Train & Flight info' },
+                { name: 'Yatra from Raipur', href: '/chardham-yatra-from-raipur', desc: 'Packages from Capital' },
+            ]
+        },
+        {
             title: "Local Travel Services (Bhilai & Durg)",
             description: "We provide dedicated local travel assistance for travellers from Bhilai and nearby areas.",
             icon: MapPin,
@@ -115,6 +134,44 @@ const Sitemap = () => {
             links: [
                 { name: 'Where To Go From Bhilai', href: '/guides/where-to-go-from-bhilai', desc: 'Weekend & Long Trip Guide' },
                 { name: 'Goa vs Manali', href: '/comparisons/goa-vs-manali-from-chhattisgarh', desc: 'Detailed cost & vibe comparison' },
+                { name: 'Pattaya vs Phuket', href: '/comparisons/pattaya-vs-phuket', desc: 'Which Thai beach city is for you?' },
+            ]
+        },
+        {
+            title: "Thailand Tour Packages (Flagship)",
+            description: "Dedicated resources for our #1 International Destination.",
+            icon: Globe,
+            links: [
+                { name: 'Thailand Packages Hub', href: '/thailand-tour-packages', desc: 'Complete Thailand Guide' },
+                { name: 'Thailand from Raipur', href: '/thailand-tour-packages-from-raipur', desc: 'Capital departure specials' },
+                { name: 'Plan Your Thailand Trip', href: '/plan-your-thailand-trip', desc: 'Custom Itinerary Builder' },
+                { name: 'Bangkok City Guide', href: '/thailand-tour-packages/bangkok', desc: 'Shopping & Temples' },
+                { name: 'Pattaya City Guide', href: '/thailand-tour-packages/pattaya', desc: 'Nightlife & Beaches' },
+                { name: 'Phuket City Guide', href: '/thailand-tour-packages/phuket', desc: 'Islands & Luxury' },
+                { name: 'Krabi City Guide', href: '/thailand-tour-packages/krabi', desc: 'Nature & Relaxation' },
+            ]
+        },
+        {
+            title: "Dubai & Abu Dhabi Guide (New)",
+            description: "Complete travel resources for UAE including visa, itineraries, and attraction tickets.",
+            icon: Globe,
+            links: [
+                { name: 'Dubai Travel Guide', href: '/dubai-travel-guide', desc: 'The ultimate authority guide 2026' },
+                { name: 'Dubai Tour Packages', href: '/dubai-tour-packages', desc: 'Commercial hub for bookings' },
+                { name: 'Dubai Visa for Indians', href: '/dubai-visa-for-indians', desc: 'Visa on Arrival & E-Visa rules' },
+                { name: '4-Day Dubai Itinerary', href: '/dubai-4-day-itinerary', desc: 'Perfect plan for first timers' },
+                { name: 'Dubai Packages from Raipur', href: '/dubai-tour-packages-from-raipur', desc: 'Flights & packages for CG travelers' },
+                { name: 'Dubai vs Abu Dhabi', href: '/comparisons/dubai-vs-abu-dhabi', desc: 'Which city should you choose?' },
+            ]
+        },
+        {
+            title: "Booking Management & Tools",
+            description: "Self-service tools for existing customers.",
+            icon: Sparkles,
+            links: [
+                { name: 'Download Ticket', href: '/download-ticket', desc: 'Get your E-Ticket & Vouchers' },
+                { name: 'Check Yatra Status', href: '/yatra-status', desc: 'Track booking progress' },
+                { name: 'Check PNR Status', href: '/how-to-check-pnr-status', desc: 'IRCTC & Flight Status Guide' },
             ]
         },
         {

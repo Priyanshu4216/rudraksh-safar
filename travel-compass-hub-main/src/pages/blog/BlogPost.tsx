@@ -26,9 +26,7 @@ const BlogPost = () => {
     }
 
     // --- GUARDRAIL: NoIndex Logic ---
-    const robotsTag = post.isIndexable
-        ? "index, follow, max-image-preview:large"
-        : "noindex, follow";
+    const robotsTag = "index, follow, max-image-preview:large";
 
     // --- SCHEMA GENERATION (Top-1%) ---
     const articleSchema = {

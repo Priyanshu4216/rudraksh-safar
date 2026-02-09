@@ -16,7 +16,7 @@ const PHONE_NUMBER = '919406182174';
 
 const adventurePackages = [
   {
-    id: 'ladakh-bike-tour',
+    id: 'ladakh-bike',
     title: 'Ladakh & Spiti Bike Tour',
     location: 'Leh-Ladakh & Spiti Valley',
     duration: '12 Days / 11 Nights',

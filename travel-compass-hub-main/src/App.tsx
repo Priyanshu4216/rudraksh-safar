@@ -17,6 +17,7 @@ import HomeLoader from "./components/HomeLoader";
 import GlobalError from "./components/GlobalError";
 import GlobalSchema from "./components/seo/GlobalSchema";
 import AuthorPage from './pages/blog/AuthorPage';
+import Contact from './pages/Contact';
 
 // Traveller Guide Pages
 
@@ -125,7 +126,7 @@ const CruiseBookingBhilaiFAQ = lazy(() => import("./pages/faqs/cruise-booking-bh
 // const CruiseBookingFAQ = lazy(() => import("./pages/faqs/services/CruiseBookingFAQ"));
 const BhilaiFAQ = lazy(() => import("./pages/faqs/local/BhilaiFAQ"));
 const RaipurFAQ = lazy(() => import("./pages/faqs/local/RaipurFAQ"));
-// const DurgFAQ = lazy(() => import("./pages/faqs/local/DurgFAQ"));
+const DurgFAQ = lazy(() => import("./pages/faqs/local/DurgFAQ"));
 const SummerHolidayPackages = lazy(() => import("./pages/SummerHolidayPackages"));
 const GroupTourPackages = lazy(() => import("./pages/GroupTourPackages"));
 const BeachHolidayPackages = lazy(() => import("./pages/BeachHolidayPackages"));
@@ -134,9 +135,49 @@ const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const WhereToGoFromBhilai = lazy(() => import("./pages/guides/WhereToGoFromBhilai"));
 const AfterBookingGuide = lazy(() => import("./pages/guides/AfterBookingGuide"));
+const CheckPNRStatus = lazy(() => import("./pages/guides/CheckPNRStatus"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
+const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
+const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
+const KedarnathTemple = lazy(() => import("./pages/chardham/KedarnathTemple"));
+const BadrinathTemple = lazy(() => import("./pages/chardham/BadrinathTemple"));
+const GangotriTemple = lazy(() => import("./pages/chardham/GangotriTemple"));
+const YamunotriTemple = lazy(() => import("./pages/chardham/YamunotriTemple"));
+const IsCharDhamSafe = lazy(() => import("./pages/chardham/IsCharDhamSafe"));
+const CharDhamRouteMap = lazy(() => import("./pages/chardham/CharDhamRouteMap"));
+const CharDhamPrice = lazy(() => import("./pages/chardham/CharDhamPrice"));
+const CharDhamSeniors = lazy(() => import("./pages/chardham/CharDhamSeniors"));
+const CharDhamFromBhilai = lazy(() => import('./pages/chardham/CharDhamFromBhilai'));
+const CharDhamFromRaipur = lazy(() => import('./pages/chardham/CharDhamFromRaipur'));
+const CharDhamPacking = lazy(() => import("./pages/chardham/CharDhamPacking"));
+const CharDhamRegistration = lazy(() => import("./pages/chardham/CharDhamRegistration"));
+const CharDhamPackageBuilder = lazy(() => import("./pages/chardham/CharDhamPackageBuilder"));
 
+// Phase 7: Thailand Prominence
+const ThailandPillar = lazy(() => import("./pages/thailand/ThailandPillar"));
+const ThailandFromRaipur = lazy(() => import("./pages/thailand/ThailandFromRaipur"));
+const ThailandCityGuide = lazy(() => import("./pages/thailand/ThailandCityGuide"));
+const ThailandPlanner = lazy(() => import("./pages/thailand/ThailandPlanner"));
 
+// Panch Kedar Pages
+const Tungnath = lazy(() => import("./pages/chardham/Tungnath"));
+const Rudranath = lazy(() => import("./pages/chardham/Rudranath"));
+const Madhyamaheshwar = lazy(() => import("./pages/chardham/Madhyamaheshwar"));
+const Kalpeshwar = lazy(() => import("./pages/chardham/Kalpeshwar"));
+
+const DownloadTicket = lazy(() => import("./pages/booking/DownloadTicket"));
+const YatraStatus = lazy(() => import("./pages/booking/YatraStatus"));
+
+// UAE
+const AttractionPage = lazy(() => import("./pages/uae/AttractionPage"));
+const DubaiTravelGuide = lazy(() => import("./pages/uae/DubaiTravelGuide"));
+const DubaiPackages = lazy(() => import("./pages/uae/DubaiPackages"));
+const DubaiVisaGuide = lazy(() => import("./pages/uae/DubaiVisaGuide"));
+const DubaiItinerary4Days = lazy(() => import("./pages/uae/DubaiItinerary4Days"));
+const DubaiItinerary5Days = lazy(() => import("./pages/uae/DubaiItinerary5Days"));
+const DubaiFromRaipur = lazy(() => import("./pages/uae/DubaiFromRaipur"));
+const DubaiFromBhilai = lazy(() => import("./pages/uae/DubaiFromBhilai"));
+const DubaiVsAbuDhabi = lazy(() => import("./pages/comparisons/DubaiVsAbuDhabi"));
 
 const queryClient = new QueryClient();
 
@@ -192,7 +233,7 @@ const App = () => (
                   <Route path="/faqs/cruise-booking" element={<CruiseBookingFAQ />} /> */}
                   <Route path="/faqs/bhilai" element={<BhilaiFAQ />} />
                   <Route path="/faqs/raipur" element={<RaipurFAQ />} />
-                  {/* <Route path="/faqs/durg" element={<DurgFAQ />} /> */}
+                  <Route path="/faqs/durg" element={<DurgFAQ />} />
 
                   <Route path="/travel-health" element={<TravelHealth />} />
                   <Route path="/travel-tips" element={<TravelTips />} />
@@ -239,12 +280,56 @@ const App = () => (
                   <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
                   <Route path="/hotel-booking" element={<HotelBooking />} />
 
+                  {/* Char Dham Yatra Pillar (Phase 1) */}
+                  <Route path="/chardham-yatra-package" element={<CharDhamPillar />} />
+                  <Route path="/kedarnath-temple" element={<KedarnathTemple />} />
+                  <Route path="/badrinath-temple" element={<BadrinathTemple />} />
+                  <Route path="/gangotri-temple" element={<GangotriTemple />} />
+                  <Route path="/yamunotri-temple" element={<YamunotriTemple />} />
+
+                  {/* Panch Kedar */}
+                  <Route path="/tungnath-temple" element={<Tungnath />} />
+                  <Route path="/rudranath-temple" element={<Rudranath />} />
+                  <Route path="/madhyamaheshwar-temple" element={<Madhyamaheshwar />} />
+                  <Route path="/kalpeshwar-temple" element={<Kalpeshwar />} />
+                  <Route path="/is-chardham-yatra-safe" element={<IsCharDhamSafe />} />
+                  <Route path="/chardham-yatra-route-map" element={<CharDhamRouteMap />} />
+                  <Route path="/chardham-yatra-price" element={<CharDhamPrice />} />
+                  <Route path="/chardham-yatra-for-seniors" element={<CharDhamSeniors />} />
+                  <Route path="/chardham-yatra-from-bhilai" element={<CharDhamFromBhilai />} />
+                  <Route path="/what-to-pack-for-chardham-yatra" element={<CharDhamPacking />} />
+                  <Route path="/chardham-yatra-registration-process" element={<CharDhamRegistration />} />
+                  <Route path="/plan-your-yatra" element={<CharDhamPackageBuilder />} />
+
+                  {/* Thailand Dominance */}
+                  <Route path="/thailand-tour-packages" element={<ThailandPillar />} />
+                  <Route path="/thailand-tour-packages-from-raipur" element={<ThailandFromRaipur />} />
+                  <Route path="/thailand-tour-packages/:cityId" element={<ThailandCityGuide />} />
+                  <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
+
+                  {/* Phase 10: UAE Domination (Attraction Engine) */}
+                  <Route path="/dubai-travel-guide" element={<DubaiTravelGuide />} />
+                  <Route path="/dubai-tour-packages" element={<DubaiPackages />} />
+                  <Route path="/dubai-visa-for-indians" element={<DubaiVisaGuide />} />
+                  <Route path="/dubai-4-day-itinerary" element={<DubaiItinerary4Days />} />
+                  <Route path="/dubai-5-day-itinerary" element={<DubaiItinerary5Days />} />
+                  <Route path="/dubai-tour-packages-from-raipur" element={<DubaiFromRaipur />} />
+                  <Route path="/dubai/:slug" element={<AttractionPage />} />
+                  <Route path="/abu-dhabi/:slug" element={<AttractionPage />} />
+                  {/* Redirect Legacy if needed or just keep /uae as fallback if links exist */}
+                  <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
+
                   {/* Legal Routes */}
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-conditions" element={<TermsConditions />} />
                   <Route path="/cancellation-policy" element={<CancellationPolicy />} />
                   <Route path="/refund-policy" element={<RefundPolicy />} />
+                  <Route path="/refund-policy" element={<RefundPolicy />} />
                   <Route path="/disclaimer" element={<Disclaimer />} />
+
+                  {/* Booking Management (Phase 8) */}
+                  <Route path="/download-ticket" element={<DownloadTicket />} />
+                  <Route path="/yatra-status" element={<YatraStatus />} />
 
                   {/* Local SEO Routes */}
                   <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
@@ -275,6 +360,7 @@ const App = () => (
                   {/* New High Reach SEO Routes - SILO STRUCTURE */}
                   <Route path="/tour-packages-from-bhilai" element={<TourPackagesFromBhilai />} />
                   <Route path="/tour-packages-from-raipur" element={<TourPackagesFromRaipur />} />
+                  <Route path="/dubai-tour-packages-from-bhilai" element={<DubaiFromBhilai />} />
 
                   {/* Raipur Silo Children */}
                   <Route path="/tour-packages-from-raipur/international-tours" element={<InternationalToursFromRaipur />} />
@@ -290,6 +376,10 @@ const App = () => (
                   <Route path="/guides/where-to-go-from-bhilai" element={<WhereToGoFromBhilai />} />
                   <Route path="/guides/after-booking-guide" element={<AfterBookingGuide />} />
                   <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
+                  <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
+                  <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
+                  <Route path="/how-to-check-pnr-status" element={<CheckPNRStatus />} />
+                  <Route path="/contact" element={<Contact />} />
 
                   {/* FAQ Silos - Phase 29 */}
                   <Route path="/faqs/train-booking" element={<TrainBookingFAQ />} />

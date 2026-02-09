@@ -150,12 +150,12 @@ const TravelAgentBhilai = () => {
   ];
 
   const popularRoutes = [
-    { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options available.", link: "/domestic-packages" },
-    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow activities.", link: "/domestic-packages" },
-    { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples & groups.", link: "/domestic-packages" },
-    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun. Visa-on-arrival support.", link: "/visa/thailand" },
-    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari with Visa.", link: "/visa/dubai" },
-    { name: "Bhilai to Kedarnath", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: " Sacred Yatra. Helicopter & Trekking options.", link: "/domestic-packages" },
+    { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options available.", link: "/package/goa" },
+    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow activities.", link: "/package/kashmir" },
+    { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples & groups.", link: "/package/shimla-manali" },
+    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun. Visa-on-arrival support.", link: "/thailand-tour-packages" },
+    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari with Visa.", link: "/dubai-tour-packages" },
+    { name: "Bhilai to Kedarnath", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: " Sacred Yatra. Helicopter & Trekking options.", link: "/chardham-yatra-package" },
   ];
 
   const whyChooseUs = [
@@ -535,8 +535,10 @@ const TravelAgentBhilai = () => {
 
               {/* Map */}
               <GoogleMapEmbed lazyLoad={true} />
-              <CustomerGallery className="mt-8" />
             </div>
+
+            {/* Gallery Section - Full Width */}
+            <CustomerGallery className="mt-16" />
           </div>
         </section>
 

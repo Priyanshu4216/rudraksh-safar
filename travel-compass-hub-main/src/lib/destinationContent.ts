@@ -1,4 +1,8 @@
 import { getBestTimeToVisit } from '@/lib/travelMeta';
+import { thailandData } from '@/data/destinations/thailand';
+import { pattayaData } from '@/data/destinations/pattaya';
+import { phuketData } from '@/data/destinations/phuket';
+import { DestinationContentData } from '@/data/destinations/types';
 
 export type DestinationPageSlug =
   | 'things-to-do'
@@ -20,7 +24,9 @@ export type DestinationPageSlug =
   | 'faqs'
   | 'travel-guide'
   | 'bali-vs-maldives'
-  | 'best-hotels';
+  | 'best-hotels'
+  | 'island-tours'
+  | 'places-to-visit'; // Added for Places silo
 
 export type DestinationPageConfig = {
   slug: DestinationPageSlug;
@@ -33,6 +39,11 @@ export const DESTINATION_PAGE_ORDER: DestinationPageConfig[] = [
     slug: 'travel-guide',
     title: (d) => `${d} Travel Guide`,
     description: (d) => `A quick, practical travel guide to plan your ${d} trip: top areas, what to do, best season, and booking tips.`,
+  },
+  {
+    slug: 'places-to-visit',
+    title: (d) => `Places to Visit in ${d}`,
+    description: (d) => `Top places to visit in ${d}: temples, viewpoints, islands, and cultural landmarks not to be missed.`,
   },
   {
     slug: 'things-to-do',
@@ -114,6 +125,11 @@ export const DESTINATION_PAGE_ORDER: DestinationPageConfig[] = [
     title: (d) => `${d} Family-Friendly Places`,
     description: (d) => `Family-friendly places in ${d}: safe attractions, kid-friendly activities, and easy day plans.`,
   },
+  {
+    slug: 'island-tours',
+    title: (d) => `${d} Island Tours`,
+    description: (d) => `Best island tours from ${d}: snorkeling, diving, and sightseeing boat trips.`,
+  }
 ];
 
 export const PACKAGE_SLUGS = new Set<string>([
@@ -128,6 +144,7 @@ export const PACKAGE_SLUGS = new Set<string>([
   'malaysia',
   'turkey',
   'schengen',
+  'pattaya' // Verified
 ]);
 
 export const HONEYMOON_DESTINATIONS = new Set<string>(['bali', 'maldives', 'phuket', 'thailand', 'dubai']);
@@ -151,18 +168,10 @@ export const isValidDestinationPage = (pageSlug: string): pageSlug is Destinatio
   return DESTINATION_PAGE_ORDER.some((p) => p.slug === pageSlug);
 };
 
-export interface DestinationSpecificData {
-  faqs?: { question: string; answer: string }[];
-  nearbyPlaces?: { name: string; distance: string; time: string }[];
-  tripCost?: {
-    flights: string;
-    hotels: string;
-    transfers: string;
-    activities: string;
-  };
-}
-
-export const DESTINATION_DATA: Record<string, DestinationSpecificData> = {
+// --- LEGACY DATA (Fallback) ---
+// We keep this for destinations we haven't migrated yet.
+// For Thailand/Pattaya/Phuket, we will check the new data first.
+const LEGACY_DESTINATION_DATA: Record<string, DestinationContentData> = {
   'bali': {
     faqs: [
       { question: 'What is the best time to visit Bali?', answer: 'The best time to visit Bali is during the dry season, from April to October. July and August are the peak tourist months.' },
@@ -205,6 +214,7 @@ export const DESTINATION_DATA: Record<string, DestinationSpecificData> = {
     }
   },
   'thailand': {
+    // Legacy fallback
     faqs: [
       { question: 'Is Thailand visa-free for Indians?', answer: 'Yes! Thailand has waived visa fees for Indians until November 2025. You can enter freely for 60 days.' },
       { question: 'Which is better: Phuket or Pattaya?', answer: 'Phuket is better for beaches, islands, and couples. Pattaya is famous for nightlife and is closer to Bangkok.' },
@@ -357,6 +367,7 @@ export const DESTINATION_DATA: Record<string, DestinationSpecificData> = {
     }
   },
   'phuket': {
+    // Legacy fallback
     faqs: [
       { question: 'Is Phuket expensive?', answer: 'Phuket is slightly more expensive than Bangkok but still very affordable compared to European beach destinations.' },
       { question: 'Best area to stay in Phuket?', answer: 'Patong for nightlife, Karon/Kata for balance, and Bang Tao/Surin for luxury.' },
@@ -377,9 +388,22 @@ export const DESTINATION_DATA: Record<string, DestinationSpecificData> = {
   }
 };
 
-export const getDestinationData = (slug: string): DestinationSpecificData | undefined => {
-  return DESTINATION_DATA[slug];
+export const getDestinationData = (slug: string, pageSlug?: string): DestinationContentData | undefined => {
+  // 1. Check New Data Structures (Top priority for target pages)
+  if (slug === 'thailand' && pageSlug && thailandData[pageSlug]) {
+    return thailandData[pageSlug];
+  }
+  if (slug === 'pattaya' && pageSlug && pattayaData[pageSlug]) {
+    return pattayaData[pageSlug];
+  }
+  if (slug === 'phuket' && pageSlug && phuketData[pageSlug]) {
+    return phuketData[pageSlug];
+  }
+
+  // 2. Fallback to Legacy Data
+  return LEGACY_DESTINATION_DATA[slug];
 };
 
 export const getPageConfig = (pageSlug: DestinationPageSlug) =>
   DESTINATION_PAGE_ORDER.find((p) => p.slug === pageSlug) ?? DESTINATION_PAGE_ORDER[0];
+

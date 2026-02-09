@@ -151,7 +151,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
       <Link
-        to={`/package/${pkg.id}`}
+        to={pkg.id === 'dubai' ? '/dubai-tour-packages' : `/package/${pkg.id}`}
         onClick={() => window.scrollTo(0, 0)}
         className="block h-full"
         aria-label={`View package: ${pkg.title}`}

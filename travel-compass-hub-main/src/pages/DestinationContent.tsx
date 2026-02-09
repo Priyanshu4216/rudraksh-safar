@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import SEOHead from '@/components/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { CheckCircle2 } from 'lucide-react';
 import {
   DESTINATION_PAGE_ORDER,
   getDestinationBestTime,
@@ -18,6 +18,8 @@ import {
   PACKAGE_SLUGS,
   type DestinationPageSlug,
 } from '@/lib/destinationContent';
+import DestinationSchema from '@/components/seo/DestinationSchema';
+import DestinationContentBody from '@/components/destination-pages/DestinationContentBody';
 
 const DestinationContent = () => {
   const { destinationSlug, pageSlug } = useParams();
@@ -57,6 +59,7 @@ const DestinationContent = () => {
   const destinationName = getDestinationDisplayName(destinationSlug);
   const cfg = getPageConfig(pageSlug as DestinationPageSlug);
   const bestTime = getDestinationBestTime(destinationSlug);
+  const data = getDestinationData(destinationSlug ?? '', pageSlug);
 
   const hasPackage = PACKAGE_SLUGS.has(destinationSlug);
   const showHoneymoon = HONEYMOON_DESTINATIONS.has(destinationSlug);
@@ -76,149 +79,32 @@ const DestinationContent = () => {
     publisher: { '@type': 'Organization', name: 'Rudraksh Safar' },
   };
 
-  const renderBody = () => {
-    const data = getDestinationData(destinationSlug ?? '');
-
-    switch (pageSlug) {
-      case 'best-time-to-visit':
-        return (
-          <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Month-wise overview</h2>
-            <ul className="mt-3 space-y-2 text-muted-foreground">
-              <li><strong className="text-foreground">Peak season:</strong> Great weather, vibrant atmosphere, but higher prices.</li>
-              <li><strong className="text-foreground">Shoulder season:</strong> Best value with decent weather and fewer crowds.</li>
-              <li><strong className="text-foreground">Off-season:</strong> Lowest prices, suitable for budget travelers comfortable with some rain/heat.</li>
-            </ul>
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5">
-              <p className="text-sm text-muted-foreground">Quick answer</p>
-              <p className="mt-1 text-lg font-semibold text-foreground">Best time to visit {destinationName}: {bestTime}</p>
-            </div>
-          </>
-        );
-      case 'trip-cost':
-        const cost = data?.tripCost ?? {
-          flights: 'Varies by season & origin',
-          hotels: 'Budget to Luxury options available',
-          transfers: 'Taxis & Public Transport',
-          activities: 'Entry fees & guided tours'
-        };
-        return (
-          <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Trip cost breakdown (est.)</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {[
-                { k: 'Flights', v: cost.flights },
-                { k: 'Hotels', v: cost.hotels },
-                { k: 'Transfers', v: cost.transfers },
-                { k: 'Activities', v: cost.activities },
-              ].map((x) => (
-                <div key={x.k} className="rounded-2xl border border-border bg-card p-5">
-                  <p className="text-sm text-muted-foreground">{x.k}</p>
-                  <p className="mt-1 font-semibold text-foreground">{x.v}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-6 text-muted-foreground">
-              *Prices are approximate estimates. For the exact {destinationName} trip cost for your dates, please contact us for a custom quote.
-            </p>
-          </>
-        );
-      case 'nearby-places':
-        const places = data?.nearbyPlaces ?? [];
-        return (
-          <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Nearby places to visit</h2>
-            {places.length > 0 ? (
-              <div className="mt-4 overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="grid grid-cols-3 gap-0 border-b border-border px-4 py-3 text-sm text-muted-foreground bg-muted/30">
-                  <span>Place</span>
-                  <span>Distance/Mode</span>
-                  <span>Travel time</span>
-                </div>
-                {places.map((place, i) => (
-                  <div key={i} className="grid grid-cols-3 gap-0 px-4 py-3 text-sm border-b border-border last:border-0 hover:bg-muted/10 transition-colors">
-                    <span className="font-medium text-foreground">{place.name}</span>
-                    <span className="text-muted-foreground">{place.distance}</span>
-                    <span className="text-muted-foreground">{place.time}</span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="mt-4 rounded-2xl border border-border bg-card p-6 text-center">
-                <p className="text-muted-foreground">Explore our integrated tour packages to see all the exciting nearby attractions included in your {destinationName} itinerary.</p>
-                <div className="mt-4">
-                  <Button asChild variant="outline">
-                    <Link to={`/package/${destinationSlug}`}>View Itinerary</Link>
-                  </Button>
-                </div>
-              </div>
-            )}
-          </>
-        );
-      case 'faqs':
-        const faqs = data?.faqs ?? [
-          { question: `What are the top things to do in ${destinationName}?`, answer: `Top attractions include cultural sites, beaches, and local markets. Check our "Things to Do" section for details.` },
-          { question: `How many days are enough for ${destinationName}?`, answer: `We typically recommend 5-7 days to fully explore ${destinationName} at a relaxed pace.` },
-          { question: `Is ${destinationName} good for families?`, answer: `Yes, ${destinationName} offers many family-friendly activities and safe accommodations.` },
-        ];
-        return (
-          <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">Frequently Asked Questions</h2>
-            <div className="mt-4 space-y-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className="rounded-2xl border border-border bg-card p-5">
-                  <p className="font-semibold text-foreground">Q: {faq.question}</p>
-                  <p className="mt-2 text-muted-foreground">
-                    A: {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </>
-        );
-      default:
-        return (
-          <>
-            <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground">{title}</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Discover the best of {destinationName} with our comprehensive guide. From hidden gems to popular hotspots, we help you plan the perfect trip.
-              Explore our curated sections for detailed insights on activities, best times to visit, costs, and more.
-            </p>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-border bg-card p-4">
-                <h3 className="font-semibold mb-2">Plan Your Trip</h3>
-                <p className="text-sm text-muted-foreground">Get expert advice on itineraries, bookings, and visa requirements for {destinationName}.</p>
-              </div>
-              <div className="rounded-xl border border-border bg-card p-4">
-                <h3 className="font-semibold mb-2">Local Insights</h3>
-                <p className="text-sm text-muted-foreground">Explore food, culture, and offbeat locations recommended by our travel experts.</p>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-border bg-secondary/5 p-6">
-              <p className="text-sm font-semibold text-secondary mb-2">Ready to explore?</p>
-              <p className="text-foreground mb-4">
-                Browse our customized tour packages for {destinationName} designed for budget and luxury travelers.
-              </p>
-              <Button asChild>
-                <Link to={`/package/${destinationSlug}`}>View {destinationName} Packages</Link>
-              </Button>
-            </div>
-          </>
-        );
-    }
-  };
+  /* Refactored Logic moved to DestinationContentBody */
 
   return (
     <>
-      <SEOHead
+      <Helmet>
+        <title>{title} | Rudraksh Safar</title>
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content={`${title}, ${destinationName} travel guide, ${destinationName} trip planning, best time to visit ${destinationName}, things to do in ${destinationName}`}
+        />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+      </Helmet>
+
+      <DestinationSchema
         title={title}
         description={description}
-        keywords={`${title}, ${destinationName} travel guide, ${destinationName} trip planning, best time to visit ${destinationName}, things to do in ${destinationName}`}
         canonicalUrl={canonicalUrl}
-        ogType="article"
-        structuredData={structuredData}
+        data={getDestinationData(destinationSlug ?? '', pageSlug)}
+        destinationName={destinationName}
+        pageSlug={pageSlug}
       />
 
       <Navbar />
@@ -228,10 +114,41 @@ const DestinationContent = () => {
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="secondary">Destination</Badge>
               <Badge variant="outline">Best time: {bestTime}</Badge>
+              {data?.lastUpdated && (
+                <span className="text-xs text-muted-foreground ml-2">Updated: {data.lastUpdated}</span>
+              )}
             </div>
 
             <h1 className="mt-4 text-3xl md:text-5xl font-serif font-bold text-foreground">{title}</h1>
             <p className="mt-3 max-w-3xl text-muted-foreground">{description}</p>
+
+            {/* EEAT Signals */}
+            {(data?.author || data?.reviewer) && (
+              <div className="mt-6 flex flex-wrap gap-6 text-sm text-muted-foreground border-l-2 border-primary/20 pl-4">
+                {data.author && (
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center text-xs font-bold overflow-hidden">
+                      {data.author.image ? <img src={data.author.image} alt={data.author.name} /> : "✍️"}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{data.author.name}</p>
+                      <p className="text-xs">{data.author.role}</p>
+                    </div>
+                  </div>
+                )}
+                {data.reviewer && (
+                  <div className="flex items-center gap-2">
+                    <div className="h-8 w-8 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center text-green-700 dark:text-green-400">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground text-green-700 dark:text-green-400">Reviewed by {data.reviewer.name}</p>
+                      <p className="text-xs">{data.reviewer.role}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Smart internal links */}
             <div className="mt-6 flex flex-wrap gap-3">
@@ -277,13 +194,26 @@ const DestinationContent = () => {
                     );
                   })}
                 </nav>
+
+                {/* Internal Linking for Comparisons */}
+                {(destinationSlug === 'pattaya' || destinationSlug === 'phuket') && (
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">Popular Comparisons</p>
+                    <Link
+                      to="/comparisons/pattaya-vs-phuket"
+                      className="block text-sm font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                    >
+                      Pattaya vs Phuket: Which is better?
+                    </Link>
+                  </div>
+                )}
               </div>
             </aside>
 
             {/* Main content */}
             <article className="lg:col-span-8">
               <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-                {renderBody()}
+                <DestinationContentBody destinationSlug={destinationSlug ?? ''} pageSlug={pageSlug ?? ''} />
               </div>
             </article>
           </div>

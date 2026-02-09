@@ -27,7 +27,7 @@ const FAQHub = () => {
     ];
 
     const localSilos = [
-        { title: "Bhilai FAQs", link: "/faqs/local-travel-bhilai", desc: "Office location, Home Visits & Local Services" },
+        { title: "Bhilai FAQs", link: "/faqs/bhilai", desc: "Office location, Home Visits & Local Services" },
         { title: "Raipur FAQs", link: "/faqs/raipur", desc: "Airport Pickups, Home Delivery & Consultations" },
         { title: "Durg FAQs", link: "/faqs/durg", desc: "Railway Station Transfers & Nearby Areas" },
     ];
