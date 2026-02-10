@@ -50,7 +50,7 @@ const DubaiPackages = () => {
                 <title>Dubai Tour Packages from Bhilai & Raipur (Flights + Visa) | Rudraksh Safar</title>
                 <meta name="description" content="Book affordable Dubai tour packages from Bhilai & Raipur. Best prices for couples & families. Includes Visa, Flights, Hotel & Sightseeing. Local office in Bhilai." />
                 <meta name="keywords" content="dubai tour packages from bhilai, dubai tour packages from raipur, dubai honeymoon package from chhattisgarh, dubai group tour from india" />
-                <link rel="canonical" href="https://rudrakshsafar.com/dubai-tour-packages" />
+                <link rel="canonical" href="https://rudrakshsafar.com/dubai-all-packages" />
                 <script type="application/ld+json">
                     {JSON.stringify([
                         {

@@ -172,6 +172,55 @@ const CabRental = () => {
                     </div>
                 </section>
 
+                {/* RATE CHARTS (New SEO Content) */}
+                <section className="py-16 bg-background">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold mb-4">Transparent Cab Rates in Bhilai</h2>
+                            <p className="text-muted-foreground">No hidden charges. Pay for what you ride.</p>
+                        </div>
+                        <div className="overflow-x-auto">
+                            <table className="w-full max-w-4xl mx-auto border-collapse border border-border">
+                                <thead className="bg-primary/5">
+                                    <tr>
+                                        <th className="border p-4 text-left">Vehicle Type</th>
+                                        <th className="border p-4 text-left">Models</th>
+                                        <th className="border p-4 text-left">Rate per KM</th>
+                                        <th className="border p-4 text-left">Driver Allowance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="hover:bg-accent/5">
+                                        <td className="border p-4 font-medium">Hatchback / Sedan</td>
+                                        <td className="border p-4">Dzire, Etios, Aura</td>
+                                        <td className="border p-4">₹10 - ₹12</td>
+                                        <td className="border p-4">₹300 / day</td>
+                                    </tr>
+                                    <tr className="hover:bg-accent/5">
+                                        <td className="border p-4 font-medium">SUV (6+1)</td>
+                                        <td className="border p-4">Ertiga, XL6</td>
+                                        <td className="border p-4">₹14 - ₹16</td>
+                                        <td className="border p-4">₹400 / day</td>
+                                    </tr>
+                                    <tr className="hover:bg-accent/5">
+                                        <td className="border p-4 font-medium">Premium SUV</td>
+                                        <td className="border p-4">Innova Crysta</td>
+                                        <td className="border p-4">₹18 - ₹22</td>
+                                        <td className="border p-4">₹500 / day</td>
+                                    </tr>
+                                    <tr className="hover:bg-accent/5">
+                                        <td className="border p-4 font-medium">Tempo Traveller</td>
+                                        <td className="border p-4">Force Urbania (17S/26S)</td>
+                                        <td className="border p-4">₹26 - ₹30</td>
+                                        <td className="border p-4">₹600 / day</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="text-xs text-center text-muted-foreground mt-4">* Tolls, Parking & State Taxes are extra as actuals.</p>
+                    </div>
+                </section>
+
                 {/* Destinations */}
                 <section className="py-24">
                     <div className="container mx-auto px-4">
@@ -186,6 +235,56 @@ const CabRental = () => {
                                 <div key={index} className="px-6 py-3 rounded-full border border-border bg-background hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-colors cursor-default font-medium">
                                     {dest.name}
                                 </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* DISTANCE & TIME TABLE (New Value Add) */}
+                <section className="py-16 bg-muted/30">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold mb-4">Popular Road Trips from Bhilai</h2>
+                            <p className="text-muted-foreground">Planning a weekend getaway? Check estimated travel times.</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {[
+                                { to: "Raipur Airport (RPR)", dist: "45 km", time: "1 hr 15 mins" },
+                                { to: "Dongargarh (Bamleshwari)", dist: "65 km", time: "1 hr 30 mins" },
+                                { to: "Kanha National Park", dist: "180 km", time: "4 hrs" },
+                                { to: "Jagdalpur (Chitrakote)", dist: "300 km", time: "6-7 hrs" },
+                                { to: "Mainpat (Shimla of CG)", dist: "380 km", time: "7-8 hrs" },
+                                { to: "Amarkantak", dist: "230 km", time: "5 hrs" },
+                            ].map((item, i) => (
+                                <div key={i} className="bg-background p-4 rounded-xl border flex justify-between items-center shadow-sm">
+                                    <div>
+                                        <h3 className="font-bold">Bhilai ➝ {item.to}</h3>
+                                        <p className="text-sm text-muted-foreground">{item.dist}</p>
+                                    </div>
+                                    <Badge variant="outline" className="bg-primary/5">{item.time}</Badge>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* LOCAL PICKUP POINTS (Long Tail SEO) */}
+                <section className="py-16 bg-background border-y">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="inline-flex items-center gap-2 mb-4 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                            <MapPin className="w-4 h-4" />
+                            Doorstep Pickup Available
+                        </div>
+                        <h2 className="text-3xl font-bold mb-6">Serving Every Corner of Bhilai-Durg</h2>
+                        <p className="max-w-4xl mx-auto text-lg text-muted-foreground mb-8">
+                            Whether you stay in the <strong>Civic Centre</strong> heartland or the expanding <strong>Smriti Nagar</strong>, our cabs reach your doorstep on time.
+                            We cover all sectors (1 to 10), <strong>Nehru Nagar</strong>, <strong>Power House</strong>, <strong>Hudco</strong>, <strong>Risali</strong>, and <strong>Charoda</strong>.
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-2">
+                            {["Sector 1-10", "Nehru Nagar", "Smriti Nagar", "Supela", "Power House", "Hudco", "Risali", "Maroda", "Kumhari", "Charoda"].map((area, i) => (
+                                <Badge key={i} variant="secondary" className="text-sm py-1 px-3">
+                                    {area}
+                                </Badge>
                             ))}
                         </div>
                     </div>
@@ -273,7 +372,7 @@ const CabRental = () => {
                         </Button>
                     </div>
                 </section>
-            </main>
+            </main >
 
             <Footer />
             <FloatingWhatsApp />

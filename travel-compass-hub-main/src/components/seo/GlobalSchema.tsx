@@ -30,8 +30,9 @@ const GlobalSchema = () => {
             "closes": "21:00"
         },
         "sameAs": [
-            "https://www.facebook.com/rudrakshsafar",
-            "https://www.instagram.com/rudrakshsafar"
+            "https://www.facebook.com/people/Rudraksh-Safar/pfbid0iAvSgkmW94itABRQ4h3f8kSkkyT16Kn7ocq97wUWVY35GWgj61YjdQNBeLy2nVTtl/",
+            "https://www.instagram.com/rudrakshsafar",
+            "https://www.youtube.com/@RudrakshSafar"
         ],
         "areaServed": [
             { "@type": "AdministrativeArea", "name": "Bhilai" },

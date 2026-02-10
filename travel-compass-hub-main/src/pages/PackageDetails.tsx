@@ -1504,8 +1504,13 @@ const allPackages = [
   },
 ];
 
-const PackageDetails = () => {
-  const { packageId } = useParams();
+interface PackageDetailsProps {
+  packageIdOverride?: string;
+}
+
+const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
+  const params = useParams();
+  const packageId = packageIdOverride || params.packageId;
   const pkg = allPackages.find((p) => p.id === packageId);
 
   // Scroll to top on mount
@@ -1718,13 +1723,23 @@ const PackageDetails = () => {
 
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="container">
-            <button
-              onClick={() => window.history.back()}
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span className="drop-shadow-md">Back</span>
-            </button>
+            {pkg.id === 'dubai' ? (
+              <Link
+                to="/dubai-all-packages"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <span className="drop-shadow-md">View All Dubai Packages</span>
+              </Link>
+            ) : (
+              <button
+                onClick={() => window.history.back()}
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 group"
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <span className="drop-shadow-md">Back</span>
+              </button>
+            )}
 
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="bg-secondary px-4 py-1.5 rounded-full text-sm font-bold text-secondary-foreground flex items-center gap-2">

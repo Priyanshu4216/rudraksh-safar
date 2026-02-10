@@ -309,7 +309,8 @@ const App = () => (
 
                   {/* Phase 10: UAE Domination (Attraction Engine) */}
                   <Route path="/dubai-travel-guide" element={<DubaiTravelGuide />} />
-                  <Route path="/dubai-tour-packages" element={<DubaiPackages />} />
+                  <Route path="/dubai-tour-packages" element={<PackageDetails packageIdOverride="dubai" />} />
+                  <Route path="/dubai-all-packages" element={<DubaiPackages />} />
                   <Route path="/dubai-visa-for-indians" element={<DubaiVisaGuide />} />
                   <Route path="/dubai-4-day-itinerary" element={<DubaiItinerary4Days />} />
                   <Route path="/dubai-5-day-itinerary" element={<DubaiItinerary5Days />} />

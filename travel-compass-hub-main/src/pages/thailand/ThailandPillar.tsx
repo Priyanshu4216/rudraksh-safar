@@ -151,6 +151,86 @@ const ThailandPillar = () => {
                     </div>
                 </div>
 
+
+
+                {/* THAILAND TRAVEL GUIDE (New High-Value Content) */}
+                <div className="bg-white dark:bg-slate-950 py-20 border-t border-slate-100 dark:border-slate-900">
+                    <div className="container">
+                        <div className="text-center mb-16">
+                            <span className="text-sm font-bold tracking-widest text-orange-600 uppercase">Essential Guide</span>
+                            <h2 className="text-3xl md:text-5xl font-serif font-bold mt-2">Planning Thailand from Bhilai/Raipur?</h2>
+                            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                                Everything you need to know before you pack your bags. We handle the complexities so you don't have to.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {/* Card 1: Flights */}
+                            <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
+                                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-6">
+                                    <Plane className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-4">Flight Connectivity</h3>
+                                <p className="text-sm text-muted-foreground mb-4">
+                                    There are no direct flights from Raipur (RPR). The best routes for Bhilai residents are:
+                                </p>
+                                <ul className="space-y-3 text-sm">
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-green-600 mt-1 shrink-0" />
+                                        <span><strong>Best:</strong> Raipur ➝ Kolkata ➝ Bangkok (Shortest duration)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-green-600 mt-1 shrink-0" />
+                                        <span><strong>Alternative:</strong> Raipur ➝ Delhi ➝ Phuket/Bangkok</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Card 2: Visa */}
+                            <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
+                                <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+                                    <ShieldCheck className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-4">Visa Free Entry</h3>
+                                <p className="text-sm text-muted-foreground mb-4">
+                                    <strong>Good News:</strong> Indian tourists currently enjoy Visa-Free entry (Temporary Scheme).
+                                </p>
+                                <div className="bg-white dark:bg-black/20 p-4 rounded-lg">
+                                    <p className="font-bold text-xs uppercase mb-2 text-slate-500">Documents Required:</p>
+                                    <ul className="space-y-2 text-sm">
+                                        <li className="flex items-center gap-2">✅ Passport (6 months validity)</li>
+                                        <li className="flex items-center gap-2">✅ Return Flight Tickets</li>
+                                        <li className="flex items-center gap-2">✅ Hotel Vouchers</li>
+                                        <li className="flex items-center gap-2">✅ 10,000 THB Cash (Proof of Funds)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Card 3: Currency & Tips */}
+                            <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
+                                <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-6">
+                                    <Utensils className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-4">Smart Travel Tips</h3>
+                                <ul className="space-y-4 text-sm">
+                                    <li>
+                                        <strong className="block text-foreground mb-1">Currency Exchange</strong>
+                                        <span className="text-muted-foreground">Don't exchange INR at Bangkok airport (poor rates). Buy THB or USD in Bhilai/Raipur before flying.</span>
+                                    </li>
+                                    <li>
+                                        <strong className="block text-foreground mb-1">Food for Vegetarians</strong>
+                                        <span className="text-muted-foreground">"Jay" (Jain) food festivals are common. Indian restaurants are available in every major city.</span>
+                                    </li>
+                                    <li>
+                                        <strong className="block text-foreground mb-1">SIM Card</strong>
+                                        <span className="text-muted-foreground">Buy a 'Tourist SIM' at the airport (AIS or TrueMove) for unlimited 5G data.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* WHY US SECTION */}
                 <div className="bg-slate-100 dark:bg-slate-900 py-20">
                     <div className="container">
@@ -207,7 +287,7 @@ const ThailandPillar = () => {
                     </div>
                 </div>
 
-            </main>
+            </main >
             <Footer />
             <FloatingWhatsApp />
         </>
