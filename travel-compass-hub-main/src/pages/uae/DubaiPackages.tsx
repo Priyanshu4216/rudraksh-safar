@@ -86,7 +86,7 @@ const DubaiPackages = () => {
                             "@type": "Product",
                             "name": "Dubai Essentials Tour Package",
                             "description": "5 Days / 4 Nights Dubai Tour including Burj Khalifa, Desert Safari, and Marina Cruise.",
-                            "image": "https://rudrakshsafar.com/images/dubai/dubai-skyline.jpg",
+                            "image": "https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=2000",
                             "offers": {
                                 "@type": "Offer",
                                 "url": "https://rudrakshsafar.com/dubai-5-day-itinerary",

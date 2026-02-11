@@ -11,7 +11,70 @@ import heroVideo from '@/assets/hero-poster.jpg'; // Flashback for safe import (
 import heroVideoFile from '@/assets/hero-video.mp4';
 import heroPosterImage from '@/assets/hero-poster.jpg';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  title?: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const HeroSection = ({ title, subtitle, backgroundImage, ctaText, ctaLink }: HeroSectionProps = {}) => {
+  // If custom props are provided, render the Generic Hero version
+  if (title) {
+    return (
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-10" />
+          <img
+            src={backgroundImage || heroPosterImage}
+            alt={title}
+            className="w-full h-full object-cover scale-105"
+            loading="eager"
+          />
+        </div>
+
+        <div className="container relative z-20 px-4 pt-20 text-center">
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {title}
+          </motion.h1>
+
+          {subtitle && (
+            <motion.p
+              className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {subtitle}
+            </motion.p>
+          )}
+
+          {ctaText && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold h-14 px-8 rounded-full text-lg" asChild>
+                <a href={ctaLink || "#contact"}>
+                  {ctaText} <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </Button>
+            </motion.div>
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  // Original Home Hero Implementation
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [videoLoaded, setVideoLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);

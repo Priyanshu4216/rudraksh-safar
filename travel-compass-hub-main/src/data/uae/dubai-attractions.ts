@@ -10,7 +10,7 @@ export const dubaiAttractions: AttractionData[] = [
         },
         hero: {
             title: "Burj Khalifa: The World's Tallest Building",
-            image: "/images/dubai/burj-khalifa-hero.jpg",
+            image: "https://images.unsplash.com/photo-1546412414-e18d4806796a?auto=format&fit=crop&q=80&w=800",
             verdict: "MUST_VISIT",
             verdictText: "Yes, it is worth the hype. Standing on the 124th floor seeing the desert meet the ocean is a core Dubai memory."
         },
@@ -63,8 +63,8 @@ export const dubaiAttractions: AttractionData[] = [
             tip: "Download the 'Dubai Mall' app to navigate. The walk from the Metro to the Burj Khalifa entrance takes 15-20 minutes mostly on travelators."
         },
         gallery: [
-            { src: "/images/dubai/burj-khalifa-view.jpg", alt: "View from 124th Floor at Sunset" },
-            { src: "/images/dubai/burj-khalifa-night.jpg", alt: "Burj Khalifa illuminated at night" }
+            { src: "https://images.unsplash.com/photo-1518684079858-e91647fbc0a2?auto=format&fit=crop&q=80&w=800", alt: "View from 124th Floor at Sunset" },
+            { src: "https://images.unsplash.com/photo-1582293526955-442436d490c6?auto=format&fit=crop&q=80&w=800", alt: "Burj Khalifa illuminated at night" }
         ],
         faqs: [
             {
@@ -94,7 +94,7 @@ export const dubaiAttractions: AttractionData[] = [
         },
         hero: {
             title: "Dubai Frame: The Golden Picture Frame",
-            image: "/images/dubai/dubai-frame-hero.jpg",
+            image: "https://images.unsplash.com/photo-1577085773663-1e582e361bc4?auto=format&fit=crop&q=80&w=800",
             verdict: "HIDDEN_GEM",
             verdictText: "Ideally located to show the contrast between Old and New Dubai. The glass floor walk is thrilling!"
         },
@@ -135,7 +135,7 @@ export const dubaiAttractions: AttractionData[] = [
             tip: "The location (Zabeel Park) is great for a winter picnic. Combine this with a visit to the nearby Glow Garden if visiting in the evening."
         },
         gallery: [
-            { src: "/images/dubai/dubai-frame-glass.jpg", alt: "Walking on the glass floor at Dubai Frame" }
+            { src: "https://images.unsplash.com/photo-1577085773663-1e582e361bc4?auto=format&fit=crop&q=80&w=800", alt: "Walking on the glass floor at Dubai Frame" }
         ],
         faqs: [
             {
@@ -161,7 +161,7 @@ export const dubaiAttractions: AttractionData[] = [
         },
         hero: {
             title: "Museum of the Future: Where 2071 Begins",
-            image: "/images/dubai/motf-hero.jpg",
+            image: "https://images.unsplash.com/photo-1518684079858-e91647fbc0a2?auto=format&fit=crop&q=80&w=800",
             verdict: "MUST_VISIT",
             verdictText: "A masterpiece of engineering and imagination. Unlike any 'museum' you have ever seen."
         },
@@ -208,7 +208,7 @@ export const dubaiAttractions: AttractionData[] = [
             tip: "Tickets are released 30 days in advance and sell out instantly. DO NOT plan this last minute."
         },
         gallery: [
-            { src: "/images/dubai/motf-calligraphy.jpg", alt: "Arabic calligraphy on the facade" }
+            { src: "https://images.unsplash.com/photo-1518684079858-e91647fbc0a2?auto=format&fit=crop&q=80&w=800", alt: "Arabic calligraphy on the facade" }
         ],
         faqs: [
             {

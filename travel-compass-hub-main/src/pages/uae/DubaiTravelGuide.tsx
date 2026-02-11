@@ -50,7 +50,7 @@ const DubaiTravelGuide = () => {
                 {/* HERO SECTION */}
                 <div className="relative h-[60vh] flex items-center justify-center text-center text-white">
                     <img
-                        src="/images/dubai/dubai-skyline.jpg"
+                        src="https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=2000"
                         alt="Dubai Skyline"
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="eager"
@@ -101,12 +101,12 @@ const DubaiTravelGuide = () => {
                         </div>
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
-                                { title: "Burj Khalifa", url: "/dubai/burj-khalifa", img: "/images/dubai/burj-khalifa-hero.jpg", desc: "Tickets, Sunset Slots & 124 vs 148" },
-                                { title: "Dubai Frame", url: "/dubai/dubai-frame", img: "/images/dubai/dubai-frame-hero.jpg", desc: "Budget Alternative with Glass Floor" },
-                                { title: "Museum of the Future", url: "/dubai/museum-of-the-future", img: "/images/dubai/motf-hero.jpg", desc: "Why it is always Sold Out" },
-                                { title: "Desert Safari", url: "/dubai/desert-safari", img: "/images/dubai/safari-hero.jpg", desc: "Dune Bashing & BBQ Guide" },
-                                { title: "Sheikh Zayed Mosque", url: "/abu-dhabi/sheikh-zayed-mosque", img: "/images/uae/mosque-hero.jpg", desc: "Abu Dhabi's White Pearl" },
-                                { title: "Ferrari World", url: "/abu-dhabi/ferrari-world", img: "/images/uae/ferrari-world-hero.jpg", desc: "Fastest Coaster on Earth" },
+                                { title: "Burj Khalifa", url: "/dubai/burj-khalifa", img: "https://images.unsplash.com/photo-1546412414-e18d4806796a?auto=format&fit=crop&q=80&w=800", desc: "Tickets, Sunset Slots & 124 vs 148" },
+                                { title: "Dubai Frame", url: "/dubai/dubai-frame", img: "https://images.unsplash.com/photo-1577085773663-1e582e361bc4?auto=format&fit=crop&q=80&w=800", desc: "Budget Alternative with Glass Floor" },
+                                { title: "Museum of the Future", url: "/dubai/museum-of-the-future", img: "https://images.unsplash.com/photo-1518684079858-e91647fbc0a2?auto=format&fit=crop&q=80&w=800", desc: "Why it is always Sold Out" },
+                                { title: "Desert Safari", url: "/dubai/desert-safari", img: "https://images.unsplash.com/photo-1451337516015-6b6fcd1c95e3?auto=format&fit=crop&q=80&w=800", desc: "Dune Bashing & BBQ Guide" },
+                                { title: "Sheikh Zayed Mosque", url: "/abu-dhabi/sheikh-zayed-mosque", img: "https://images.unsplash.com/photo-1543746357-19416df99346?auto=format&fit=crop&q=80&w=800", desc: "Abu Dhabi's White Pearl" },
+                                { title: "Ferrari World", url: "/abu-dhabi/ferrari-world", img: "https://images.unsplash.com/photo-1597893149520-2c70830cb822?auto=format&fit=crop&q=80&w=800", desc: "Fastest Coaster on Earth" },
                             ].map((item, i) => (
                                 <Link key={i} to={item.url} className="group block h-full">
                                     <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-none shadow-md">
@@ -157,7 +157,7 @@ const DubaiTravelGuide = () => {
                                 </div>
                             </div>
                             <div className="relative hidden md:block">
-                                <img src="/images/dubai/map-graphic.jpg" alt="Dubai Itinerary Map" className="rounded-xl shadow-lg rotate-2 hover:rotate-0 transition-transform duration-500" />
+                                <img src="https://images.unsplash.com/photo-1569335445210-2f960f276229?auto=format&fit=crop&q=80&w=800" alt="Dubai Itinerary Map" className="rounded-xl shadow-lg rotate-2 hover:rotate-0 transition-transform duration-500" />
                             </div>
                         </div>
                     </section>

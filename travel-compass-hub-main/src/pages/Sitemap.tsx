@@ -59,6 +59,7 @@ const Sitemap = () => {
                 { name: 'Registration Process', href: '/chardham-yatra-registration-process', desc: 'Step-by-step permit guide' },
                 { name: 'Yatra for Seniors', href: '/chardham-yatra-for-seniors', desc: 'Elderly care guide' },
                 { name: 'Yatra from Bhilai', href: '/chardham-yatra-from-bhilai', desc: 'Train & Flight info' },
+                { name: 'Bhilai to Kedarnath Guide', href: '/bhilai-to-kedarnath-yatra-package-2026', desc: 'Complete Guide & Packages' },
                 { name: 'Yatra from Raipur', href: '/chardham-yatra-from-raipur', desc: 'Packages from Capital' },
             ]
         },
@@ -71,7 +72,7 @@ const Sitemap = () => {
                 { name: 'Travel Agent in Durg', href: '/travel-agent-durg', desc: 'Expert agents in Durg' },
                 { name: 'Tour Packages from Bhilai', href: '/tour-packages-bhilai', desc: 'Trips starting from Bhilai' },
                 { name: 'Best Tour Packages from Bhilai', href: '/tour-packages-from-bhilai', desc: 'Top-rated packages' },
-                { name: 'International Packages from Bhilai', href: '/international-tour-packages-bhilai', desc: 'Foreign tours from Bhilai' },
+                { name: 'International Packages from Bhilai', href: '/tour-packages-from-bhilai/international-tours', desc: 'Foreign tours from Bhilai' },
                 { name: 'International Tours from Bhilai', href: '/tour-packages-from-bhilai/international-tours', desc: 'Global destinations' },
                 { name: 'India Tour Packages from Bhilai', href: '/india-tour-packages-bhilai', desc: 'Domestic trips' },
                 { name: 'Weekend Getaways from Bhilai', href: '/weekend-getaways-bhilai', desc: 'Short trips nearby' },

@@ -134,7 +134,7 @@ const CruiseBooking = () => {
                     <main className="min-h-screen bg-background">
                         {/* Hero Section */}
                         <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-blue-950 text-white">
-                            <div className="absolute inset-0 bg-[url('/images/cruise/pool-deck.jpg')] bg-cover bg-center opacity-40"></div>
+                            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center opacity-40"></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/20 to-transparent"></div>
 
                             <div className="container relative z-10 text-center px-4">
@@ -229,7 +229,7 @@ const CruiseBooking = () => {
                                     <div className="relative">
                                         <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl transform -rotate-3"></div>
                                         <img
-                                            src="/images/cruise/princess-ship.jpg"
+                                            src="https://images.unsplash.com/photo-1599640845513-534431807ea2?auto=format&fit=crop&q=80&w=800"
                                             alt="Luxury Cruise Ship Deck"
                                             className="rounded-2xl shadow-xl relative transform rotate-3 hover:rotate-0 transition-transform duration-500"
                                         />
@@ -393,13 +393,13 @@ const CruiseBooking = () => {
 
                                 <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-20">
                                     <div className="relative group overflow-hidden rounded-2xl shadow-lg">
-                                        <img src="/images/cruise/royal-caribbean.jpg" alt="Water park and activities on deck" className="w-full h-64 md:h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        <img src="https://images.unsplash.com/photo-1559599238-308793637427?auto=format&fit=crop&q=80&w=800" alt="Water park and activities on deck" className="w-full h-64 md:h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                                             <p className="text-white font-bold text-lg">Adventure & Activities</p>
                                         </div>
                                     </div>
                                     <div className="relative group overflow-hidden rounded-2xl shadow-lg">
-                                        <img src="/images/cruise/sunset-pool.jpg" alt="Sunset by the pool" className="w-full h-64 md:h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                                        <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800" alt="Sunset by the pool" className="w-full h-64 md:h-80 object-cover transform group-hover:scale-110 transition-transform duration-700" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                                             <p className="text-white font-bold text-lg">Relaxation & Sunsets</p>
                                         </div>

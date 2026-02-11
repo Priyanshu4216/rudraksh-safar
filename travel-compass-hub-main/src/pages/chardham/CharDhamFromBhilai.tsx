@@ -142,6 +142,21 @@ const CharDhamFromBhilai = () => {
                             </div>
                         )}
 
+                        {/* KEDARNATH SPECIFIC CTA */}
+                        <div className="bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-xl p-6 mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div>
+                                <h3 className="text-xl font-bold flex items-center gap-2 text-orange-800 dark:text-orange-400">
+                                    <MapPin className="h-6 w-6" /> Planning only for Kedarnath?
+                                </h3>
+                                <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">
+                                    Check our dedicated guide for Bhilai to Kedarnath Yatra 2026. Includes detailed itinerary, helicopter booking, and exclusive packages.
+                                </p>
+                            </div>
+                            <Button className="bg-orange-600 hover:bg-orange-700 text-white shrink-0" asChild>
+                                <Link to="/bhilai-to-kedarnath-yatra-package-2026">View Kedarnath Guide</Link>
+                            </Button>
+                        </div>
+
                     </section>
 
                     {/* 2. ITINERARY */}

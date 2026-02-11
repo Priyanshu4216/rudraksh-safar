@@ -222,10 +222,10 @@ const Index = () => {
                 <span className="block font-bold text-indigo-600">Mountain Trips</span>
                 <span className="text-xs text-muted-foreground">Kashmir, Manali</span>
               </a>
-              <a href="/international-tour-packages-bhilai" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
+              <Link to="/tour-packages-from-bhilai/international-tours" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-rose-600">International</span>
                 <span className="text-xs text-muted-foreground">Dubai, Thailand</span>
-              </a>
+              </Link>
               <a href="/tour-packages-from-bhilai/corporate-tours" className="p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow text-center border">
                 <span className="block font-bold text-blue-600">Group Tours</span>
                 <span className="text-xs text-muted-foreground">Corporate & Family</span>

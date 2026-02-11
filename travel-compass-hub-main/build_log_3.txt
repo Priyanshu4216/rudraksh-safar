@@ -1,0 +1,31 @@
+
+> vite_react_shadcn_ts@0.0.0 build
+> vite build
+
+[36mvite v5.4.19 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 74 modules transformed.
+[31mx[39m Build failed in 1.61s
+[31merror during build:
+[31m[vite:esbuild] Transform failed with 1 error:
+D:/Rudraksh Safar/travel-compass-hub-main/src/pages/local/SingaporeTourPackageFromBhilai.tsx:141:56: ERROR: The character ">" is not valid inside a JSX element[31m
+file: [36mD:/Rudraksh Safar/travel-compass-hub-main/src/pages/local/SingaporeTourPackageFromBhilai.tsx:141:56[31m
+[33m
+[33mThe character ">" is not valid inside a JSX element[33m
+139|                                      </h3>
+140|                                      <p className="text-sm text-muted-foreground">
+141|                                          <strong>Raipur -> Singapore</strong><br />
+   |                                                          ^
+142|                                          Via Kolkata (CCU) or Hyderabad (HYD).<br />
+143|                                          Seamless baggage check-in.
+[31m
+    at failureErrorWithLog (D:\Rudraksh Safar\travel-compass-hub-main\node_modules\esbuild\lib\main.js:1472:15)
+    at D:\Rudraksh Safar\travel-compass-hub-main\node_modules\esbuild\lib\main.js:755:50
+    at responseCallbacks.<computed> (D:\Rudraksh Safar\travel-compass-hub-main\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (D:\Rudraksh Safar\travel-compass-hub-main\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (D:\Rudraksh Safar\travel-compass-hub-main\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m

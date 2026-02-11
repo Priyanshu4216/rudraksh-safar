@@ -67,7 +67,7 @@ const DubaiFromRaipur = () => {
                 {/* HERO */}
                 <div className="relative h-[60vh] flex items-center justify-center text-center text-white">
                     <img
-                        src="/images/dubai/dubai-skyline.jpg"
+                        src="https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=2000"
                         alt="Dubai Skyline"
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="eager"

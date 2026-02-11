@@ -26,8 +26,8 @@ const DubaiVsAbuDhabi = () => {
                 {/* HERO */}
                 <div className="relative h-[50vh] flex items-center justify-center text-center text-white bg-slate-900">
                     <div className="absolute inset-0 grid grid-cols-2 opacity-40">
-                        <img src="/images/dubai/burj-khalifa-hero.jpg" alt="Dubai" className="w-full h-full object-cover" />
-                        <img src="/images/uae/mosque-hero.jpg" alt="Abu Dhabi" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1546412414-e18d4806796a?auto=format&fit=crop&q=80&w=800" alt="Dubai" className="w-full h-full object-cover" />
+                        <img src="https://images.unsplash.com/photo-1543746357-19416df99346?auto=format&fit=crop&q=80&w=800" alt="Abu Dhabi" className="w-full h-full object-cover" />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
 
@@ -150,7 +150,7 @@ const DubaiVsAbuDhabi = () => {
                             </Button>
                         </div>
                         <div className="relative">
-                            <img src="/images/dubai/dubai-abudhabi-map.jpg" alt="Dubai to Abu Dhabi Map" className="rounded-xl shadow-lg border" />
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=800" alt="Dubai to Abu Dhabi Map" className="rounded-xl shadow-lg border" />
                             <div className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-xl border">
                                 <p className="font-bold text-lg">90 Minutes</p>
                                 <p className="text-xs text-muted-foreground">Drive time via Sheikh Zayed Rd</p>

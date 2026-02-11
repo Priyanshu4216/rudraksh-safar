@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const promoImageUrl = "/images/pattaya-popup.png";
+const promoImageUrl = "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800";
 
 type PattayaPromoPopupProps = {
   /** Seconds before showing the popup (if not already triggered by scroll). */

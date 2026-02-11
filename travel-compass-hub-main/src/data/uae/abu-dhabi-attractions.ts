@@ -10,7 +10,7 @@ export const abuDhabiAttractions: AttractionData[] = [
         },
         hero: {
             title: "Sheikh Zayed Grand Mosque: The White Pearl",
-            image: "/images/uae/mosque-hero.jpg",
+            image: "https://images.unsplash.com/photo-1543746357-19416df99346?auto=format&fit=crop&q=80&w=800",
             verdict: "MUST_VISIT",
             verdictText: "Non-negotiable. If you go to UAE and miss this, you missed the soul of the country. It is breathtakingly beautiful."
         },
@@ -45,8 +45,8 @@ export const abuDhabiAttractions: AttractionData[] = [
             tip: "Do not bring food or water inside. Security is airport-level strict."
         },
         gallery: [
-            { src: "/images/uae/mosque-day.jpg", alt: "White marble courtyard in daylight" },
-            { src: "/images/uae/mosque-night.jpg", alt: "Mosque illuminated in blue at night" }
+            { src: "https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=800", alt: "White marble courtyard in daylight" },
+            { src: "https://images.unsplash.com/photo-1543746357-19416df99346?auto=format&fit=crop&q=80&w=800", alt: "Mosque illuminated in blue at night" }
         ],
         faqs: [
             {
@@ -72,7 +72,7 @@ export const abuDhabiAttractions: AttractionData[] = [
         },
         hero: {
             title: "Ferrari World: Speed Capital of Earth",
-            image: "/images/uae/ferrari-world-hero.jpg",
+            image: "https://images.unsplash.com/photo-1597893149520-2c70830cb822?auto=format&fit=crop&q=80&w=800",
             verdict: "MUST_VISIT",
             verdictText: "Only if you love speed. Formula Rossa (0-240km/h in 4.9s) is a life-changing experience."
         },
@@ -113,7 +113,7 @@ export const abuDhabiAttractions: AttractionData[] = [
             tip: "Lockers are paid and expensive. Carry minimum baggage. Formula Rossa often closes for maintenance - check the website before booking."
         },
         gallery: [
-            { src: "/images/uae/formula-rossa.jpg", alt: "Formula Rossa rollercoaster train" }
+            { src: "https://images.unsplash.com/photo-1597893149520-2c70830cb822?auto=format&fit=crop&q=80&w=800", alt: "Formula Rossa rollercoaster train" }
         ],
         faqs: [
             {

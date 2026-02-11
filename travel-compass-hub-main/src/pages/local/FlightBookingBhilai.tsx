@@ -426,7 +426,7 @@ const FlightBookingBhilai = () => {
                                 <Link to="/passport-agent-bhilai">Passport Services</Link>
                             </Button>
                             <Button variant="outline" asChild className="rounded-full">
-                                <Link to="/international-tour-packages-bhilai">International Packages</Link>
+                                <Link to="/tour-packages-from-bhilai/international-tours">International Packages</Link>
                             </Button>
                             <Button variant="outline" asChild className="rounded-full">
                                 <Link to="/train-booking-bhilai">Train Booking</Link>

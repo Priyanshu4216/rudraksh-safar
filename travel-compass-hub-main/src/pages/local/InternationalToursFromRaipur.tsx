@@ -31,7 +31,7 @@ const InternationalToursFromRaipur = () => {
             image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800",
             price: "Approx ₹32,000+",
             duration: "5N/6D",
-            link: "/visa/thailand",
+            link: "/thailand-tour-package-from-raipur",
             rating: "4.8",
             description: "Most popular choice. Flights via Kolkata/Delhi. Visa on Arrival available."
         },
@@ -40,7 +40,7 @@ const InternationalToursFromRaipur = () => {
             image: "https://images.unsplash.com/photo-1512453979798-5ea936a7fe48?auto=format&fit=crop&q=80&w=800",
             price: "Approx ₹45,000+",
             duration: "5N/6D",
-            link: "/visa/dubai",
+            link: "/dubai-tour-package-from-raipur",
             rating: "4.9",
             description: "Direct connectivity via Mumbai/Delhi. E-Visa required (2-3 days processing)."
         },

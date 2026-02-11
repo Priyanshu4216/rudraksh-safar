@@ -2,6 +2,10 @@ import { getBestTimeToVisit } from '@/lib/travelMeta';
 import { thailandData } from '@/data/destinations/thailand';
 import { pattayaData } from '@/data/destinations/pattaya';
 import { phuketData } from '@/data/destinations/phuket';
+import { baliData } from '@/data/destinations/bali';
+import { dubaiData } from '@/data/destinations/dubai';
+import { singaporeData } from '@/data/destinations/singapore';
+import { maldivesData } from '@/data/destinations/maldives';
 import { DestinationContentData } from '@/data/destinations/types';
 
 export type DestinationPageSlug =
@@ -398,6 +402,18 @@ export const getDestinationData = (slug: string, pageSlug?: string): Destination
   }
   if (slug === 'phuket' && pageSlug && phuketData[pageSlug]) {
     return phuketData[pageSlug];
+  }
+  if (slug === 'bali' && pageSlug && baliData[pageSlug]) {
+    return baliData[pageSlug];
+  }
+  if (slug === 'dubai' && pageSlug && dubaiData[pageSlug]) {
+    return dubaiData[pageSlug];
+  }
+  if (slug === 'singapore' && pageSlug && singaporeData[pageSlug]) {
+    return singaporeData[pageSlug];
+  }
+  if (slug === 'maldives' && pageSlug && maldivesData[pageSlug]) {
+    return maldivesData[pageSlug];
   }
 
   // 2. Fallback to Legacy Data

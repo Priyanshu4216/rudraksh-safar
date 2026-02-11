@@ -12,49 +12,49 @@ const CustomerGallery = ({
 }: CustomerGalleryProps) => {
     const photos = [
         {
-            src: "/images/happy-group.jpeg",
+            src: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&q=80&w=800",
             destination: "Chardham Yatra",
             names: "Palesh Ji, Suresh Ji, Ishwar Ji & Ashwani Ji",
             details: "With Rudraksh Safar Team"
         },
         {
-            src: "/images/Yamini NayakGroupNepal.jpeg",
+            src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=800",
             destination: "Nepal Tour",
             names: "Yamini Nayak Ji & Group",
             details: "Group Holiday"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.40.49 PM.jpeg",
+            src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800",
             destination: "Munsiyari Trip",
             names: "Naman Ji & Group",
             details: "Group Adventure"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.30.49 PM.jpeg",
+            src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800",
             destination: "Nepal Group Tour",
             names: "Vijay Agrawal Ji",
             details: "Group Tour"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.30.20 PM.jpeg",
+            src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800",
             destination: "Manali Trip",
             names: "Vishal Ji",
             details: "Couple Tour"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.29.41 PM.jpeg",
+            src: "https://images.unsplash.com/photo-1526772662000-3f88f107f911?auto=format&fit=crop&q=80&w=800",
             destination: "Manali Visit",
             names: "Raju Yadav Ji",
             details: "Family Trip"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.28.53 PM.jpeg",
+            src: "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80&w=800",
             destination: "Manali Trip",
             names: "Jayendra Yadav Ji",
             details: "Family Vacation"
         },
         {
-            src: "/images/WhatsApp Image 2026-02-05 at 7.27.42 PM (1).jpeg",
+            src: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
             destination: "Kashmir Tour",
             names: "Subhash Ji & Group",
             details: "Group Tour"

@@ -78,7 +78,7 @@ const DubaiItinerary4Days = () => {
 
                 {/* HERO */}
                 <div className="bg-slate-900 text-white py-16 md:py-24 relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-20 bg-[url('/images/dubai/dubai-skyline.jpg')] bg-cover bg-center" />
+                    <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center" />
                     <div className="container max-w-4xl mx-auto px-4 relative z-10 text-center space-y-4">
                         <Badge className="bg-green-500 text-white mb-2">Most Popular</Badge>
                         <h1 className="text-3xl md:text-5xl font-bold font-serif">
