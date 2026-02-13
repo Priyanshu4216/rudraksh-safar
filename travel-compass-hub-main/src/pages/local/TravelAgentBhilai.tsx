@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, CheckCircle, Users, Shield, Award, MessageCircle, FileCheck, Plane, ArrowRight, Sun, Snowflake, Mountain, Palmtree, BrainCircuit, HeartHandshake, Globe, Bus } from 'lucide-react';
+import { MapPin, Phone, Clock, CheckCircle, Users, Shield, Award, MessageCircle, FileCheck, Plane, ArrowRight, Sun, Snowflake, Mountain, Palmtree, BrainCircuit, HeartHandshake, Globe, Bus, Train, Coffee, Landmark, Star, IndianRupee } from 'lucide-react';
 import { motion } from 'framer-motion';
 import GoogleMapEmbed from '@/components/GoogleMapEmbed';
 import CustomerGallery from '@/components/CustomerGallery';
@@ -10,7 +10,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import TLDRSection from '@/components/TLDRSection';
 import LastUpdated from '@/components/LastUpdated';
@@ -23,12 +23,11 @@ import RelatedServices from '@/components/RelatedServices';
 
 const TravelAgentBhilai = () => {
   // LocalBusiness Schema - Optimized for Google Local Pack
-  // LocalBusiness Schema - Optimized for Google Local Pack
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "@id": "https://rudrakshsafar.com/#travelagency",
-    "name": "Rudraksh Safar",
+    "name": "Rudraksh Safar - Best Travel Agent in Bhilai",
     "url": "https://rudrakshsafar.com/travel-agent-bhilai",
     "telephone": "+919406182174",
     "email": "rudrakshsafar@gmail.com",
@@ -72,8 +71,7 @@ const TravelAgentBhilai = () => {
       { "@type": "Place", "name": "Charoda, Bhilai" },
       { "@type": "Place", "name": "Hudco, Bhilai" },
       { "@type": "AdministrativeArea", "name": "Durg" },
-      { "@type": "AdministrativeArea", "name": "Raipur" },
-      { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
+      { "@type": "AdministrativeArea", "name": "Raipur" }
     ]
   };
 
@@ -86,7 +84,7 @@ const TravelAgentBhilai = () => {
         "name": "Is there a travel agent near me in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Rudraksh Safar is a top-rated travel agent located on GE Road, Bhilai 3. We serve clients from Bhilai, Durg, and Raipur with personalized tour packages and booking assistance."
+          "text": "Yes, Rudraksh Safar is a top-rated travel agent located on GE Road, Bhilai 3 (Near SBI). We serve clients from Supela, Smriti Nagar, Durg, and Raipur with personalized tour packages and booking assistance."
         }
       },
       {
@@ -94,7 +92,7 @@ const TravelAgentBhilai = () => {
         "name": "Which is the best travel agency in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Rudraksh Safar is considered one of the best travel agencies in Bhilai due to our 10+ years of experience, 5000+ happy customers, and transparent pricing with no hidden fees."
+          "text": "Rudraksh Safar is rated as one of the best travel agencies in Bhilai due to our 10+ years of experience, 5000+ happy customers involved in Chardham Yatra and International tours, and our transparent pricing with no hidden fees."
         }
       },
       {
@@ -107,115 +105,83 @@ const TravelAgentBhilai = () => {
       },
       {
         "@type": "Question",
-        "name": "How do I know Rudraksh Safar is genuine and trustworthy?",
+        "name": "Do you provide visa assistance in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We have been operating from our physical office on GE Road, Bhilai 3 since 2010. We have served over 5000+ local families. We encourage you to check our Google Reviews or visit our office to meet the team before booking."
+          "text": "Yes, we are expert visa consultants in Bhilai. We handle tourist and business visas for Dubai, Thailand, Singapore, Schengen, and more with a 99% success rate."
         }
       },
       {
         "@type": "Question",
-        "name": "Who will assist me if something goes wrong during my trip?",
+        "name": "What are the popular tour packages from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You will have a dedicated 'Trip Manager' available 24/7 on WhatsApp and Phone. Whether it's a medical emergency, lost passport, or transport delay, you are never alone."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide support after booking the tour?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our job doesn't end at booking. We manage web check-ins, provide packing lists, handle visa paperwork, and stay connected until you return home safely."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes Rudraksh Safar different from other travel agencies?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We are not just ticket bookers; we are travel consultants. We inspect hotels personally, we know the actual distance between attractions, and we negotiate exclusive B2B rates to give you luxury for less."
+          "text": "Our most popular packages from Bhilai include Goa (with flight/train), Kashmir, Kerala, Chardham Yatra, and international trips to Thailand and Dubai. We customize these starting from Raipur Airport or Durg Railway Station."
         }
       }
     ]
   };
 
   const services = [
-    { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Domestic & international flights from Raipur (RPR) at best prices.", link: "/flight-booking-bhilai" },
-    { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed seats & Tatkal assistance for trains from Durg/Raipur.", link: "/train-booking-bhilai" },
-    { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New passport application, renewal, and police verification assistance.", link: "/passport-agent-bhilai" },
-    { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "99% success rate for Dubai, Thailand, Singapore & Schengen visas.", link: "/visa-agent-bhilai" },
-    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family, honeymoon, and group tour packages.", link: "/tour-packages-bhilai" },
-    { icon: <Bus className="w-10 h-10 text-primary mx-auto" />, title: "Bus Booking", desc: "Comfortable AC sleeper bus booking to Hyderabad, Pune & Nagpur.", link: "/bus-booking-bhilai" },
+    { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Domestic & international flights from Raipur (RPR).", link: "/flight-booking-bhilai" },
+    { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed seats & Tatkal assistance from Durg/Raipur.", link: "/train-booking-bhilai" },
+    { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New passport & renewal assistance in Bhilai.", link: "/passport-agent-bhilai" },
+    { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "99% success rate for Dubai, Thailand & Schengen.", link: "/visa-agent-bhilai" },
+    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family & honeymoon tours.", link: "/tour-packages-bhilai" },
+    { icon: <Bus className="w-10 h-10 text-primary mx-auto" />, title: "Bus Booking", desc: "AC sleeper bus booking to Hyderabad & Pune.", link: "/bus-booking-bhilai" },
   ];
 
   const popularRoutes = [
-    { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options available.", link: "/package/goa" },
-    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow activities.", link: "/package/kashmir" },
-    { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples & groups.", link: "/package/shimla-manali" },
-    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun. Visa-on-arrival support.", link: "/thailand-tour-packages" },
-    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari with Visa.", link: "/dubai-tour-packages" },
-    { name: "Bhilai to Kedarnath", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: " Sacred Yatra. Helicopter & Trekking options.", link: "/chardham-yatra-package" },
+    { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options.", link: "/package/goa" },
+    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow.", link: "/package/kashmir" },
+    { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples.", link: "/package/shimla-manali" },
+    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun with Visa support.", link: "/thailand-tour-packages" },
+    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari.", link: "/dubai-tour-packages" },
+    { name: "Bhilai to Chardham", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: "Sacred Yatra from Chhattisgarh.", link: "/chardham-yatra-package" },
   ];
 
-  const whyChooseUs = [
-    { icon: Users, title: "Local Expert Since 2010", desc: "We are the leading Bhilai tour operator and neighbor on GE Road. Trusted by 5000+ local families." },
-    { icon: Shield, title: "100% Transparency", desc: "No hidden charges. Your verified local travel agency Bhilai for safe and secure bookings." },
-    { icon: Clock, title: "24/7 Trip Support", desc: "Stuck at an airport? We are the best travel agent near me because we pick up calls 24/7." },
-    { icon: Award, title: "Best Rate Guarantee", desc: "We challenge you to find a better price for the same hotel & flight from any other tour and travels Bhilai." },
-  ];
+
 
   const faqs = [
     {
-      question: "Is there a travel agent near me in Bhilai?",
-      answer: "Yes, Rudraksh Safar is a top-rated travel agent located on GE Road, Bhilai 3. We serve clients from Bhilai, Durg, and Raipur with personalized tour packages and booking assistance."
+      question: "Is booking through a travel agent cheaper than online?",
+      answer: "Often, yes. We have B2B contracts with hotels and airlines that aren't available to the public. Plus, we save you from hidden 'convenience fees' and unexpected cancellation charges that online portals often hide."
     },
     {
-      question: "Which is the best travel agency in Bhilai?",
-      answer: "Rudraksh Safar is considered one of the best travel agencies in Bhilai due to our 10+ years of experience, 5000+ happy customers, and transparent pricing with no hidden fees."
+      question: "Do you provide support for visas and passports?",
+      answer: "Absolutely. We are a full-service travel agency. From filling out complex visa forms for Europe/UK to scheduling your passport appointment in Raipur, we handle the boring paperwork so you can enjoy the trip."
     },
     {
-      question: "Why should I choose a local travel agent instead of online portals?",
-      answer: "When you book with us, you get accountability. Online portals offer chatbots; we offer a personal mobile number. If a problem arises (like a cancelled flight or hotel issue), we solve it instantly. Plus, we accept flexible payments including cash at our Bhilai office."
+      question: "Can I pay in cash at your office?",
+      answer: "Yes! Unlike online websites where you must pay digitally, you can visit our office in Bhilai 3 and pay via Cash, UPI, Cheque, or Card. We offer flexible payment options for your convenience."
     },
     {
-      question: "How do I know Rudraksh Safar is genuine and trustworthy?",
-      answer: "We have been operating from our physical office on GE Road, Bhilai 3 since 2010. We have served over 5000+ local families. We encourage you to check our Google Reviews or visit our office to meet the team before booking."
-    },
-    {
-      question: "Who will assist me if something goes wrong during my trip?",
-      answer: "You will have a dedicated 'Trip Manager' available 24/7 on WhatsApp and Phone. Whether it's a medical emergency, lost passport, or transport delay, you are never alone. We act as your local guardian in a foreign land."
-    },
-    {
-      question: "Do you provide support after booking the tour?",
-      answer: "Yes. Our job doesn't end at booking. We manage web check-ins, provide packing lists, handle visa paperwork, and stay connected until you return home safely."
-    },
-    {
-      question: "What makes Rudraksh Safar different from other travel agencies?",
-      answer: "We are not just ticket bookers; we are travel consultants. We inspect hotels personally, we know the actual distance between attractions (not just what Google says), and we negotiate exclusive B2B rates to give you luxury for less."
+      question: "What if I face an issue during my trip (e.g., flight cancelled)?",
+      answer: "This is where we shine. Instead of waiting on hold with an airline call center for hours, you call us directly. We will rebook your flight, arrange hotel stays, or sort out transport issues instantly. We act as your safety net."
     }
   ];
 
   const tocItems = [
     { id: "hero", label: "Overview" },
-    { id: "why-choose-us", label: "Google vs Local" },
+    { id: "why-local", label: "Why Local Agent?" },
+    { id: "price-guide", label: "Price Guide" },
     { id: "services", label: "Our Services" },
     { id: "popular-packages", label: "Popular Packages" },
-    { id: "trust-factors", label: "Why Trust Us" },
+    { id: "office-visit", label: "Visit Office" },
+    { id: "testimonials", label: "Success Stories" },
     { id: "faqs", label: "FAQs" },
-    { id: "visit-us", label: "Visit Office" },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Best Travel Agency in Bhilai | Trusted Tour Packages & Agents</title>
-        <meta name="description" content="Looking for a trusted travel agent in Bhilai? Rudraksh Safar offers the best tour packages, trusted visa services, and 24/7 support. Book customized & cheap tour packages from Bhilai today." />
-        <meta name="keywords" content="best travel agency in Bhilai, trusted travel agent in Bhilai, top rated travel agency in Bhilai, customized tour packages from Bhilai, cheap tour packages from Bhilai, affordable travel agency Bhilai, travel agent near me in Bhilai, travel agent in Durg" />
+        <title>Best Travel Agent in Bhilai | Rudraksh Safar (Since 2010)</title>
+        <meta name="description" content="Visit Rudraksh Safar - Bhilai's most trusted travel agency on GE Road. Expert planning for Chardham, Goa, Dubai & Thailand. Best flights & visa services in Bhilai." />
+        <meta name="keywords" content="Best Travel Agent in Bhilai, Travel Agency Bhilai, Tour Operators in Bhilai, Flight Booking Bhilai, Visa Agent Bhilai, Rudraksh Safar Office" />
         <link rel="canonical" href="https://rudrakshsafar.com/travel-agent-bhilai" />
         {/* Open Graph */}
-        <meta property="og:title" content="Best Travel Agency in Bhilai | Trusted & Affordable" />
-        <meta property="og:description" content="Plan your perfect trip with Rudraksh Safar - Bhilai's most trusted travel agency. Custom tours, Best rates, and Local support." />
+        <meta property="og:title" content="Best Travel Agent in Bhilai | Visit Our Office Today" />
+        <meta property="og:description" content="Stop searching online. Come meet the experts at Rudraksh Safar, Bhilai. Custom holidays, honest prices, and local trust." />
         <meta property="og:url" content="https://rudrakshsafar.com/travel-agent-bhilai" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://rudrakshsafar.com/og-image.png" />
@@ -229,16 +195,14 @@ const TravelAgentBhilai = () => {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      {/* Phase 13: Reading Progress */}
       <ReadingProgress />
-
       <Navbar />
 
       <main className="min-h-screen bg-background pt-24 pb-16">
 
         {/* Hero Section */}
         <div id="hero">
-          <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
+          <section className="relative py-20 lg:py-28 bg-gradient-to-br from-indigo-50 via-background to-blue-50 dark:from-indigo-950/20 dark:via-background dark:to-blue-950/20 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="container mx-auto px-4 relative z-10">
@@ -251,26 +215,28 @@ const TravelAgentBhilai = () => {
                 <div className="flex justify-center mb-6">
                   <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Travel Agent Bhilai', path: '/travel-agent-bhilai' }]} />
                 </div>
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 border border-primary/20">
+                <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 px-4 py-2 rounded-full mb-6 border border-indigo-200 dark:border-indigo-800">
                   <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-medium">Serving Supela, Smriti Nagar, Nehru Nagar & Entire Bhilai</span>
+                  <span className="text-sm font-medium">Located on GE Road, Bhilai 3 (Serving Durg & Raipur)</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                   Your Trusted <span className="text-primary">Travel Agent in Bhilai</span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-                  From <strong>Bhilai to Goa's beaches</strong> to the <strong>snows of Kashmir</strong>, we craft unforgettable journeys.
-                  Complete travel solutions including Flights, Visas, and Passports, right here in your city.
+                  Rudraksh Safar (Since 2010) is Bhiliate's favorite travel partner.
+                  We don't just book tickets; we craft experiences. From <strong>flights to passports</strong>, get everything under one roof.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" asChild className="text-lg px-8 h-12 shadow-md hover:shadow-lg transition-all">
-                    <a href="https://wa.me/919406182174?text=Hi, I need travel assistance" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" asChild className="text-lg px-8 h-12 shadow-lg hover:shadow-xl transition-all bg-green-600 hover:bg-green-700">
+                    <a href="https://wa.me/919406182174?text=Hi, I want to allow trip from Bhilai" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-5 h-5 mr-2" />
                       Chat on WhatsApp
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12">
-                    <a href={`tel:+919406182174`}>Call Now: 94061 82174</a>
+                  <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12 border-primary/20 hover:bg-primary/5">
+                    <a href={`tel:+919406182174`}>
+                      <Phone className="w-5 h-5 mr-2" /> Call Expert: 94061 82174
+                    </a>
                   </Button>
                 </div>
               </motion.div>
@@ -280,124 +246,161 @@ const TravelAgentBhilai = () => {
 
         <TrustBadges />
 
-
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 mt-8">
 
-            {/* Phase 8: Sidebar (Sticky TOC) */}
+            {/* Sidebar (Sticky) */}
             <aside className="lg:w-1/4 shrink-0 hidden lg:block">
-              <TableOfContents items={tocItems} title="Page Navigation" />
-
-              {/* Sidebar CTA */}
-              <div className="mt-8 bg-indigo-50 dark:bg-indigo-950/20 p-6 rounded-xl border border-indigo-100 sticky top-[60vh]">
-                <h4 className="font-bold text-lg mb-2">Need a quick quote?</h4>
-                <p className="text-sm text-muted-foreground mb-4">Send us your dates and destination.</p>
-                <Button className="w-full bg-green-600 hover:bg-green-700">
-                  <MessageCircle className="w-4 h-4 mr-2" /> WhatsApp Us
+              <TableOfContents items={tocItems} title="On This Page" />
+              <div className="mt-8 bg-card p-6 rounded-xl border shadow-sm sticky top-[60vh]">
+                <h4 className="font-bold text-lg mb-2">Visit Our Office</h4>
+                <p className="text-sm text-muted-foreground mb-4">We are open Mon-Sat, 10 AM to 9 PM.</p>
+                <Button variant="outline" className="w-full" asChild>
+                  <a href="#office-visit">Get Directions</a>
                 </Button>
               </div>
             </aside>
 
-            {/* Main Content Column */}
+            {/* Main Content */}
             <div className="lg:w-3/4">
 
-              {/* TL;DR & Updated Signal */}
+              {/* TL;DR */}
               <div className="mb-12">
                 <LastUpdated className="justify-start mb-6" />
-
                 <TLDRSection
-                  title="TL;DR: Why Choose Rudraksh Safar?"
-                  summary="We are a government-registered travel agency located in Bhilai 3, specializing in customized holidays, visa assistance, and flight bookings. Trusted by 5000+ families for safe and transparent travel since 2010."
-                  areasServed={["Bhilai", "Supela", "Smriti Nagar", "Power House", "Nehru Nagar", "Risali", "Charoda", "Hudco", "Durg", "Raipur", "Chhattisgarh"]}
+                  title="Why Bhilai Travelers Trust Us?"
+                  summary="We combine the convenience of online booking with the trust of a local office. Whether you are from Supela, Smriti Nagar, or Durg, we are just a phone call or a short drive away. We handle cancellations, refunds, and emergencies personally."
+                  areasServed={["Bhilai", "Supela", "Smriti Nagar", "Power House", "Nehru Nagar", "Risali", "Charoda", "Durg", "Raipur"]}
                 />
               </div>
 
-              {/* Google vs AI vs Local Agent (Restored) */}
-              <section id="why-choose-us" className="mb-16 scroll-mt-24">
-                <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold font-serif mb-2">Why choose a local travel agent in Bhilai vs Google/AI?</h2>
-                  <p className="text-muted-foreground">Why you still need a human expert for your holiday.</p>
+              {/* SECTION: Why Bhilai Prefers Local (Authority) */}
+              <section id="why-local" className="mb-16 scroll-mt-24">
+                <div className="mb-8">
+                  <h2 className="text-3xl font-bold font-serif mb-4 flex items-center gap-2">
+                    <MapPin className="w-8 h-8 text-primary" /> Why Bhilai Travelers Prefer a Local Agent
+                  </h2>
+                  <p className="text-muted-foreground text-lg">
+                    Booking online is easy, but having a local expert is safe. Here is why families from <strong>Nehru Nagar, Supela, and Durg</strong> choose Rudraksh Safar.
+                  </p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Card 1: Google */}
-                  <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <Globe className="w-24 h-24" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">Google Search</h3>
-                    <ul className="space-y-3 text-sm">
-                      <li className="flex gap-2"><div className="text-green-500">✔</div> Gives 1000s of options.</li>
-                      <li className="flex gap-2"><div className="text-red-500">✘</div> Can be overwhelming.</li>
-                      <li className="flex gap-2"><div className="text-red-500">✘</div> Reviews can be fake/paid.</li>
-                    </ul>
-                  </div>
-                  {/* Card 2: AI */}
-                  <div className="bg-purple-50 dark:bg-purple-950/20 p-6 rounded-xl border border-purple-100 relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <BrainCircuit className="w-24 h-24 text-purple-600" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-purple-700">AI (ChatGPT)</h3>
-                    <ul className="space-y-3 text-sm">
-                      <li className="flex gap-2"><div className="text-green-500">✔</div> Great for rough plans.</li>
-                      <li className="flex gap-2"><div className="text-red-500">✘</div> Hallucinates prices.</li>
-                      <li className="flex gap-2"><div className="text-red-500">✘</div> Doesn't know local reality.</li>
-                    </ul>
-                  </div>
-                  {/* Card 3: Rudraksh (Winner) */}
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-100 relative overflow-hidden group shadow-lg ring-1 ring-blue-200">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <HeartHandshake className="w-24 h-24 text-blue-600" />
-                    </div>
-                    <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">Winner</div>
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-blue-700">Rudraksh Safar</h3>
-                    <ul className="space-y-3 text-sm">
-                      <li className="flex gap-2"><div className="text-green-500">✔</div> Real-time ground knowledge.</li>
-                      <li className="flex gap-2"><div className="text-green-500">✔</div> 24/7 Phone Support (Human).</li>
-                      <li className="flex gap-2"><div className="text-green-500">✔</div> We fix issues instantly.</li>
-                    </ul>
-                  </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <Train className="w-6 h-6 text-orange-500" /> Seamless Connectivity
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-muted-foreground">
+                      We know the best connections from <strong>Durg Junction</strong> and <strong>Raipur Airport</strong>. We plan your itinerary accounting for actual travel times from Bhilai, so you never miss a flight or train.
+                    </CardContent>
+                  </Card>
+
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <Coffee className="w-6 h-6 text-brown-500" /> Face-to-Face Trust
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-muted-foreground">
+                      Online apps don't serve chai! Come to our office in <strong>Bhilai 3</strong>. Sit with us, look at hotel photos, understand the visa process, and pay only when you are satisfied.
+                    </CardContent>
+                  </Card>
+
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <Landmark className="w-6 h-6 text-green-600" /> Cash & Flexible Payment
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-muted-foreground">
+                      Don't have a credit card? No problem. We accept <strong>Cash, UPI, and Bank Transfers</strong>. You can even pay in installments for select advance bookings.
+                    </CardContent>
+                  </Card>
+
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <HeartHandshake className="w-6 h-6 text-red-500" /> Crisis Support
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-muted-foreground">
+                      If your flight from Raipur is cancelled, you don't call a toll-free number. You call us. We rebook you immediately because we are your local guardians.
+                    </CardContent>
+                  </Card>
                 </div>
               </section>
 
-              {/* Phase 8: Decision Helper (Added as NEW section) */}
-              <div className="mb-16">
-                <DecisionHelper
-                  title="Quick Check: Are We Right For You?"
-                  options={[
-                    {
-                      label: "The Deal Hunter",
-                      description: "You spend 10 hours comparing flight costs to save ₹500. You are okay with zero support.",
-                      idealFor: ["Backpackers", "Solo Travelers"],
-                      isRecommended: false
-                    },
-                    {
-                      label: "The Peace Seeker",
-                      description: "You want a vetted hotel, a safe driver, and someone to call if things go wrong.",
-                      idealFor: ["Families", "Honeymooners", "Groups"],
-                      isRecommended: true
-                    }
-                  ]}
-                />
-              </div>
-
-              {/* Services Section (Restored Full Grid) */}
-              <section id="services" className="mb-16 scroll-mt-24">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                    What travel services do we offer in Bhilai?
+              {/* SECTION: Price Guide (High Value) */}
+              <section id="price-guide" className="mb-16 scroll-mt-24">
+                <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2">
+                    <IndianRupee className="w-7 h-7 text-green-600" /> Bhilai Travel Price Guide (2026)
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    As a leading <strong>local travel agency in Bhilai</strong>, we offer Flights, Hotels, Visas, and Insurance under one roof.
+                  <p className="text-muted-foreground mb-6">
+                    Estimated starting prices for popular trips from Bhilai/Raipur. These are all-inclusive tour packages.
                   </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-slate-300 dark:border-slate-700 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                          <th className="py-3 px-4">Destination</th>
+                          <th className="py-3 px-4">Avg. Price (per person)</th>
+                          <th className="py-3 px-4">Duration</th>
+                          <th className="py-3 px-4 opacity-0 md:opacity-100">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-sm md:text-base divide-y divide-slate-200 dark:divide-slate-800">
+                        <tr>
+                          <td className="py-4 px-4 font-medium text-foreground">Goa (Flight)</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹12,999 - ₹18,999</td>
+                          <td className="py-4 px-4">3N/4D</td>
+                          <td className="py-4 px-4"><Link to="/package/goa" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium text-foreground">Kashmir (Flight)</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹18,999 - ₹25,999</td>
+                          <td className="py-4 px-4">5N/6D</td>
+                          <td className="py-4 px-4"><Link to="/package/kashmir" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium text-foreground">Thailand (Total)</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹24,999 - ₹35,999</td>
+                          <td className="py-4 px-4">4N/5D</td>
+                          <td className="py-4 px-4"><Link to="/thailand-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium text-foreground">Dubai (Luxury)</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹35,999 - ₹55,999</td>
+                          <td className="py-4 px-4">5N/6D</td>
+                          <td className="py-4 px-4"><Link to="/dubai-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium text-foreground">Chardham Yatra</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹22,000 - ₹35,000</td>
+                          <td className="py-4 px-4">9N/10D</td>
+                          <td className="py-4 px-4"><Link to="/chardham-yatra-package" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-4">* Prices vary based on season and flight rates from Raipur.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              </section>
+
+              {/* Existing Sections: Services & Popular Routes */}
+              <section id="services" className="mb-16 scroll-mt-24">
+                <h2 className="text-3xl font-bold mb-6">Our Services for Bhilai Residents</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {services.map((service, index) => (
                     <Link key={index} to={service.link}>
-                      <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer h-full border border-border">
-                        <CardContent className="p-6 text-center bg-background rounded-xl h-full flex flex-col items-center justify-center">
-                          <div className="mb-6 p-4 bg-accent/20 rounded-full">{service.icon}</div>
-                          <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+                      <Card className="h-full hover:shadow-lg transition-all border-primary/20 hover:border-primary cursor-pointer">
+                        <CardContent className="p-6 flex flex-col items-center text-center">
+                          <div className="mb-4 p-3 bg-primary/10 rounded-full">{service.icon}</div>
+                          <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                          <p className="text-muted-foreground text-sm">{service.desc}</p>
                         </CardContent>
                       </Card>
                     </Link>
@@ -405,62 +408,86 @@ const TravelAgentBhilai = () => {
                 </div>
               </section>
 
-              {/* Popular Routes Section (Restored Full Grid) */}
               <section id="popular-packages" className="mb-16 scroll-mt-24">
-                <div className="text-center mb-16">
-                  <Badge variant="secondary" className="mb-4">Trending Now</Badge>
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                    Popular Tours from Bhilai
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Our most requested packages by travelers from Bhilai & Durg this season.
-                  </p>
+                <div className="flex justify-between items-end mb-6">
+                  <h2 className="text-3xl font-bold">Trending Packages</h2>
+                  <Link to="/tour-packages-from-bhilai" className="text-primary hover:underline hidden md:block">View All Packages</Link>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {popularRoutes.map((route, index) => (
-                    <Card key={index} className="hover:shadow-lg transition-all hover:-translate-y-1">
-                      <CardContent className="p-6">
-                        <div className="flex justify-between items-start mb-4">
-                          <div className="p-3 bg-primary/10 rounded-xl">
-                            <route.icon className="w-6 h-6 text-primary" />
-                          </div>
-                          <Badge className={route.type === 'International' ? 'bg-purple-100 text-purple-700' : 'bg-green-100 text-green-700'}>
-                            {route.type}
-                          </Badge>
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex justify-between items-start mb-3">
+                          <Badge variant={route.type === 'International' ? 'default' : 'secondary'}>{route.type}</Badge>
+                          <span className="font-bold text-green-600">{route.price}</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">{route.name}</h3>
+                        <div className="flex items-center gap-2 mb-2">
+                          <route.icon className="w-5 h-5 text-primary" />
+                          <h3 className="text-lg font-bold">{route.name}</h3>
+                        </div>
                         <p className="text-sm text-muted-foreground mb-4">{route.desc}</p>
-                        <div className="flex items-center justify-between mt-auto pt-4 border-t">
-                          <span className="font-semibold text-primary">{route.price}</span>
-                          <Link to={route.link} className="text-sm font-medium hover:underline flex items-center gap-1">
-                            View Details <ArrowRight className="w-4 h-4" />
-                          </Link>
-                        </div>
+                        <Link to={route.link} className="text-sm font-medium text-primary hover:underline flex items-center gap-1">
+                          View details <ArrowRight className="w-4 h-4" />
+                        </Link>
                       </CardContent>
                     </Card>
                   ))}
                 </div>
               </section>
 
-              {/* Why Choose Us (Restored Grid) */}
-              <section id="trust-factors" className="mb-16 scroll-mt-24">
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                    Why do 5000+ travelers trust Rudraksh Safar?
-                  </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {whyChooseUs.map((item, index) => (
-                    <div key={index} className="text-center p-6 bg-background border rounded-2xl hover:border-primary/50 transition-colors">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <item.icon className="w-8 h-8 text-primary" />
+              {/* SECTION: Local Success Stories (Social Proof) */}
+              <section id="testimonials" className="mb-16 scroll-mt-24">
+                <h2 className="text-3xl font-bold mb-8 text-center md:text-left">Local Stories from Bhilai</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative">
+                    <div className="absolute top-6 right-6 text-yellow-400 flex"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
+                    <p className="italic text-muted-foreground mb-4 leading-relaxed">
+                      "We stay in <strong>Supela</strong> and were worried about booking our honeymoon online. We visited Rudraksh Safar office, spoke to the team, and booked our <strong>Kerala trip</strong>. Everything from the cab at Kochi airport to the houseboat was perfect."
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">RK</div>
+                      <div>
+                        <h4 className="font-bold text-sm">Rahul & Priya K.</h4>
+                        <p className="text-xs text-muted-foreground">Supela, Bhilai</p>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative">
+                    <div className="absolute top-6 right-6 text-yellow-400 flex"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
+                    <p className="italic text-muted-foreground mb-4 leading-relaxed">
+                      "I needed a specialized <strong>Dubai Visa</strong> urgently for a business trip. Their team in Bhilai 3 handled it professionally. No rejections, no stress. Highly recommended for international travel."
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">AS</div>
+                      <div>
+                        <h4 className="font-bold text-sm">Amit Singh</h4>
+                        <p className="text-xs text-muted-foreground">Nehru Nagar, Bhilai</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </section>
+
+              {/* Google vs Local Comparison (Kept from original) */}
+              <section className="mb-16">
+                <DecisionHelper
+                  title="Quick Check: Are We Right For You?"
+                  options={[
+                    {
+                      label: "The Online Deal Hunter",
+                      description: "You spend weeks checking apps to save ₹500. You are okay with chatbots if things go wrong.",
+                      idealFor: ["Solo Packers", "Budget Hikers"],
+                      isRecommended: false
+                    },
+                    {
+                      label: "The Peace Seeker",
+                      description: "You want a vetted hotel, a safe driver, and a local office to call. You value peace of mind.",
+                      idealFor: ["Families", "Business Flyers", "Seniors"],
+                      isRecommended: true
+                    }
+                  ]}
+                />
               </section>
 
               {/* FAQs Section */}
@@ -476,75 +503,69 @@ const TravelAgentBhilai = () => {
           <LocalCoverage city="Bhilai" className="mb-16 rounded-2xl" />
         </div>
 
-        {/* Office Location & CTA (Full Map Restored) */}
-        <section id="visit-us" className="py-20 bg-muted/30 mt-16 scroll-mt-24">
+        {/* SECTION: Enhanced Office Visit (Trust Center) */}
+        <section id="office-visit" className="py-20 bg-muted/30 mt-16 scroll-mt-24 border-y">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge className="mb-4">Visit Us</Badge>
+                <Badge className="mb-4 bg-primary text-primary-foreground">Visit Our Office</Badge>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Where is our office located in Bhilai?
+                  Come, let's plan your trip over Coffee ☕
                 </h2>
+                <p className="text-lg text-muted-foreground mb-8">
+                  We believe real trust is built face-to-face. Visit our main office in Bhilai 3 to meet your trip manager personally.
+                </p>
                 <div className="space-y-6">
                   <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 border">
+                      <MapPin className="w-6 h-6 text-red-500" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Our Office</h3>
+                      <h3 className="font-semibold text-lg">Address</h3>
                       <p className="text-muted-foreground">GE Road, In Front of Petrol Pump, Bhilai 3<br />(Near SBI Branch), Chhattisgarh 490021</p>
                     </div>
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 border">
+                      <Clock className="w-6 h-6 text-blue-500" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Travel Agent Bhilai Number</h3>
-                      <p className="text-muted-foreground">
-                        <a href="tel:+919406182174" className="hover:text-primary transition-colors">+91 94061 82174</a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg">Opening Hours</h3>
-                      <p className="text-muted-foreground">Mon - Sat: 10:00 AM - 9:00 PM<br />Sun: By Appointment</p>
+                      <h3 className="font-semibold text-lg">Office Hours</h3>
+                      <p className="text-muted-foreground">Mon - Sat: 10:00 AM - 9:00 PM<br />Sunday: By Appointment</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 flex gap-4">
-                  <Button asChild className="shadow-lg">
-                    <a href="https://wa.me/919406182174?text=Hi, I want to visit your office" target="_blank" rel="noopener noreferrer">
+                  <Button asChild className="shadow-lg h-12 px-6">
+                    <a href="https://wa.me/919406182174?text=Hi, I want to allow appointment" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-4 h-4 mr-2" /> Book Appointment
                     </a>
                   </Button>
-                  <Button variant="outline" asChild>
-                    <a href="https://maps.google.com/?q=Rudraksh+Safar+Bhilai" target="_blank" rel="noopener noreferrer">
-                      Get Directions
+                  <Button variant="outline" asChild className="h-12 px-6 bg-white hover:bg-gray-50">
+                    <a href="https://maps.app.goo.gl/rudrakshsafar" target="_blank" rel="noopener noreferrer">
+                      <MapPin className="w-4 h-4 mr-2" /> Get Directions
                     </a>
                   </Button>
                 </div>
               </div>
 
               {/* Map */}
-              <GoogleMapEmbed lazyLoad={true} />
+              <div className="h-[400px] w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-800">
+                <GoogleMapEmbed lazyLoad={true} />
+              </div>
             </div>
 
-            {/* Gallery Section - Full Width */}
+            {/* Gallery Section */}
             <CustomerGallery className="mt-16" />
           </div>
         </section>
 
         {/* Internal Links Footer */}
         <RelatedServices mode="local" />
-      </main >
+
+      </main>
 
       <Footer />
       <FloatingWhatsApp />

@@ -89,7 +89,7 @@ const BusBookingBhilai = () => {
                                 <span className="text-sm font-medium">Interstate Bus Booking Service</span>
                             </div>
                             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                                Comfort on Wheels: <span className="text-purple-600">Luxury Bus Booking</span>
+                                Luxury Bus Booking in Bhilai: <span className="text-purple-600">Sleeper & Volvo</span>
                             </h1>
                             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                 Travel to Hyderabad, Pune, or Indore in style. We book only top-rated AC Sleepers with clean linens and GPS tracking.

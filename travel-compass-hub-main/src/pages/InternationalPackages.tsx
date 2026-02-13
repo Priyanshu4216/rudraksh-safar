@@ -140,6 +140,51 @@ const internationalPackages = [
     attractions: ['Monkey Forest', 'Mount Batur Sunrise', 'Water Temples', 'Beach Clubs'],
     itinerary: ['Day 1: Arrival in Bali', 'Day 2: Ubud Cultural Tour', 'Day 3: Tanah Lot & Rice Terraces', 'Day 4: Beach & Water Sports', 'Day 5: Uluwatu Temple & Kecak Dance', 'Day 6: Departure'],
   },
+  {
+    id: 'malaysia',
+    title: 'Malaysia Truly Asia',
+    location: 'Malaysia',
+    duration: '5 Days / 4 Nights',
+    price: '₹28,999',
+    image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2070&auto=format&fit=crop',
+    tag: 'City & Highlands',
+    visa: 'Visa Free',
+    currency: 'Malaysian Ringgit (MYR)',
+    famousPlaces: ['Petronas Towers', 'Batu Caves', 'Genting Highlands', 'Langkawi', 'Sunway Lagoon'],
+    whatToEat: ['Nasi Lemak', 'Satay', 'Laksa', 'Roti Canai'],
+    attractions: ['Cable Car Ride', 'Theme Parks', 'Cave Exploration', 'Island Hopping'],
+    itinerary: ['Day 1: Arrival in KL', 'Day 2: Kuala Lumpur City Tour', 'Day 3: Genting Highlands Day Trip', 'Day 4: Sunway Lagoon / Leisure', 'Day 5: Departure'],
+  },
+  {
+    id: 'vietnam',
+    title: 'Vietnam Timeless Charm',
+    location: 'Vietnam',
+    duration: '6 Days / 5 Nights',
+    price: '₹32,999',
+    image: 'https://images.unsplash.com/photo-1528127220198-3498b6eb06ba?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Nature & Culture',
+    visa: 'e-Visa',
+    currency: 'Vietnamese Dong (VND)',
+    famousPlaces: ['Ha Long Bay', 'Hanoi Old Quarter', 'Golden Bridge (Da Nang)', 'Hoi An'],
+    whatToEat: ['Pho', 'Banh Mi', 'Egg Coffee', 'Spring Rolls'],
+    attractions: ['Overnight Cruise', 'Basket Boat Ride', 'Ancient Town Walk', 'Cave Tours'],
+    itinerary: ['Day 1: Arrival in Hanoi', 'Day 2: Hanoi City Tour', 'Day 3: Ha Long Bay Cruise', 'Day 4: Flight to Da Nang', 'Day 5: Ba Na Hills & Golden Bridge', 'Day 6: Departure'],
+  },
+  {
+    id: 'mauritius',
+    title: 'Mauritius Honeymoon Bliss',
+    location: 'Mauritius',
+    duration: '7 Days / 6 Nights',
+    price: '₹65,999',
+    image: 'https://images.unsplash.com/photo-1555547432-8411a7686567?q=80&w=2070&auto=format&fit=crop',
+    tag: 'Honeymoon',
+    visa: 'Visa Free',
+    currency: 'Mauritian Rupee (MUR)',
+    famousPlaces: ['Ile Aux Cerfs', 'Seven Colored Earth', 'Port Louis', 'Casela Park'],
+    whatToEat: ['Dholl Puri', 'Seafood', 'Mauritian Curry', 'Gateau Piment'],
+    attractions: ['Catamaran Cruise', 'Undersea Walk', 'Wildlife Safari', 'Water Sports'],
+    itinerary: ['Day 1: Arrival in Mauritius', 'Day 2: North Island Tour', 'Day 3: South Island Tour', 'Day 4: Ile Aux Cerfs Island', 'Day 5: Catamaran Cruise', 'Day 6: Leisure/Shopping', 'Day 7: Departure'],
+  },
 ];
 
 const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; index: number }) => {
@@ -240,13 +285,16 @@ const InternationalPackages = () => {
         "name": "Bhilai"
       }
     },
-    "numberOfItems": 6,
+    "numberOfItems": 9,
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Dubai Extravaganza", "url": "https://rudrakshsafar.com/package/dubai" },
       { "@type": "ListItem", "position": 2, "name": "Bali Paradise", "url": "https://rudrakshsafar.com/package/bali" },
       { "@type": "ListItem", "position": 3, "name": "Maldives Paradise", "url": "https://rudrakshsafar.com/package/maldives" },
       { "@type": "ListItem", "position": 4, "name": "Thailand Explorer", "url": "https://rudrakshsafar.com/package/thailand" },
-      { "@type": "ListItem", "position": 5, "name": "Nepal Himalayan Trek", "url": "https://rudrakshsafar.com/package/nepal" }
+      { "@type": "ListItem", "position": 5, "name": "Nepal Himalayan Trek", "url": "https://rudrakshsafar.com/package/nepal" },
+      { "@type": "ListItem", "position": 6, "name": "Malaysia Truly Asia", "url": "https://rudrakshsafar.com/package/malaysia" },
+      { "@type": "ListItem", "position": 7, "name": "Vietnam Timeless Charm", "url": "https://rudrakshsafar.com/package/vietnam" },
+      { "@type": "ListItem", "position": 8, "name": "Mauritius Honeymoon Bliss", "url": "https://rudrakshsafar.com/package/mauritius" }
     ]
   };
 

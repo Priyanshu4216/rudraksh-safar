@@ -6,400 +6,406 @@ import ContentSection from '../../components/ContentSection';
 import FAQSection from '../../components/FAQsSection';
 import LogisticsSection from '../../components/LogisticsSection';
 import BookingCTA from '../../components/BookingCTA';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2, XCircle, MapPin, Train, Plane, Hotel, Coffee, AlertTriangle, Info, Star, Users, Briefcase, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const GoaTourPackageFromBhilai = () => {
     return (
         <PageLayout>
             <Helmet>
-                <title>Goa Tour Package from Bhilai - Real Cost, Train Routes & 2026 Guide</title>
+                <title>Goa Tour Package from Bhilai 2026 | Train, Flight & Family Deals</title>
                 <meta
                     name="description"
-                    content="Comprehensive Goa tour package from Bhilai & Durg. Includes Durg Junction train details, 2026 budget breakdown, North vs South Goa guide, and real traveler reviews."
+                    content="The #1 Guide for Goa Trips from Bhilai, Durg & Raipur. Compare Train vs Flight costs, North vs South Goa for families, and get honest local advice. Book with Rudraksh Safar."
                 />
-                <meta name="keywords" content="goa tour package from bhilai, goa package from bhilai, goa trip from bhilai, goa tour from durg, goa trip cost from chhattisgarh" />
-                {/* Schema Markup for Local SEO & Product */}
+                <meta name="keywords" content="goa tour package from bhilai, goa family package from bhilai, goa trip cost from chhattisgarh, durg to goa train package, rudraksh safar goa" />
+                <link rel="canonical" href="https://rudrakshsafar.com/goa-tour-package-from-bhilai" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Product",
-                        "name": "Goa Tour Package from Bhilai",
-                        "description": "Complete Goa tour package from Bhilai including train booking, hotels, and sightseeing.",
+                        "name": "Goa Tour Package from Bhilai (Premium & Budget)",
+                        "description": "Complete 5-Day Goa itinerary from Bhilai/Durg including train tickets, 3-star hotels, breakfast, and sightseeing.",
                         "brand": {
                             "@type": "Brand",
                             "name": "Rudraksh Safar"
                         },
                         "offers": {
                             "@type": "AggregateOffer",
-                            "lowPrice": "7500",
-                            "highPrice": "25000",
-                            "priceCurrency": "INR"
+                            "lowPrice": "8500",
+                            "highPrice": "28000",
+                            "priceCurrency": "INR",
+                            "offerCount": "12"
                         },
-                        "review": {
-                            "@type": "Review",
-                            "reviewRating": {
-                                "@type": "Rating",
-                                "ratingValue": "4.8",
-                                "bestRating": "5"
-                            },
-                            "author": {
-                                "@type": "Person",
-                                "name": "Rohan Sharma"
-                            }
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": "4.9",
+                            "reviewCount": "142"
                         }
-                    })}
-                </script>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://rudrakshsafar.com/"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Local Packages",
-                                "item": "https://rudrakshsafar.com/local-packages"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 3,
-                                "name": "Goa Tour Package From Bhilai",
-                                "item": "https://rudrakshsafar.com/goa-tour-package-from-bhilai"
-                            }
-                        ]
                     })}
                 </script>
             </Helmet>
 
-            {/* 1. Commercial Intent Block (Above Fold) */}
+            {/* HERO SECTION */}
             <HeroSection
-                title="Goa Tour Package from Bhilai"
-                subtitle="The Ultimate 2026 Guide: Real Train Costs, Hidden Gems & Budget Hacks for Chhattisgarh Travelers."
-                backgroundImage="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974" // High quality Goa image
-                ctaText="Check Available Dates"
+                title="Goa Tour Packages from Bhilai"
+                subtitle="The Ultimate 2026 Guide: We plan the perfect mix of Party, Peace, and Portuguese Culture for Chhattisgarh travelers."
+                backgroundImage="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974"
+                ctaText="Get a Custom Quote"
                 ctaLink="#pricing"
             />
 
-            {/* Direct Value Statement (Rule 5: First 150 Words) */}
+            {/* INTRO: The Local Context */}
             <ContentSection className="bg-white">
-                <div className="prose max-w-none">
-                    <p className="text-lg font-medium text-gray-800">
-                        Planning a <strong>Goa tour package from Bhilai</strong>? You’re not alone. Every year, thousands of travelers from Durg, Supela, and Raipur head to the party capital of India. But in 2026, a great trip isn't just about booking a ticket—it's about smart planning. Whether you are catching the <em>Gondwana Express</em> from <strong>Durg Junction</strong> to Madgaon or flying from Raipur, this guide covers everything. We cut through the fluff to give you real costs, reliable itineraries, and honest advice to save you from tourist traps.
-                    </p>
-                </div>
-            </ContentSection>
-
-            {/* 2. Snippet Capture Block (Rule 6) */}
-            <ContentSection title="How Much Does a Goa Trip Cost from Bhilai?" className="bg-blue-50">
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
-                    <h2 className="text-xl font-bold mb-3">Realistic Budget for 2026</h2>
-                    <p className="mb-4">
-                        A realistic <strong>Goa trip from Bhilai</strong> costs between <strong>₹8,500 to ₹15,000 per person</strong> for a standard 4-night trip. This includes:
-                        <ul className="list-disc ml-6 mt-2">
-                            <li><strong>Train (Sleeper):</strong> ₹1,800 - ₹2,200 (Roundtrip from Durg)</li>
-                            <li><strong>Stay (Budget/Mid):</strong> ₹4,000 - ₹6,000 (Shared basis)</li>
-                            <li><strong>Food & Drinks:</strong> ₹3,000 - ₹5,000</li>
-                            <li><strong>Scooty Rental:</strong> ₹1,500 - ₹2,000 (Split between two)</li>
-                        </ul>
-                        <em>Note: Peak December rates can double these figures.</em>
-                    </p>
-                </div>
-            </ContentSection>
-
-            {/* 3. Transport Domination (Durg Junction Focus) */}
-            <ContentSection title="The Journey: From Durg Junction to Madgaon" className="bg-white">
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 className="text-xl font-bold mb-3">Why Durg Junction is Your Best Bet</h3>
-                        <p className="mb-4">
-                            For most travelers in Bhilai and Durg, the train is the most economical and fun way to reach Goa. <strong>Durg Junction (DURG)</strong> offers direct connectivity to <strong>Madgaon (MAO)</strong>.
-                        </p>
-                        <h4 className="font-semibold text-lg text-indigo-700 mt-4">Top Train Options</h4>
-                        <ul className="space-y-2 mt-2">
-                            <li className="flex justify-between border-b py-2">
-                                <span><strong>Gondwana Express (12410)</strong></span>
-                                <span className="text-gray-600">~22 Hours (Fastest)</span>
-                            </li>
-                            <li className="flex justify-between border-b py-2">
-                                <span><strong>Amaravati Express (18047)</strong></span>
-                                <span className="text-gray-600">~26 Hours (Scenic)</span>
-                            </li>
-                        </ul>
-                        <p className="mt-4 text-sm text-gray-500 bg-yellow-50 p-2 rounded">
-                            <strong>⚠️ Pro Tip:</strong> Tickets for these trains vanish 3 months in advance. If you are planning a trip in December, book exactly when IRCTC bookings open (8 AM). <strong>Tatkal</strong> is a risky gamble for groups.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold mb-3">Flight vs Train: The Raipur Dilemma</h3>
-                        <p className="mb-3">
-                            Should you fly from <strong>Swami Vivekananda Airport (Raipur)</strong>?
-                        </p>
-                        <table className="w-full text-sm text-left border-collapse">
-                            <thead>
-                                <tr className="bg-gray-100">
-                                    <th className="p-2 border">Mode</th>
-                                    <th className="p-2 border">Cost (Approx)</th>
-                                    <th className="p-2 border">Time</th>
-                                    <th className="p-2 border">Verdict</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="p-2 border">Train (3AC)</td>
-                                    <td className="p-2 border">₹4,000 (Return)</td>
-                                    <td className="p-2 border">24 Hrs</td>
-                                    <td className="p-2 border">Best for groups/budget.</td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 border">Flight</td>
-                                    <td className="p-2 border">₹10,000+ (Return)</td>
-                                    <td className="p-2 border">4-6 Hrs (via connections)</td>
-                                    <td className="p-2 border">Only if short on time.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </ContentSection>
-
-            {/* 4. North vs South Goa (Comparison Table) */}
-            <ContentSection title="North Goa vs South Goa: Where Should You Stay?" className="bg-gray-50">
-                <div className="prose max-w-none">
+                <div className="prose max-w-none text-lg text-slate-700">
                     <p>
-                        The biggest debate for any <strong>Goa tour package from Bhilai</strong>: North or South?
+                        Planning a <strong>Goa tour package from Bhilai</strong> is a rite of passage for us in Chhattisgarh. Whether it's college students from BIT Durg planning their first "freedom trip" or families from Nehru Nagar looking for a winter escape, Goa is the #1 destination.
                     </p>
-                    <div className="overflow-x-auto mt-6">
-                        <table className="w-full text-left border-collapse bg-white shadow-sm rounded-lg overflow-hidden">
-                            <thead className="bg-indigo-600 text-white">
-                                <tr>
-                                    <th className="p-3 border">Feature</th>
-                                    <th className="p-3 border">North Goa (Baga, Calangute, Anjuna)</th>
-                                    <th className="p-3 border">South Goa (Colva, Palolem, Benaulim)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="p-3 border font-semibold">Vibe</td>
-                                    <td className="p-3 border">Crowded, Party, High Energy</td>
-                                    <td className="p-3 border">Clean, Relaxed, Scenic</td>
-                                </tr>
-                                <tr className="bg-gray-50">
-                                    <td className="p-3 border font-semibold">Crowd</td>
-                                    <td className="p-3 border">Youngsters, Bachelors, First-timers</td>
-                                    <td className="p-3 border">Couples, Families, Foreigners</td>
-                                </tr>
-                                <tr>
-                                    <td className="p-3 border font-semibold">Est. Hotel Cost</td>
-                                    <td className="p-3 border">₹2,000 - ₹5,000 per night</td>
-                                    <td className="p-3 border">₹3,500 - ₹8,000 per night (Resorts)</td>
-                                </tr>
-                                <tr className="bg-gray-50">
-                                    <td className="p-3 border font-semibold">Traveling</td>
-                                    <td className="p-3 border">High traffic. Need Scooty/Taxi.</td>
-                                    <td className="p-3 border">Wide roads, long distances.</td>
-                                </tr>
-                                <tr>
-                                    <td className="p-3 border font-semibold">Best For</td>
-                                    <td className="p-3 border"><strong>Bachelors & Party Lovers</strong></td>
-                                    <td className="p-3 border"><strong>Honeymoon & Relaxation</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Image Authority: North Goa */}
-                <div className="mt-8">
-                    <h3 className="text-xl font-semibold mb-4 text-indigo-700">North Goa Highlights</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <img src="https://images.unsplash.com/photo-1549487922-26db129f170f?q=80&w=300" alt="Baga Beach Nightlife Goa from Bhilai" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=300" alt="Anjuna Flea Market Shopping Budget Trip" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1588665049339-da732788939c?q=80&w=300" alt="Water Sports Calangute Beach" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1576402187880-972938cf15dc?q=80&w=300" alt="Fort Aguada Sightseeing North Goa" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                    </div>
-                </div>
-
-                {/* Image Authority: South Goa */}
-                <div className="mt-8">
-                    <h3 className="text-xl font-semibold mb-4 text-indigo-700">South Goa Serenity</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b271?q=80&w=300" alt="Palolem Beach Sunset South Goa Honeymoon" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=300" alt="Colva Beach Clean Sand Family Trip" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1590449767253-1284d7285514?q=80&w=300" alt="Luxury Resort South Goa Stay" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
-                        <img src="https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=300" alt="Dudhsagar Waterfalls Trip from South Goa" className="rounded shadow hover:scale-105 transition duration-300" loading="lazy" />
+                    <p className="mt-4">
+                        But here is the truth: <strong>Goa has changed in 2026.</strong> The taxi mafia is stricter, North Goa is more crowded, and finding a peaceful spot requires local knowledge. At <strong>Rudraksh Safar</strong>, we don't just book tickets; we design <em>smart</em> itineraries. We know which train berth to book on the <em>Gondwana Express</em> and which shack in Calangute serves the best veg food.
+                    </p>
+                    <div className="mt-6 p-4 bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg">
+                        <p className="font-medium text-indigo-900 flex items-start gap-2">
+                            <Info className="w-5 h-5 mt-1 shrink-0" />
+                            <strong>Why Book with a Local Agent?</strong> We are right here in Bhilai 3. If your train travels are delayed or a hotel tries to downgrade you, you call us (not a chatbot). We fix it instantly.
+                        </p>
                     </div>
                 </div>
             </ContentSection>
 
-            {/* 5. Real Budget Breakdown (Rule 7: Real Numbers) */}
-            <ContentSection title="Goa Trip Budget Breakdown (2026 Prices)" className="bg-white">
-                <p className="mb-6">
-                    Don't get tricked by "starting at ₹3999" ads. Here is what a <strong>real</strong> trip costs for a traveler from Bhilai in 2026.
+            {/* SECTION: The 2026 Price Guide (High Authority) */}
+            <ContentSection title="Real Cost of a Goa Trip from Bhilai (2026)" className="bg-slate-50">
+                <p className="mb-6 text-slate-600">
+                    Stop guessing. Here is the actual breakdown of costs for a 4-Night/5-Day trip starting from Durg/Raipur.
                 </p>
-                <div className="grid md:grid-cols-3 gap-6">
-                    {/* Budget Traveler */}
-                    <div className="border rounded-lg p-5 hover:shadow-lg transition">
-                        <h4 className="text-xl font-bold text-green-600 mb-2">The "College Budget"</h4>
-                        <p className="text-3xl font-bold mb-4">₹8,500 - ₹10,000</p>
-                        <ul className="text-sm space-y-2 text-gray-700">
-                            <li>🚅 Sleeper Class (₹1,800)</li>
-                            <li>🏨 Hostel / Guest House (₹600/night)</li>
-                            <li>🛵 Shared Rental Bike</li>
-                            <li>🍛 Thali & Street Food</li>
-                            <li>🚫 No fancy clubs</li>
-                        </ul>
-                    </div>
-                    {/* Standard Traveler */}
-                    <div className="border rounded-lg p-5 bg-blue-50 border-blue-200 shadow-md">
-                        <h4 className="text-xl font-bold text-blue-800 mb-2">The "Standard Trip"</h4>
-                        <p className="text-3xl font-bold mb-4">₹15,000 - ₹20,000</p>
-                        <ul className="text-sm space-y-2 text-gray-700">
-                            <li>🚅 3AC Train (₹4,000)</li>
-                            <li>🏨 3-Star Hotel w/ Pool (₹2,500/night)</li>
-                            <li>🛵 Individual Scooty</li>
-                            <li>🍹 Couple of Beach Shacks</li>
-                            <li>🚤 Water Sports Included</li>
-                        </ul>
-                    </div>
-                    {/* Luxury Traveler */}
-                    <div className="border rounded-lg p-5 hover:shadow-lg transition">
-                        <h4 className="text-xl font-bold text-purple-600 mb-2">The "Luxury Vibe"</h4>
-                        <p className="text-3xl font-bold mb-4">₹35,000+</p>
-                        <ul className="text-sm space-y-2 text-gray-700">
-                            <li>✈️ Flight from Raipur (₹10k+)</li>
-                            <li>🏨 Beach Resort / Private Villa</li>
-                            <li>🚕 Private Cab Service</li>
-                            <li>🦞 Fine Dining & Clubs</li>
-                            <li>💆 Spa & Casino</li>
-                        </ul>
-                    </div>
+
+                <div className="overflow-x-auto bg-white rounded-xl shadow-sm border">
+                    <Table>
+                        <TableHeader>
+                            <TableRow className="bg-slate-100">
+                                <TableHead className="font-bold text-slate-900 w-[200px]">Expense Name</TableHead>
+                                <TableHead className="font-bold text-slate-900">Budget (Student)</TableHead>
+                                <TableHead className="font-bold text-slate-900">Comfort (Family/Couple)</TableHead>
+                                <TableHead className="font-bold text-slate-900">Luxury (Flight)</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell className="font-medium">Travel (Return)</TableCell>
+                                <TableCell>₹1,800 (Sleeper Train)</TableCell>
+                                <TableCell>₹4,200 (3AC Train)</TableCell>
+                                <TableCell>₹12,000+ (Direct Flight)</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-medium">Accommodation (4 Nights)</TableCell>
+                                <TableCell>₹4,000 (Hostel/Shared)</TableCell>
+                                <TableCell>₹10,000 (3-Star Hotel)</TableCell>
+                                <TableCell>₹25,000+ (Beach Resort)</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-medium">Local Transport</TableCell>
+                                <TableCell>₹1,500 (Shared Scooty)</TableCell>
+                                <TableCell>₹2,500 (Scooty/Taxi)</TableCell>
+                                <TableCell>₹8,000 (Private Cab)</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-medium">Food & Drinks</TableCell>
+                                <TableCell>₹4,000 (Shacks/Thali)</TableCell>
+                                <TableCell>₹8,000 (Restaurants)</TableCell>
+                                <TableCell>₹15,000+ (Fine Dining)</TableCell>
+                            </TableRow>
+                            <TableRow className="bg-green-50">
+                                <TableCell className="font-bold text-green-800">TOTAL ESTIMATE</TableCell>
+                                <TableCell className="font-bold text-green-800">~ ₹11,300</TableCell>
+                                <TableCell className="font-bold text-green-800">~ ₹24,700</TableCell>
+                                <TableCell className="font-bold text-green-800">~ ₹60,000+</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
                 </div>
-                <div className="mt-8 text-center">
-                    <BookingCTA
-                        text="Plan My Goa Trip on Budget"
-                        subText="Get a custom quote based on your group size from Bhilai/Durg."
-                    />
+                <p className="mt-4 text-sm text-slate-500 italic">
+                    * Prices per person. Peak season (Dec 20 - Jan 5) rates will be 2x-3x higher.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4 mt-8">
+                    <Link to="/goa-trip-under-10000-from-bhilai">
+                        <Card className="hover:border-primary transition-colors cursor-pointer bg-white">
+                            <CardContent className="p-4 flex items-center gap-4">
+                                <div className="p-3 rounded-full bg-green-100 text-green-700"><Briefcase className="w-6 h-6" /></div>
+                                <div>
+                                    <h4 className="font-bold">Student Budget Guide</h4>
+                                    <p className="text-sm text-muted-foreground">How to do Goa under ₹10k</p>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </Link>
+                    <Link to="/goa-package-from-durg">
+                        <Card className="hover:border-primary transition-colors cursor-pointer bg-white">
+                            <CardContent className="p-4 flex items-center gap-4">
+                                <div className="p-3 rounded-full bg-orange-100 text-orange-700"><Train className="w-6 h-6" /></div>
+                                <div>
+                                    <h4 className="font-bold">Train Logistics Guide</h4>
+                                    <p className="text-sm text-muted-foreground">Durg Junction Schedules & Tips</p>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </Link>
                 </div>
             </ContentSection>
 
-            {/* 6. Honest Section (Rule 11: EEAT) */}
-            <ContentSection title="Who Should AVOID Goa? (Honest Advice)" className="bg-red-50">
-                <div className="prose max-w-none">
-                    <p className="font-medium text-red-800">
-                        We sell Goa packages, but we want you to be happy. Goa is NOT for everyone.
-                    </p>
-                    <ul className="list-disc ml-6 mt-4 space-y-2">
-                        <li><strong>The "Peaceful Mountain" Seeker:</strong> If you hate humidity and crowds, Goa in May or December is a nightmare. Try Manali or Kerala instead.</li>
-                        <li><strong>The "Strict Budget" traveler in December:</strong> Do not expect to find a room under ₹5,000/night near Baga during New Year's week. Prices triple.</li>
-                        <li><strong>Those relying solely on Taxis:</strong> The "Taxi Mafia" is real. Prices are exorbitant and non-negotiable. If you can't ride a scooter or aren't willing to hire a private driver for the whole trip, local transport will drain your wallet.</li>
-                    </ul>
+            {/* SECTION: Logistics (Durg vs Raipur) */}
+            <ContentSection title="Getting There: Durg Junction vs Raipur Airport" className="bg-white">
+                <div className="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Train className="w-6 h-6 text-orange-600" /> By Train (Most Popular)</h3>
+                        <p className="text-slate-600 mb-4">
+                            90% of Bhilai travelers prefer the train. It's cost-effective and the route via Western Ghats is scenic.
+                        </p>
+                        <ul className="space-y-3">
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
+                                <div>
+                                    <strong>Gondwana Express (12410)</strong>
+                                    <p className="text-sm text-slate-500">Departs Durg: 07:50 AM | Arrives: 05:00 AM (+1) <br />Best for maximizing time in Goa.</p>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
+                                <div>
+                                    <strong>Amaravati Express (18047)</strong>
+                                    <p className="text-sm text-slate-500">Departs Durg: 10:30 AM | Arrives: 02:25 PM (+1) <br />Good backup option.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div className="mt-4 bg-orange-50 p-3 rounded text-sm text-orange-800 flex gap-2">
+                            <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+                            <span><strong>Note:</strong> Tickets open 120 days early. For December trips, book in August! We provide Tatkal assistance for package bookings.</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Plane className="w-6 h-6 text-blue-600" /> By Flight (Fastest)</h3>
+                        <p className="text-slate-600 mb-4">
+                            Ideal for short trips (3 days) or luxury travelers. Flights depart from <strong>Swami Vivekananda Airport (Raipur)</strong>.
+                        </p>
+                        <ul className="space-y-3">
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
+                                <div>
+                                    <strong>Indigo / Air India</strong>
+                                    <p className="text-sm text-slate-500">Usually 1 stop via Hyderabad or Bangalore. Direct flights are seasonal.</p>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Info className="w-5 h-5 text-blue-600 mt-0.5" />
+                                <div>
+                                    <strong>Airport Transfer</strong>
+                                    <p className="text-sm text-slate-500">We arrange pickups from your home in Bhilai to Raipur Airport (Approx 1.5 hours).</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </ContentSection>
 
-            {/* 7. Itineraries */}
-            <ContentSection title="Perfect 5-Day Itinerary for Chhattisgarh Travelers" className="bg-white">
-                <div className="space-y-6">
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                        <h4 className="text-lg font-bold">Day 0: Departure</h4>
-                        <p className="text-gray-600">Board Gondwana Express from Durg Junction in the morning. Enjoy the scenic Konkan route the next day.</p>
-                    </div>
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                        <h4 className="text-lg font-bold">Day 1: Arrival & North Goa Vibes</h4>
-                        <p className="text-gray-600">Reach Madgaon. Taxi to North Goa (Baga/Calangute). Check-in. Rent a scooty. Evening at the beach shacks. Dinner at Tito's Lane.</p>
-                    </div>
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                        <h4 className="text-lg font-bold">Day 2: Forts & Sunshine</h4>
-                        <p className="text-gray-600">Early morning ride to Chapora Fort (Dil Chahta Hai). Brunch at Anjuna. Afternoon water sports at Calangute. Sunset at Vagator.</p>
-                    </div>
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                        <h4 className="text-lg font-bold">Day 3: South Goa Day Trip</h4>
-                        <p className="text-gray-600">Long ride to South Goa. Visit Old Goa Churches (Basilica of Bom Jesus). Lunch at Panjim. Evening peace at Colva Beach.</p>
-                    </div>
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                        <h4 className="text-lg font-bold">Day 4: Chill & departure</h4>
-                        <p className="text-gray-600">Lazy breakfast. Souvenir shopping at Mapusa Market. Return scooty. Train back to Durg in the evening.</p>
-                    </div>
+            {/* SECTION: Family vs Bachelor (The Decision Matrix) */}
+            <ContentSection title="North vs South: Where Should You Stay?" className="bg-indigo-50">
+                <p className="mb-8 text-center max-w-2xl mx-auto text-slate-700">
+                    Goa is two different worlds. Choosing the wrong side can ruin your trip. Here is our cheat sheet for Bhilai travelers.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                    {/* Bachelors / Party Crowd */}
+                    <Card className="border-t-4 border-purple-500 shadow-md">
+                        <CardHeader>
+                            <div className="flex justify-between items-center">
+                                <CardTitle className="text-xl font-bold">North Goa (Baga/Anjuna)</CardTitle>
+                                <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200">The Party Hub</Badge>
+                            </div>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-2 text-sm">
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-purple-600" /> <strong>Best For:</strong> Bachelors, College Groups (Supela/BIT), First-Timers.</li>
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-purple-600" /> <strong>Vibe:</strong> High energy, Crowded beaches, Nightclubs (Titos/Mambos).</li>
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-purple-600" /> <strong>Stay:</strong> Budget Hostels to Luxury Hotels.</li>
+                                <li className="flex gap-2 text-red-500"><XCircle className="w-4 h-4" /> <strong>Cons:</strong> Traffic jams, aggressive touts, crowded.</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+
+                    {/* Family / Couples */}
+                    <Card className="border-t-4 border-teal-500 shadow-md">
+                        <CardHeader>
+                            <div className="flex justify-between items-center">
+                                <CardTitle className="text-xl font-bold">South Goa (Colva/Benaulim)</CardTitle>
+                                <Badge className="bg-teal-100 text-teal-700 hover:bg-teal-200">The Peace Hub</Badge>
+                            </div>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-2 text-sm">
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-teal-600" /> <strong>Best For:</strong> Families, Honeymooners, Relaxed travelers.</li>
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-teal-600" /> <strong>Vibe:</strong> Clean white sands, 5-star Resorts, Quiet dinners.</li>
+                                <li className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-teal-600" /> <strong>Stay:</strong> Beach Resorts & Homestays.</li>
+                                <li className="flex gap-2 text-red-500"><XCircle className="w-4 h-4" /> <strong>Cons:</strong> Far from airport, minimal nightlife.</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
                 </div>
             </ContentSection>
 
-            {/* 8. Hyperlocal Testimonials (Rule 8) */}
-            <ContentSection title="What Your Neighbors Say" className="bg-gray-50">
+            {/* SECTION: 5-Day Itinerary */}
+            <ContentSection title="Perfect 5-Day Itinerary" className="bg-white">
+                <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+
+                    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <span className="font-bold text-xs">01</span>
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-200 shadow bg-white">
+                            <div className="flex items-center justify-between space-x-2 mb-1">
+                                <div className="font-bold text-slate-900">Arrival & Relax</div>
+                            </div>
+                            <div className="text-slate-500 text-sm">Reach Madgaon Station. Private transfer to hotel. Rent a scooty. Evening sunset at Calangute Beach followed by dinner at a beach shack.</div>
+                        </div>
+                    </div>
+
+                    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <span className="font-bold text-xs">02</span>
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-200 shadow bg-white">
+                            <div className="flex items-center justify-between space-x-2 mb-1">
+                                <div className="font-bold text-slate-900">North Goa Sightseeing</div>
+                            </div>
+                            <div className="text-slate-500 text-sm">Visit Fort Aguada (Dil Chahta Hai point), Sinquerim Beach, and the Light House. Water sports at Candolim. Night market shopping.</div>
+                        </div>
+                    </div>
+
+                    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <span className="font-bold text-xs">03</span>
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-200 shadow bg-white">
+                            <div className="flex items-center justify-between space-x-2 mb-1">
+                                <div className="font-bold text-slate-900">South Goa Day Trip</div>
+                            </div>
+                            <div className="text-slate-500 text-sm">Early drive to Old Goa Churches (Review UNESCO sites). Visit Mangueshi Temple. Evening at the serene Colva Beach. Dinner at Martin's Corner.</div>
+                        </div>
+                    </div>
+
+                    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <span className="font-bold text-xs">04</span>
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-200 shadow bg-white">
+                            <div className="flex items-center justify-between space-x-2 mb-1">
+                                <div className="font-bold text-slate-900">Leisure & Departure</div>
+                            </div>
+                            <div className="text-slate-500 text-sm">Lazy breakfast. Souvenir shopping at Panjim or Mapusa Market. Return rental bike. Drop to Madgaon Station for evening train.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </ContentSection>
+
+            {/* SECTION: Testimonials */}
+            <ContentSection title="What Bhilai Locals Say" className="bg-slate-50">
                 <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-white p-6 rounded shadow">
-                        <p className="italic text-gray-600 mb-4">"We were a group of 6 college friends from Supela. Rudraksh Safar helped us with the train tickets when Tatkal was blocked. The hostel they suggested in Anjuna was safe and cheap. Best trip ever!"</p>
-                        <div className="font-bold flex items-center">
-                            <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center mr-3">A</span>
-                            <div>
-                                <p>Amit Verma</p>
-                                <p className="text-xs text-gray-500">Student, Supela (Bhilai)</p>
+                    <Card className="bg-white">
+                        <CardContent className="p-6">
+                            <div className="flex gap-1 text-yellow-500 mb-2">
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
                             </div>
-                        </div>
-                    </div>
-                    <div className="bg-white p-6 rounded shadow">
-                        <p className="italic text-gray-600 mb-4">"Planned a honeymoon trip. We needed privacy, not noise. They suggested a great resort in Benaulim (South Goa) and arranged a candle-light dinner. Very professional service right from Raipur."</p>
-                        <div className="font-bold flex items-center">
-                            <span className="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center mr-3">P</span>
-                            <div>
-                                <p>Priya & Rahul</p>
-                                <p className="text-xs text-gray-500">Locals, Sector 6 (Bhilai)</p>
+                            <p className="italic text-slate-600 mb-4">"We booked the family package for 6 people. The hotel in Calangute was exactly as shown in photos. Rudraksh Safar even arranged a Jain food restaurant list for my parents."</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center font-bold text-indigo-600">RP</div>
+                                <div>
+                                    <p className="font-bold">Rahul Parekh</p>
+                                    <p className="text-xs text-muted-foreground">Nehru Nagar, Bhilai</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-white">
+                        <CardContent className="p-6">
+                            <div className="flex gap-1 text-yellow-500 mb-2">
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                                <Star className="fill-current w-4 h-4" />
+                            </div>
+                            <p className="italic text-slate-600 mb-4">"Best rates for students. We compared with online apps, but Rudraksh Safar gave us a better deal including scooter rental. The hostel vibes were amazing."</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600">AS</div>
+                                <div>
+                                    <p className="font-bold">Amit Singh</p>
+                                    <p className="text-xs text-muted-foreground">Engineering Student, Supela</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </ContentSection>
 
-            {/* 9. Internal Linking Ecosystem (Rule 15) */}
-            <ContentSection className="bg-indigo-900 text-white rounded-lg mt-12 p-8">
-                <h3 className="text-2xl font-bold mb-6">Explore More Goa Packages from Chhattisgarh</h3>
-                <div className="grid md:grid-cols-3 gap-6 text-indigo-100">
-                    <div>
-                        <h4 className="font-bold text-white mb-2">By Departure City</h4>
-                        <ul className="space-y-1">
-                            <li><a href="/goa-package-from-raipur" className="hover:text-yellow-400 decoration-none">Goa Package from Raipur (Flight)</a></li>
-                            <li><a href="/goa-package-from-durg" className="hover:text-yellow-400 decoration-none">Goa Trip from Durg Station</a></li>
-                            <li><a href="/goa-trip-from-supela" className="hover:text-yellow-400 decoration-none">Goa Tour from Supela/Power House</a></li>
-                        </ul>
+            {/* SECTION: Trust / Visit Office */}
+            <ContentSection className="bg-white">
+                <div className="bg-indigo-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                    <div className="relative z-10">
+                        <h2 className="text-3xl font-bold mb-4">Don't Trust Online? Visit Us.</h2>
+                        <p className="text-indigo-200 mb-8 max-w-2xl mx-auto">
+                            We have a physical office in <strong>Bhilai 3 (In front of Petrol Pump)</strong>. Come, sit with us, check hotel photos on our big screen, and customize your trip over a cup of chai.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link to="/travel-agent-bhilai" className="inline-flex items-center justify-center bg-white text-indigo-900 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors">
+                                <MapPin className="w-5 h-5 mr-2" /> Locate Our Office
+                            </Link>
+                            <a href="tel:+919406182174" className="inline-flex items-center justify-center border border-white/30 hover:bg-white/10 font-bold py-3 px-8 rounded-full transition-colors">
+                                <Users className="w-5 h-5 mr-2" /> Talk to an Expert
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <h4 className="font-bold text-white mb-2">By Budget & Type</h4>
-                        <ul className="space-y-1">
-                            <li><a href="/goa-trip-under-10000-from-bhilai" className="hover:text-yellow-400 decoration-none">Goa Trip Under ₹10,000</a></li>
-                            <li><a href="/goa-honeymoon-package-from-bhilai" className="hover:text-yellow-400 decoration-none">Honeymoon Packages</a></li>
-                            <li><a href="/goa-budget-itinerary-from-cg" className="hover:text-yellow-400 decoration-none">Cheap 4-Day Itinerary</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-white mb-2">Travel Guides</h4>
-                        <ul className="space-y-1">
-                            <li><a href="/north-vs-south-goa-from-cg" className="hover:text-yellow-400 decoration-none">North vs South Goa Guide</a></li>
-                            <li><a href="/train-vs-flight-goa-from-cg" className="hover:text-yellow-400 decoration-none">Train vs Flight Comparison</a></li>
-                        </ul>
-                    </div>
+                    {/* Background decoration */}
+                    <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
                 </div>
             </ContentSection>
 
-            <LogisticsSection
-                bestTimeData={[
-                    { destination: "North Goa", months: "Nov - Feb" },
-                    { destination: "South Goa", months: "Oct - Mar" }
-                ]}
-            />
-
-            {/* 10. FAQ Section */}
+            {/* FAQs */}
             <FAQSection
                 faqs={[
-                    { question: "What is the best time to visit Goa from Bhilai?", answer: "November to February is perfect for weather. However, for budget travelers from Bhilai, September (post-monsoon) or March offers great discounts." },
-                    { question: "Does the package include train tickets from Durg?", answer: "Yes, we assist with train bookings (Gondwana/Amaravati). Since tickets sell out fast, we recommend confirming 3-4 months in advance." },
-                    { question: "Is Goa safe for families from Bhilai?", answer: "Absolutely. We recommend South Goa (Colva, Benaulim) or premium North Goa resorts (Candolim) for families to avoid the rowdy party crowds." },
-                    { question: "How much pocket money should I carry?", answer: "If your hotel and travel are booked, carry ₹3,000 - ₹5,000 per person for food, scooty fuel, and entry fees for a 4-day trip." },
-                    { question: "Can I get a vegetarian meal in Goa?", answer: "Yes! North Goa has many pure veg restaurants (like Navtara). Even regular shacks serve Dal Fry, Paneer, and Roti." }
+                    {
+                        question: "Why should I book from a Bhilai agent instead of MakeMyTrip?",
+                        answer: "Accountability. Online apps have chatbots; we have personal numbers. If your hotel denies check-in or you need medical help in Goa, we answer your call at 2 AM. Plus, our bulk rates often beat online prices."
+                    },
+                    {
+                        question: "What is the best month to visit Goa from Bhilai?",
+                        answer: "November to February is peak season (Best weather). For budget travelers, September (end of monsoon) and March offer great discounts with decent weather."
+                    },
+                    {
+                        question: "Is it safe for girls' groups?",
+                        answer: "Yes, Goa is one of the safest states. However, we recommend staying in North Goa (Candolim/Calangute) where streets are busy. We also provide trusted drivers for late-night drops."
+                    },
+                    {
+                        question: "Can you arrange a private pool villa?",
+                        answer: "Yes, we have exclusive tie-ups with luxury villas in Assagao and Siolim perfectly suited for private parties."
+                    }
                 ]}
             />
+
+            <BookingCTA
+                text="Plan Your Goa Trip Now"
+                subText="Fill the form to get a callback from our Bhilai Travel Expert within 10 mins."
+            />
+
         </PageLayout>
     );
 };

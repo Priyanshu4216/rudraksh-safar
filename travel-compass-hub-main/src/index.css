@@ -6,122 +6,106 @@
 
 @layer base {
   :root {
-    /* Luxury Travel Palette */
-    --background: 40 30% 98%;
-    --foreground: 210 25% 15%;
+    /* --- ELITE LUXURY PALETTE (Day Mode / Base) --- */
+    /* Primary Backgrounds - Deep & Layered */
+    --background: 222 47% 11%;
+    /* #0F172A - Deep Navy Blue (Main BG) */
+    --foreground: 210 40% 98%;
+    /* #F8FAFC - Soft White (Text) */
 
-    --card: 40 30% 99%;
-    --card-foreground: 210 25% 15%;
+    --card: 217 33% 17%;
+    /* #1E293B - Lighter Navy (Cards) */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 40 30% 99%;
-    --popover-foreground: 210 25% 15%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Deep Ocean Teal - Trust & Calm */
-    --primary: 195 60% 28%;
-    --primary-foreground: 40 30% 98%;
+    /* Brand Colors */
+    --primary: 43 74% 66%;
+    /* #D4AF37 - Metallic Gold (Primary Action / Brand) */
+    --primary-foreground: 222 47% 11%;
+    /* Dark text on Gold */
 
-    /* Warm Amber Gold - Luxury */
-    --secondary: 35 85% 55%;
-    --secondary-foreground: 210 25% 10%;
+    --secondary: 215 25% 27%;
+    /* #334155 - Slate Navy (Secondary Elements) */
+    --secondary-foreground: 210 40% 98%;
 
-    /* Soft Cream */
-    --muted: 40 25% 94%;
-    --muted-foreground: 210 15% 45%;
+    --muted: 217 33% 17%;
+    /* Muted backgrounds */
+    --muted-foreground: 215 20% 65%;
+    /* Muted text */
 
-    /* Coral Terracotta - Warmth */
-    --accent: 18 70% 60%;
-    --accent-foreground: 40 30% 98%;
+    --accent: 142 76% 36%;
+    /* #16A34A - Emerald Green (Success / Trust / Call) */
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 30% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 195 60% 28%;
+    --border: 217 33% 20%;
+    /* Subtle border */
+    --input: 217 33% 17%;
+    --ring: 43 74% 66%;
+    /* Gold focus ring */
 
     --radius: 1rem;
 
-    /* Custom Luxury Variables */
-    --gold: 35 85% 55%;
-    --gold-light: 40 80% 70%;
-    --ocean: 195 60% 28%;
-    --ocean-light: 195 50% 45%;
-    --cream: 40 30% 98%;
-    --cream-dark: 40 25% 94%;
-    --charcoal: 210 25% 15%;
-    /* Brand ink for logo cursive (keep light in both themes) */
-    --logo-ink: 40 30% 98%;
+    /* --- Custom Luxury Variables --- */
+    --gold-dim: 43 50% 50%;
+    --gold-bright: 43 85% 75%;
+
+    --navy-deep: 222 47% 11%;
+    /* #0B1220 - Deepest Background */
+    --navy-light: 217 33% 17%;
+    /* #1E293B - Section/Card Background */
+    --navy-lighter: 215 25% 27%;
+    /* #334155 - Hover State */
 
     /* Glass Effects */
-    --glass-bg: 40 30% 100% / 0.7;
-    --glass-border: 40 30% 100% / 0.3;
-    --glass-shadow: 210 25% 15% / 0.1;
+    --glass-bg: 222 47% 11% / 0.7;
+    --glass-border: 210 40% 98% / 0.1;
+    --glass-shadow: 0 0 0 transparent;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(35 85% 55%), hsl(40 80% 65%));
-    --gradient-ocean: linear-gradient(135deg, hsl(195 60% 28%), hsl(195 50% 40%));
-    --gradient-hero: linear-gradient(180deg, hsl(210 25% 15% / 0.6) 0%, hsl(210 25% 15% / 0.3) 50%, transparent 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)), hsl(40 30% 100% / 0.5));
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 66%), hsl(43 85% 75%));
+    --gradient-ocean: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(11, 18, 32, 0.3) 0%, rgba(11, 18, 32, 0.8) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--glass-shadow));
-    --shadow-elevated: 0 10px 40px hsl(var(--glass-shadow));
-    --shadow-gold: 0 4px 20px hsl(35 85% 55% / 0.3);
-
-    --sidebar-background: 40 30% 98%;
-    --sidebar-foreground: 210 25% 25%;
-    --sidebar-primary: 195 60% 28%;
-    --sidebar-primary-foreground: 40 30% 98%;
-    --sidebar-accent: 40 25% 94%;
-    --sidebar-accent-foreground: 210 25% 15%;
-    --sidebar-border: 40 20% 88%;
-    --sidebar-ring: 195 60% 28%;
+    /* Shadows - Soft & Deep */
+    --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
+    /* Gold Glow */
   }
 
+  /* FORCED DARK MODE AESTHETIC DO NOT USE LIGHT MODE VALUES HERE */
   .dark {
-    --background: 210 25% 8%;
-    --foreground: 40 30% 95%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 210 25% 12%;
-    --card-foreground: 40 30% 95%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 210 25% 12%;
-    --popover-foreground: 40 30% 95%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 195 50% 50%;
-    --primary-foreground: 210 25% 8%;
+    --primary: 43 74% 66%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 35 80% 50%;
-    --secondary-foreground: 210 25% 8%;
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 20% 18%;
-    --muted-foreground: 40 20% 65%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 18 65% 55%;
-    --accent-foreground: 40 30% 98%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 40 30% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 210 20% 20%;
-    --input: 210 20% 20%;
-    --ring: 195 50% 50%;
-
-    --glass-bg: 210 25% 15% / 0.8;
-    --glass-border: 210 25% 25% / 0.3;
-    --glass-shadow: 0 0% 0% / 0.3;
-
-    /* Brand ink for logo cursive (keep light in both themes) */
-    --logo-ink: 40 30% 98%;
-
-    --sidebar-background: 210 25% 10%;
-    --sidebar-foreground: 40 30% 90%;
-    --sidebar-primary: 195 50% 50%;
-    --sidebar-primary-foreground: 210 25% 8%;
-    --sidebar-accent: 210 20% 18%;
-    --sidebar-accent-foreground: 40 30% 95%;
-    --sidebar-border: 210 20% 20%;
-    --sidebar-ring: 195 50% 50%;
+    --border: 217 33% 20%;
+    --input: 217 33% 17%;
+    --ring: 43 74% 66%;
   }
 }
 
@@ -135,170 +119,160 @@
     font-family: 'DM Sans', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Cormorant Garamond', serif;
     @apply font-semibold tracking-tight;
   }
 }
 
 @layer components {
-  /* Glassmorphism */
+
+  /* --- Depth Layers --- */
+  .bg-depth-1 {
+    @apply bg-[hsl(var(--navy-deep))];
+    /* Deepest Background */
+  }
+
+  .bg-depth-2 {
+    @apply bg-[hsl(var(--navy-light))];
+    /* Section Background */
+  }
+
+  .bg-depth-3 {
+    @apply bg-[hsl(var(--navy-lighter)/0.5)];
+    /* Card Background */
+  }
+
+  /* --- Glassmorphism --- */
   .glass {
-    @apply bg-background/70 backdrop-blur-xl border border-border/50;
-    box-shadow: var(--shadow-soft);
+    @apply bg-background/60 backdrop-blur-md border border-white/10;
   }
 
   .glass-card {
-    @apply bg-card/80 backdrop-blur-lg border border-border/30 rounded-2xl;
-    box-shadow: var(--shadow-soft);
+    @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-lg rounded-2xl;
   }
 
-  /* Gold Accents */
+  /* --- Text Styles --- */
   .text-gold {
-    color: hsl(var(--secondary));
-  }
-
-  .bg-gold {
-    background: var(--gradient-gold);
-  }
-
-  .border-gold {
-    border-color: hsl(var(--secondary));
-  }
-
-  /* Ocean Theme */
-  .text-ocean {
     color: hsl(var(--primary));
   }
 
-  .bg-ocean {
-    background: var(--gradient-ocean);
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
   }
 
-  /* Premium Button Styles */
+  /* --- Buttons --- */
   .btn-gold {
-    @apply relative overflow-hidden px-8 py-4 rounded-full font-medium text-charcoal transition-all duration-300;
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-medium text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1;
     background: var(--gradient-gold);
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-glow);
   }
 
-  .btn-gold:hover {
-    @apply scale-105;
-    box-shadow: 0 6px 30px hsl(35 85% 55% / 0.4);
+  .btn-outline-gold {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-medium text-primary transition-all duration-300 border border-primary/30 hover:bg-primary/10;
   }
 
-  .btn-ocean {
-    @apply px-8 py-4 rounded-full font-medium text-primary-foreground transition-all duration-300;
-    background: var(--gradient-ocean);
-  }
-
-  .btn-ocean:hover {
-    @apply scale-105;
-    box-shadow: 0 6px 30px hsl(195 60% 28% / 0.3);
-  }
-
-  .btn-glass {
-    @apply glass px-8 py-4 rounded-full font-medium transition-all duration-300;
-  }
-
-  .btn-glass:hover {
-    @apply bg-background/90 scale-105;
-  }
-
-  /* Text Charcoal */
-  .text-charcoal {
-    color: hsl(var(--foreground));
-  }
-
-  /* Section Spacing */
-  .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
-  }
-
-  /* Floating Animation */
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  /* Fade In Animations */
-  .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+  /* --- Animations --- */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
     opacity: 0;
   }
 
-  @keyframes fadeInUp {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-2;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-500 ease-out hover:scale-105;
+  }
+
+  .image-zoom-container {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  .image-zoom-container img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-zoom-container:hover img {
+    @apply scale-110;
+  }
+
+  @keyframes fadeUp {
     from {
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
   /* Stagger delays */
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
-  .delay-400 { animation-delay: 0.4s; }
-  .delay-500 { animation-delay: 0.5s; }
-
-  /* Image hover effect */
-  .image-zoom {
-    @apply overflow-hidden;
+  .delay-100 {
+    animation-delay: 0.1s;
   }
 
-  .image-zoom img {
-    @apply transition-transform duration-700 ease-out;
+  .delay-200 {
+    animation-delay: 0.2s;
   }
 
-  .image-zoom:hover img {
-    @apply scale-110;
+  .delay-300 {
+    animation-delay: 0.3s;
   }
 
-  /* Underline animation for links */
-  .link-underline {
-    @apply relative;
+  .delay-400 {
+    animation-delay: 0.4s;
   }
 
-  .link-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300;
+  .delay-500 {
+    animation-delay: 0.5s;
   }
 
-  .link-underline:hover::after {
-    @apply w-full;
+  .animate-slow-zoom {
+    animation: slowZoom 20s infinite alternate linear;
   }
 
-  /* Active nav state */
-  .nav-active {
-    @apply text-secondary;
+  @keyframes slowZoom {
+    from {
+      transform: scale(1.05);
+    }
+
+    to {
+      transform: scale(1.15);
+    }
   }
 
-  .nav-active::after {
-    @apply w-full;
+  .mask-image-gradient-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   }
 
-  /* Marquee Animation */
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
   .scrollbar-hide {
@@ -306,108 +280,17 @@
     scrollbar-width: none;
   }
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
 
-  /* Scroll progress bar */
-  .scroll-progress {
-    @apply fixed left-0 right-0 top-0 z-[110] h-1;
-    background: hsl(var(--border) / 0.25);
-  }
-  .scroll-progress__bar {
-    @apply h-full origin-left;
-    background: linear-gradient(
-      90deg,
-      hsl(var(--secondary)),
-      hsl(var(--accent)),
-      hsl(var(--primary))
-    );
-    box-shadow:
-      0 0 18px hsl(var(--secondary) / 0.35),
-      0 0 26px hsl(var(--accent) / 0.25);
-    transition: transform 120ms linear;
-  }
-
-  /* Electric fire border for Hot Deals */
-  .hot-deals-fire {
-    @apply relative;
-  }
-  .hot-deals-fire::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 9999px;
-    background: conic-gradient(
-      from 0deg,
-      hsl(var(--secondary) / 0.0),
-      hsl(var(--secondary) / 0.55),
-      hsl(var(--accent) / 0.55),
-      hsl(var(--primary) / 0.45),
-      hsl(var(--secondary) / 0.55),
-      hsl(var(--secondary) / 0.0)
-    );
-    filter: blur(0px);
-    opacity: 0.9;
-    /* Remove revolving effect (keep a refined border without spin) */
-    animation: none;
-    pointer-events: none;
-    z-index: -1;
-  }
-  .hot-deals-fire::after {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 9999px;
-    background: radial-gradient(
-      closest-side,
-      hsl(var(--secondary) / 0.20),
-      hsl(var(--accent) / 0.10),
-      transparent 72%
-    );
-    filter: blur(8px);
-    opacity: 0.7;
-    animation: firePulse 2.1s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -2;
-  }
-
-  /* Tiny flame lick at the top edge (subtle, refined) */
-  .hot-deals-fire > span::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 18px;
-    right: 18px;
-    height: 14px;
-    border-radius: 9999px;
-    background:
-      radial-gradient(closest-side, hsl(var(--secondary) / 0.35), transparent 70%),
-      radial-gradient(closest-side, hsl(var(--accent) / 0.25), transparent 72%);
-    filter: blur(6px);
-    opacity: 0;
-    transform: translateY(4px) scaleX(0.92);
-    transition: opacity 240ms ease, transform 240ms ease;
-    pointer-events: none;
-  }
-  .hot-deals-fire:hover > span::before {
-    opacity: 1;
-    transform: translateY(0px) scaleX(1);
-  }
-  @keyframes fireSpin {
     to {
-      transform: rotate(360deg);
+      transform: translateX(-50%);
     }
   }
-  @keyframes firePulse {
-    0%,
-    100% {
-      transform: scale(0.96);
-      opacity: 0.7;
-    }
-    50% {
-      transform: scale(1.06);
-      opacity: 1;
-    }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
   }
 }

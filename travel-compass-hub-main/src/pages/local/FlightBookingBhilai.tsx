@@ -95,7 +95,7 @@ const FlightBookingBhilai = () => {
                                 <span className="text-sm font-medium">Flight Booking Specialist in Bhilai</span>
                             </div>
                             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                                Fly Smart with <span className="text-blue-600">Local Expertise</span>
+                                Best Flight Booking Agent in <span className="text-blue-600">Bhilai</span>
                             </h1>
                             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                 Getting the best fare is an art. We compare all airlines from Raipur Airport (RPR) to get you the cheapest deal with no hidden surprises.

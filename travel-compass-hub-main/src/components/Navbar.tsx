@@ -3,13 +3,24 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
-import logoLight from '@/assets/logo-light.png';
-import logoDark from '@/assets/logo-dark.png';
+import logoTransparent from '@/assets/dark_mode_web_logo_crop-removebg-preview.png';
 import { Helmet } from 'react-helmet-async';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
+
   { name: 'Hot Deals', href: '/hot-deals', isRoute: true, highlight: true },
+  {
+    name: 'Services',
+    href: '#services',
+    dropdown: [
+      { name: 'Flight Booking', href: '/flight-booking-bhilai', isRoute: true },
+      { name: 'Hotel Booking', href: '/hotel-booking', isRoute: true },
+      { name: 'Visa Assistance', href: '/visa-guide', isRoute: true },
+      { name: 'Cab Rental', href: '/cab-rental', isRoute: true },
+      { name: 'Cruise Booking', href: '/cruise-booking', isRoute: true },
+    ],
+  },
   {
     name: 'Packages',
     href: '#packages',
@@ -36,14 +47,9 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
   const isHomePage = location.pathname === '/';
   const { theme } = useTheme();
 
-  // Determine which logo to use based on theme and scroll state
+  // Determine which logo to use and ensure it's visible
   const getLogo = () => {
-    if (isHomePage && !isScrolled) {
-      // On hero section, always use dark logo (visible on dark overlay)
-      return logoDark;
-    }
-    // Otherwise, use theme-appropriate logo
-    return theme === 'dark' ? logoDark : logoLight;
+    return logoTransparent;
   };
 
   useEffect(() => {
@@ -105,14 +111,16 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
       </Helmet>
 
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
-          ? 'bg-background/95 backdrop-blur-xl shadow-lg py-2 border-b border-border/50'
-          : 'bg-transparent py-4'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b ${isScrolled
+          ? 'bg-black/90 backdrop-blur-xl shadow-2xl py-3 border-white/10 translate-y-0 opacity-100'
+          : isHomePage
+            ? 'bg-transparent py-6 border-transparent translate-y-0 opacity-100'
+            : 'bg-black/20 backdrop-blur-sm py-4 border-white/5 translate-y-0 opacity-100'
           }`}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex items-center justify-between">
+        <div className="container mx-auto flex items-center justify-between px-6 md:px-8">
           {/* Logo */}
           <Link
             to="/"
@@ -122,14 +130,14 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
             <img
               src={getLogo()}
               alt="Rudraksh Safar Logo"
-              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-[30px] md:h-[40px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
               width="150"
               height="50"
             />
           </Link>
 
           {/* Desktop Navigation - Moved to right */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className={`hidden lg:flex items-center gap-4 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
             <ul className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${isScrolled
               ? 'bg-muted/80'
               : isHomePage
@@ -230,7 +238,7 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className={`flex lg:hidden items-center gap-3 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

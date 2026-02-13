@@ -11,6 +11,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import FAQsSection from '@/components/FAQsSection';
+import TLDRSection from '@/components/TLDRSection';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import RelatedServices from '@/components/RelatedServices';
 
@@ -130,7 +131,7 @@ const TrainBookingBhilai = () => {
                                 <span className="text-sm font-bold tracking-wide">Authorized IRCTC Booking Partner</span>
                             </div>
                             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                                Reliable <span className="text-orange-600">Train Ticket Agent</span> in Bhilai
+                                Train Ticket Booking Agent in Bhilai <span className="text-orange-600">(IRCTC Authorized)</span>
                             </h1>
                             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                 Skip the IRCTC errors. Get expert help for <strong>Tatkal</strong>, <strong>Senior Citizen</strong>, and <strong>Group Bookings</strong> from Durg & Raipur Junction.
@@ -164,6 +165,15 @@ const TrainBookingBhilai = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* TL;DR Section */}
+                <div className="container mx-auto px-4 mt-8">
+                    <TLDRSection
+                        title="TL;DR: Train Ticket Agent"
+                        summary="We provide authorized IRCTC train ticket booking services from Bhilai, Durg, and Raipur. Our services include Tatkal booking assistance (post-10:15/11:15 AM), Senior Citizen/Ladies Quota checks, and bulk booking for groups. We ensure refund processing for waitlisted tickets."
+                        areasServed={["Bhilai", "Durg", "Raipur", "Charoda", "Kumhari"]}
+                    />
+                </div>
 
                 {/* AEO: Quick Answers (Google SGE Optimized) */}
                 <section id="quick-answers" className="py-16 bg-muted/30">

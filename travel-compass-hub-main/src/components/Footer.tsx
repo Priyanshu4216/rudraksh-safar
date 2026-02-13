@@ -3,15 +3,16 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useTheme } from './ThemeProvider';
-import logoLight from '@/assets/logo-light.png';
-import logoDark from '@/assets/logo-dark.png';
+import logoTransparent from '@/assets/dark_mode_web_logo_crop-removebg-preview.png';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Helmet } from 'react-helmet-async';
 
 const PHONE_NUMBER = '919406182174';
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About Us', href: '#about' },
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-rudraksh-safar' },
   { name: 'Packages', href: '#packages' },
   { name: 'Destinations', href: '#destinations' },
   { name: 'Contact', href: '#contact' },
@@ -39,9 +40,9 @@ const socialLinks = [
   { icon: Youtube, href: 'https://www.youtube.com/@RudrakshSafar', label: 'YouTube' },
 ];
 
-// Footer uses inverted logos - light logo in light theme (dark footer bg), dark logo in dark theme
-const getFooterLogo = (theme: string) => {
-  return theme === 'dark' ? logoLight : logoDark;
+// Footer uses transparent logo for all themes
+const getFooterLogo = () => {
+  return logoTransparent;
 };
 
 const legalContent = {
@@ -55,7 +56,7 @@ const legalContent = {
 
       <h3>1. Information We Collect</h3>
       <p>We may collect the following types of information:</p>
-      <h4>a) Personal &amp; Identity Information</h4>
+      <h4>a) Personal & Identity Information</h4>
       <ul>
         <li>Full name</li>
         <li>Date of birth</li>
@@ -75,7 +76,7 @@ const legalContent = {
       </ul>
       <h4>d) Financial Information</h4>
       <ul>
-         <li>Payment details processed only through secure third-party payment gateways (We do not store card or banking details on our servers.)</li>
+        <li>Payment details processed only through secure third-party payment gateways (We do not store card or banking details on our servers.)</li>
       </ul>
       <h4>e) Technical Information</h4>
       <ul>
@@ -148,14 +149,14 @@ const legalContent = {
     content: `
       <p><strong>Last Updated:</strong> January 2026</p>
 
-      <p>By accessing this website or booking any service through Rudraksh Safar, you agree to be bound by the following Terms &amp; Conditions. Please read them carefully before proceeding.</p>
+      <p>By accessing this website or booking any service through Rudraksh Safar, you agree to be bound by the following Terms & Conditions. Please read them carefully before proceeding.</p>
 
       <h3>1. Role of Rudraksh Safar</h3>
       <p>Rudraksh Safar acts solely as an intermediary between customers and third-party service providers such as airlines, hotels, transport operators, cruise lines, and tour operators.</p>
       <p>We do not own, operate, or control these services. All services are provided directly by the respective suppliers under their own terms and conditions.</p>
       <p>Rudraksh Safar is not responsible for any changes, deficiencies, delays, or failures in services provided by third-party suppliers.</p>
 
-      <h3>2. Booking &amp; Confirmation</h3>
+      <h3>2. Booking & Confirmation</h3>
       <ul>
         <li>All inquiries are non-binding expressions of interest.</li>
         <li>Bookings are confirmed only after receipt of required deposit/payment, written confirmation from Rudraksh Safar, and availability confirmation from service providers.</li>
@@ -170,7 +171,7 @@ const legalContent = {
         <li>Failure to make timely payment may result in automatic cancellation without liability to Rudraksh Safar.</li>
       </ul>
 
-      <h3>4. Cancellations &amp; Refunds</h3>
+      <h3>4. Cancellations & Refunds</h3>
       <p>All cancellations and refunds are governed strictly by our Cancellation Policy and Refund Policy available on our website. Refund timelines depend on supplier processing and may take 7–21 working days after approval.</p>
 
       <h3>5. Your Responsibilities</h3>
@@ -203,9 +204,9 @@ const legalContent = {
       <p>Unauthorized copying, scraping, reproduction, or commercial use of website content, images, or text is strictly prohibited.</p>
 
       <h3>10. Modification of Terms</h3>
-      <p>Rudraksh Safar reserves the right to update or modify these Terms &amp; Conditions at any time without prior notice. Continued use of the website constitutes acceptance of revised terms.</p>
+      <p>Rudraksh Safar reserves the right to update or modify these Terms & Conditions at any time without prior notice. Continued use of the website constitutes acceptance of revised terms.</p>
 
-      <h3>11. Governing Law &amp; Jurisdiction</h3>
+      <h3>11. Governing Law & Jurisdiction</h3>
       <p>These Terms shall be governed by the laws of India. All disputes shall be subject to the exclusive jurisdiction of courts in Durg, Chhattisgarh, India.</p>
 
       <h3>12. Contact Information</h3>
@@ -230,13 +231,13 @@ const legalContent = {
       <h4>a) Strictly Necessary Cookies</h4>
       <p>These cookies are essential for the website to function properly. They enable core features such as security, network management, and accessibility. These cookies cannot be disabled.</p>
 
-      <h4>b) Performance &amp; Analytics Cookies</h4>
+      <h4>b) Performance & Analytics Cookies</h4>
       <p>These cookies collect anonymous information about page visits, traffic sources, and user behavior. We use this data to improve website performance and user experience.</p>
 
       <h4>c) Functionality Cookies</h4>
       <p>These cookies remember your preferences such as language selection, region, and display settings. They help provide a more personalized browsing experience.</p>
 
-      <h4>d) Marketing &amp; Advertising Cookies</h4>
+      <h4>d) Marketing & Advertising Cookies</h4>
       <p>These cookies are used to deliver relevant advertisements, measure campaign effectiveness, and support remarketing activities. They may be placed by third-party advertising partners with our permission.</p>
 
       <h3>3. Third-Party Cookies</h3>
@@ -258,10 +259,10 @@ const legalContent = {
       <h3>5. Managing Cookies</h3>
       <p>You can manage or disable cookies through your browser settings:</p>
       <ul>
-        <li><strong>Chrome:</strong> Settings → Privacy &amp; Security → Cookies</li>
-        <li><strong>Firefox:</strong> Options → Privacy &amp; Security → Cookies</li>
+        <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
+        <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
         <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
-        <li><strong>Edge:</strong> Settings → Privacy &amp; Security → Cookies</li>
+        <li><strong>Edge:</strong> Settings → Privacy & Security → Cookies</li>
       </ul>
       <p>Please note that disabling cookies may affect certain website features and overall user experience.</p>
 
@@ -332,7 +333,7 @@ const legalContent = {
       <h3>8. Changes to Disclaimer</h3>
       <p>Rudraksh Safar reserves the right to modify this Disclaimer at any time without prior notice. Changes take effect immediately upon posting. Continued use of the website or services constitutes acceptance of the revised Disclaimer.</p>
 
-      <h3>9. Governing Law &amp; Jurisdiction</h3>
+      <h3>9. Governing Law & Jurisdiction</h3>
       <p>This Disclaimer shall be governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Durg, Chhattisgarh, India.</p>
 
       <h3>10. Contact Information</h3>
@@ -391,7 +392,7 @@ const legalContent = {
       <h3>5. Partial Refunds</h3>
       <p>If only part of a booking is cancelled or affected, refunds will be calculated proportionately based on supplier refund rules for each service component.</p>
 
-      <h3>6. Currency &amp; Charges</h3>
+      <h3>6. Currency & Charges</h3>
       <ul>
         <li>Refunds are processed in the same currency as the original payment.</li>
         <li>Any currency conversion differences or bank charges are not compensated by Rudraksh Safar.</li>
@@ -693,14 +694,17 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
   const navigate = useNavigate();
 
   const handleNavClick = (href: string) => {
-    // If on homepage, scroll to section
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo(0, 0);
+      return;
+    }
     if (location.pathname === '/') {
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If on another page, go to homepage WITH hash (ensures the browser applies the anchor)
       window.location.href = '/' + href;
     }
   };
@@ -710,7 +714,6 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
     setModalOpen(true);
   };
 
-  // Footer Schema
   const footerSchema = {
     "@context": "https://schema.org",
     "@type": "WPFooter",
@@ -724,7 +727,13 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
   return (
     <>
-      <footer ref={ref} className="bg-foreground text-primary-foreground" role="contentinfo" aria-label="Site footer">
+      <footer ref={ref} className="bg-black text-white relative overflow-hidden" role="contentinfo" aria-label="Site footer">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-navy-light rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold rounded-full blur-[100px]" />
+        </div>
+
         <Helmet>
           <script type="application/ld+json">
             {JSON.stringify(footerSchema)}
@@ -732,53 +741,53 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
         </Helmet>
 
         {/* Main Footer */}
-        <div className="container py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="container relative z-10 py-20 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Company Info */}
             <div className="lg:col-span-1">
-              <div className="mb-6">
+              <Link to="/" className="block mb-8">
                 <img
-                  src={getFooterLogo(theme)}
-                  alt="Rudraksh Safar"
-                  className="h-12 w-auto object-contain"
+                  src={logoTransparent} // Always use new transparent logo
+                  alt="Rudraksh Safar Logo"
+                  className="h-20 w-auto object-contain"
                 />
-              </div>
-              <p className="text-primary-foreground/70 mb-6 text-sm leading-relaxed">
-                Crafting extraordinary travel experiences since 2010. Your journey, our passion.
+              </Link>
+              <p className="text-white/60 mb-8 text-sm leading-relaxed font-light">
+                Crafting extraordinary travel experiences since 2010. We turn your journeys into timeless stories.
               </p>
-              <div className="space-y-3 text-sm">
-                <p className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                  <span className="text-primary-foreground/70">
-                    GE Road, In Front of Petrol Pump<br />Bhilai 3, Chhattisgarh 490021<br />
-                    <span className="text-xs opacity-80 mt-1 block leading-relaxed">
-                      Serving: <Link to="/travel-agent-bhilai" className="hover:text-secondary underline decoration-dotted">Bhilai</Link>,{' '}
-                      <Link to="/travel-agent-durg" className="hover:text-secondary underline decoration-dotted">Durg</Link>,{' '}
-                      <Link to="/travel-agent-raipur" className="hover:text-secondary underline decoration-dotted">Raipur</Link> &{' '}
-                      <Link to="/tour-packages-from-raipur/international-tours" className="hover:text-secondary underline decoration-dotted">International Hub</Link>
-                    </span>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                    <MapPin className="w-4 h-4 text-gold" />
+                  </div>
+                  <span className="text-white/70">
+                    GE Road, Bhilai 3,<br />Chhattisgarh 490021
                   </span>
-                </p>
-                <p className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-secondary" />
-                  <a href={`tel:+${PHONE_NUMBER}`} className="text-primary-foreground/70 hover:text-secondary transition-colors">
+                </div>
+                <div className="flex items-center gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                    <Phone className="w-4 h-4 text-gold" />
+                  </div>
+                  <a href={`tel:+${PHONE_NUMBER}`} className="text-white/70 hover:text-gold transition-colors">
                     +91 94061 82174
                   </a>
-                </p>
-                <p className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-secondary" />
-                  <a href="mailto:rudrakshsafar@gmail.com" className="text-primary-foreground/70 hover:text-secondary transition-colors">
+                </div>
+                <div className="flex items-center gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                    <Mail className="w-4 h-4 text-gold" />
+                  </div>
+                  <a href="mailto:rudrakshsafar@gmail.com" className="text-white/70 hover:text-gold transition-colors">
                     rudrakshsafar@gmail.com
                   </a>
-                </p>
+                </div>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-semibold mb-6 text-lg" id="footer-quick-links">Quick Links</h3>
-              <nav aria-labelledby="footer-quick-links">
-                <ul className="space-y-3">
+              <h3 className="font-serif font-bold text-lg text-white mb-8">Explore</h3>
+              <nav>
+                <ul className="space-y-4">
                   {quickLinks.map((link) => (
                     <li key={link.name}>
                       <a
@@ -787,40 +796,55 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                           e.preventDefault();
                           handleNavClick(link.href);
                         }}
-                        className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
+                        className="text-white/60 hover:text-gold transition-colors text-sm block hover:translate-x-1 duration-300"
                       >
                         {link.name}
                       </a>
                     </li>
                   ))}
-                  {/* Sitemap Link */}
                   <li>
-                    <Link to="/sitemap" className="text-secondary hover:underline font-medium text-sm flex items-center gap-1 py-1">
-                      View Full Sitemap
+                    <Link to="/sitemap" className="text-white/60 hover:text-gold transition-colors text-sm block hover:translate-x-1 duration-300">
+                      Sitemap
                     </Link>
                   </li>
                 </ul>
               </nav>
             </div>
 
-            {/* Legal & Compliance */}
+            {/* Legal */}
             <div>
-              <h3 className="font-semibold mb-6 text-lg" id="footer-legal-links">Legal</h3>
-              <nav aria-labelledby="footer-legal-links">
-                <ul className="space-y-3">
+              <h3 className="font-serif font-bold text-lg text-white mb-8">Legal</h3>
+              <nav>
+                <ul className="space-y-4">
                   {legalLinks.map((link) => (
                     <li key={link.name}>
                       {'href' in link && link.href ? (
                         <Link
                           to={link.href}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
+                          className="text-white/60 hover:text-gold transition-colors text-sm block hover:translate-x-1 duration-300"
                         >
                           {link.name}
                         </Link>
                       ) : (
                         <button
                           onClick={() => openModal(link.id as keyof typeof legalContent)}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left block py-1"
+                          className="text-white/60 hover:text-gold transition-colors text-sm text-left block hover:translate-x-1 duration-300"
+                        >
+                          {link.name}
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                  {supportLinks.map((link) => (
+                    <li key={link.name}>
+                      {'href' in link && link.href ? (
+                        <Link to={link.href} className="text-white/60 hover:text-gold transition-colors text-sm block hover:translate-x-1 duration-300">
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => openModal(link.id as keyof typeof legalContent)}
+                          className="text-white/60 hover:text-gold transition-colors text-sm text-left block hover:translate-x-1 duration-300"
                         >
                           {link.name}
                         </button>
@@ -831,48 +855,23 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </nav>
             </div>
 
-            {/* Support */}
+            {/* Newsletter & Social */}
             <div>
-              <h3 className="font-semibold mb-6 text-lg" id="footer-support-links">Support</h3>
-              <nav aria-labelledby="footer-support-links">
-                <ul className="space-y-3 mb-8">
-                  {supportLinks.map((link) => (
-                    <li key={link.name}>
-                      {'href' in link && link.href ? (
-                        link.href.startsWith('#') ? (
-                          <a
-                            href={link.href}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleNavClick(link.href);
-                            }}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
-                          >
-                            {link.name}
-                          </a>
-                        ) : (
-                          <Link
-                            to={link.href}
-                            className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm block py-1"
-                          >
-                            {link.name}
-                          </Link>
-                        )
-                      ) : (
-                        <button
-                          onClick={() => openModal(link.id as keyof typeof legalContent)}
-                          className="text-primary-foreground/70 hover:text-secondary transition-colors text-sm text-left block py-1"
-                        >
-                          {link.name}
-                        </button>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <h3 className="font-serif font-bold text-lg text-white mb-8">Stay Updated</h3>
+              <p className="text-white/60 text-sm mb-6">
+                Subscribe to our newsletter for exclusive offers and travel inspiration.
+              </p>
+              <div className="flex gap-2 mb-8">
+                <Input
+                  placeholder="Your Email"
+                  className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-gold"
+                />
+                <Button size="icon" className="bg-gold hover:bg-amber-500 text-black">
+                  <Mail className="w-4 h-4" />
+                </Button>
+              </div>
 
-              {/* Social Links */}
-              <h4 className="font-semibold mb-4 text-sm">Follow Us</h4>
+              <h4 className="font-serif font-bold text-sm text-white mb-4">Follow Our Journey</h4>
               <div className="flex items-center gap-3">
                 {socialLinks.map((social) => (
                   <a
@@ -881,58 +880,41 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all duration-300 hover:-translate-y-1"
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
                 ))}
-                <a
-                  href={`https://wa.me/${PHONE_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center hover:bg-green-500 transition-colors"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
               </div>
             </div>
-          </div>
-
-          {/* Quick Access Bar - Reduced clutter */}
-          <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
-            <p className="text-sm text-primary-foreground/60">
-              Looking for something specific? Check our <Link to="/sitemap" className="text-secondary hover:underline">Full Sitemap</Link> for all packages, guides, and local services.
-            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/10">
-          <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-primary-foreground/60 text-center md:text-left">
-              © {new Date().getFullYear()} Rudraksh Safar. All rights reserved.
+        <div className="border-t border-white/10 bg-black/50 backdrop-blur-xl relative z-10">
+          <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
+            <p className="text-center md:text-left">
+              &copy; {new Date().getFullYear()} Rudraksh Safar. All rights reserved.
             </p>
-            <p className="text-primary-foreground/60 text-center md:text-right">
-              Designed with care for seamless travel experiences
-            </p>
-          </div>
-          <div className="pb-6 text-center">
-            <p className="text-sm font-medium text-primary-foreground/80">⭐⭐⭐⭐⭐ 5.0 Rated on Google | Rudraksh Safar</p>
+            <div className="flex items-center gap-6">
+              <p className="hover:text-gold transition-colors cursor-default">Designed for Luxury</p>
+              <span className="w-1 h-1 rounded-full bg-white/20"></span>
+              <p className="hover:text-gold transition-colors cursor-default">Built with Passion</p>
+            </div>
           </div>
         </div>
       </footer>
 
       {/* Legal Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-depth-1 border-white/10 text-white">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-serif">
+            <DialogTitle className="text-2xl font-serif text-gold">
               {activeModal && legalContent[activeModal].title}
             </DialogTitle>
           </DialogHeader>
           <div
-            className="prose prose-sm max-w-none text-muted-foreground [&>h3]:text-foreground [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1 [&>p]:mb-4"
+            className="prose prose-invert prose-sm max-w-none text-white/70 [&>h3]:text-white [&>h3]:font-serif [&>h3]:mt-6 [&>h3]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1 [&>p]:mb-4"
             dangerouslySetInnerHTML={{
               __html: activeModal ? legalContent[activeModal].content : '',
             }}

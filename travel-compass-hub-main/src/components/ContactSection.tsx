@@ -1,25 +1,27 @@
+
 import { useState } from 'react';
 import GoogleMapEmbed from './GoogleMapEmbed';
 import CustomerGallery from './CustomerGallery';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ShieldCheck, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
 import { useBotProtection } from '@/hooks/useBotProtection';
 import { contactFormSchema, sanitizeUrlParam } from '@/lib/validation';
+import { motion } from 'framer-motion';
 
 const PHONE_NUMBER = '919406182174';
 
 const contactInfo = [
   {
     icon: MapPin,
-    title: 'Visit Us',
+    title: 'Visit Our Lounge',
     details: ['GE Road, In Front of Petrol Pump', 'Bhilai 3, Chhattisgarh 490021'],
   },
   {
     icon: Phone,
-    title: 'Call Us',
+    title: 'Talk to an Expert',
     details: ['+91 94061 82174'],
   },
   {
@@ -29,12 +31,16 @@ const contactInfo = [
   },
   {
     icon: Clock,
-    title: 'Working Hours',
+    title: 'Personal Consultation',
     details: ['Everyday: 10:00 AM - 9:00 PM'],
   },
 ];
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  showGallery?: boolean;
+}
+
+const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,6 +48,7 @@ const ContactSection = () => {
     destination: '',
     message: '',
   });
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,7 +58,6 @@ const ContactSection = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
     }
@@ -60,7 +66,6 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Bot protection check
     if (!validateSubmission()) {
       if (isRateLimited) {
         toast({
@@ -75,7 +80,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
     setErrors({});
 
-    // Validate form data with zod
     const result = contactFormSchema.safeParse(formData);
 
     if (!result.success) {
@@ -95,13 +99,9 @@ const ContactSection = () => {
       return;
     }
 
-    // Record submission for rate limiting
     recordSubmission();
-
-    // Simulate form submission delay
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // Create sanitized WhatsApp message
     const sanitizedData = result.data;
     const message = `New Inquiry from Website:\n\nName: ${sanitizedData.name}\nEmail: ${sanitizedData.email}\nPhone: ${sanitizedData.phone}\nDestination Interest: ${sanitizedData.destination || 'Not specified'}\n\nMessage: ${sanitizedData.message}`;
 
@@ -121,190 +121,209 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-muted/30" aria-labelledby="contact-heading">
-      <div className="container">
+    <section id="contact" className="py-24 bg-gradient-to-b from-navy-deep to-black relative overflow-hidden" aria-labelledby="contact-heading">
+
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-navy-light/10 skew-x-12 pointer-events-none" />
+
+      <div className="container relative z-10 px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block text-secondary font-medium tracking-widest uppercase text-sm mb-4">
-            Get in Touch
+        <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-up">
+          <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-4 block flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4" /> Start Your Journey
           </span>
-          <h2 id="contact-heading" className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            Start Planning Your Dream Trip
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+            Let's Plan Your <span className="text-gradient-gold">Dream Escape</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Ready to explore? Reach out to us and let's craft your perfect travel experience together.
+          <p className="text-white/60 text-lg font-light leading-relaxed">
+            Whether you know exactly where you want to go or need inspiration, our travel designers are here to guide you.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
-            {contactInfo.map((info) => (
-              <div
-                key={info.title}
-                className="glass-card p-6 flex items-start gap-4 hover:shadow-elevated transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <info.icon className="w-6 h-6 text-secondary" />
+          <div className="lg:col-span-2 space-y-8">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+              <h3 className="text-xl font-serif font-bold text-white mb-6">Connect With Us</h3>
+              {contactInfo.map((info) => (
+                <div
+                  key={info.title}
+                  className="flex items-start gap-4 mb-6 last:mb-0 group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                    <info.icon className="w-5 h-5 text-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white/90 mb-1">{info.title}</h3>
+                    {info.details.map((detail, index) => (
+                      <p key={index} className="text-white/60 text-sm">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                  {info.details.map((detail, index) => (
-                    <p key={index} className="text-muted-foreground text-sm">
-                      {detail}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             {/* Quick WhatsApp CTA */}
-            <div className="glass-card p-6 bg-secondary/5 border-secondary/20">
-              <h3 className="font-semibold text-foreground mb-2">Need Instant Assistance?</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Chat directly with our travel experts on WhatsApp for quick responses.
+            <div className="bg-gradient-to-r from-green-900/40 to-green-800/20 backdrop-blur-md rounded-2xl p-8 border border-green-500/20">
+              <h3 className="font-serif font-bold text-white mb-2">Instant Response?</h3>
+              <p className="text-white/70 text-sm mb-6">
+                Skip the form and chat directly with our priority support team on WhatsApp.
               </p>
-              <Button onClick={handleWhatsAppDirect} className="btn-gold w-full gap-2">
+              <Button onClick={handleWhatsAppDirect} className="bg-green-600 hover:bg-green-700 text-white w-full gap-2 h-12 shadow-lg hover:shadow-green-500/20 transition-all">
                 <MessageCircle className="w-5 h-5" />
-                Chat on WhatsApp
+                Chat Now
               </Button>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10">
-              <div className="flex items-center gap-2 mb-6">
-                <h3 className="text-2xl font-serif font-bold text-foreground">
-                  Send Us an Inquiry
-                </h3>
-                <ShieldCheck className="w-5 h-5 text-green-500" aria-label="Secure form" />
-              </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-navy-light/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+            >
+              {/* Gold accent line */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
 
-              {/* Honeypot field - hidden from humans, traps bots */}
-              <input {...honeypotProps} type="text" />
+              <form onSubmit={handleSubmit}>
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold text-white">
+                      Send an Inquiry
+                    </h3>
+                    <p className="text-white/50 text-sm mt-1">We typically reply within 30 minutes.</p>
+                  </div>
+                  <ShieldCheck className="w-6 h-6 text-emerald-500/80" aria-label="Secure form" />
+                </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
+                {/* Honeypot */}
+                <input {...honeypotProps} type="text" />
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                      Full Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. Rahul Verma"
+                      required
+                      maxLength={100}
+                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.name ? 'border-red-500' : ''}`}
+                    />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                      Email Address
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="rahul@example.com"
+                      required
+                      maxLength={255}
+                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.email ? 'border-red-500' : ''}`}
+                    />
+                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                      Phone Number
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 91234 56789"
+                      required
+                      maxLength={15}
+                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.phone ? 'border-red-500' : ''}`}
+                    />
+                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="destination" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                      Destination
+                    </label>
+                    <Input
+                      id="destination"
+                      name="destination"
+                      value={formData.destination}
+                      onChange={handleChange}
+                      placeholder="Where do you want to go?"
+                      maxLength={100}
+                      className="bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-8">
+                  <label htmlFor="message" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                    Your Requirements
                   </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder="Tell us about your dates, preferences, and any special requests..."
+                    rows={5}
                     required
-                    maxLength={100}
-                    className={`bg-background/50 ${errors.name ? 'border-red-500' : ''}`}
+                    maxLength={1000}
+                    className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 min-h-[140px] focus:border-gold/50 ${errors.message ? 'border-red-500' : ''}`}
                   />
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    required
-                    maxLength={255}
-                    className={`bg-background/50 ${errors.email ? 'border-red-500' : ''}`}
-                  />
-                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-                </div>
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+91 94061 82174"
-                    required
-                    maxLength={15}
-                    className={`bg-background/50 ${errors.phone ? 'border-red-500' : ''}`}
-                  />
-                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
-                </div>
-                <div>
-                  <label htmlFor="destination" className="block text-sm font-medium text-foreground mb-2">
-                    Interested Destination
-                  </label>
-                  <Input
-                    id="destination"
-                    name="destination"
-                    value={formData.destination}
-                    onChange={handleChange}
-                    placeholder="e.g., Bali, Switzerland"
-                    maxLength={100}
-                    className="bg-background/50"
-                  />
-                </div>
-              </div>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-gold w-full h-14 text-lg shadow-lg hover:shadow-gold/20"
+                >
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Plan My Trip
+                    </>
+                  )}
+                </Button>
 
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Your Message *
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your travel preferences, dates, and any special requirements..."
-                  rows={5}
-                  required
-                  maxLength={1000}
-                  className={`bg-background/50 ${errors.message ? 'border-red-500' : ''}`}
-                />
-                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-ocean w-full gap-2 py-6"
-              >
-                {isSubmitting ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Inquiry
-                  </>
-                )}
-              </Button>
-
-              <p className="text-sm text-muted-foreground text-center mt-4">
-                By submitting, you agree to our{' '}
-                <a href="/privacy-policy" className="text-secondary hover:underline">
-                  Privacy Policy
-                </a>{' '}
-                and{' '}
-                <a href="/terms-conditions" className="text-secondary hover:underline">
-                  Terms of Service
-                </a>
-              </p>
-            </form>
+                <p className="text-xs text-white/30 text-center mt-6">
+                  Strictly confidential. We do not share your data.
+                </p>
+              </form>
+            </motion.div>
           </div>
         </div>
 
-        {/* Google Map Embed */}
-        <div className="mt-16 max-w-4xl mx-auto space-y-8">
-          <GoogleMapEmbed lazyLoad={true} />
-          <CustomerGallery />
+        {/* Google Map Embed & Optional Gallery */}
+        <div className="mt-20 max-w-5xl mx-auto space-y-12">
+          <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-[400px]">
+            <GoogleMapEmbed lazyLoad={true} />
+          </div>
+          {showGallery && (
+            <div className="animate-fade-up">
+              <CustomerGallery />
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -312,3 +331,4 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+

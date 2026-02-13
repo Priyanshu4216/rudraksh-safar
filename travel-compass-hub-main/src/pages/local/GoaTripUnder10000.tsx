@@ -6,6 +6,7 @@ import ContentSection from '../../components/ContentSection';
 import FAQSection from '../../components/FAQsSection';
 import BookingCTA from '../../components/BookingCTA';
 import { Wallet, Train, Hotel, Coffee } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const GoaTripUnder10000 = () => {
     return (
@@ -74,6 +75,14 @@ const GoaTripUnder10000 = () => {
                             <li><strong>Eat at Shack vs Street:</strong> Beach shacks are expensive. Eat thalis at local Goan joints (Ros Omelette!) for ₹150.</li>
                             <li><strong>No Alcohol in Clubs:</strong> Pre-game responsibly. Club drinks are 5x market price.</li>
                         </ul>
+                        <div className="mt-4 space-y-2"> {/* Added a div for the links for better structure */}
+                            <Link to="/goa-cheap-trip-guide" className="text-blue-600 hover:underline block">
+                                Read: How to plan a cheap Goa trip guide?
+                            </Link>
+                            <Link to="/goa-budget-itinerary-from-bhilai" className="text-blue-600 hover:underline block">
+                                View: Day-by-Day Budget Itinerary (PDF)
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </ContentSection>

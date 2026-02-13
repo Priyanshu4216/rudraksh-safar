@@ -10,6 +10,8 @@ import SecurityProvider from "./components/SecurityProvider";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import ReloadPrompt from "./components/ReloadPrompt";
 import Index from "./pages/Index";
+import HomeRedesign from "./pages/HomeRedesign";
+import SearchExperience from "./pages/SearchExperience";
 import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
@@ -104,6 +106,7 @@ const GoaPackageFromDurg = lazy(() => import("./pages/local/GoaPackageFromDurg")
 const GoaTripFromSupela = lazy(() => import("./pages/local/GoaTripFromSupela"));
 const GoaTripUnder10000 = lazy(() => import("./pages/local/GoaTripUnder10000"));
 const GoaCheapTripGuide = lazy(() => import("./pages/local/GoaCheapTripGuide"));
+const GoaBudgetItinerary = lazy(() => import("./pages/local/GoaBudgetItinerary"));
 const TrainVsFlightGoa = lazy(() => import("./pages/local/TrainVsFlightGoa"));
 const NorthVsSouthGoa = lazy(() => import("./pages/local/NorthVsSouthGoa"));
 const ManaliTourPackageFromBhilai = lazy(() => import("./pages/local/ManaliTourPackageFromBhilai"));
@@ -222,7 +225,9 @@ const App = () => (
             <GlobalError>
               <Suspense fallback={<GlobalLoader />}>
                 <Routes>
-                  <Route path="/" element={<Index />} />
+                  <Route path="/" element={<HomeRedesign />} />
+                  <Route path="/search" element={<SearchExperience />} />
+                  <Route path="/old-home" element={<Index />} />
                   <Route path="/domestic-packages" element={<DomesticPackages />} />
                   <Route path="/international-packages" element={<InternationalPackages />} />
                   <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
@@ -360,7 +365,7 @@ const App = () => (
                   {/* Local SEO Routes */}
                   <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
                   <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
-                  <Route path="/tour-packages-bhilai" element={<TourPackagesBhilai />} />
+                  <Route path="/tour-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai" replace />} />
                   <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
                   <Route path="/tour-packages-from-bhilai/weekend-getaways" element={<WeekendGetawaysBhilai />} />
                   <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
@@ -401,6 +406,7 @@ const App = () => (
                   <Route path="/goa-trip-from-supela" element={<GoaTripFromSupela />} />
                   <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} />
                   <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
+                  <Route path="/goa-budget-itinerary-from-bhilai" element={<GoaBudgetItinerary />} />
                   <Route path="/train-vs-flight-goa-from-cg" element={<TrainVsFlightGoa />} />
                   <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} />
                   <Route path="/manali-tour-package-from-bhilai" element={<ManaliTourPackageFromBhilai />} />

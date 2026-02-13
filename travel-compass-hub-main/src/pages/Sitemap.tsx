@@ -12,6 +12,37 @@ import { getAllCategories } from './blog/BlogData';
 
 const Sitemap = () => {
     // Content Data
+    // Content Data
+
+    const goaSpecials = [
+        { name: 'Goa Packages from Bhilai', href: '/goa-tour-package-from-bhilai', desc: 'Complete Goa guide from Bhilai' },
+        { name: 'Goa Packages from Raipur', href: '/goa-package-from-raipur', desc: 'Raipur to Goa trips' },
+        { name: 'Goa Packages from Durg', href: '/goa-package-from-durg', desc: 'Durg departure special' },
+        { name: 'Goa Trip from Supela', href: '/goa-trip-from-supela', desc: 'Local area pick-up' },
+        { name: 'Goa Trip Under ₹10,000', href: '/goa-trip-under-10000-from-bhilai', desc: 'Budget challenge guide' },
+        { name: 'Cheapest Way to Goa', href: '/goa-cheap-trip-guide', desc: 'Money saving hacks' },
+        { name: '3 Day Budget Itinerary', href: '/goa-budget-itinerary-from-bhilai', desc: 'Plan for short trips' },
+        { name: 'Train vs Flight to Goa', href: '/train-vs-flight-goa-from-cg', desc: 'Travel mode comparison' },
+        { name: 'North vs South Goa', href: '/north-vs-south-goa-from-cg', desc: 'Which part of Goa is for you?' },
+    ];
+
+    const localDestinations = [
+        { name: 'Kashmir from Bhilai', href: '/kashmir-tour-package-from-bhilai', desc: 'Paradise on Earth packages' },
+        { name: 'Manali from Bhilai', href: '/manali-tour-package-from-bhilai', desc: 'Himachal adventure tours' },
+        { name: 'Kerala from Bhilai', href: '/kerala-tour-package-from-bhilai', desc: 'God\'s Own Country trips' },
+        { name: 'Rajasthan from Bhilai', href: '/rajasthan-tour-package-from-bhilai', desc: 'Royal heritage tours' },
+        { name: 'Andaman from Bhilai', href: '/andaman-tour-package-from-bhilai', desc: 'Island getaway packages' },
+        { name: 'Thailand from Bhilai', href: '/thailand-tour-package-from-bhilai', desc: 'Direct international trips' },
+        { name: 'Dubai from Bhilai', href: '/dubai-tour-package-from-bhilai', desc: 'Desert safari & city tours' },
+        { name: 'Singapore from Bhilai', href: '/singapore-tour-package-from-bhilai', desc: 'Lion City packages' },
+        { name: 'Nepal from Bhilai', href: '/nepal-tour-package-from-bhilai', desc: 'Himalayan neighbours' },
+        { name: 'Sri Lanka from Bhilai', href: '/sri-lanka-tour-package-from-bhilai', desc: 'Tropical island tours' },
+        { name: 'Bali from Bhilai', href: '/bali-tour-package-from-bhilai', desc: 'Indonesian escape' },
+        { name: 'Bali from Raipur', href: '/bali-tour-package-from-raipur', desc: 'Raipur departure options' },
+        { name: 'Sri Lanka from Raipur', href: '/sri-lanka-tour-package-from-raipur', desc: 'Raipur to Colombo' },
+    ];
+
+    // Merge new sections into main list
     const sections = [
         {
             title: "Main Pages",
@@ -39,13 +70,25 @@ const Sitemap = () => {
                 { name: 'Budget Tour Packages', href: '/budget-tour-packages', desc: 'Affordable travel options' },
                 { name: 'Summer Holiday Packages', href: '/summer-holiday-packages', desc: 'Seasonal vacation planning' },
                 { name: 'Group Tour Packages', href: '/group-tour-packages', desc: 'Travel for families, friends, and organisations' },
-                { name: 'Island Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' }, // Renaming Beach to Island/Beach for var
+                { name: 'Island Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' },
                 { name: 'Mountain Holiday Packages', href: '/mountain-holiday-packages', desc: 'Hill stations and mountain travel' },
             ]
         },
         {
-            title: "Char Dham Yatra (Pilgrimage)",
-            description: "Complete spiritual guide and booking for Uttarakhand's holy circuit.",
+            title: "Goa Specials (Bhilai & Raipur)",
+            description: "Complete guide for Chhattisgarh to Goa travel - Budget, Luxury & Itineraries.",
+            icon: Sparkles,
+            links: goaSpecials
+        },
+        {
+            title: "Popular Destinations from Chhattisgarh",
+            description: "Dedicated tour packages starting directly from Bhilai, Durg & Raipur.",
+            icon: MapPin,
+            links: localDestinations
+        },
+        {
+            title: "Char Dham Yatra & Panch Kedar",
+            description: "Complete spiritual guide including Chota Char Dham and Panch Kedar temples.",
             icon: Map,
             links: [
                 { name: 'Char Dham Yatra Packages', href: '/chardham-yatra-package', desc: 'The Ultimate Pilgrim\'s Guide' },
@@ -54,8 +97,14 @@ const Sitemap = () => {
                 { name: 'Badrinath Temple Guide', href: '/badrinath-temple', desc: 'Temple & Accessibility' },
                 { name: 'Gangotri Temple Guide', href: '/gangotri-temple', desc: 'Origin of Ganga' },
                 { name: 'Yamunotri Temple Guide', href: '/yamunotri-temple', desc: 'First Dham Information' },
+                { name: 'Tungnath Temple', href: '/tungnath-temple', desc: 'Highest Shiva Temple' },
+                { name: 'Rudranath Temple', href: '/rudranath-temple', desc: 'Nature Trek' },
+                { name: 'Madhyamaheshwar Temple', href: '/madhyamaheshwar-temple', desc: 'Scenic Pilgrimage' },
+                { name: 'Kalpeshwar Temple', href: '/kalpeshwar-temple', desc: 'Accessible All Year' },
                 { name: 'Yatra Route Map', href: '/chardham-yatra-route-map', desc: 'Visual Map & Distances' },
                 { name: 'Is Yatra Safe?', href: '/is-chardham-yatra-safe', desc: 'Safety & Medical Guide' },
+                { name: 'Yatra Price Guide', href: '/chardham-yatra-price', desc: 'Cost estimation' },
+                { name: 'Packing List', href: '/what-to-pack-for-chardham-yatra', desc: 'Essential items checklist' },
                 { name: 'Registration Process', href: '/chardham-yatra-registration-process', desc: 'Step-by-step permit guide' },
                 { name: 'Yatra for Seniors', href: '/chardham-yatra-for-seniors', desc: 'Elderly care guide' },
                 { name: 'Yatra from Bhilai', href: '/chardham-yatra-from-bhilai', desc: 'Train & Flight info' },
@@ -136,6 +185,7 @@ const Sitemap = () => {
                 { name: 'Where To Go From Bhilai', href: '/guides/where-to-go-from-bhilai', desc: 'Weekend & Long Trip Guide' },
                 { name: 'Goa vs Manali', href: '/comparisons/goa-vs-manali-from-chhattisgarh', desc: 'Detailed cost & vibe comparison' },
                 { name: 'Pattaya vs Phuket', href: '/comparisons/pattaya-vs-phuket', desc: 'Which Thai beach city is for you?' },
+                { name: 'Dubai vs Abu Dhabi', href: '/comparisons/dubai-vs-abu-dhabi', desc: 'UAE City Showdown' },
             ]
         },
         {

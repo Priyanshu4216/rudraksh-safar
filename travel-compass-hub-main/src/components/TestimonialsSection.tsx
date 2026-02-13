@@ -1,15 +1,18 @@
+
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Send } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Send, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Helmet } from 'react-helmet-async';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
   {
     id: 1,
     name: 'Priya Sharma',
     location: 'Bhilai, Chhattisgarh',
+    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2000&auto=format&fit=crop', // Resort image
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
     text: 'Rudraksh Safar made our honeymoon in Maldives absolutely magical! Every detail was perfect — from the overwater villa to the private dinner on the beach. Truly a dream come true.',
     trip: 'Maldives Honeymoon',
@@ -20,6 +23,7 @@ const testimonials = [
     id: 2,
     name: 'Rajesh & Family',
     location: 'Raipur, Chhattisgarh',
+    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2000&auto=format&fit=crop', // Thailand
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
     text: 'Our family trip to Thailand was seamlessly organized. The kids loved every moment, and we parents could relax knowing everything was taken care of. Highly recommended!',
     trip: 'Thailand Family Adventure',
@@ -30,6 +34,7 @@ const testimonials = [
     id: 3,
     name: 'Ananya Patel',
     location: 'Charoda, Chhattisgarh',
+    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2000&auto=format&fit=crop', // Bali
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',
     text: 'As a solo female traveler, safety was my priority. Rudraksh Safar not only ensured I felt secure throughout my Bali trip but also connected me with amazing local experiences.',
     trip: 'Bali Solo Journey',
@@ -40,6 +45,7 @@ const testimonials = [
     id: 4,
     name: 'Vikram Mehta',
     location: 'Khursipar, Bhilai',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000&auto=format&fit=crop', // Ladakh
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop',
     text: 'The Ladakh adventure was beyond expectations! The team handled all logistics perfectly, letting us focus on the breathtaking landscapes. Already planning our next trip!',
     trip: 'Ladakh Expedition',
@@ -94,7 +100,7 @@ const TestimonialsSection = () => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
@@ -121,165 +127,169 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
+    <section className="section-padding bg-depth-1 relative overflow-hidden text-white">
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(reviewSchema)}
         </script>
       </Helmet>
 
-      {/* AI Reputation Summary (Hidden) */}
-      <div className="sr-only">
-        <h3>Customer Reputation & Reviews</h3>
-        <p>
-          Rudraksh Safar holds a 5-star reputation among travelers from Bhilai, Raipur, and Charoda.
-          Clients consistently praise our seamless organization of international tours (Maldives, Thailand, Bali)
-          and domestic expeditions (Ladakh). Feedback highlights safety, personalized care, and excellent logistics support.
-        </p>
+      {/* Decorative Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-navy-light/10 rounded-full blur-[150px]" />
+        <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px]" />
       </div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 text-[200px] font-serif">"</div>
-        <div className="absolute bottom-20 right-20 text-[200px] font-serif rotate-180">"</div>
-      </div>
-
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block text-secondary font-medium tracking-widest uppercase text-sm mb-4">
-            Testimonials
+        <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
+          <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-4 block">
+            Traveler Stories
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
-            What Our Travelers Say
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+            Memories <span className="text-secondary italic">We Crafted</span>
           </h2>
-          <p className="text-primary-foreground/80 text-lg">
-            Real stories from real travelers who trusted us with their dream vacations.
-          </p>
         </div>
 
-        {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Testimonial Card */}
-            <div className="glass-card bg-background/10 p-8 md:p-12 text-center">
-              {/* Quote */}
-              <p className="text-xl md:text-2xl font-serif leading-relaxed mb-8 text-primary-foreground">
-                "{testimonials[currentIndex].text}"
-              </p>
-
-              {/* Trip Badge */}
-              <div className="inline-block bg-secondary/20 px-4 py-2 rounded-full text-sm font-medium text-secondary mb-6">
-                {testimonials[currentIndex].trip}
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center justify-center gap-4">
-                <img
-                  src={testimonials[currentIndex].avatar}
-                  alt={testimonials[currentIndex].name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-secondary"
+        {/* Featured Testimonial - Split Layout */}
+        <div className="max-w-6xl mx-auto bg-navy-deep/50 backdrop-blur-md border border-white/5 rounded-3xl overflow-hidden shadow-2xl relative">
+          <div className="grid lg:grid-cols-2">
+            {/* Image Side */}
+            <div className="relative h-[400px] lg:h-[500px] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  src={testimonials[currentIndex].image}
+                  alt={testimonials[currentIndex].trip}
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="text-left">
-                  <p className="font-semibold text-primary-foreground">
-                    {testimonials[currentIndex].name}
-                  </p>
-                  <p className="text-sm text-primary-foreground/70">
-                    {testimonials[currentIndex].location}
-                  </p>
-                </div>
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-transparent opacity-60 lg:opacity-0" />
+
+              {/* Navigation Buttons (Over Image on Mobile) */}
+              <div className="absolute bottom-4 right-4 flex gap-2 lg:hidden">
+                <Button size="icon" variant="secondary" onClick={prevSlide} className="rounded-full h-10 w-10 bg-white/10 backdrop-blur text-white hover:bg-gold hover:text-navy-deep border-none">
+                  <ChevronLeft className="w-5 h-5" />
+                </Button>
+                <Button size="icon" variant="secondary" onClick={nextSlide} className="rounded-full h-10 w-10 bg-white/10 backdrop-blur text-white hover:bg-gold hover:text-navy-deep border-none">
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
               </div>
             </div>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 rounded-full bg-background/10 backdrop-blur flex items-center justify-center hover:bg-background/20 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 rounded-full bg-background/10 backdrop-blur flex items-center justify-center hover:bg-background/20 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
+            {/* Content Side */}
+            <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
+              <Quote className="absolute top-10 left-10 text-gold/10 w-24 h-24 -translate-x-1/2 -translate-y-1/2" />
 
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
-                  ? 'bg-secondary w-8'
-                  : 'bg-primary-foreground/30 hover:bg-primary-foreground/50'
-                  }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex items-center gap-2 mb-6 text-gold">
+                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+
+                  <p className="text-xl md:text-2xl font-serif leading-relaxed text-white mb-8 relative z-10">
+                    "{testimonials[currentIndex].text}"
+                  </p>
+
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={testimonials[currentIndex].avatar}
+                      alt={testimonials[currentIndex].name}
+                      className="w-14 h-14 rounded-full border-2 border-gold/30 object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-white text-lg">{testimonials[currentIndex].name}</h4>
+                      <p className="text-white/60 text-sm mb-1">{testimonials[currentIndex].location}</p>
+                      <p className="text-gold text-xs font-bold uppercase tracking-wider">{testimonials[currentIndex].trip}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Desktop Navigation */}
+              <div className="hidden lg:flex gap-3 absolute bottom-12 right-12">
+                <Button size="icon" variant="outline" onClick={prevSlide} className="rounded-full h-12 w-12 border-white/10 text-white hover:bg-gold hover:text-navy-deep hover:border-gold transition-all">
+                  <ChevronLeft className="w-5 h-5" />
+                </Button>
+                <Button size="icon" variant="outline" onClick={nextSlide} className="rounded-full h-12 w-12 border-white/10 text-white hover:bg-gold hover:text-navy-deep hover:border-gold transition-all">
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Submit Feedback Section */}
-        <div className="max-w-2xl mx-auto mt-16">
-          {!showFeedbackForm ? (
-            <div className="text-center">
-              <Button
-                onClick={() => setShowFeedbackForm(true)}
-                className="btn-gold gap-2"
+        {/* Feedback CTA/Form */}
+        <div className="max-w-2xl mx-auto mt-20">
+          <div className="text-center">
+            {!showFeedbackForm ? (
+              <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+                <p className="text-white/60 mb-6">Have you traveled with us recently?</p>
+                <Button
+                  onClick={() => setShowFeedbackForm(true)}
+                  className="btn-gold h-14 px-8 text-lg"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Share Your Story
+                </Button>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-navy-light/50 backdrop-blur-md rounded-2xl p-8 border border-white/10"
               >
-                <Send className="w-4 h-4" />
-                Share Your Experience
-              </Button>
-            </div>
-          ) : (
-            <div className="glass-card bg-background/10 p-6 md:p-8">
-              <h3 className="text-xl font-serif font-bold text-center mb-6">Share Your Feedback</h3>
-              <div className="space-y-4">
-                <Input
-                  placeholder="Your Name"
-                  value={feedbackData.name}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, name: e.target.value })}
-                  className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  aria-label="Your Name"
-                />
-                <Input
-                  placeholder="Your Location (e.g., Bhilai, Raipur)"
-                  value={feedbackData.location}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, location: e.target.value })}
-                  className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  aria-label="Your Location"
-                />
-                <Textarea
-                  placeholder="Tell us about your travel experience..."
-                  value={feedbackData.message}
-                  onChange={(e) => setFeedbackData({ ...feedbackData, message: e.target.value })}
-                  className="bg-background/20 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 min-h-[120px]"
-                  aria-label="Your Feedback"
-                />
-                <div className="flex gap-3 justify-end">
-                  <Button
-                    variant="outline"
-                    onClick={() => setShowFeedbackForm(false)}
-                    className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={handleSubmitFeedback}
-                    className="btn-gold"
-                    disabled={!feedbackData.name || !feedbackData.message}
-                  >
-                    Submit Feedback
-                  </Button>
+                <h3 className="text-xl font-serif font-bold text-white mb-6">Write a Review</h3>
+                <div className="space-y-4 text-left">
+                  <Input
+                    placeholder="Your Name"
+                    value={feedbackData.name}
+                    onChange={(e) => setFeedbackData({ ...feedbackData, name: e.target.value })}
+                    className="bg-navy-deep border-white/10 text-white h-12"
+                  />
+                  <Input
+                    placeholder="Where are you from?"
+                    value={feedbackData.location}
+                    onChange={(e) => setFeedbackData({ ...feedbackData, location: e.target.value })}
+                    className="bg-navy-deep border-white/10 text-white h-12"
+                  />
+                  <Textarea
+                    placeholder="Tell us about your experience..."
+                    value={feedbackData.message}
+                    onChange={(e) => setFeedbackData({ ...feedbackData, message: e.target.value })}
+                    className="bg-navy-deep border-white/10 text-white min-h-[120px]"
+                  />
+                  <div className="flex gap-4 justify-end">
+                    <Button
+                      variant="ghost"
+                      onClick={() => setShowFeedbackForm(false)}
+                      className="text-white/60 hover:text-white"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={handleSubmitFeedback}
+                      className="btn-gold"
+                    >
+                      Submit
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
     </section>

@@ -1,399 +1,123 @@
-import { Sparkles, Globe, ArrowRight } from 'lucide-react';
+import { Search, MapPin, Calendar, Star, ShieldCheck, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useEffect, useMemo, useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
-import heroVideo from '@/assets/hero-poster.jpg'; // Flashback for safe import (user's code used separate imports, checking prev file content)
-// Logic check: The previous file imported heroVideo from .mp4 and heroPoster from .jpg. 
-// I must maintain those imports exactly.
-// Re-importing correctly based on previous view_file.
-
+import { HERO_CONTENT } from '@/data/homeRedesignData';
+import posterImage from '@/assets/hero-poster.jpg';
 import heroVideoFile from '@/assets/hero-video.mp4';
-import heroPosterImage from '@/assets/hero-poster.jpg';
+import { useState } from 'react';
 
-interface HeroSectionProps {
-  title?: string;
-  subtitle?: string;
-  backgroundImage?: string;
-  ctaText?: string;
-  ctaLink?: string;
-}
+import { useNavigate, Link } from 'react-router-dom';
 
-const HeroSection = ({ title, subtitle, backgroundImage, ctaText, ctaLink }: HeroSectionProps = {}) => {
-  // If custom props are provided, render the Generic Hero version
-  if (title) {
-    return (
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-10" />
-          <img
-            src={backgroundImage || heroPosterImage}
-            alt={title}
-            className="w-full h-full object-cover scale-105"
-            loading="eager"
-          />
-        </div>
-
-        <div className="container relative z-20 px-4 pt-20 text-center">
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {title}
-          </motion.h1>
-
-          {subtitle && (
-            <motion.p
-              className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              {subtitle}
-            </motion.p>
-          )}
-
-          {ctaText && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold h-14 px-8 rounded-full text-lg" asChild>
-                <a href={ctaLink || "#contact"}>
-                  {ctaText} <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-            </motion.div>
-          )}
-        </div>
-      </section>
-    );
-  }
-
-  // Original Home Hero Implementation
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Schema for Primary Entity Declaration
-  const heroSchema = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "@id": "https://rudrakshsafar.com/#travelagency",
-    "name": "Rudraksh Safar",
-    "foundingDate": "2015",
-    "url": "https://rudrakshsafar.com",
-    "description": "Rudraksh Safar is Bhilai's most trusted travel agency, offering customized domestic and international tour packages since 2015.",
-    "knowsAbout": ["International Tour Packages", "Domestic Holiday Packages", "Visa Assistance", "Flight Booking"],
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Chhattisgarh"
-    },
-    "potentialAction": {
-      "@type": "BookTrip",
-      "target": "https://rudrakshsafar.com/#packages"
-    }
-  };
-
-  // Save-Data + slow connection aware: don't force video on 2G/3G.
-  const shouldUseVideo = useMemo(() => {
-    try {
-      const nav = navigator as Navigator & {
-        connection?: {
-          effectiveType?: string;
-          saveData?: boolean;
-        };
-      };
-      const effectiveType = nav.connection?.effectiveType;
-      const saveData = nav.connection?.saveData;
-      const slow = effectiveType === 'slow-2g' || effectiveType === '2g' || effectiveType === '3g';
-      return !saveData && !slow;
-    } catch {
-      return true;
-    }
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"]
-  });
-
-  // 3D Parallax transforms
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const videoY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.5, 0]);
-
-  // Content parallax - moves faster than video
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-
-  // 3D perspective rotation
-  const rotateX = useTransform(scrollYProgress, [0, 0.5], [0, 15]);
-
-  // Stats parallax
-  const statsY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const statsOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  // Badge parallax
-  const badgeY = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const badgeScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Handle video loaded
-  useEffect(() => {
-    if (!shouldUseVideo) return;
-    const video = videoRef.current;
-    if (video) {
-      const handleCanPlay = () => setVideoLoaded(true);
-      video.addEventListener('canplay', handleCanPlay);
-      if (video.readyState >= 3) {
-        setVideoLoaded(true);
-      }
-      return () => video.removeEventListener('canplay', handleCanPlay);
-    }
-  }, [shouldUseVideo]);
-
-  const handleScroll = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const HeroSection = () => {
+  const navigate = useNavigate();
 
   return (
-    <section
-      ref={sectionRef}
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ perspective: '1000px' }}
-      aria-label="Rudraksh Safar Homepage Hero"
-    >
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(heroSchema)}
-        </script>
-      </Helmet>
+    <section className="relative h-[100vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#0B1220]">
+      {/* --- Cinematic Background Layer --- */}
+      <div className="absolute inset-0 z-0 select-none">
+        <div className="absolute inset-0 bg-gradient-hero z-20 pointer-events-none mix-blend-multiply opacity-80" />
+        {/* Soft Vignette for focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,18,32,0.6)_100%)] z-10 pointer-events-none" />
 
-      {/* AI Context Summary (Hidden) */}
-      <div className="sr-only">
-        <h1>Rudraksh Safar - Trusted Travel Agency in Bhilai</h1>
-        <p>
-          Welcome to the official website of Rudraksh Safar, your premier travel partner in Chhattisgarh.
-          Established in 2015, we specialize in organizing seamless domestic and international holidays
-          for travelers from Bhilai, Durg, and Raipur. Explore our curated tour packages and expert services.
-        </p>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={posterImage}
+          className="w-full h-full object-cover scale-105 animate-slow-zoom"
+        >
+          <source src={heroVideoFile} type="video/mp4" />
+        </video>
+        {/* Bottom Fade for Smooth Transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent z-20" />
       </div>
 
-      {/* Video Background with 3D Parallax */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          scale: videoScale,
-          y: videoY,
-          opacity: videoOpacity,
-        }}
-      >
-        <motion.div
-          className="absolute inset-0 transition-transform duration-300 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * 0.3}px, ${mousePosition.y * 0.3}px)`,
-          }}
-        >
-          {/* Always show poster first */}
-          <img
-            src={heroPosterImage}
-            alt="Scenic travel destination background"
-            className={`w-full h-full object-cover scale-110 transition-opacity duration-500 ${shouldUseVideo ? (videoLoaded ? 'opacity-0' : 'opacity-100') : 'opacity-100'
-              }`}
-            loading="eager"
-          />
+      {/* --- Content Layer --- */}
+      <div className="relative z-30 container px-4 flex flex-col items-center justify-center text-center pt-10">
 
-          {shouldUseVideo ? (
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-hidden="true"
-              title="Rudraksh Safar - Beautiful travel destinations background video"
-              className={`absolute inset-0 w-full h-full object-cover scale-110 transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-              onLoadedData={() => setVideoLoaded(true)}
-              onCanPlayThrough={() => setVideoLoaded(true)}
+        {/* Brand Label */}
+        <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gold text-xs font-bold tracking-[0.2em] uppercase mb-8 animate-fade-in shadow-lg">
+          World Class Travel
+        </span>
+
+        {/* Headline - Emotional & Cinematic */}
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold text-white mb-8 leading-[1.05] drop-shadow-2xl max-w-6xl mx-auto animate-fade-up">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70">
+            {HERO_CONTENT.title}
+          </span>
+        </h1>
+
+        {/* Subtitle - clean & spaced */}
+        <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed font-light tracking-wide animate-fade-up delay-100 mix-blend-screen">
+          {HERO_CONTENT.subtitle}
+        </p>
+
+        {/* Luxury Glass Search Bar */}
+        <div className="w-full max-w-2xl animate-fade-up delay-200 relative z-40">
+          <Link to="/search" className="block relative group cursor-pointer">
+            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 via-white/10 to-gold/20 rounded-full opacity-50 blur-lg group-hover:opacity-100 transition duration-1000"></div>
+            <div
+              className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full p-2 shadow-2xl transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-[1.01]"
             >
-              <source src={heroVideoFile} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          ) : null}
-        </motion.div>
-
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/5" />
-      </motion.div>
-
-      {/* Animated Glow Orbs with parallax */}
-      <motion.div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
-      >
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-[120px] animate-pulse"
-          style={{ animationDuration: '4s' }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[140px] animate-pulse"
-          style={{ animationDuration: '6s', animationDelay: '2s' }}
-        />
-      </motion.div>
-
-      {/* Animated Grid Overlay */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--secondary) / 0.5) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary) / 0.5) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-          y: useTransform(scrollYProgress, [0, 1], [0, 50])
-        }}
-      />
-
-      {/* Main Content with 3D Transform */}
-      <motion.div
-        className="container relative z-10 text-center pt-20"
-        style={{
-          y: contentY,
-          opacity: contentOpacity,
-          scale: contentScale,
-          rotateX: rotateX,
-          transformStyle: 'preserve-3d'
-        }}
-      >
-        <div className="max-w-5xl mx-auto">
-          {/* Animated Badge with separate parallax */}
-          <motion.div
-            className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-10 border border-white/20 group hover:border-secondary/60 transition-all duration-500 cursor-default"
-            style={{ y: badgeY, scale: badgeScale }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <Sparkles className="w-5 h-5 text-secondary animate-pulse" />
-                <div className="absolute inset-0 w-5 h-5 bg-secondary/30 blur-md animate-pulse" />
+              <div className="pl-6 text-gold">
+                <MapPin className="w-5 h-5" />
               </div>
-              <span className="text-sm font-medium text-white tracking-wide">Premium Travel Experiences</span>
-            </div>
-            <div className="w-px h-4 bg-white/30" />
-            <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-secondary/80 animate-spin" style={{ animationDuration: '15s' }} />
-              <span className="text-sm text-white/80">Since 2015</span>
-            </div>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, z: -100 }}
-            animate={{ opacity: 1, z: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] drop-shadow-2xl mb-6">
-              <motion.span
-                className="block overflow-hidden"
-                initial={{ opacity: 0, y: 60, rotateX: -30 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Trusted Travel Agency from <span className="text-secondary drop-shadow-[0_0_30px_hsl(var(--secondary)/0.5)]">Bhilai</span>
-              </motion.span>
-            </h1>
-          </motion.div>
-
-          {/* Subheadline */}
-          <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed drop-shadow-lg font-sans"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            Best deals from Bhilai, Raipur, Durg & nearby — Domestic & International Tour Packages.
-            <span className="text-secondary font-medium block mt-2"> Call / WhatsApp for customised itineraries.</span>
-          </motion.p>
-
-          {/* CTA Buttons with 3D hover effect */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05, z: 20 }}
-              whileTap={{ scale: 0.98 }}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              <Button
-                onClick={() => handleScroll('#packages')}
-                className="btn-gold text-base px-10 py-7 group relative overflow-hidden shadow-2xl"
-              >
-                <span className="relative z-10 flex items-center gap-3 text-lg font-semibold">
-                  Explore Packages
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <div className="flex-1 text-left px-4 h-12 flex items-center text-white/80 text-lg font-light">
+                Where is your dream destination?
+              </div>
+              <Button type="button" className="rounded-full h-12 px-8 bg-gold hover:bg-gold-light text-navy-deep font-bold transition-transform hover:scale-105 shadow-lg pointer-events-none">
+                Search
               </Button>
-            </motion.div>
-
-          </motion.div>
-
-          {/* Stats Row with Staggered 3D Animation */}
-          <motion.div
-            className="grid grid-cols-3 gap-8 mt-20 max-w-3xl mx-auto"
-            style={{ y: statsY, opacity: statsOpacity }}
-          >
-            {[
-              { value: '50+', label: 'Destinations', delay: 0 },
-              { value: '10+', label: 'Years Experience', delay: 0.1 },
-              { value: '1000+', label: 'Happy Travelers', delay: 0.2 },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center group cursor-default relative"
-                initial={{ opacity: 0, y: 50, rotateY: -20 }}
-                animate={{ opacity: 1, y: 0, rotateY: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 + stat.delay }}
-                whileHover={{ scale: 1.1, z: 30 }}
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <div className="absolute inset-0 bg-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 backdrop-blur-sm" />
-                <p className="text-4xl md:text-5xl font-serif font-bold text-secondary group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_20px_hsl(var(--secondary)/0.4)]">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-white/80 mt-2 tracking-wide uppercase">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            </div>
+          </Link>
         </div>
-      </motion.div>
+
+        {/* Trust Badges - Text Style */}
+        <div className="mt-16 flex flex-wrap justify-center items-center gap-6 md:gap-12 animate-fade-in delay-300 opacity-80 hover:opacity-100 transition-opacity duration-300">
+
+          <div className="flex items-center gap-2 group cursor-default">
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+              <Star className="w-4 h-4 text-gold fill-gold" />
+            </div>
+            <div className="text-left">
+              <p className="text-white text-xs font-bold uppercase tracking-wider">4.9/5 Rated</p>
+              <p className="text-white/40 text-[10px]">Google Reviews</p>
+            </div>
+          </div>
+
+          <div className="w-px h-8 bg-white/10 hidden md:block"></div>
+
+          <div className="flex items-center gap-2 group cursor-default">
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+              <ShieldCheck className="w-4 h-4 text-gold" />
+            </div>
+            <div className="text-left">
+              <p className="text-white text-xs font-bold uppercase tracking-wider">Certified</p>
+              <p className="text-white/40 text-[10px]">Govt. Recognized</p>
+            </div>
+          </div>
+
+          <div className="w-px h-8 bg-white/10 hidden md:block"></div>
+
+          <div className="flex items-center gap-2 group cursor-default">
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+              <Award className="w-4 h-4 text-gold" />
+            </div>
+            <div className="text-left">
+              <p className="text-white text-xs font-bold uppercase tracking-wider">Premium</p>
+              <p className="text-white/40 text-[10px]">Service Quality</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce delay-500 z-30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+        <div className="w-5 h-8 rounded-full border border-white/30 flex items-start justify-center p-1">
+          <div className="w-1 h-2 bg-white rounded-full animate-scroll-down" />
+        </div>
+      </div>
     </section>
   );
 };

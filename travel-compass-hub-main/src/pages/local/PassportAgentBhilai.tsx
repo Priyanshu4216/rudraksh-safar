@@ -1,14 +1,16 @@
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BookOpen, FileText, CheckCircle, Clock, Shield, Phone, MapPin, AlertCircle, Info, HelpCircle, Calendar, UserCheck } from 'lucide-react';
+import { BookOpen, FileText, CheckCircle2, Clock, Shield, Phone, MapPin, AlertCircle, Info, HelpCircle, Calendar, UserCheck, ChevronRight, Siren, FileCheck } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Badge } from '@/components/ui/badge';
 import FAQsSection from '@/components/FAQsSection';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import BookingCTA from '@/components/BookingCTA';
 import TLDRSection from '@/components/TLDRSection';
 import RelatedServices from '@/components/RelatedServices';
 
@@ -17,14 +19,6 @@ const PassportAgentBhilai = () => {
         { type: "Address Proof", list: "Aadhaar Card, Voter ID, Electricity Bill, or Bank Passbook (with photo)" },
         { type: "Date of Birth Proof", list: "Birth Certificate, Pan Card, or School Leaving/Transfer Certificate" },
         { type: "ECR / Non-ECR", list: "10th Marksheet (for Non-ECR/ECNR category)" },
-    ];
-
-    const steps = [
-        { title: "1. Document Check", desc: "Visit our office. We verify if your documents (Aadhaar, Marksheets) name spellings match perfectly." },
-        { title: "2. Online Application", desc: "We fill the complex online form on the Passport Seva portal to avoid rejection errors." },
-        { title: "3. Appointment", desc: "We book your slot at PSK Raipur (Magneto Mall / Ambuja Mall) as per your convenient date." },
-        { title: "4. Visiting PSK", desc: "You visit the Raipur PSK for photo & biometrics. (We guide you on what to carry)." },
-        { title: "5. Police Verification", desc: "Verification comes to your local Thana. We guide you on handling this step smoothly." },
     ];
 
     const costTimeline = [
@@ -37,9 +31,9 @@ const PassportAgentBhilai = () => {
     return (
         <>
             <Helmet>
-                <title>Passport Agent in Bhilai | New Passport, Renewal & Tatkal Services</title>
-                <meta name="description" content="Trusted Passport Agent in Bhilai & Durg. We assist with New Passport, Renewal, Name Change, and Tatkal applications using expert documentation guidance." />
-                <meta name="keywords" content="passport agent bhilai, passport assistance bhilai, passport help in bhilai, passport renewal bhilai, tatkal passport agent" />
+                <title>Passport Agent in Bhilai (PSK Raipur Guide) | New & Tatkal Services</title>
+                <meta name="description" content="Expert Passport Consultant in Bhilai. Guide for PSK Raipur appointments, Durg Police Verification, and Tatkal applications. We handle complex cases like Name Change & Lost Passports." />
+                <meta name="keywords" content="passport agent bhilai, passport office raipur appointment, durg police verification passport, tatkal passport fees chhattisgarh, passport renewal agent near me" />
                 <link rel="canonical" href="https://rudrakshsafar.com/passport-agent-bhilai" />
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -69,182 +63,189 @@ const PassportAgentBhilai = () => {
 
             <Navbar />
 
-            <main className="min-h-screen bg-background">
-                {/* Hero Section */}
-                <section className="relative py-20 bg-gradient-to-br from-indigo-50 via-background to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-4xl mx-auto text-center">
-                            <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 px-4 py-2 rounded-full mb-6">
-                                <BookOpen className="w-4 h-4" />
-                                <span className="text-sm font-medium">Complete Passport Assistance</span>
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                                Passport Services in <span className="text-indigo-600">Bhilai & Durg</span>
-                            </h1>
-                            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                                Expert guidance for New Passports, Renewals, Name Changes, and Tatkal applications. We handle the paperwork so you travel stress-free.
-                            </p>
-
-                            <div className="flex justify-center mb-6">
-                                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Agent', path: '/passport-agent-bhilai' }]} />
-                            </div>
-
-                            {/* TL;DR Summary Block */}
-                            <div className="text-left mb-8">
-                                <TLDRSection
-                                    title="Quick Answer: Passport Services"
-                                    summary="A passport agent helps individuals in Bhilai, Durg & Raipur navigate the passport application, renewal, and documentation process. Rudraksh Safar assists with form filling, document verification, appointment scheduling at PSK Raipur, and clarifying queries to avoid rejection. Ideal for First-time applicants, Senior Citizens, and Urgent Tatkal cases."
-                                    areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
-                                />
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white" asChild>
-                                    <a href="https://wa.me/919406182174?text=I need passport assistance" target="_blank" rel="noopener noreferrer">
-                                        <Phone className="w-5 h-5 mr-2" />
-                                        Book Consultation
-                                    </a>
-                                </Button>
-                            </div>
+            <main className="min-h-screen bg-slate-50">
+                {/* HERO SECTION */}
+                <section className="relative py-20 bg-blue-900 text-white overflow-hidden">
+                    <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1974')] bg-cover bg-center"></div>
+                    <div className="container mx-auto px-4 relative z-10 text-center">
+                        <div className="flex justify-center mb-6">
+                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Agent', path: '/passport-agent-bhilai' }]} />
+                        </div>
+                        <div className="inline-flex items-center gap-2 bg-blue-800 border border-blue-700 px-4 py-1.5 rounded-full mb-6">
+                            <BookOpen className="w-4 h-4 text-blue-300" />
+                            <span className="text-sm font-medium">Bhilai's Trusted Passport Experts</span>
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                            Passport Services Simplified <br /><span className="text-blue-300">Fast. Accurate. Stress-Free.</span>
+                        </h1>
+                        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                            From online filing to PSK Raipur appointments, we guide you at every step. Avoid rejection due to document errors.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 font-bold h-14 px-8 text-lg" asChild>
+                                <a href="https://wa.me/919406182174?text=Passport appointment enquiry">
+                                    <Phone className="w-5 h-5 mr-2" /> Book Appointment
+                                </a>
+                            </Button>
                         </div>
                     </div>
                 </section>
 
-                {/* What Is & Why Need */}
+                <div className="container mx-auto px-4 -mt-8 relative z-20">
+                    <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                        <div className="py-2">
+                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                                <FileCheck className="w-5 h-5 text-green-600" /> 100% Error Free
+                            </h3>
+                            <p className="text-sm text-slate-500 mt-1">We double-check spellings & dates.</p>
+                        </div>
+                        <div className="py-2">
+                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                                <Clock className="w-5 h-5 text-orange-600" /> Tatkal Experts
+                            </h3>
+                            <p className="text-sm text-slate-500 mt-1">Passport in 3-7 days.</p>
+                        </div>
+                        <div className="py-2">
+                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                                <Siren className="w-5 h-5 text-blue-600" /> Police Verification
+                            </h3>
+                            <p className="text-sm text-slate-500 mt-1">Guidance for Durg/Bhilai Thanas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Restored TLDR Section */}
+                <div className="container mx-auto px-4 mt-8">
+                    <TLDRSection
+                        title="Quick Answer: Passport Services"
+                        summary="A passport agent helps individuals in Bhilai, Durg & Raipur navigate the passport application, renewal, and documentation process. Rudraksh Safar assists with form filling, document verification, appointment scheduling at PSK Raipur (Magneto Mall / Ambuja Mall), and clarifying queries to avoid rejection. Ideal for First-time applicants, Senior Citizens, and Urgent Tatkal cases."
+                        areasServed={["Bhilai", "Durg", "Raipur", "Chhattisgarh"]}
+                    />
+                </div>
+
+                {/* THE REALITY CHECK SECTION */}
                 <section className="py-16">
                     <div className="container mx-auto px-4">
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <h2 className="text-3xl font-bold text-center mb-10">Why Hire an Agent for an Online Process?</h2>
+                        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                            <Card className="border-red-100 bg-red-50/50">
+                                <CardHeader>
+                                    <CardTitle className="text-red-800 flex items-center gap-2"><AlertCircle className="w-5 h-5" /> The DIY Risks</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="space-y-3 text-sm text-slate-700">
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> One spelling mistake in the form = <strong>Application Rejected</strong> at PSK.</li>
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> Choosing ECR instead of Non-ECR = <strong>Emigration Check problems</strong> later.</li>
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> Missing a single supportive doc (like marriage certificate) = <strong>Sent back home</strong> from Raipur.</li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                            <Card className="border-green-100 bg-green-50/50">
+                                <CardHeader>
+                                    <CardTitle className="text-green-800 flex items-center gap-2"><CheckCircle2 className="w-5 h-5" /> The Rudraksh Advantage</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="space-y-3 text-sm text-slate-700">
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Pre-Audit:</strong> We verify your Aadhaar, Pan, and Marksheets match perfectly.</li>
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Slot Monitoring:</strong> We check PSK Raipur slots daily to get you the earliest date.</li>
+                                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Annexure Guidance:</strong> We draft the required Affidavits for complex cases.</li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                </section>
+
+                {/* PSK RAIPUR GUIDE (AUTHORITY CONTENT) */}
+                <section className="py-16 bg-white">
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center justify-between mb-8">
                             <div>
-                                <h2 className="text-3xl font-bold mb-6">Why Do You Need a Passport Agent?</h2>
-                                <p className="text-muted-foreground mb-4">
-                                    Applying for a passport involves strict documentation, online form submissions, and specific appointment procedures. A small spelling mismatch or wrong document can lead to application rejection at the PSK.
-                                </p>
-                                <p className="text-muted-foreground mb-6">
-                                    A knowledgeable agent acts as your guide to:
-                                </p>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-3">
-                                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                                        <span><strong>Prevent Rejections:</strong> Pre-verify documents before you visit the passport office.</span>
-                                    </li>
-                                    <li className="flex items-center gap-3">
-                                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                                        <span><strong>Simplify Forms:</strong> We fill complex online forms correctly.</span>
-                                    </li>
-                                    <li className="flex items-center gap-3">
-                                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                                        <span><strong>Urgent Support:</strong> Guidance for Tatkal and emergency travel.</span>
-                                    </li>
-                                </ul>
+                                <h2 className="text-3xl font-bold">PSK Raipur Survival Guide</h2>
+                                <p className="text-slate-500">Know exactly what happens on your appointment day.</p>
                             </div>
-                            <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <UserCheck className="w-6 h-6 text-indigo-600" />
-                                    Who do we assist?
-                                </h3>
-                                <div className="space-y-4">
-                                    <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold shrink-0">1</div>
-                                        <div>
-                                            <p className="font-medium">First-Time Applicants</p>
-                                            <p className="text-xs text-muted-foreground">Confused about address proofs and ECR status.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold shrink-0">2</div>
-                                        <div>
-                                            <p className="font-medium">Passport Renewal</p>
-                                            <p className="text-xs text-muted-foreground">For expired passports or those expiring within 1 year.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold shrink-0">3</div>
-                                        <div>
-                                            <p className="font-medium">Changes & Corrections</p>
-                                            <p className="text-xs text-muted-foreground">Name change (marriage/divorce) or address updates.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold shrink-0">4</div>
-                                        <div>
-                                            <p className="font-medium">Minors & Infants</p>
-                                            <p className="text-xs text-muted-foreground">Documentation for children below 18 years.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <Badge variant="outline" className="hidden md:flex gap-1"><MapPin className="w-3 h-3" /> Magneto / Ambuja Mall</Badge>
+                        </div>
+
+                        <div className="relative border-l-2 border-indigo-200 ml-4 md:ml-10 space-y-10">
+                            <div className="relative pl-8">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900">Step 1: Entry & Token (15 Mins early)</h4>
+                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                    Reach the PSK (usually Magneto Mall, 3rd Floor) 15 mins before your slot. Show your SMS/Printout to the guard.
+                                    <strong> Warning:</strong> Laptops/iPads are often not allowed inside.
+                                </p>
+                            </div>
+                            <div className="relative pl-8">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900">Step 2: Counter A (TCS Staff)</h4>
+                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                    Document scanning and Photo taking happens here. Smile! This photo will be on your passport for 10 years. You will pay any SMS fees here (Cash/Card).
+                                </p>
+                            </div>
+                            <div className="relative pl-8">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900">Step 3: Counter B (Verification Officer)</h4>
+                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                    Govt officer verifies your originals. They check if details match your application 100%. Stay confident.
+                                </p>
+                            </div>
+                            <div className="relative pl-8">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900">Step 4: Counter C (Granting Officer)</h4>
+                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                    Final approval. They might ask basic questions ("Where do you work?", "Why are you traveling?"). Once they say "Granted", you are done!
+                                </p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Core Services */}
-                <section className="py-16 bg-muted/30">
+                {/* TATKAL VS NORMAL SECTION */}
+                <section className="py-16 bg-slate-50">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-4">What passport services do we offer?</h2>
-                            <p className="text-muted-foreground">We focus on clarity, accuracy, and ease of process.</p>
-                        </div>
-                        <div className="grid md:grid-cols-3 gap-6">
-                            <Card>
-                                <CardHeader>
-                                    <FileText className="w-10 h-10 text-blue-600 mb-2" />
-                                    <CardTitle>Application Filling</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">Accurate filling of online forms on the official Passport Seva portal. We ensure all personal details match your documents exactly.</p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <Calendar className="w-10 h-10 text-orange-600 mb-2" />
-                                    <CardTitle>Appointment Booking</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">We monitor slots at PSK Raipur (Magneto/Ambuja Mall) to book your appointment at the earliest convenient date.</p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <Shield className="w-10 h-10 text-green-600 mb-2" />
-                                    <CardTitle>Document Review</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">A pre-visit audit of your original docs. We tell you exactly what to carry (Originals + Copies) to the PSK.</p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <Clock className="w-10 h-10 text-red-600 mb-2" />
-                                    <CardTitle>Tatkal Assistance</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">Urgent travel? We explain the Tatkal process, higher fees, and specific verification proofs needed regarding Annexure F.</p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <AlertCircle className="w-10 h-10 text-purple-600 mb-2" />
-                                    <CardTitle>Re-issue/Damaged</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">Lost or damaged passport? We guide you on the necessary affidavits (Annexure F/L) and police reports required.</p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <MapPin className="w-10 h-10 text-cyan-600 mb-2" />
-                                    <CardTitle>PSK Guidance</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-sm text-muted-foreground mb-4">First time at PSK? We brief you on the arrival time, token process, and what happens at Counters A, B, and C.</p>
-                                </CardContent>
-                            </Card>
-                        </div>
+                        <h2 className="text-3xl font-bold text-center mb-10">Fresh Passport: Normal vs Tatkal</h2>
+                        <Card className="max-w-4xl mx-auto overflow-hidden">
+                            <Table>
+                                <TableHeader className="bg-slate-100">
+                                    <TableRow>
+                                        <TableHead className="w-[150px] font-bold">Feature</TableHead>
+                                        <TableHead className="font-bold text-blue-800">Normal Application</TableHead>
+                                        <TableHead className="font-bold text-orange-800">Tatkal Application</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell className="font-medium">Govt Fee</TableCell>
+                                        <TableCell>₹1,500</TableCell>
+                                        <TableCell>₹3,500</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-medium">Timeline</TableCell>
+                                        <TableCell>25-45 Days</TableCell>
+                                        <TableCell className="font-bold text-green-600">3-7 Days</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-medium">Verification</TableCell>
+                                        <TableCell>Police Verification <span className="underline">Before</span> Issue</TableCell>
+                                        <TableCell>Verification <span className="underline">After</span> Issue</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell className="font-medium">Documents</TableCell>
+                                        <TableCell>Basic (Aadhaar + Pan)</TableCell>
+                                        <TableCell>Strict (Need 3 specific docs from Annexure list)</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </Card>
+                        <p className="text-center text-sm text-slate-500 mt-4 italic">
+                            * Our consultation fee is additional to the Govt fees shown above.
+                        </p>
                     </div>
                 </section>
 
-                {/* Docs, Timeline & Cost */}
-                <section className="py-16">
+                {/* Docs, Timeline & Cost (Restored from Original) */}
+                <section className="py-16 bg-white">
                     <div className="container mx-auto px-4">
                         <div className="grid md:grid-cols-2 gap-12">
                             {/* Documents */}
@@ -273,7 +274,7 @@ const PassportAgentBhilai = () => {
 
                             {/* Timeline */}
                             <div>
-                                <h3 className="text-2xl font-bold mb-6">How much does a passport cost and how long does it take?</h3>
+                                <h3 className="text-2xl font-bold mb-6">How long does it take?</h3>
                                 <p className="text-sm text-muted-foreground mb-4">While Govt fees are fixed, timelines vary based on Police Verification.</p>
                                 <div className="bg-background rounded-xl border overflow-hidden">
                                     <Table>
@@ -301,54 +302,54 @@ const PassportAgentBhilai = () => {
                     </div>
                 </section>
 
+                {/* POLICE VERIFICATION GUIDE */}
+                <section className="py-16 bg-slate-50">
+                    <div className="container mx-auto px-4">
+                        <div className="bg-orange-50 rounded-2xl p-8 border border-orange-100">
+                            <h2 className="text-2xl font-bold text-orange-900 mb-4 flex items-center gap-2">
+                                <Siren className="w-6 h-6" /> Police Verification in Bhilai/Durg
+                            </h2>
+                            <p className="text-orange-900/80 mb-6 max-w-3xl">
+                                This is where most people get stuck. The file moves from SP Office Durg to your local Thana (e.g., Supela, Bhatti, Durg Kotwali).
+                            </p>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 className="font-bold mb-2">Documents Ready?</h4>
+                                    <ul className="text-sm list-disc ml-4 space-y-1 text-slate-600">
+                                        <li>2 Passport Size Photos</li>
+                                        <li>Original Aadhaar + Pan</li>
+                                        <li>Two Neighbors as Witnesses (with their Aadhaar)</li>
+                                        <li>Patwari Attested Address proofs (sometimes asked)</li>
+                                    </ul>
+                                </div>
+                                <div className="bg-white p-4 rounded-lg shadow-sm">
+                                    <h4 className="font-bold mb-2">Our Advice</h4>
+                                    <p className="text-sm text-slate-600">
+                                        Be polite. Do not offer bribes. If there is a delay at the Thana level, let us know – we can guide you on how to follow up with the Durg SP Office.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* FAQs */}
                 <FAQsSection
-                    title="Passport Assistance FAQs"
-                    description="Common questions about New Passports, Renewals, and Tatkal services."
                     faqs={[
-                        {
-                            question: "What documents are required for a new passport application?",
-                            answer: "For a fresh passport, typical documents include Proof of Identity (Aadhaar/Voter ID), Proof of Address (Bank Passbook/Electricity Bill), Date of Birth Proof (Birth Certificate/Pan Card), and 10th Marksheet (for ECNR). Originals are mandatory at PSK."
-                        },
-                        {
-                            question: "How long does passport processing take?",
-                            answer: "Standard processing is about 25-30 days, as police verification happens before printing. Tatkal processing expedites this to 3-7 days, with verification happening after the passport is dispatched."
-                        },
-                        {
-                            question: "Can I apply for a passport without visiting PSK?",
-                            answer: "No. You must visit the Passport Seva Kendra (PSK) in person for biometrics (fingerprints/eye scan) and physical document verification. We can only assist with the pre-visit process."
-                        },
-                        {
-                            question: "Can passport agents guarantee approval?",
-                            answer: "No. Passport approval is the sole discretion of the Ministry of External Affairs and Police authorities. We assist with correct documentation to minimize rejection risk, but we cannot guarantee the outcome."
-                        },
-                        {
-                            question: "What is the difference between Normal and Tatkal?",
-                            answer: "Tatkal is for urgent travel. It requires higher government fees and usually needs specific documents (like 3 out of 13 specified proofs). It skips the pre-police verification step for faster dispatch."
-                        },
-                        {
-                            question: "What if my address in Aadhaar matches my old city?",
-                            answer: "You must provide proof of your *current* residence where you stick physically (for the past 1 year). If Aadhaar has an old address, provide a Bank Passbook, Gas Connection, or Rent Agreement for your current address."
-                        }
+                        { question: "Can I apply if my Aadhaar has my old address?", answer: "Passport must have your CURRENT address. If Aadhaar is old, you need another proof like Passbook (with photo & current address), Gas Bill, or Rent Agreement. We will check your docs and advise the best combo." },
+                        { question: "What is ECR vs Non-ECR?", answer: "Non-ECR means you don't need clearance to work abroad. If you have passed Class 10th, you get Non-ECR. You MUST bring your 10th Marksheet to get this. Otherwise, you get an ECR passport (limiting for jobs)." },
+                        { question: "I lost my passport. What now?", answer: "This is a complex case. You need to file an FIR (Lost Report) at your local Thana immediately. Then apply for 'Re-issue' with Lost Passport Affidavit. We handle this entire documentation for you." },
+                        { question: "Can I walk into PSK without appointment?", answer: "No. Walk-ins are strictly not allowed. You must have a pre-booked appointment slip with a specific batch number and time." },
+                        { question: "Do you help with children's passports?", answer: "Yes, for minors (below 18), both parents' documents are needed. If one parent is abroad, specific declarations are required. We guide you on the complete Annexure file for minors." }
                     ]}
                 />
 
                 <RelatedServices mode="booking" />
 
-                {/* CTA */}
-                <section className="py-16 bg-indigo-600 text-white">
-                    <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-6">How to start your passport application?</h2>
-                        <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-                            Avoid confusion and delays. Get professional help for your passport application in Bhilai.
-                        </p>
-                        <Button size="lg" variant="secondary" className="text-lg px-8 text-indigo-700 font-bold" asChild>
-                            <a href="https://wa.me/919406182174?text=Passport appointment enquiry">
-                                <Phone className="w-5 h-5 mr-2" /> WhatsApp Us
-                            </a>
-                        </Button>
-                    </div>
-                </section>
+                <BookingCTA
+                    text="Fix Your Passport Appointment"
+                    subText="Don't risk rejection. Get expert help for ₹500 only."
+                />
 
                 {/* Disclaimer */}
                 <section className="bg-background py-8 border-t">

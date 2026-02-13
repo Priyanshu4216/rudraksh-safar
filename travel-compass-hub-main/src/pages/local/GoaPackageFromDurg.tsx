@@ -1,106 +1,146 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
-import HeroSection from '../../components/HeroSection';
+import SimpleHero from '../../components/SimpleHero';
 import ContentSection from '../../components/ContentSection';
 import FAQSection from '../../components/FAQsSection';
 import BookingCTA from '../../components/BookingCTA';
-import { Train, Clock, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
+import { Train, Clock, MapPin, Coffee, AlertTriangle, ArrowRight } from 'lucide-react';
 
 const GoaPackageFromDurg = () => {
     return (
         <PageLayout>
             <Helmet>
-                <title>Goa Trip from Durg (2026) - Train Packages & Station Guide</title>
+                <title>Goa Packages from Durg Junction (2026) | Confirmed Train Tickets</title>
                 <meta
                     name="description"
-                    content="Dedicated Goa trip packages from Durg Junction. Complete guide to Gondwana Express booking, tatkal assistance, and budget hotels near Madgaon."
+                    content="Specialized Goa packages starting from Durg Junction. Gondwana Express ticket assistance, station parking guide, and hassle-free transfers to Madgaon."
                 />
-                <meta name="keywords" content="goa trip from durg, goa package from durg, durg to goa train package, travel agent in durg for goa" />
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rudrakshsafar.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Goa Packages", "item": "https://rudrakshsafar.com/goa-tour-package-from-bhilai" },
-                            { "@type": "ListItem", "position": 3, "name": "From Durg", "item": "https://rudrakshsafar.com/goa-package-from-durg" }
-                        ]
-                    })}
-                </script>
+                <meta name="keywords" content="goa package from durg, durg to goa train ticket, travel agent durg station, gondwana express booking agent" />
+                <link rel="canonical" href="https://rudrakshsafar.com/goa-package-from-durg" />
             </Helmet>
 
-            <HeroSection
-                title="Goa Trip Packages from Durg"
-                subtitle="Start your journey from Chhattisgarh's biggest junction. We handle your confirmed train tickets and hotel bookings."
-                backgroundImage="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974" // Train/Travel vibe
-                ctaText="Check Durg Train Availability"
+            <SimpleHero
+                title="Goa Packages from Durg Junction"
+                subtitle="Your Journey Starts Here. We handle the Tatkal tickets, you handle the packing."
+                backgroundImage="https://images.unsplash.com/photo-1474487548417-781cb714c223?q=80&w=1974" // Train track/Journey vibe
+                ctaText="Check Train Availability"
             />
 
+            {/* INTRO: The Logistics Context */}
             <ContentSection className="bg-white">
-                <p className="text-lg text-gray-700">
-                    <strong>Durg Junction</strong> is the gateway to Goa for everyone in Bhilai and Durg. With direct trains like the <em>Gondwana Express</em> and <em>Amaravati Express</em>, your vacation starts the moment you board. Our <strong>Goa packages from Durg</strong> are optimized for train travelers—we align check-in times with train arrivals so you don't wait in the lobby tired.
-                </p>
+                <div className="prose max-w-none">
+                    <p className="text-lg text-slate-700">
+                        For 90% of travelers from Bhilai, the Goa trip begins at <strong>Durg Junction (DURG)</strong>. It is the gateway to the Konkan coast. But booking tickets on the <em>Gondwana Express</em> is a war zone, and finding good food on the train is a challenge.
+                    </p>
+                    <p className="mt-2 text-slate-700">
+                        This page is dedicated to the <strong>logistics of the journey</strong>. Our "Durg Special" packages focus on seamless connectivity—ensuring your hotel check-in matches your train arrival, and your pickup is waiting at Madgaon.
+                    </p>
+                </div>
             </ContentSection>
 
-            {/* Train Domination Block (Durg Specific) */}
-            <ContentSection title="Durg to Goa: Train Schedule & Tips" className="bg-orange-50">
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Clock className="w-5 h-5" /> Key Trains from Durg</h3>
-                        <table className="w-full text-sm bg-white rounded shadow text-left">
-                            <thead className="bg-orange-200 text-orange-900">
-                                <tr>
-                                    <th className="p-2">Train</th>
-                                    <th className="p-2">Departs</th>
-                                    <th className="p-2">Arrives</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="border-b">
-                                    <td className="p-2 font-semibold">Gondwana Exp (12410)</td>
-                                    <td className="p-2">07:50 AM</td>
-                                    <td className="p-2">05:00 AM (+1)</td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 font-semibold">Amaravati Exp (18047)</td>
-                                    <td className="p-2">10:30 AM</td>
-                                    <td className="p-2">02:25 PM (+1)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            {/* SECTION: Train Schedule (The Core Value) */}
+            <ContentSection title="Durg to Goa: The 2026 Train Schedule" className="bg-orange-50">
+                <Card className="overflow-hidden">
+                    <Table>
+                        <TableHeader className="bg-orange-200">
+                            <TableRow>
+                                <TableHead className="text-orange-900 font-bold">Train Name</TableHead>
+                                <TableHead className="text-orange-900 font-bold">Departs Durg</TableHead>
+                                <TableHead className="text-orange-900 font-bold">Arrives Madgaon</TableHead>
+                                <TableHead className="text-orange-900 font-bold">Best For</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody className="bg-white">
+                            <TableRow>
+                                <TableCell className="font-bold">Gondwana Express (12410)</TableCell>
+                                <TableCell>07:50 AM (Day 1)</TableCell>
+                                <TableCell>05:00 AM (Day 2)</TableCell>
+                                <TableCell className="text-green-600 font-medium">✨ Full Day in Goa</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-bold">Amaravati Express (18047)</TableCell>
+                                <TableCell>10:30 AM (Day 1)</TableCell>
+                                <TableCell>02:25 PM (Day 2)</TableCell>
+                                <TableCell className="text-slate-500">Relaxed Morning</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </Card>
+                <div className="mt-4 flex items-start gap-2 text-sm text-orange-800 bg-orange-100 p-3 rounded">
+                    <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <p><strong>Tatkal Warning:</strong> Tatkal opens at 10 AM (AC) and 11 AM (Sleeper) one day before. It is extremely risky for groups &gt; 4. We recommend booking 120 days in advance.</p>
+                </div>
+            </ContentSection>
+
+            {/* SECTION: Station Guide */}
+            <ContentSection title="Durg Station Survival Guide" className="bg-white">
+                <div className="grid md:grid-cols-3 gap-6">
+                    <div className="p-4 border rounded-lg hover:shadow-md transition">
+                        <MapPin className="w-8 h-8 text-indigo-600 mb-3" />
+                        <h4 className="font-bold text-lg mb-2">Parking</h4>
+                        <p className="text-sm text-slate-600">Long-term parking is available near the new entrance (Platform 1 side). Charges are approx ₹200/day for cars. Safe for 4-5 days.</p>
                     </div>
-                    <div>
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><MapPin className="w-5 h-5" /> Station Tips due to Construction</h3>
-                        <ul className="list-disc ml-5 space-y-2 text-gray-700">
-                            <li><strong>Platform Info:</strong> Goa trains usually depart from Platform 1 or 2 (Please check display).</li>
-                            <li><strong>Food Packing:</strong> Pack food from home or Durg station. Train pantry food can be hit-or-miss on this route.</li>
-                            <li><strong>Parking:</strong> Durg station has updated parking near the new specific entry gate.</li>
+                    <div className="p-4 border rounded-lg hover:shadow-md transition">
+                        <Coffee className="w-8 h-8 text-brown-600 mb-3" />
+                        <h4 className="font-bold text-lg mb-2">Food Tips</h4>
+                        <p className="text-sm text-slate-600">Pack food from home! The pantry car on this route is average. Good vada pav is available at Nagpur (Day 1 Afternoon).</p>
+                    </div>
+                    <div className="p-4 border rounded-lg hover:shadow-md transition">
+                        <Train className="w-8 h-8 text-green-600 mb-3" />
+                        <h4 className="font-bold text-lg mb-2">Platform Info</h4>
+                        <p className="text-sm text-slate-600">Goa trains usually depart from Platform 1 or 2. Porters are available at the main entrance.</p>
+                    </div>
+                </div>
+            </ContentSection>
+
+            {/* SECTION: Pickup at Madgaon */}
+            <ContentSection title="Arrival: Madgaon to North Goa" className="bg-slate-50">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                    <div className="flex-1">
+                        <p className="mb-4">
+                            <strong>The Trap:</strong> Madgaon Station to Calangute/Baga is huge distance (45km+). Taxis charge ₹1500 - ₹2500 if you don't bargain.
+                        </p>
+                        <p className="mb-4 font-bold text-indigo-700">
+                            The Solution: Our Pre-Booked Transfers.
+                        </p>
+                        <ul className="space-y-2 text-sm">
+                            <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-green-500" /> Private AC Car waiting for you.</li>
+                            <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-green-500" /> Fixed price negotiated beforehand.</li>
+                            <li className="flex gap-2"><ArrowRight className="w-4 h-4 text-green-500" /> Driver knows your hotel location.</li>
+                        </ul>
+                    </div>
+                    <div className="flex-1 bg-white p-6 rounded-xl shadow-sm border">
+                        <h4 className="font-bold mb-2">Distance Chart from Madgaon</h4>
+                        <ul className="space-y-2 text-sm text-slate-600">
+                            <li className="flex justify-between border-b pb-1"><span>To Colva (South)</span> <span>8 km (20 mins)</span></li>
+                            <li className="flex justify-between border-b pb-1"><span>To Panjim (Central)</span> <span>35 km (50 mins)</span></li>
+                            <li className="flex justify-between border-b pb-1"><span>To Calangute (North)</span> <span>48 km (1.5 hrs)</span></li>
+                            <li className="flex justify-between pb-1"><span>To Arambol (Far North)</span> <span>65 km (2 hrs)</span></li>
                         </ul>
                     </div>
                 </div>
             </ContentSection>
 
-            <ContentSection className="bg-white">
-                <BookingCTA text="Plan Your Train Trip from Durg" subText="We help with Tatkal ticket booking assistance for package holders." />
-            </ContentSection>
-
             <FAQSection
                 faqs={[
-                    { question: "What if train tickets are not available from Durg?", answer: "We can look for alternate routes (break journey via Nagpur) or suggest Tatkal options. We strongly advise booking 120 days early." },
-                    { question: "Do you have an office near Durg Station?", answer: "Our office is in Bhilai, just a short drive from Durg. We can meet you or coordinate everything via WhatsApp." },
-                    { question: "Is pickup included from Madgaon Station?", answer: "Yes! A driver will wait for you at Madgaon station exit to take you to your North Goa hotel." }
+                    { question: "Can we board from Raipur instead of Durg?", answer: "Yes, Gondwana Express starts from Raigarh and stops at Raipur (R) before Durg. Let us know your preferred boarding point." },
+                    { question: "What if the train is late?", answer: "Gondwana fits usually on time. If delayed, our driver at Madgaon tracks the live status and will wait for you." },
+                    { question: "Are blankets provided in AC coaches?", answer: "Yes, in 3AC, 2AC, and 1AC, fresh linen is provided. Sleeper class passengers must carry their own sheets." }
                 ]}
             />
 
-            <ContentSection className="border-t">
-                <h4 className="font-bold mb-4">Related Links</h4>
-                <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/goa-tour-package-from-bhilai" className="hover:underline">Main Goa Guide</a>
-                    <a href="/goa-trip-under-10000-from-bhilai" className="hover:underline">Budget Guide</a>
-                    <a href="/train-vs-flight-goa-from-cg" className="hover:underline">Train vs Flight</a>
-                </div>
-            </ContentSection>
+            <BookingCTA
+                text="Plan My Train Trip"
+                subText="Get a quote including Confirmed Train Tickets + Hotel + Pickup."
+            />
+
+            <div className="mt-8 text-center text-sm text-slate-500">
+                <p>Not looking for train info? Check our <Link to="/goa-tour-package-from-bhilai" className="text-primary hover:underline">Main Goa Guide</Link> or <Link to="/goa-trip-from-supela" className="text-primary hover:underline">Student Tips</Link>.</p>
+            </div>
 
         </PageLayout>
     );
