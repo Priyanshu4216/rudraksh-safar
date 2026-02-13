@@ -1,11 +1,11 @@
 
-import { Search, Phone, MessageCircle, ChevronDown } from 'lucide-react';
+import { Search, Phone, MessageCircle, ChevronDown, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { HERO_CONTENT } from '@/data/homeRedesignData';
 import posterImage from '@/assets/hero-poster.jpg'; // Using existing poster as fallback or main image
 import heroVideoFile from '@/assets/hero-video.mp4';
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -19,17 +19,31 @@ const Hero = () => {
         window.open(`https://wa.me/${HERO_CONTENT.phoneNumber}?text=Hi, I am looking for a tour package from Bhilai.`, '_blank');
     };
 
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(error => {
+                console.log("Video autoplay failed:", error);
+            });
+        }
+    }, []);
+
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20">
-            {/* Background Image/Video */}
+        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10" />
-                {/* Prioritize Image for Mobile/Performance as per requirements */}
-                <img
-                    src={posterImage}
-                    alt="Rudraksh Safar - Travel Agency in Bhilai"
+                <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay */}
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover"
-                />
+                >
+                    <source src={heroVideoFile} type="video/mp4" />
+                </video>
             </div>
 
             <div className="container relative z-20 px-4 text-center">
