@@ -36,30 +36,30 @@ const GoaTripUnder10000 = () => {
                 ctaText="See Budget Itinerary"
             />
 
-            <ContentSection className="bg-white">
-                <p className="text-lg text-gray-700">
+            <ContentSection className="bg-background">
+                <p className="text-lg text-muted-foreground">
                     Is it possible to visit Goa from Bhilai/Raipur for under ₹10,000? <strong>Yes, but you have to be smart.</strong> If you expect luxury resorts and flights, it's impossible. But if you are okay with sleeper trains, hostels, and street food, you can have an amazing 4-day trip. Here is the honest breakdown.
                 </p>
             </ContentSection>
 
             {/* The 10k Breakdown */}
-            <ContentSection title="The ₹10,000 Challenge Breakdown" className="bg-green-50">
+            <ContentSection title="The ₹10,000 Challenge Breakdown" className="bg-green-50 dark:bg-green-950/20">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between p-3 bg-white rounded shadow-sm">
-                            <div className="flex items-center gap-3"><Train className="text-green-600" /> <span>Train (Sleeper Return)</span></div>
+                        <div className="flex items-center justify-between p-3 bg-card border border-border rounded shadow-sm">
+                            <div className="flex items-center gap-3"><Train className="text-green-600 dark:text-green-400" /> <span>Train (Sleeper Return)</span></div>
                             <span className="font-bold">₹1,600</span>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-white rounded shadow-sm">
-                            <div className="flex items-center gap-3"><Hotel className="text-green-600" /> <span>Hostel (3 Nights)</span></div>
+                        <div className="flex items-center justify-between p-3 bg-card border border-border rounded shadow-sm">
+                            <div className="flex items-center gap-3"><Hotel className="text-green-600 dark:text-green-400" /> <span>Hostel (3 Nights)</span></div>
                             <span className="font-bold">₹2,400</span>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-white rounded shadow-sm">
-                            <div className="flex items-center gap-3"><Train className="text-green-600" /> <span>Scooty Share (3 Days)</span></div>
+                        <div className="flex items-center justify-between p-3 bg-card border border-border rounded shadow-sm">
+                            <div className="flex items-center gap-3"><Train className="text-green-600 dark:text-green-400" /> <span>Scooty Share (3 Days)</span></div>
                             <span className="font-bold">₹1,500</span>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-white rounded shadow-sm">
-                            <div className="flex items-center gap-3"><Coffee className="text-green-600" /> <span>Food & Drinks</span></div>
+                        <div className="flex items-center justify-between p-3 bg-card border border-border rounded shadow-sm">
+                            <div className="flex items-center gap-3"><Coffee className="text-green-600 dark:text-green-400" /> <span>Food & Drinks</span></div>
                             <span className="font-bold">₹4,000</span>
                         </div>
                         <div className="flex items-center justify-between p-4 bg-indigo-900 text-white rounded shadow-lg mt-4">
@@ -69,17 +69,17 @@ const GoaTripUnder10000 = () => {
                     </div>
                     <div>
                         <h3 className="text-xl font-bold mb-4">How to Stick to This Budget?</h3>
-                        <ul className="list-disc ml-5 space-y-3 text-gray-700">
+                        <ul className="list-disc ml-5 space-y-3 text-muted-foreground">
                             <li><strong>Book Train 120 Days Early:</strong> Tatkal adds ₹1000 extra, destroying the budget.</li>
                             <li><strong>Stay in Hostels:</strong> Beds in Anjuna/Vagator cost ₹600-800/night. Hotels cost ₹2000+.</li>
                             <li><strong>Eat at Shack vs Street:</strong> Beach shacks are expensive. Eat thalis at local Goan joints (Ros Omelette!) for ₹150.</li>
                             <li><strong>No Alcohol in Clubs:</strong> Pre-game responsibly. Club drinks are 5x market price.</li>
                         </ul>
                         <div className="mt-4 space-y-2"> {/* Added a div for the links for better structure */}
-                            <Link to="/goa-cheap-trip-guide" className="text-blue-600 hover:underline block">
+                            <Link to="/goa-cheap-trip-guide" className="text-primary hover:underline block">
                                 Read: How to plan a cheap Goa trip guide?
                             </Link>
-                            <Link to="/goa-budget-itinerary-from-bhilai" className="text-blue-600 hover:underline block">
+                            <Link to="/goa-budget-itinerary-from-bhilai" className="text-primary hover:underline block">
                                 View: Day-by-Day Budget Itinerary (PDF)
                             </Link>
                         </div>
@@ -87,15 +87,15 @@ const GoaTripUnder10000 = () => {
                 </div>
             </ContentSection>
 
-            <ContentSection title="What You Will Miss (Be Honest)" className="bg-red-50">
-                <ul className="list-disc ml-5 space-y-2 text-gray-700">
+            <ContentSection title="What You Will Miss (Be Honest)" className="bg-red-50 dark:bg-red-950/20">
+                <ul className="list-disc ml-5 space-y-2 text-muted-foreground">
                     <li><strong>No AC Travel:</strong> You must travel in Sleeper Class.</li>
                     <li><strong>No Privacy:</strong> You will share a dorm room with 4-6 others.</li>
                     <li><strong>No North Goa Cabs:</strong> You must ride a scooty or take the bus. Cabs are ₹500 minimum for short distance.</li>
                 </ul>
             </ContentSection>
 
-            <ContentSection className="bg-white">
+            <ContentSection className="bg-background">
                 <BookingCTA text="Book Budget Package (Group)" subText="We arrange hostels + scooters for groups of 4+." />
             </ContentSection>
 
@@ -107,12 +107,12 @@ const GoaTripUnder10000 = () => {
                 ]}
             />
 
-            <ContentSection className="border-t">
+            <ContentSection className="border-t bg-muted/20">
                 <h4 className="font-bold mb-4">Related Links</h4>
-                <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/goa-tour-package-from-bhilai" className="hover:underline">Main Goa Guide</a>
-                    <a href="/goa-trip-from-supela" className="hover:underline">Student Specials</a>
-                    <a href="/goa-budget-itinerary-from-cg" className="hover:underline">Day-wise Itinerary</a>
+                <div className="flex flex-wrap gap-4 text-primary">
+                    <Link to="/goa-tour-package-from-bhilai" className="hover:underline">Main Goa Guide</Link>
+                    <Link to="/goa-trip-from-supela" className="hover:underline">Student Specials</Link>
+                    <Link to="/goa-budget-itinerary-from-cg" className="hover:underline">Day-wise Itinerary</Link>
                 </div>
             </ContentSection>
 

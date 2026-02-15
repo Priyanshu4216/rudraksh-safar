@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
 import HeroSection from '../../components/HeroSection';
@@ -227,10 +228,12 @@ const ThailandTourPackageFromRaipur = () => {
             {/* Internal Linking Area */}
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">More International Options</h4>
+
+
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/international-tours-from-raipur" className="hover:underline">International Hub</a>
-                    <a href="/visa/dubai" className="hover:underline">Dubai Visa Guide</a>
-                    <a href="/visa/bali" className="hover:underline">Bali Visa Guide</a>
+                    <Link to="/international-tours-from-raipur" className="hover:underline">International Hub</Link>
+                    <Link to="/visa/dubai" className="hover:underline">Dubai Visa Guide</Link>
+                    <Link to="/visa/bali" className="hover:underline">Bali Visa Guide</Link>
                 </div>
             </ContentSection>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
 import HeroSection from '../../components/HeroSection';
@@ -17,6 +18,33 @@ const NorthVsSouthGoa = () => {
                     content="Confused between North and South Goa? We explain the difference in crowd, cost, and vibe for Bhilai/Raipur travelers. Baga vs Palolem."
                 />
                 <meta name="keywords" content="north vs south goa guide, which part of goa is better, north goa vs south goa for couples, goa comparison" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        "headline": "North vs South Goa: Which is Better for You? (Chhattisgarh Guide)",
+                        "description": "Confused between North and South Goa? We explain the difference in crowd, cost, and vibe for Bhilai/Raipur travelers. Baga vs Palolem.",
+                        "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974",
+                        "author": {
+                            "@type": "Organization",
+                            "name": "Rudraksh Safar",
+                            "url": "https://rudrakshsafar.com/"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Rudraksh Safar",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://rudrakshsafar.com/logo.png"
+                            }
+                        },
+                        "datePublished": "2026-02-15",
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": "https://rudrakshsafar.com/north-vs-south-goa-from-cg"
+                        }
+                    })}
+                </script>
             </Helmet>
 
             <HeroSection
@@ -87,9 +115,11 @@ const NorthVsSouthGoa = () => {
 
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">Related Links</h4>
+
+
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/goa-tour-package-from-bhilai" className="hover:underline">Main Package</a>
-                    <a href="/goa-budget-itinerary-from-cg" className="hover:underline">Suggested Itinerary</a>
+                    <Link to="/goa-tour-package-from-bhilai" className="hover:underline">Main Package</Link>
+                    <Link to="/goa-budget-itinerary-from-cg" className="hover:underline">Suggested Itinerary</Link>
                 </div>
             </ContentSection>
 

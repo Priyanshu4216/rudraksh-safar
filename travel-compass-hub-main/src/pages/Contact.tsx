@@ -11,6 +11,49 @@ const Contact = () => {
                 <title>Contact Us | Rudraksh Safar - Travel Agency in Bhilai</title>
                 <meta name="description" content="Get in touch with Rudraksh Safar, the best travel agency in Bhilai. Call us, WhatsApp us, or visit our office for flight bookings, tour packages, and visa services." />
                 <link rel="canonical" href="https://rudrakshsafar.com/contact" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ContactPage",
+                        "name": "Contact Rudraksh Safar",
+                        "description": "Get in touch with Rudraksh Safar, the best travel agency in Bhilai.",
+                        "url": "https://rudrakshsafar.com/contact",
+                        "mainEntity": {
+                            "@type": "TravelAgency",
+                            "name": "Rudraksh Safar",
+                            "image": "https://rudrakshsafar.com/logo.png",
+                            "telephone": "+919406182174",
+                            "email": "rudrakshsafar@gmail.com",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "streetAddress": "GE Road, In Front of Petrol Pump",
+                                "addressLocality": "Bhilai 3",
+                                "addressRegion": "Chhattisgarh",
+                                "postalCode": "490021",
+                                "addressCountry": "IN"
+                            },
+                            "geo": {
+                                "@type": "GeoCoordinates",
+                                "latitude": "21.2120",
+                                "longitude": "81.3733"
+                            },
+                            "openingHoursSpecification": {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday",
+                                    "Sunday"
+                                ],
+                                "opens": "10:00",
+                                "closes": "21:00"
+                            }
+                        }
+                    })}
+                </script>
             </Helmet>
 
             <Navbar />

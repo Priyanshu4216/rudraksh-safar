@@ -300,7 +300,7 @@ const FamilyPackages = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-10">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-4">
                   <Baby className="w-3 h-3" /> Parents' Guide
                 </span>
                 <h2 className="text-3xl font-bold mb-4">How to Choose the Perfect Family Trip?</h2>
@@ -309,36 +309,36 @@ const FamilyPackages = () => {
 
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-blue-600">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
                     👶 With Toddlers (0-4)
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">Focus on short flights (&lt; 4 hrs) and ease.</p>
                   <ul className="text-sm space-y-1 font-medium">
-                    <li className="text-green-600">✓ Dubai (Stroller friendly)</li>
-                    <li className="text-green-600">✓ Singapore (Safe & Clean)</li>
-                    <li className="text-green-600">✓ Kerala (Relaxed Resorts)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Dubai (Stroller friendly)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Singapore (Safe & Clean)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Kerala (Relaxed Resorts)</li>
                   </ul>
                 </div>
                 <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-orange-600">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-orange-600 dark:text-orange-400">
                     🎒 With School Kids (5-12)
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">Needs engagement, pools, and activities.</p>
                   <ul className="text-sm space-y-1 font-medium">
-                    <li className="text-green-600">✓ Thailand (Safaris & Sea)</li>
-                    <li className="text-green-600">✓ Hong Kong (Disneyland)</li>
-                    <li className="text-green-600">✓ Himachal (Snow Fun)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Thailand (Safaris & Sea)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Hong Kong (Disneyland)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Himachal (Snow Fun)</li>
                   </ul>
                 </div>
                 <div className="bg-card border p-6 rounded-xl hover:shadow-md transition-shadow">
-                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-purple-600">
+                  <h3 className="font-bold text-lg mb-2 flex items-center gap-2 text-purple-600 dark:text-purple-400">
                     🕶️ With Teens (13+)
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">Needs adventure, WiFi, and "cool" factors.</p>
                   <ul className="text-sm space-y-1 font-medium">
-                    <li className="text-green-600">✓ Bali (IG-worthy & Surf)</li>
-                    <li className="text-green-600">✓ Vietnam (Adventure)</li>
-                    <li className="text-green-600">✓ Kashmir (Skiing/Treks)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Bali (IG-worthy & Surf)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Vietnam (Adventure)</li>
+                    <li className="text-green-600 dark:text-green-400">✓ Kashmir (Skiing/Treks)</li>
                   </ul>
                 </div>
               </div>
@@ -347,7 +347,7 @@ const FamilyPackages = () => {
         </section>
 
         {/* SAFETY & COMFORT PROMISE */}
-        <section className="py-16 bg-blue-50/50 dark:bg-blue-950/10">
+        <section className="py-16 bg-blue-50/50 dark:bg-blue-950/20">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>
@@ -357,21 +357,21 @@ const FamilyPackages = () => {
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <div className="p-2 bg-green-100 text-green-700 rounded-full mt-1"><Shield className="w-4 h-4" /></div>
+                    <div className="p-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full mt-1"><Shield className="w-4 h-4" /></div>
                     <div>
                       <h4 className="font-bold text-foreground">Hotels Vetted for Hygiene</h4>
                       <p className="text-sm text-muted-foreground">We personally check reviews for cleanliness and kid-friendly food options.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="p-2 bg-blue-100 text-blue-700 rounded-full mt-1"><Users className="w-4 h-4" /></div>
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full mt-1"><Users className="w-4 h-4" /></div>
                     <div>
                       <h4 className="font-bold text-foreground">Private Transfers Only</h4>
                       <p className="text-sm text-muted-foreground">No waiting for shared buses. Your own decent cab, at your own pace.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="p-2 bg-orange-100 text-orange-700 rounded-full mt-1"><Clock className="w-4 h-4" /></div>
+                    <div className="p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full mt-1"><Clock className="w-4 h-4" /></div>
                     <div>
                       <h4 className="font-bold text-foreground">Relaxed Itineraries</h4>
                       <p className="text-sm text-muted-foreground">We don't pack 10 spots in a day. We leave room for naps, pool time, and tantrums.</p>

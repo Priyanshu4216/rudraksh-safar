@@ -18,82 +18,131 @@ const DestinationSchema = ({
     destinationName,
     pageSlug
 }: DestinationSchemaProps) => {
-    const schemas = [];
+    const siteUrl = 'https://rudrakshsafar.com';
+    const logoUrl = `${siteUrl}/logo.png`;
+    const fallbackImage = `${siteUrl}/og-image.jpg`;
 
-    // 1. Article / WebPage Schema (Base)
-    schemas.push({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
+    // Elite Level: Use @graph for cleaner architecture
+    const graph: any[] = [];
+
+    // 1. Organization Schema (Global Authority)
+    const orgSchema = {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'Rudraksh Safar',
+        url: siteUrl,
+        logo: {
+            '@type': 'ImageObject',
+            url: logoUrl
+        },
+        contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+919406182174',
+            contactType: 'customer service',
+            areaServed: 'IN'
+        },
+        sameAs: [
+            "https://www.facebook.com/rudrakshsafar",
+            "https://www.instagram.com/rudrakshsafar",
+            "https://www.youtube.com/@rudrakshsafar"
+        ]
+    };
+    graph.push(orgSchema);
+
+    // 2. Main Entity: TravelGuide (Better than Article for this context)
+    const mainEntitySchema = {
+        '@type': 'TravelGuide',
+        '@id': canonicalUrl,
         headline: title,
-        description,
-        mainEntityOfPage: canonicalUrl,
-        author: { '@type': 'Organization', name: 'Rudraksh Safar' },
-        publisher: { '@type': 'Organization', name: 'Rudraksh Safar' },
-        image: data?.intro ? undefined : 'https://rudrakshsafar.com/og-image.jpg', // Fallback
-        datePublished: '2025-10-01', // Ideally dynamic
-        dateModified: new Date().toISOString().split('T')[0],
-    });
+        description: description,
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': canonicalUrl
+        },
+        author: { '@id': `${siteUrl}/#organization` },
+        publisher: { '@id': `${siteUrl}/#organization` },
+        image: data?.image || fallbackImage, // Improved logic: prefer specific image or fallback
+        datePublished: data?.lastUpdated || '2025-10-01', // Dynamic if available
+        dateModified: new Date().toISOString()
+    };
+    graph.push(mainEntitySchema);
 
-    // 2. BreadcrumbList Schema
-    schemas.push({
-        '@context': 'https://schema.org',
+    // 3. BreadcrumbList Schema
+    const breadcrumbSchema = {
         '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumb`,
         itemListElement: [
             {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://rudrakshsafar.com',
+                item: siteUrl
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: destinationName,
-                item: `https://rudrakshsafar.com/package/${destinationName.toLowerCase()}`,
+                item: `${siteUrl}/package/${destinationName.toLowerCase()}`
             },
             {
                 '@type': 'ListItem',
                 position: 3,
                 name: title,
-                item: canonicalUrl,
-            },
-        ],
-    });
+                item: canonicalUrl
+            }
+        ]
+    };
+    graph.push(breadcrumbSchema);
 
-    // 3. FAQPage Schema (Only if FAQs exist)
+    // 4. FAQPage Schema (Conditional)
     if (data?.faqs && data.faqs.length > 0) {
-        schemas.push({
-            '@context': 'https://schema.org',
+        graph.push({
             '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
             mainEntity: data.faqs.map((faq) => ({
                 '@type': 'Question',
                 name: faq.question,
                 acceptedAnswer: {
                     '@type': 'Answer',
-                    text: faq.answer,
-                },
-            })),
+                    text: faq.answer
+                }
+            }))
         });
     }
 
-    // 4. TouristDestination Schema (For main guides or intro pages)
+    // 5. TouristDestination Schema (For specific pages)
     if (pageSlug === 'travel-guide' || pageSlug === 'places-to-visit') {
-        schemas.push({
-            '@context': 'https://schema.org',
+        const destSchema: any = {
             '@type': 'TouristDestination',
+            '@id': `${canonicalUrl}#destination`,
             name: destinationName,
             description: data?.intro || description,
             touristType: ['AdventureTourism', 'CulturalTourism'],
-        });
+            image: data?.intro ? undefined : (data?.image || fallbackImage) // Keep logic but ensure image existence
+        };
+
+        // Add Geo Coordinates if available (Critical for Travel Queries)
+        if (data?.geo) {
+            destSchema.geo = {
+                '@type': 'GeoCoordinates',
+                latitude: data.geo.latitude,
+                longitude: data.geo.longitude
+            };
+        }
+
+        graph.push(destSchema);
     }
+
+    const finalSchema = {
+        '@context': 'https://schema.org',
+        '@graph': graph
+    };
 
     return (
         <Helmet>
-            {schemas.map((schema, index) => (
-                <script key={index} type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
-            ))}
+            <script type="application/ld+json">
+                {JSON.stringify(finalSchema)}
+            </script>
         </Helmet>
     );
 };

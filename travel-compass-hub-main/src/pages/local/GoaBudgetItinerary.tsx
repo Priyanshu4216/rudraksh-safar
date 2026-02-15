@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
 import HeroSection from '../../components/HeroSection';
@@ -107,9 +108,9 @@ const GoaBudgetItinerary = () => {
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">Related Links</h4>
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/goa-tour-package-from-bhilai" className="hover:underline">Main Goa Guide</a>
-                    <a href="/goa-trip-under-10000-from-bhilai" className="hover:underline">Cost Breakdown</a>
-                    <a href="/goa-package-from-durg" className="hover:underline">Train Info</a>
+                    <Link to="/goa-tour-package-from-bhilai" className="hover:underline">Main Goa Guide</Link>
+                    <Link to="/goa-trip-under-10000-from-bhilai" className="hover:underline">Cost Breakdown</Link>
+                    <Link to="/goa-package-from-durg" className="hover:underline">Train Info</Link>
                 </div>
             </ContentSection>
 

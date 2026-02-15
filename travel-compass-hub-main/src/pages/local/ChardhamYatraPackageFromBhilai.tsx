@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
 import HeroSection from '../../components/HeroSection';
@@ -170,8 +171,8 @@ const ChardhamYatraPackageFromBhilai = () => {
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">Related Spiritual Journeys</h4>
                 <div className="flex flex-wrap gap-4 text-orange-600">
-                    <a href="/bhilai-to-kedarnath-yatra-package-2026" className="hover:underline">Kedarnath Only Package</a>
-                    <a href="/india-tour-packages-bhilai" className="hover:underline">All India Packages</a>
+                    <Link to="/bhilai-to-kedarnath-yatra-package-2026" className="hover:underline">Kedarnath Only Package</Link>
+                    <Link to="/india-tour-packages-bhilai" className="hover:underline">All India Packages</Link>
                 </div>
             </ContentSection>
 

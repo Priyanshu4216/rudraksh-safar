@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageLayout from '../../components/PageLayout';
 import HeroSection from '../../components/HeroSection';
@@ -109,9 +110,11 @@ const TrainVsFlightGoa = () => {
 
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">Related Links</h4>
+
+
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <a href="/goa-package-from-raipur" className="hover:underline">Flight Packages</a>
-                    <a href="/goa-package-from-durg" className="hover:underline">Train Packages</a>
+                    <Link to="/goa-package-from-raipur" className="hover:underline">Flight Packages</Link>
+                    <Link to="/goa-package-from-durg" className="hover:underline">Train Packages</Link>
                 </div>
             </ContentSection>
 

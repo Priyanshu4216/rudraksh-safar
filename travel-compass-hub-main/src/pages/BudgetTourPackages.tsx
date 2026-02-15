@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Wallet, PiggyBank, MapPin, CheckCircle, HelpCircle, Phone, MessageCircle, Info, Plane, Train, Hotel, Calculator, TrendingDown } from 'lucide-react';
+import { Wallet, PiggyBank, MapPin, CheckCircle, HelpCircle, Phone, MessageCircle, Info, Plane, Train, Hotel, Calculator, TrendingDown, UserCheck } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -211,22 +211,22 @@ const BudgetTourPackages = () => {
                         <h2 className="text-3xl font-bold mb-12">What’s Included in Budget Packages?</h2>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <div className="p-6 border rounded-xl hover:border-teal-500 transition-colors">
-                                <Hotel className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                <Hotel className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto mb-4" />
                                 <h3 className="font-bold mb-2">Budget Stays</h3>
                                 <p className="text-sm text-muted-foreground">Clean budget or standard hotels</p>
                             </div>
                             <div className="p-6 border rounded-xl hover:border-teal-500 transition-colors">
-                                <Train className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                <Train className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto mb-4" />
                                 <h3 className="font-bold mb-2">Transport</h3>
                                 <p className="text-sm text-muted-foreground">Bus/Train/Flight based on plan</p>
                             </div>
                             <div className="p-6 border rounded-xl hover:border-teal-500 transition-colors">
-                                <MapPin className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                <MapPin className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto mb-4" />
                                 <h3 className="font-bold mb-2">Sightseeing</h3>
                                 <p className="text-sm text-muted-foreground">Essential spots covered</p>
                             </div>
                             <div className="p-6 border rounded-xl hover:border-teal-500 transition-colors">
-                                <UserCheck className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                <UserCheck className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto mb-4" />
                                 <h3 className="font-bold mb-2">Support</h3>
                                 <p className="text-sm text-muted-foreground">Travel coordination</p>
                             </div>
@@ -240,21 +240,21 @@ const BudgetTourPackages = () => {
                         <h2 className="text-3xl font-bold text-center mb-12">Why Book Budget Tours with Rudraksh Safar?</h2>
                         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                             <div className="flex gap-4">
-                                <div className="p-3 bg-white rounded-full shadow-sm h-fit"><Wallet className="w-6 h-6 text-teal-600" /></div>
+                                <div className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm h-fit"><Wallet className="w-6 h-6 text-teal-600 dark:text-teal-400" /></div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-2">Honest Cost Breakdown</h3>
                                     <p className="text-muted-foreground text-sm">No hidden charges. You know exactly what you pay for.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <div className="p-3 bg-white rounded-full shadow-sm h-fit"><CheckCircle className="w-6 h-6 text-teal-600" /></div>
+                                <div className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm h-fit"><CheckCircle className="w-6 h-6 text-teal-600 dark:text-teal-400" /></div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-2">Value Selection</h3>
                                     <p className="text-muted-foreground text-sm">Hotel & transport selection focused on maximum value.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <div className="p-3 bg-white rounded-full shadow-sm h-fit"><Phone className="w-6 h-6 text-teal-600" /></div>
+                                <div className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm h-fit"><Phone className="w-6 h-6 text-teal-600 dark:text-teal-400" /></div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-2">Full Support</h3>
                                     <p className="text-muted-foreground text-sm">Budget optimisation without compromising safety. Support before and during travel.</p>
@@ -314,11 +314,5 @@ const BudgetTourPackages = () => {
         </>
     );
 };
-
-// Import component directly to avoid 'UserCheck is not defined' if i missed importing it up top
-// Checking imports... Wallet, PiggyBank, MapPin, CheckCircle, HelpCircle, Phone, MessageCircle, Info, Plane, Train, Hotel, Calculator, TrendingDown...
-// Added UserCheck to imports in next step to be safe if not there.
-
-import { UserCheck } from 'lucide-react';
 
 export default BudgetTourPackages;

@@ -121,7 +121,7 @@ const CabRental = () => {
 
                 {/* TL;DR & Updated Signal */}
                 <section className="bg-background -mt-8 relative z-20 container mx-auto px-4">
-                    <div className="bg-yellow-50/90 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-lg max-w-5xl mx-auto backdrop-blur-sm">
+                    <div className="bg-yellow-50/90 dark:bg-yellow-900/10 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-lg max-w-5xl mx-auto backdrop-blur-sm">
                         <div className="flex flex-col md:flex-row gap-6 items-start">
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
@@ -232,7 +232,7 @@ const CabRental = () => {
                         </div>
                         <div className="flex flex-wrap gap-4 justify-center">
                             {destinations.map((dest, index) => (
-                                <div key={index} className="px-6 py-3 rounded-full border border-border bg-background hover:bg-yellow-50 hover:border-yellow-200 hover:text-yellow-700 transition-colors cursor-default font-medium">
+                                <div key={index} className="px-6 py-3 rounded-full border border-border bg-background hover:bg-yellow-50 dark:hover:bg-yellow-900/20 hover:border-yellow-200 hover:text-yellow-700 dark:hover:text-yellow-400 transition-colors cursor-default font-medium">
                                     {dest.name}
                                 </div>
                             ))}

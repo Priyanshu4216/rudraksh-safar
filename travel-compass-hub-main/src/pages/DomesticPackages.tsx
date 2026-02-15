@@ -188,7 +188,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
               <div>
                 <p className="text-xs text-muted-foreground">Starting from</p>
-                <p className="text-xl font-serif font-bold text-secondary">{pkg.price}</p>
+                <p className="text-xl font-serif font-bold text-secondary dark:text-blue-300">{pkg.price}</p>
               </div>
               <Button onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} className="btn-ocean px-5 py-2.5 text-sm">
                 Book Now
@@ -265,10 +265,10 @@ const DomesticPackages = () => {
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-secondary to-transparent" />
-                  <span className="text-secondary font-medium tracking-widest uppercase text-sm">Explore India</span>
+                  <span className="text-secondary dark:text-blue-300 font-medium tracking-widest uppercase text-sm">Explore India</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  Domestic <span className="text-secondary">Tour Packages in India</span>
+                  Domestic <span className="text-secondary dark:text-blue-300">Tour Packages in India</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
                   Compare destinations, budgets, and travel styles. Discover the incredible diversity of India with our curated holiday packages.
@@ -278,7 +278,7 @@ const DomesticPackages = () => {
                 <div className="glass-card p-5 border border-secondary/30 bg-gradient-to-br from-secondary/10 to-transparent max-w-xs">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-secondary" />
+                      <Sparkles className="w-5 h-5 text-secondary dark:text-blue-300" />
                     </div>
                     <h3 className="font-serif font-bold text-foreground">Tailor-Made Trips</h3>
                   </div>
@@ -298,7 +298,7 @@ const DomesticPackages = () => {
               <div className="glass-card p-8 border-l-4 border-l-secondary bg-secondary/5">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="p-3 bg-secondary/10 rounded-full shrink-0 hidden md:block">
-                    <Globe className="w-6 h-6 text-secondary" />
+                    <Globe className="w-6 h-6 text-secondary dark:text-blue-300" />
                   </div>
                   <div>
                     <h3 className="text-xl font-serif font-bold text-foreground mb-2">India Travel Guide</h3>
@@ -389,7 +389,7 @@ const DomesticPackages = () => {
           <div className="container relative z-10 text-center">
             <AnimatedSection animation="scale">
               <div className="glass-card p-10 max-w-2xl mx-auto">
-                <Sparkles className="w-12 h-12 text-secondary mx-auto mb-4" />
+                <Sparkles className="w-12 h-12 text-secondary dark:text-blue-300 mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">Can't find your dream destination?</h2>
                 <p className="text-muted-foreground mb-6">Let us customize a perfect itinerary just for you</p>
                 <Button onClick={() => { window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I'd like a customized domestic travel package.")}`, '_blank'); }} className="btn-gold">

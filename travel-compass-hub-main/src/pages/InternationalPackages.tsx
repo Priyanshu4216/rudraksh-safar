@@ -225,7 +225,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
           </div>
           <div className="p-5">
             <div className="flex items-center gap-2 mb-4 p-3 bg-secondary/10 rounded-lg">
-              <Banknote className="w-5 h-5 text-secondary" />
+              <Banknote className="w-5 h-5 text-secondary dark:text-blue-300" />
               <p className="text-sm font-medium text-foreground">{pkg.currency}</p>
             </div>
             <div className="flex items-center mb-4">
@@ -243,7 +243,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
               <div>
                 <p className="text-xs text-muted-foreground">Starting from</p>
-                <p className="text-xl font-serif font-bold text-secondary">{pkg.price}</p>
+                <p className="text-xl font-serif font-bold text-secondary dark:text-blue-300">{pkg.price}</p>
               </div>
               <Button onClick={(e) => { e.preventDefault(); handleWhatsApp(); }} className="btn-gold px-5 py-2.5 text-sm">
                 Book Now
@@ -331,13 +331,13 @@ const InternationalPackages = () => {
               <AnimatedSection animation="fade-up">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-secondary to-transparent" />
-                  <span className="text-secondary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
+                  <span className="text-secondary dark:text-blue-300 font-medium tracking-widest uppercase text-sm flex items-center gap-2">
                     <Plane className="w-4 h-4" />
                     Explore the World
                   </span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-                  International <span className="text-secondary">Tour Packages from India</span>
+                  International <span className="text-secondary dark:text-blue-300">Tour Packages from India</span>
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-2xl">
                   Your trusted guide for international travel. Discover affordable, safe, and visa-easy holiday destinations from Bhilai, Raipur, and across India.
@@ -347,7 +347,7 @@ const InternationalPackages = () => {
                 <div className="glass-card p-5 border border-secondary/30 bg-gradient-to-br from-secondary/10 to-transparent max-w-xs">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-secondary" />
+                      <Sparkles className="w-5 h-5 text-secondary dark:text-blue-300" />
                     </div>
                     <h3 className="font-serif font-bold text-foreground">Tailor-Made Trips</h3>
                   </div>
@@ -462,7 +462,7 @@ const InternationalPackages = () => {
             <div className="glass-card p-8 md:p-12 border border-secondary/20 bg-secondary/5 rounded-3xl">
               <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
                 <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-10 h-10 text-secondary" />
+                  <ShieldCheck className="w-10 h-10 text-secondary dark:text-blue-300" />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
@@ -491,7 +491,7 @@ const InternationalPackages = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Plane className="w-7 h-7 text-secondary" />
+                      <Plane className="w-7 h-7 text-secondary dark:text-blue-300" />
                     </div>
                     <div>
                       <h3 className="text-xl font-serif font-bold text-foreground">Hassle-Free Visa Assistance</h3>
@@ -521,7 +521,7 @@ const InternationalPackages = () => {
           <div className="container relative z-10 text-center">
             <AnimatedSection animation="scale">
               <div className="glass-card p-10 max-w-2xl mx-auto">
-                <Sparkles className="w-12 h-12 text-secondary mx-auto mb-4" />
+                <Sparkles className="w-12 h-12 text-secondary dark:text-blue-300 mx-auto mb-4" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">
                   Dreaming of a different destination?
                 </h2>

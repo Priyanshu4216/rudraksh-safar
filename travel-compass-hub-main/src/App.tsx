@@ -8,7 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import SecurityProvider from "./components/SecurityProvider";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
-import ReloadPrompt from "./components/ReloadPrompt";
+import AutoUpdateController from "./components/AutoUpdateController";
 import Index from "./pages/Index";
 import HomeRedesign from "./pages/HomeRedesign";
 import SearchExperience from "./pages/SearchExperience";
@@ -209,6 +209,8 @@ const DubaiVsAbuDhabi = lazy(() => import("./pages/comparisons/DubaiVsAbuDhabi")
 const queryClient = new QueryClient();
 
 
+import NotificationPermission from "@/components/notifications/NotificationPermission";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="light" storageKey="rudraksh-safar-theme">
@@ -216,7 +218,9 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <ReloadPrompt />
+          <Sonner />
+          <AutoUpdateController />
+          <NotificationPermission />
           <BrowserRouter>
             <ScrollProgressBar />
             <HomeLoader />

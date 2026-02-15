@@ -18,7 +18,8 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
     // Helper to ensure valid absolute URLs (prevent double slashes)
     const getAbsoluteUrl = (path: string) => {
         const cleanPath = path.startsWith('/') ? path : `/${path}`;
-        return `https://rudrakshsafar.com${cleanPath}`;
+        const baseUrl = import.meta.env.VITE_SITE_URL || 'https://rudrakshsafar.com';
+        return `${baseUrl}${cleanPath}`;
     };
 
     const breadcrumbSchema = {
@@ -52,15 +53,16 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
             {/* Sticky Breadcrumb Wrapper */}
             <div className="sticky top-[4.5rem] z-40 w-full bg-background/80 backdrop-blur-md border-b border-white/5 shadow-sm transition-all duration-300">
                 <div className="container mx-auto px-4 py-3">
-                    <nav aria-label="Breadcrumb">
+                    <nav aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
                         <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                             <li>
                                 <Link to="/" className="flex items-center hover:text-primary transition-colors">
                                     <Home className="w-4 h-4" />
+                                    <span className="sr-only">Home</span>
                                 </Link>
                             </li>
                             {items.map((item, index) => (
-                                <li key={index} className="flex items-center gap-2">
+                                <li key={item.path} className="flex items-center gap-2">
                                     <ChevronRight className="w-4 h-4 opacity-50" />
                                     {index === items.length - 1 ? (
                                         <span className="font-medium text-foreground" aria-current="page">

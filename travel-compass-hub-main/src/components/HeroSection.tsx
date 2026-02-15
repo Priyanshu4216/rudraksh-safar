@@ -7,8 +7,31 @@ import { useState } from 'react';
 
 import { useNavigate, Link } from 'react-router-dom';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  title?: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const HeroSection = ({
+  title,
+  subtitle,
+  backgroundImage,
+  ctaText,
+  ctaLink
+}: HeroSectionProps) => {
   const navigate = useNavigate();
+
+  // Defaults (Homepage Content)
+  const displayTitle = title || HERO_CONTENT.title;
+  const displaySubtitle = subtitle || HERO_CONTENT.subtitle;
+  const linkTarget = ctaLink || "/search";
+  const buttonText = ctaText || "Search";
+
+  // Decide if we show video (default) or image (override)
+  const showVideo = !backgroundImage;
 
   return (
     <section className="relative h-[100vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#0B1220]">
@@ -18,16 +41,25 @@ const HeroSection = () => {
         {/* Soft Vignette for focus */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,18,32,0.6)_100%)] z-10 pointer-events-none" />
 
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={posterImage}
-          className="w-full h-full object-cover scale-105 animate-slow-zoom"
-        >
-          <source src={heroVideoFile} type="video/mp4" />
-        </video>
+        {showVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={posterImage}
+            className="w-full h-full object-cover scale-105 animate-slow-zoom"
+          >
+            <source src={heroVideoFile} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={backgroundImage}
+            alt={displayTitle}
+            className="w-full h-full object-cover scale-105 animate-slow-zoom"
+          />
+        )}
+
         {/* Bottom Fade for Smooth Transition */}
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent z-20" />
       </div>
@@ -43,18 +75,24 @@ const HeroSection = () => {
         {/* Headline - Emotional & Cinematic */}
         <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold text-white mb-8 leading-[1.05] drop-shadow-2xl max-w-6xl mx-auto animate-fade-up">
           <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/70">
-            {HERO_CONTENT.title}
+            {displayTitle}
           </span>
         </h1>
 
         {/* Subtitle - clean & spaced */}
         <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed font-light tracking-wide animate-fade-up delay-100 mix-blend-screen">
-          {HERO_CONTENT.subtitle}
+          {displaySubtitle}
         </p>
 
-        {/* Luxury Glass Search Bar */}
+        {/* Luxury Glass Search Bar or CTA Button */}
         <div className="w-full max-w-2xl animate-fade-up delay-200 relative z-40">
-          <Link to="/search" className="block relative group cursor-pointer">
+          <Link to={linkTarget} className="block relative group cursor-pointer" onClick={(e) => {
+            if (linkTarget.startsWith('#')) {
+              e.preventDefault();
+              const element = document.querySelector(linkTarget);
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}>
             <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 via-white/10 to-gold/20 rounded-full opacity-50 blur-lg group-hover:opacity-100 transition duration-1000"></div>
             <div
               className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full p-2 shadow-2xl transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-[1.01]"
@@ -63,10 +101,10 @@ const HeroSection = () => {
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex-1 text-left px-4 h-12 flex items-center text-white/80 text-lg font-light">
-                Where is your dream destination?
+                {ctaText ? "Check Packages" : "Where is your dream destination?"}
               </div>
               <Button type="button" className="rounded-full h-12 px-8 bg-gold hover:bg-gold-light text-navy-deep font-bold transition-transform hover:scale-105 shadow-lg pointer-events-none">
-                Search
+                {buttonText}
               </Button>
             </div>
           </Link>

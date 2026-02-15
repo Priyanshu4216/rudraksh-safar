@@ -105,8 +105,15 @@ export interface DestinationContentData {
 
     // Content sections
     intro?: string;
+    image?: string; // Main destination image
     weather?: string;
     bestTime?: string;
+
+    // Geo Data
+    geo?: {
+        latitude: string;
+        longitude: string;
+    };
 
     // EEAT Signals
     lastUpdated?: string; // e.g., '2025-10-15'

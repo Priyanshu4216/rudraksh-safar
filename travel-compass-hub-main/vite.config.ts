@@ -50,6 +50,8 @@ export default defineConfig(({ mode }) => ({
         cleanupOutdatedCaches: true, // Keep this for hygiene
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // Import Firebase Messaging logic into the main Service Worker
+        importScripts: ["/firebase-messaging-sw.js"],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
@@ -112,5 +114,26 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    __APP_VERSION__: JSON.stringify(new Date().toISOString()),
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        {
+          name: 'generate-version-file',
+          // @ts-ignore
+          generateBundle(options, bundle) {
+            // @ts-ignore
+            this.emitFile({
+              type: 'asset',
+              fileName: 'version.json',
+              source: JSON.stringify({ version: new Date().toISOString() })
+            });
+          }
+        }
+      ]
+    }
+  }
 }));
 // Force restart

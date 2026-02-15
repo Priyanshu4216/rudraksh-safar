@@ -168,7 +168,8 @@ const CruiseBooking = () => {
                             </div>
                         </section>
 
-                        <section className="py-12 bg-white dark:bg-slate-950 relative z-20">
+
+                        <section className="py-12 bg-background relative z-20">
                             <div className="container mx-auto px-4">
                                 <TLDRSection
                                     title="Quick Answer: Cruise Booking"

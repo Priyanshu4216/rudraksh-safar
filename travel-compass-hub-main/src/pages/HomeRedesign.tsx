@@ -16,7 +16,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const HomeRedesign = () => {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+        <div className="min-h-screen bg-background font-sans selection:bg-indigo-100 selection:text-indigo-900">
             <SEOHead
                 title="Trusted Travel Agency in Bhilai - Rudraksh Safar"
                 description="Book domestic & international tour packages from Bhilai. Rudraksh Safar offers best deals on Kedarnath, Dubai, Thailand, and Family trips with 24/7 support."

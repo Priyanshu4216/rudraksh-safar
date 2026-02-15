@@ -72,7 +72,119 @@ const TravelAgentBhilai = () => {
       { "@type": "Place", "name": "Hudco, Bhilai" },
       { "@type": "AdministrativeArea", "name": "Durg" },
       { "@type": "AdministrativeArea", "name": "Raipur" }
-    ]
+    ],
+    "sameAs": [
+      "https://www.facebook.com/rudrakshsafar",
+      "https://www.instagram.com/rudrakshsafar",
+      "https://www.youtube.com/@rudrakshsafar"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Rahul Kumar"
+        },
+        "datePublished": "2025-11-15",
+        "reviewBody": "Best travel agent in Bhilai. Our Kerala trip was perfectly planned.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Priya Singh"
+        },
+        "datePublished": "2025-12-10",
+        "reviewBody": "Excellent service for Dubai Visa. Got it in 3 days.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Travel Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Visa Assistance in Bhilai"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Flight Booking from Raipur"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Passport Services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tour Packages from Bhilai"
+          }
+        }
+      ]
+    }
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Best Travel Agent in Bhilai",
+    "description": "Visit Rudraksh Safar - Bhilai's most trusted travel agency.",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero-title", ".tldr-summary"]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Rudraksh Safar Team",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Rudraksh Safar"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rudrakshsafar.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Travel Agent Bhilai",
+          "item": "https://rudrakshsafar.com/travel-agent-bhilai"
+        }
+      ]
+    }
   };
 
   const faqSchema = {
@@ -81,6 +193,7 @@ const TravelAgentBhilai = () => {
     "mainEntity": [
       {
         "@type": "Question",
+        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-near-me",
         "name": "Is there a travel agent near me in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -89,6 +202,7 @@ const TravelAgentBhilai = () => {
       },
       {
         "@type": "Question",
+        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-best-agency",
         "name": "Which is the best travel agency in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -97,6 +211,7 @@ const TravelAgentBhilai = () => {
       },
       {
         "@type": "Question",
+        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-local-vs-online",
         "name": "Why should I choose a local travel agent instead of online portals?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -105,6 +220,7 @@ const TravelAgentBhilai = () => {
       },
       {
         "@type": "Question",
+        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-visa",
         "name": "Do you provide visa assistance in Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -113,6 +229,7 @@ const TravelAgentBhilai = () => {
       },
       {
         "@type": "Question",
+        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-packages",
         "name": "What are the popular tour packages from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -164,7 +281,9 @@ const TravelAgentBhilai = () => {
   const tocItems = [
     { id: "hero", label: "Overview" },
     { id: "why-local", label: "Why Local Agent?" },
+    { id: "meet-expert", label: "Meet Not Bot" },
     { id: "price-guide", label: "Price Guide" },
+    { id: "comparison", label: "Online vs Us" },
     { id: "services", label: "Our Services" },
     { id: "popular-packages", label: "Popular Packages" },
     { id: "office-visit", label: "Visit Office" },
@@ -193,6 +312,7 @@ const TravelAgentBhilai = () => {
         {/* Schemas */}
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
       </Helmet>
 
       <ReadingProgress />
@@ -219,8 +339,8 @@ const TravelAgentBhilai = () => {
                   <MapPin className="w-4 h-4" />
                   <span className="text-sm font-medium">Located on GE Road, Bhilai 3 (Serving Durg & Raipur)</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-                  Your Trusted <span className="text-primary">Travel Agent in Bhilai</span>
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight hero-title">
+                  Best <span className="text-primary">Travel Agent in Bhilai</span> (Rudraksh Safar)
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
                   Rudraksh Safar (Since 2010) is Bhiliate's favorite travel partner.
@@ -271,8 +391,26 @@ const TravelAgentBhilai = () => {
                   title="Why Bhilai Travelers Trust Us?"
                   summary="We combine the convenience of online booking with the trust of a local office. Whether you are from Supela, Smriti Nagar, or Durg, we are just a phone call or a short drive away. We handle cancellations, refunds, and emergencies personally."
                   areasServed={["Bhilai", "Supela", "Smriti Nagar", "Power House", "Nehru Nagar", "Risali", "Charoda", "Durg", "Raipur"]}
+                  className="tldr-summary"
                 />
               </div>
+
+              {/* SECTION: Meet The Expert (Trust Signal) */}
+              <section id="meet-expert" className="mb-16 scroll-mt-24">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800 p-8 rounded-2xl border border-blue-100 dark:border-slate-700 flex flex-col md:flex-row items-center gap-8">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg shrink-0 bg-gray-200 flex items-center justify-center">
+                    <Users className="w-16 h-16 text-gray-400" />
+                  </div>
+                  <div>
+                    <Badge className="mb-3 bg-blue-600">Since 2010</Badge>
+                    <h3 className="text-2xl font-bold mb-2">Meet Your Local Travel Expert</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      "At Rudraksh Safar, we aren't just an algorithm. We are real people living in Bhilai just like you. I personally oversee every package to ensure my fellow Bhilai residents get the safest, most value-for-money experience. If established trust matters to you, you are in the right place."
+                    </p>
+                    <div className="font-bold text-lg">- Senior Consultant, Rudraksh Safar Team</div>
+                  </div>
+                </div>
+              </section>
 
               {/* SECTION: Why Bhilai Prefers Local (Authority) */}
               <section id="why-local" className="mb-16 scroll-mt-24">
@@ -469,31 +607,82 @@ const TravelAgentBhilai = () => {
                 </div>
               </section>
 
-              {/* Google vs Local Comparison (Kept from original) */}
-              <section className="mb-16">
-                <DecisionHelper
-                  title="Quick Check: Are We Right For You?"
-                  options={[
-                    {
-                      label: "The Online Deal Hunter",
-                      description: "You spend weeks checking apps to save ₹500. You are okay with chatbots if things go wrong.",
-                      idealFor: ["Solo Packers", "Budget Hikers"],
-                      isRecommended: false
-                    },
-                    {
-                      label: "The Peace Seeker",
-                      description: "You want a vetted hotel, a safe driver, and a local office to call. You value peace of mind.",
-                      idealFor: ["Families", "Business Flyers", "Seniors"],
-                      isRecommended: true
-                    }
-                  ]}
-                />
+              {/* Google vs Local Comparison Table */}
+              <section id="comparison" className="mb-16 scroll-mt-24">
+                <h2 className="text-3xl font-bold mb-6">Online Apps vs. Rudraksh Safar</h2>
+                <div className="overflow-x-auto border rounded-xl shadow-sm">
+                  <table className="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                      <tr className="bg-slate-100 dark:bg-slate-800">
+                        <th className="p-4 border-b">Feature</th>
+                        <th className="p-4 border-b text-red-500">Famous Online Apps</th>
+                        <th className="p-4 border-b text-green-600 font-bold bg-green-50 dark:bg-green-900/20">Rudraksh Safar (Local)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-4 border-b font-medium">Customer Support</td>
+                        <td className="p-4 border-b text-muted-foreground">Chatbots & Email tickets</td>
+                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Personal Mobile Number</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 border-b font-medium">Payment Flexibility</td>
+                        <td className="p-4 border-b text-muted-foreground">Full upfront (Digital only)</td>
+                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Part Payment + Cash/UPI at Office</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 border-b font-medium">Emergency Help</td>
+                        <td className="p-4 border-b text-muted-foreground">Long wait times</td>
+                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Instant Local Assistance</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 border-b font-medium">Refunds</td>
+                        <td className="p-4 border-b text-muted-foreground">Takes 7-14 days (Credit shell)</td>
+                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Immediate Processing</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 border-b font-medium">Hidden Charges</td>
+                        <td className="p-4 border-b text-muted-foreground">Convenience Fees added at end</td>
+                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">0% Hidden Fees</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </section>
 
               {/* FAQs Section */}
               <div id="faqs" className="scroll-mt-24">
                 <FAQsSection faqs={faqs} />
               </div>
+
+              {/* Internal Linking Block: Explore Our Services */}
+              <section className="mb-16 mt-16 scroll-mt-24">
+                <h2 className="text-3xl font-bold mb-6">Explore Our Bhilai Services</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <Link to="/visa-agent-bhilai" className="block p-4 bg-muted/50 rounded-xl hover:bg-primary/10 hover:text-primary transition-all text-center">
+                    <span className="block font-bold">Visa Agent</span>
+                  </Link>
+                  <Link to="/passport-agent-bhilai" className="block p-4 bg-muted/50 rounded-xl hover:bg-primary/10 hover:text-primary transition-all text-center">
+                    <span className="block font-bold">Passport Agent</span>
+                  </Link>
+                  <Link to="/flight-booking-bhilai" className="block p-4 bg-muted/50 rounded-xl hover:bg-primary/10 hover:text-primary transition-all text-center">
+                    <span className="block font-bold">Flight Booking</span>
+                  </Link>
+                  <Link to="/tour-packages-from-bhilai" className="block p-4 bg-muted/50 rounded-xl hover:bg-primary/10 hover:text-primary transition-all text-center">
+                    <span className="block font-bold">Tour Packages</span>
+                  </Link>
+                </div>
+              </section>
+
+              {/* Regional Authority Links */}
+              <section className="mb-16">
+                <h3 className="text-xl font-bold mb-4">Serving Nearby Cities</h3>
+                <div className="flex gap-4 flex-wrap">
+                  <Link to="/travel-agent-durg" className="text-primary hover:underline">Travel Agent in Durg</Link> |
+                  <Link to="/travel-agent-raipur" className="text-primary hover:underline">Travel Agent in Raipur</Link> |
+                  <Link to="/tour-packages-from-raipur" className="text-primary hover:underline">Tour Packages from Raipur</Link>
+                </div>
+              </section>
 
             </div>
           </div>
