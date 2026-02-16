@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+    apiKey: "AIzaSyA5uXmLIfttFFzCex89MYOfjiLNhITCEgM",
+    authDomain: "rudraksh-safar-notifications.firebaseapp.com",
+    projectId: "rudraksh-safar-notifications",
+    storageBucket: "rudraksh-safar-notifications.firebasestorage.app",
+    messagingSenderId: "381479794792",
+    appId: "1:381479794792:web:63f4b264560ed048efa3dd",
+    measurementId: "G-BE6Z9T6PC6"
 };
 
 import { getFirestore } from "firebase/firestore";
@@ -17,6 +17,6 @@ const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 const db = getFirestore(app);
 
-export const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+export const VAPID_KEY = "BKB9LRJxzklESpVqUe7guQJQrebkKGupeSJ-fXigKDfStnZnkZxzuds2BjwvnK56IQI5U38mcSdXCKORH08Kw4g";
 
 export { app, messaging, db, getToken, onMessage };
