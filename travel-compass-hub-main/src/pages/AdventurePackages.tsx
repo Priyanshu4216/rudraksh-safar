@@ -14,7 +14,32 @@ import { getBestTimeToVisit } from '@/lib/travelMeta';
 
 const PHONE_NUMBER = '919406182174';
 
-const adventurePackages = [
+interface AdventurePackage {
+  id: string;
+  title: string;
+  location: string;
+  duration: string;
+  price: string;
+  image: string;
+  tag: string;
+  thrill: string;
+  activity: string;
+  link?: string;
+}
+
+const adventurePackages: AdventurePackage[] = [
+  {
+    id: 'ladakh-ultimate-expedition',
+    title: 'Ladakh Ultimate Expedition',
+    location: 'Delhi • Manali • Leh • Srinagar',
+    duration: '13 Days / 12 Nights',
+    price: 'Price Drop Coming Soon', // Custom price text
+    image: 'https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&w=2067',
+    tag: 'Signature Journey',
+    thrill: 'Extreme',
+    activity: 'Full Circuit Expedition',
+    link: '/ladakh-ultimate-expedition' // Custom link
+  },
   {
     id: 'ladakh-bike',
     title: 'Ladakh & Spiti Bike Tour',
@@ -91,15 +116,17 @@ const getThrillColor = (thrill: string) => {
   }
 };
 
-const PackageCard = ({ pkg, index }: { pkg: typeof adventurePackages[0]; index: number }) => {
+const PackageCard = ({ pkg, index }: { pkg: AdventurePackage; index: number }) => {
   const handleWhatsApp = () => {
     const message = `Hello, I am interested in the ${pkg.title} package (${pkg.duration}) priced at ${pkg.price}. Please share the detailed itinerary and safety protocols.`;
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const linkTo = pkg.link || `/package/${pkg.id}`;
+
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
-      <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
+      <Link to={linkTo} onClick={() => window.scrollTo(0, 0)} className="block">
         <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border border-orange-200/50 dark:border-orange-800/30 hover:shadow-[0_20px_50px_-12px_rgba(249,115,22,0.3)] transition-all duration-500 hover:-translate-y-1">
           {/* Thrill level badge */}
           <div className={`absolute top-4 right-4 z-10 flex items-center gap-1 bg-gradient-to-r ${getThrillColor(pkg.thrill)} text-white px-2 py-1 rounded-full text-xs font-bold`}>

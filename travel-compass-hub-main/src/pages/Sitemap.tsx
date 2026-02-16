@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle, HelpCircle, BookOpen } from 'lucide-react';
+import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle, HelpCircle, BookOpen, Mountain } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
@@ -72,6 +72,27 @@ const Sitemap = () => {
                 { name: 'Group Tour Packages', href: '/group-tour-packages', desc: 'Travel for families, friends, and organisations' },
                 { name: 'Island Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' },
                 { name: 'Mountain Holiday Packages', href: '/mountain-holiday-packages', desc: 'Hill stations and mountain travel' },
+            ]
+        },
+        {
+            title: "Ladakh Expeditions (New 🔥)",
+            description: "Complete guide for Ladakh trips - Routes, Bike Trips, Family Packages & Local Departures.",
+            icon: Mountain,
+            links: [
+                { name: "Ladakh Tour Packages from Delhi", href: "/ladakh-tour-packages-from-delhi", desc: "Main Pillar Page" },
+                { name: "Ultimate Ladakh Expedition", href: "/ladakh-ultimate-expedition", desc: "13 Days Full Circuit" },
+                { name: "Ladakh Tour via Srinagar", href: "/ladakh-tour-via-srinagar", desc: "Scenic Route" },
+                { name: "Ladakh Tour via Manali", href: "/ladakh-tour-via-manali", desc: "Adventure Route" },
+                { name: "Manali vs Srinagar Route", href: "/manali-vs-srinagar-route-ladakh", desc: "Comparison Guide" },
+                { name: "Ladakh Trip Cost", href: "/ladakh-trip-cost", desc: "Budget Guide 2026" },
+                { name: "Best Time to Visit Ladakh", href: "/best-time-to-visit-ladakh", desc: "Season Guide" },
+                { name: "Ladakh Bike Trip Packages", href: "/ladakh-bike-trip-packages", desc: "Motorcycle Expeditions" },
+                { name: "Ladakh From Raipur", href: "/ladakh-tour-packages-from-raipur", desc: "Flight Inclusive" },
+                { name: "Ladakh From Bhilai", href: "/ladakh-tour-packages-from-bhilai", desc: "Train Connectivity" },
+                { name: "Ladakh From Chhattisgarh", href: "/ladakh-tour-packages-from-chhattisgarh", desc: "State Special" },
+                { name: "Ladakh Safety Tips", href: "/ladakh-travel-safety-tips", desc: "AMS & Health" },
+                { name: "Ladakh Packing List", href: "/ladakh-packing-checklist", desc: "Downloadable Checklist" },
+                { name: "Pangong Lake Guide", href: "/places-to-visit-in-ladakh/pangong-lake", desc: "Attraction Details" },
             ]
         },
         {

@@ -206,6 +206,22 @@ const DubaiFromRaipur = lazy(() => import("./pages/uae/DubaiFromRaipur"));
 const DubaiFromBhilai = lazy(() => import("./pages/uae/DubaiFromBhilai"));
 const DubaiVsAbuDhabi = lazy(() => import("./pages/comparisons/DubaiVsAbuDhabi"));
 
+// Ladakh SEO Pages - Lazy Loaded
+const LadakhPillar = lazy(() => import("./pages/ladakh/LadakhPillar"));
+const LadakhViaSrinagar = lazy(() => import("./pages/ladakh/LadakhViaSrinagar"));
+const LadakhViaManali = lazy(() => import("./pages/ladakh/LadakhViaManali"));
+const ManaliVsSrinagar = lazy(() => import("./pages/ladakh/ManaliVsSrinagar"));
+const LadakhTripCost = lazy(() => import("./pages/ladakh/LadakhTripCost"));
+const BestTimeLadakh = lazy(() => import("./pages/ladakh/BestTimeLadakh"));
+const LadakhBikePackages = lazy(() => import("./pages/ladakh/LadakhBikePackages"));
+const LadakhUltimateExpedition = lazy(() => import("./pages/ladakh/LadakhUltimateExpedition"));
+const LadakhFromRaipur = lazy(() => import("./pages/ladakh/LadakhFromRaipur"));
+const LadakhFromBhilai = lazy(() => import("./pages/ladakh/LadakhFromBhilai"));
+const LadakhFromChhattisgarh = lazy(() => import("./pages/ladakh/LadakhFromChhattisgarh"));
+const LadakhSafety = lazy(() => import("./pages/ladakh/LadakhSafety"));
+const LadakhPackingList = lazy(() => import("./pages/ladakh/LadakhPackingList"));
+const PangongLake = lazy(() => import("./pages/ladakh/PangongLake"));
+
 const queryClient = new QueryClient();
 
 
@@ -353,6 +369,22 @@ const App = () => (
                   <Route path="/abu-dhabi/:slug" element={<AttractionPage />} />
                   {/* Redirect Legacy if needed or just keep /uae as fallback if links exist */}
                   <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
+
+                  {/* Ladakh SEO Pages */}
+                  <Route path="/ladakh-tour-packages-from-delhi" element={<LadakhPillar />} />
+                  <Route path="/ladakh-tour-via-srinagar" element={<LadakhViaSrinagar />} />
+                  <Route path="/ladakh-tour-via-manali" element={<LadakhViaManali />} />
+                  <Route path="/manali-vs-srinagar-route-ladakh" element={<ManaliVsSrinagar />} />
+                  <Route path="/ladakh-trip-cost" element={<LadakhTripCost />} />
+                  <Route path="/best-time-to-visit-ladakh" element={<BestTimeLadakh />} />
+                  <Route path="/ladakh-bike-trip-packages" element={<LadakhBikePackages />} />
+                  <Route path="/ladakh-ultimate-expedition" element={<LadakhUltimateExpedition />} />
+                  <Route path="/ladakh-tour-packages-from-raipur" element={<LadakhFromRaipur />} />
+                  <Route path="/ladakh-tour-packages-from-bhilai" element={<LadakhFromBhilai />} />
+                  <Route path="/ladakh-tour-packages-from-chhattisgarh" element={<LadakhFromChhattisgarh />} />
+                  <Route path="/ladakh-travel-safety-tips" element={<LadakhSafety />} />
+                  <Route path="/ladakh-packing-checklist" element={<LadakhPackingList />} />
+                  <Route path="/places-to-visit-in-ladakh/pangong-lake" element={<PangongLake />} />
 
                   {/* Legal Routes */}
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
