@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: "/", // Ensure absolute path for assets
   plugins: [
     react(),
     VitePWA({
@@ -47,6 +48,7 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         skipWaiting: true,
         clientsClaim: true,
+        navigateFallback: "/index.html", // SPA Fallback for PWA
         cleanupOutdatedCaches: true, // Keep this for hygiene
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,

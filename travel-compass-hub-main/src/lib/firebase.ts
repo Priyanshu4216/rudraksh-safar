@@ -11,9 +11,12 @@ const firebaseConfig = {
     measurementId: "G-BE6Z9T6PC6"
 };
 
+import { getFirestore } from "firebase/firestore";
+
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
+const db = getFirestore(app);
 
 export const VAPID_KEY = "BKB9LRJxzklESpVqUe7guQJQrebkKGupeSJ-fXigKDfStnZnkZxzuds2BjwvnK56IQI5U38mcSdXCKORH08Kw4g";
 
-export { app, messaging, getToken, onMessage };
+export { app, messaging, db, getToken, onMessage };

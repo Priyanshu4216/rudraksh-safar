@@ -1,22 +1,5 @@
-# Default cache behavior for all files (like index.html): must revalidate
-# 301 Redirects for SEO preservation
-/international-packages-bhilai  /international-tour-packages-bhilai  301!
-/corporate-tour-packages-bhilai  /tour-packages-from-bhilai/corporate-tours  301!
-
 /*
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Images and hashed assets: 1 year cache (immutable)
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/images/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Service Worker should never be cached
-/sw.js
-  Cache-Control: no-cache
-/service-worker.js
-  Cache-Control: no-cache
-/manifest.webmanifest
-  Cache-Control: no-cache
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), microphone=(), camera=()

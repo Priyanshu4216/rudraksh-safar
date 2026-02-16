@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getToken, onMessage } from 'firebase/messaging';
-import { messaging, VAPID_KEY } from '@/lib/firebase';
+import { messaging, VAPID_KEY, db } from '@/lib/firebase';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { toast } from 'sonner';
 
 export const useFcmToken = () => {
@@ -27,7 +28,22 @@ export const useFcmToken = () => {
 
                         if (currentToken) {
                             setToken(currentToken);
-                            // TODO: Send this token to your backend or analytics
+
+                            // Save token to Firestore
+                            try {
+                                const tokenRef = doc(db, 'fcm_tokens', currentToken);
+                                await setDoc(tokenRef, {
+                                    token: currentToken,
+                                    createdAt: serverTimestamp(),
+                                    userAgent: navigator.userAgent,
+                                    platform: navigator.platform,
+                                    lastSeen: serverTimestamp()
+                                }, { merge: true });
+                                console.log('FCM Token saved to Firestore');
+                            } catch (err) {
+                                console.error('Error saving FCM token:', err);
+                            }
+
                             console.log('FCM Token:', currentToken);
                         } else {
                             console.log('No registration token available. Request permission to generate one.');
