@@ -17,6 +17,10 @@ export const useFcmToken = () => {
                     if (notificationPermissionStatus === 'granted') {
                         // Retrieve the active service worker registration to prevent conflict
                         const registration = await navigator.serviceWorker.getRegistration();
+                        if (!registration) {
+                            console.warn('No active Service Worker found. Firebase might fail to get token.');
+                            toast.error('Service Worker not active. Notifications might not work.');
+                        }
 
                         // If no registration, let Firebase register its own (or wait for PWA)
                         // Ideally PWA plugin has already registered 'sw.js'
@@ -47,11 +51,13 @@ export const useFcmToken = () => {
                             console.log('FCM Token:', currentToken);
                         } else {
                             console.log('No registration token available. Request permission to generate one.');
+                            toast.info('Please enable notifications properly to receive updates.');
                         }
                     }
                 }
             } catch (error) {
                 console.error('An error occurred while retrieving token:', error);
+                toast.error('Failed to get notification token. Check console.');
             }
         };
 

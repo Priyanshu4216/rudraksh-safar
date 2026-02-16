@@ -784,10 +784,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </div>
             </div>
 
-            {/* Newsletter Section */}
-            <div className="lg:col-span-1">
-              <BrevoNewsletter />
-            </div>
+
 
             {/* Quick Links */}
             <div>
