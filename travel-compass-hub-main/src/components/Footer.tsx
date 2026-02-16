@@ -7,6 +7,7 @@ import logoTransparent from '@/assets/dark_mode_web_logo_crop-removebg-preview.p
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Helmet } from 'react-helmet-async';
+import BrevoNewsletter from './newsletter/BrevoNewsletter';
 
 const PHONE_NUMBER = '919406182174';
 
@@ -783,6 +784,11 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </div>
             </div>
 
+            {/* Newsletter Section */}
+            <div className="lg:col-span-1">
+              <BrevoNewsletter />
+            </div>
+
             {/* Quick Links */}
             <div>
               <h3 className="font-serif font-bold text-lg text-white mb-8">Explore</h3>
@@ -857,19 +863,8 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
             {/* Newsletter & Social */}
             <div>
-              <h3 className="font-serif font-bold text-lg text-white mb-8">Stay Updated</h3>
-              <p className="text-white/60 text-sm mb-6">
-                Subscribe to our newsletter for exclusive offers and travel inspiration.
-              </p>
-              <div className="flex gap-2 mb-8">
-                <Input
-                  placeholder="Your Email"
-                  className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-gold"
-                />
-                <Button size="icon" className="bg-gold hover:bg-amber-500 text-black">
-                  <Mail className="w-4 h-4" />
-                </Button>
-              </div>
+              <BrevoNewsletter />
+              <div className="h-8"></div>
 
               <h4 className="font-serif font-bold text-sm text-white mb-4">Follow Our Journey</h4>
               <div className="flex items-center gap-3">
