@@ -15,17 +15,11 @@ import CustomerGallery from '@/components/CustomerGallery';
 import TrustBadges from '@/components/TrustBadges';
 import LocalCoverage from '@/components/LocalCoverage';
 
+
+
+
+
 const TravelAgentDurg = () => {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
-
-    if (loading) return <LocationPageLoader />;
 
     // LocalBusiness Schema - Optimized for Durg
     const localBusinessSchema = {

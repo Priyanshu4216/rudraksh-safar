@@ -17,16 +17,9 @@ import TravelReality from '@/components/TravelReality';
 import DosAndDonts from '@/components/DosAndDonts';
 
 const NepalTourPackageFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const destinations: Destination[] = [
         { name: "Kathmandu", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", price: "Pashupatinath included", duration: "3 Days", link: "#", rating: "4.8" },

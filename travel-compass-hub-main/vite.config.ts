@@ -3,10 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
-// @ts-ignore
-// import prerender from 'vite-plugin-prerender';
-// @ts-ignore
-// import PuppeteerRenderer from '@prerenderer/renderer-puppeteer';
+import legacy from '@vitejs/plugin-legacy';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -17,6 +14,9 @@ export default defineConfig(({ mode }) => ({
   base: "/", // Ensure absolute path for assets
   plugins: [
     react(),
+    legacy({
+      targets: ['defaults', 'iOS >= 12']
+    }),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.png", "favicon.ico", "og-image.png"],
@@ -46,8 +46,8 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        skipWaiting: true,
-        clientsClaim: true,
+        skipWaiting: true, // ⚡ Critical for iOS
+        clientsClaim: true, // ⚡ Critical for iOS
         navigateFallback: "/index.html", // SPA Fallback for PWA
         cleanupOutdatedCaches: true, // Keep this for hygiene
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
@@ -90,26 +90,6 @@ export default defineConfig(({ mode }) => ({
         ]
       }
     }),
-    // @ts-ignore
-    /*
-    // @ts-ignore
-    prerender({
-      staticDir: path.join(__dirname, 'dist'),
-      routes: [
-        '/', 
-        '/travel-agent-bhilai', 
-        '/travel-agent-raipur', 
-        '/travel-agent-durg',
-        '/domestic-packages',
-        '/international-packages'
-      ],
-      // @ts-ignore
-      renderer: new PuppeteerRenderer({
-        maxConcurrentRoutes: 1,
-        renderAfterTime: 500,
-      }),
-    })
-    */
   ].filter(Boolean),
   resolve: {
     alias: {

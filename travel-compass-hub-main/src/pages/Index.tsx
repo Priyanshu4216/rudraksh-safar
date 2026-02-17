@@ -28,65 +28,14 @@ const FinalCTA = lazy(() => import('@/components/FinalCTA')); // Section 12
 const FAQsSection = lazy(() => import('@/components/FAQsSection'));
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('rudraksh_landing_loader_shown'));
-  const [videoReady, setVideoReady] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  const shouldPreloadVideo = useMemo(() => {
-    try {
-      const nav = navigator as Navigator & {
-        connection?: {
-          effectiveType?: string;
-          saveData?: boolean;
-        };
-      };
-      const effectiveType = nav.connection?.effectiveType;
-      const saveData = nav.connection?.saveData;
-      const slow = effectiveType === 'slow-2g' || effectiveType === '2g' || effectiveType === '3g';
-      return !saveData && !slow;
-    } catch {
-      return true;
-    }
-  }, []);
-
-  // Preload the hero video with optimized loading
+  /* Removed artificial loading delay for SEO */
+  /* Removed video preload blocking logic for SEO */
   useEffect(() => {
-    if (!shouldPreloadVideo) {
-      setVideoReady(true);
-      return;
-    }
     const video = document.createElement('video');
     video.src = heroVideo;
     video.preload = 'metadata';
-
-    const handleCanPlay = () => {
-      setVideoReady(true);
-    };
-
-    video.addEventListener('loadedmetadata', handleCanPlay);
     video.load();
-
-    const timeout = setTimeout(() => setVideoReady(true), 1200);
-
-    const safetyTimeout = setTimeout(() => {
-      setIsLoading(false);
-      setVideoReady(true);
-      setAnimationComplete(true);
-    }, 2500);
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleCanPlay);
-      clearTimeout(timeout);
-      clearTimeout(safetyTimeout);
-    };
-  }, [shouldPreloadVideo]);
-
-  useEffect(() => {
-    if (animationComplete && videoReady) {
-      setIsLoading(false);
-      sessionStorage.setItem('rudraksh_landing_loader_shown', 'true');
-    }
-  }, [animationComplete, videoReady]);
+  }, []);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -94,10 +43,6 @@ const Index = () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
-
-  if (isLoading) {
-    return <LoadingScreen onComplete={() => setAnimationComplete(true)} />;
-  }
 
   return (
     <>

@@ -22,16 +22,9 @@ import RelatedServices from '@/components/RelatedServices';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 
 const TourPackagesFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const domesticDestinations: Destination[] = [
         { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=800", price: "Starts ₹8,999", duration: "3N/4D", link: "/goa-tour-package-from-bhilai", rating: "4.8" },

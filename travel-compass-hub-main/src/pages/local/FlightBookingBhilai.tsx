@@ -18,22 +18,11 @@ import TravelReality from '@/components/TravelReality';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import RelatedServices from '@/components/RelatedServices';
 
+
+
+
 const FlightBookingBhilai = () => {
-    const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('rudraksh_flight_loader_shown'));
 
-    useEffect(() => {
-        if (isLoading) {
-            const timer = setTimeout(() => {
-                setIsLoading(false);
-                sessionStorage.setItem('rudraksh_flight_loader_shown', 'true');
-            }, 1200);
-            return () => clearTimeout(timer);
-        }
-    }, [isLoading]);
-
-    if (isLoading) {
-        return <PageLoader type="flight" />;
-    }
     const directFlights = [
         { dest: "Delhi (DEL)", freq: "Daily (Multiple)", airline: "IndiGo, Vistara", time: "2h 00m" },
         { dest: "Mumbai (BOM)", freq: "Daily", airline: "IndiGo, Air India", time: "1h 50m" },

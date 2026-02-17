@@ -15,16 +15,9 @@ import { Plane, FileText, Globe, Car, ShieldCheck, CheckCircle, Wallet, Building
 import { Button } from '@/components/ui/button';
 
 const InternationalToursFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const highDemandRoutes: Destination[] = [
         { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/package/thailand", rating: "4.8" },

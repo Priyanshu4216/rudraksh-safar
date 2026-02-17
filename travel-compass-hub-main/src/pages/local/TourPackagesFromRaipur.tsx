@@ -18,16 +18,9 @@ import RelatedServices from '@/components/RelatedServices';
 import { Link } from 'react-router-dom';
 
 const TourPackagesFromRaipur = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const domesticDestinations: Destination[] = [
         { name: "Goa", image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹8,999", duration: "3N/4D", link: "/package/goa", rating: "4.8" },

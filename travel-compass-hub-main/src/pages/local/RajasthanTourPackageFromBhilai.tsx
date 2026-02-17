@@ -17,16 +17,9 @@ import TravelReality from '@/components/TravelReality';
 import DosAndDonts from '@/components/DosAndDonts';
 
 const RajasthanTourPackageFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const destinations: Destination[] = [
         { name: "Jaipur", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800", price: "Starts ₹12,999", duration: "3N/4D", link: "/package/rajasthan-family", rating: "4.8" },

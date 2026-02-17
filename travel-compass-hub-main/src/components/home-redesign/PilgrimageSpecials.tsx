@@ -41,8 +41,8 @@ const PilgrimageSpecials = () => {
                 <div className="relative">
                     <Carousel opts={{ align: "start", loop: true }} className="w-full group">
                         <div className="absolute -top-[5rem] right-0 flex space-x-3 z-10">
-                            <CarouselPrevious className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" />
-                            <CarouselNext className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" />
+                            <CarouselPrevious className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Previous Slide" />
+                            <CarouselNext className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Next Slide" />
                         </div>
 
                         <CarouselContent className="-ml-6 px-4 py-8">

@@ -19,15 +19,9 @@ import RelatedServices from '@/components/RelatedServices';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 
-const BusBookingBhilai = () => {
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
-    }, []);
+
+const BusBookingBhilai = () => {
 
     const popularRoutes = [
         { dest: "Hyderabad", type: "AC Sleeper / Volvo", time: "Overnight (12-14 hrs)", fare: "₹1200 - ₹2500" },
@@ -60,9 +54,7 @@ const BusBookingBhilai = () => {
         "priceRange": "₹"
     };
 
-    if (isLoading) {
-        return <PageLoader type="bus" />;
-    }
+
 
     return (
         <>

@@ -15,16 +15,9 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
 
 const HoneymoonPackagesFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const snowDestinations: Destination[] = [
         { name: "Manali (Snow)", image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800", price: "Starts ₹15,999", duration: "5N/6D", link: "/manali-tour-package-from-bhilai", rating: "4.9", tag: "Snow Love" },

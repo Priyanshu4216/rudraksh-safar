@@ -17,16 +17,9 @@ import TravelReality from '@/components/TravelReality';
 import DosAndDonts from '@/components/DosAndDonts';
 
 const SingaporeTourPackageFromBhilai = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     const destinations: Destination[] = [
         { name: "Sentosa Island", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800", price: "Universal Studios Included", duration: "1 Day", link: "#", rating: "4.9" },

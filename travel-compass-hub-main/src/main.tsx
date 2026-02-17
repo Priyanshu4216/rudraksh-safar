@@ -4,6 +4,13 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 
+// 🚀 iOS PWA Fix: Force Service Worker Update on Reboot/Load
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(reg => reg.update());
+  });
+}
+
 // SEO-Critical: Explicit Helmet Context for Metadata Hydration
 const helmetContext = {};
 

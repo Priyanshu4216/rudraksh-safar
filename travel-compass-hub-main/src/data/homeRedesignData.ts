@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export const HERO_CONTENT = {
-    title: "Crafting Exceptional Travel Experiences Worldwide",
+    title: "Rudraksh Safar: Crafting Exceptional Travel Experiences",
     subtitle: "Domestic & International Tours | Customised Itineraries | Trusted by Thousands",
     searchPlaceholder: "Search Kedarnath, Dubai, Bali…",
     primaryCta: "Call Now",

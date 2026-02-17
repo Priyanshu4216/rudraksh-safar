@@ -293,4 +293,10 @@
   .animate-marquee {
     animation: marquee 30s linear infinite;
   }
+
+  /* iOS Viewport Height Fix */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
 }

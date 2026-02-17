@@ -13,16 +13,9 @@ import RelatedServices from '@/components/RelatedServices';
 import { Plane, Globe, ShieldCheck, MapPin } from 'lucide-react';
 
 const InternationalToursFromRaipur = () => {
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1200);
-        return () => clearTimeout(timer);
-    }, []);
 
-    if (loading) return <LocationPageLoader />;
+
 
     // Expert-curated destination list with Raipur-specific context
     const highDemandRoutes: Destination[] = [
