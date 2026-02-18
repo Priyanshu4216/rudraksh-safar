@@ -93,6 +93,7 @@ export interface TemplePageData {
         subtitle: string;
         highlights: { label: string; value: string; icon: any }[];
     };
+    gallery?: string[];
     history: {
         origin: string;
         legends: string[]; // Mahabharata, Puranas

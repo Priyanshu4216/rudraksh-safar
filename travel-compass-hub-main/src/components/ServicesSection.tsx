@@ -12,7 +12,8 @@ const services = [
     description: 'Domestic & international flights at unbeatable corporate rates.',
     schemaDescription: "Authorized flight booking agent in Bhilai for domestic and international airlines.",
     link: '/flight-booking-bhilai',
-    serviceType: "FlightReservation"
+    serviceType: "FlightReservation",
+    color: "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
   },
   {
     icon: Train,
@@ -20,7 +21,8 @@ const services = [
     description: 'Confirmed Tatkal & general tickets with IRCTC authorization.',
     schemaDescription: "IRCTC authorized train ticket booking agent in Bhilai and Raipur for Tatkal and general quota.",
     link: '/train-booking-bhilai',
-    serviceType: "TrainReservation"
+    serviceType: "TrainReservation",
+    color: "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
   },
   {
     icon: Hotel,
@@ -28,7 +30,8 @@ const services = [
     description: 'Handpicked luxury hotels and resorts for your comfort.',
     schemaDescription: "Hotel and resort booking service for domestic and international destinations.",
     link: '/hotel-booking',
-    serviceType: "LodgingReservation"
+    serviceType: "LodgingReservation",
+    color: "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
   },
   {
     icon: Bus,
@@ -36,7 +39,8 @@ const services = [
     description: 'Premium cabs and volatility buses for seamless travel.',
     schemaDescription: "Intercity bus and taxi booking service provider in Chhattisgarh.",
     link: '/cab-rental',
-    serviceType: "TaxiService"
+    serviceType: "TaxiService",
+    color: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400"
   },
   {
     icon: Ship,
@@ -44,7 +48,8 @@ const services = [
     description: 'Experience the ocean like never before with our cruise packages.',
     schemaDescription: "Booking agent for luxury cruises including Cordelia and international liners.",
     link: '/cruise-booking',
-    serviceType: "TravelAgency"
+    serviceType: "TravelAgency",
+    color: "bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400"
   },
   {
     icon: FileText,
@@ -52,7 +57,8 @@ const services = [
     description: 'Hassle-free visa processing for all major countries.',
     schemaDescription: "Visa consultant in Bhilai for tourist, student, and business visas.",
     link: '/visa-guide',
-    serviceType: "AdministrativeService"
+    serviceType: "AdministrativeService",
+    color: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400"
   },
   {
     icon: Stamp,
@@ -60,7 +66,8 @@ const services = [
     description: 'Expedited passport application and renewal support.',
     schemaDescription: "Passport application and renewal assistance service in Durg and Bhilai.",
     link: '/passport-guide',
-    serviceType: "AdministrativeService"
+    serviceType: "AdministrativeService",
+    color: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
   },
   {
     icon: MapPin,
@@ -68,7 +75,8 @@ const services = [
     description: 'Plan your trip over coffee at our Bhilai office.',
     schemaDescription: "Physical travel agency office in Bhilai for face-to-face consultation.",
     link: '/travel-agent-bhilai',
-    serviceType: "TravelAgency"
+    serviceType: "TravelAgency",
+    color: "bg-gold/20 text-gold"
   },
 ];
 
@@ -162,22 +170,22 @@ const ServicesSection = () => {
                 to={service.link}
                 className="block h-full group"
               >
-                <div className="h-full bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-4 md:p-8 hover:bg-white/10 hover:border-white/10 transition-all duration-300 relative overflow-hidden">
+                <div className="h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4 md:p-8 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
                   {/* Hover Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10 flex flex-col h-full">
                     {/* Centered Content Container */}
                     <div className="flex-grow flex flex-col items-center text-center justify-center">
-                      <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-navy-light flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 text-gold shadow-lg shadow-black/20">
+                      <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl ${service.color} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 text-white shadow-lg shadow-black/20`}>
                         <service.icon className="w-5 h-5 md:w-7 md:h-7" />
                       </div>
 
-                      <h3 className="text-base md:text-xl font-serif font-bold text-white mb-2 md:mb-3 group-hover:text-gold transition-colors">
+                      <h3 className="text-base md:text-xl font-serif font-bold text-gray-900 dark:text-white mb-2 md:mb-3 group-hover:text-gold transition-colors">
                         {service.title}
                       </h3>
 
-                      <p className="text-white/60 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 max-w-[250px]">
+                      <p className="text-gray-600 dark:text-slate-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 max-w-[250px]">
                         {service.description}
                       </p>
                     </div>

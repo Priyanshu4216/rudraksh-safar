@@ -22,10 +22,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
 
+import KedarnathGallery from '@/components/KedarnathGallery';
+
 const BhilaiToKedarnath = () => {
     const {
         meta, hero, featuredSnippets, distanceTable, travelOptions,
-        packages, commonMistakes, packingGuide, templeDates, whyChooseUs, faqs
+        packages, commonMistakes, packingGuide, templeDates, whyChooseUs, faqs, gallery
     } = bhilaiToKedarnathData;
 
     const structuredData = {
@@ -285,6 +287,13 @@ const BhilaiToKedarnath = () => {
                             ))}
                         </div>
                     </section>
+
+                    {/* GALLERY */}
+                    {gallery && (
+                        <div className="py-8">
+                            <KedarnathGallery images={gallery} title="Yatra Highlights" />
+                        </div>
+                    )}
 
                     {/* AUTHORITY SECTION: MISTAKES & PACKING */}
                     <section className="grid md:grid-cols-2 gap-12">

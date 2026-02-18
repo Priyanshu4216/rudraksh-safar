@@ -58,7 +58,7 @@ const PopularDestinations = () => {
                 </div>
 
                 <div className="mt-10 text-center md:hidden">
-                    <Link to="/tour-packages-from-bhilai" className="inline-flex items-center justify-center w-full px-6 py-4 border border-transparent text-base font-bold rounded-xl text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors">
+                    <Link to="/tour-packages-from-bhilai" className="inline-flex items-center justify-center w-full px-6 py-4 border border-transparent text-base font-bold rounded-xl text-indigo-700 bg-indigo-50 hover:bg-indigo-100 dark:text-indigo-300 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 transition-colors">
                         View All Packages
                     </Link>
                 </div>

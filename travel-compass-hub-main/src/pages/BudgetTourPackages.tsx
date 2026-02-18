@@ -135,23 +135,23 @@ const BudgetTourPackages = () => {
                                 </p>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <Card className="bg-teal-50 border-none">
+                                <Card className="bg-teal-50 dark:bg-teal-950/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <PiggyBank className="w-10 h-10 text-teal-600 mx-auto mb-4" />
+                                        <PiggyBank className="w-10 h-10 text-teal-600 dark:text-teal-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Lower Costs</div>
                                         <div className="text-sm text-muted-foreground">Overall trip cost reduced significantly</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-emerald-50 border-none">
+                                <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <Calculator className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
+                                        <Calculator className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Cost Control</div>
                                         <div className="text-sm text-muted-foreground">Planned itineraries avoid surprise expenses</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-cyan-50 border-none col-span-2">
+                                <Card className="bg-cyan-50 dark:bg-cyan-950/20 border-none col-span-2">
                                     <CardContent className="p-6 text-center">
-                                        <TrendingDown className="w-10 h-10 text-cyan-600 mx-auto mb-4" />
+                                        <TrendingDown className="w-10 h-10 text-cyan-600 dark:text-cyan-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Travel More</div>
                                         <div className="text-sm text-muted-foreground">Smart budgeting allows you to travel more often</div>
                                     </CardContent>

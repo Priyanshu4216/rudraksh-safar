@@ -574,7 +574,7 @@ export const allPackages = [
     location: 'Leh-Ladakh & Spiti Valley',
     duration: '12 Days / 11 Nights',
     price: '₹34,999',
-    image: 'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/ladakh/ladakh-img-1.jpeg',
     tag: 'Adventure',
     type: 'domestic',
     famousPlaces: ['Pangong Lake', 'Nubra Valley', 'Khardung La', 'Chandratal', 'Rohtang Pass'],
@@ -595,9 +595,9 @@ export const allPackages = [
       'Day 12: Buffer day/Trip End.',
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1626015365107-aa76a7f48d0e?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1582236531952-192a549d4361?q=80&w=2070&auto=format&fit=crop',
+      '/images/ladakh/ladakh-img-1.jpeg',
+      '/images/ladakh/ladakh-img-6.jpeg',
+      '/images/ladakh/ladakh-img-7.jpeg',
     ],
   },
   {
@@ -606,7 +606,7 @@ export const allPackages = [
     location: 'Leh-Ladakh, India',
     duration: '8 Days / 7 Nights',
     price: '₹24,999',
-    image: 'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/ladakh/ladakh-img-2.jpeg',
     tag: 'Expedition',
     type: 'domestic',
     famousPlaces: ['Pangong Lake', 'Nubra Valley', 'Khardung La', 'Leh Palace', 'Magnetic Hill'],
@@ -623,9 +623,9 @@ export const allPackages = [
       'Day 8: Morning flight departure from Leh with memories of a lifetime.',
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1626015365107-aa76a7f48d0e?q=80&w=2070&auto=format&fit=crop',
+      '/images/ladakh/ladakh-img-2.jpeg',
+      '/images/ladakh/ladakh-img-3.jpeg',
+      '/images/ladakh/ladakh-img-4.jpeg',
     ],
   },
   {
@@ -1212,7 +1212,7 @@ export const allPackages = [
     location: 'Leh-Ladakh & Spiti Valley',
     duration: '12 Days / 11 Nights',
     price: '₹34,999',
-    image: 'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/ladakh/ladakh-img-6.jpeg',
     tag: 'Adventure',
     type: 'adventure',
     famousPlaces: ['Khardung La', 'Pangong Lake', 'Nubra Valley', 'Spiti Valley', 'Chandratal'],
@@ -1233,7 +1233,8 @@ export const allPackages = [
       'Day 12: Chandratal to Manali (120 km) via Kunzum Pass, Rohtang. Trip ends.',
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1545652985-5edd365b12eb?q=80&w=2070&auto=format&fit=crop',
+      '/images/ladakh/ladakh-img-6.jpeg',
+      '/images/ladakh/ladakh-img-8.jpeg',
     ],
   },
   {

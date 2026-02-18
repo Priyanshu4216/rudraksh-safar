@@ -13,6 +13,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import SEOHead from '@/components/SEOHead';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import SummerPackages from '@/components/home-redesign/SummerPackages';
 
 const HomeRedesign = () => {
     return (
@@ -31,6 +32,7 @@ const HomeRedesign = () => {
                 <TravellerTypes /> {/* White - Persona */}
                 <ServicesSection /> {/* New: Services Section */}
                 <TrustSection /> {/* Dark - Authority */}
+                <SummerPackages /> {/* New: Exclusive Summer Deals */}
                 <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
                 <SeasonalPicks /> {/* White - Elegant Seasonal */}
                 <VisaEasy /> {/* Light Grey - Utility */}

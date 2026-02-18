@@ -115,23 +115,23 @@ const WeekendGetawaysRaipur = () => {
                                 </ul>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                                <Card className="bg-emerald-50 border-none">
+                                <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <TreePine className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
+                                        <TreePine className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Nature</div>
                                         <div className="text-sm text-muted-foreground">Reconnect with outdoors</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-lime-50 border-none">
+                                <Card className="bg-lime-50 dark:bg-lime-950/20 border-none">
                                     <CardContent className="p-6 text-center">
-                                        <Car className="w-10 h-10 text-lime-600 mx-auto mb-4" />
+                                        <Car className="w-10 h-10 text-lime-600 dark:text-lime-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Road Trips</div>
                                         <div className="text-sm text-muted-foreground">Scenic drives nearby</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-green-50 border-none col-span-2">
+                                <Card className="bg-green-50 dark:bg-green-950/20 border-none col-span-2">
                                     <CardContent className="p-6 text-center">
-                                        <Heart className="w-10 h-10 text-green-600 mx-auto mb-4" />
+                                        <Heart className="w-10 h-10 text-green-600 dark:text-green-400 mx-auto mb-4" />
                                         <div className="font-bold text-lg mb-1">Quality Time</div>
                                         <div className="text-sm text-muted-foreground">Bond with your loved ones away from screens</div>
                                     </CardContent>

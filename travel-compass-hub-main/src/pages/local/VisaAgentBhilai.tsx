@@ -71,7 +71,7 @@ const VisaAgentBhilai = () => {
 
       <Navbar />
 
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
 
         {/* HERO SECTION */}
         <section className="relative py-20 bg-indigo-900 text-white overflow-hidden">
@@ -118,8 +118,8 @@ const VisaAgentBhilai = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">Why Bhilai Travelers Trust Us?</h2>
-                <div className="prose text-slate-600">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6">Why Bhilai Travelers Trust Us?</h2>
+                <div className="prose text-slate-600 dark:text-slate-400">
                   <p className="mb-4">
                     Applying for a visa from a Tier-2 city like Bhilai used to mean endless trips to Mumbai or Delhi. Not anymore.
                     <strong>Rudraksh Safar</strong> brings the embassy to your doorstep.
@@ -130,17 +130,17 @@ const VisaAgentBhilai = () => {
                 </div>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <div className="p-2 bg-green-100 rounded-lg text-green-700 mt-1"><CheckCircle2 className="w-5 h-5" /></div>
+                    <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-700 dark:text-green-300 mt-1"><CheckCircle2 className="w-5 h-5" /></div>
                     <div>
-                      <h4 className="font-bold text-slate-900">Pre-Check Guarantee</h4>
-                      <p className="text-sm text-slate-600">We don't submit until we are sure. We audit bank statements and photos to catch errors that cause rejection.</p>
+                      <h4 className="font-bold text-slate-900 dark:text-slate-100">Pre-Check Guarantee</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">We don't submit until we are sure. We audit bank statements and photos to catch errors that cause rejection.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="p-2 bg-indigo-100 rounded-lg text-indigo-700 mt-1"><MapPin className="w-5 h-5" /></div>
+                    <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-700 dark:text-indigo-300 mt-1"><MapPin className="w-5 h-5" /></div>
                     <div>
-                      <h4 className="font-bold text-slate-900">Home Doc Pickup</h4>
-                      <p className="text-sm text-slate-600">Live in Bhilai or Durg? We pick up your passports and drop them back safely.</p>
+                      <h4 className="font-bold text-slate-900 dark:text-slate-100">Home Doc Pickup</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Live in Bhilai or Durg? We pick up your passports and drop them back safely.</p>
                     </div>
                   </li>
                 </ul>
@@ -191,23 +191,23 @@ const VisaAgentBhilai = () => {
         </section>
 
         {/* PRICE MATRIX SECTION (NEW AUTHORITY CONTENT) */}
-        <section id="price-matrix" className="py-16 bg-slate-100">
+        <section id="price-matrix" className="py-16 bg-slate-100 dark:bg-slate-900">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold mb-4">Visa Fees & Timelines (2026 Guide)</h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">Transparent pricing. No hidden "service charges" added later. <br /> <span className="text-xs italic">*Embassy fees subject to change based on forex rates.</span></p>
+              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Transparent pricing. No hidden "service charges" added later. <br /> <span className="text-xs italic">*Embassy fees subject to change based on forex rates.</span></p>
             </div>
 
-            <Card className="overflow-hidden bg-white shadow-md max-w-5xl mx-auto">
+            <Card className="overflow-hidden bg-white dark:bg-card shadow-md max-w-5xl mx-auto">
               <div className="overflow-x-auto">
                 <Table>
-                  <TableHeader className="bg-slate-200">
+                  <TableHeader className="bg-slate-200 dark:bg-slate-800">
                     <TableRow>
-                      <TableHead className="font-bold text-slate-900 min-w-[150px]">Country</TableHead>
-                      <TableHead className="font-bold text-slate-900">Visa Type</TableHead>
-                      <TableHead className="font-bold text-slate-900">Processing Time</TableHead>
-                      <TableHead className="font-bold text-slate-900">Approx Cost</TableHead>
-                      <TableHead className="font-bold text-slate-900">Requirement</TableHead>
+                      <TableHead className="font-bold text-slate-900 dark:text-slate-100 min-w-[150px]">Country</TableHead>
+                      <TableHead className="font-bold text-slate-900 dark:text-slate-100">Visa Type</TableHead>
+                      <TableHead className="font-bold text-slate-900 dark:text-slate-100">Processing Time</TableHead>
+                      <TableHead className="font-bold text-slate-900 dark:text-slate-100">Approx Cost</TableHead>
+                      <TableHead className="font-bold text-slate-900 dark:text-slate-100">Requirement</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -215,9 +215,9 @@ const VisaAgentBhilai = () => {
                       <TableRow key={idx}>
                         <TableCell className="font-bold">{visa.country}</TableCell>
                         <TableCell>{visa.type}</TableCell>
-                        <TableCell className="text-green-600 font-medium">{visa.time}</TableCell>
-                        <TableCell className="font-bold text-indigo-600">{visa.price}</TableCell>
-                        <TableCell className="text-xs text-slate-500">{visa.note}</TableCell>
+                        <TableCell className="text-green-600 dark:text-green-400 font-medium">{visa.time}</TableCell>
+                        <TableCell className="font-bold text-indigo-600 dark:text-indigo-400">{visa.price}</TableCell>
+                        <TableCell className="text-xs text-slate-500 dark:text-slate-400">{visa.note}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -226,8 +226,8 @@ const VisaAgentBhilai = () => {
             </Card>
 
             <div className="mt-8 text-center">
-              <p className="text-sm font-medium text-slate-600 mb-4">Don't see your country? We cover 50+ destinations.</p>
-              <Button variant="outline" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50" asChild>
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-4">Don't see your country? We cover 50+ destinations.</p>
+              <Button variant="outline" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950" asChild>
                 <a href="https://wa.me/919406182174?text=Visa enquiry for other country">Check Other Rates</a>
               </Button>
             </div>
@@ -261,39 +261,39 @@ const VisaAgentBhilai = () => {
         </section>
 
         {/* STUDENT VISA SECTION (NEW DIFFERENTIATION) */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-background">
           <div className="container mx-auto px-4">
-            <div className="bg-indigo-50 border border-indigo-100 rounded-3xl p-8 md:p-12">
+            <div className="bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900 rounded-3xl p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-bold mb-4">
+                  <div className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-bold mb-4">
                     <GraduationCap className="w-4 h-4" /> For Students
                   </div>
                   <h2 className="text-3xl font-bold mb-4">Study Abroad Dreams? <br />We Sort the Visa.</h2>
-                  <p className="text-slate-600 mb-6">
+                  <p className="text-slate-600 dark:text-slate-400 mb-6">
                     Students from <strong>CSIT, BIT, and SSIPMT</strong> trust us for their student visa filings. Whether it's USA (F1), UK (Tier 4), or Canada, we handle the complex financial documentation parents struggle with.
                   </p>
                   <div className="space-y-3">
-                    <div className="flex gap-3 p-3 bg-white rounded border border-indigo-100">
-                      <Briefcase className="w-5 h-5 text-indigo-600" />
+                    <div className="flex gap-3 p-3 bg-white dark:bg-card rounded border border-indigo-100 dark:border-indigo-900">
+                      <Briefcase className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                       <div>
                         <h4 className="font-bold text-sm">SOP Assistance</h4>
-                        <p className="text-xs text-slate-500">We review your Statement of Purpose to ensure it aligns with visa officer expectations.</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">We review your Statement of Purpose to ensure it aligns with visa officer expectations.</p>
                       </div>
                     </div>
-                    <div className="flex gap-3 p-3 bg-white rounded border border-indigo-100">
-                      <Shield className="w-5 h-5 text-indigo-600" />
+                    <div className="flex gap-3 p-3 bg-white dark:bg-card rounded border border-indigo-100 dark:border-indigo-900">
+                      <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                       <div>
                         <h4 className="font-bold text-sm">Financial Proof</h4>
-                        <p className="text-xs text-slate-500">Guidance on showing liquid funds, education loans, and CA reports.</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Guidance on showing liquid funds, education loans, and CA reports.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
                   <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000" alt="Indian Student in Airport" className="rounded-xl shadow-lg rotate-2 hover:rotate-0 transition duration-500" />
-                  <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-slate-100 max-w-xs">
-                    <p className="text-xs italic text-slate-600">"Got my UK Student Visa in 15 days! Rudraksh team helped me arrange my father's bank documents perfectly."</p>
+                  <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 p-4 rounded-lg shadow-xl border border-slate-100 dark:border-slate-800 max-w-xs">
+                    <p className="text-xs italic text-slate-600 dark:text-slate-400">"Got my UK Student Visa in 15 days! Rudraksh team helped me arrange my father's bank documents perfectly."</p>
                     <p className="text-xs font-bold mt-2">- Anjali V., Smriti Nagar</p>
                   </div>
                 </div>
@@ -303,30 +303,30 @@ const VisaAgentBhilai = () => {
         </section>
 
         {/* REJECTION RESCUE (NEW AUTHORITY) */}
-        <section className="py-16 bg-red-50/50">
+        <section className="py-16 bg-red-50/50 dark:bg-red-950/20">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Visa Rejected? Don't Panic.</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">Visa Rejected? Don't Panic.</h2>
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
               A rejection stamp isn't the end. 30% of our clients come to us <em>after</em> a rejection from DIY attempts. We specialize in "Re-application with Explanation".
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card className="bg-white border-red-100">
+              <Card className="bg-white dark:bg-card border-red-100 dark:border-red-900">
                 <CardHeader>
                   <CardTitle className="text-lg">Step 1: Analysis</CardTitle>
                 </CardHeader>
-                <CardContent className="text-sm text-slate-600">We analyze the refusal letter code (e.g., 214b for USA) to find the <em>real</em> reason.</CardContent>
+                <CardContent className="text-sm text-slate-600 dark:text-slate-400">We analyze the refusal letter code (e.g., 214b for USA) to find the <em>real</em> reason.</CardContent>
               </Card>
-              <Card className="bg-white border-red-100">
+              <Card className="bg-white dark:bg-card border-red-100 dark:border-red-900">
                 <CardHeader>
                   <CardTitle className="text-lg">Step 2: Correction</CardTitle>
                 </CardHeader>
-                <CardContent className="text-sm text-slate-600">We fix the gap (e.g., adding a solid cover letter or showing better home ties).</CardContent>
+                <CardContent className="text-sm text-slate-600 dark:text-slate-400">We fix the gap (e.g., adding a solid cover letter or showing better home ties).</CardContent>
               </Card>
-              <Card className="bg-white border-red-100">
+              <Card className="bg-white dark:bg-card border-red-100 dark:border-red-900">
                 <CardHeader>
                   <CardTitle className="text-lg">Step 3: Re-Submission</CardTitle>
                 </CardHeader>
-                <CardContent className="text-sm text-slate-600">We re-file with a "Refusal Note" explaining why the previous decision was incorrect.</CardContent>
+                <CardContent className="text-sm text-slate-600 dark:text-slate-400">We re-file with a "Refusal Note" explaining why the previous decision was incorrect.</CardContent>
               </Card>
             </div>
           </div>
@@ -337,7 +337,7 @@ const VisaAgentBhilai = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
                   <BookOpen className="w-4 h-4" />
                   <span>Passport Services</span>
                 </div>
@@ -367,7 +367,7 @@ const VisaAgentBhilai = () => {
                   <Link to="/passport-agent-bhilai">View Passport Services</Link>
                 </Button>
               </div>
-              <Card className="border-blue-200 shadow-md">
+              <Card className="border-blue-200 dark:border-blue-900 shadow-md">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4 text-center">Passport Service Charges</h3>
                   <div className="space-y-3">

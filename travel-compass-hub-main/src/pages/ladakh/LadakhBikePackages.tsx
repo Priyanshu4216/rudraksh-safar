@@ -10,7 +10,7 @@ import SEOHead from '@/components/SEOHead';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
 
 const LadakhBikePackages = () => {
-    const heroImage = "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=2070"; // Bike trip specific
+    const heroImage = "/images/ladakh/ladakh-img-6.jpeg"; // Bike trip specific
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -114,7 +114,7 @@ const LadakhBikePackages = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                         <Link to="/ladakh-tour-via-manali" className="group bg-muted/20 p-6 rounded-xl border border-white/5 hover:bg-muted/40 transition-all flex items-center gap-6">
                             <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0">
-                                <img src="https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80" className="w-full h-full object-cover" alt="Manali" />
+                                <img src="/images/ladakh/ladakh-img-10.jpeg" className="w-full h-full object-cover" alt="Manali" />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold group-hover:text-gold transition-colors">Manali to Leh</h3>
@@ -125,7 +125,7 @@ const LadakhBikePackages = () => {
 
                         <Link to="/ladakh-tour-via-srinagar" className="group bg-muted/20 p-6 rounded-xl border border-white/5 hover:bg-muted/40 transition-all flex items-center gap-6">
                             <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0">
-                                <img src="https://images.unsplash.com/photo-1566324814882-62cebb6330ce?q=80" className="w-full h-full object-cover" alt="Srinagar" />
+                                <img src="/images/ladakh/ladakh-img-9.jpeg" className="w-full h-full object-cover" alt="Srinagar" />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold group-hover:text-gold transition-colors">Srinagar to Leh</h3>
@@ -155,7 +155,7 @@ const LadakhBikePackages = () => {
                             </Link>
                         </div>
                         <div className="md:w-1/2 rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070" alt="Biker Gear" className="w-full object-cover h-64 hover:scale-105 transition-transform duration-700" />
+                            <img src="/images/ladakh/ladakh-img-1.jpeg" alt="Biker Gear" className="w-full object-cover h-64 hover:scale-105 transition-transform duration-700" />
                         </div>
                     </div>
                 </section>

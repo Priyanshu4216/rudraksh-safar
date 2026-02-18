@@ -51,7 +51,7 @@ export default defineConfig(({ mode }) => ({
         navigateFallback: "/index.html", // SPA Fallback for PWA
         cleanupOutdatedCaches: true, // Keep this for hygiene
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,xml}"],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
         // Import Firebase Messaging logic into the main Service Worker
         importScripts: ["/firebase-messaging-sw.js"],
         runtimeCaching: [

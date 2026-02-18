@@ -182,34 +182,34 @@ const InternationalToursFromBhilai = () => {
                             </h2>
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="space-y-6">
-                                    <div className="flex gap-4 p-4 rounded-lg bg-orange-50 border border-orange-100">
-                                        <Plane className="w-8 h-8 text-orange-600 shrink-0" />
+                                    <div className="flex gap-4 p-4 rounded-lg bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-800">
+                                        <Plane className="w-8 h-8 text-orange-600 dark:text-orange-400 shrink-0" />
                                         <div>
-                                            <h4 className="font-bold text-orange-900">Flight & Logistics</h4>
-                                            <p className="text-sm text-orange-800">Return flights from Raipur/Nagpur with checked baggage. We handle all connections.</p>
+                                            <h4 className="font-bold text-orange-900 dark:text-orange-300">Flight & Logistics</h4>
+                                            <p className="text-sm text-orange-800 dark:text-orange-200">Return flights from Raipur/Nagpur with checked baggage. We handle all connections.</p>
                                         </div>
                                     </div>
-                                    <div className="flex gap-4 p-4 rounded-lg bg-blue-50 border border-blue-100">
-                                        <Building2 className="w-8 h-8 text-blue-600 shrink-0" />
+                                    <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800">
+                                        <Building2 className="w-8 h-8 text-blue-600 dark:text-blue-400 shrink-0" />
                                         <div>
-                                            <h4 className="font-bold text-blue-900">Premium Stay</h4>
-                                            <p className="text-sm text-blue-800">3-star to 5-star hotels in safe, central locations. Breakfast included.</p>
+                                            <h4 className="font-bold text-blue-900 dark:text-blue-300">Premium Stay</h4>
+                                            <p className="text-sm text-blue-800 dark:text-blue-200">3-star to 5-star hotels in safe, central locations. Breakfast included.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="space-y-6">
-                                    <div className="flex gap-4 p-4 rounded-lg bg-green-50 border border-green-100">
-                                        <FileText className="w-8 h-8 text-green-600 shrink-0" />
+                                    <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800">
+                                        <FileText className="w-8 h-8 text-green-600 dark:text-green-400 shrink-0" />
                                         <div>
-                                            <h4 className="font-bold text-green-900">Visa & Documents</h4>
-                                            <p className="text-sm text-green-800">Complete visa assistance, immigration forms, and travel insurance guidance.</p>
+                                            <h4 className="font-bold text-green-900 dark:text-green-300">Visa & Documents</h4>
+                                            <p className="text-sm text-green-800 dark:text-green-200">Complete visa assistance, immigration forms, and travel insurance guidance.</p>
                                         </div>
                                     </div>
-                                    <div className="flex gap-4 p-4 rounded-lg bg-purple-50 border border-purple-100">
-                                        <Wallet className="w-8 h-8 text-purple-600 shrink-0" />
+                                    <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-800">
+                                        <Wallet className="w-8 h-8 text-purple-600 dark:text-purple-400 shrink-0" />
                                         <div>
-                                            <h4 className="font-bold text-purple-900">No Hidden Costs</h4>
-                                            <p className="text-sm text-purple-800">Transparent pricing. No surprise taxes or "service fees" on arrival.</p>
+                                            <h4 className="font-bold text-purple-900 dark:text-purple-300">No Hidden Costs</h4>
+                                            <p className="text-sm text-purple-800 dark:text-purple-200">Transparent pricing. No surprise taxes or "service fees" on arrival.</p>
                                         </div>
                                     </div>
                                 </div>

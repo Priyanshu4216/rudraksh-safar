@@ -63,7 +63,7 @@ const PassportAgentBhilai = () => {
 
             <Navbar />
 
-            <main className="min-h-screen bg-slate-50">
+            <main className="min-h-screen bg-slate-50 dark:bg-background">
                 {/* HERO SECTION */}
                 <section className="relative py-20 bg-blue-900 text-white overflow-hidden">
                     <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1974')] bg-cover bg-center"></div>
@@ -92,24 +92,24 @@ const PassportAgentBhilai = () => {
                 </section>
 
                 <div className="container mx-auto px-4 -mt-8 relative z-20">
-                    <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    <div className="max-w-4xl mx-auto bg-white dark:bg-card rounded-xl shadow-lg border dark:border-gray-700 p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100 dark:divide-gray-700">
                         <div className="py-2">
-                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center gap-2">
                                 <FileCheck className="w-5 h-5 text-green-600" /> 100% Error Free
                             </h3>
-                            <p className="text-sm text-slate-500 mt-1">We double-check spellings & dates.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">We double-check spellings & dates.</p>
                         </div>
                         <div className="py-2">
-                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center gap-2">
                                 <Clock className="w-5 h-5 text-orange-600" /> Tatkal Experts
                             </h3>
-                            <p className="text-sm text-slate-500 mt-1">Passport in 3-7 days.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Passport in 3-7 days.</p>
                         </div>
                         <div className="py-2">
-                            <h3 className="text-lg font-bold text-gray-900 flex items-center justify-center gap-2">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center justify-center gap-2">
                                 <Siren className="w-5 h-5 text-blue-600" /> Police Verification
                             </h3>
-                            <p className="text-sm text-slate-500 mt-1">Guidance for Durg/Bhilai Thanas.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Guidance for Durg/Bhilai Thanas.</p>
                         </div>
                     </div>
                 </div>
@@ -128,24 +128,24 @@ const PassportAgentBhilai = () => {
                     <div className="container mx-auto px-4">
                         <h2 className="text-3xl font-bold text-center mb-10">Why Hire an Agent for an Online Process?</h2>
                         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            <Card className="border-red-100 bg-red-50/50">
+                            <Card className="border-red-100 dark:border-red-900 bg-red-50/50 dark:bg-red-950/10">
                                 <CardHeader>
-                                    <CardTitle className="text-red-800 flex items-center gap-2"><AlertCircle className="w-5 h-5" /> The DIY Risks</CardTitle>
+                                    <CardTitle className="text-red-800 dark:text-red-400 flex items-center gap-2"><AlertCircle className="w-5 h-5" /> The DIY Risks</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <ul className="space-y-3 text-sm text-slate-700">
+                                    <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> One spelling mistake in the form = <strong>Application Rejected</strong> at PSK.</li>
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> Choosing ECR instead of Non-ECR = <strong>Emigration Check problems</strong> later.</li>
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" /> Missing a single supportive doc (like marriage certificate) = <strong>Sent back home</strong> from Raipur.</li>
                                     </ul>
                                 </CardContent>
                             </Card>
-                            <Card className="border-green-100 bg-green-50/50">
+                            <Card className="border-green-100 dark:border-green-900 bg-green-50/50 dark:bg-green-950/10">
                                 <CardHeader>
-                                    <CardTitle className="text-green-800 flex items-center gap-2"><CheckCircle2 className="w-5 h-5" /> The Rudraksh Advantage</CardTitle>
+                                    <CardTitle className="text-green-800 dark:text-green-400 flex items-center gap-2"><CheckCircle2 className="w-5 h-5" /> The Rudraksh Advantage</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <ul className="space-y-3 text-sm text-slate-700">
+                                    <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Pre-Audit:</strong> We verify your Aadhaar, Pan, and Marksheets match perfectly.</li>
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Slot Monitoring:</strong> We check PSK Raipur slots daily to get you the earliest date.</li>
                                         <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2" /> <strong>Annexure Guidance:</strong> We draft the required Affidavits for complex cases.</li>
@@ -157,43 +157,43 @@ const PassportAgentBhilai = () => {
                 </section>
 
                 {/* PSK RAIPUR GUIDE (AUTHORITY CONTENT) */}
-                <section className="py-16 bg-white">
+                <section className="py-16 bg-white dark:bg-background">
                     <div className="container mx-auto px-4">
                         <div className="flex items-center justify-between mb-8">
                             <div>
                                 <h2 className="text-3xl font-bold">PSK Raipur Survival Guide</h2>
-                                <p className="text-slate-500">Know exactly what happens on your appointment day.</p>
+                                <p className="text-slate-500 dark:text-slate-400">Know exactly what happens on your appointment day.</p>
                             </div>
                             <Badge variant="outline" className="hidden md:flex gap-1"><MapPin className="w-3 h-3" /> Magneto / Ambuja Mall</Badge>
                         </div>
 
-                        <div className="relative border-l-2 border-indigo-200 ml-4 md:ml-10 space-y-10">
+                        <div className="relative border-l-2 border-indigo-200 dark:border-indigo-900 ml-4 md:ml-10 space-y-10">
                             <div className="relative pl-8">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
-                                <h4 className="font-bold text-lg text-indigo-900">Step 1: Entry & Token (15 Mins early)</h4>
-                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-background shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900 dark:text-indigo-300">Step 1: Entry & Token (15 Mins early)</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
                                     Reach the PSK (usually Magneto Mall, 3rd Floor) 15 mins before your slot. Show your SMS/Printout to the guard.
                                     <strong> Warning:</strong> Laptops/iPads are often not allowed inside.
                                 </p>
                             </div>
                             <div className="relative pl-8">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
-                                <h4 className="font-bold text-lg text-indigo-900">Step 2: Counter A (TCS Staff)</h4>
-                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-background shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900 dark:text-indigo-300">Step 2: Counter A (TCS Staff)</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
                                     Document scanning and Photo taking happens here. Smile! This photo will be on your passport for 10 years. You will pay any SMS fees here (Cash/Card).
                                 </p>
                             </div>
                             <div className="relative pl-8">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
-                                <h4 className="font-bold text-lg text-indigo-900">Step 3: Counter B (Verification Officer)</h4>
-                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-background shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900 dark:text-indigo-300">Step 3: Counter B (Verification Officer)</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
                                     Govt officer verifies your originals. They check if details match your application 100%. Stay confident.
                                 </p>
                             </div>
                             <div className="relative pl-8">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
-                                <h4 className="font-bold text-lg text-indigo-900">Step 4: Counter C (Granting Officer)</h4>
-                                <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-background shadow-sm"></div>
+                                <h4 className="font-bold text-lg text-indigo-900 dark:text-indigo-300">Step 4: Counter C (Granting Officer)</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
                                     Final approval. They might ask basic questions ("Where do you work?", "Why are you traveling?"). Once they say "Granted", you are done!
                                 </p>
                             </div>
@@ -202,16 +202,16 @@ const PassportAgentBhilai = () => {
                 </section>
 
                 {/* TATKAL VS NORMAL SECTION */}
-                <section className="py-16 bg-slate-50">
+                <section className="py-16 bg-slate-50 dark:bg-slate-900/50">
                     <div className="container mx-auto px-4">
                         <h2 className="text-3xl font-bold text-center mb-10">Fresh Passport: Normal vs Tatkal</h2>
                         <Card className="max-w-4xl mx-auto overflow-hidden">
                             <Table>
-                                <TableHeader className="bg-slate-100">
+                                <TableHeader className="bg-slate-100 dark:bg-slate-800">
                                     <TableRow>
                                         <TableHead className="w-[150px] font-bold">Feature</TableHead>
-                                        <TableHead className="font-bold text-blue-800">Normal Application</TableHead>
-                                        <TableHead className="font-bold text-orange-800">Tatkal Application</TableHead>
+                                        <TableHead className="font-bold text-blue-800 dark:text-blue-400">Normal Application</TableHead>
+                                        <TableHead className="font-bold text-orange-800 dark:text-orange-400">Tatkal Application</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -223,7 +223,7 @@ const PassportAgentBhilai = () => {
                                     <TableRow>
                                         <TableCell className="font-medium">Timeline</TableCell>
                                         <TableCell>25-45 Days</TableCell>
-                                        <TableCell className="font-bold text-green-600">3-7 Days</TableCell>
+                                        <TableCell className="font-bold text-green-600 dark:text-green-400">3-7 Days</TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell className="font-medium">Verification</TableCell>
@@ -238,14 +238,14 @@ const PassportAgentBhilai = () => {
                                 </TableBody>
                             </Table>
                         </Card>
-                        <p className="text-center text-sm text-slate-500 mt-4 italic">
+                        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-4 italic">
                             * Our consultation fee is additional to the Govt fees shown above.
                         </p>
                     </div>
                 </section>
 
                 {/* Docs, Timeline & Cost (Restored from Original) */}
-                <section className="py-16 bg-white">
+                <section className="py-16 bg-white dark:bg-background">
                     <div className="container mx-auto px-4">
                         <div className="grid md:grid-cols-2 gap-12">
                             {/* Documents */}
@@ -303,28 +303,28 @@ const PassportAgentBhilai = () => {
                 </section>
 
                 {/* POLICE VERIFICATION GUIDE */}
-                <section className="py-16 bg-slate-50">
+                <section className="py-16 bg-slate-50 dark:bg-slate-900/50">
                     <div className="container mx-auto px-4">
-                        <div className="bg-orange-50 rounded-2xl p-8 border border-orange-100">
-                            <h2 className="text-2xl font-bold text-orange-900 mb-4 flex items-center gap-2">
+                        <div className="bg-orange-50 dark:bg-orange-950/20 rounded-2xl p-8 border border-orange-100 dark:border-orange-900">
+                            <h2 className="text-2xl font-bold text-orange-900 dark:text-orange-300 mb-4 flex items-center gap-2">
                                 <Siren className="w-6 h-6" /> Police Verification in Bhilai/Durg
                             </h2>
-                            <p className="text-orange-900/80 mb-6 max-w-3xl">
+                            <p className="text-orange-900/80 dark:text-orange-200/80 mb-6 max-w-3xl">
                                 This is where most people get stuck. The file moves from SP Office Durg to your local Thana (e.g., Supela, Bhatti, Durg Kotwali).
                             </p>
                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="bg-white p-4 rounded-lg shadow-sm">
+                                <div className="bg-white dark:bg-card p-4 rounded-lg shadow-sm">
                                     <h4 className="font-bold mb-2">Documents Ready?</h4>
-                                    <ul className="text-sm list-disc ml-4 space-y-1 text-slate-600">
+                                    <ul className="text-sm list-disc ml-4 space-y-1 text-slate-600 dark:text-slate-300">
                                         <li>2 Passport Size Photos</li>
                                         <li>Original Aadhaar + Pan</li>
                                         <li>Two Neighbors as Witnesses (with their Aadhaar)</li>
                                         <li>Patwari Attested Address proofs (sometimes asked)</li>
                                     </ul>
                                 </div>
-                                <div className="bg-white p-4 rounded-lg shadow-sm">
+                                <div className="bg-white dark:bg-card p-4 rounded-lg shadow-sm">
                                     <h4 className="font-bold mb-2">Our Advice</h4>
-                                    <p className="text-sm text-slate-600">
+                                    <p className="text-sm text-slate-600 dark:text-slate-300">
                                         Be polite. Do not offer bribes. If there is a delay at the Thana level, let us know – we can guide you on how to follow up with the Durg SP Office.
                                     </p>
                                 </div>

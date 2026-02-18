@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Info, Search, ShieldCheck, Sparkles, AlertCircle, HelpCircle, BookOpen, Mountain } from 'lucide-react';
+import { Map, Plane, FileText, Globe, MapPin, Briefcase, Ticket, Building, Compass, Sparkles, AlertCircle, HelpCircle, BookOpen, Mountain, Navigation, Home } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
@@ -11,7 +11,6 @@ import LastUpdated from '@/components/LastUpdated';
 import { getAllCategories } from './blog/BlogData';
 
 const Sitemap = () => {
-    // Content Data
     // Content Data
 
     const goaSpecials = [
@@ -307,112 +306,87 @@ const Sitemap = () => {
     ];
 
     return (
-        <>
+        <div className="min-h-screen bg-background text-foreground">
             <Helmet>
-                <title>Site Map – Rudraksh Safar | Complete Website Directory</title>
-                <meta name="description" content="Complete directory of Rudraksh Safar's travel services, packages, and guides. Designed for quick navigation and enhanced site structure." />
+                <title>Sitemap | Rudraksh Safar - Travel Agency in Bhilai</title>
+                <meta name="description" content="Sitemap for Rudraksh Safar. Explore all our tour packages, services, and travel guides for Bhilai, Raipur, and Chhattisgarh." />
                 <link rel="canonical" href="https://rudrakshsafar.com/sitemap" />
             </Helmet>
 
             <Navbar />
 
-            <main className="min-h-screen bg-background">
-
-                {/* Header Section */}
-                <section className="bg-muted/30 py-20 border-b">
-                    <div className="container mx-auto px-4 text-center">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-                            <Map className="w-4 h-4" />
-                            <span className="text-sm font-medium">Complete Website Directory</span>
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                            Site Map – Rudraksh Safar
-                        </h1>
-
-                        <div className="flex justify-center mb-8">
-                            <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Sitemap', path: '/sitemap' }]} />
-                        </div>
-
-                        {/* TL;DR Summary Block */}
-                        <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl p-6 shadow-sm text-left mb-8">
-                            <LastUpdated className="mb-4" />
-                            <div className="flex items-start gap-4">
-                                <div className="bg-indigo-100 p-3 rounded-lg text-indigo-700 shrink-0 dark:bg-indigo-900/40 dark:text-indigo-300">
-                                    <Sparkles className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-                                        TL;DR (AI Summary)
-                                    </h3>
-                                    <p className="text-muted-foreground leading-relaxed text-sm">
-                                        This sitemap page provides a complete directory of all travel services, tour packages, destination guides, booking assistance, and local services offered by Rudraksh Safar. It helps users and search engines quickly navigate the website and discover relevant travel solutions from Bhilai, Raipur, and across India.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Why This Page Exists */}
-                        <div className="max-w-4xl mx-auto text-center">
-                            <h3 className="text-lg font-semibold mb-3 flex items-center justify-center gap-2 text-foreground/80">
-                                <Compass className="w-5 h-5" /> Why This Sitemap Page Exists
-                            </h3>
-                            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                                <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-500" /> Help visitors find services</span>
-                                <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-500" /> Improve internal linking</span>
-                                <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-500" /> Assist search engines</span>
-                                <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-500" /> Build trust & authority</span>
-                            </div>
-                        </div>
-
+            <main className="container mx-auto px-4 py-24">
+                <section className="bg-muted/30 py-12 rounded-2xl mb-12 text-center border border-border/50">
+                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                        <Map className="w-4 h-4" />
+                        <span className="text-sm font-medium">Complete Website Directory</span>
+                    </div>
+                    <h1 className="text-4xl font-serif font-bold mb-4 text-foreground">Sitemap</h1>
+                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                        Explore all pages and services on Rudraksh Safar. Find exactly what you need for your next journey.
+                    </p>
+                    <div className="flex justify-center mt-6">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Sitemap', path: '/sitemap' }]} />
                     </div>
                 </section>
 
-                {/* Main Directory Grid */}
-                <section className="py-20">
-                    <div className="container mx-auto px-4">
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {sections.map((section, index) => (
-                                <Card key={index} className="border-muted hover:border-primary/50 transition-colors duration-300 flex flex-col">
-                                    <CardHeader className="bg-muted/10 border-b border-border/50 pb-6">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="bg-primary/10 p-2.5 rounded-lg text-primary">
-                                                <section.icon className="w-5 h-5" />
-                                            </div>
-                                            <CardTitle className="text-xl">{section.title}</CardTitle>
-                                        </div>
-                                        <CardDescription className="text-sm leading-relaxed">
-                                            {section.description}
-                                        </CardDescription>
-                                    </CardHeader>
-                                    <CardContent className="pt-6 flex-1">
-                                        <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-3">
-                                            {section.links.map((link, i) => (
-                                                <li key={i}>
-                                                    <Link
-                                                        to={link.href}
-                                                        className="group block p-2 rounded-lg hover:bg-muted/50 transition-colors"
-                                                    >
-                                                        <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                                                            <span className="w-1.5 h-1.5 bg-muted-foreground/30 rounded-full group-hover:bg-primary transition-colors" />
-                                                            {link.name}
-                                                        </div>
-                                                        {link.desc && (
-                                                            <div className="text-xs text-muted-foreground pl-3.5 mt-0.5 opacity-80 group-hover:opacity-100">
-                                                                {link.desc}
-                                                            </div>
-                                                        )}
-                                                    </Link>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CardContent>
-                                </Card>
-                            ))}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* TL;DR Summary Block */}
+                    <div className="col-span-full max-w-4xl mx-auto bg-card border border-border rounded-xl p-6 shadow-sm text-left mb-8 w-full">
+                        <LastUpdated className="mb-4" />
+                        <div className="flex items-start gap-4">
+                            <div className="bg-indigo-100 p-3 rounded-lg text-indigo-700 shrink-0 dark:bg-indigo-900/40 dark:text-indigo-300">
+                                <Sparkles className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+                                    TL;DR (AI Summary)
+                                </h3>
+                                <p className="text-muted-foreground leading-relaxed text-sm">
+                                    This sitemap page provides a complete directory of all travel services, tour packages, destination guides, booking assistance, and local services offered by Rudraksh Safar. It helps users and search engines quickly navigate the website and discover relevant travel solutions from Bhilai, Raipur, and across India.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </section>
 
-                {/* SEO Benefits Section Removed as per request */}
+                    {sections.map((section, index) => (
+                        <Card key={index} className="border-muted hover:border-primary/50 transition-colors duration-300 flex flex-col">
+                            <CardHeader className="bg-muted/10 border-b border-border/50 pb-6">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className="bg-primary/10 p-2.5 rounded-lg text-primary">
+                                        <section.icon className="w-5 h-5" />
+                                    </div>
+                                    <CardTitle className="text-xl">{section.title}</CardTitle>
+                                </div>
+                                <CardDescription className="text-sm leading-relaxed">
+                                    {section.description}
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent className="pt-6 flex-1">
+                                <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-3">
+                                    {section.links.map((link, i) => (
+                                        <li key={i}>
+                                            <Link
+                                                to={link.href}
+                                                className="group block p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                                            >
+                                                <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                                                    <span className="w-1.5 h-1.5 bg-muted-foreground/30 rounded-full group-hover:bg-primary transition-colors" />
+                                                    {link.name}
+                                                </div>
+                                                {link.desc && (
+                                                    <div className="text-xs text-muted-foreground pl-3.5 mt-0.5 opacity-80 group-hover:opacity-100">
+                                                        {link.desc}
+                                                    </div>
+                                                )}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
 
                 {/* Important Note */}
                 <section className="py-10">
@@ -447,7 +421,7 @@ const Sitemap = () => {
 
             <Footer />
             <FloatingWhatsApp />
-        </>
+        </div>
     );
 };
 

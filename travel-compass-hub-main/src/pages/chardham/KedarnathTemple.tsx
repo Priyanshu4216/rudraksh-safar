@@ -13,11 +13,12 @@ import {
 } from 'lucide-react';
 
 import TempleSchema from '@/components/seo/TempleSchema';
+import KedarnathGallery from '@/components/KedarnathGallery';
 
 const KedarnathTemple = () => {
     const {
         meta, overview, history, spiritual, dates,
-        reach, trek, darshan, panchKedar, nearby, stay, faqs
+        reach, trek, darshan, panchKedar, nearby, stay, faqs, gallery
     } = kedarnathData;
 
     return (
@@ -329,6 +330,9 @@ const KedarnathTemple = () => {
                                 <strong>VIP Darshan:</strong> {darshan.vipOptions}
                             </div>
                         </section>
+
+                        {/* 8.5. GALLERY */}
+                        {gallery && <KedarnathGallery images={gallery} />}
 
                         {/* 9. FAQs (AEO) */}
                         <section id="faqs" className="scroll-mt-24">

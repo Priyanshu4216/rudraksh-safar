@@ -26,17 +26,29 @@ import Contact from './pages/Contact';
 // Route-level code splitting (improves initial load on slow networks)
 const DomesticPackages = lazy(() => import("./pages/DomesticPackages"));
 const InternationalPackages = lazy(() => import("./pages/InternationalPackages"));
+const LadakhMaster = lazy(() => import("./pages/domestic/ladakh/LadakhMaster"));
 const HoneymoonPackages = lazy(() => import("./pages/HoneymoonPackages"));
 const FamilyPackages = lazy(() => import("./pages/FamilyPackages"));
 const AdventurePackages = lazy(() => import("./pages/AdventurePackages"));
 const LuxuryPackages = lazy(() => import("./pages/LuxuryPackages"));
+const KashmirMaster = lazy(() => import("./pages/domestic/kashmir/KashmirMaster"));
+const ManaliMaster = lazy(() => import("./pages/domestic/manali/ManaliMaster"));
+const KeralaMaster = lazy(() => import("./pages/domestic/kerala/KeralaMaster"));
+const ThailandMaster = lazy(() => import("./pages/international/thailand/ThailandMaster"));
+const DubaiMaster = lazy(() => import("./pages/international/dubai/DubaiMaster"));
+const SingaporeMaster = lazy(() => import('./pages/international/singapore/SingaporeMaster'));
+const BaliMaster = lazy(() => import('./pages/international/bali/BaliMaster'));
+const SriLankaMaster = lazy(() => import('./pages/international/srilanka/SriLankaMaster'));
+const AndamanMaster = lazy(() => import('./pages/domestic/andaman/AndamanMaster'));
+const GoaMaster = lazy(() => import('./pages/domestic/goa/GoaMaster'));
 const PackageDetails = lazy(() => import("./pages/PackageDetails"));
 const ForTravellers = lazy(() => import("./pages/ForTravellers"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Traveller Guide Pages
-const VisaGuide = lazy(() => import("./pages/VisaGuide"));
-const PassportGuide = lazy(() => import("./pages/PassportGuide"));
+// Traveller Guide Pages - Moved to Services
+const VisaGuide = lazy(() => import("./pages/services/VisaGuide"));
+const PassportGuide = lazy(() => import("./pages/services/PassportGuide"));
 const VisaFreeCountries = lazy(() => import("./pages/VisaFreeCountries"));
 const TravelChecklist = lazy(() => import("./pages/TravelChecklist"));
 const CurrencyGuide = lazy(() => import("./pages/CurrencyGuide"));
@@ -83,8 +95,9 @@ const TravelAgentDurg = lazy(() => import("./pages/local/TravelAgentDurg"));
 const TourPackagesRaipur = lazy(() => import("./pages/local/TourPackagesRaipur"));
 const WeekendGetawaysRaipur = lazy(() => import("./pages/local/WeekendGetawaysRaipur"));
 const CorporateTourPackagesBhilai = lazy(() => import("./pages/local/CorporateTourPackagesBhilai"));
-const CabRental = lazy(() => import("./pages/CabRental"));
-const CruiseBooking = lazy(() => import("./pages/CruiseBooking"));
+
+const CabRental = lazy(() => import("./pages/services/CabRental"));
+const CruiseBooking = lazy(() => import("./pages/services/CruiseBooking"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const TravelDocuments = lazy(() => import("./pages/TravelDocuments"));
 const TravelSafety = lazy(() => import("./pages/TravelSafety"));
@@ -92,7 +105,7 @@ const TravelInspiration = lazy(() => import("./pages/TravelInspiration"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const TravelGuideBhilai = lazy(() => import("./pages/local/TravelGuideBhilai"));
 const LegalDisclaimer = lazy(() => import("./pages/LegalDisclaimer"));
-const HotelBooking = lazy(() => import("./pages/HotelBooking"));
+const HotelBooking = lazy(() => import("./pages/services/HotelBooking"));
 
 // New High Reach SEO Pages
 const TourPackagesFromBhilai = lazy(() => import("./pages/local/TourPackagesFromBhilai"));
@@ -100,31 +113,31 @@ const TourPackagesFromRaipur = lazy(() => import("./pages/local/TourPackagesFrom
 const InternationalToursFromRaipur = lazy(() => import("./pages/local/InternationalToursFromRaipur"));
 const InternationalToursFromBhilai = lazy(() => import("./pages/local/InternationalToursFromBhilai"));
 const HoneymoonPackagesFromBhilai = lazy(() => import("./pages/local/HoneymoonPackagesFromBhilai"));
-const GoaTourPackageFromBhilai = lazy(() => import("./pages/local/GoaTourPackageFromBhilai"));
-const GoaPackageFromRaipur = lazy(() => import("./pages/local/GoaPackageFromRaipur"));
-const GoaPackageFromDurg = lazy(() => import("./pages/local/GoaPackageFromDurg"));
-const GoaTripFromSupela = lazy(() => import("./pages/local/GoaTripFromSupela"));
-const GoaTripUnder10000 = lazy(() => import("./pages/local/GoaTripUnder10000"));
-const GoaCheapTripGuide = lazy(() => import("./pages/local/GoaCheapTripGuide"));
-const GoaBudgetItinerary = lazy(() => import("./pages/local/GoaBudgetItinerary"));
-const TrainVsFlightGoa = lazy(() => import("./pages/local/TrainVsFlightGoa"));
-const NorthVsSouthGoa = lazy(() => import("./pages/local/NorthVsSouthGoa"));
-const ManaliTourPackageFromBhilai = lazy(() => import("./pages/local/ManaliTourPackageFromBhilai"));
-const KeralaTourPackageFromBhilai = lazy(() => import("./pages/local/KeralaTourPackageFromBhilai"));
-const KashmirTourPackageFromBhilai = lazy(() => import("./pages/local/KashmirTourPackageFromBhilai"));
-const ThailandTourPackageFromRaipur = lazy(() => import("./pages/local/ThailandTourPackageFromRaipur"));
-const DubaiTourPackageFromRaipur = lazy(() => import("./pages/local/DubaiTourPackageFromRaipur"));
-const ThailandTourPackageFromBhilai = lazy(() => import("./pages/local/ThailandTourPackageFromBhilai"));
-const DubaiTourPackageFromBhilai = lazy(() => import("./pages/local/DubaiTourPackageFromBhilai"));
+const GoaTourPackageFromBhilai = lazy(() => import('./pages/domestic/goa/GoaTourPackageFromBhilai'));
+const GoaPackageFromRaipur = lazy(() => import('./pages/domestic/goa/GoaPackageFromRaipur'));
+const GoaPackageFromDurg = lazy(() => import('./pages/domestic/goa/GoaPackageFromDurg'));
+const GoaTripFromSupela = lazy(() => import('./pages/domestic/goa/GoaTripFromSupela'));
+const GoaTripUnder10000 = lazy(() => import('./pages/domestic/goa/GoaTripUnder10000'));
+const GoaCheapTripGuide = lazy(() => import('./pages/domestic/goa/GoaCheapTripGuide'));
+const GoaBudgetItinerary = lazy(() => import('./pages/domestic/goa/GoaBudgetItinerary'));
+const NorthVsSouthGoa = lazy(() => import('./pages/domestic/goa/NorthVsSouthGoa'));
+const TrainVsFlightGoa = lazy(() => import('./pages/domestic/goa/TrainVsFlightGoa'));
+const ManaliTourPackageFromBhilai = lazy(() => import("./pages/domestic/manali/ManaliTourPackageFromBhilai"));
+const KeralaTourPackageFromBhilai = lazy(() => import("./pages/domestic/kerala/KeralaTourPackageFromBhilai"));
+const KashmirTourPackageFromBhilai = lazy(() => import("./pages/domestic/kashmir/KashmirTourPackageFromBhilai"));
+const ThailandTourPackageFromRaipur = lazy(() => import("./pages/international/thailand/ThailandTourPackageFromRaipur"));
+const DubaiTourPackageFromRaipur = lazy(() => import("./pages/international/dubai/DubaiTourPackageFromRaipur"));
+const ThailandTourPackageFromBhilai = lazy(() => import("./pages/international/thailand/ThailandTourPackageFromBhilai"));
+const DubaiTourPackageFromBhilai = lazy(() => import("./pages/international/dubai/DubaiTourPackageFromBhilai"));
 const ChardhamYatraPackageFromBhilai = lazy(() => import("./pages/local/ChardhamYatraPackageFromBhilai"));
 const RajasthanTourPackageFromBhilai = lazy(() => import("./pages/local/RajasthanTourPackageFromBhilai"));
-const SingaporeTourPackageFromBhilai = lazy(() => import("./pages/local/SingaporeTourPackageFromBhilai"));
+const SingaporeTourPackageFromBhilai = lazy(() => import("./pages/international/singapore/SingaporeTourPackageFromBhilai"));
 const NepalTourPackageFromBhilai = lazy(() => import("./pages/local/NepalTourPackageFromBhilai"));
-const BaliTourPackageFromRaipur = lazy(() => import("./pages/local/BaliTourPackageFromRaipur"));
-const BaliTourPackageFromBhilai = lazy(() => import("./pages/local/BaliTourPackageFromBhilai"));
-const SriLankaTourPackageFromBhilai = lazy(() => import("./pages/local/SriLankaTourPackageFromBhilai"));
-const SriLankaTourPackageFromRaipur = lazy(() => import("./pages/local/SriLankaTourPackageFromRaipur"));
-const AndamanTourPackageFromBhilai = lazy(() => import("./pages/local/AndamanTourPackageFromBhilai"));
+const BaliTourPackageFromRaipur = lazy(() => import("./pages/international/bali/BaliTourPackageFromRaipur"));
+const BaliTourPackageFromBhilai = lazy(() => import("./pages/international/bali/BaliTourPackageFromBhilai"));
+const SriLankaTourPackageFromBhilai = lazy(() => import("./pages/international/srilanka/SriLankaTourPackageFromBhilai"));
+const SriLankaTourPackageFromRaipur = lazy(() => import("./pages/international/srilanka/SriLankaTourPackageFromRaipur"));
+const AndamanTourPackageFromBhilai = lazy(() => import("./pages/domestic/andaman/AndamanTourPackageFromBhilai"));
 
 // Blog System (Top-1% Architecture)
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
@@ -157,6 +170,7 @@ const SummerHolidayPackages = lazy(() => import("./pages/SummerHolidayPackages")
 const GroupTourPackages = lazy(() => import("./pages/GroupTourPackages"));
 const BeachHolidayPackages = lazy(() => import("./pages/BeachHolidayPackages"));
 const MountainHolidayPackages = lazy(() => import("./pages/MountainHolidayPackages"));
+const SummerSpecialPackages = lazy(() => import("./pages/SummerSpecialPackages"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const WhereToGoFromBhilai = lazy(() => import("./pages/guides/WhereToGoFromBhilai"));
@@ -181,10 +195,9 @@ const CharDhamPackageBuilder = lazy(() => import("./pages/chardham/CharDhamPacka
 const BhilaiToKedarnath = lazy(() => import("./pages/chardham/BhilaiToKedarnath"));
 
 // Phase 7: Thailand Prominence
-const ThailandPillar = lazy(() => import("./pages/thailand/ThailandPillar"));
-const ThailandFromRaipur = lazy(() => import("./pages/thailand/ThailandFromRaipur"));
-const ThailandCityGuide = lazy(() => import("./pages/thailand/ThailandCityGuide"));
-const ThailandPlanner = lazy(() => import("./pages/thailand/ThailandPlanner"));
+// Phase 7: Thailand Prominence
+const ThailandCityGuide = lazy(() => import('./pages/international/thailand/ThailandCityGuide'));
+const ThailandPlanner = lazy(() => import('./pages/international/thailand/ThailandPlanner'));
 
 // Panch Kedar Pages
 const Tungnath = lazy(() => import("./pages/chardham/Tungnath"));
@@ -215,8 +228,15 @@ const LadakhTripCost = lazy(() => import("./pages/ladakh/LadakhTripCost"));
 const BestTimeLadakh = lazy(() => import("./pages/ladakh/BestTimeLadakh"));
 const LadakhBikePackages = lazy(() => import("./pages/ladakh/LadakhBikePackages"));
 const LadakhUltimateExpedition = lazy(() => import("./pages/ladakh/LadakhUltimateExpedition"));
-const LadakhFromRaipur = lazy(() => import("./pages/ladakh/LadakhFromRaipur"));
-const LadakhFromBhilai = lazy(() => import("./pages/ladakh/LadakhFromBhilai"));
+const LadakhFromRaipur = lazy(() => import("./pages/domestic/ladakh/LadakhFromRaipur"));
+const LadakhFromBhilai = lazy(() => import("./pages/domestic/ladakh/LadakhFromBhilai"));
+
+// Summer Specials
+const KashmirSummerSpecial = lazy(() => import("./pages/domestic/kashmir/KashmirSummerSpecial"));
+const ManaliSummerSpecial = lazy(() => import("./pages/domestic/manali/ManaliSummerSpecial"));
+const SpitiSummerSpecial = lazy(() => import("./pages/summer/SpitiSummerSpecial"));
+const SikkimSummerSpecial = lazy(() => import("./pages/summer/SikkimSummerSpecial"));
+const MunsiyariSummerSpecial = lazy(() => import("./pages/summer/MunsiyariSummerSpecial"));
 const LadakhFromChhattisgarh = lazy(() => import("./pages/ladakh/LadakhFromChhattisgarh"));
 const LadakhSafety = lazy(() => import("./pages/ladakh/LadakhSafety"));
 const LadakhPackingList = lazy(() => import("./pages/ladakh/LadakhPackingList"));
@@ -258,8 +278,12 @@ const App = () => (
                   <Route path="/package/:packageId" element={<PackageDetails />} />
 
                   {/* Traveller Guide Routes */}
-                  <Route path="/visa-guide" element={<VisaGuide />} />
-                  <Route path="/passport-guide" element={<PassportGuide />} />
+                  <Route path="/travel-services/visa-assistance" element={<VisaGuide />} />
+                  <Route path="/visa-guide" element={<Navigate to="/travel-services/visa-assistance" replace />} />
+
+                  <Route path="/travel-services/passport-assistance" element={<PassportGuide />} />
+                  <Route path="/passport-guide" element={<Navigate to="/travel-services/passport-assistance" replace />} />
+
                   <Route path="/visa-free-countries" element={<VisaFreeCountries />} />
                   <Route path="/travel-checklist" element={<TravelChecklist />} />
                   <Route path="/currency-guide" element={<CurrencyGuide />} />
@@ -315,11 +339,16 @@ const App = () => (
                   <Route path="/group-tour-packages" element={<GroupTourPackages />} />
                   <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
                   <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
+                  <Route path="/summer-special-packages" element={<SummerSpecialPackages />} />
                   <Route path="/why-choose-us" element={<WhyChooseUs />} />
                   <Route path="/visa/nepal" element={<NepalVisa />} />
                   <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
-                  <Route path="/cab-rental" element={<CabRental />} />
-                  <Route path="/cruise-booking" element={<CruiseBooking />} />
+                  <Route path="/travel-services/cab-rental" element={<CabRental />} />
+                  <Route path="/cab-rental" element={<Navigate to="/travel-services/cab-rental" replace />} />
+
+                  <Route path="/travel-services/cruise-booking" element={<CruiseBooking />} />
+                  <Route path="/cruise-booking" element={<Navigate to="/travel-services/cruise-booking" replace />} />
+
                   <Route path="/how-it-works" element={<HowItWorks />} />
                   <Route path="/travel-documents" element={<TravelDocuments />} />
                   <Route path="/travel-safety" element={<TravelSafety />} />
@@ -327,7 +356,8 @@ const App = () => (
                   <Route path="/about-rudraksh-safar" element={<AboutUs />} />
                   <Route path="/travel-guide-from-bhilai" element={<TravelGuideBhilai />} />
                   <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
-                  <Route path="/hotel-booking" element={<HotelBooking />} />
+                  <Route path="/travel-services/hotel-booking" element={<HotelBooking />} />
+                  <Route path="/hotel-booking" element={<Navigate to="/travel-services/hotel-booking" replace />} />
 
                   {/* Char Dham Yatra Pillar (Phase 1) */}
                   <Route path="/chardham-yatra-package" element={<CharDhamPillar />} />
@@ -351,11 +381,11 @@ const App = () => (
                   <Route path="/plan-your-yatra" element={<CharDhamPackageBuilder />} />
                   <Route path="/bhilai-to-kedarnath-yatra-package-2026" element={<BhilaiToKedarnath />} />
 
-                  {/* Thailand Dominance */}
-                  <Route path="/thailand-tour-packages" element={<ThailandPillar />} />
-                  <Route path="/thailand-tour-packages-from-raipur" element={<ThailandFromRaipur />} />
-                  <Route path="/thailand-tour-packages/:cityId" element={<ThailandCityGuide />} />
-                  <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
+                  {/* Thailand Dominance - MOVED TO MASTER SILO */}
+                  {/* <Route path="/thailand-tour-packages" element={<ThailandPillar />} /> */}
+                  {/* <Route path="/thailand-tour-packages-from-raipur" element={<ThailandFromRaipur />} /> */}
+                  {/* <Route path="/thailand-tour-packages/:cityId" element={<ThailandCityGuide />} /> */}
+                  {/* <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} /> */}
 
                   {/* Phase 10: UAE Domination (Attraction Engine) */}
                   <Route path="/dubai-travel-guide" element={<DubaiTravelGuide />} />
@@ -371,7 +401,100 @@ const App = () => (
                   <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
 
                   {/* Ladakh SEO Pages */}
-                  <Route path="/ladakh-tour-packages-from-delhi" element={<LadakhPillar />} />
+                  {/* NEW MASTER SILO */}
+                  <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
+                  <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
+                  <Route path="/ladakh-tour-packages-from-delhi" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+
+                  {/* Kashmir Master Silo */}
+                  <Route path="/domestic-tours/kashmir" element={<KashmirMaster />} />
+                  <Route path="/domestic-tours/kashmir-from-bhilai" element={<KashmirTourPackageFromBhilai />} />
+                  <Route path="/kashmir-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/kashmir-from-bhilai" replace />} />
+
+                  {/* Manali Master Silo */}
+                  <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
+                  <Route path="/domestic-tours/manali-from-bhilai" element={<ManaliTourPackageFromBhilai />} />
+                  <Route path="/manali-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/manali-from-bhilai" replace />} />
+
+                  {/* Kerala Master Silo */}
+                  <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
+                  <Route path="/domestic-tours/kerala-from-bhilai" element={<KeralaTourPackageFromBhilai />} />
+                  <Route path="/kerala-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/kerala-from-bhilai" replace />} />
+
+                  {/* Thailand Master Silo */}
+                  <Route path="/international-tours/thailand" element={<ThailandMaster />} />
+                  <Route path="/international-tours/thailand-from-raipur" element={<ThailandTourPackageFromRaipur />} />
+                  <Route path="/thailand-tour-package-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
+                  <Route path="/international-tours/thailand-from-bhilai" element={<ThailandTourPackageFromBhilai />} />
+                  <Route path="/thailand-tour-package-from-bhilai" element={<Navigate to="/international-tours/thailand-from-bhilai" replace />} />
+
+                  {/* Thailand Prominence Routes */}
+                  <Route path="/international-tours/thailand/:cityId" element={<ThailandCityGuide />} />
+                  <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
+
+                  {/* Redirect Legacy SEO Pages to New Silo */}
+                  <Route path="/thailand-tour-packages" element={<Navigate to="/international-tours/thailand" replace />} />
+                  <Route path="/thailand-tour-packages-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
+                  <Route path="/thailand-tour-packages/:cityId" element={<Navigate to="/international-tours/thailand/:cityId" replace />} />
+
+                  {/* Dubai Master Silo */}
+                  <Route path="/international-tours/dubai" element={<DubaiMaster />} />
+                  <Route path="/international-tours/dubai-from-raipur" element={<DubaiTourPackageFromRaipur />} />
+                  <Route path="/dubai-tour-package-from-raipur" element={<Navigate to="/international-tours/dubai-from-raipur" replace />} />
+                  <Route path="/international-tours/dubai-from-bhilai" element={<DubaiTourPackageFromBhilai />} />
+                  <Route path="/dubai-tour-package-from-bhilai" element={<Navigate to="/international-tours/dubai-from-bhilai" replace />} />
+
+                  {/* Singapore Master Silo */}
+                  <Route path="/international-tours/singapore" element={<SingaporeMaster />} />
+                  <Route path="/international-tours/singapore-from-bhilai" element={<SingaporeTourPackageFromBhilai />} />
+                  <Route path="/singapore-tour-package-from-bhilai" element={<Navigate to="/international-tours/singapore-from-bhilai" replace />} />
+
+                  {/* Bali Master Silo */}
+                  <Route path="/international-tours/bali" element={<BaliMaster />} />
+                  <Route path="/international-tours/bali-from-raipur" element={<BaliTourPackageFromRaipur />} />
+                  <Route path="/bali-tour-package-from-raipur" element={<Navigate to="/international-tours/bali-from-raipur" replace />} />
+                  <Route path="/international-tours/bali-from-bhilai" element={<BaliTourPackageFromBhilai />} />
+                  <Route path="/bali-tour-package-from-bhilai" element={<Navigate to="/international-tours/bali-from-bhilai" replace />} />
+
+                  {/* Sri Lanka Master Silo */}
+                  <Route path="/international-tours/srilanka" element={<SriLankaMaster />} />
+                  <Route path="/international-tours/srilanka-from-raipur" element={<SriLankaTourPackageFromRaipur />} />
+                  <Route path="/srilanka-tour-package-from-raipur" element={<Navigate to="/international-tours/srilanka-from-raipur" replace />} />
+                  <Route path="/international-tours/srilanka-from-bhilai" element={<SriLankaTourPackageFromBhilai />} />
+                  <Route path="/srilanka-tour-package-from-bhilai" element={<Navigate to="/international-tours/srilanka-from-bhilai" replace />} />
+
+                  {/* Andaman Master Silo */}
+                  <Route path="/domestic-tours/andaman" element={<AndamanMaster />} />
+                  <Route path="/domestic-tours/andaman-from-bhilai" element={<AndamanTourPackageFromBhilai />} />
+                  <Route path="/andaman-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/andaman-from-bhilai" replace />} />
+
+                  {/* Goa Master Silo */}
+                  <Route path="/domestic-tours/goa" element={<GoaMaster />} />
+                  <Route path="/domestic-tours/goa-from-bhilai" element={<GoaTourPackageFromBhilai />} />
+                  <Route path="/goa-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/goa-from-bhilai" replace />} />
+                  <Route path="/domestic-tours/goa-from-raipur" element={<GoaPackageFromRaipur />} />
+                  <Route path="/goa-package-from-raipur" element={<Navigate to="/domestic-tours/goa-from-raipur" replace />} />
+                  <Route path="/domestic-tours/goa-from-durg" element={<GoaPackageFromDurg />} />
+                  <Route path="/goa-package-from-durg" element={<Navigate to="/domestic-tours/goa-from-durg" replace />} />
+
+                  <Route path="/domestic-tours/goa-trip-from-supela" element={<GoaTripFromSupela />} />
+                  <Route path="/goa-trip-from-supela" element={<Navigate to="/domestic-tours/goa-trip-from-supela" replace />} />
+
+                  <Route path="/domestic-tours/goa-trip-under-10000" element={<GoaTripUnder10000 />} />
+                  <Route path="/goa-trip-under-10000-from-bhilai" element={<Navigate to="/domestic-tours/goa-trip-under-10000" replace />} />
+
+                  <Route path="/domestic-tours/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
+                  <Route path="/goa-cheap-trip-guide" element={<Navigate to="/domestic-tours/goa-cheap-trip-guide" replace />} />
+
+                  <Route path="/domestic-tours/goa-budget-itinerary" element={<GoaBudgetItinerary />} />
+                  <Route path="/goa-budget-itinerary-from-cg" element={<Navigate to="/domestic-tours/goa-budget-itinerary" replace />} />
+
+                  <Route path="/domestic-tours/north-vs-south-goa" element={<NorthVsSouthGoa />} />
+                  <Route path="/north-vs-south-goa-from-cg" element={<Navigate to="/domestic-tours/north-vs-south-goa" replace />} />
+
+                  <Route path="/domestic-tours/train-vs-flight-goa" element={<TrainVsFlightGoa />} />
+                  <Route path="/train-vs-flight-to-goa-from-cg" element={<Navigate to="/domestic-tours/train-vs-flight-goa" replace />} />
+
                   <Route path="/ladakh-tour-via-srinagar" element={<LadakhViaSrinagar />} />
                   <Route path="/ladakh-tour-via-manali" element={<LadakhViaManali />} />
                   <Route path="/manali-vs-srinagar-route-ladakh" element={<ManaliVsSrinagar />} />
@@ -379,12 +502,21 @@ const App = () => (
                   <Route path="/best-time-to-visit-ladakh" element={<BestTimeLadakh />} />
                   <Route path="/ladakh-bike-trip-packages" element={<LadakhBikePackages />} />
                   <Route path="/ladakh-ultimate-expedition" element={<LadakhUltimateExpedition />} />
-                  <Route path="/ladakh-tour-packages-from-raipur" element={<LadakhFromRaipur />} />
-                  <Route path="/ladakh-tour-packages-from-bhilai" element={<LadakhFromBhilai />} />
+                  <Route path="/domestic-tours/ladakh-from-raipur" element={<LadakhFromRaipur />} />
+                  <Route path="/ladakh-tour-package-from-raipur" element={<Navigate to="/domestic-tours/ladakh-from-raipur" replace />} />
+                  <Route path="/domestic-tours/ladakh-from-bhilai" element={<LadakhFromBhilai />} />
+                  <Route path="/ladakh-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/ladakh-from-bhilai" replace />} />
                   <Route path="/ladakh-tour-packages-from-chhattisgarh" element={<LadakhFromChhattisgarh />} />
-                  <Route path="/ladakh-travel-safety-tips" element={<LadakhSafety />} />
-                  <Route path="/ladakh-packing-checklist" element={<LadakhPackingList />} />
-                  <Route path="/places-to-visit-in-ladakh/pangong-lake" element={<PangongLake />} />
+                  <Route path="/is-ladakh-safe" element={<LadakhSafety />} />
+                  <Route path="/ladakh-packing-list" element={<LadakhPackingList />} />
+                  <Route path="/pangong-lake-guide" element={<PangongLake />} />
+
+                  {/* Summer Special Routes */}
+                  <Route path="/kashmir-tour-package-from-bhilai" element={<KashmirSummerSpecial />} />
+                  <Route path="/manali-tour-package-from-bhilai" element={<ManaliSummerSpecial />} />
+                  <Route path="/spiti-valley-tour-package" element={<SpitiSummerSpecial />} />
+                  <Route path="/sikkim-tour-package" element={<SikkimSummerSpecial />} />
+                  <Route path="/munsiyari-tour-package" element={<MunsiyariSummerSpecial />} />
 
                   {/* Legal Routes */}
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -436,31 +568,31 @@ const App = () => (
                   <Route path="/tour-packages-from-bhilai/honeymoon-packages" element={<HoneymoonPackagesFromBhilai />} />
 
                   {/* Phase 1: Goa Search Monopoly */}
-                  <Route path="/goa-tour-package-from-bhilai" element={<GoaTourPackageFromBhilai />} />
-                  <Route path="/goa-package-from-raipur" element={<GoaPackageFromRaipur />} />
-                  <Route path="/goa-package-from-durg" element={<GoaPackageFromDurg />} />
-                  <Route path="/goa-trip-from-supela" element={<GoaTripFromSupela />} />
-                  <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} />
-                  <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
-                  <Route path="/goa-budget-itinerary-from-bhilai" element={<GoaBudgetItinerary />} />
-                  <Route path="/train-vs-flight-goa-from-cg" element={<TrainVsFlightGoa />} />
-                  <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} />
-                  <Route path="/manali-tour-package-from-bhilai" element={<ManaliTourPackageFromBhilai />} />
-                  <Route path="/kerala-tour-package-from-bhilai" element={<KeralaTourPackageFromBhilai />} />
-                  <Route path="/kashmir-tour-package-from-bhilai" element={<KashmirTourPackageFromBhilai />} />
-                  <Route path="/thailand-tour-package-from-raipur" element={<ThailandTourPackageFromRaipur />} />
-                  <Route path="/dubai-tour-package-from-raipur" element={<DubaiTourPackageFromRaipur />} />
-                  <Route path="/thailand-tour-package-from-bhilai" element={<ThailandTourPackageFromBhilai />} />
-                  <Route path="/dubai-tour-package-from-bhilai" element={<DubaiTourPackageFromBhilai />} />
+                  {/* Old Routes Removed - See Goa Master Silo below */}
+                  {/* <Route path="/goa-tour-package-from-bhilai" element={<GoaTourPackageFromBhilai />} /> */}
+                  {/* <Route path="/goa-package-from-raipur" element={<GoaPackageFromRaipur />} /> */}
+                  {/* <Route path="/goa-package-from-durg" element={<GoaPackageFromDurg />} /> */}
+                  {/* <Route path="/goa-trip-from-supela" element={<GoaTripFromSupela />} /> */}
+                  {/* <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} /> */}
+                  {/* <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} /> */}
+                  {/* <Route path="/goa-budget-itinerary-from-cg" element={<GoaBudgetItinerary />} /> */}
+                  {/* <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} /> */}
+                  {/* <Route path="/train-vs-flight-to-goa-from-cg" element={<TrainVsFlightGoa />} /> */}
+                  <Route path="/manali-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/manali-from-bhilai" replace />} />
+                  <Route path="/kerala-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/kerala-from-bhilai" replace />} />
+                  <Route path="/thailand-tour-package-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
+                  <Route path="/dubai-tour-package-from-raipur" element={<Navigate to="/international-tours/dubai-from-raipur" replace />} />
+                  <Route path="/thailand-tour-package-from-bhilai" element={<Navigate to="/international-tours/thailand-from-bhilai" replace />} />
+                  <Route path="/dubai-tour-package-from-bhilai" element={<Navigate to="/international-tours/dubai-from-bhilai" replace />} />
                   <Route path="/chardham-yatra-package-from-bhilai" element={<ChardhamYatraPackageFromBhilai />} />
                   <Route path="/rajasthan-tour-package-from-bhilai" element={<RajasthanTourPackageFromBhilai />} />
-                  <Route path="/singapore-tour-package-from-bhilai" element={<SingaporeTourPackageFromBhilai />} />
+                  <Route path="/singapore-tour-package-from-bhilai" element={<Navigate to="/international-tours/singapore-from-bhilai" replace />} />
                   <Route path="/nepal-tour-package-from-bhilai" element={<NepalTourPackageFromBhilai />} />
-                  <Route path="/bali-tour-package-from-raipur" element={<BaliTourPackageFromRaipur />} />
-                  <Route path="/bali-tour-package-from-bhilai" element={<BaliTourPackageFromBhilai />} />
-                  <Route path="/sri-lanka-tour-package-from-bhilai" element={<SriLankaTourPackageFromBhilai />} />
-                  <Route path="/sri-lanka-tour-package-from-raipur" element={<SriLankaTourPackageFromRaipur />} />
-                  <Route path="/andaman-tour-package-from-bhilai" element={<AndamanTourPackageFromBhilai />} />
+                  <Route path="/bali-tour-package-from-raipur" element={<Navigate to="/international-tours/bali-from-raipur" replace />} />
+                  <Route path="/bali-tour-package-from-bhilai" element={<Navigate to="/international-tours/bali-from-bhilai" replace />} />
+                  <Route path="/sri-lanka-tour-package-from-bhilai" element={<Navigate to="/international-tours/srilanka-from-bhilai" replace />} />
+                  <Route path="/sri-lanka-tour-package-from-raipur" element={<Navigate to="/international-tours/srilanka-from-raipur" replace />} />
+                  <Route path="/andaman-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/andaman-from-bhilai" replace />} />
 
                   {/* Sitemap */}
                   <Route path="/sitemap" element={<Sitemap />} />

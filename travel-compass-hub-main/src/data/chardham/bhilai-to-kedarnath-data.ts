@@ -15,13 +15,20 @@ export const bhilaiToKedarnathData = {
     hero: {
         title: "Kedarnath Yatra from Bhilai 2026",
         subtitle: "The definitive guide for pilgrims from Durg, Bhilai & Raipur. Honest pricing, direct logistics, and local support.",
-        image: "https://images.unsplash.com/photo-1598555848419-4760a92f8ce6?auto=format&fit=crop&q=80&w=1200",
+        image: "/images/Kedarnath/Kedarnath 1.jpg",
         stats: [
             { label: "Total Distance", value: "~1,550 km" },
             { label: "Travel Time", value: "30-36 Hrs (Train)" },
             { label: "Base Package", value: "₹12,500*" }
         ]
     },
+    gallery: [
+        '/images/Kedarnath/Kedarnath 1.jpg',
+        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.jpg',
+        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.jpg',
+        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.jpg',
+        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.png'
+    ],
     featuredSnippets: {
         howToReach: {
             question: "How to reach Kedarnath from Bhilai?",

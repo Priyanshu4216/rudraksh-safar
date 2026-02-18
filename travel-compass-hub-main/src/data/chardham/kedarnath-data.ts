@@ -9,7 +9,7 @@ export const kedarnathData: TemplePageData = {
         keywords: ['Kedarnath Temple', 'Kedarnath Trek', 'Kedarnath History', 'Kedarnath Helicopter Booking', 'Panch Kedar', 'Char Dham Yatra']
     },
     overview: {
-        bgImage: 'https://images.unsplash.com/photo-1517330357046-3ab5a5dd42a1?q=80&w=2692&auto=format&fit=crop',
+        bgImage: '/images/Kedarnath/Kedarnath 1.jpg',
         title: 'Kedarnath Dham',
         subtitle: 'The Eternal Abode of Lord Shiva',
         highlights: [
@@ -19,6 +19,13 @@ export const kedarnathData: TemplePageData = {
             { label: 'District', value: 'Rudraprayag, Uttarakhand', icon: Map }
         ]
     },
+    gallery: [
+        '/images/Kedarnath/Kedarnath 1.jpg',
+        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.jpg',
+        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.jpg',
+        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.jpg',
+        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.png'
+    ],
     history: {
         origin: 'While the temple\'s exact origin is lost in time, architectural analysis suggests it is more than 1,000 years old.',
         legends: [

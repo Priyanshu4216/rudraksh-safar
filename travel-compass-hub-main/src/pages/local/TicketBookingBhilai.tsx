@@ -419,13 +419,13 @@ const TicketBookingBhilai = () => {
                                 <div key={index} itemScope itemType="https://schema.org/Question" className="bg-background border rounded-lg overflow-hidden">
                                     <Accordion type="single" collapsible className="w-full">
                                         <AccordionItem value={`item-${index}`} className="border-b-0">
-                                            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-slate-50">
+                                            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-slate-50 dark:hover:bg-slate-800">
                                                 <span itemProp="name" className="text-left font-semibold text-lg flex items-start gap-3">
                                                     <HelpCircle className="w-5 h-5 text-blue-600 shrink-0 mt-1" />
                                                     {item.q}
                                                 </span>
                                             </AccordionTrigger>
-                                            <AccordionContent className="px-6 py-4 bg-slate-50/50" itemScope itemType="https://schema.org/Answer">
+                                            <AccordionContent className="px-6 py-4 bg-slate-50/50 dark:bg-slate-900/50" itemScope itemType="https://schema.org/Answer">
                                                 <p itemProp="text" className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.a }}></p>
                                             </AccordionContent>
                                         </AccordionItem>
