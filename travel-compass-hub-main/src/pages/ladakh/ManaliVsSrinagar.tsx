@@ -96,7 +96,7 @@ const ManaliVsSrinagar = () => {
                     {/* Srinagar Analysis */}
                     <div className="space-y-6">
                         <div className="aspect-video rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=2070" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Srinagar Route" />
+                            <img src="/images/ladakh/ladakh-img-14.jpeg" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Srinagar Route" />
                         </div>
                         <div>
                             <h2 className="text-2xl font-serif font-bold text-foreground mb-2">Option A: Via Srinagar</h2>
@@ -122,7 +122,7 @@ const ManaliVsSrinagar = () => {
                     {/* Manali Analysis */}
                     <div className="space-y-6">
                         <div className="aspect-video rounded-xl overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&w=2067" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Manali Route" />
+                            <img src="/images/ladakh/ladakh-img-15.jpeg" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Manali Route" />
                         </div>
                         <div>
                             <h2 className="text-2xl font-serif font-bold text-foreground mb-2">Option B: Via Manali</h2>
@@ -153,7 +153,7 @@ const ManaliVsSrinagar = () => {
                             <div className="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-pulse uppercase tracking-wider">
                                 Recommended
                             </div>
-                            <img src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=2070" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Ultimate Ladakh Circuit" />
+                            <img src="/images/ladakh/ladakh-img-16.jpeg" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Ultimate Ladakh Circuit" />
                         </div>
                         <div className="relative">
                             <h2 className="text-2xl font-serif font-bold text-white mb-2 flex items-center gap-2">

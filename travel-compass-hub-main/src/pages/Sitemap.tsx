@@ -78,7 +78,7 @@ const Sitemap = () => {
             description: "Complete guide for Ladakh trips - Routes, Bike Trips, Family Packages & Local Departures.",
             icon: Mountain,
             links: [
-                { name: "Ladakh Tour Packages from Delhi", href: "/ladakh-tour-packages-from-delhi", desc: "Main Pillar Page" },
+                { name: "Ladakh Tour Packages", href: "/domestic-tours/ladakh", desc: "Main Pillar Page" },
                 { name: "Ultimate Ladakh Expedition", href: "/ladakh-ultimate-expedition", desc: "13 Days Full Circuit" },
                 { name: "Ladakh Tour via Srinagar", href: "/ladakh-tour-via-srinagar", desc: "Scenic Route" },
                 { name: "Ladakh Tour via Manali", href: "/ladakh-tour-via-manali", desc: "Adventure Route" },
@@ -86,12 +86,12 @@ const Sitemap = () => {
                 { name: "Ladakh Trip Cost", href: "/ladakh-trip-cost", desc: "Budget Guide 2026" },
                 { name: "Best Time to Visit Ladakh", href: "/best-time-to-visit-ladakh", desc: "Season Guide" },
                 { name: "Ladakh Bike Trip Packages", href: "/ladakh-bike-trip-packages", desc: "Motorcycle Expeditions" },
-                { name: "Ladakh From Raipur", href: "/ladakh-tour-packages-from-raipur", desc: "Flight Inclusive" },
-                { name: "Ladakh From Bhilai", href: "/ladakh-tour-packages-from-bhilai", desc: "Train Connectivity" },
+                { name: "Ladakh From Raipur", href: "/domestic-tours/ladakh-from-raipur", desc: "Flight Inclusive" },
+                { name: "Ladakh From Bhilai", href: "/domestic-tours/ladakh-from-bhilai", desc: "Train Connectivity" },
                 { name: "Ladakh From Chhattisgarh", href: "/ladakh-tour-packages-from-chhattisgarh", desc: "State Special" },
-                { name: "Ladakh Safety Tips", href: "/ladakh-travel-safety-tips", desc: "AMS & Health" },
-                { name: "Ladakh Packing List", href: "/ladakh-packing-checklist", desc: "Downloadable Checklist" },
-                { name: "Pangong Lake Guide", href: "/places-to-visit-in-ladakh/pangong-lake", desc: "Attraction Details" },
+                { name: "Ladakh Safety Tips", href: "/is-ladakh-safe", desc: "AMS & Health" },
+                { name: "Ladakh Packing List", href: "/ladakh-packing-list", desc: "Downloadable Checklist" },
+                { name: "Pangong Lake Guide", href: "/pangong-lake-guide", desc: "Attraction Details" },
             ]
         },
         {

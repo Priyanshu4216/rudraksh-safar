@@ -150,7 +150,7 @@ const LadakhBikePackages = () => {
                                 <li className="flex gap-2 text-sm"><Shield className="w-4 h-4 text-gold" /> Riding Gloves</li>
                                 <li className="flex gap-2 text-sm"><Shield className="w-4 h-4 text-gold" /> Knee & Elbow Guards</li>
                             </ul>
-                            <Link to="/ladakh-packing-checklist" className="text-gold font-medium hover:underline flex items-center gap-2">
+                            <Link to="/ladakh-packing-list" className="text-gold font-medium hover:underline flex items-center gap-2">
                                 Download Complete Packing Checklist <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>

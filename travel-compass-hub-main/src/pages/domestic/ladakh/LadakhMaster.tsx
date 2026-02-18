@@ -42,7 +42,7 @@ const ladakhData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹28,999',
             image: '/images/ladakh/ladakh-img-11.jpeg',
-            link: '/ladakh-tour-packages-from-delhi', // Linking to existing pillar for now
+            link: '/domestic-tours/ladakh-from-raipur',
             tag: 'Family'
         },
         {

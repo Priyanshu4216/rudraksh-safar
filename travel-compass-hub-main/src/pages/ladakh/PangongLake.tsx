@@ -10,7 +10,7 @@ import SEOHead from '@/components/SEOHead';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
 
 const PangongLake = () => {
-    const heroImage = "https://images.unsplash.com/photo-1623568853683-5c74384ebdb8?q=80&w=2070";
+    const heroImage = "/images/ladakh/ladakh-img-4.jpeg";
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -100,7 +100,7 @@ const PangongLake = () => {
                                 Most people visit Pangong as a day trip or 1-night stay from Leh via Chang La pass.
                             </p>
                             <Button asChild className="w-full bg-gold text-black font-bold mb-3">
-                                <Link to="/ladakh-tour-packages-from-delhi">View Packages</Link>
+                                <Link to="/domestic-tours/ladakh">View Packages</Link>
                             </Button>
                             <Button asChild variant="outline" className="w-full">
                                 <Link to="/contact">Book Cab Only</Link>

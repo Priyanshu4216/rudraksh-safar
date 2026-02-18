@@ -10,7 +10,7 @@ import SEOHead from '@/components/SEOHead';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const LadakhPillar = () => {
-    const heroImage = "https://plus.unsplash.com/premium_photo-1661962344178-19930ba15492?q=80&w=1171&auto=format&fit=crop"; // Placeholder - high quality Ladakh image
+    const heroImage = "/images/ladakh/ladakh-img-12.jpeg"; // Placeholder - high quality Ladakh image
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -116,7 +116,7 @@ const LadakhPillar = () => {
                                 <div className="group relative overflow-hidden rounded-2xl border border-border bg-card">
                                     <div className="aspect-[4/3] overflow-hidden">
                                         <img
-                                            src="https://images.unsplash.com/photo-1566324814882-62cebb6330ce?q=80&w=2070"
+                                            src="/images/ladakh/ladakh-img-3.jpeg"
                                             alt="Srinagar Leh Highway"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
@@ -144,7 +144,7 @@ const LadakhPillar = () => {
                                 <div className="group relative overflow-hidden rounded-2xl border border-border bg-card">
                                     <div className="aspect-[4/3] overflow-hidden">
                                         <img
-                                            src="https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&w=2067"
+                                            src="/images/ladakh/ladakh-img-15.jpeg"
                                             alt="Manali Leh Highway"
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
@@ -179,7 +179,7 @@ const LadakhPillar = () => {
                         {/* Featured Expedition */}
                         <section id="featured-expedition" className="relative group overflow-hidden rounded-3xl border border-gold/30 bg-black text-white">
                             <div className="absolute inset-0">
-                                <img src="https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&w=2067" alt="Ultimate Ladakh Expedition" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000" />
+                                <img src="/images/ladakh/ladakh-img-1.jpeg" alt="Ultimate Ladakh Expedition" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000" />
                                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
                             </div>
                             <div className="relative p-8 md:p-12 z-10">
@@ -210,7 +210,7 @@ const LadakhPillar = () => {
                                 {/* Package List Item 1 */}
                                 <div className="flex flex-col md:flex-row gap-4 bg-muted/30 p-4 rounded-xl border border-border hover:border-gold/30 transition-all">
                                     <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0">
-                                        <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=2070" className="w-full h-full object-cover" alt="Ladakh Bike Trip" />
+                                        <img src="/images/ladakh/ladakh-img-2.jpeg" className="w-full h-full object-cover" alt="Ladakh Bike Trip" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex justify-between items-start">
@@ -238,7 +238,7 @@ const LadakhPillar = () => {
                                 {/* Package List Item 2 */}
                                 <div className="flex flex-col md:flex-row gap-4 bg-muted/30 p-4 rounded-xl border border-border hover:border-gold/30 transition-all">
                                     <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0">
-                                        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=2070" className="w-full h-full object-cover" alt="Ladakh Family Tour" />
+                                        <img src="/images/ladakh/ladakh-img-11.jpeg" className="w-full h-full object-cover" alt="Ladakh Family Tour" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex justify-between items-start">
@@ -363,7 +363,7 @@ const LadakhPillar = () => {
                                 <ul className="space-y-3">
                                     <li>
                                         <Link to="/places-to-visit-in-ladakh/pangong-lake" className="flex items-center gap-3 group">
-                                            <img src="https://images.unsplash.com/photo-1623568853683-5c74384ebdb8?q=80&w=100&h=100&fit=crop" className="w-12 h-12 rounded-lg object-cover" alt="Pangong" />
+                                            <img src="/images/ladakh/ladakh-img-4.jpeg" className="w-12 h-12 rounded-lg object-cover" alt="Pangong" />
                                             <div>
                                                 <p className="text-sm font-medium group-hover:text-gold transition-colors">Pangong Lake</p>
                                                 <p className="text-xs text-muted-foreground">Changing colors</p>
@@ -372,7 +372,7 @@ const LadakhPillar = () => {
                                     </li>
                                     <li>
                                         <Link to="/places-to-visit-in-ladakh/nubra-valley" className="flex items-center gap-3 group">
-                                            <img src="https://images.unsplash.com/photo-1549488346-6014e76c126d?q=80&w=100&h=100&fit=crop" className="w-12 h-12 rounded-lg object-cover" alt="Nubra" />
+                                            <img src="/images/ladakh/ladakh-img-5.jpeg" className="w-12 h-12 rounded-lg object-cover" alt="Nubra" />
                                             <div>
                                                 <p className="text-sm font-medium group-hover:text-gold transition-colors">Nubra Valley</p>
                                                 <p className="text-xs text-muted-foreground">Double hump camel</p>
@@ -381,7 +381,7 @@ const LadakhPillar = () => {
                                     </li>
                                     <li>
                                         <Link to="/places-to-visit-in-ladakh/umling-la-pass" className="flex items-center gap-3 group">
-                                            <img src="https://images.unsplash.com/photo-1698763782490-50d48624237d?q=80&w=100&h=100&fit=crop" className="w-12 h-12 rounded-lg object-cover" alt="Umling La" />
+                                            <img src="/images/ladakh/ladakh-img-6.jpeg" className="w-12 h-12 rounded-lg object-cover" alt="Umling La" />
                                             <div>
                                                 <p className="text-sm font-medium group-hover:text-gold transition-colors">Umling La</p>
                                                 <p className="text-xs text-muted-foreground">Highest pass</p>

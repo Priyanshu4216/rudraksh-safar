@@ -11,7 +11,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
 
 const LadakhViaSrinagar = () => {
-    const heroImage = "https://images.unsplash.com/photo-1624256384218-e7a56d570e83?q=80&w=759&auto=format&fit=crop"; // Srinagar highway
+    const heroImage = "/images/ladakh/ladakh-img-14.jpeg"; // Srinagar highway
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -112,7 +112,7 @@ const LadakhViaSrinagar = () => {
                                         <p className="text-xs text-muted-foreground">Is Manali route better for you?</p>
                                     </div>
                                 </Link>
-                                <Link to="/ladakh-packing-checklist" className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border hover:border-gold transition-colors">
+                                <Link to="/ladakh-packing-list" className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border hover:border-gold transition-colors">
                                     <div className="p-2 bg-muted rounded-full"><CheckCircle className="w-5 h-5 text-gold" /></div>
                                     <div>
                                         <p className="font-bold text-sm">Packing List</p>

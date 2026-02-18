@@ -85,6 +85,8 @@
     <loc>https://rudrakshsafar.com/tour-packages-from-bhilai/corporate-tours</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://rudrakshsafar.com/contact</loc>
     <lastmod>2026-02-18</lastmod>

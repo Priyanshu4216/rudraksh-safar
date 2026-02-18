@@ -27,7 +27,7 @@ const LadakhSafety = () => {
                 title="Ladakh Travel Safety Tips 2026 | AMS & Oxygen Guide"
                 description="Essential safety tips for Ladakh trip. Learn how to prevent Acute Mountain Sickness (AMS), oxygen kit requirements, and safe driving on high passes."
                 keywords="is ladakh safe, acute mountain sickness ladakh, oxygen level in ladakh, ladakh safety tips, driving in ladakh precautionary measures"
-                canonicalUrl="https://rudrakshsafar.com/ladakh-travel-safety-tips"
+                canonicalUrl="https://rudrakshsafar.com/is-ladakh-safe"
                 structuredData={structuredData}
             />
 

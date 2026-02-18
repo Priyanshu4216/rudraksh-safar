@@ -27,7 +27,7 @@ const LadakhPackingList = () => {
                 title="Valid Ladakh Packing List 2026 | Clothes & Medicines Checklist"
                 description="Don't forget these 50 essential items for Ladakh. Detailed packing list for clothes (layers), medicines (Diamox), and electronics. Download PDF checklist."
                 keywords="ladakh packing list, clothes for ladakh trip in june, medicines for ladakh trip, ladakh bike trip packing list, what to wear in leh ladakh"
-                canonicalUrl="https://rudrakshsafar.com/ladakh-packing-checklist"
+                canonicalUrl="https://rudrakshsafar.com/ladakh-packing-list"
                 structuredData={structuredData}
             />
 

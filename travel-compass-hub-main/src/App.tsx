@@ -504,12 +504,22 @@ const App = () => (
                   <Route path="/ladakh-ultimate-expedition" element={<LadakhUltimateExpedition />} />
                   <Route path="/domestic-tours/ladakh-from-raipur" element={<LadakhFromRaipur />} />
                   <Route path="/ladakh-tour-package-from-raipur" element={<Navigate to="/domestic-tours/ladakh-from-raipur" replace />} />
+                  <Route path="/ladakh-tour-packages-from-raipur" element={<Navigate to="/domestic-tours/ladakh-from-raipur" replace />} />
+
                   <Route path="/domestic-tours/ladakh-from-bhilai" element={<LadakhFromBhilai />} />
                   <Route path="/ladakh-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/ladakh-from-bhilai" replace />} />
+                  <Route path="/ladakh-tour-packages-from-bhilai" element={<Navigate to="/domestic-tours/ladakh-from-bhilai" replace />} />
+
                   <Route path="/ladakh-tour-packages-from-chhattisgarh" element={<LadakhFromChhattisgarh />} />
+
                   <Route path="/is-ladakh-safe" element={<LadakhSafety />} />
+                  <Route path="/ladakh-travel-safety-tips" element={<Navigate to="/is-ladakh-safe" replace />} />
+
                   <Route path="/ladakh-packing-list" element={<LadakhPackingList />} />
+                  <Route path="/ladakh-packing-checklist" element={<Navigate to="/ladakh-packing-list" replace />} />
+
                   <Route path="/pangong-lake-guide" element={<PangongLake />} />
+                  <Route path="/places-to-visit-in-ladakh/pangong-lake" element={<Navigate to="/pangong-lake-guide" replace />} />
 
                   {/* Summer Special Routes */}
                   <Route path="/kashmir-tour-package-from-bhilai" element={<KashmirSummerSpecial />} />

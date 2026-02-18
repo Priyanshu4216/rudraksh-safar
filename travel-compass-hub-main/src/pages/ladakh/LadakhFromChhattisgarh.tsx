@@ -71,7 +71,7 @@ const cgFAQs = [
 ];
 
 const LadakhFromChhattisgarh = () => {
-    const heroImage = "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=2070";
+    const heroImage = "/images/ladakh/ladakh-img-17.jpeg";
 
     const structuredData = {
         "@context": "https://schema.org",

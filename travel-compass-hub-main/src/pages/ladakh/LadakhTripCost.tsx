@@ -116,8 +116,8 @@ const LadakhTripCost = () => {
                                 <li className="flex gap-2"><TrendingDown className="w-5 h-5 text-green-500 shrink-0" /> <strong>Choose Homestays:</strong> Experience local culture and save on expensive hotels.</li>
                             </ul>
                             <div className="mt-6">
-                                <Link to="/budget-ladakh-trip" className="text-gold font-medium hover:underline flex items-center gap-2">
-                                    Read Full Budget Ladakh Guide <ArrowRight className="w-4 h-4" />
+                                <Link to="/contact" className="text-gold font-medium hover:underline flex items-center gap-2">
+                                    Get Custom Budget Quote <ArrowRight className="w-4 h-4" />
                                 </Link>
                             </div>
                         </div>
