@@ -43,7 +43,7 @@ const travelStyles = [
 
 const TravelStyle = () => {
     return (
-        <section className="py-24 bg-depth-1 relative overflow-hidden" id="travel-styles">
+        <section className="py-24 bg-depth-1 relative overflow-hidden" id="packages">
             {/* Background Texture */}
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
 

@@ -604,6 +604,19 @@ const App = () => (
                   <Route path="/sri-lanka-tour-package-from-raipur" element={<Navigate to="/international-tours/srilanka-from-raipur" replace />} />
                   <Route path="/andaman-tour-package-from-bhilai" element={<Navigate to="/domestic-tours/andaman-from-bhilai" replace />} />
 
+                  {/* Legacy Package Redirects - Fix for Old Links */}
+                  <Route path="/ladakh-tour-packages" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+                  <Route path="/kashmir-tour-packages" element={<Navigate to="/domestic-tours/kashmir" replace />} />
+                  <Route path="/manali-tour-packages" element={<Navigate to="/domestic-tours/manali" replace />} />
+                  <Route path="/kerala-tour-packages" element={<Navigate to="/domestic-tours/kerala" replace />} />
+                  <Route path="/andaman-tour-packages" element={<Navigate to="/domestic-tours/andaman" replace />} />
+                  <Route path="/goa-tour-packages" element={<Navigate to="/domestic-tours/goa" replace />} />
+                  <Route path="/singapore-tour-packages" element={<Navigate to="/international-tours/singapore" replace />} />
+                  <Route path="/bali-tour-packages" element={<Navigate to="/international-tours/bali" replace />} />
+                  <Route path="/srilanka-tour-packages" element={<Navigate to="/international-tours/srilanka" replace />} />
+                  <Route path="/dubai-tour-packages" element={<Navigate to="/international-tours/dubai" replace />} />
+
+
                   {/* Sitemap */}
                   <Route path="/sitemap" element={<Sitemap />} />
 

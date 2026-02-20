@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, User, Clock, CheckCircle, ArrowRight, MapPin, Tag, Share2 } from 'lucide-react';
@@ -149,7 +149,7 @@ const BlogPost = () => {
                         {categoryData.title}
                     </Badge>
 
-                    <BreathingHeadline className="text-3xl md:text-5xl lg:text-5xl leading-tight mb-6">
+                    <BreathingHeadline id="introduction" className="text-3xl md:text-5xl lg:text-5xl leading-tight mb-6">
                         {post.title}
                     </BreathingHeadline>
 
@@ -205,7 +205,7 @@ const BlogPost = () => {
                         </h3>
                         <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
                             {/* Basic static TOC for now - easily dynamic in future */}
-                            <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
+                            <a href="#introduction" className="hover:text-primary transition-colors flex items-center gap-2">
                                 <ArrowRight className="h-3 w-3" /> Introduction
                             </a>
                             {post.faqs.length > 0 && (
@@ -272,20 +272,7 @@ const BlogPost = () => {
                     )}
 
                     {/* 4.5 Search Helpfulness Micro-Interaction */}
-                    <div className="my-12 py-8 border-y border-border/40 text-center">
-                        <h4 className="font-bold mb-4">Was this guide helpful?</h4>
-                        <div className="flex justify-center gap-4">
-                            <Button variant="outline" size="sm" className="gap-2 hover:bg-green-50 hover:text-green-600 hover:border-green-200">
-                                <CheckCircle className="h-4 w-4" /> Yes, it helped
-                            </Button>
-                            <Button variant="outline" size="sm" className="gap-2 hover:bg-red-50 hover:text-red-600 hover:border-red-200">
-                                No, I need more info
-                            </Button>
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-4">
-                            Your feedback helps us improve our Bhilai & Raipur travel guides.
-                        </p>
-                    </div>
+                    <FeedbackSection />
 
                     {/* 5. Author Signature / CTA */}
                     <div className="mt-16 border-t pt-10">
@@ -314,6 +301,54 @@ const BlogPost = () => {
             <Footer />
             <FloatingWhatsApp />
         </>
+    );
+};
+
+const FeedbackSection = () => {
+    const [feedbackGiven, setFeedbackGiven] = useState<'yes' | 'no' | null>(null);
+
+    const handleFeedback = (type: 'yes' | 'no') => {
+        setFeedbackGiven(type);
+        // Here you would typically send this to an analytics service
+        console.log(`User feedback: ${type}`);
+    };
+
+    if (feedbackGiven) {
+        return (
+            <div className="my-12 py-8 border-y border-border/40 text-center bg-green-50/50 dark:bg-green-900/10 rounded-lg">
+                <h4 className="font-bold mb-2 text-green-700 dark:text-green-300">Thank you for your feedback!</h4>
+                <p className="text-xs text-muted-foreground">
+                    We appreciate your input in helping us improve our guides.
+                </p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="my-12 py-8 border-y border-border/40 text-center">
+            <h4 className="font-bold mb-4">Was this guide helpful?</h4>
+            <div className="flex justify-center gap-4">
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-2 hover:bg-green-50 hover:text-green-600 hover:border-green-200"
+                    onClick={() => handleFeedback('yes')}
+                >
+                    <CheckCircle className="h-4 w-4" /> Yes, it helped
+                </Button>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-2 hover:bg-red-50 hover:text-red-600 hover:border-red-200"
+                    onClick={() => handleFeedback('no')}
+                >
+                    No, I need more info
+                </Button>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+                Your feedback helps us improve our Bhilai & Raipur travel guides.
+            </p>
+        </div>
     );
 };
 

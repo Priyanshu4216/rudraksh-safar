@@ -100,7 +100,7 @@ const TravelAgentDurg = () => {
         { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed Tatkal tickets from Durg Junction. No waiting list tension.", link: "/train-booking-bhilai" },
         { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Consultant", desc: "Expert help for fresh passports and renewals for Durg residents.", link: "/passport-agent-bhilai" },
         { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Services", desc: "High success rate tourist visas for Durg families looking to travel abroad.", link: "/visa-agent-bhilai" },
-        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized domestic and international tours starting from Durg.", link: "/tour-packages-bhilai" },
+        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized domestic and international tours starting from Durg.", link: "/tour-packages-from-bhilai" },
         { icon: <Shield className="w-10 h-10 text-primary mx-auto" />, title: "Travel Insurance", desc: "Comprehensive travel insurance to keep your family safe during trips.", link: "/travel-safety" },
     ];
 

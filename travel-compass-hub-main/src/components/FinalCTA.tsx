@@ -32,7 +32,7 @@ const FinalCTA = () => {
                             </Link>
                         </Button>
                         <Button variant="outline" className="h-16 px-10 text-lg text-white border-white/20 hover:bg-white/10 md:w-auto w-full" asChild>
-                            <Link to="/packages">
+                            <Link to="/#packages">
                                 <Plane className="mr-2 w-5 h-5" /> View Packages
                             </Link>
                         </Button>

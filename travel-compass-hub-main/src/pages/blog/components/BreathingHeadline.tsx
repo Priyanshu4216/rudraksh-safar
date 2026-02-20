@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 
-const BreathingHeadline = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
+const BreathingHeadline = ({ children, className = "", id }: { children: React.ReactNode, className?: string, id?: string }) => {
     return (
         <motion.h1
+            id={id}
             className={`font-serif font-bold text-foreground ${className}`}
             initial={{ opacity: 0.9, y: 0 }}
             animate={{

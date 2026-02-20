@@ -244,7 +244,7 @@ const TravelAgentBhilai = () => {
     { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed seats & Tatkal assistance from Durg/Raipur.", link: "/train-booking-bhilai" },
     { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New passport & renewal assistance in Bhilai.", link: "/passport-agent-bhilai" },
     { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "99% success rate for Dubai, Thailand & Schengen.", link: "/visa-agent-bhilai" },
-    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family & honeymoon tours.", link: "/tour-packages-bhilai" },
+    { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized family & honeymoon tours.", link: "/tour-packages-from-bhilai" },
     { icon: <Bus className="w-10 h-10 text-primary mx-auto" />, title: "Bus Booking", desc: "AC sleeper bus booking to Hyderabad & Pune.", link: "/bus-booking-bhilai" },
   ];
 

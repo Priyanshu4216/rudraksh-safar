@@ -38,7 +38,7 @@ const DestinationShowcase = () => {
     const [activeCategory, setActiveCategory] = useState("Trending Now");
 
     return (
-        <section className="section-padding bg-background relative">
+        <section className="section-padding bg-background relative" id="destinations">
             <div className="container px-4">
                 {/* Header & Tabs */}
                 <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">

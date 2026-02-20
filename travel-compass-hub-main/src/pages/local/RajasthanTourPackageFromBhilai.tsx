@@ -23,9 +23,9 @@ const RajasthanTourPackageFromBhilai = () => {
 
     const destinations: Destination[] = [
         { name: "Jaipur", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800", price: "Starts ₹12,999", duration: "3N/4D", link: "/package/rajasthan-family", rating: "4.8" },
-        { name: "Udaipur", image: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&q=80&w=800", price: "Starts ₹14,999", duration: "3N/4D", link: "/package/udaipur", rating: "4.9" },
-        { name: "Jaisalmer", image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=800", price: "Starts ₹16,999", duration: "2N/3D", link: "/package/jaisalmer", rating: "4.7" },
-        { name: "Jodhpur", image: "https://images.unsplash.com/photo-1590680695028-2df8d7159746?auto=format&fit=crop&q=80&w=800", price: "Starts ₹13,999", duration: "2N/3D", link: "/package/jodhpur", rating: "4.6" },
+        { name: "Udaipur", image: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&q=80&w=800", price: "Starts ₹14,999", duration: "3N/4D", link: "/package/rajasthan-family", rating: "4.9" },
+        { name: "Jaisalmer", image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=800", price: "Starts ₹16,999", duration: "2N/3D", link: "/package/rajasthan-family", rating: "4.7" },
+        { name: "Jodhpur", image: "https://images.unsplash.com/photo-1590680695028-2df8d7159746?auto=format&fit=crop&q=80&w=800", price: "Starts ₹13,999", duration: "2N/3D", link: "/package/rajasthan-family", rating: "4.6" },
     ];
 
     const bestTimeData = [
