@@ -477,7 +477,7 @@ const TravelAgentBhilai = () => {
                     <IndianRupee className="w-7 h-7 text-green-600" /> Bhilai Travel Price Guide (2026)
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    Estimated starting prices for popular trips from Bhilai/Raipur. These are all-inclusive tour packages.
+                    Estimated starting prices for popular trips from Bhilai/Raipur.
                   </p>
 
                   <div className="overflow-x-auto">
@@ -492,26 +492,26 @@ const TravelAgentBhilai = () => {
                       </thead>
                       <tbody className="text-sm md:text-base divide-y divide-slate-200 dark:divide-slate-800">
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Goa (Flight)</td>
-                          <td className="py-4 px-4 text-green-600 font-bold">₹12,999 - ₹18,999</td>
+                          <td className="py-4 px-4 font-medium text-foreground">Goa</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹8,999 - ₹18,999</td>
                           <td className="py-4 px-4">3N/4D</td>
                           <td className="py-4 px-4"><Link to="/package/goa" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Kashmir (Flight)</td>
-                          <td className="py-4 px-4 text-green-600 font-bold">₹18,999 - ₹25,999</td>
+                          <td className="py-4 px-4 font-medium text-foreground">Kashmir</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹9,999 - ₹25,999</td>
                           <td className="py-4 px-4">5N/6D</td>
                           <td className="py-4 px-4"><Link to="/package/kashmir" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Thailand (Total)</td>
-                          <td className="py-4 px-4 text-green-600 font-bold">₹24,999 - ₹35,999</td>
+                          <td className="py-4 px-4 font-medium text-foreground">Thailand</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹18,999 - ₹35,999</td>
                           <td className="py-4 px-4">4N/5D</td>
                           <td className="py-4 px-4"><Link to="/thailand-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Dubai (Luxury)</td>
-                          <td className="py-4 px-4 text-green-600 font-bold">₹35,999 - ₹55,999</td>
+                          <td className="py-4 px-4 font-medium text-foreground">Dubai</td>
+                          <td className="py-4 px-4 text-green-600 font-bold">₹23,499 - ₹55,999</td>
                           <td className="py-4 px-4">5N/6D</td>
                           <td className="py-4 px-4"><Link to="/dubai-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
