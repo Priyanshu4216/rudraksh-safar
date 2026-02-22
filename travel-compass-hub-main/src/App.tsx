@@ -20,7 +20,6 @@ import GlobalError from "./components/GlobalError";
 import GlobalSchema from "./components/seo/GlobalSchema";
 import AuthorPage from './pages/blog/AuthorPage';
 import Contact from './pages/Contact';
-
 // Traveller Guide Pages
 
 // Route-level code splitting (improves initial load on slow networks)
@@ -481,13 +480,14 @@ const App = () => (
                   <Route path="/goa-trip-from-supela" element={<Navigate to="/domestic-tours/goa-trip-from-supela" replace />} />
 
                   <Route path="/domestic-tours/goa-trip-under-10000" element={<GoaTripUnder10000 />} />
-                  <Route path="/goa-trip-under-10000-from-bhilai" element={<Navigate to="/domestic-tours/goa-trip-under-10000" replace />} />
+                  <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} />
 
                   <Route path="/domestic-tours/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
                   <Route path="/goa-cheap-trip-guide" element={<Navigate to="/domestic-tours/goa-cheap-trip-guide" replace />} />
 
                   <Route path="/domestic-tours/goa-budget-itinerary" element={<GoaBudgetItinerary />} />
                   <Route path="/goa-budget-itinerary-from-cg" element={<Navigate to="/domestic-tours/goa-budget-itinerary" replace />} />
+                  <Route path="/goa-budget-itinerary-from-bhilai" element={<GoaBudgetItinerary />} />
 
                   <Route path="/domestic-tours/north-vs-south-goa" element={<NorthVsSouthGoa />} />
                   <Route path="/north-vs-south-goa-from-cg" element={<Navigate to="/domestic-tours/north-vs-south-goa" replace />} />
@@ -562,6 +562,14 @@ const App = () => (
                   {/* 301 Redirects (Client-Side Fallback) */}
                   <Route path="/international-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai/international-tours" replace />} />
                   <Route path="/corporate-tour-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai/corporate-tours" replace />} />
+                  <Route path="/international-tour-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai/international-tours" replace />} />
+                  <Route path="/weekend-getaways-bhilai" element={<Navigate to="/tour-packages-from-bhilai/weekend-getaways" replace />} />
+                  <Route path="/weekend-getaways-raipur" element={<Navigate to="/tour-packages-from-raipur/weekend-getaways" replace />} />
+                  <Route path="/international-tours-from-raipur" element={<Navigate to="/tour-packages-from-raipur/international-tours" replace />} />
+                  <Route path="/international-tours-from-bhilai" element={<Navigate to="/tour-packages-from-bhilai/international-tours" replace />} />
+                  <Route path="/honeymoon-packages-from-bhilai" element={<Navigate to="/tour-packages-from-bhilai/honeymoon-packages" replace />} />
+                  <Route path="/train-vs-flight-goa-from-cg" element={<Navigate to="/domestic-tours/train-vs-flight-goa" replace />} />
+                  <Route path="/about-us" element={<Navigate to="/about-rudraksh-safar" replace />} />
 
                   <Route path="/passport-agent-bhilai" element={<PassportAgentBhilai />} />
 
@@ -572,6 +580,7 @@ const App = () => (
 
                   {/* Raipur Silo Children */}
                   <Route path="/tour-packages-from-raipur/international-tours" element={<InternationalToursFromRaipur />} />
+                  <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
 
                   {/* Bhilai Silo Children */}
                   <Route path="/tour-packages-from-bhilai/international-tours" element={<InternationalToursFromBhilai />} />
@@ -583,7 +592,7 @@ const App = () => (
                   {/* <Route path="/goa-package-from-raipur" element={<GoaPackageFromRaipur />} /> */}
                   {/* <Route path="/goa-package-from-durg" element={<GoaPackageFromDurg />} /> */}
                   {/* <Route path="/goa-trip-from-supela" element={<GoaTripFromSupela />} /> */}
-                  {/* <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} /> */}
+
                   {/* <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} /> */}
                   {/* <Route path="/goa-budget-itinerary-from-cg" element={<GoaBudgetItinerary />} /> */}
                   {/* <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} /> */}

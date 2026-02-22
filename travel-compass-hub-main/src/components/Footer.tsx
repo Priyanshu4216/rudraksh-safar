@@ -17,6 +17,9 @@ const quickLinks = [
   { name: 'Packages', href: '#packages' },
   { name: 'Destinations', href: '#destinations' },
   { name: 'Contact', href: '#contact' },
+  { name: 'Budget Goa Itinerary', href: '/goa-budget-itinerary-from-bhilai' },
+  { name: 'Bhilai Tour Packages', href: '/tour-packages-from-bhilai' },
+  { name: 'Travel Agent Bhilai', href: '/travel-agent-bhilai' },
 ];
 
 const legalLinks = [
