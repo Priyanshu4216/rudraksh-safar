@@ -9,27 +9,27 @@ const categories = ["Trending Now", "Visa Free", "Easy Visa", "Domestic Gems"];
 
 const destinations = {
     "Trending Now": [
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2639&auto=format&fit=crop", days: "5-7 Days", price: "Starting ₹25,000", rating: 4.8, link: "/thailand-tour-packages" },
+        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2639&auto=format&fit=crop", days: "5-7 Days", price: "Starting ₹25,000", rating: 4.8, link: "/international-tours/thailand" },
         { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127220198-3498b6eb06ba?q=80&w=2070&auto=format&fit=crop", days: "6-8 Days", price: "Starting ₹32,999", rating: 4.9, link: "/package/vietnam" },
         { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2676&auto=format&fit=crop", days: "6 Days", price: "Starting ₹40,000", rating: 4.7, link: "/package/bali" },
         { name: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2070&auto=format&fit=crop", days: "5 Days", price: "Starting ₹28,999", rating: 4.6, link: "/package/malaysia" },
     ],
     "Visa Free": [
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=2670&auto=format&fit=crop", days: "5-7 Days", price: "Starting ₹25,000", rating: 4.8, link: "/thailand-tour-packages" },
+        { name: "Thailand", image: "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=2670&auto=format&fit=crop", days: "5-7 Days", price: "Starting ₹25,000", rating: 4.8, link: "/international-tours/thailand" },
         { name: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2070&auto=format&fit=crop", days: "5 Days", price: "Starting ₹28,999", rating: 4.6, link: "/package/malaysia" },
         { name: "Sri Lanka", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2639&auto=format&fit=crop", days: "6 Days", price: "Starting ₹28,000", rating: 4.7, link: "/package/srilanka" },
         { name: "Mauritius", image: "https://images.unsplash.com/photo-1555547432-8411a7686567?q=80&w=2070&auto=format&fit=crop", days: "7 Days", price: "Starting ₹65,999", rating: 4.9, link: "/package/mauritius" },
     ],
     "Easy Visa": [
         { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2671&auto=format&fit=crop", days: "4-5 Days", price: "Starting ₹45,000", rating: 4.9, link: "/package/singapore" },
-        { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea904ac22ee?q=80&w=2670&auto=format&fit=crop", days: "5 Days", price: "Starting ₹55,000", rating: 4.8, link: "/dubai-tour-packages" },
+        { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea904ac22ee?q=80&w=2670&auto=format&fit=crop", days: "5 Days", price: "Starting ₹55,000", rating: 4.8, link: "/international-tours/dubai" },
         { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127220198-3498b6eb06ba?q=80&w=2070&auto=format&fit=crop", days: "6-8 Days", price: "Starting ₹32,999", rating: 4.9, link: "/package/vietnam" },
         { name: "Azerbaijan", image: "https://images.unsplash.com/photo-1628105574888-9d8213612d7c?q=80&w=2670&auto=format&fit=crop", days: "5 Days", price: "Starting ₹42,000", rating: 4.5, link: "/international-packages" },
     ],
     "Domestic Gems": [
         { name: "Kashmir", image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=2670&auto=format&fit=crop", days: "5-7 Days", price: "Starting ₹18,000", rating: 4.9, link: "/package/kashmir" },
         { name: "Kerala", image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2669&auto=format&fit=crop", days: "6 Days", price: "Starting ₹22,000", rating: 4.8, link: "/package/munnar" },
-        { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2574&auto=format&fit=crop", days: "4 Days", price: "Starting ₹15,000", rating: 4.7, link: "/goa-tour-package-from-bhilai" },
+        { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2574&auto=format&fit=crop", days: "4 Days", price: "Starting ₹15,000", rating: 4.7, link: "/domestic-tours/goa-from-bhilai" },
         { name: "Andaman", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?q=80&w=2670&auto=format&fit=crop", days: "6 Days", price: "Starting ₹35,000", rating: 4.8, link: "/package/andaman" },
     ]
 };

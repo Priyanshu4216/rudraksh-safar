@@ -54,7 +54,7 @@ const CabRental = () => {
                 <title>Luxury Cab & Bus Rental Service | Bhilai, Raipur & All India</title>
                 <meta name="description" content="Book premium cabs, Tempo Travellers, and luxury buses for weddings, outstation trips, and corporate events. Service available in Bhilai, Raipur, and across India." />
                 <meta name="keywords" content="cab rental bhilai, taxi service raipur, luxury bus rental, tempo traveller hire, wedding car rental, outstation cabs" />
-                <link rel="canonical" href="https://rudrakshsafar.com/cab-rental" />
+                <link rel="canonical" href="https://rudrakshsafar.com/travel-services/cab-rental" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

@@ -23,7 +23,7 @@ const packages = [
         price: "₹32,500",
         desc: "The complete UAE experience. Adds Sheikh Zayed Mosque & Ferrari World.",
         tag: "Value for Money",
-        link: "/dubai-tour-packages"
+        link: "/international-tours/dubai"
     },
     {
         title: "Luxury Honeymoon Special",
@@ -31,7 +31,7 @@ const packages = [
         price: "₹45,000",
         desc: "Private transfers, 5-Star Hotel, Romantic Dinner Cruise, and surprises.",
         tag: "Premium",
-        link: "/dubai-tour-packages"
+        link: "/international-tours/dubai"
     },
     {
         title: "Family Fun Week",
@@ -39,7 +39,7 @@ const packages = [
         price: "₹38,000",
         desc: "Includes Dubai Parks & Resorts (Legoland), Miracle Garden & Glow Garden.",
         tag: "Kids Friendly",
-        link: "/dubai-tour-packages"
+        link: "/international-tours/dubai"
     }
 ];
 

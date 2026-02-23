@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Plane, MapPin, ShieldCheck, Briefcase, Car, Utensils, CheckCircle2 } from 'lucide-react';
+import { Plane, MapPin, ShieldCheck, Briefcase, Car, Utensils, CheckCircle2, MessageCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -86,7 +86,7 @@ const DubaiFromBhilai = () => {
                         <div className="flex justify-center gap-4">
                             <Button size="lg" className="bg-green-600 hover:bg-green-700 font-bold" asChild>
                                 <a href="https://wa.me/917566788884?text=Hi, I want to visit your Bhilai office for Dubai package." target="_blank" rel="noopener noreferrer">
-                                    <img src="/whatsapp.svg" alt="WhatsApp" className="w-5 h-5 mr-2 filter brightness-0 invert" />
+                                    <MessageCircle className="w-5 h-5 mr-2" />
                                     Chat with Expert
                                 </a>
                             </Button>
@@ -188,8 +188,8 @@ const DubaiFromBhilai = () => {
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
                                 { title: "Dubai Essentials", duration: "5 Days / 4 Nights", price: "₹24,999*", desc: "Burj Khalifa, Desert Safari, Marina Cruise + City Tour.", link: "/dubai-5-day-itinerary" },
-                                { title: "Dubai & Abu Dhabi", duration: "6 Days / 5 Nights", price: "₹32,500*", desc: "Includes Ferrari World & Sheikh Zayed Mosque day trip.", link: "/dubai-tour-packages" },
-                                { title: "Luxury Couple", duration: "5 Days / 4 Nights", price: "₹45,000*", desc: "Private Transfers, Marina Dinner, 5-Star Hotel Stay.", link: "/dubai-tour-packages" },
+                                { title: "Dubai & Abu Dhabi", duration: "6 Days / 5 Nights", price: "₹32,500*", desc: "Includes Ferrari World & Sheikh Zayed Mosque day trip.", link: "/international-tours/dubai" },
+                                { title: "Luxury Couple", duration: "5 Days / 4 Nights", price: "₹45,000*", desc: "Private Transfers, Marina Dinner, 5-Star Hotel Stay.", link: "/international-tours/dubai" },
                             ].map((pkg, i) => (
                                 <Card key={i} className="hover:shadow-lg transition-shadow">
                                     <CardContent className="p-6 space-y-4">

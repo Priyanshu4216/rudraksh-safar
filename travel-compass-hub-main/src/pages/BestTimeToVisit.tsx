@@ -401,7 +401,7 @@ const BestTimeToVisit = () => {
             <div className="mt-12 text-center">
               <h3 className="text-xl font-semibold mb-6">Explore More Travel Resources</h3>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/visa-guide" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
+                <Link to="/travel-services/visa-assistance" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
                   Visa Guide <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link to="/travel-checklist" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">

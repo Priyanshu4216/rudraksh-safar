@@ -90,7 +90,7 @@ const HotelBooking = () => {
                 title="Hotel Booking Services in India – Budget, Business & Luxury Stays"
                 description="Expert hotel booking assistance with better offline rates, GST invoices, and human support. Book safe stays in Bhilai, Raipur, India & Abroad."
                 keywords="hotel booking agent, business hotel booking with gst, corporate hotel booking india, hotel reservation service bhilai, group booking travel agency"
-                canonicalUrl="https://rudrakshsafar.com/hotel-booking"
+                canonicalUrl="https://rudrakshsafar.com/travel-services/hotel-booking"
                 structuredData={structuredData}
             />
 
@@ -116,7 +116,7 @@ const HotelBooking = () => {
 
                             <div className="container relative z-10 text-center px-4">
                                 <div className="flex justify-center mb-6">
-                                    <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Hotel Booking', path: '/hotel-booking' }]} />
+                                    <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Hotel Booking', path: '/travel-services/hotel-booking' }]} />
                                 </div>
                                 <motion.div
                                     initial={{ y: 30, opacity: 0 }}

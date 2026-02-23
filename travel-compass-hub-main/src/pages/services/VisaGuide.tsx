@@ -62,7 +62,7 @@ const VisaGuide = () => {
         title="Visa Guide for Indian Passport Holders (2026): Step-by-Step Process"
         description="Complete visa guide for Indians. detailed requirements for Dubai, Schengen, Thailand. Learn how to avoid rejection, financial proof rules & documentation."
         keywords="visa guide for indians, how to avoid visa rejection, schengen visa for indians, dubai e-visa process, thailand visa on arrival, bank statement for visa"
-        canonicalUrl="https://rudrakshsafar.com/visa-guide"
+        canonicalUrl="https://rudrakshsafar.com/travel-services/visa-assistance"
         structuredData={structuredData}
       />
 

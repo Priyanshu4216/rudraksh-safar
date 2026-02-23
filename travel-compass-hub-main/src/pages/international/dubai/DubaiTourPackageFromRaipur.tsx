@@ -226,8 +226,8 @@ const DubaiTourPackageFromRaipur = () => {
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">Combine Your Trip?</h4>
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <Link to="/thailand-tour-package-from-raipur" className="hover:underline">Thailand Packages</Link>
-                    <Link to="/international-tours-from-raipur" className="hover:underline">All International Tours</Link>
+                    <Link to="/international-tours/thailand-from-raipur" className="hover:underline">Thailand Packages</Link>
+                    <Link to="/tour-packages-from-raipur/international-tours" className="hover:underline">All International Tours</Link>
                 </div>
             </ContentSection>
 

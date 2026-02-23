@@ -1,0 +1,40 @@
+﻿--- Missing Local Resource Audit ---
+Γ¥î Found 9 missing local assets that will return 404:
+
+404 RESOURCE: /version.json
+REFERENCED IN:
+  - src\components\AutoUpdateController.tsx
+
+404 RESOURCE: /images/Yamini%20NayakGroupNepal.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/naman%20in%20musiyari.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/Vijay%20in%20nepal.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/vishal%20in%20manali.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/WhatsApp%20Image%202026-02-05%20at%207.29.41%20PM.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/WhatsApp%20Image%202026-02-05%20at%207.28.53%20PM.jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /images/WhatsApp%20Image%202026-02-05%20at%207.27.42%20PM%20(1).jpeg
+REFERENCED IN:
+  - src\components\CustomerGallery.tsx
+
+404 RESOURCE: /whatsapp.svg
+REFERENCED IN:
+  - src\pages\uae\AttractionPage.tsx
+  - src\pages\uae\DubaiFromBhilai.tsx
+  - src\pages\uae\DubaiFromRaipur.tsx

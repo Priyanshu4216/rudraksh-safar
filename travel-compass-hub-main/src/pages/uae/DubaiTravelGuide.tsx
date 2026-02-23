@@ -35,7 +35,7 @@ const DubaiTravelGuide = () => {
                             "@type": "BreadcrumbList",
                             "itemListElement": [
                                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rudrakshsafar.com/" },
-                                { "@type": "ListItem", "position": 2, "name": "UAE", "item": "https://rudrakshsafar.com/dubai-tour-packages" },
+                                { "@type": "ListItem", "position": 2, "name": "UAE", "item": "https://rudrakshsafar.com/international-tours/dubai" },
                                 { "@type": "ListItem", "position": 3, "name": "Dubai Guide", "item": "https://rudrakshsafar.com/dubai-travel-guide" }
                             ]
                         }
@@ -251,7 +251,7 @@ const DubaiTravelGuide = () => {
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
-                                <Link to="/dubai-tour-packages">View All Packages</Link>
+                                <Link to="/international-tours/dubai">View All Packages</Link>
                             </Button>
                             <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900" asChild>
                                 <Link to="/dubai-tour-packages-from-raipur">Flights from Raipur</Link>

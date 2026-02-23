@@ -20,7 +20,7 @@ const GoaPackageFromDurg = () => {
                     content="Specialized Goa packages starting from Durg Junction. Gondwana Express ticket assistance, station parking guide, and hassle-free transfers to Madgaon."
                 />
                 <meta name="keywords" content="goa package from durg, durg to goa train ticket, travel agent durg station, gondwana express booking agent" />
-                <link rel="canonical" href="https://rudrakshsafar.com/goa-package-from-durg" />
+                <link rel="canonical" href="https://rudrakshsafar.com/domestic-tours/goa-from-durg" />
             </Helmet>
 
             <div className="container py-4">
@@ -145,7 +145,7 @@ const GoaPackageFromDurg = () => {
             />
 
             <div className="mt-8 text-center text-sm text-slate-500">
-                <p>Not looking for train info? Check our <Link to="/domestic-tours/goa-from-bhilai" className="text-primary hover:underline">Main Goa Guide</Link> or <Link to="/goa-trip-from-supela" className="text-primary hover:underline">Student Tips</Link>.</p>
+                <p>Not looking for train info? Check our <Link to="/domestic-tours/goa-from-bhilai" className="text-primary hover:underline">Main Goa Guide</Link> or <Link to="/domestic-tours/goa-trip-from-supela" className="text-primary hover:underline">Student Tips</Link>.</p>
             </div>
 
         </PageLayout>

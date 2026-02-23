@@ -29,7 +29,7 @@ const services = [
     title: 'Premium Stays',
     description: 'Handpicked luxury hotels and resorts for your comfort.',
     schemaDescription: "Hotel and resort booking service for domestic and international destinations.",
-    link: '/hotel-booking',
+    link: '/travel-services/hotel-booking',
     serviceType: "LodgingReservation",
     color: "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
   },
@@ -38,7 +38,7 @@ const services = [
     title: 'Luxury Transfers',
     description: 'Premium cabs and volatility buses for seamless travel.',
     schemaDescription: "Intercity bus and taxi booking service provider in Chhattisgarh.",
-    link: '/cab-rental',
+    link: '/travel-services/cab-rental',
     serviceType: "TaxiService",
     color: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400"
   },
@@ -47,7 +47,7 @@ const services = [
     title: 'Cruise Voyages',
     description: 'Experience the ocean like never before with our cruise packages.',
     schemaDescription: "Booking agent for luxury cruises including Cordelia and international liners.",
-    link: '/cruise-booking',
+    link: '/travel-services/cruise-booking',
     serviceType: "TravelAgency",
     color: "bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400"
   },
@@ -56,7 +56,7 @@ const services = [
     title: 'Visa Assistance',
     description: 'Hassle-free visa processing for all major countries.',
     schemaDescription: "Visa consultant in Bhilai for tourist, student, and business visas.",
-    link: '/visa-guide',
+    link: '/travel-services/visa-assistance',
     serviceType: "AdministrativeService",
     color: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400"
   },
@@ -65,7 +65,7 @@ const services = [
     title: 'Passport Services',
     description: 'Expedited passport application and renewal support.',
     schemaDescription: "Passport application and renewal assistance service in Durg and Bhilai.",
-    link: '/passport-guide',
+    link: '/travel-services/passport-assistance',
     serviceType: "AdministrativeService",
     color: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
   },

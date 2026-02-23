@@ -20,7 +20,7 @@ const GoaTripFromSupela = () => {
                     content="Budget Goa trips for students from Supela, BIT Durg & Shankara. Hostels, Shared Bikes, and Group Discounts. Plan your college trip starting ₹8,500."
                 />
                 <meta name="keywords" content="goa trip from supela, student goa package bhilai, college trip to goa from durg, goa budget trip for bachelors" />
-                <link rel="canonical" href="https://rudrakshsafar.com/goa-trip-from-supela" />
+                <link rel="canonical" href="https://rudrakshsafar.com/domestic-tours/goa-trip-from-supela" />
             </Helmet>
 
             <div className="container py-4">

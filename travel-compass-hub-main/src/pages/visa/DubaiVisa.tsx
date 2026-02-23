@@ -95,7 +95,7 @@ const DubaiVisa = () => {
           <AnimatedSection>
             <div className="text-center mb-12">
               <div className="flex justify-center mb-6">
-                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Visa Services', path: '/visa-guide' }, { label: 'Dubai Visa', path: '/visa/dubai' }]} />
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Visa Services', path: '/travel-services/visa-assistance' }, { label: 'Dubai Visa', path: '/visa/dubai' }]} />
               </div>
               <span className="text-6xl mb-4 block">🇦🇪</span>
               <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">

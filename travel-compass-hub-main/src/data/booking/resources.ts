@@ -58,7 +58,7 @@ export const usefulResources = [
     },
     {
         title: 'Thailand Visa Info',
-        link: '/thailand-tour-packages',
+        link: '/international-tours/thailand',
         icon: FileText
     }
 ];

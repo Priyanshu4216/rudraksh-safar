@@ -88,10 +88,10 @@ const RelatedLocalPages: React.FC<RelatedLocalPagesProps> = ({ currentCity = 'Bh
                 </div>
 
                 <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-muted-foreground">
-                    <a href="/goa-tour-package-from-bhilai" className="hover:text-primary underline">Goa Packages from Bhilai</a>
-                    <a href="/dubai-tour-package-from-bhilai" className="hover:text-primary underline">Dubai Trips from Bhilai</a>
-                    <a href="/thailand-tour-package-from-raipur" className="hover:text-primary underline">Thailand from Raipur</a>
-                    <a href="/kashmir-tour-package-from-bhilai" className="hover:text-primary underline">Kashmir from Bhilai</a>
+                    <a href="/domestic-tours/goa-from-bhilai" className="hover:text-primary underline">Goa Packages from Bhilai</a>
+                    <a href="/international-tours/dubai-from-bhilai" className="hover:text-primary underline">Dubai Trips from Bhilai</a>
+                    <a href="/international-tours/thailand-from-raipur" className="hover:text-primary underline">Thailand from Raipur</a>
+                    <a href="/domestic-tours/kashmir-from-bhilai" className="hover:text-primary underline">Kashmir from Bhilai</a>
                 </div>
             </div>
         </section>

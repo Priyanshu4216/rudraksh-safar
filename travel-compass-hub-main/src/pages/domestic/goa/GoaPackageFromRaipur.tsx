@@ -24,8 +24,8 @@ const GoaPackageFromRaipur = () => {
                         "@type": "BreadcrumbList",
                         "itemListElement": [
                             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rudrakshsafar.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Goa Packages", "item": "https://rudrakshsafar.com/goa-tour-package-from-bhilai" },
-                            { "@type": "ListItem", "position": 3, "name": "From Raipur", "item": "https://rudrakshsafar.com/goa-package-from-raipur" }
+                            { "@type": "ListItem", "position": 2, "name": "Goa Packages", "item": "https://rudrakshsafar.com/domestic-tours/goa-from-bhilai" },
+                            { "@type": "ListItem", "position": 3, "name": "From Raipur", "item": "https://rudrakshsafar.com/domestic-tours/goa-from-raipur" }
                         ]
                     })}
                 </script>
@@ -131,7 +131,7 @@ const GoaPackageFromRaipur = () => {
                 <div className="flex flex-wrap gap-4 text-indigo-600">
                     <Link to="/domestic-tours/goa-from-bhilai" className="hover:underline">Main Goa Guide</Link>
                     <Link to="/goa-trip-under-10000-from-bhilai" className="hover:underline">Budget Goa Trip</Link>
-                    <Link to="/north-vs-south-goa-from-cg" className="hover:underline">North vs South Goa</Link>
+                    <Link to="/domestic-tours/north-vs-south-goa" className="hover:underline">North vs South Goa</Link>
                 </div>
             </ContentSection>
 

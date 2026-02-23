@@ -32,7 +32,7 @@ const keralaData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹22,500',
             image: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=2069',
-            link: '/kerala-tour-package-from-bhilai', // Linking to existing page
+            link: '/domestic-tours/kerala-from-bhilai', // Linking to existing page
             tag: 'Honeymoon'
         },
         {

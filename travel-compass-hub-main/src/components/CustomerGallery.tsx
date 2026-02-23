@@ -27,43 +27,43 @@ const CustomerGallery = ({
             details: "With Rudraksh Safar Team"
         },
         {
-            src: "/images/Yamini%20NayakGroupNepal.jpeg",
+            src: "/images/Yamini-NayakGroupNepal.jpeg",
             destination: "Nepal Tour",
             names: "Yamini Nayak Ji & Group",
             details: "Group Holiday"
         },
         {
-            src: "/images/naman%20in%20musiyari.jpeg",
+            src: "/images/naman-in-musiyari.jpeg",
             destination: "Munsiyari Trip",
             names: "Naman Ji & Group",
             details: "Group Adventure"
         },
         {
-            src: "/images/Vijay%20in%20nepal.jpeg",
+            src: "/images/Vijay-in-nepal.jpeg",
             destination: "Nepal Group Tour",
             names: "Vijay Agrawal Ji",
             details: "Group Tour"
         },
         {
-            src: "/images/vishal%20in%20manali.jpeg",
+            src: "/images/vishal-in-manali.jpeg",
             destination: "Manali Trip",
             names: "Vishal Ji",
             details: "Couple Tour"
         },
         {
-            src: "/images/WhatsApp%20Image%202026-02-05%20at%207.29.41%20PM.jpeg", // Raju Yadav
+            src: "/images/WhatsApp-Image-2026-02-05-at-7.29.41-PM.jpeg", // Raju Yadav
             destination: "Manali Visit",
             names: "Raju Yadav Ji",
             details: "Family Trip"
         },
         {
-            src: "/images/WhatsApp%20Image%202026-02-05%20at%207.28.53%20PM.jpeg", // Jayendra Yadav
+            src: "/images/WhatsApp-Image-2026-02-05-at-7.28.53-PM.jpeg", // Jayendra Yadav
             destination: "Manali Trip",
             names: "Jayendra Yadav Ji",
             details: "Family Vacation"
         },
         {
-            src: "/images/WhatsApp%20Image%202026-02-05%20at%207.27.42%20PM%20(1).jpeg", // Subhash Ji
+            src: "/images/WhatsApp-Image-2026-02-05-at-7.27.42-PM-(1).jpeg", // Subhash Ji
             destination: "Kashmir Tour",
             names: "Subhash Ji & Group",
             details: "Group Tour"

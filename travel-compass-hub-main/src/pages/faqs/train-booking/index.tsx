@@ -168,7 +168,7 @@ const TrainBookingFAQ = () => {
         },
         {
             question: "Can you arrange hotel + train together?",
-            answer: "Yes. We can bundle your train reservation with <a href='/hotel-booking' class='text-primary hover:underline'>Hotel Booking</a> to give you a complete, hassle-free trip package."
+            answer: "Yes. We can bundle your train reservation with <a href='/travel-services/hotel-booking' class='text-primary hover:underline'>Hotel Booking</a> to give you a complete, hassle-free trip package."
         },
         {
             question: "Do you book flights if train is unavailable?",

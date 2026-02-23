@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Check, X, MapPin, Clock, Info, AlertTriangle, ChevronRight, Star, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Check, X, MapPin, Clock, Info, AlertTriangle, ChevronRight, Star, ThumbsUp, ThumbsDown, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -142,7 +142,7 @@ const AttractionPage = () => {
                         <div className="p-4 bg-slate-100 dark:bg-slate-800/50 border-b dark:border-slate-700">
                             <Breadcrumbs items={[
                                 { label: 'UAE Guide', path: '/dubai-travel-guide' },
-                                { label: 'Attractions', path: '/dubai-tour-packages' },
+                                { label: 'Attractions', path: '/international-tours/dubai' },
                                 { label: hero.title, path: `/${attraction.id === 'ferrari-world' || attraction.id === 'sheikh-zayed-mosque' ? 'abu-dhabi' : 'dubai'}/${attraction.id}` }
                             ]} />
                         </div>
@@ -339,12 +339,12 @@ const AttractionPage = () => {
                                         <div className="space-y-3">
                                             <Button className="w-full bg-green-600 hover:bg-green-700 h-12 text-lg" asChild>
                                                 <a href={`https://wa.me/917566788884?text=Hi, help me book ${hero.title} tickets for Dubai.`}>
-                                                    <img src="/whatsapp.svg" alt="WhatsApp" className="w-5 h-5 mr-2 filter brightness-0 invert" />
+                                                    <MessageCircle className="w-5 h-5 mr-2" />
                                                     Book Now
                                                 </a>
                                             </Button>
                                             <Button variant="outline" className="w-full" asChild>
-                                                <Link to={`/dubai-tour-packages`}>View Dubai Packages</Link>
+                                                <Link to={`/international-tours/dubai`}>View Dubai Packages</Link>
                                             </Button>
                                         </div>
                                         <p className="text-xs text-center text-muted-foreground">
@@ -386,7 +386,7 @@ const AttractionPage = () => {
                         </p>
                         <div className="flex justify-center gap-4">
                             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white" asChild>
-                                <Link to="/dubai-tour-packages">Explore Dubai Packages</Link>
+                                <Link to="/international-tours/dubai">Explore Dubai Packages</Link>
                             </Button>
                         </div>
                     </div>

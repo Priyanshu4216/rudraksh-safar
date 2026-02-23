@@ -22,7 +22,7 @@ const manaliData: DestinationData = {
             duration: '5 Days / 4 Nights',
             price: '₹14,999',
             image: 'https://images.unsplash.com/photo-1596021688656-35fdc9ed0274?q=80&w=2070',
-            link: '/manali-tour-package-from-bhilai', // Linking to existing page for now
+            link: '/domestic-tours/manali-from-bhilai', // Linking to existing page for now
             tag: 'Honeymoon'
         },
         {

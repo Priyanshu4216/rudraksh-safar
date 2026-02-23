@@ -41,7 +41,7 @@ const GoaCheapTripGuide = () => {
                         "datePublished": "2026-02-15",
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": "https://rudrakshsafar.com/goa-cheap-trip-guide"
+                            "@id": "https://rudrakshsafar.com/domestic-tours/goa-cheap-trip-guide"
                         }
                     })}
                 </script>

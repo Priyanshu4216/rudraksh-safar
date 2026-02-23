@@ -292,7 +292,7 @@ const VisaServicesFAQ = () => {
                                 <ShieldCheck className="w-5 h-5" />
                                 Get Visa Assistance
                             </Link>
-                            <Link to="/visa-guide" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
+                            <Link to="/travel-services/visa-assistance" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
                                 Read Visa Guides
                             </Link>
                         </div>

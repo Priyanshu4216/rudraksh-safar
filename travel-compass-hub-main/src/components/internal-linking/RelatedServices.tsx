@@ -16,7 +16,7 @@ const RelatedServices: React.FC<RelatedServicesProps> = ({ serviceType = 'All' }
             title: 'Visa Assistance',
             icon: FileText,
             desc: '99% Success Rate',
-            link: '/visa-guide',
+            link: '/travel-services/visa-assistance',
             type: 'Documentation',
             color: 'text-blue-600',
             bg: 'bg-blue-50 dark:bg-blue-900/20'
@@ -46,7 +46,7 @@ const RelatedServices: React.FC<RelatedServicesProps> = ({ serviceType = 'All' }
             title: 'Cab Rental',
             icon: Car,
             desc: 'Airport Drops & Local',
-            link: '/cab-rental',
+            link: '/travel-services/cab-rental',
             type: 'Booking',
             color: 'text-yellow-600',
             bg: 'bg-yellow-50 dark:bg-yellow-900/20'
@@ -66,7 +66,7 @@ const RelatedServices: React.FC<RelatedServicesProps> = ({ serviceType = 'All' }
             title: 'Cruise Booking',
             icon: Ship,
             desc: 'Luxury Sea Travel',
-            link: '/cruise-booking',
+            link: '/travel-services/cruise-booking',
             type: 'Booking',
             color: 'text-indigo-600',
             bg: 'bg-indigo-50 dark:bg-indigo-900/20'

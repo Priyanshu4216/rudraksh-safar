@@ -28,7 +28,7 @@ const ThailandMaster = () => {
                 <title>{thailandMeta.title} | Rudraksh Safar</title>
                 <meta name="description" content={thailandMeta.description} />
                 <meta name="keywords" content={thailandMeta.keywords.join(', ')} />
-                <link rel="canonical" href="https://rudrakshsafar.com/thailand-tour-packages" />
+                <link rel="canonical" href="https://rudrakshsafar.com/international-tours/thailand" />
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
             </Helmet>
 
@@ -63,7 +63,7 @@ const ThailandMaster = () => {
                                 <Link to="/plan-your-thailand-trip">Plan My Trip (Free Quote)</Link>
                             </Button>
                             <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border-white text-white backdrop-blur-sm min-w-[200px] text-lg h-14 rounded-full" asChild>
-                                <Link to="/thailand-tour-packages-from-raipur">Flights from Raipur</Link>
+                                <Link to="/international-tours/thailand-from-raipur">Flights from Raipur</Link>
                             </Button>
                         </div>
                     </div>

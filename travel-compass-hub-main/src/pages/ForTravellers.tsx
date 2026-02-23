@@ -605,8 +605,8 @@ const ForTravellers = () => {
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Visa Guide", "url": "https://rudrakshsafar.com/visa-guide" },
-                { "@type": "ListItem", "position": 2, "name": "Passport Rules", "url": "https://rudrakshsafar.com/passport-guide" },
+                { "@type": "ListItem", "position": 1, "name": "Visa Guide", "url": "https://rudrakshsafar.com/travel-services/visa-assistance" },
+                { "@type": "ListItem", "position": 2, "name": "Passport Rules", "url": "https://rudrakshsafar.com/travel-services/passport-assistance" },
                 { "@type": "ListItem", "position": 3, "name": "Travel Health & Insurance" },
                 { "@type": "ListItem", "position": 4, "name": "Currency & Payments" },
                 { "@type": "ListItem", "position": 5, "name": "Safety & Scams" },

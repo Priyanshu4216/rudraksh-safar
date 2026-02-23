@@ -32,7 +32,7 @@ const andamanData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹55,000',
             image: 'https://images.unsplash.com/photo-1544979147-380af623910c?q=80&w=2070',
-            link: '/andaman-tour-package-from-bhilai', // Linking to existing page
+            link: '/domestic-tours/andaman-from-bhilai', // Linking to existing page
             tag: 'Honeymoon'
         },
         {

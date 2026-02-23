@@ -16,7 +16,7 @@ const TourPackagesBhilai = () => {
     "@type": "CollectionPage",
     "name": "Tour Packages from Bhilai - Rudraksh Safar",
     "description": "Best tour packages starting from Bhilai, Durg & Raipur. Domestic and International holiday planning.",
-    "url": "https://rudrakshsafar.com/tour-packages-bhilai",
+    "url": "https://rudrakshsafar.com/tour-packages-from-bhilai",
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "Bhilai" },
       { "@type": "AdministrativeArea", "name": "Durg" },
@@ -154,10 +154,10 @@ const TourPackagesBhilai = () => {
         <title>Tour Packages from Bhilai | Best Holiday Packages | Rudraksh Safar</title>
         <meta name="description" content="Book affordable tour packages from Bhilai. Domestic & international holiday packages for family, honeymoon & groups. Goa, Kerala, Thailand, Dubai tours. Call +91 94061 82174." />
         <meta name="keywords" content="tour packages bhilai, holiday packages bhilai, travel packages from bhilai, goa package from bhilai, thailand package bhilai, honeymoon packages bhilai, family tour bhilai, best tour operator bhilai" />
-        <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-bhilai" />
+        <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai" />
         <meta property="og:title" content="Tour Packages from Bhilai | Rudraksh Safar" />
         <meta property="og:description" content="Affordable domestic & international tour packages from Bhilai. Family, honeymoon & adventure trips." />
-        <meta property="og:url" content="https://rudrakshsafar.com/tour-packages-bhilai" />
+        <meta property="og:url" content="https://rudrakshsafar.com/tour-packages-from-bhilai" />
         <meta property="og:type" content="website" />
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="Bhilai, Chhattisgarh" />

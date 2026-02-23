@@ -39,7 +39,7 @@ const allServices = [
         icon: Bus, // Using Bus icon as fallback or specific Car icon if available
         title: 'Cab Rental',
         desc: 'Airport drops & outstation taxis',
-        link: '/cab-rental',
+        link: '/travel-services/cab-rental',
         silo: 'booking'
     },
     {
@@ -47,7 +47,7 @@ const allServices = [
         icon: Hotel,
         title: 'Hotel Booking',
         desc: 'Budget to Luxury stays',
-        link: '/hotel-booking',
+        link: '/travel-services/hotel-booking',
         silo: 'booking'
     },
     {
@@ -71,7 +71,7 @@ const allServices = [
         icon: Ship,
         title: 'Cruise Booking',
         desc: 'Luxury ocean holidays',
-        link: '/cruise-booking',
+        link: '/travel-services/cruise-booking',
         silo: 'booking'
     },
     {

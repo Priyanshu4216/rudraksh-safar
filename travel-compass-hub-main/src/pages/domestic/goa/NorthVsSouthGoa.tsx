@@ -41,7 +41,7 @@ const NorthVsSouthGoa = () => {
                         "datePublished": "2026-02-15",
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": "https://rudrakshsafar.com/north-vs-south-goa-from-cg"
+                            "@id": "https://rudrakshsafar.com/domestic-tours/north-vs-south-goa"
                         }
                     })}
                 </script>

@@ -15,7 +15,7 @@ const ThailandTourPackageFromRaipur = () => {
                 <title>Thailand Tour Packages from Raipur (2026) | Flights Included</title>
                 <meta name="description" content="Best Thailand tour packages from Raipur with flight details (via Kolkata/Delhi). 5D/4N Bangkok-Pattaya itineraries starting ₹35,000. visa-free entry." />
                 <meta name="keywords" content="Thailand tour package from Raipur, Raipur to Bangkok flight time, Thailand trip cost from Chhattisgarh, Rudraksh Safar Thailand" />
-                <link rel="canonical" href="https://rudrakshsafar.com/thailand-tour-packages-from-raipur" />
+                <link rel="canonical" href="https://rudrakshsafar.com/international-tours/thailand-from-raipur" />
             </Helmet>
 
             <Navbar />

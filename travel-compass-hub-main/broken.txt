@@ -1,0 +1,6 @@
+🔍 Scanning codebase for broken local asset links...
+❌ BROKEN LINK FOUND: /images/WhatsApp-Image-2026-02-05-at-7.27.42-PM-1.jpeg
+   Referenced in: src\components\CustomerGallery.tsx
+
+
+🚨 Audit Failed! Broken internal links were found.

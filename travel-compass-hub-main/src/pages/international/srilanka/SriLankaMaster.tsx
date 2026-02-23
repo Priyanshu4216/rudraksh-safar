@@ -32,7 +32,7 @@ const srilankaData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹35,000',
             image: 'https://images.unsplash.com/photo-1580695632169-p03-p03?q=80&w=2070',
-            link: '/sri-lanka-tour-package-from-bhilai', // Linking to existing page
+            link: '/international-tours/srilanka-from-bhilai', // Linking to existing page
             tag: 'Ramayana'
         },
         {

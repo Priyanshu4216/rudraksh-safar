@@ -252,8 +252,8 @@ const TravelAgentBhilai = () => {
     { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options.", link: "/package/goa" },
     { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow.", link: "/package/kashmir" },
     { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples.", link: "/package/shimla-manali" },
-    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun with Visa support.", link: "/thailand-tour-packages" },
-    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari.", link: "/dubai-tour-packages" },
+    { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun with Visa support.", link: "/international-tours/thailand" },
+    { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari.", link: "/international-tours/dubai" },
     { name: "Bhilai to Chardham", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: "Sacred Yatra from Chhattisgarh.", link: "/chardham-yatra-package" },
   ];
 
@@ -507,13 +507,13 @@ const TravelAgentBhilai = () => {
                           <td className="py-4 px-4 font-medium text-foreground">Thailand</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹18,999 - ₹35,999</td>
                           <td className="py-4 px-4">4N/5D</td>
-                          <td className="py-4 px-4"><Link to="/thailand-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                          <td className="py-4 px-4"><Link to="/international-tours/thailand" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
                           <td className="py-4 px-4 font-medium text-foreground">Dubai</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹23,499 - ₹55,999</td>
                           <td className="py-4 px-4">5N/6D</td>
-                          <td className="py-4 px-4"><Link to="/dubai-tour-packages" className="text-primary hover:underline font-medium">View Plan</Link></td>
+                          <td className="py-4 px-4"><Link to="/international-tours/dubai" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
                           <td className="py-4 px-4 font-medium text-foreground">Chardham Yatra</td>

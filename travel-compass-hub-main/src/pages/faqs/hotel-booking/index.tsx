@@ -262,7 +262,7 @@ const HotelBookingFAQ = () => {
                                 <UserCheck className="w-5 h-5" />
                                 Book with an Agent
                             </Link>
-                            <Link to="/hotel-booking" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
+                            <Link to="/travel-services/hotel-booking" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
                                 Explore Hotel Services
                             </Link>
                         </div>

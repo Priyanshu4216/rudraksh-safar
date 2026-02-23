@@ -18,7 +18,7 @@
   
   <!-- Core Service Pages -->
   <url>
-    <loc>https://rudrakshsafar.com/about-us</loc>
+    <loc>https://rudrakshsafar.com/about-rudraksh-safar</loc>
     <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -36,13 +36,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/cab-rental</loc>
+    <loc>https://rudrakshsafar.com/travel-services/cab-rental</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/cruise-booking</loc>
+    <loc>https://rudrakshsafar.com/travel-services/cruise-booking</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -58,7 +58,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/hotel-booking</loc>
+    <loc>https://rudrakshsafar.com/travel-services/hotel-booking</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -76,7 +76,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/international-tour-packages-bhilai</loc>
+    <loc>https://rudrakshsafar.com/tour-packages-from-bhilai/international-tours</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -152,12 +152,12 @@
 
   <!-- Travel Guides -->
   <url>
-    <loc>https://rudrakshsafar.com/visa-guide</loc>
+    <loc>https://rudrakshsafar.com/travel-services/visa-assistance</loc>
     <lastmod>2026-02-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rudrakshsafar.com/passport-guide</loc>
+    <loc>https://rudrakshsafar.com/travel-services/passport-assistance</loc>
     <lastmod>2026-02-18</lastmod>
     <priority>0.8</priority>
   </url>

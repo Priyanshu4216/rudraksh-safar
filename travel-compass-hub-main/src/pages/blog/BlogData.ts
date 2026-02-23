@@ -417,7 +417,7 @@ export const BLOG_POSTS: BlogPost[] = [
             { name: 'Flight Booking', path: '/flight-booking-bhilai' },
             { name: 'Tour Packages from Bhilai', path: '/tour-packages-from-bhilai' },
             { name: 'Visa & Passport Services', path: '/visa-agent-bhilai' },
-            { name: 'Hotel & Cab Booking', path: '/hotel-booking' }
+            { name: 'Hotel & Cab Booking', path: '/travel-services/hotel-booking' }
         ],
         faqs: [
             {
@@ -551,7 +551,7 @@ export const BLOG_POSTS: BlogPost[] = [
         relatedServices: [
             { name: 'Flight Booking Bhilai', path: '/flight-booking-bhilai' },
             { name: 'Train Ticket Booking', path: '/train-booking-bhilai' },
-            { name: 'Airport Cab Service', path: '/cab-rental' }
+            { name: 'Airport Cab Service', path: '/travel-services/cab-rental' }
         ],
         faqs: [
             {
@@ -636,7 +636,7 @@ export const BLOG_POSTS: BlogPost[] = [
             </div>
         `,
         relatedServices: [
-            { name: 'Rent a Car for Weekend', path: '/cab-rental' },
+            { name: 'Rent a Car for Weekend', path: '/travel-services/cab-rental' },
             { name: 'Bus Booking', path: '/bus-booking-bhilai' },
         ],
         faqs: [
@@ -783,8 +783,8 @@ export const BLOG_POSTS: BlogPost[] = [
             </div>
         `,
         relatedServices: [
-            { name: 'Thailand Packages', path: '/thailand-tour-packages' },
-            { name: 'Dubai Packages', path: '/dubai-tour-packages' },
+            { name: 'Thailand Packages', path: '/international-tours/thailand' },
+            { name: 'Dubai Packages', path: '/international-tours/dubai' },
             { name: 'Visa Assistance', path: '/visa-agent-bhilai' }
         ],
         faqs: [

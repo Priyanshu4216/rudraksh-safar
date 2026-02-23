@@ -261,9 +261,9 @@ const KashmirTourPackageFromBhilai = () => {
             <ContentSection className="border-t">
                 <h4 className="font-bold mb-4">More from Rudraksh Safar</h4>
                 <div className="flex flex-wrap gap-4 text-indigo-600">
-                    <Link to="/kerala-tour-package-from-bhilai" className="hover:underline">Kerala Packages</Link>
-                    <Link to="/manali-tour-package-from-bhilai" className="hover:underline">Manali Packages</Link>
-                    <Link to="/international-tours-from-raipur" className="hover:underline">International Trips</Link>
+                    <Link to="/domestic-tours/kerala-from-bhilai" className="hover:underline">Kerala Packages</Link>
+                    <Link to="/domestic-tours/manali-from-bhilai" className="hover:underline">Manali Packages</Link>
+                    <Link to="/tour-packages-from-raipur/international-tours" className="hover:underline">International Trips</Link>
                 </div>
             </ContentSection>
 

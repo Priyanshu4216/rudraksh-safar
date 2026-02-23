@@ -30,7 +30,7 @@ export const POPULAR_DESTINATIONS = [
         id: 1,
         name: "Dubai",
         image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop",
-        link: "/dubai-tour-package-from-bhilai",
+        link: "/international-tours/dubai-from-bhilai",
         tag: "Most Booked",
         fontClass: "font-playfair font-black tracking-tighter"
     },
@@ -38,7 +38,7 @@ export const POPULAR_DESTINATIONS = [
         id: 2,
         name: "Thailand",
         image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop",
-        link: "/thailand-tour-package-from-bhilai",
+        link: "/international-tours/thailand-from-bhilai",
         tag: "Trending",
         fontClass: "font-playfair uppercase font-bold tracking-tight"
     },
@@ -46,7 +46,7 @@ export const POPULAR_DESTINATIONS = [
         id: 3,
         name: "Manali",
         image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1000&auto=format&fit=crop",
-        link: "/manali-tour-package-from-bhilai",
+        link: "/domestic-tours/manali-from-bhilai",
         tag: "Summer",
         fontClass: "font-montserrat font-extrabold uppercase tracking-widest"
     },
@@ -70,7 +70,7 @@ export const POPULAR_DESTINATIONS = [
         id: 6,
         name: "Goa",
         image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1000&auto=format&fit=crop",
-        link: "/goa-tour-package-from-bhilai",
+        link: "/domestic-tours/goa-from-bhilai",
         tag: "Relax",
         fontClass: "font-playfair tracking-normal"
     },
@@ -78,7 +78,7 @@ export const POPULAR_DESTINATIONS = [
         id: 7,
         name: "Kashmir",
         image: "https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=1000&auto=format&fit=crop",
-        link: "/kashmir-tour-package-from-bhilai",
+        link: "/domestic-tours/kashmir-from-bhilai",
         tag: "Honeymoon",
         fontClass: "font-cinzel font-bold"
     },
@@ -86,7 +86,7 @@ export const POPULAR_DESTINATIONS = [
         id: 8,
         name: "Bali",
         image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000&auto=format&fit=crop",
-        link: "/bali-tour-package-from-bhilai",
+        link: "/international-tours/bali-from-bhilai",
         tag: "Global",
         fontClass: "font-handwrite text-3xl translate-y-2"
     }
@@ -141,7 +141,7 @@ export const SEASONAL_PICKS = [
         title: "Songkaran Festival",
         subtitle: "THAILAND",
         image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop",
-        link: "/thailand-tour-packages",
+        link: "/international-tours/thailand",
         color: "bg-blue-100 text-blue-700",
         fontClass: "font-playfair uppercase font-bold tracking-tight"
     },
@@ -177,7 +177,7 @@ export const SEASONAL_PICKS = [
         title: "Shopping Festival",
         subtitle: "DUBAI",
         image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop",
-        link: "/dubai-tour-packages",
+        link: "/international-tours/dubai",
         color: "bg-yellow-100 text-yellow-700",
         fontClass: "font-playfair font-black tracking-tighter"
     },

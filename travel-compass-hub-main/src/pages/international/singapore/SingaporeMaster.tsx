@@ -32,7 +32,7 @@ const singaporeData: DestinationData = {
             duration: '5 Days / 4 Nights',
             price: '₹42,000',
             image: 'https://images.unsplash.com/photo-1574227492706-f6cac3634c71?q=80&w=2069',
-            link: '/singapore-tour-package-from-bhilai', // Linking to existing page
+            link: '/international-tours/singapore-from-bhilai', // Linking to existing page
             tag: 'Bestseller'
         },
         {

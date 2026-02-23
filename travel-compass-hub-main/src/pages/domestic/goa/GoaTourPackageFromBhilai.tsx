@@ -22,7 +22,7 @@ const GoaTourPackageFromBhilai = () => {
                     content="The #1 Guide for Goa Trips from Bhilai, Durg & Raipur. Compare Train vs Flight costs, North vs South Goa for families, and get honest local advice. Book with Rudraksh Safar."
                 />
                 <meta name="keywords" content="goa tour package from bhilai, goa family package from bhilai, goa trip cost from chhattisgarh, durg to goa train package, rudraksh safar goa" />
-                <link rel="canonical" href="https://rudrakshsafar.com/goa-tour-package-from-bhilai" />
+                <link rel="canonical" href="https://rudrakshsafar.com/domestic-tours/goa-from-bhilai" />
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

@@ -137,13 +137,13 @@ const TravelDocuments = () => {
                         <h2 className="text-2xl font-bold mb-8">Detailed Guides</h2>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Button variant="outline" size="lg" asChild className="h-auto py-6 px-8 flex flex-col gap-1">
-                                <Link to="/visa-guide">
+                                <Link to="/travel-services/visa-assistance">
                                     <span className="font-bold text-lg">Visa Guide</span>
                                     <span className="text-xs font-normal text-muted-foreground">Types & Process</span>
                                 </Link>
                             </Button>
                             <Button variant="outline" size="lg" asChild className="h-auto py-6 px-8 flex flex-col gap-1">
-                                <Link to="/passport-guide">
+                                <Link to="/travel-services/passport-assistance">
                                     <span className="font-bold text-lg">Passport Guide</span>
                                     <span className="text-xs font-normal text-muted-foreground">Application & Renewal</span>
                                 </Link>

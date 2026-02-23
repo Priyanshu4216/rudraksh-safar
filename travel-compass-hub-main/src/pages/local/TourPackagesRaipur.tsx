@@ -194,7 +194,7 @@ const TourPackagesRaipur = () => {
                                     <span className="font-semibold">International</span>
                                 </Card>
                             </Link>
-                            <Link to="/weekend-getaways-raipur">
+                            <Link to="/tour-packages-from-raipur/weekend-getaways">
                                 <Card className="hover:border-green-500 transition-colors text-center p-4 h-full flex flex-col items-center justify-center">
                                     <Calendar className="w-8 h-8 text-green-600 mb-2" />
                                     <span className="font-semibold">Weekend Trips</span>

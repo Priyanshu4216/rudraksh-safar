@@ -28,7 +28,7 @@ const PassportGuide = () => {
         title="Indian Passport Rules 2026 - Validity, Damage & Renewal Guide | Rudraksh Safar"
         description="Essential guide to Indian passport regulations. Verify your passport's validity, understand the '6-month rule', check for damage that could bar travel, and learn about blank page requirements."
         keywords="Indian passport rules 2026, passport validity check, damaged passport rules India, minimum 6 months validity, passport blank pages requirement, name mismatch in passport and ticket"
-        canonicalUrl="https://rudrakshsafar.com/passport-guide"
+        canonicalUrl="https://rudrakshsafar.com/travel-services/passport-assistance"
       />
 
       <Navbar />
@@ -37,7 +37,7 @@ const PassportGuide = () => {
         <div className="container max-w-4xl">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Guide', path: '/passport-guide' }]} />
+              <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Guide', path: '/travel-services/passport-assistance' }]} />
 
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <FileCheck className="w-4 h-4" />

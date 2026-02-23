@@ -92,9 +92,9 @@ const TravelAgentRaipur = () => {
         { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Domestic Tours", desc: "Kashmir, Goa, Kerala, and Himachal packages from Raipur.", link: "/domestic-packages" },
         { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "International Tours", desc: "Dubai, Thailand, Bali & Singapore with Visa assistance.", link: "/international-packages" },
         { icon: <Users className="w-10 h-10 text-primary mx-auto" />, title: "Group Tours", desc: "Special rates for College Industrial Visits and Family Groups.", link: "/group-tour-packages" },
-        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "Expert guidance for Schengen, US, UK, and Asian visas.", link: "/visa-guide" },
+        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "Expert guidance for Schengen, US, UK, and Asian visas.", link: "/travel-services/visa-assistance" },
         { icon: <Award className="w-10 h-10 text-primary mx-auto" />, title: "Honeymoon Specials", desc: "Romantic getaways with candlelight dinners and flower decoration.", link: "/honeymoon-packages" },
-        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New application and renewal assistance in Raipur.", link: "/passport-guide" },
+        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New application and renewal assistance in Raipur.", link: "/travel-services/passport-assistance" },
     ];
 
     const popularRoutes = [

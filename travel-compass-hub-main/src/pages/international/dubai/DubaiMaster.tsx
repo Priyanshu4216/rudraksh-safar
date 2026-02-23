@@ -32,7 +32,7 @@ const dubaiData: DestinationData = {
             duration: '5 Days / 4 Nights',
             price: '₹28,999',
             image: 'https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=2069',
-            link: '/dubai-tour-package-from-raipur', // Linking to existing page
+            link: '/international-tours/dubai-from-raipur', // Linking to existing page
             tag: 'Shopping'
         },
         {

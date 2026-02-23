@@ -380,7 +380,7 @@ const CurrencyGuide = () => {
                 <Link to="/travel-checklist" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
                   Packing Checklist <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/visa-guide" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
+                <Link to="/travel-services/visa-assistance" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
                   Visa Guide <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link to="/international-packages" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">

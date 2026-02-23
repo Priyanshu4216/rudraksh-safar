@@ -22,7 +22,7 @@ const kashmirData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹24,500',
             image: 'https://images.unsplash.com/photo-1623150630807-74220b33c0bd?q=80&w=2070',
-            link: '/kashmir-tour-package-from-bhilai', // Linking to pillar for now
+            link: '/domestic-tours/kashmir-from-bhilai', // Linking to pillar for now
             tag: 'Honeymoon'
         },
         {
@@ -31,7 +31,7 @@ const kashmirData: DestinationData = {
             duration: '7 Days / 6 Nights',
             price: '₹21,999',
             image: 'https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=2070',
-            link: '/kashmir-tour-package-from-bhilai',
+            link: '/domestic-tours/kashmir-from-bhilai',
             tag: 'Family'
         },
         {

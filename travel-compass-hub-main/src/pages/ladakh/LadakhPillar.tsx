@@ -17,7 +17,7 @@ const LadakhPillar = () => {
         "@type": "TravelAgency",
         "name": "Rudraksh Safar",
         "description": "Premium Ladakh Tour Packages from Delhi. Expert-led road trips via Manali and Srinagar. Best price guarantee for 2026 expeditions.",
-        "url": "https://rudrakshsafar.com/ladakh-tour-packages-from-delhi",
+        "url": "https://rudrakshsafar.com/domestic-tours/ladakh",
         "image": heroImage,
         "telephone": "+91-9406182174",
         "priceRange": "₹₹",
@@ -35,7 +35,7 @@ const LadakhPillar = () => {
                 title="Ladakh Tour Packages from Delhi 2026 | Best Road Trip Itinerary & Cost"
                 description="Book the ultimate Ladakh Tour Package from Delhi. Complete guide to Manali-Leh & Srinagar-Leh routes, trip cost, itinerary, and bike expeditions. Trusted by 500+ travelers."
                 keywords="ladakh tour packages, ladakh trip packages, ladakh tour from delhi, ladakh package cost, best ladakh tour, leh ladakh road trip, ladakh bike trip"
-                canonicalUrl="https://rudrakshsafar.com/ladakh-tour-packages-from-delhi"
+                canonicalUrl="https://rudrakshsafar.com/domestic-tours/ladakh"
                 ogImage={heroImage}
                 structuredData={structuredData}
             />

@@ -172,7 +172,7 @@ const CheckPNRStatus = () => {
                                 <Link to="/contact">Contact Us</Link>
                             </Button>
                             <Button size="lg" variant="outline" className="border-white text-white hover:bg-orange-700" asChild>
-                                <Link to="/thailand-tour-packages">Explore Packages</Link>
+                                <Link to="/international-tours/thailand">Explore Packages</Link>
                             </Button>
                         </div>
                     </div>

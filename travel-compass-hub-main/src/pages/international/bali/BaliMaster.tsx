@@ -32,7 +32,7 @@ const baliData: DestinationData = {
             duration: '6 Days / 5 Nights',
             price: '₹38,000',
             image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2038',
-            link: '/bali-tour-package-from-raipur', // Linking to existing page
+            link: '/international-tours/bali-from-raipur', // Linking to existing page
             tag: 'Honeymoon'
         },
         {

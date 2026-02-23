@@ -109,7 +109,7 @@ const CruiseBooking = () => {
                         <title>Cruise Holidays & Booking Services India | Rudraksh Safar</title>
                         <meta name="description" content="Book domestic & international cruise packages with Rudraksh Safar. All-inclusive luxury cruises for families, couples & first-timers. Expert guidance & best prices." />
                         <meta name="keywords" content="cruise booking india, luxury cruise holidays, cordelia cruise booking, international cruise packages, family cruise vacation, honeymoon cruise" />
-                        <link rel="canonical" href="https://rudrakshsafar.com/cruise-booking" />
+                        <link rel="canonical" href="https://rudrakshsafar.com/travel-services/cruise-booking" />
                         <script type="application/ld+json" dangerouslySetInnerHTML={{
                             __html: JSON.stringify({
                                 "@context": "https://schema.org",
@@ -145,7 +145,7 @@ const CruiseBooking = () => {
                                     className="max-w-4xl mx-auto"
                                 >
                                     <div className="flex justify-center mb-6">
-                                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Cruise Booking', path: '/cruise-booking' }]} />
+                                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Cruise Booking', path: '/travel-services/cruise-booking' }]} />
                                     </div>
                                     <Badge className="mb-6 bg-cyan-500/20 text-cyan-300 border-cyan-500/50 backdrop-blur-md px-4 py-1.5 text-sm uppercase tracking-wider">
                                         Premium Ocean Voyages

@@ -25,7 +25,7 @@ const SingaporeTourPackageFromBhilai = () => {
         { name: "Sentosa Island", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800", price: "Universal Studios Included", duration: "1 Day", link: "#", rating: "4.9" },
         { name: "Marina Bay", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "City Tour", duration: "Half Day", link: "#", rating: "4.8" },
         { name: "Gardens by Bay", image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&q=80&w=800", price: "Cloud Forest Included", duration: "Half Day", link: "#", rating: "4.9" },
-        { name: "Cruise", image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800", price: "Genting/Royal Caribbean", duration: "2N/3D", link: "/cruise-booking", rating: "4.7" },
+        { name: "Cruise", image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800", price: "Genting/Royal Caribbean", duration: "2N/3D", link: "/travel-services/cruise-booking", rating: "4.7" },
     ];
 
     const bestTimeData = [
@@ -103,7 +103,7 @@ const SingaporeTourPackageFromBhilai = () => {
                 <title>Singapore Tour Packages from Bhilai | Visa & Flights Included</title>
                 <meta name="description" content="Book Singapore holiday packages from Bhilai. Complete assistance with Singapore Visa, Flights from Raipur, and Currency Exchange. Best rates for families & couples." />
                 <meta name="keywords" content="singapore tour package from bhilai, singapore visa agent bhilai, singapore trip cost from raipur, singapore malaysia tour from bhilai, rudraksh safar singapore" />
-                <link rel="canonical" href="https://rudrakshsafar.com/singapore-tour-package-from-bhilai" />
+                <link rel="canonical" href="https://rudrakshsafar.com/international-tours/singapore-from-bhilai" />
                 <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
             </Helmet>
 
