@@ -15,10 +15,10 @@ const navLinks = [
     href: '#services',
     dropdown: [
       { name: 'Flight Booking', href: '/flight-booking-bhilai', isRoute: true },
-      { name: 'Hotel Booking', href: '/hotel-booking', isRoute: true },
-      { name: 'Visa Assistance', href: '/visa-guide', isRoute: true },
-      { name: 'Cab Rental', href: '/cab-rental', isRoute: true },
-      { name: 'Cruise Booking', href: '/cruise-booking', isRoute: true },
+      { name: 'Hotel Booking', href: '/travel-services/hotel-booking', isRoute: true },
+      { name: 'Visa Assistance', href: '/travel-services/visa-assistance', isRoute: true },
+      { name: 'Cab Rental', href: '/travel-services/cab-rental', isRoute: true },
+      { name: 'Cruise Booking', href: '/travel-services/cruise-booking', isRoute: true },
     ],
   },
   {

@@ -43,7 +43,7 @@ const guidePages = [
     title: 'Visa Guide',
     description: 'Complete visa requirements for popular destinations',
     icon: FileCheck,
-    href: '/visa-guide',
+    href: '/travel-services/visa-assistance',
     color: 'from-blue-500 to-indigo-600',
   },
   {

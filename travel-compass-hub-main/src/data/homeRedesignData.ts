@@ -296,7 +296,7 @@ export const SEARCH_EXPERIENCE_DESTINATIONS = [
         id: 9,
         name: "Thailand",
         image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop",
-        slug: "thailand-tour-packages",
+        slug: "international-tours/thailand",
         tag: "Party",
         fontClass: "font-playfair uppercase font-bold tracking-tight"
     },

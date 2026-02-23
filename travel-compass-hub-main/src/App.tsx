@@ -340,6 +340,10 @@ const App = () => (
                   <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
                   <Route path="/travel-services/cab-rental" element={<CabRental />} />
                   <Route path="/travel-services/cruise-booking" element={<CruiseBooking />} />
+                  <Route path="/cruise-booking" element={<Navigate to="/travel-services/cruise-booking" replace />} />
+                  <Route path="/visa-guide" element={<Navigate to="/travel-services/visa-assistance" replace />} />
+                  <Route path="/cab-rental" element={<Navigate to="/travel-services/cab-rental" replace />} />
+                  <Route path="/hotel-booking" element={<Navigate to="/travel-services/hotel-booking" replace />} />
 
                   <Route path="/how-it-works" element={<HowItWorks />} />
                   <Route path="/travel-documents" element={<TravelDocuments />} />
@@ -373,9 +377,13 @@ const App = () => (
                   <Route path="/bhilai-to-kedarnath-yatra-package-2026" element={<BhilaiToKedarnath />} />
 
                   {/* Thailand Dominance - MOVED TO MASTER SILO */}
-                  {/* <Route path="/thailand-tour-packages" element={<ThailandPillar />} /> */}
-                  {/* <Route path="/thailand-tour-packages-from-raipur" element={<ThailandFromRaipur />} /> */}
-                  {/* <Route path="/thailand-tour-packages/:cityId" element={<ThailandCityGuide />} /> */}
+                  <Route path="/thailand-tour-packages" element={<Navigate to="/international-tours/thailand" replace />} />
+                  <Route path="/thailand-tour-packages-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
+                  <Route path="/thailand-tour-packages/bangkok" element={<Navigate to="/international-tours/thailand/bangkok" replace />} />
+                  <Route path="/thailand-tour-packages/pattaya" element={<Navigate to="/international-tours/thailand/pattaya" replace />} />
+                  <Route path="/thailand-tour-packages/phuket" element={<Navigate to="/international-tours/thailand/phuket" replace />} />
+                  <Route path="/thailand-tour-packages/krabi" element={<Navigate to="/international-tours/thailand/krabi" replace />} />
+                  <Route path="/thailand-tour-packages/:cityId" element={<Navigate to="/international-tours/thailand" replace />} />
                   {/* <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} /> */}
 
                   {/* Phase 10: UAE Domination (Attraction Engine) */}

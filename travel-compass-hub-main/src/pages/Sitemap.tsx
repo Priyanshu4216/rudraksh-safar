@@ -173,11 +173,11 @@ const Sitemap = () => {
                 { name: 'Train Booking Service', href: '/train-booking-bhilai', desc: 'Confirmed rail tickets' },
                 { name: 'Bus Booking Service', href: '/bus-booking-bhilai', desc: 'Intercity bus tickets' },
                 { name: 'Ticket Booking Assistance', href: '/ticket-booking-bhilai', desc: 'General ticketing' },
-                { name: 'Cab Rental Service', href: '/cab-rental', desc: 'Local & Outstation cabs' },
-                { name: 'Hotel Booking Assistance', href: '/hotel-booking', desc: 'Hotel Booking (GST Invoices & Offline Rates)' },
+                { name: 'Cab Rental Service', href: '/travel-services/cab-rental', desc: 'Local & Outstation cabs' },
+                { name: 'Hotel Booking Assistance', href: '/travel-services/hotel-booking', desc: 'Hotel Booking (GST Invoices & Offline Rates)' },
                 { name: 'Passport Agent Services', href: '/passport-agent-bhilai', desc: 'New & Renewal assistance' },
                 { name: 'Visa Agent Services', href: '/visa-agent-bhilai', desc: 'Tourist & Business visas' },
-                { name: 'Cruise Booking', href: '/cruise-booking', desc: 'Domestic and international cruise assistance' },
+                { name: 'Cruise Booking', href: '/travel-services/cruise-booking', desc: 'Domestic and international cruise assistance' },
             ]
         },
         {
@@ -213,13 +213,13 @@ const Sitemap = () => {
             description: "Dedicated resources for our #1 International Destination.",
             icon: Globe,
             links: [
-                { name: 'Thailand Packages Hub', href: '/thailand-tour-packages', desc: 'Complete Thailand Guide' },
-                { name: 'Thailand from Raipur', href: '/thailand-tour-packages-from-raipur', desc: 'Capital departure specials' },
+                { name: 'Thailand Packages Hub', href: '/international-tours/thailand', desc: 'Complete Thailand Guide' },
+                { name: 'Thailand from Raipur', href: '/international-tours/thailand-from-raipur', desc: 'Capital departure specials' },
                 { name: 'Plan Your Thailand Trip', href: '/plan-your-thailand-trip', desc: 'Custom Itinerary Builder' },
-                { name: 'Bangkok City Guide', href: '/thailand-tour-packages/bangkok', desc: 'Shopping & Temples' },
-                { name: 'Pattaya City Guide', href: '/thailand-tour-packages/pattaya', desc: 'Nightlife & Beaches' },
-                { name: 'Phuket City Guide', href: '/thailand-tour-packages/phuket', desc: 'Islands & Luxury' },
-                { name: 'Krabi City Guide', href: '/thailand-tour-packages/krabi', desc: 'Nature & Relaxation' },
+                { name: 'Bangkok City Guide', href: '/international-tours/thailand/bangkok', desc: 'Shopping & Temples' },
+                { name: 'Pattaya City Guide', href: '/international-tours/thailand/pattaya', desc: 'Nightlife & Beaches' },
+                { name: 'Phuket City Guide', href: '/international-tours/thailand/phuket', desc: 'Islands & Luxury' },
+                { name: 'Krabi City Guide', href: '/international-tours/thailand/krabi', desc: 'Nature & Relaxation' },
             ]
         },
         {
@@ -251,7 +251,7 @@ const Sitemap = () => {
             icon: FileText,
             links: [
                 { name: 'For Travellers Hub', href: '/for-travellers', desc: 'Pre-Travel Authority (Visa, Safety, Mistakes)' },
-                { name: 'Visa Guide', href: '/visa-guide', desc: 'General visa info' },
+                { name: 'Visa Guide', href: '/travel-services/visa-assistance', desc: 'General visa info' },
                 { name: 'Passport Guide', href: '/passport-guide', desc: 'Passport procedures' },
                 { name: 'Visa Free Countries', href: '/visa-free-countries', desc: 'Where to go without visa' },
                 { name: 'Travel Checklist', href: '/travel-checklist', desc: 'Packing & prep' },
