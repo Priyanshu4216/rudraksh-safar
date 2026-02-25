@@ -196,7 +196,7 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
       <Link
-        to={pkg.id === 'dubai' ? '/dubai-tour-packages' : `/package/${pkg.id}`}
+        to={pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`}
         onClick={() => window.scrollTo(0, 0)}
         className="block h-full"
         aria-label={`View package: ${pkg.title}`}
@@ -287,7 +287,7 @@ const InternationalPackages = () => {
     },
     "numberOfItems": 9,
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Dubai Extravaganza", "url": "https://rudrakshsafar.com/package/dubai" },
+      { "@type": "ListItem", "position": 1, "name": "Dubai Extravaganza", "url": "https://rudrakshsafar.com/international-tours/dubai" },
       { "@type": "ListItem", "position": 2, "name": "Bali Paradise", "url": "https://rudrakshsafar.com/package/bali" },
       { "@type": "ListItem", "position": 3, "name": "Maldives Paradise", "url": "https://rudrakshsafar.com/package/maldives" },
       { "@type": "ListItem", "position": 4, "name": "Thailand Explorer", "url": "https://rudrakshsafar.com/package/thailand" },

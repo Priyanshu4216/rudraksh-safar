@@ -223,12 +223,29 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "Thailand Authority Guide (New 🔥)",
+            description: "The most comprehensive Thailand travel guide for Indian tourists.",
+            icon: MapPin,
+            links: [
+                { name: 'Destinations Hub', href: '/destinations', desc: 'Explore all destinations' },
+                { name: 'Thailand Full Guide', href: '/destinations/thailand', desc: 'Main Thailand page' },
+                { name: 'Trip Cost Guide', href: '/destinations/thailand/trip-cost-from-india', desc: 'Budget Breakdown' },
+                { name: 'Best Time to Visit', href: '/destinations/thailand/best-time-to-visit', desc: 'Seasonal planning' },
+                { name: 'Travel Tips', href: '/destinations/thailand/travel-tips', desc: 'Important advice' },
+                { name: 'Bangkok Hub', href: '/destinations/thailand/bangkok', desc: 'City Guide & Attractions' },
+                { name: 'Pattaya Hub', href: '/destinations/thailand/pattaya', desc: 'City Guide & Beaches' },
+                { name: 'Phuket Hub', href: '/destinations/thailand/phuket', desc: 'City Guide & Islands' },
+                { name: 'Krabi Hub', href: '/destinations/thailand/krabi', desc: 'City Guide & Nature' },
+                { name: 'Koh Samui Hub', href: '/destinations/thailand/koh-samui', desc: 'City Guide & Luxury' },
+            ]
+        },
+        {
             title: "Dubai & Abu Dhabi Guide (New)",
             description: "Complete travel resources for UAE including visa, itineraries, and attraction tickets.",
             icon: Globe,
             links: [
                 { name: 'Dubai Travel Guide', href: '/dubai-travel-guide', desc: 'The ultimate authority guide 2026' },
-                { name: 'Dubai Tour Packages', href: '/dubai-tour-packages', desc: 'Commercial hub for bookings' },
+                { name: 'Dubai Tour Packages', href: '/international-tours/dubai', desc: 'Commercial hub for bookings' },
                 { name: 'Dubai Visa for Indians', href: '/dubai-visa-for-indians', desc: 'Visa on Arrival & E-Visa rules' },
                 { name: '4-Day Dubai Itinerary', href: '/dubai-4-day-itinerary', desc: 'Perfect plan for first timers' },
                 { name: 'Dubai Packages from Raipur', href: '/dubai-tour-packages-from-raipur', desc: 'Flights & packages for CG travelers' },

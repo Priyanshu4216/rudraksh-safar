@@ -10,6 +10,14 @@ User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
+Disallow: /images/happy-group.jpeg
+Disallow: /images/Yamini-NayakGroupNepal.jpeg
+Disallow: /images/naman-in-musiyari.jpeg
+Disallow: /images/Vijay-in-nepal.jpeg
+Disallow: /images/vishal-in-manali.jpeg
+Disallow: /images/WhatsApp-Image-2026-02-05-at-7.29.41-PM.jpeg
+Disallow: /images/WhatsApp-Image-2026-02-05-at-7.28.53-PM.jpeg
+Disallow: /images/WhatsApp-Image-2026-02-05-at-7.27.42-PM-(1).jpeg
 Allow: /
 
 User-agent: Bingbot

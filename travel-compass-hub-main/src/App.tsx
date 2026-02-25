@@ -241,6 +241,57 @@ const LadakhSafety = lazy(() => import("./pages/ladakh/LadakhSafety"));
 const LadakhPackingList = lazy(() => import("./pages/ladakh/LadakhPackingList"));
 const PangongLake = lazy(() => import("./pages/ladakh/PangongLake"));
 
+// Destinations Hub & Silos
+const Destinations = lazy(() => import("./pages/destinations/index"));
+const ThailandHub = lazy(() => import("./pages/destinations/thailand/index"));
+const ThailandItinerary = lazy(() => import("./pages/destinations/thailand/guides/ThailandItinerary"));
+const TripCostFromIndia = lazy(() => import("./pages/destinations/thailand/guides/TripCostFromIndia"));
+const ThailandBudgetGuide = lazy(() => import("./pages/destinations/thailand/guides/ThailandBudgetGuide"));
+const BestTimeToVisitThailand = lazy(() => import("./pages/destinations/thailand/guides/BestTimeToVisitThailand"));
+const ThailandTravelTips = lazy(() => import("./pages/destinations/thailand/guides/ThailandTravelTips"));
+const ThailandPackingGuide = lazy(() => import("./pages/destinations/thailand/guides/ThailandPackingGuide"));
+const FirstTimeThailandGuide = lazy(() => import("./pages/destinations/thailand/guides/FirstTimeThailandGuide"));
+
+// Thailand City Pages
+const PattayaCity = lazy(() => import("./pages/destinations/thailand/pattaya/index"));
+const BangkokCity = lazy(() => import("./pages/destinations/thailand/bangkok/index"));
+const PhuketCity = lazy(() => import("./pages/destinations/thailand/phuket/index"));
+const KrabiCity = lazy(() => import("./pages/destinations/thailand/krabi/index"));
+const KohSamuiCity = lazy(() => import("./pages/destinations/thailand/koh-samui/index"));
+
+// Thailand Attractions
+const CoralIsland = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/coral-island"));
+const NongNoochGarden = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/nong-nooch-garden"));
+const TigerPark = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/tiger-park"));
+const AlcazarShow = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/alcazar-show"));
+const UnderwaterWorld = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/underwater-world"));
+const TiffanyShow = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/tiffany-show"));
+const RamayanaWaterPark = lazy(() => import("./pages/destinations/thailand/attractions/pattaya/ramayana-water-park"));
+
+const SafariWorld = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/safari-world"));
+const ChaoPhrayaCruise = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/chao-phraya-cruise"));
+const TempleTour = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/temple-tour"));
+const DreamWorld = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/dream-world"));
+const SkyWalk = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/sky-walk"));
+const SeaLife = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/sea-life"));
+
+const FourIslandsTour = lazy(() => import("./pages/destinations/thailand/attractions/krabi/4-islands-tour"));
+const SevenIslandsTour = lazy(() => import("./pages/destinations/thailand/attractions/krabi/7-islands-tour"));
+const JungleTour = lazy(() => import("./pages/destinations/thailand/attractions/krabi/jungle-tour"));
+const KrabiCityTour = lazy(() => import("./pages/destinations/thailand/attractions/krabi/krabi-city-tour"));
+const ElephantTrekking = lazy(() => import("./pages/destinations/thailand/attractions/krabi/elephant-trekking"));
+
+const PhiPhiIsland = lazy(() => import("./pages/destinations/thailand/attractions/phuket/phi-phi-island"));
+const JamesBondIsland = lazy(() => import("./pages/destinations/thailand/attractions/phuket/james-bond-island"));
+const FantaSeaShow = lazy(() => import("./pages/destinations/thailand/attractions/phuket/fantasea-show"));
+const DolphinShow = lazy(() => import("./pages/destinations/thailand/attractions/phuket/dolphin-show"));
+const TigerKingdom = lazy(() => import("./pages/destinations/thailand/attractions/phuket/tiger-kingdom"));
+
+const JungleSafari = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/jungle-safari"));
+const KohSamuiCityTour = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/koh-samui-city-tour"));
+const AngThongMarinePark = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/ang-thong-marine-park"));
+const SafariTour = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/safari-tour"));
+const GrandPalace = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/grand-palace"));
 const queryClient = new QueryClient();
 
 
@@ -275,6 +326,60 @@ const App = () => (
                   <Route path="/luxury-packages" element={<LuxuryPackages />} />
                   <Route path="/for-travellers" element={<ForTravellers />} />
                   <Route path="/package/:packageId" element={<PackageDetails />} />
+
+                  {/* Destinations Hub (New Silo) */}
+                  <Route path="/destinations" element={<Destinations />} />
+                  <Route path="/destinations/thailand" element={<ThailandHub />} />
+
+                  {/* Thailand Supporting Guides */}
+                  <Route path="/destinations/thailand/itinerary" element={<ThailandItinerary />} />
+                  <Route path="/destinations/thailand/trip-cost-from-india" element={<TripCostFromIndia />} />
+                  <Route path="/destinations/thailand/budget-guide" element={<ThailandBudgetGuide />} />
+                  <Route path="/destinations/thailand/best-time-to-visit" element={<BestTimeToVisitThailand />} />
+                  <Route path="/destinations/thailand/travel-tips" element={<ThailandTravelTips />} />
+                  <Route path="/destinations/thailand/packing-guide" element={<ThailandPackingGuide />} />
+                  <Route path="/destinations/thailand/first-time-guide" element={<FirstTimeThailandGuide />} />
+
+                  {/* Thailand City Silos */}
+                  <Route path="/destinations/thailand/pattaya" element={<PattayaCity />} />
+                  <Route path="/destinations/thailand/bangkok" element={<BangkokCity />} />
+                  <Route path="/destinations/thailand/phuket" element={<PhuketCity />} />
+                  <Route path="/destinations/thailand/krabi" element={<KrabiCity />} />
+                  <Route path="/destinations/thailand/koh-samui" element={<KohSamuiCity />} />
+
+                  {/* Thailand Attractions */}
+                  <Route path="/destinations/thailand/attractions/pattaya/coral-island" element={<CoralIsland />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/nong-nooch-garden" element={<NongNoochGarden />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/tiger-park" element={<TigerPark />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/alcazar-show" element={<AlcazarShow />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/underwater-world" element={<UnderwaterWorld />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/tiffany-show" element={<TiffanyShow />} />
+                  <Route path="/destinations/thailand/attractions/pattaya/ramayana-water-park" element={<RamayanaWaterPark />} />
+
+                  <Route path="/destinations/thailand/attractions/bangkok/safari-world" element={<SafariWorld />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/chao-phraya-cruise" element={<ChaoPhrayaCruise />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/temple-tour" element={<TempleTour />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/dream-world" element={<DreamWorld />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/sky-walk" element={<SkyWalk />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/sea-life" element={<SeaLife />} />
+                  <Route path="/destinations/thailand/attractions/bangkok/grand-palace" element={<GrandPalace />} />
+
+                  <Route path="/destinations/thailand/attractions/krabi/4-islands-tour" element={<FourIslandsTour />} />
+                  <Route path="/destinations/thailand/attractions/krabi/7-islands-tour" element={<SevenIslandsTour />} />
+                  <Route path="/destinations/thailand/attractions/krabi/jungle-tour" element={<JungleTour />} />
+                  <Route path="/destinations/thailand/attractions/krabi/krabi-city-tour" element={<KrabiCityTour />} />
+                  <Route path="/destinations/thailand/attractions/krabi/elephant-trekking" element={<ElephantTrekking />} />
+
+                  <Route path="/destinations/thailand/attractions/phuket/phi-phi-island" element={<PhiPhiIsland />} />
+                  <Route path="/destinations/thailand/attractions/phuket/james-bond-island" element={<JamesBondIsland />} />
+                  <Route path="/destinations/thailand/attractions/phuket/fantasea-show" element={<FantaSeaShow />} />
+                  <Route path="/destinations/thailand/attractions/phuket/dolphin-show" element={<DolphinShow />} />
+                  <Route path="/destinations/thailand/attractions/phuket/tiger-kingdom" element={<TigerKingdom />} />
+
+                  <Route path="/destinations/thailand/attractions/koh-samui/jungle-safari" element={<JungleSafari />} />
+                  <Route path="/destinations/thailand/attractions/koh-samui/koh-samui-city-tour" element={<KohSamuiCityTour />} />
+                  <Route path="/destinations/thailand/attractions/koh-samui/ang-thong-marine-park" element={<AngThongMarinePark />} />
+                  <Route path="/destinations/thailand/attractions/koh-samui/safari-tour" element={<SafariTour />} />
 
                   {/* Traveller Guide Routes */}
                   <Route path="/travel-services/visa-assistance" element={<VisaGuide />} />
@@ -426,6 +531,7 @@ const App = () => (
 
                   {/* Dubai Master Silo */}
                   <Route path="/international-tours/dubai" element={<DubaiMaster />} />
+                  <Route path="/dubai-tour-packages" element={<Navigate to="/international-tours/dubai" replace />} />
                   <Route path="/international-tours/dubai-from-raipur" element={<DubaiTourPackageFromRaipur />} />
                   <Route path="/international-tours/dubai-from-bhilai" element={<DubaiTourPackageFromBhilai />} />
 

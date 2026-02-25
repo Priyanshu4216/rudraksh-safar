@@ -33,6 +33,7 @@ const navLinks = [
       { name: 'Luxury', href: '/luxury-packages', isRoute: true },
     ],
   },
+  { name: 'Destinations 🌍', href: '/destinations', isRoute: true },
   { name: 'For Travellers', href: '/for-travellers', isRoute: true },
   { name: 'Char Dham Yatra', href: '/chardham-yatra-package', isRoute: true, highlight: 'new' },
   { name: 'Contact', href: '#contact' },

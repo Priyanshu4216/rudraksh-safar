@@ -16,10 +16,28 @@ export const useFcmToken = () => {
                 if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
                     if (notificationPermissionStatus === 'granted') {
                         // Retrieve the active service worker registration to prevent conflict
-                        const registration = await navigator.serviceWorker.getRegistration();
+                        let registration: ServiceWorkerRegistration | undefined = await navigator.serviceWorker.getRegistration();
+
+                        // Give it a moment to register if it hasn't yet (race condition on first load)
                         if (!registration) {
-                            console.warn('No active Service Worker found. Firebase might fail to get token.');
-                            toast.error('Service Worker not active. Notifications might not work.');
+                            try {
+                                const readyPromise = navigator.serviceWorker.ready;
+                                const timeoutPromise = new Promise<undefined>((resolve) => setTimeout(() => resolve(undefined), 2000));
+                                const result = await Promise.race([readyPromise, timeoutPromise]);
+                                if (result) {
+                                    registration = await navigator.serviceWorker.getRegistration();
+                                }
+                            } catch (e) {
+                                console.warn('Error waiting for SW:', e);
+                            }
+                        }
+
+                        if (!registration) {
+                            console.warn('No active Service Worker found. Firebase might fail to get token. (Normal in Dev Mode)');
+                            // @ts-ignore
+                            if (import.meta.env.PROD) {
+                                toast.error('Service Worker not active. Notifications might not work.');
+                            }
                         }
 
                         // If no registration, let Firebase register its own (or wait for PWA)

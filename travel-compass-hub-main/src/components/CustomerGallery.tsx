@@ -102,10 +102,11 @@ const CustomerGallery = ({
                                 <div className="rounded-xl overflow-hidden shadow-lg bg-[#1a1a1a] flex flex-col h-full border border-slate-800">
                                     {/* Image Section */}
                                     <div className="relative aspect-video w-full overflow-hidden">
-                                        <img
-                                            src={photo.src}
-                                            alt={`${photo.destination} - ${photo.names}`}
-                                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                        <div
+                                            className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
+                                            style={{ backgroundImage: `url(${photo.src})` }}
+                                            aria-label={`${photo.destination} - ${photo.names}`}
+                                            role="img"
                                         />
                                     </div>
 
