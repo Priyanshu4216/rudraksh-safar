@@ -1,6 +1,7 @@
 
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import TrustBar from '@/components/TrustBar'; // Section 2
@@ -48,7 +49,7 @@ const Index = () => {
     <>
       <SEOHead
         title="Best Travel Agency in Bhilai | Luxury Tours & Verified Agents"
-        description="Rudraksh Safar: Experience elite travel with Bhilai's most trusted agency. Premium domestic & international tours, visa expertise, and 24/7 personalized support."
+        description="Rudraksh Safar: Experience elite travel with Bhilai's most trusted agency. Premium domestic & international tours. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh."
         keywords="luxury travel agent Bhilai, premium tour packages Raipur, best travel agency Durg, international holidays Chhattisgarh, verified travel agent"
         canonicalUrl="https://rudrakshsafar.com/"
         ogType="website"
@@ -130,7 +131,7 @@ const Index = () => {
               },
               {
                 question: "Do you handle international visa processing?",
-                answer: "Yes, our expert team provides comprehensive visa assistance, ensuring your documentation is perfect for higher approval success rates for destinations worldwide."
+                answer: <>Yes, our expert team provides comprehensive <Link to="/travel-services/visa-assistance" className="text-primary hover:underline">visa assistance</Link>, ensuring your documentation is perfect for higher approval success rates for destinations worldwide.</>
               },
               {
                 question: "Can I customize the tour packages?",

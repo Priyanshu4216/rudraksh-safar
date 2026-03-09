@@ -33,21 +33,21 @@ const TravellerTypes = () => {
     };
 
     return (
-        <section className="relative py-32 overflow-hidden bg-gradient-to-b from-[#0B1220] to-[#003323]">
+        <section className="relative py-32 overflow-hidden bg-gradient-to-b from-emerald-50 to-teal-100 dark:from-[#0B1220] dark:to-[#003323] transition-colors duration-500">
             {/* Background Texture & Ambient Glow */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-900/20 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 dark:opacity-[0.03] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-200/50 dark:bg-emerald-900/20 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-4 block flex items-center justify-center gap-2 animate-fade-in">
+                    <span className="text-emerald-700 dark:text-gold font-bold tracking-[0.2em] text-sm uppercase mb-4 block flex items-center justify-center gap-2 animate-fade-in transition-colors">
                         <Sparkles className="w-4 h-4" /> Curated Experiences
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight animate-fade-up">
-                        Who Are You <span className="text-gradient-gold">Travelling With?</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 dark:text-white mb-6 leading-tight animate-fade-up transition-colors">
+                        Who Are You <span className="text-emerald-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-amber-200 dark:to-yellow-500">Travelling With?</span>
                     </h2>
-                    <p className="text-white/60 text-lg font-light leading-relaxed animate-fade-up delay-100">
+                    <p className="text-slate-600 dark:text-white/60 text-lg font-light leading-relaxed animate-fade-up delay-100 transition-colors">
                         Every journey is unique. Select your travel companions to find the perfect itinerary tailored for you.
                     </p>
                 </div>
@@ -62,10 +62,10 @@ const TravellerTypes = () => {
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
                             {/* Card Background - Glass & Gradient */}
-                            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-gold/30 transition-colors duration-500 rounded-[2rem]"></div>
+                            <div className="absolute inset-0 bg-white/20 dark:bg-white/5 backdrop-blur-sm border border-white/40 dark:border-white/10 group-hover:border-emerald-400/50 dark:group-hover:border-gold/30 transition-colors duration-500 rounded-[2rem]"></div>
 
                             {/* Inner Gradient for Depth */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 dark:to-black/80 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
                             {/* Image Container with Masking for Soft Blend */}
                             <div className="absolute inset-0 mask-image-gradient-b">
@@ -77,18 +77,18 @@ const TravellerTypes = () => {
                             </div>
 
                             {/* Hover Glow Effect */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_70%)] pointer-events-none" />
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_70%)] pointer-events-none" />
 
                             {/* Content */}
                             <div className="relative z-10 p-6 w-full text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                                <h3 className="text-2xl font-serif font-bold text-white mb-2 group-hover:text-gold transition-colors duration-300">
+                                <h3 className="text-2xl font-serif font-bold text-white mb-2 group-hover:text-emerald-300 dark:group-hover:text-gold transition-colors duration-300">
                                     {type.title}
                                 </h3>
 
-                                <div className="h-[2px] w-12 bg-white/20 mx-auto mb-4 group-hover:w-20 group-hover:bg-gold transition-all duration-500" />
+                                <div className="h-[2px] w-12 bg-white/40 dark:bg-white/20 mx-auto mb-4 group-hover:w-20 group-hover:bg-emerald-400 dark:group-hover:bg-gold transition-all duration-500" />
 
-                                <div className="flex items-center justify-center gap-2 text-white/70 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                    Select <ArrowRight className="w-4 h-4 text-gold" />
+                                <div className="flex items-center justify-center gap-2 text-white/90 dark:text-white/70 text-sm font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    Select <ArrowRight className="w-4 h-4 text-emerald-300 dark:text-gold" />
                                 </div>
                             </div>
                         </button>

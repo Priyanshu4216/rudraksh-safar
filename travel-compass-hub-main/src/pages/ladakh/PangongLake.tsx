@@ -10,7 +10,7 @@ import SEOHead from '@/components/SEOHead';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
 
 const PangongLake = () => {
-    const heroImage = "/images/ladakh/ladakh-img-4.jpeg";
+    const heroImage = "/images/ladakh/ladakh-img-4.webp";
 
     const structuredData = {
         "@context": "https://schema.org",

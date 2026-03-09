@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Banknote, CreditCard, Smartphone, AlertTriangle, CheckCircle, ArrowRight, Globe, Wallet, XCircle, Building2, Palmtree, Mountain } from 'lucide-react';
+import { Banknote, CreditCard, Smartphone, AlertTriangle, CheckCircle, ArrowRight, Globe, Wallet, XCircle, Building2, Palmtree, Mountain, ShieldAlert, Info } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
+import FAQSection from '@/components/seo/FAQSection';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import { Button } from '@/components/ui/button';
 
 const currencies = [
   { country: 'UAE (Dubai)', currency: 'Dirham (AED)', symbol: 'د.إ', rate: '~₹23-24', cashTip: 'Widely accepted', cardTip: 'Excellent', upi: '✅ Available' },
@@ -21,6 +24,37 @@ const currencies = [
   { country: 'Europe (Schengen)', currency: 'Euro (EUR)', symbol: '€', rate: '~₹90-93', cashTip: 'Cards preferred', cardTip: 'Excellent', upi: 'Select Tourist Spots (Pilot)' },
   { country: 'Japan', currency: 'Japanese Yen (JPY)', symbol: '¥', rate: '~₹0.56', cashTip: 'Still very cash-based', cardTip: 'Improving', upi: '❌ Not available' },
   { country: 'Vietnam', currency: 'Vietnamese Dong (VND)', symbol: '₫', rate: '~₹0.0034', cashTip: 'Essential', cardTip: 'Limited', upi: '❌ Not available' },
+];
+
+const faqs = [
+  {
+    question: "Does the 20% TCS (Tax Collected at Source) apply to International Forex Cards?",
+    answer: "Yes, since October 2023, expenditures over ₹7 Lakhs per financial year using Forex cards or international remittance attract a 20% TCS. However, international Credit Card spends currently fall outside this specific 20% LRS limit, though the RBI updates these policies frequently."
+  },
+  {
+    question: "Should I exchange INR for Baht/Dirhams in India or at the destination airport?",
+    answer: "NEVER exchange money at airports—the markup rates are usually 5% to 15% worse than market value. Always exchange your INR for your destination's local currency through an RBI-authorized broker (AD-II) in your Indian home city 3-4 days prior to departure."
+  },
+  {
+    question: "What is Dynamic Currency Conversion (DCC) and why should I avoid it?",
+    answer: "When sliding your Indian card at a foreign merchant, the machine will often ask, 'Pay in INR or Local Currency?'. Choosing INR triggers DCC. The merchant's bank will apply a terrible exchange rate on the spot. NEVER accept DCC. Always choose to pay in the LOCAL foreign currency."
+  },
+  {
+    question: "Are Niyo Global or Fi Money Forex Cards reliable internationally?",
+    answer: "Yes. Zero-markup cards like Niyo, Scapia, and Fi have revolutionized Indian travel. They charge 0% forex markup compared to traditional bank debit cards which charge 3.5% + GST per swipe. We highly recommend carrying one zero-markup card."
+  },
+  {
+    question: "Can I use Indian UPI directly in Dubai and Singapore without extra charges?",
+    answer: "You can use UPI safely, but the exchange rate applied includes a marginal banking network markup determined by NPCI/Liquid Group at the time of the transaction. It is marginally higher than raw mid-market rates but significantly cheaper than cash conversion."
+  },
+  {
+    question: "What currency is exactly used in Dubai?",
+    answer: "The official currency of Dubai and the UAE is the Emirati Dirham (AED), currently pegged to the US Dollar. One Dirham equals roughly ₹23 to ₹24 INR, making conversion math relatively straightforward for Indian tourists."
+  },
+  {
+    question: "How much minimum cash is physically required for the Thailand Visa on Arrival?",
+    answer: "Thai immigration officials often strictly randomly check if tourists hold the mandatory 10,000 THB per person (or 20,000 THB per family) in physical cash upon entering Suvarnabhumi or DMK. It is highly recommended to carry this in Baht or equivalent USD."
+  }
 ];
 
 const upiCountries = [
@@ -100,6 +134,9 @@ const CurrencyGuide = () => {
         <div className="container max-w-6xl">
           <AnimatedSection>
             <div className="text-center mb-12">
+              <div className="flex justify-center mb-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Currency Guide', path: '/currency-guide' }]} />
+              </div>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                 <Banknote className="w-4 h-4" />
                 Money Planning Guide
@@ -111,9 +148,22 @@ const CurrencyGuide = () => {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 (UPI, Forex & Cards)
               </p>
-              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-4 mb-8">
                 The definitive guide to managing money abroad. We help you choose the right mix of Cash, Cards, and UPI to save money and stay safe.
               </p>
+            </div>
+
+            {/* Featured Snippet Definition */}
+            <div className="mb-12 max-w-4xl mx-auto bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <Info className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-xl font-bold mb-2 text-foreground">What is the best way to carry money internationally?</h2>
+                  <p className="text-secondary-foreground leading-relaxed">
+                    The most financially efficient way for Indians to carry money internationally is a hybrid approach. You should load <strong>60-70%</strong> of your budget onto a zero-markup Forex card for primary spending, carry <strong>15-20%</strong> in physical cash (preferably USD or local currency) for tips and street food, and keep the remaining <strong>10-15%</strong> available via International UPI or a backup Credit Card for absolute emergencies.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* WHO THIS IS FOR */}
@@ -343,8 +393,49 @@ const CurrencyGuide = () => {
             </div>
           </AnimatedSection>
 
+          {/* Market vs Mall Dynamics */}
+          <AnimatedSection delay={305}>
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 mb-12">
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><Palmtree className="text-primary w-6 h-6" /> Street Markets vs. Luxury Malls</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Knowing <em>where</em> you will spend dictates <em>how</em> you should pack money. For instance, if your itinerary is heavily focused on shopping at the massive Chatuchak Weekend Market in Thailand or haggling in the Gold Souk in Dubai, physical cash is absolutely non-negotiable. Smaller merchants will refuse cards or penalize you with a 3% swipe fee.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Conversely, if you are dining at fine restaurants overlooking the Burj Khalifa or paying for entrance tickets at Marina Bay Sands in Singapore, using your zero-markup Forex card or international credit card is far safer and more universally accepted than fumbling with thousands of local notes. Always balance your cash withdrawals based on your daily itinerary.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          {/* Deep Economics Section */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <AnimatedSection delay={310}>
+              <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/50 rounded-2xl p-8 h-full">
+                <ShieldAlert className="w-10 h-10 text-red-600 mb-4" />
+                <h3 className="text-xl font-bold text-red-900 dark:text-red-400 mb-4">The Airport Exchange Scam</h3>
+                <p className="text-sm text-red-800/80 dark:text-red-300/80 leading-relaxed mb-4">
+                  Exchanging your Indian Rupees for foreign currency directly at massive international airport transit zones (such as Changi (SIN), Suvarnabhumi (BKK), or Dubai (DXB)) guarantees your financial ruin for the trip. These counters operate as absolute monopolies in terminal buildings targeting unprepared tourists.
+                </p>
+                <p className="text-sm text-red-800/80 dark:text-red-300/80 leading-relaxed font-bold">
+                  If the real Google rate for 1 USD is ₹84, an airport counter will sell it to you at ₹89 and buy your leftover dollars back at ₹78. That is an outright 10% theft. Always pre-buy currency via an AD-II dealer before taking your flight.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={320}>
+              <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 rounded-2xl p-8 h-full">
+                <AlertTriangle className="w-10 h-10 text-amber-600 mb-4" />
+                <h3 className="text-xl font-bold text-amber-900 dark:text-amber-400 mb-4">Dynamic Currency Conversion (DCC)</h3>
+                <p className="text-sm text-amber-800/80 dark:text-amber-300/80 leading-relaxed mb-4">
+                  When you insert your forex/credit card into a terminal in Dubai or Singapore, the LCD screen will confusingly ask: "Pay in INR or Pay in AED?".
+                </p>
+                <p className="text-sm text-amber-800/80 dark:text-amber-300/80 leading-relaxed font-bold">
+                  NEVER SELECT INR. Selecting INR allows the foreign merchant's POS machine to define the exchange rate, which includes a secretive 4-6% conversion markup. ALWAYS select exactly the local currency (AED/THB/SGD).
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+
           <AnimatedSection delay={350}>
-            <div className="bg-secondary/10 rounded-2xl p-6">
+            <div className="bg-secondary/10 rounded-2xl p-6 mb-12">
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
                 Where to Exchange Currency in India
@@ -372,23 +463,54 @@ const CurrencyGuide = () => {
             </div>
           </AnimatedSection>
 
-          {/* Internal Links */}
-          <AnimatedSection delay={400}>
-            <div className="mt-12 text-center">
-              <h3 className="text-xl font-semibold mb-6">More Travel Resources</h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/travel-checklist" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
-                  Packing Checklist <ArrowRight className="w-4 h-4" />
+          {/* Detailed FAQs with Schema Inside */}
+          <section className="py-12 border-t border-border mb-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-serif font-bold text-center mb-8">Forex Legalities & Travel FAQs</h2>
+              <FAQSection title="" faqs={faqs} />
+            </div>
+          </section>
+
+          {/* Helpful Travel Guides */}
+          <section id="helpful-guides" className="py-12 bg-white/50 border-y max-w-5xl mx-auto mt-12 mb-12">
+            <div className="px-4">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Helpful Travel Guides</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <Link to="/international/thailand/guides" className="px-4 py-3 bg-card border rounded-lg text-sm text-center hover:bg-teal-50 hover:border-teal-200 transition-all font-medium text-muted-foreground hover:text-teal-700 shadow-sm block">
+                  🇹🇭 Thailand Travel Guide
                 </Link>
-                <Link to="/travel-services/visa-assistance" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
-                  Visa Guide <ArrowRight className="w-4 h-4" />
+                <Link to="/international/dubai/DubaiMaster" className="px-4 py-3 bg-card border rounded-lg text-sm text-center hover:bg-teal-50 hover:border-teal-200 transition-all font-medium text-muted-foreground hover:text-teal-700 shadow-sm block">
+                  🌆 Dubai Travel Guide
                 </Link>
-                <Link to="/international-packages" className="inline-flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-full hover:shadow-md transition-shadow">
-                  International Packages <ArrowRight className="w-4 h-4" />
+                <Link to="/budget-tour-packages" className="px-4 py-3 bg-card border rounded-lg text-sm text-center hover:bg-teal-50 hover:border-teal-200 transition-all font-medium text-muted-foreground hover:text-teal-700 shadow-sm block">
+                  💰 Budget Travel Tips
+                </Link>
+                <Link to="/beach-holiday-packages" className="px-4 py-3 bg-card border rounded-lg text-sm text-center hover:bg-teal-50 hover:border-teal-200 transition-all font-medium text-muted-foreground hover:text-teal-700 shadow-sm block">
+                  🏖️ Best Beach Holidays
                 </Link>
               </div>
             </div>
-          </AnimatedSection>
+          </section>
+
+          {/* Commercial CTA */}
+          <section className="mt-12 py-16 text-center bg-primary text-primary-foreground rounded-3xl overflow-hidden relative shadow-2xl">
+            <div className="relative z-10 px-4">
+              <h2 className="text-4xl font-bold mb-6">Plan Your Trip With Rudraksh Safar</h2>
+              <p className="text-xl max-w-2xl mx-auto opacity-90 mb-8">
+                Tired of worrying about currency conversions and budget planning? Let our travel experts design a fully prepaid, hassle-free international holiday tailored precisely to your requirements.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button size="lg" className="bg-white text-primary hover:bg-slate-100 font-bold h-14 px-8 rounded-full shadow-lg text-lg" asChild>
+                  <a href="https://wa.me/919406182174?text=Hi, I want to plan an international trip and need assistance with package pricing.">
+                    Consult an Expert via WhatsApp
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white/10 font-bold h-14 px-8 rounded-full shadow-lg text-lg" asChild>
+                  <Link to="/contact">Request a Callback</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
 

@@ -11,7 +11,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
 
 const LadakhViaManali = () => {
-    const heroImage = "/images/ladakh/ladakh-img-15.jpeg"; // Manali highway
+    const heroImage = "/images/ladakh/ladakh-img-15.webp"; // Manali highway
 
     const structuredData = {
         "@context": "https://schema.org",

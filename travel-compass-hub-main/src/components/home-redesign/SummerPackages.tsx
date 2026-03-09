@@ -2,8 +2,82 @@ import { ArrowRight, Flame, MapPin, Clock, IndianRupee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { SUMMER_PACKAGES } from '@/data/summer2026';
+import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
 
 const SummerPackages = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Helper component for package card to avoid duplication
+    const PackageCard = ({ pkg }: { pkg: any }) => (
+        <Link to={pkg.slug} className="group relative block h-full outline-none">
+            {/* Mobile Interaction Classes Added Here (active:scale-95) */}
+            <div className="relative h-[420px] rounded-[2rem] overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-[0.98] active:shadow-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col md:backdrop-blur-none backdrop-blur-[16px] md:bg-white md:dark:bg-slate-800 bg-white/70 dark:bg-slate-800/80 md:border-slate-200 md:dark:border-slate-700 border-white/40 dark:border-white/10">
+
+                {/* Image Section */}
+                <div className="relative h-[220px] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 opacity-60" />
+                    <img
+                        src={pkg.image}
+                        alt={pkg.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    {/* Tag */}
+                    <div className="absolute top-4 right-4 z-20">
+                        <span className="bg-white/90 dark:bg-slate-900/90 backdrop-blur text-slate-900 dark:text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                            {pkg.tag}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex-1 p-5 flex flex-col justify-between relative bg-white dark:bg-slate-800 md:bg-white bg-transparent">
+                    <div>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">
+                            {pkg.title}
+                        </h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium mb-4 flex items-center gap-1.5">
+                            <MapPin className="w-3.5 h-3.5" /> {pkg.subtitle}
+                        </p>
+
+                        <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 dark:text-slate-300 mb-4">
+                            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded-md">
+                                <Clock className="w-3.5 h-3.5" /> {pkg.duration}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col border-t border-slate-100 dark:border-slate-700 pt-3">
+                        <div className="flex items-end justify-between">
+                            <div>
+                                <p className="text-xs text-slate-400 line-through font-medium">
+                                    {pkg.originalPrice}
+                                </p>
+                                <p className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
+                                    {pkg.price} <span className="text-xs font-normal text-slate-500 ml-1">/ person</span>
+                                </p>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                                <ArrowRight className="w-4 h-4" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Link>
+    );
+
     return (
         <section className="py-24 bg-gradient-to-br from-orange-50/50 via-white to-sky-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 relative overflow-hidden">
 
@@ -45,63 +119,32 @@ const SummerPackages = () => {
 
                     {/* Right Column: Packages Grid */}
                     <div className="lg:w-2/3">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {SUMMER_PACKAGES.slice(0, 3).map((pkg, idx) => (
-                                <Link to={pkg.slug} key={pkg.id} className="group relative block h-full">
-                                    <div className="relative h-[420px] rounded-[2rem] overflow-hidden shadow-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex flex-col">
-
-                                        {/* Image Section */}
-                                        <div className="relative h-3/5 overflow-hidden">
-                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 opactiy-60" />
-                                            <img
-                                                src={pkg.image}
-                                                alt={pkg.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            />
-
-                                            {/* Tag */}
-                                            <div className="absolute top-4 right-4 z-20">
-                                                <span className="bg-white/90 dark:bg-slate-900/90 backdrop-blur text-slate-900 dark:text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                                                    {pkg.tag}
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        {/* Content Section */}
-                                        <div className="flex-1 p-6 flex flex-col justify-between relative bg-white dark:bg-slate-800">
-                                            <div>
-                                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">
-                                                    {pkg.title}
-                                                </h3>
-                                                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium mb-4 flex items-center gap-1.5">
-                                                    <MapPin className="w-3.5 h-3.5" /> {pkg.subtitle}
-                                                </p>
-
-                                                <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 dark:text-slate-300 mb-4">
-                                                    <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded-md">
-                                                        <Clock className="w-3.5 h-3.5" /> {pkg.duration}
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-end justify-between border-t border-slate-100 dark:border-slate-700 pt-4">
-                                                <div>
-                                                    <p className="text-xs text-slate-400 line-through font-medium">
-                                                        {pkg.originalPrice}
-                                                    </p>
-                                                    <p className="text-lg font-bold text-slate-900 dark:text-white flex items-center">
-                                                        {pkg.price} <span className="text-xs font-normal text-slate-500 ml-1">/ person</span>
-                                                    </p>
-                                                </div>
-                                                <div className="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                                                    <ArrowRight className="w-4 h-4" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
+                        {/* Desktop Grid */}
+                        {!isMobile ? (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {SUMMER_PACKAGES.slice(0, 3).map((pkg) => (
+                                    <PackageCard key={pkg.id} pkg={pkg} />
+                                ))}
+                            </div>
+                        ) : (
+                            /* Mobile Swiper */
+                            <div className="-mx-4 px-4 overflow-visible">
+                                <Swiper
+                                    modules={[FreeMode]}
+                                    slidesPerView={1.2}
+                                    spaceBetween={16}
+                                    freeMode={true}
+                                    grabCursor={true}
+                                    className="!pb-8 !overflow-visible"
+                                >
+                                    {SUMMER_PACKAGES.slice(0, 5).map((pkg) => (
+                                        <SwiperSlide key={pkg.id} className="!h-auto">
+                                            <PackageCard pkg={pkg} />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
+                        )}
 
                         {/* Mobile CTA (Visible only on small screens) */}
                         <div className="mt-10 lg:hidden text-center">

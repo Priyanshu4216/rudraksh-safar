@@ -6,6 +6,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { HelpCircle, Plane, Train, Hotel, Car, Globe, FileText, Anchor, MapPin } from 'lucide-react';
+import LeadMagnetCTA from '@/components/conversion/LeadMagnetCTA';
 
 const FAQHub = () => {
     const faqSchema = {
@@ -76,6 +77,17 @@ const FAQHub = () => {
                                 </Link>
                             ))}
                         </div>
+                    </div>
+                </section>
+
+                <section className="py-4">
+                    <div className="container mx-auto px-4 max-w-5xl">
+                        <LeadMagnetCTA
+                            title="Download the Ultimate Travel Prep Checklist"
+                            description="Planning a trip soon? Get our exclusive PDF guide covering everything from packing essentials to visa hacks for Indian travelers."
+                            buttonText="Unlock PDF Checklist"
+                            magnetType="checklist"
+                        />
                     </div>
                 </section>
 

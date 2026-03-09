@@ -18,7 +18,7 @@ import RelatedServices from '@/components/RelatedServices';
 
 const PHONE_NUMBER = '919406182174';
 
-const domesticPackages = [
+export const domesticPackages = [
   {
     id: 'andaman',
     title: 'Andaman Beach Holiday',
@@ -153,9 +153,21 @@ const PackageCard = ({ pkg, index }: { pkg: typeof domesticPackages[0]; index: n
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const getPackageUrl = (pkgId: string) => {
+    const masterSilos: Record<string, string> = {
+      andaman: '/domestic-tours/andaman',
+      kashmir: '/domestic-tours/kashmir',
+      manali: '/domestic-tours/manali',
+      ladakh: '/domestic-tours/ladakh',
+      goa: '/domestic-tours/goa',
+      chardham: '/chardham-yatra-package',
+    };
+    return masterSilos[pkgId] || `/package/${pkgId}`;
+  };
+
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
-      <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
+      <Link to={getPackageUrl(pkg.id)} onClick={() => window.scrollTo(0, 0)} className="block">
         <div className="group glass-card overflow-hidden hover:shadow-elevated transition-all duration-500">
           <div className="relative h-56 image-zoom">
             <img src={pkg.image} alt={`${pkg.title} tour package - ${pkg.location}`} className="w-full h-full object-cover" />
@@ -249,7 +261,7 @@ const DomesticPackages = () => {
       <main className="min-h-screen bg-background">
         <SEOHead
           title="Domestic Tour Packages in India: Compare Holiday Deals 2025"
-          description="Discover the best domestic tour packages in India. Compare budget trips to Goa & Manali vs spiritual journeys like Char Dham. 100% customizable from Bhilai."
+          description="Discover the best domestic tour packages in India. Compare budget trips to Goa & Manali vs spiritual journeys like Char Dham. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh."
           keywords="domestic tour packages India, India holiday packages, family tour packages india, budget domestic trips, pilgrimage tours India, best holiday destinations india"
           canonicalUrl="https://rudrakshsafar.com/domestic-packages"
           structuredData={structuredData}
@@ -397,6 +409,17 @@ const DomesticPackages = () => {
                 </Button>
               </div>
             </AnimatedSection>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <Link to="/chardham-yatra-package" className="px-4 py-2 border rounded-full text-sm hover:bg-orange-500/10 transition">
+                <Sparkles className="inline w-4 h-4 mr-2 text-orange-600" /> Char Dham Yatra
+              </Link>
+              <Link to="/domestic-tours/goa" className="px-4 py-2 border rounded-full text-sm hover:bg-blue-500/10 transition">
+                <MapPin className="inline w-4 h-4 mr-2 text-blue-600" /> Goa Travel Guide
+              </Link>
+              <Link to="/contact" className="px-4 py-2 border rounded-full text-sm hover:bg-purple-500/10 transition">
+                <UserCheck className="inline w-4 h-4 mr-2 text-purple-600" /> Contact Our Experts
+              </Link>
+            </div>
           </div>
         </section>
         <FAQsSection
@@ -423,7 +446,7 @@ const DomesticPackages = () => {
         <RelatedServices mode="packages" />
         <Footer />
         <FloatingWhatsApp />
-      </main>
+      </main >
     </>
   );
 };

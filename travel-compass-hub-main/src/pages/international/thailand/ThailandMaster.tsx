@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { MapPin, Plane, Utensils, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import SmartImage from '../../../components/SmartImage';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import { Anchor } from 'lucide-react';
 
 const ThailandMaster = () => {
     const faqSchema = {
@@ -35,6 +37,13 @@ const ThailandMaster = () => {
             <Navbar />
 
             <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-foreground">
+
+                {/* Breadcrumbs */}
+                <div className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-3">
+                    <div className="container">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'International Packages', path: '/international-packages' }, { label: 'Thailand', path: '/international-tours/thailand' }]} />
+                    </div>
+                </div>
 
                 {/* HERO SECTION */}
                 <div className="relative h-[70vh] flex items-center justify-center overflow-hidden">
@@ -231,6 +240,41 @@ const ThailandMaster = () => {
                     </div>
                 </div>
 
+                {/* TOP ATTRACTIONS ENTITY NETWORK */}
+                <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/20 dark:to-blue-950/20 py-20 border-t border-slate-100 dark:border-slate-800">
+                    <div className="container">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4">Must-Do Experiences in Thailand</h2>
+                            <p className="text-muted-foreground max-w-2xl mx-auto">
+                                Elevate your itinerary with these iconic landmarks and activities. Include these in your custom package.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <Link to="/destinations/thailand/attractions/bangkok/chao-phraya-cruise" className="block group">
+                                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all h-full">
+                                    <Anchor className="w-8 h-8 text-indigo-600 mb-4" />
+                                    <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600 transition-colors">Chao Phraya Princess Cruise</h3>
+                                    <p className="text-sm text-muted-foreground">Sail past the Grand Palace and Wat Arun while enjoying a luxurious international buffet dinner on Bangkok's River of Kings.</p>
+                                </div>
+                            </Link>
+                            <Link to="/destinations/thailand/attractions/pattaya/coral-island" className="block group">
+                                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all h-full">
+                                    <Plane className="w-8 h-8 text-blue-600 mb-4" />
+                                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Coral Island Pattaya</h3>
+                                    <p className="text-sm text-muted-foreground">Experience crystal clear waters, parasailing, and sea walking just a speedboat ride away from Pattaya.</p>
+                                </div>
+                            </Link>
+                            <Link to="/destinations/thailand/attractions/phuket/phi-phi-island" className="block group">
+                                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all h-full">
+                                    <MapPin className="w-8 h-8 text-cyan-600 mb-4" />
+                                    <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-600 transition-colors">Phi Phi Island Tour</h3>
+                                    <p className="text-sm text-muted-foreground">Visit the famous Maya Bay and snorkel in the emerald waters of the Andaman Sea.</p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
                 {/* WHY US SECTION */}
                 <div className="bg-slate-100 dark:bg-slate-900 py-20">
                     <div className="container">
@@ -270,6 +314,24 @@ const ThailandMaster = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* INTERNAL HUB LINKS (PHASE 2C) */}
+                <section className="py-12 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800">
+                    <div className="container">
+                        <h3 className="text-xl font-bold mb-6">Explore More International Guides</h3>
+                        <div className="flex flex-wrap gap-4">
+                            <Link to="/international-packages" className="px-4 py-2 border rounded-full text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                                🌍 View All International Packages
+                            </Link>
+                            <Link to="/currency-guide" className="px-4 py-2 border rounded-full text-sm hover:bg-green-500/10 transition text-green-700 dark:text-green-400">
+                                💸 International Travel Currency Guide
+                            </Link>
+                            <Link to="/budget-tour-packages" className="px-4 py-2 border rounded-full text-sm hover:bg-orange-500/10 transition text-orange-700 dark:text-orange-400">
+                                🎒 Budget International Trips
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 {/* FAQ SECTION */}
                 <div className="container py-20 max-w-4xl">

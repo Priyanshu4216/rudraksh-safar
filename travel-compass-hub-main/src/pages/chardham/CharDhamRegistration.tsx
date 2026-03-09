@@ -125,18 +125,9 @@ const CharDhamRegistration = () => {
                     </section>
 
                     {/* FAQs */}
-                    <section>
-                        <h2 className="text-2xl font-bold mb-6 text-center">Registration FAQs</h2>
-                        <div className="grid gap-4 max-w-3xl mx-auto">
-                            {faqs.map((faq, i) => (
-                                <div key={i} className="bg-card p-5 rounded-xl border border-border">
-                                    <h3 className="font-bold mb-2 flex gap-2">
-                                        <AlertTriangle className="h-5 w-5 text-yellow-600 shrink-0" /> {faq.question}
-                                    </h3>
-                                    <p className="text-sm text-muted-foreground ml-7">{faq.answer}</p>
-                                </div>
-                            ))}
-                        </div>
+                    
+                    <section className="mb-12">
+                        <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                     </section>
 
                     <div className="text-center">
@@ -148,6 +139,110 @@ const CharDhamRegistration = () => {
 
                 </div>
             </main>
+            
+            {/* --- DEEP SEO CONTENT BLOCKS --- */}
+            <section id="deep-seo" className="py-16 bg-muted/20">
+                <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Why is Char Dham Yatra Registration Mandatory?</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            The **Char Dham Yatra Registration**, also widely known as the Yatra E-Pass or Photo Registration, is a mandatory governmental protocol enforced by the Uttarakhand Tourism Development Board. Following the tragic 2013 floods, the administration implemented strict tracking systems to effectively manage crowd capacities, ensure public safety, and quickly identify pilgrims during natural emergencies or medical evacuations.
+                        </p>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            Without a valid Yatra Registration document (either digital or printed), you will be denied entry at the physical checkpoints erected near Barkot, Uttarkashi, Sonprayag (for Kedarnath), and Joshimath (for Badrinath). Moreover, booking helicopter tickets to Kedarnath requires validating your Registration ID.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">How to Register for Char Dham Yatra 2026?</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            The government provides three highly accessible methods for pilgrims. At Rudraksh Safar, we facilitate this entirely for users who book packages with us. However, if you are registering independently, here are the steps:
+                        </p>
+                        <div className="space-y-6">
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-blue-600 mb-2">1. Through the Official Web Portal</h3>
+                                <p className="text-muted-foreground">Visit the official Uttarakhand Tourist Care website (registrationandtouristcare.uk.gov.in). Create an account using your mobile number, fill in passenger details, upload a government-approved ID (Aadhar Card/Voter ID), and select the respective shrine travel dates. Once verified, download the PDF Yatri pass.</p>
+                            </div>
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-green-600 mb-2">2. Through the "Tourist Care Uttarakhand" Mobile App</h3>
+                                <p className="text-muted-foreground">Available on Android and iOS. The app allows users to simply scan their Aadhar card, auto-fill the forms, and store the digital QR-coded pass locally on their smartphone. This is highly recommended as internet connectivity can be sparse in the upper Himalayas.</p>
+                            </div>
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-purple-600 mb-2">3. Via WhatsApp Automated Bot</h3>
+                                <p className="text-muted-foreground">The government introduced a WhatsApp bot. Save the number +91-8394833833, send "Yatra", and interact with the prompts. It will ask for details and issue the registration directly to your chat inbox.</p>
+                            </div>
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-orange-600 mb-2">4. Offline Verification Centers (Physical)</h3>
+                                <p className="text-muted-foreground">If digital access fails, you can physically register by showing your original ID proof at centers situated in Haridwar (Rahi Hotel), Rishikesh (ISBT), Barkot, or Sonprayag. Note: Relying on offline centers can result in hours of waiting queues during peak season.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Essential Documents Needed</h2>
+                        <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                            <li><strong>Primary ID Proof:</strong> Aadhar Card, Voter ID Card, PAN Card, Driving License, or Passport.</li>
+                            <li><strong>Recent Photograph:</strong> A passport-size photo (soft copy for digital registration).</li>
+                            <li><strong>Medical Certificate:</strong> While not strictly mandatory for registration, travelers above 50 must fill out health declarations, particularly screening for heart and blood pressure anomalies.</li>
+                        </ul>
+                    </div>
+                
+
+                    <div className="mt-12 border-t pt-12 border-border/50">
+                        <h2 className="text-3xl font-bold mb-4">Step-by-Step Registration & Common Mistakes</h2>
+                        
+                        <div className="mb-8">
+                            <h3 className="text-xl font-bold text-foreground mb-3">The Registration Process Workflow</h3>
+                            <ol className="list-decimal pl-6 space-y-3 text-lg text-muted-foreground">
+                                <li><strong>Sign Up:</strong> Create an account on the official Tourist Care Uttarakhand portal using your mobile number and email.</li>
+                                <li><strong>Create Yatra Plan:</strong> Add tour type (Char Dham/Do Dham), select tour mode (road/heli), and add exact dates.</li>
+                                <li><strong>Add Pilgrims:</strong> Input personal details for every individual in the group. Upload high-res passport photos and Aadhar.</li>
+                                <li><strong>Generate Yatra Letter:</strong> Confirm submission and download the unique barcode-enabled Yatra Registration Pass PDF to your phone.</li>
+                            </ol>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-red-50 dark:bg-red-950/20 p-6 rounded-xl border border-red-200">
+                                <h3 className="text-xl font-bold text-red-600 mb-3">Top Mistakes to Avoid</h3>
+                                <ul className="space-y-2 text-muted-foreground list-disc pl-5">
+                                    <li>Mismatch between Aadhar name and Registration form.</li>
+                                    <li>Attempting to book helicopter tickets without a valid Yatri ID.</li>
+                                    <li>Waiting until the arrival in Haridwar to register (offline queues are massive).</li>
+                                    <li>Booking a non-approved medical certificate format for seniors.</li>
+                                </ul>
+                            </div>
+                            
+                            <div className="bg-green-50 dark:bg-green-950/20 p-6 rounded-xl border border-green-200">
+                                <h3 className="text-xl font-bold text-green-600 mb-3">Helicopter Booking Rules</h3>
+                                <p className="text-muted-foreground mb-3">
+                                    The IRCTC portal is the <strong>ONLY</strong> authorized agency to sell Kedarnath helicopter tickets.
+                                </p>
+                                <p className="text-muted-foreground">
+                                    Do not fall for black-market scams. A valid Yatra Registration Number is mandated by the IRCTC interface before it allows you to even check seat availability.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Conversion Layer */}
+                        <div className="bg-orange-50 dark:bg-orange-950/30 p-8 rounded-2xl border-2 border-orange-500 text-center my-10">
+                            <h3 className="text-3xl font-bold mb-4">Let Us Handle the Red Tape</h3>
+                            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                Skip the stress of server crashes and registration forms. Book an all-inclusive Char Dham Yatra package and our backend team will secure all your permits, priority Darshan passes, and helicopter tickets.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <a href="https://wa.me/919406182174?text=CharDham%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                    Speak to Our Tour Experts
+                                </a>
+                                <Link to="/chardham-yatra-package" className="bg-white text-orange-600 font-bold border-2 border-orange-600 px-8 py-4 rounded-full text-lg hover:bg-orange-50 transition">
+                                    Explore Packages
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+            </section>
+
             <Footer />
             <FloatingWhatsApp />
         </>

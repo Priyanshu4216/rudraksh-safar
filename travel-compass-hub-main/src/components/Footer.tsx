@@ -20,6 +20,11 @@ const quickLinks = [
   { name: 'Budget Goa Itinerary', href: '/goa-budget-itinerary-from-bhilai' },
   { name: 'Bhilai Tour Packages', href: '/tour-packages-from-bhilai' },
   { name: 'Travel Agent Bhilai', href: '/travel-agent-bhilai' },
+  { name: 'Travel Tips & Hacks', href: '/travel-tips' },
+  { name: 'Travel Health Guide', href: '/travel-health' },
+  { name: 'Pre-Travel Checklist', href: '/travel-checklist' },
+  { name: 'Passport Application Guide', href: '/travel-services/passport-assistance' },
+  { name: 'Visa Assistance Center', href: '/travel-services/visa-assistance' },
 ];
 
 const legalLinks = [

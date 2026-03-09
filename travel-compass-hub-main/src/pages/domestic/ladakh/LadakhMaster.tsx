@@ -5,7 +5,7 @@ const ladakhData: DestinationData = {
     id: 'ladakh-master',
     title: 'Ladakh Tour Packages',
     subtitle: 'The Land of High Passes | 2026 Expeditions Open',
-    heroImage: '/images/ladakh/ladakh-img-12.jpeg',
+    heroImage: '/images/ladakh/ladakh-img-12.webp',
     overview: `Ladakh isn't just a destination; it's a feeling. Often called "Little Tibet," this high-altitude desert offers landscapes that seem to belong to another planet. From the azure waters of Pangong Tso to the white sands of Nubra Valley, every turn in Ladakh leaves you breathless—literally and metaphorically. Whether you choose the adventurous Manali-Leh highway or the scenic Srinagar-Leh route, Rudraksh Safar ensures a safe, premium, and unforgettable expedition.`,
     highlights: [
         'Conquer Khardung La (World\'s Highest Motorable Pass)',
@@ -32,7 +32,7 @@ const ladakhData: DestinationData = {
             title: 'Ultimate Ladakh Bike Expedition',
             duration: '10 Days / 9 Nights',
             price: '₹35,500',
-            image: '/images/ladakh/ladakh-img-1.jpeg',
+            image: '/images/ladakh/ladakh-img-1.webp',
             link: '/ladakh-bike-trip-packages',
             tag: 'Adventure'
         },
@@ -41,7 +41,7 @@ const ladakhData: DestinationData = {
             title: 'Ladakh Family Flight Package',
             duration: '6 Days / 5 Nights',
             price: '₹28,999',
-            image: '/images/ladakh/ladakh-img-11.jpeg',
+            image: '/images/ladakh/ladakh-img-11.webp',
             link: '/domestic-tours/ladakh-from-raipur',
             tag: 'Family'
         },
@@ -59,22 +59,22 @@ const ladakhData: DestinationData = {
         {
             title: 'Pangong Lake',
             description: 'The world-famous color-changing lake. A night camp here is mandatory for stargazing.',
-            image: '/images/ladakh/ladakh-img-4.jpeg'
+            image: '/images/ladakh/ladakh-img-4.webp'
         },
         {
             title: 'Nubra Valley',
             description: 'A high-altitude cold desert with white sand dunes and Bactrian camels.',
-            image: '/images/ladakh/ladakh-img-5.jpeg'
+            image: '/images/ladakh/ladakh-img-5.webp'
         },
         {
             title: 'Umling La Pass',
             description: 'Higher than Khardung La. The new challenge for bikers at 19,300 ft.',
-            image: '/images/ladakh/ladakh-img-6.jpeg'
+            image: '/images/ladakh/ladakh-img-6.webp'
         },
         {
             title: 'Shanti Stupa',
             description: 'A white-domed Buddhist stupa on a hilltop in Chanspa, Leh district.',
-            image: '/images/ladakh/ladakh-img-7.jpeg'
+            image: '/images/ladakh/ladakh-img-7.webp'
         }
     ],
     bestTime: {

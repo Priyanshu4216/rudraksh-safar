@@ -6,19 +6,19 @@
 
 @layer base {
   :root {
-    /* --- ELITE LUXURY PALETTE (Day Mode / Base) --- */
-    /* Primary Backgrounds - Deep & Layered */
-    --background: 222 47% 11%;
-    /* #0F172A - Deep Navy Blue (Main BG) */
-    --foreground: 210 40% 98%;
-    /* #F8FAFC - Soft White (Text) */
+    /* --- ELITE LUXURY PALETTE (Day Mode / Light Mode) --- */
+    /* Primary Backgrounds - Clean & Bright */
+    --background: 0 0% 100%;
+    /* #FFFFFF - White (Main BG) */
+    --foreground: 222 47% 11%;
+    /* #0F172A - Deep Navy Blue (Text) */
 
-    --card: 217 33% 17%;
-    /* #1E293B - Lighter Navy (Cards) */
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    /* #FFFFFF - White (Cards) */
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     /* Brand Colors */
     --primary: 43 74% 66%;
@@ -26,14 +26,14 @@
     --primary-foreground: 222 47% 11%;
     /* Dark text on Gold */
 
-    --secondary: 215 25% 27%;
-    /* #334155 - Slate Navy (Secondary Elements) */
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 214 32% 91%;
+    /* #E2E8F0 - Slate 200 (Secondary Elements) */
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 217 33% 17%;
+    --muted: 214 32% 91%;
     /* Muted backgrounds */
-    --muted-foreground: 215 20% 65%;
-    /* Muted text */
+    --muted-foreground: 215 16% 47%;
+    /* Slate 500 */
 
     --accent: 142 76% 36%;
     /* #16A34A - Emerald Green (Success / Trust / Call) */
@@ -42,9 +42,9 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 20%;
+    --border: 214 32% 91%;
     /* Subtle border */
-    --input: 217 33% 17%;
+    --input: 214 32% 91%;
     --ring: 43 74% 66%;
     /* Gold focus ring */
 
@@ -54,22 +54,22 @@
     --gold-dim: 43 50% 50%;
     --gold-bright: 43 85% 75%;
 
-    --navy-deep: 222 47% 11%;
-    /* #0B1220 - Deepest Background */
-    --navy-light: 217 33% 17%;
-    /* #1E293B - Section/Card Background */
-    --navy-lighter: 215 25% 27%;
-    /* #334155 - Hover State */
+    --navy-deep: 214 32% 98%;
+    /* Slate 50 - Lightest Background */
+    --navy-light: 214 32% 95%;
+    /* Slate 100 - Section/Card Background */
+    --navy-lighter: 214 32% 91%;
+    /* Slate 200 - Hover State */
 
     /* Glass Effects */
-    --glass-bg: 222 47% 11% / 0.7;
-    --glass-border: 210 40% 98% / 0.1;
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 0% / 0.1;
     --glass-shadow: 0 0 0 transparent;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(43 74% 66%), hsl(43 85% 75%));
-    --gradient-ocean: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
-    --gradient-hero: linear-gradient(180deg, rgba(11, 18, 32, 0.3) 0%, rgba(11, 18, 32, 0.8) 100%);
+    --gradient-ocean: linear-gradient(180deg, hsl(214 32% 98%) 0%, hsl(214 32% 95%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.8) 100%);
 
     /* Shadows - Soft & Deep */
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
@@ -106,12 +106,27 @@
     --border: 217 33% 20%;
     --input: 217 33% 17%;
     --ring: 43 74% 66%;
+
+    /* Restore Dark Custom Luxury Variables */
+    --navy-deep: 222 47% 11%;
+    --navy-light: 217 33% 17%;
+    --navy-lighter: 215 25% 27%;
+
+    --glass-bg: 222 47% 11% / 0.7;
+    --glass-border: 210 40% 98% / 0.1;
+
+    --gradient-ocean: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(11, 18, 32, 0.3) 0%, rgba(11, 18, 32, 0.8) 100%);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -298,5 +313,69 @@
   .min-h-screen {
     min-height: 100vh;
     min-height: -webkit-fill-available;
+  }
+
+  /* --- APPLE SAFE MODE HARDENING --- */
+  .apple-device body {
+    min-height: -webkit-fill-available;
+  }
+
+  .apple-device #root,
+  .apple-device #app {
+    min-height: -webkit-fill-available;
+  }
+
+  .apple-device .h-screen {
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: -webkit-fill-available !important;
+  }
+
+  .apple-device .flex,
+  .apple-device [class*="flex"] {
+    min-height: 0;
+  }
+
+  .apple-device #root,
+  .apple-device .site-wrapper,
+  .apple-device .main-wrapper {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .apple-device .backdrop-blur,
+  .apple-device [style*="backdrop-filter"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* --- MOBILE LUXURY UX EXPERIENCES --- */
+  @media (max-width: 768px) {
+    .animate-soft-pulse {
+      animation: softPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes softPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    /* Force mobile sections to have hidden overflow initially for GSAP */
+    .mobile-gsap-reveal {
+      opacity: 0;
+      transform: translateY(60px);
+    }
   }
 }

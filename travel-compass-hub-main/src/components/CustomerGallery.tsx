@@ -21,19 +21,19 @@ const CustomerGallery = ({
 }: CustomerGalleryProps) => {
     const photos = [
         {
-            src: "/images/happy-group.jpeg",
+            src: "/images/happy-group.webp",
             destination: "Chardham Yatra",
             names: "Palesh Ji, Suresh Ji, Ishwar Ji & Ashwani Ji",
             details: "With Rudraksh Safar Team"
         },
         {
-            src: "/images/Yamini-NayakGroupNepal.jpeg",
+            src: "/images/Yamini-NayakGroupNepal.webp",
             destination: "Nepal Tour",
             names: "Yamini Nayak Ji & Group",
             details: "Group Holiday"
         },
         {
-            src: "/images/naman-in-musiyari.jpeg",
+            src: "/images/naman-in-musiyari.webp",
             destination: "Munsiyari Trip",
             names: "Naman Ji & Group",
             details: "Group Adventure"
@@ -51,7 +51,7 @@ const CustomerGallery = ({
             details: "Couple Tour"
         },
         {
-            src: "/images/WhatsApp-Image-2026-02-05-at-7.29.41-PM.jpeg", // Raju Yadav
+            src: "/images/WhatsApp-Image-2026-02-05-at-7.29.41-PM.webp", // Raju Yadav
             destination: "Manali Visit",
             names: "Raju Yadav Ji",
             details: "Family Trip"

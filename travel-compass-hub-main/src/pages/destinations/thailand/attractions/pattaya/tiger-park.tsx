@@ -27,7 +27,7 @@ const TigerPark = () => {
             {/* 1. HERO STORY SECTION */}
             <div className="relative h-[60vh] md:h-[80vh] min-h-[500px]">
                 <img
-                    src="/images/Discover/Thailand/Pattaya/tiger parl.jpg"
+                    src="/images/Discover/Thailand/Pattaya/tiger parl.webp"
                     alt="Tiger Park"
                     className="w-full h-full object-cover"
                 />

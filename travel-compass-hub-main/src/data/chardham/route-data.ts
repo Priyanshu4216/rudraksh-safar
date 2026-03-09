@@ -33,6 +33,7 @@ export interface RoutePageData {
         duration: string;
     };
     segments: RouteSegment[];
+    faqs: { question: string; answer: string }[];
 }
 
 export const routeData: RoutePageData = {
@@ -47,6 +48,32 @@ export const routeData: RoutePageData = {
         totalDistance: '1,607 km (Approx)',
         duration: '10-12 Days'
     },
+    faqs: [
+        {
+            question: "In what order should the Char Dham Yatra be completed?",
+            answer: "The traditional and most auspicious route follows a clockwise direction from West to East: starting at Yamunotri, proceeding to Gangotri, then Kedarnath, and finally concluding at Badrinath."
+        },
+        {
+            question: "How many days are strictly required for the entire Char Dham road trip?",
+            answer: "If traveling by road from Haridwar or Dehradun, you need a minimum of 10 to 12 days to complete the circuit comfortably, allowing for acclimatization and unexpected weather delays."
+        },
+        {
+            question: "Which Dham has the toughest trek?",
+            answer: "Kedarnath has the longest and toughest trek (16-18 km from Gaurikund). Yamunotri also involves a steep 6 km trek. Gangotri and Badrinath are accessible directly by motorable roads."
+        },
+        {
+            question: "Is it safe to drive the Char Dham route at night?",
+            answer: "No, night driving in the Garhwal Himalayas is highly discouraged and often restricted by local authorities due to the risk of landslides, low visibility, and steep, winding roads without guardrails."
+        },
+        {
+            question: "Can I do the Char Dham Yatra in an electric vehicle (EV)?",
+            answer: "While charging infrastructure is slowly improving, relying solely on an EV for the entire circuit is currently risky due to massive elevation changes and scarce fast chargers in remote areas like Harsil or Sonprayag."
+        },
+        {
+            question: "What is the best month to travel on this route?",
+            answer: "The best times are May to June (pre-monsoon) and September to October (post-monsoon). July and August should be avoided due to heavy rainfall, resulting in frequent road blockages and landslides."
+        }
+    ],
     segments: [
         {
             title: 'Leg 1: The Gateway to Yamuna',

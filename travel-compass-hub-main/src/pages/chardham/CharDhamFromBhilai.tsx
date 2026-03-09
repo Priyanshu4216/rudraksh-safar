@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { Train, Plane, MapPin, Calendar, CheckCircle2, ArrowRight, TrainFront } from 'lucide-react';
+import FAQSection from '@/components/seo/FAQSection';
 
 const CharDhamFromBhilai = () => {
     const { meta, hero, transport, itinerary, faqs } = bhilaiData;
@@ -181,28 +182,88 @@ const CharDhamFromBhilai = () => {
                     </section>
 
                     {/* 3. FAQs */}
-                    <section>
-                        <h2 className="text-2xl font-bold mb-6 text-center">Bhilai Traveller FAQs</h2>
-                        <div className="grid gap-4 max-w-3xl mx-auto">
-                            {faqs.map((faq, i) => (
-                                <div key={i} className="bg-card p-5 rounded-xl border border-border">
-                                    <h3 className="font-bold mb-2 flex gap-2">
-                                        <MapPin className="h-5 w-5 text-orange-600 shrink-0" /> {faq.question}
-                                    </h3>
-                                    <p className="text-sm text-muted-foreground ml-7">{faq.answer}</p>
-                                </div>
-                            ))}
-                        </div>
+                    <section className="mb-12">
+                        <FAQSection title="Bhilai Traveller FAQs" faqs={faqs} />
                     </section>
 
-                    <div className="text-center">
+                    <div className="text-center pb-12">
                         <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
                             <Link to="/chardham-yatra-package">Get Quote from Durg/Raipur</Link>
                         </Button>
                     </div>
 
+                    {/* --- DEEP SEO CONTENT BLOCKS --- */}
+                    <section id="deep-seo" className="py-16 bg-muted/20 rounded-3xl mb-12">
+                        <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Complete Guide to Char Dham Yatra From Bhilai & Raipur</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    Undertaking the sacred **Char Dham Yatra from Bhilai, Durg, or Raipur** is a deeply spiritual journey that requires meticulous planning. The Yatra traditionally covers the four holy shrines located in the high Himalayas of Uttarakhand: Yamunotri, Gangotri, Kedarnath, and Badrinath. For pilgrims traveling from Chhattisgarh, logistics—including train bookings, flights, helicopter tickets, and accommodation—can be overwhelming. Rudraksh Safar specializes in organizing seamless, all-inclusive Char Dham Yatra packages specifically tailored for Central Indian devotees.
+                                </p>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    Most Yatris from Bhilai prefer to take connecting trains from Durg Junction or flights from Swami Vivekananda Airport (Raipur) to Delhi or Dehradun. From Haridwar or Rishikesh, the real mountain journey begins. Our packages include premium tempo travelers, experienced mountain drivers, pre-booked hygienic hotels, and VIP Darshan arrangements where applicable.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Route Map & Distance Guide (Chhattisgarh to Uttarakhand)</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    Understanding the route map is crucial. Here is the standard trajectory our pilgrims follow:
+                                </p>
+                                <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                                    <li><strong>Leg 1: Bhilai to Delhi/Haridwar.</strong> Travel via flight (Raipur to Delhi - 1.5 hrs) or train (Durg to Hazrat Nizamuddin - 18 hrs).</li>
+                                    <li><strong>Leg 2: Haridwar to Barkot (Yamunotri).</strong> A 200 km drive into the mountains. Yamunotri requires a 6km steep trek from Janki Chatti.</li>
+                                    <li><strong>Leg 3: Barkot to Uttarkashi (Gangotri).</strong> Exploring the origin of the holy River Ganga. The drive is scenic and the temple is directly accessible by road.</li>
+                                    <li><strong>Leg 4: Uttarkashi to Guptkashi/Sonprayag (Kedarnath).</strong> The most physically demanding leg. Includes a 16km trek. Helicopter services from Phata/Sirsi are heavily utilized by our senior citizen guests.</li>
+                                    <li><strong>Leg 5: Kedarnath to Badrinath.</strong> A spiritual culmination at the temple of Lord Vishnu, accessible by road via Joshimath.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Medical & Physical Preparedness</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    The altitudes at Kedarnath (11,755 ft) and Badrinath (10,826 ft) can induce acute mountain sickness (AMS) in unacclimatized travelers. We strongly advise pilgrims from the plains of Chhattisgarh to consult their physicians before booking. Engaging in brisk walking and breathing exercises (Pranayama) at least a month prior to departure dramatically improves oxygen retention in the mountains. We carry basic first aid kits and portable oxygen canisters in our expedition vehicles to ensure absolute safety.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                                <div className="flex flex-wrap gap-4 mt-4">
+                                    <Link to="/kedarnath-temple" className="text-orange-600 hover:underline font-medium">Kedarnath Temple Details</Link>
+                                    <Link to="/badrinath-temple" className="text-orange-600 hover:underline font-medium">Badrinath Guide</Link>
+                                    <Link to="/chardham-yatra-registration-process" className="text-orange-600 hover:underline font-medium">Yatra Registration</Link>
+                                    <Link to="/is-chardham-yatra-safe" className="text-orange-600 hover:underline font-medium">Is the Yatra Safe?</Link>
+                                    <Link to="/chardham-yatra-package" className="text-orange-600 hover:underline font-medium">View All Char Dham Packages</Link>
+                                </div>
+                            </div>
+
+                            <div className="mt-12 border-t pt-12 border-border/50">
+                                <h2 className="text-3xl font-bold mb-4">The Religious Merit (Punya) and Spiritual Context</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    According to Hindu theology, undertaking the Char Dham Yatra washes away the sins of a lifetime and opens the doors to Moksha (liberation). Translating to "four abodes," this circuit was originally pioneered by the great 8th-century philosopher Adi Shankaracharya to revive the Hindu faith across the vast expanse of the Indian subcontinent. For devotees leaving their homes in Bhilai, crossing central India into the heart of Devbhoomi (The Land of Gods) marks a transition from materialistic life into deep, reflective spirituality.
+                                </p>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    The strict progression of the Yatra flows from West to East, mimicking the flow of cosmic energy. It starts at Yamunotri (dedicated to Goddess Yamuna), proceeds to Gangotri (the mythological source of the holy River Ganga), heads to Kedarnath (revering Lord Shiva as one of the 12 Jyotirlingas), and concludes at Badrinath (the sprawling temporal estate of Lord Vishnu). This precise geographical and spiritual progression is why Rudraksh Safar ensures our itineraries are perfectly aligned with Vedic sequencing.
+                                </p>
+
+                                <h2 className="text-3xl font-bold mb-4 mt-8">Catering to Senior Citizens from Chhattisgarh</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    A significant percentage of the pilgrims undertaking this journey from Raipur and Bhilai are senior citizens supported by their children. We understand that multi-day mountain travel is exhausting. To counter the fatigue of traversing high Himalayan passes in a bus or traveler, our VIP packages focus heavily on pacing.
+                                </p>
+                                <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground mb-4">
+                                    <li><strong>Phased Acclimatization:</strong> Instead of rushing from sea-level plains straight to 10,000 feet, our itineraries include buffer nights at intermediary altitudes like Haridwar, Barkot, and Guptkashi.</li>
+                                    <li><strong>Helicopter Priority:</strong> The 16-kilometer Kedarnath trek is brutal on the knees of the elderly. Our elite VIP Darshan packages secure highly sought-after tickets on Pawan Hans or Himalayan Heli charters operating out of Sirsi and Phata.</li>
+                                    <li><strong>Dietary Needs:</strong> Recognizing the Sattvic diet required during a pilgrimage, our partner hotels across the Char Dham circuit serve pure vegetarian, mildly spiced meals suitable for travelers hailing from Central India.</li>
+                                </ul>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    No journey to the heavens is entirely predictable. Landslides across the treacherous Rudraprayag to Joshimath belt can halt traffic for hours. Our expert ground teams maintain real-time communication with the Uttarakhand Border Roads Organisation (BRO) to reroute travelers or provide comfortable temporary halting points. Ensuring our pilgrims from Chhattisgarh never feel stranded in the mountains is what separates Rudraksh Safar from generic travel operators.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </main>
+
             <Footer />
             <FloatingWhatsApp />
         </>

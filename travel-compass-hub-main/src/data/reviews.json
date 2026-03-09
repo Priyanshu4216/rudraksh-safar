@@ -1,0 +1,41 @@
+{
+    "rating": 4.9,
+    "totalReviews": 154,
+    "reviews": [
+        {
+            "authorName": "Shruti Sharma",
+            "rating": 5,
+            "text": "Booked my Dubai family trip from Bhilai through Rudraksh Safar. The entire process was seamless, from visa assistance to hotel bookings. Special thanks to Mr. Priyanshu for the personalized itinerary. Highly recommended!",
+            "time": "2 weeks ago",
+            "profilePhotoUrl": "https://lh3.googleusercontent.com/a/O-placeholder"
+        },
+        {
+            "authorName": "Rahul Verma",
+            "rating": 5,
+            "text": "We took a package for Thailand (Bangkok & Pattaya). Everything was very well organized. The local guides were punctual, and the vegetarian food arrangements were excellent as requested. Best travel agent in Raipur/Bhilai.",
+            "time": "1 month ago",
+            "profilePhotoUrl": "https://lh3.googleusercontent.com/a/O-placeholder"
+        },
+        {
+            "authorName": "Anjali Deshmukh",
+            "rating": 5,
+            "text": "Amazing experience with Rudraksh Safar for our honeymoon trip to Kashmir. The houseboats, Srinagar sightseeing, and Gulmarg snow activities were arranged flawlessly. They provided 24/7 support throughout the journey.",
+            "time": "2 months ago",
+            "profilePhotoUrl": "https://lh3.googleusercontent.com/a/O-placeholder"
+        },
+        {
+            "authorName": "Vikram Singh",
+            "rating": 5,
+            "text": "I was looking for a Chardham Yatra package and found Rudraksh Safar. Their knowledge about the routes, VIP darshan arrangements, and hotel quality in Kedarnath/Badrinath is commendable. Very safe and reliable.",
+            "time": "3 months ago",
+            "profilePhotoUrl": "https://lh3.googleusercontent.com/a/O-placeholder"
+        },
+        {
+            "authorName": "Megha Nair",
+            "rating": 4,
+            "text": "Great service for Singapore and Malaysia tour. Very transparent pricing with no hidden costs. The only minor hiccup was a slight delay in airport pickup, but the team resolved it immediately via WhatsApp.",
+            "time": "4 months ago",
+            "profilePhotoUrl": "https://lh3.googleusercontent.com/a/O-placeholder"
+        }
+    ]
+}

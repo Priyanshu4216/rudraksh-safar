@@ -40,7 +40,7 @@ const PopularDestinations = () => {
 
                             <div className="absolute top-4 left-4">
                                 {/* Premium subtle tag */}
-                                <span className="px-3 py-1 text-xs font-semibold bg-white/95 backdrop-blur-md text-slate-800 rounded-full shadow-sm tracking-wide">
+                                <span className="px-3 py-1 text-xs font-semibold bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-slate-800 dark:text-white rounded-full shadow-sm tracking-wide">
                                     {dest.tag}
                                 </span>
                             </div>

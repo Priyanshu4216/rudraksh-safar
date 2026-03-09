@@ -16,32 +16,32 @@ import { PhoneCall, CheckCircle, Plane, MapPin } from 'lucide-react';
 import RelatedServices from '@/components/RelatedServices';
 
 import { Link } from 'react-router-dom';
-
+import { domesticPackages } from '@/pages/DomesticPackages';
+import { internationalPackages } from '@/pages/InternationalPackages';
 const TourPackagesFromRaipur = () => {
 
 
 
 
-    const domesticDestinations: Destination[] = [
-        { name: "Goa", image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹8,999", duration: "3N/4D", link: "/package/goa", rating: "4.8" },
-        { name: "Kashmir", image: "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹18,999", duration: "5N/6D", link: "/package/kashmir", rating: "4.9" },
-        { name: "North East", image: "https://images.unsplash.com/photo-1596482855174-8b067332da2f?auto=format&fit=crop&q=80&w=800", price: "Starts ₹24,999", duration: "6N/7D", link: "/package/gangtok-darjeeling", rating: "4.8", tag: "Nature" },
-        { name: "Ladakh", image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&q=80&w=800", price: "Starts ₹28,999", duration: "6N/7D", link: "/package/ladakh", rating: "4.9", tag: "Adventure" },
-        { name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹14,999", duration: "4N/5D", link: "/package/kerala-family", rating: "4.7" },
-        { name: "Andaman", image: "https://images.unsplash.com/photo-LxvxWrx7l80?auto=format&fit=crop&q=80&w=800", price: "Starts ₹22,999", duration: "5N/6D", link: "/package/andaman", rating: "4.9" },
-        { name: "Himachal", image: "https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹10,999", duration: "5N/6D", link: "/package/shimla-manali", rating: "4.8" },
-        { name: "Char Dham", image: "https://images.unsplash.com/photo-4O05q44dGjE?auto=format&fit=crop&q=80&w=800", price: "Starts ₹25,999", duration: "10N/11D", link: "/package/chardham", rating: "5.0", tag: "Spiritual" },
-    ];
+    const domesticDestinations: Destination[] = domesticPackages.slice(0, 8).map(pkg => ({
+        name: pkg.title,
+        image: pkg.image,
+        price: pkg.price,
+        duration: pkg.duration,
+        link: `/package/${pkg.id}`,
+        rating: "4.8",
+        tag: pkg.tag
+    }));
 
-    const internationalDestinations: Destination[] = [
-        { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea936a7fe48?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "5N/6D", link: "/package/dubai" },
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/package/thailand" },
-        { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800", price: "Starts ₹35,999", duration: "5N/6D", link: "/package/vietnam", tag: "Trending" },
-        { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/package/bali" },
-        { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "Starts ₹55,999", duration: "5N/6D", link: "/package/singapore" },
-        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/package/maldives-honeymoon" },
-        { name: "Turkey", image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?auto=format&fit=crop&q=80&w=800", price: "Starts ₹85,999", duration: "6N/7D", link: "/package/turkey" },
-    ];
+    const internationalDestinations: Destination[] = internationalPackages.slice(0, 7).map(pkg => ({
+        name: pkg.title,
+        image: pkg.image,
+        price: pkg.price,
+        duration: pkg.duration,
+        link: pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`,
+        rating: "4.8",
+        tag: pkg.tag
+    }));
 
     const bestTimeData = [
         { destination: "Goa", months: "Nov – Feb" },

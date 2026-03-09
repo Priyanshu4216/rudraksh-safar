@@ -240,26 +240,27 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "B2B Travel Partners (DMC)",
+            description: "Dedicated resources for travel agents and tour operators.",
+            icon: Building,
+            links: [
+                { name: 'B2B Partner Hub', href: '/b2b-travel-partners', desc: 'Main B2B Portal & DMC Information' },
+                { name: 'Thailand B2B Supplier', href: '/b2b/thailand', desc: 'Thailand DMC Services & Operations' },
+            ]
+        },
+        {
             title: "Dubai & Abu Dhabi Guide (New)",
             description: "Complete travel resources for UAE including visa, itineraries, and attraction tickets.",
             icon: Globe,
             links: [
                 { name: 'Dubai Travel Guide', href: '/dubai-travel-guide', desc: 'The ultimate authority guide 2026' },
                 { name: 'Dubai Tour Packages', href: '/international-tours/dubai', desc: 'Commercial hub for bookings' },
+                { name: 'Dubai Trip Cost', href: '/uae/dubai-trip-cost', desc: 'Budget Breakdown from India' },
                 { name: 'Dubai Visa for Indians', href: '/dubai-visa-for-indians', desc: 'Visa on Arrival & E-Visa rules' },
+                { name: '3-Day Dubai Itinerary', href: '/uae/dubai-itinerary-3-days', desc: 'Weekend & Layover Guide' },
                 { name: '4-Day Dubai Itinerary', href: '/dubai-4-day-itinerary', desc: 'Perfect plan for first timers' },
                 { name: 'Dubai Packages from Raipur', href: '/dubai-tour-packages-from-raipur', desc: 'Flights & packages for CG travelers' },
                 { name: 'Dubai vs Abu Dhabi', href: '/comparisons/dubai-vs-abu-dhabi', desc: 'Which city should you choose?' },
-            ]
-        },
-        {
-            title: "Booking Management & Tools",
-            description: "Self-service tools for existing customers.",
-            icon: Sparkles,
-            links: [
-                { name: 'Download Ticket', href: '/download-ticket', desc: 'Get your E-Ticket & Vouchers' },
-                { name: 'Check Yatra Status', href: '/yatra-status', desc: 'Track booking progress' },
-                { name: 'Check PNR Status', href: '/how-to-check-pnr-status', desc: 'IRCTC & Flight Status Guide' },
             ]
         },
         {

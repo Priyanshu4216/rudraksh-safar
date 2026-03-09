@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Shield, Clock, Award, Users, Heart, ArrowRight, CheckCircle2, XCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,7 +12,7 @@ import FAQsSection from '@/components/FAQsSection';
 
 const WhyChooseUs = () => {
     const reasons = [
-        { icon: Users, title: "Local Presence", desc: "We are not a faceless website. Our office is in Bhilai (GE Road) and we have specialized agents for Raipur. We are your neighbors." },
+        { icon: Users, title: "Local Presence", desc: <>We are not a faceless website. Our office is in <Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai</Link> (GE Road) and we have specialized agents for <Link to="/travel-agent-raipur" className="text-primary hover:underline">Raipur</Link>. We are your neighbors.</> },
         { icon: Shield, title: "100% Transparency", desc: "No hidden costs. No 'Conditions Apply' shocks. We explain every inclusion and exclusion before you pay." },
         { icon: Clock, title: "24/7 Support", desc: "Our job doesn't end at booking. We support you throughout your trip - if your flight is delayed or you need a doctor, we are one call away." },
         { icon: Award, title: "Best Rate Guarantee", desc: "We negotiate bulk rates with hotels and vehicle providers to give you prices better than online portals." },
@@ -241,7 +242,7 @@ const WhyChooseUs = () => {
                                     </div>
                                     <div className="bg-card p-6 rounded-xl border">
                                         <h3 className="text-xl font-bold text-foreground mb-3">✅ Chhattisgarh Specific Knowledge</h3>
-                                        <p>We know the flight connections from Raipur better than anyone. We know which train from Durg is best for your connecting tour. Local expertise matters.</p>
+                                        <p>We know the flight connections from <Link to="/travel-agent-raipur" className="text-primary hover:underline">Raipur</Link> better than anyone. We know which train from <Link to="/travel-agent-durg" className="text-primary hover:underline">Durg</Link> is best for your connecting tour. Local expertise matters.</p>
                                     </div>
                                 </div>
                             </div>

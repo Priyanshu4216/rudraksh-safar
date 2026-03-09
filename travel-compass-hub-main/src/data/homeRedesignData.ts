@@ -53,7 +53,7 @@ export const POPULAR_DESTINATIONS = [
     {
         id: 4,
         name: "Kedarnath",
-        image: "/images/Kedarnath_Temple.jpg",
+        image: "/images/Kedarnath_Temple.webp",
         link: "/chardham-yatra-package-from-bhilai",
         tag: "Pilgrimage",
         fontClass: "font-cinzel font-bold"
@@ -115,7 +115,7 @@ export const TRAVELLER_TYPES = [
         icon: Users2,
         description: 'Fun-filled itineraries',
         link: '/group-tour-packages',
-        image: "/images/join-homepage/friends.png"
+        image: "/images/join-homepage/friends.webp"
     },
     {
         id: 'solo',
@@ -392,7 +392,7 @@ export const SEARCH_EXPERIENCE_DESTINATIONS = [
     {
         id: 23,
         name: "Kedarnath",
-        image: "/images/Kedarnath_Temple.jpg",
+        image: "/images/Kedarnath_Temple.webp",
         slug: "kedarnath-temple",
         tag: "Divine Shiva",
         fontClass: "font-cinzel font-bold text-shadow"
@@ -418,7 +418,7 @@ export const PILGRIMAGE_SPECIALS = [
     {
         id: 2,
         name: "Kedarnath",
-        image: "/images/Kedarnath_Temple.jpg",
+        image: "/images/Kedarnath_Temple.webp",
         link: "/kedarnath-temple",
         fontClass: "font-cinzel font-semibold"
     },

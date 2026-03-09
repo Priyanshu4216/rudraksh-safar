@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 
 import TempleSchema from '@/components/seo/TempleSchema';
+import FAQSection from '@/components/seo/FAQSection';
 
 const YamunotriTemple = () => {
     const {
@@ -248,20 +249,61 @@ const YamunotriTemple = () => {
                         </section>
 
                         {/* 9. FAQs */}
-                        <section id="faqs" className="scroll-mt-24">
-                            <h2 className="text-3xl font-serif font-bold mb-6">Frequently Asked Questions</h2>
-                            <div className="space-y-4">
-                                {faqs.map((faq, idx) => (
-                                    <div key={idx} className="bg-card border border-border rounded-xl p-5">
-                                        <h3 className="font-bold text-foreground mb-2 flex gap-3">
-                                            <span className="text-yellow-500">Q.</span> {faq.question}
-                                        </h3>
-                                        <p className="text-muted-foreground text-sm ml-7 leading-relaxed">{faq.answer}</p>
-                                    </div>
-                                ))}
-                            </div>
+                        <section id="faqs" className="scroll-mt-24 mb-12">
+                            <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                         </section>
 
+                        {/* --- DEEP SEO CONTENT BLOCKS --- */}
+                        <section id="deep-seo" className="py-16 bg-muted/20 mt-12 mb-12 rounded-3xl">
+                            <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">The Ultimate Yamunotri Pilgrimage Guide</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        Nestled in the western region of the Garhwal Himalayas at an altitude of 3,291 meters, Yamunotri is the first stop in the traditional Uttarakhand Char Dham circuit. It is the seat of Goddess Yamuna, the daughter of Surya (Sun) and Sanjna, and the twin sister of Yama (the deity of death). According to the Puranas, a dip in the Yamuna protects devotees from the agony of death. The main shrine sits on the flank of the Bandarpoonch Parvat, amidst towering ravines and roaring waterfalls.
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        The temple was originally constructed by Maharaja Pratap Shah of Tehri Garhwal. Due to immense avalanches and weather degradation, the temple has been rebuilt multiple times over the centuries. A unique highlight here is the Tapt Kund—boiling hot geysers emerging from the freezing rocks. Pilgrims cook raw rice and potatoes in these boiling pools and proudly take them home as the divine Prasad.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Yamunotri Trek & Barkot Logistics</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        The road connectivity ends at Janki Chatti. From here, pilgrims must undertake a steep 6-kilometer trek along the rugged canyon walls to reach the temple. While shorter than Kedarnath, the Yamunotri trek is famously steep and narrow, demanding good physical endurance.
+                                    </p>
+                                    <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                                        <li><strong>The Yamunotri Trek:</strong> Takes approximately 3 to 4 hours one way. Palkis (palanquins) and mules are readily available at the Janki Chatti base camp for around ₹1,500-₹3,000 depending on demand.</li>
+                                        <li><strong>Base Camp Stays (Barkot):</strong> The most comfortable and hygienic accommodation options are situated in Barkot (approx. 45 km from Janki Chatti). Barkot serves as the primary night-halt hub for the Yamunotri leg.</li>
+                                        <li><strong>Kharsali Village (Winter Seat):</strong> Just across the river from Janki Chatti lies Kharsali, where the idol of Goddess Yamuna is brought down to the Shani Temple during the harsh winter months when Yamunotri is snowbound.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                                    <div className="flex flex-wrap gap-4 mt-4">
+                                        <Link to="/chardham/KedarnathTemple" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Kedarnath Guide</Link>
+                                        <Link to="/chardham/BadrinathTemple" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Badrinath Guide</Link>
+                                        <Link to="/chardham/GangotriTemple" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Gangotri Guide</Link>
+                                        <Link to="/chardham/CharDhamRegistration" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Yatra Registration</Link>
+                                        <Link to="/chardham/CharDhamRouteMap" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Char Dham Route</Link>
+                                        <Link to="/chardham-yatra-package" className="bg-white border text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-50 font-medium tracking-wide">Explore Tour Packages</Link>
+                                    </div>
+                                </div>
+
+                                {/* Conversion Layer */}
+                                <div className="bg-yellow-50 dark:bg-yellow-950/30 p-8 rounded-2xl border-2 border-yellow-500 text-center my-10">
+                                    <h3 className="text-3xl font-bold mb-4">Plan Your Yamunotri & Gangotri Yatra</h3>
+                                    <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                        Start your spiritual journey on the right note. We provide well-paced itineraries with pre-booked Palkis, premium stays at Barkot, and experienced hill drivers.
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                        <a href="https://wa.me/919406182174?text=Yamunotri%20Yatra%20Enquiry" target="_blank" className="bg-yellow-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-700 transition">
+                                            WhatsApp Enquiry
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </article>
 
                     {/* RIGHT SIDEBAR */}

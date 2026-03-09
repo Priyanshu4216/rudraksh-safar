@@ -14,6 +14,7 @@ import {
 
 import TempleSchema from '@/components/seo/TempleSchema';
 import KedarnathGallery from '@/components/KedarnathGallery';
+import FAQSection from '@/components/seo/FAQSection';
 
 const KedarnathTemple = () => {
     const {
@@ -335,20 +336,62 @@ const KedarnathTemple = () => {
                         {gallery && <KedarnathGallery images={gallery} />}
 
                         {/* 9. FAQs (AEO) */}
-                        <section id="faqs" className="scroll-mt-24">
-                            <h2 className="text-3xl font-serif font-bold mb-6">Frequently Asked Questions</h2>
-                            <div className="space-y-4">
-                                {faqs.map((faq, idx) => (
-                                    <div key={idx} className="bg-card border border-border rounded-xl p-5">
-                                        <h3 className="font-bold text-foreground mb-2 flex gap-3">
-                                            <span className="text-orange-500">Q.</span> {faq.question}
-                                        </h3>
-                                        <p className="text-muted-foreground text-sm ml-7 leading-relaxed">{faq.answer}</p>
-                                    </div>
-                                ))}
-                            </div>
+                        <section id="faqs" className="scroll-mt-24 mb-12">
+                            <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                         </section>
 
+                        {/* --- DEEP SEO CONTENT BLOCKS --- */}
+                        <section id="deep-seo" className="py-16 bg-muted/20 mt-12 mb-12 rounded-3xl">
+                            <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">The Ultimate Kedarnath Pilgrimage Guide</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        Situated at an astronomical elevation of 3,583 meters near the Chorabari Glacier, Kedarnath is one of the twelve Jyotirlingas of Lord Shiva. According to Hindu mythology, the temple was originally built by the Pandavas to seek atonement for the sins of the Kurukshetra war. Today, it stands as the most remote and challenging shrine of the Uttarakhand Char Dham circuit, drawing millions of devotees seeking spiritual awakening amidst the rugged Himalayan peaks.
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        The temple architecture itself is a marvel, constructed from massive, evenly cut grey stone slabs. Unlike modern structures, the ancient interlocking technique used here allowed the temple to withstand the catastrophic 2013 flash floods, protected by the divine intervention of the now-famous Bheem Shila—a massive boulder that diverted the floodwaters around the main shrine.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Kedarnath Trek & Helicopter Logistics</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        The 16-kilometer trek starts from Gaurikund. For medically fit pilgrims, the trek is a test of devotion, typically taking 7-10 hours depending on fitness levels and weather. However, due to the extreme altitude and steep inclines, many pilgrims opt for alternative transport:
+                                    </p>
+                                    <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                                        <li><strong>Kedarnath Helicopter Services:</strong> The most efficient way to reach the shrine. Shuttles operate from Phata, Sirsi, and Guptkashi. Pre-booking via the official IRCTC portal is mandatory.</li>
+                                        <li><strong>Ponies and Mules (Khachhar):</strong> Available at Gaurikund. Booking must be done through official GMVN counters to avoid overcharging.</li>
+                                        <li><strong>Dandi/Palki (Palanquins):</strong> Borne by four helpers, this is the safest traditional option for senior citizens who cannot secure helicopter tickets.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                                    <div className="flex flex-wrap gap-4 mt-4">
+                                        <Link to="/chardham/BadrinathTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Badrinath Guide</Link>
+                                        <Link to="/chardham/GangotriTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Gangotri Guide</Link>
+                                        <Link to="/chardham/YamunotriTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Yamunotri Guide</Link>
+                                        <Link to="/chardham/BhilaiToKedarnath" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Bhilai to Kedarnath</Link>
+                                        <Link to="/chardham/CharDhamRegistration" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Yatra Registration</Link>
+                                        <Link to="/chardham/IsCharDhamSafe" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Safety Guidelines</Link>
+                                        <Link to="/chardham-yatra-package" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Explore Tour Packages</Link>
+                                    </div>
+                                </div>
+
+                                {/* Conversion Layer */}
+                                <div className="bg-orange-50 dark:bg-orange-950/30 p-8 rounded-2xl border-2 border-orange-500 text-center my-10">
+                                    <h3 className="text-3xl font-bold mb-4">Book Your VIP Kedarnath Darshan</h3>
+                                    <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                        Avoid the grueling queues and permit hurdles. Our local experts arrange guaranteed helicopter tickets, GMVN stays, and priority Darshan passes.
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                        <a href="https://wa.me/919406182174?text=Kedarnath%20Yatra%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                            WhatsApp Enquiry
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </article>
 
                     {/* RIGHT SIDEBAR - STICKY */}

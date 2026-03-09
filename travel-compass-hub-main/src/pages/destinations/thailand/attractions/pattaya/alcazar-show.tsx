@@ -27,7 +27,7 @@ const AlcazarShow = () => {
             {/* 1. HERO STORY SECTION */}
             <div className="relative h-[60vh] md:h-[80vh] min-h-[500px]">
                 <img
-                    src="/images/Discover/Thailand/Pattaya/alcazar-cabaret-show.jpg"
+                    src="/images/Discover/Thailand/Pattaya/alcazar-cabaret-show.webp"
                     alt="Alcazar Show"
                     className="w-full h-full object-cover"
                 />

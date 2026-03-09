@@ -11,6 +11,7 @@ import LocationPageLoader from '@/components/LocationPageLoader';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import RelatedServices from '@/components/RelatedServices';
 import { Plane, Globe, ShieldCheck, MapPin } from 'lucide-react';
+import { internationalPackages } from '@/pages/InternationalPackages';
 
 const InternationalToursFromRaipur = () => {
 
@@ -18,62 +19,28 @@ const InternationalToursFromRaipur = () => {
 
 
     // Expert-curated destination list with Raipur-specific context
-    const highDemandRoutes: Destination[] = [
-        {
-            name: "Thailand",
-            image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹32,000+",
-            duration: "5N/6D",
-            link: "/international-tours/thailand-from-raipur",
-            rating: "4.8",
-            description: "Most popular choice. Flights via Kolkata/Delhi. Visa on Arrival available."
-        },
-        {
-            name: "Dubai",
-            image: "https://images.unsplash.com/photo-1512453979798-5ea936a7fe48?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹45,000+",
-            duration: "5N/6D",
-            link: "/international-tours/dubai-from-raipur",
-            rating: "4.9",
-            description: "Direct connectivity via Mumbai/Delhi. E-Visa required (2-3 days processing)."
-        },
-        {
-            name: "Bali",
-            image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹45,000+",
-            duration: "6N/7D",
-            link: "/visa/bali",
-            rating: "4.9",
-            description: "Best for couples. Flights via Bangkok/Singapore. Visa on Arrival."
-        },
-        {
-            name: "Singapore",
-            image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹55,000+",
-            duration: "5N/6D",
-            link: "/visa/singapore",
-            rating: "4.8",
-            description: "Cleanest city. Direct slots via Chennai/Delhi. Pre-entry visa required."
-        },
-        {
-            name: "Vietnam",
-            image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹35,000+",
-            duration: "6N/7D",
-            link: "/international-packages",
-            tag: "Trending",
-            description: "Emerging favorite. Cheap flights via Kolkata. E-Visa is easy."
-        },
-        {
-            name: "Malaysia",
-            image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-            price: "Approx ₹38,000+",
-            duration: "5N/6D",
-            link: "/visa/malaysia",
-            rating: "4.7",
-            description: "Visa-free entry for Indians (currently). Connect via Chennai/Delhi."
-        }
-    ];
+    const highDemandRoutes: Destination[] = internationalPackages
+        .filter(pkg => ['thailand', 'dubai', 'bali', 'singapore', 'vietnam', 'malaysia'].includes(pkg.id))
+        .map(pkg => {
+            let description = '';
+            if (pkg.id === 'thailand') description = "Most popular choice. Flights via Kolkata/Delhi. Visa on Arrival available.";
+            else if (pkg.id === 'dubai') description = "Direct connectivity via Mumbai/Delhi. E-Visa required (2-3 days processing).";
+            else if (pkg.id === 'bali') description = "Best for couples. Flights via Bangkok/Singapore. Visa on Arrival.";
+            else if (pkg.id === 'singapore') description = "Cleanest city. Direct slots via Chennai/Delhi. Pre-entry visa required.";
+            else if (pkg.id === 'vietnam') description = "Emerging favorite. Cheap flights via Kolkata. E-Visa is easy.";
+            else if (pkg.id === 'malaysia') description = "Visa-free entry for Indians (currently). Connect via Chennai/Delhi.";
+
+            return {
+                name: pkg.title,
+                image: pkg.image,
+                price: pkg.price,
+                duration: pkg.duration,
+                link: pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`,
+                rating: "4.8",
+                tag: pkg.tag,
+                description
+            };
+        });
 
     const faqs = [
         {

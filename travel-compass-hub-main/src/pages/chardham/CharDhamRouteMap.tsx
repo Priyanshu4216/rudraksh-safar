@@ -11,6 +11,8 @@ import {
     ArrowDown, Car, Calendar, Info
 } from 'lucide-react';
 
+import FAQSection from '@/components/seo/FAQSection';
+
 const CharDhamRouteMap = () => {
     const { meta, overview, segments } = routeData;
 
@@ -127,6 +129,47 @@ const CharDhamRouteMap = () => {
                             </div>
                         ))}
                     </div>
+
+                    {/* FAQs */}
+                    <section id="faqs" className="mt-16 mb-12">
+                        <FAQSection title="Char Dham Route FAQs" faqs={routeData.faqs} />
+                    </section>
+
+                    {/* --- DEEP SEO CONTENT BLOCKS --- */}
+                    <section id="deep-seo" className="py-16 bg-muted/20 mt-12 mb-12 rounded-3xl">
+                        <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Mastering the Char Dham Yatra Route</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    The Char Dham Yatra is one of the most revered and physically demanding road trips in India. Covering over 1,600 kilometers of challenging Himalayan terrain, it tests both driving skill and physical endurance. The traditional circuit begins at the spiritual twin-cities of Haridwar and Rishikesh, serving as the gateway to the Garhwal mountains.
+                                </p>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    The journey inherently follows the Hindu parikrama (circumambulation) logic, moving from West to East. You begin by tracing the Yamuna river up to Yamunotri, cross over into the Bhagirathi valley for Gangotri, ascend into the Mandakini valley to Kedarnath, and finally follow the Alaknanda river to the holy shrine of Badrinath. Understanding this river-valley geography is crucial for anticipating the steep ascents and descents between each Dham.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Vital Driving & Safety Tips</h2>
+                                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                    Self-driving the Char Dham route is not recommended for novice drivers. The roads are prone to sudden landslides, sharp hairpin bends, and steep gradients without protective crash barriers. If you must drive, observe these rules:
+                                </p>
+                                <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                                    <li><strong>Vehicle Readiness:</strong> Ensure your vehicle has high ground clearance, freshly serviced brakes, and a robust cooling system. Carry spare tires and a tow rope.</li>
+                                    <li><strong>Altitude Awareness:</strong> The route rapidly ascends from 300 meters (Haridwar) to over 3,000 meters (Gangotri/Badrinath). Ascend slowly to prevent Acute Mountain Sickness (AMS).</li>
+                                    <li><strong>Time Management:</strong> Start driving by 6:00 AM and reach your destination by 4:00 PM. Mountain weather changes unpredictably after noon, bringing sudden rain or fog.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                                <div className="flex flex-wrap gap-4 mt-4">
+                                    <Link to="/chardham/KedarnathTemple" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Kedarnath Guide</Link>
+                                    <Link to="/chardham/CharDhamRegistration" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Yatra Registration</Link>
+                                    <Link to="/chardham-yatra-package" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Explore Tour Packages</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     {/* CTA Footer */}
                     <div className="mt-16 text-center bg-blue-50 dark:bg-blue-900/10 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/30">

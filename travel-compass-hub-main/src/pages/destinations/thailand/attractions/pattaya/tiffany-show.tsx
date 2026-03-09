@@ -27,7 +27,7 @@ const TiffanyShow = () => {
             {/* 1. HERO STORY SECTION */}
             <div className="relative h-[60vh] md:h-[80vh] min-h-[500px]">
                 <img
-                    src="/images/Discover/Thailand/Pattaya/tiffany-s-show-pattaya.jpg"
+                    src="/images/Discover/Thailand/Pattaya/tiffany-s-show-pattaya.webp"
                     alt="Tiffany Show"
                     className="w-full h-full object-cover"
                 />

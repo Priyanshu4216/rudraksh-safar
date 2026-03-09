@@ -400,23 +400,9 @@ const BhilaiToKedarnath = () => {
                     </section>
 
                     {/* FAQ SECTION */}
-                    <section className="max-w-4xl mx-auto space-y-8">
-                        <div className="text-center">
-                            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-                            <p className="text-slate-600">Specific answers for travellers from Durg, Bhilai & Raipur.</p>
-                        </div>
-                        <Accordion type="single" collapsible className="w-full">
-                            {faqs.map((faq, idx) => (
-                                <AccordionItem key={idx} value={`item-${idx}`} className="border rounded-lg px-4 mb-3 bg-white hover:bg-slate-50 transition-colors">
-                                    <AccordionTrigger className="text-left font-semibold text-lg py-4 hover:no-underline hover:text-orange-600">
-                                        {faq.question}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 leading-relaxed text-base pb-4">
-                                        {faq.answer}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
+                    
+                    <section className="mb-12">
+                        <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                     </section>
 
                     {/* INTERNAL LINKING CLUSTER */}
@@ -446,6 +432,106 @@ const BhilaiToKedarnath = () => {
 
                 </div>
             </main>
+
+            
+            {/* --- DEEP SEO CONTENT BLOCKS --- */}
+            <section id="deep-seo" className="py-16 bg-muted/20">
+                <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Comprehensive Guide: Bhilai To Kedarnath Yatra 2026</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            The journey to the seat of Lord Shiva is a test of devotion. The **Bhilai to Kedarnath** route connects the industrial heartland of Chhattisgarh to the divine Kedar Valley in Uttarakhand. Whether you are seeking a solo spiritual retreat, a family pilgrimage, or a specialized group tour, planning ahead is non-negotiable. Kedarnath temple is perched at a massive altitude of 3,583 meters (11,755 feet) near the Chorabari Glacier, making it one of the most remote, yet heavily trekked destinations in India.
+                        </p>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            For pilgrims from Bhilai-Durg, Raipur, or Rajnandgaon, the most efficient transition involves reaching Delhi (via flight/train) and taking an overnight Volvo bus or train to Haridwar. At Haridwar, your dedicated Rudraksh Safar transport takes over, navigating the winding mountain roads of the Garhwal Himalayas up to Sonprayag/Gaurikund.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">The 16 km Kedarnath Trek: What to Expect</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            From Gaurikund, all vehicular movement is halted. Pilgrims must ascend a steep, paved 16-kilometer trek alongside the Mandakini river to reach the Kedarnath shrine. 
+                        </p>
+                        <div className="bg-card p-6 rounded-xl border border-border mt-4">
+                            <h3 className="font-bold text-lg mb-2 text-foreground">Altnerative Trekking Modes</h3>
+                            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                                <li><strong>Helicopter Service:</strong> The fastest and most comfortable method. Shuttles fly from Phata, Sirsi, and Guptkashi directly to the Kedarnath helipad (just 500m from the temple). Booking early is crucial due to extreme demand.</li>
+                                <li><strong>Ponies / Mules:</strong> The most common alternative to walking. Pony charges are regulated by the government and take approximately 4-5 hours to reach the top.</li>
+                                <li><strong>Palki (Palanquins) / Kandi:</strong> Primarily used by elderly pilgrims who cannot ride ponies. Four men carry a comfortable wooden chair.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Packing Checklist for Kedarnath specifically for Chhattisgarh Residents</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            Coming from the tropical climate of Chhattisgarh, preparation for sub-zero Himalayan nights is critical. Snowfall can occur even in May or June.
+                        </p>
+                        <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                            <li><strong>Clothing:</strong> Thermal body warmers, a heavy fleece jacket, windproof outer layer, and woolen socks are mandatory. Layering is your best defense against the mountain wind.</li>
+                            <li><strong>Footwear:</strong> Waterproof trekking shoes with a strong grip. Running shoes are highly discouraged as the path can get slippery with rain or mule dung.</li>
+                            <li><strong>Medicine:</strong> Carry Diamox (consult your doctor) for altitude sickness, pain relievers, muscle relaxants (like Volini), and personal prescriptions.</li>
+                            <li><strong>Documents:</strong> Aadhar Card, Yatra Registration slip, and helicopter boarding passes if booked.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">When is the Best Time to Travel?</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            The portals of Kedarnath open during Akshay Tritiya (usually early May) and close on Bhai Dooj (post-Diwali in November). <strong>May and June</strong> see peak summertime rush ideal for families. The <strong>monsoon season (July to August)</strong> is risky due to potential landslides along the Rudraprayag highway. The absolute best time for clear skies, crisp photography, and a serene spiritual experience is <strong>September to October</strong> after the rains wash the valley clean.
+                        </p>
+                    </div>
+                
+
+                    <div className="mt-12 border-t pt-12 border-border/50">
+                        <h2 className="text-3xl font-bold mb-4">Complete Kedarnath Travel Planner for Bhilai Residents</h2>
+                        
+                        <div className="grid md:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-orange-600 mb-3">Best Time to Visit & Opening Dates</h3>
+                                <p className="text-muted-foreground mb-3">
+                                    The temple portals traditionally open on the auspicious occasion of Akshaya Tritiya (usually early May) and close on Bhai Dooj (late October or early November). 
+                                </p>
+                                <p className="text-muted-foreground">
+                                    <strong>Ideal Window:</strong> The pristine post-monsoon period from September to October offers crystal clear views of the high peaks, stable weather, and lush green valleys, though May-June is the peak family rushing season. Avoid July-August (monsoons).
+                                </p>
+                            </div>
+                            
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-blue-600 mb-3">Altitude & Weather Guidance</h3>
+                                <p className="text-muted-foreground mb-3">
+                                    Kedarnath is situated at a staggering 3,583 meters (11,755 ft). Air pressure drops significantly here, decreasing oxygen availability.
+                                </p>
+                                <p className="text-muted-foreground">
+                                    Even during peak summer (May), night temperatures frequently plummet below freezing (-2°C to 5°C). Ensure you carry extreme winter gear. Heavy snow often greets early-season pilgrims.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3 className="text-2xl font-bold mb-4">Accommodation Options in Kedar Valley</h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                            Staying near the temple is a surreal experience, though facilities are Spartan due to the extreme terrain. The GMVN (Garhwal Mandal Vikas Nigam) operates basic cottages and dormitory beds near the temple complex. Alternatively, many pilgrims choose to stay at base camps in Sonprayag, Guptkashi, or Phata (where helicopter pads are located), ascending early in the morning and returning the same evening.
+                        </p>
+
+                        {/* Conversion Layer */}
+                        <div className="bg-orange-50 dark:bg-orange-950/30 p-8 rounded-2xl border-2 border-orange-500 text-center my-10">
+                            <h3 className="text-3xl font-bold mb-4">Plan Your Char Dham Yatra from Bhilai</h3>
+                            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                Skip the stress of securing helicopter tickets and registering passes. Let our Bhilai-based experts craft an end-to-end luxury itinerary for your family.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <a href="https://wa.me/919406182174?text=I%20want%20to%20plan%20Kedarnath%20Yatra" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                    Quick Enquiry (WhatsApp)
+                                </a>
+                                <Link to="/chardham-yatra-package" className="bg-white text-orange-600 font-bold border-2 border-orange-600 px-8 py-4 rounded-full text-lg hover:bg-orange-50 transition">
+                                    View Related Char Dham Packages
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+            </section>
 
             <Footer />
             <FloatingWhatsApp />

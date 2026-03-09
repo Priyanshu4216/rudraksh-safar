@@ -13,23 +13,23 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import { Plane, FileText, Globe, Car, ShieldCheck, CheckCircle, Wallet, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import { internationalPackages } from '@/pages/InternationalPackages';
 const InternationalToursFromBhilai = () => {
 
 
 
 
-    const highDemandRoutes: Destination[] = [
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/package/thailand", rating: "4.8" },
-        { name: "Dubai", image: "https://plus.unsplash.com/premium_photo-1697729914552-368899dc4757?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹45,999", duration: "5N/6D", link: "/package/dubai", rating: "4.9" },
-        { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/package/bali", rating: "4.9" },
-        { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "Starts ₹55,999", duration: "5N/6D", link: "/package/singapore", rating: "4.8" },
-        { name: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800", price: "Starts ₹38,999", duration: "5N/6D", link: "/package/malaysia", rating: "4.7" },
-        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/package/maldives", tag: "Luxury" },
-        { name: "Vietnam", image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800", price: "Starts ₹35,999", duration: "6N/7D", link: "/package/vietnam", tag: "Trending" },
-        { name: "Sri Lanka", image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=800", price: "Starts ₹28,999", duration: "5N/6D", link: "/package/sri-lanka", tag: "Ramayana Trail" },
-        { name: "Nepal", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", price: "Starts ₹18,999", duration: "5N/6D", link: "/package/nepal", tag: "Budget" },
-    ];
+    const highDemandRoutes: Destination[] = internationalPackages
+        .filter(pkg => ['thailand', 'dubai', 'bali', 'singapore', 'malaysia', 'maldives', 'vietnam', 'srilanka', 'nepal'].includes(pkg.id))
+        .map(pkg => ({
+            name: pkg.title,
+            image: pkg.image,
+            price: pkg.price,
+            duration: pkg.duration,
+            link: pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`,
+            rating: "4.8",
+            tag: pkg.tag
+        }));
 
     const bestTimeData = [
         { destination: "Dubai", months: "Oct – Mar" },

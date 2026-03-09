@@ -121,10 +121,10 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-navy-deep to-black relative overflow-hidden" aria-labelledby="contact-heading">
+    <section id="contact" className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-navy-deep dark:to-black relative overflow-hidden" aria-labelledby="contact-heading">
 
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-navy-light/10 skew-x-12 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 dark:bg-navy-light/10 skew-x-12 pointer-events-none" />
 
       <div className="container relative z-10 px-4">
         {/* Header */}
@@ -132,10 +132,10 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
           <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-4 block flex items-center justify-center gap-2">
             <Sparkles className="w-4 h-4" /> Start Your Journey
           </span>
-          <h2 id="contact-heading" className="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
-            Let's Plan Your <span className="text-gradient-gold">Dream Escape</span>
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+            Let's Plan Your <span className="text-orange-600 dark:text-gradient-gold">Dream Escape</span>
           </h2>
-          <p className="text-white/60 text-lg font-light leading-relaxed">
+          <p className="text-slate-600 dark:text-white/60 text-lg font-light leading-relaxed">
             Whether you know exactly where you want to go or need inspiration, our travel designers are here to guide you.
           </p>
         </div>
@@ -143,8 +143,8 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
-              <h3 className="text-xl font-serif font-bold text-white mb-6">Connect With Us</h3>
+            <div className="bg-white dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-8 shadow-lg dark:shadow-none">
+              <h3 className="text-xl font-serif font-bold text-slate-900 dark:text-white mb-6">Connect With Us</h3>
               {contactInfo.map((info) => (
                 <div
                   key={info.title}
@@ -154,9 +154,9 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                     <info.icon className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white/90 mb-1">{info.title}</h3>
+                    <h3 className="font-semibold text-slate-800 dark:text-white/90 mb-1">{info.title}</h3>
                     {info.details.map((detail, index) => (
-                      <p key={index} className="text-white/60 text-sm">
+                      <p key={index} className="text-slate-600 dark:text-white/60 text-sm">
                         {detail}
                       </p>
                     ))}
@@ -166,9 +166,9 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
             </div>
 
             {/* Quick WhatsApp CTA */}
-            <div className="bg-gradient-to-r from-green-900/40 to-green-800/20 backdrop-blur-md rounded-2xl p-8 border border-green-500/20">
-              <h3 className="font-serif font-bold text-white mb-2">Instant Response?</h3>
-              <p className="text-white/70 text-sm mb-6">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/40 dark:to-green-800/20 backdrop-blur-md rounded-2xl p-8 border border-green-200 dark:border-green-500/20 shadow-lg dark:shadow-none">
+              <h3 className="font-serif font-bold text-slate-900 dark:text-white mb-2">Instant Response?</h3>
+              <p className="text-slate-600 dark:text-white/70 text-sm mb-6">
                 Skip the form and chat directly with our priority support team on WhatsApp.
               </p>
               <Button onClick={handleWhatsAppDirect} className="bg-green-600 hover:bg-green-700 text-white w-full gap-2 h-12 shadow-lg hover:shadow-green-500/20 transition-all">
@@ -184,18 +184,18 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-navy-light/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+              className="bg-white dark:bg-navy-light/30 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
             >
               {/* Gold accent line */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-100 dark:opacity-50" />
 
               <form onSubmit={handleSubmit}>
                 <div className="flex items-center justify-between mb-8">
                   <div>
-                    <h3 className="text-2xl font-serif font-bold text-white">
+                    <h3 className="text-2xl font-serif font-bold text-slate-900 dark:text-white">
                       Send an Inquiry
                     </h3>
-                    <p className="text-white/50 text-sm mt-1">We typically reply within 30 minutes.</p>
+                    <p className="text-slate-500 dark:text-white/50 text-sm mt-1">We typically reply within 30 minutes.</p>
                   </div>
                   <ShieldCheck className="w-6 h-6 text-emerald-500/80" aria-label="Secure form" />
                 </div>
@@ -205,7 +205,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                    <label htmlFor="name" className="block text-xs font-bold text-slate-700 dark:text-gold uppercase tracking-wider mb-2">
                       Full Name
                     </label>
                     <Input
@@ -216,12 +216,12 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       placeholder="e.g. Rahul Verma"
                       required
                       maxLength={100}
-                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.name ? 'border-red-500' : ''}`}
+                      className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.name ? 'border-red-500' : ''}`}
                     />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                    <label htmlFor="email" className="block text-xs font-bold text-slate-700 dark:text-gold uppercase tracking-wider mb-2">
                       Email Address
                     </label>
                     <Input
@@ -233,7 +233,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       placeholder="rahul@example.com"
                       required
                       maxLength={255}
-                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.email ? 'border-red-500' : ''}`}
+                      className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.email ? 'border-red-500' : ''}`}
                     />
                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
@@ -241,7 +241,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                    <label htmlFor="phone" className="block text-xs font-bold text-slate-700 dark:text-gold uppercase tracking-wider mb-2">
                       Phone Number
                     </label>
                     <Input
@@ -253,12 +253,12 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       placeholder="+91 91234 56789"
                       required
                       maxLength={15}
-                      className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.phone ? 'border-red-500' : ''}`}
+                      className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.phone ? 'border-red-500' : ''}`}
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
                   <div>
-                    <label htmlFor="destination" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                    <label htmlFor="destination" className="block text-xs font-bold text-slate-700 dark:text-gold uppercase tracking-wider mb-2">
                       Destination
                     </label>
                     <Input
@@ -268,13 +268,13 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       onChange={handleChange}
                       placeholder="Where do you want to go?"
                       maxLength={100}
-                      className="bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-gold/50"
+                      className="bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50"
                     />
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <label htmlFor="message" className="block text-xs font-bold text-gold uppercase tracking-wider mb-2">
+                  <label htmlFor="message" className="block text-xs font-bold text-slate-700 dark:text-gold uppercase tracking-wider mb-2">
                     Your Requirements
                   </label>
                   <Textarea
@@ -286,7 +286,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                     rows={5}
                     required
                     maxLength={1000}
-                    className={`bg-navy-deep/50 border-white/10 text-white placeholder:text-white/20 min-h-[140px] focus:border-gold/50 ${errors.message ? 'border-red-500' : ''}`}
+                    className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 min-h-[140px] focus:border-gold/50 ${errors.message ? 'border-red-500' : ''}`}
                   />
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
@@ -306,7 +306,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                   )}
                 </Button>
 
-                <p className="text-xs text-white/30 text-center mt-6">
+                <p className="text-xs text-slate-500 dark:text-white/30 text-center mt-6">
                   Strictly confidential. We do not share your data.
                 </p>
               </form>

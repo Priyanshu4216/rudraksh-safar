@@ -47,7 +47,7 @@ const BestTimeLadakh = () => {
                     {/* Peak Season */}
                     <div className="bg-card border border-white/10 rounded-xl overflow-hidden group hover:border-gold/30 transition-all">
                         <div className="h-48 overflow-hidden relative">
-                            <img src="/images/ladakh/ladakh-img-1.jpeg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Summer" />
+                            <img src="/images/ladakh/ladakh-img-1.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Summer" />
                             <div className="absolute top-4 right-4 bg-gold text-black text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                                 <Sun className="w-3 h-3" /> Best for Road Trips
                             </div>
@@ -71,7 +71,7 @@ const BestTimeLadakh = () => {
                     {/* Shoulder Season */}
                     <div className="bg-card border border-white/10 rounded-xl overflow-hidden group hover:border-gold/30 transition-all">
                         <div className="h-48 overflow-hidden relative">
-                            <img src="/images/ladakh/ladakh-img-8.jpeg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Autumn" />
+                            <img src="/images/ladakh/ladakh-img-8.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Autumn" />
                             <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                                 <Calendar className="w-3 h-3" /> Best for Colors
                             </div>
@@ -95,7 +95,7 @@ const BestTimeLadakh = () => {
                     {/* Winter Season */}
                     <div className="bg-card border border-white/10 rounded-xl overflow-hidden group hover:border-gold/30 transition-all">
                         <div className="h-48 overflow-hidden relative">
-                            <img src="/images/ladakh/ladakh-img-9.jpeg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Winter" />
+                            <img src="/images/ladakh/ladakh-img-9.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ladakh in Winter" />
                             <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                                 <Snowflake className="w-3 h-3" /> Only for Brave
                             </div>

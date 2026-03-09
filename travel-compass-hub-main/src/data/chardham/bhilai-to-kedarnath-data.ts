@@ -15,7 +15,7 @@ export const bhilaiToKedarnathData = {
     hero: {
         title: "Kedarnath Yatra from Bhilai 2026",
         subtitle: "The definitive guide for pilgrims from Durg, Bhilai & Raipur. Honest pricing, direct logistics, and local support.",
-        image: "/images/Kedarnath/Kedarnath 1.jpg",
+        image: "/images/Kedarnath/Kedarnath 1.webp",
         stats: [
             { label: "Total Distance", value: "~1,550 km" },
             { label: "Travel Time", value: "30-36 Hrs (Train)" },
@@ -23,11 +23,11 @@ export const bhilaiToKedarnathData = {
         ]
     },
     gallery: [
-        '/images/Kedarnath/Kedarnath 1.jpg',
-        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.jpg',
-        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.jpg',
-        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.jpg',
-        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.png'
+        '/images/Kedarnath/Kedarnath 1.webp',
+        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.webp',
+        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.webp',
+        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.webp',
+        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.webp'
     ],
     featuredSnippets: {
         howToReach: {
@@ -186,6 +186,18 @@ export const bhilaiToKedarnathData = {
         {
             question: "Are there western toilets available on the trek?",
             answer: "Basic amenities are available, but hygiene varies. Developed camps and our partner hotels ensure western toilets."
+        },
+        {
+            question: "When does Kedarnath temple open?",
+            answer: "The Kedarnath Temple typically opens every year on the auspicious day of Akshaya Tritiya, which usually falls in late April or early May. The exact date is announced on Maha Shivaratri."
+        },
+        {
+            question: "Can senior citizens do the Kedarnath Yatra from Bhilai?",
+            answer: "Yes, senior citizens can undertake the Yatra. However, due to the high altitude and long train journey from Bhilai, we strongly recommend pre-booking helicopter shuttle tickets from Phata or Sirsi to avoid the strenuous 16km trek."
+        },
+        {
+            question: "How to register for the Char Dham Yatra?",
+            answer: "Registration is mandatory for all pilgrims. You can register online through the official Tourist Care Uttarakhand portal or via the mobile app. You will need a valid Aadhar card and mobile number."
         }
     ]
 };

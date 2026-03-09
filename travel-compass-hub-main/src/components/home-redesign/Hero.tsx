@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { HERO_CONTENT } from '@/data/homeRedesignData';
 import posterImage from '@/assets/hero-poster.jpg'; // Using existing poster as fallback or main image
-import heroVideoFile from '@/assets/hero-video.mp4';
-import { useState, type FormEvent, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { Plane, MapPin as MapPinIcon, Compass } from 'lucide-react';
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -20,6 +21,12 @@ const Hero = () => {
     };
 
     const videoRef = useRef<HTMLVideoElement>(null);
+    const heroRef = useRef<HTMLElement>(null);
+    const bgRef = useRef<HTMLDivElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const subtitleRef = useRef<HTMLParagraphElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
+    const floatingIconsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (videoRef.current) {
@@ -27,12 +34,58 @@ const Hero = () => {
                 console.log("Video autoplay failed:", error);
             });
         }
+
+        // --- MOBILE ONLY LUXURY UX ANIMATIONS ---
+        if (window.innerWidth <= 768) {
+            const tl = gsap.timeline();
+
+            // Background Parallax/Zoom (Ken Burns effect)
+            if (bgRef.current) {
+                gsap.to(bgRef.current, {
+                    scale: 1.08,
+                    duration: 10,
+                    ease: "sine.inOut",
+                    repeat: -1,
+                    yoyo: true
+                });
+            }
+
+            // Cinematic Entry Sequence
+            tl.fromTo(titleRef.current,
+                { y: 60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }
+            )
+                .fromTo(subtitleRef.current,
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+                    "-=0.5"
+                )
+                .fromTo(ctaRef.current,
+                    { scale: 0.85, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.7)" },
+                    "-=0.4"
+                );
+
+            // 3D Floating Elements Animation (Floating slowly in space)
+            if (floatingIconsRef.current) {
+                const icons = floatingIconsRef.current.children;
+                gsap.to(icons[0], { y: -15, rotationY: 15, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" }); // Plane
+                gsap.to(icons[1], { y: 15, rotationX: 15, x: 10, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1 }); // MapPin
+                gsap.to(icons[2], { y: -20, rotationZ: 20, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 2 }); // Compass
+
+                // Entrance for floating icons
+                gsap.fromTo(floatingIconsRef.current,
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out", delay: 1 }
+                );
+            }
+        }
     }, []);
 
     return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <section ref={heroRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center perspective-[1000px]">
             {/* Background Video */}
-            <div className="absolute inset-0 z-0">
+            <div ref={bgRef} className="absolute inset-0 z-0 origin-center">
                 <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay */}
                 <video
                     ref={videoRef}
@@ -42,22 +95,35 @@ const Hero = () => {
                     playsInline
                     className="w-full h-full object-cover"
                 >
-                    <source src={heroVideoFile} type="video/mp4" />
+                    <source src="/hero-video.mp4" type="video/mp4" />
                 </video>
             </div>
 
+            {/* Mobile-Only 3D Floating Icons */}
+            <div ref={floatingIconsRef} className="absolute inset-0 z-15 pointer-events-none md:hidden pt-20">
+                <div className="absolute top-[20%] right-[15%] text-white/40 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transform-style-3d">
+                    <Plane className="w-12 h-12" />
+                </div>
+                <div className="absolute top-[50%] left-[10%] text-gold/40 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transform-style-3d">
+                    <MapPinIcon className="w-10 h-10" />
+                </div>
+                <div className="absolute bottom-[30%] right-[20%] text-white/30 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transform-style-3d">
+                    <Compass className="w-14 h-14" />
+                </div>
+            </div>
+
             <div className="container relative z-20 px-4 text-center">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-xl animate-fade-in font-serif">
+                <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-xl font-serif md:animate-fade-in md:opacity-100 opacity-0 md:transform-none transform translate-y-16">
                     {HERO_CONTENT.title}
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md animate-fade-in delay-100">
+                <p ref={subtitleRef} className="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md md:animate-fade-in md:delay-100 md:opacity-100 opacity-0 md:transform-none transform translate-y-8">
                     {HERO_CONTENT.subtitle}
                 </p>
 
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-300 mb-10">
+                <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 md:animate-fade-in md:delay-300 md:opacity-100 opacity-0 md:transform-none transform scale-90 mb-10">
                     <Button
                         onClick={handleCall}
                         size="lg"

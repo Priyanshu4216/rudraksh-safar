@@ -15,10 +15,19 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
     // Top-1% Rule: Don't render broken or empty breadcrumbs
     if (!items || items.length === 0) return null;
 
+    // Filter out 'Home' if it was explicitly passed to prevent duplication
+    const cleanItems = items.filter(item => item.path !== '/' && item.label.toLowerCase() !== 'home');
+
+    // If there were only Home items, don't render a breadcrumb trail to just Home
+    if (cleanItems.length === 0) return null;
+
     // Helper to ensure valid absolute URLs (prevent double slashes)
     const getAbsoluteUrl = (path: string) => {
         const cleanPath = path.startsWith('/') ? path : `/${path}`;
-        const baseUrl = import.meta.env.VITE_SITE_URL || 'https://rudrakshsafar.com';
+        let baseUrl = import.meta.env.VITE_SITE_URL || 'https://rudrakshsafar.com';
+        if (baseUrl.endsWith('/')) {
+            baseUrl = baseUrl.slice(0, -1);
+        }
         return `${baseUrl}${cleanPath}`;
     };
 
@@ -33,7 +42,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
                 "name": "Home",
                 "item": "https://rudrakshsafar.com/"
             },
-            ...items.map((item, index) => ({
+            ...cleanItems.map((item, index) => ({
                 "@type": "ListItem",
                 "position": index + 2,
                 "name": item.label,
@@ -53,7 +62,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
             {/* Sticky Breadcrumb Wrapper */}
             <div className="sticky top-[4.5rem] z-40 w-full bg-background/80 backdrop-blur-md border-b border-white/5 shadow-sm transition-all duration-300">
                 <div className="container mx-auto px-4 py-3">
-                    <nav aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
+                    <nav aria-label="Breadcrumb">
                         <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                             <li>
                                 <Link to="/" className="flex items-center hover:text-primary transition-colors">
@@ -61,10 +70,10 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
                                     <span className="sr-only">Home</span>
                                 </Link>
                             </li>
-                            {items.map((item, index) => (
+                            {cleanItems.map((item, index) => (
                                 <li key={item.path} className="flex items-center gap-2">
                                     <ChevronRight className="w-4 h-4 opacity-50" />
-                                    {index === items.length - 1 ? (
+                                    {index === cleanItems.length - 1 ? (
                                         <span className="font-medium text-foreground" aria-current="page">
                                             {item.label}
                                         </span>

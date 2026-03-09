@@ -20,31 +20,32 @@ import TLDRSection from '@/components/TLDRSection';
 import LastUpdated from '@/components/LastUpdated';
 import RelatedServices from '@/components/RelatedServices';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
-
+import { domesticPackages } from '@/pages/DomesticPackages';
+import { internationalPackages } from '@/pages/InternationalPackages';
 const TourPackagesFromBhilai = () => {
 
 
 
 
-    const domesticDestinations: Destination[] = [
-        { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=800", price: "Starts ₹8,999", duration: "3N/4D", link: "/domestic-tours/goa-from-bhilai", rating: "4.8" },
-        { name: "Kashmir", image: "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹18,999", duration: "5N/6D", link: "/domestic-tours/kashmir-from-bhilai", rating: "4.9" },
-        { name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800", price: "Starts ₹14,999", duration: "4N/5D", link: "/domestic-tours/kerala-from-bhilai", rating: "4.7" },
-        { name: "Himachal", image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800", price: "Starts ₹10,999", duration: "5N/6D", link: "/domestic-tours/manali-from-bhilai", rating: "4.8" },
-        { name: "Rajasthan", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800", price: "Starts ₹12,999", duration: "5N/6D", link: "/rajasthan-tour-package-from-bhilai", rating: "4.7" },
-        { name: "Andaman", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=80&w=800", price: "Starts ₹22,999", duration: "5N/6D", link: "/domestic-tours/andaman-from-bhilai", rating: "4.9" },
-        { name: "Char Dham", image: "https://www.shutterstock.com/image-photo/kedarnath-uttarakhand-india-beauty-devotion-600nw-2544822575.jpg", price: "Starts ₹25,999", duration: "10N/11D", link: "/chardham-yatra-package-from-bhilai", rating: "5.0", tag: "Spiritual" },
-    ];
+    const domesticDestinations: Destination[] = domesticPackages.slice(0, 7).map(pkg => ({
+        name: pkg.title,
+        image: pkg.image,
+        price: pkg.price,
+        duration: pkg.duration,
+        link: `/package/${pkg.id}`,
+        rating: "4.8",
+        tag: pkg.tag
+    }));
 
-    const internationalDestinations: Destination[] = [
-        { name: "Dubai", image: "https://plus.unsplash.com/premium_photo-1697729914552-368899dc4757?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", price: "Starts ₹45,999", duration: "5N/6D", link: "/international-tours/dubai-from-bhilai", rating: "4.9" },
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/international-tours/thailand-from-bhilai", rating: "4.8" },
-        { name: "Bali", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/international-tours/bali-from-bhilai", rating: "4.9" },
-        { name: "Singapore", image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=800", price: "Starts ₹55,999", duration: "5N/6D", link: "/international-tours/singapore-from-bhilai", rating: "4.8" },
-        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/package/maldives-honeymoon", rating: "5.0", tag: "Honeymoon" },
-        { name: "Nepal", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", price: "Starts ₹18,999", duration: "5N/6D", link: "/nepal-tour-package-from-bhilai", rating: "4.7" },
-        { name: "Sri Lanka", image: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=800", price: "Starts ₹28,999", duration: "5N/6D", link: "/international-tours/srilanka-from-bhilai", rating: "4.6" },
-    ];
+    const internationalDestinations: Destination[] = internationalPackages.slice(0, 7).map(pkg => ({
+        name: pkg.title,
+        image: pkg.image,
+        price: pkg.price,
+        duration: pkg.duration,
+        link: pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`,
+        rating: "4.8",
+        tag: pkg.tag
+    }));
 
     const bestTimeData = [
         { destination: "Goa", months: "Nov – Feb" },
@@ -337,7 +338,7 @@ const TourPackagesFromBhilai = () => {
                                         <span className="text-primary mt-1">❓</span> What is the cheapest international trip from India?
                                     </h3>
                                     <p className="text-muted-foreground text-sm leading-relaxed">
-                                        The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
+                                        The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
                                     </p>
                                 </div>
 
@@ -346,7 +347,7 @@ const TourPackagesFromBhilai = () => {
                                         <span className="text-primary mt-1">❓</span> Which international trip is best?
                                     </h3>
                                     <p className="text-muted-foreground text-sm leading-relaxed">
-                                        The best international trip depends on travel preferences. Thailand and Bali are popular for first-time international travelers, Dubai is ideal for luxury and short stays, Singapore suits families, and Nepal is best for budget and nature travel. The “best” trip varies based on budget, duration, and interests.
+                                        The best international trip depends on travel preferences. <Link to="/international-tours/thailand">Thailand</Link> and <Link to="/international-tours/bali">Bali</Link> are popular for first-time international travelers, <Link to="/international-tours/dubai">Dubai</Link> is ideal for luxury and short stays, <Link to="/international-tours/singapore">Singapore</Link> suits families, and Nepal is best for budget and nature travel. The “best” trip varies based on budget, duration, and interests.
                                     </p>
                                 </div>
 
@@ -364,7 +365,7 @@ const TourPackagesFromBhilai = () => {
                                         <span className="text-primary mt-1">❓</span> Which is the nearest airport to Bhilai?
                                     </h3>
                                     <p className="text-muted-foreground text-sm leading-relaxed">
-                                        The nearest airport to Bhilai is Swami Vivekananda Airport, Raipur (RPR), located approximately 35–40 km away. It is well connected to major Indian cities like Delhi, Mumbai, Bangalore, and Hyderabad, making it the primary airport for travelers from Bhilai.
+                                        The nearest airport to Bhilai is Swami Vivekananda Airport, <Link to="/travel-agent-raipur">Raipur</Link> (RPR), located approximately 35–40 km away. It is well connected to major Indian cities like Delhi, Mumbai, Bangalore, and Hyderabad, making it the primary airport for travelers from Bhilai.
                                     </p>
                                 </div>
 
@@ -382,7 +383,7 @@ const TourPackagesFromBhilai = () => {
                                         <span className="text-primary mt-1">❓</span> Which country is best for a 4 day trip?
                                     </h3>
                                     <p className="text-muted-foreground text-sm leading-relaxed">
-                                        For a 4-day international trip from India, destinations like Dubai, Nepal, Sri Lanka, Thailand, and Singapore are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration without rushing.
+                                        For a 4-day international trip from India, destinations like <Link to="/international-tours/dubai">Dubai</Link>, Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, and <Link to="/international-tours/singapore">Singapore</Link> are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration without rushing.
                                     </p>
                                 </div>
                             </div>

@@ -29,13 +29,13 @@ export const SUMMER_PACKAGES: SummerPackage[] = [
         duration: '7 Days / 6 Nights',
         price: "₹28,500",
         originalPrice: "₹35,000",
-        image: '/images/ladakh/ladakh-img-1.jpeg',
+        image: '/images/ladakh/ladakh-img-1.webp',
         images: [
-            '/images/ladakh/ladakh-img-1.jpeg',
-            '/images/ladakh/ladakh-img-2.jpeg',
-            '/images/ladakh/ladakh-img-3.jpeg',
-            '/images/ladakh/ladakh-img-4.jpeg',
-            '/images/ladakh/ladakh-img-5.jpeg'
+            '/images/ladakh/ladakh-img-1.webp',
+            '/images/ladakh/ladakh-img-2.webp',
+            '/images/ladakh/ladakh-img-3.webp',
+            '/images/ladakh/ladakh-img-4.webp',
+            '/images/ladakh/ladakh-img-5.webp'
         ],
         tag: "Most Booked",
         features: ["Pangong Lake", "Nubra Valley", "Khardung La", "Bike Option"],

@@ -1,0 +1,12 @@
+/passport-agent-bhilai
+/ladakh-tour-package-from-bhilai
+/ladakh-tour-package-from-raipur
+/destinations/uae/dubai
+/destinations/uae/abu-dhabi
+/destinations/uae/sharjah
+/destinations/uae/ras-al-khaimah
+/destinations/uae/fujairah
+/destinations/uae/dubai/burj-khalifa
+/destinations/uae/dubai/desert-safari
+/destinations/uae/abu-dhabi/grand-mosque
+/destinations/uae/abu-dhabi/ferrari-world

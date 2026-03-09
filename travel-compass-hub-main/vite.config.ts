@@ -8,7 +8,7 @@ import legacy from '@vitejs/plugin-legacy';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: "0.0.0.0",
     port: 8080,
   },
   base: "/", // Ensure absolute path for assets
@@ -101,6 +101,13 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot', 'lucide-react', 'framer-motion', 'clsx', 'tailwind-merge', 'embla-carousel-react'],
+          utils: ['date-fns', 'zod'],
+        }
+      },
       plugins: [
         {
           name: 'generate-version-file',

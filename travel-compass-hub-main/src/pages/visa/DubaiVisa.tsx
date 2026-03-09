@@ -82,7 +82,7 @@ const DubaiVisa = () => {
     <>
       <Helmet>
         <title>Dubai Visa for Indians 2026 – e-Visa, VOA & Requirements | Rudraksh Safar</title>
-        <meta name="description" content="Dubai visa for Indian citizens – updated 2026. Apply for e-visa online or get Visa on Arrival with USA/UK/EU residence. Check fees, processing time, documents & travel tips." />
+        <meta name="description" content="Dubai visa for Indian citizens – updated 2026. Apply for e-visa online or get Visa on Arrival with USA/UK/EU residence. Check fees, processing time, documents & travel tips. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh." />
         <meta name="keywords" content="Dubai visa for Indians, UAE visa for Indians, Dubai e-visa, Dubai visa on arrival, Dubai tourist visa India, Dubai visa requirements" />
         <link rel="canonical" href="https://rudrakshsafar.com/visa/dubai" />
       </Helmet>

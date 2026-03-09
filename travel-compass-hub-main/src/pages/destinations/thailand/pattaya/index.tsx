@@ -35,7 +35,7 @@ const PattayaCity = () => {
     },
     {
         "name": "Coral Island",
-        "image": "/images/Discover/Thailand/Pattaya/coral island.jpg",
+        "image": "/images/Discover/Thailand/Pattaya/coral island.webp",
         "link": "/destinations/thailand/attractions/pattaya/coral-island",
         "category": "Adventure • Nature",
         "quickInfo": [
@@ -46,7 +46,7 @@ const PattayaCity = () => {
     },
     {
         "name": "Tiger Park",
-        "image": "/images/Discover/Thailand/Pattaya/tiger parl.jpg",
+        "image": "/images/Discover/Thailand/Pattaya/tiger parl.webp",
         "link": "/destinations/thailand/attractions/pattaya/tiger-park",
         "category": "Wildlife • Family",
         "quickInfo": [
@@ -57,7 +57,7 @@ const PattayaCity = () => {
     },
     {
         "name": "Alcazar Show",
-        "image": "/images/Discover/Thailand/Pattaya/alcazar-cabaret-show.jpg",
+        "image": "/images/Discover/Thailand/Pattaya/alcazar-cabaret-show.webp",
         "link": "/destinations/thailand/attractions/pattaya/alcazar-show",
         "category": "Nightlife • Cultural",
         "quickInfo": [
@@ -79,7 +79,7 @@ const PattayaCity = () => {
     },
     {
         "name": "Tiffany Show",
-        "image": "/images/Discover/Thailand/Pattaya/tiffany-s-show-pattaya.jpg",
+        "image": "/images/Discover/Thailand/Pattaya/tiffany-s-show-pattaya.webp",
         "link": "/destinations/thailand/attractions/pattaya/tiffany-show",
         "category": "Nightlife • Entertainment",
         "quickInfo": [

@@ -13,28 +13,48 @@ import LocationPageLoader from '@/components/LocationPageLoader';
 import RelatedServices from '@/components/RelatedServices';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Link } from 'react-router-dom';
-
+import { domesticPackages } from '@/pages/DomesticPackages';
+import { internationalPackages } from '@/pages/InternationalPackages';
 const HoneymoonPackagesFromBhilai = () => {
 
 
 
 
-    const snowDestinations: Destination[] = [
-        { name: "Manali (Snow)", image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800", price: "Starts ₹15,999", duration: "5N/6D", link: "/domestic-tours/manali-from-bhilai", rating: "4.9", tag: "Snow Love" },
-        { name: "Kashmir", image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&q=80&w=800", price: "Starts ₹22,999", duration: "5N/6D", link: "/domestic-tours/kashmir-from-bhilai", rating: "4.9", tag: "Heaven on Earth" },
-    ];
+    const snowDestinations: Destination[] = domesticPackages
+        .filter(pkg => ['manali', 'kashmir'].includes(pkg.id))
+        .map(pkg => ({
+            name: pkg.id === 'manali' ? 'Manali (Snow)' : pkg.title,
+            image: pkg.image,
+            price: pkg.price,
+            duration: pkg.duration,
+            link: `/package/${pkg.id}`,
+            rating: "4.9",
+            tag: pkg.id === 'kashmir' ? 'Heaven on Earth' : 'Snow Love'
+        }));
 
-    const beachDestinations: Destination[] = [
-        { name: "Goa (North vs South)", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=800", price: "Starts ₹12,999", duration: "4N/5D", link: "/domestic-tours/goa-from-bhilai", rating: "4.7", tag: "Party + Privacy" },
-        { name: "Andaman (LTC)", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=80&w=800", price: "Starts ₹28,999", duration: "5N/6D", link: "/domestic-tours/andaman-from-bhilai", rating: "4.8", tag: "Exotic Indian" },
-        { name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800", price: "Starts ₹18,999", duration: "5N/6D", link: "/domestic-tours/kerala-from-bhilai", rating: "4.8", tag: "Backwaters" },
-    ];
+    const beachDestinations: Destination[] = domesticPackages
+        .filter(pkg => ['goa', 'andaman', 'munnar'].includes(pkg.id))
+        .map(pkg => ({
+            name: pkg.id === 'goa' ? 'Goa (North vs South)' : pkg.id === 'andaman' ? 'Andaman (LTC)' : 'Kerala',
+            image: pkg.image,
+            price: pkg.price,
+            duration: pkg.duration,
+            link: `/package/${pkg.id}`,
+            rating: "4.8",
+            tag: pkg.id === 'goa' ? 'Party + Privacy' : pkg.id === 'andaman' ? 'Exotic Indian' : 'Backwaters'
+        }));
 
-    const internationalDestinations: Destination[] = [
-        { name: "Bali (Indonesia)", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800", price: "Starts ₹45,999", duration: "6N/7D", link: "/international-tours/bali-from-bhilai", rating: "4.9", tag: "Island Villas" },
-        { name: "Thailand", image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", price: "Starts ₹29,999", duration: "5N/6D", link: "/international-tours/thailand-from-bhilai", rating: "4.8", tag: "Budget International" },
-        { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800", price: "Starts ₹65,999", duration: "4N/5D", link: "/package/maldives", rating: "5.0", tag: "Luxury Water Villa" },
-    ];
+    const internationalDestinations: Destination[] = internationalPackages
+        .filter(pkg => ['bali', 'thailand', 'maldives'].includes(pkg.id))
+        .map(pkg => ({
+            name: pkg.id === 'bali' ? 'Bali (Indonesia)' : pkg.title,
+            image: pkg.image,
+            price: pkg.price,
+            duration: pkg.duration,
+            link: `/package/${pkg.id}`,
+            rating: "4.9",
+            tag: pkg.id === 'bali' ? 'Island Villas' : pkg.id === 'thailand' ? 'Budget International' : 'Luxury Water Villa'
+        }));
 
     const bestTimeData = [
         { destination: "Manali (Snow)", months: "Dec – Feb" },

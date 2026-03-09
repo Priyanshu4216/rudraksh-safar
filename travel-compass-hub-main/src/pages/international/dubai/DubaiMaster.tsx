@@ -107,7 +107,7 @@ const dubaiData: DestinationData = {
     ],
     meta: {
         title: 'Dubai Tour Packages 2026 | Burj Khalifa & Desert Safari Trip from Raipur',
-        description: 'Premium Dubai Tour Packages from Bhilai & Raipur. Visa included. Visit Burj Khalifa, Palm Jumeirah, Abu Dhabi. 4-Star Hotels & Indian Meals.',
+        description: 'Premium Dubai Tour Packages. Visa included. Visit Burj Khalifa, Palm Jumeirah, Abu Dhabi. 4-Star Hotels & Indian Meals. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh.',
         keywords: 'dubai tour packages, dubai visa for indians, dubai trip cost from raipur, dubai honeymoon package, burj khalifa tickets'
     }
 };

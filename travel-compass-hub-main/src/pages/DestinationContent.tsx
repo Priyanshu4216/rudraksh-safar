@@ -220,6 +220,67 @@ const DestinationContent = () => {
         </section>
       </main>
 
+      {/* Boilerplate SEO & Trust Signals Block (Universal Content) */}
+      <section className="py-20 bg-muted/30 border-t border-border">
+        <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">Why Book Your {destinationName} Trip With Rudraksh Safar?</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">We do not just sell tickets; we design flawless holiday experiences. Discover the security and peace of mind that comes from traveling with a dedicated team of destination experts headquartered right here in India.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 items-center mb-16">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="bg-card p-8 rounded-3xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-bold flex items-center gap-3 mb-4"><CheckCircle2 className="w-8 h-8 text-green-500" /> 100% Transparent Pricing</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">The travel industry is notorious for hidden fees, sudden GST additions, and "mandatory" tipping protocols. At Rudraksh Safar, what you see on your final invoice is exactly what you pay. We guarantee no surprise surcharges at the hotel or airport.</p>
+              </div>
+              <div className="bg-card p-8 rounded-3xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-bold flex items-center gap-3 mb-4"><CheckCircle2 className="w-8 h-8 text-green-500" /> Local Expertise & Direct Contracting</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">Unlike automated aggregator algorithms, our itinerary planners have personally visited the hotels and activities we recommend. We cut out the middlemen by directly contracting with DMCs (Destination Management Companies) in {destinationName}, passing wholesale B2B pricing directly to you.</p>
+              </div>
+              <div className="bg-card p-8 rounded-3xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-bold flex items-center gap-3 mb-4"><CheckCircle2 className="w-8 h-8 text-green-500" /> Pure Vegetarian & Jain Food Assurance</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">One of the biggest anxieties for Indian travelers abroad is finding authentic, strictly vegetarian, or Jain food. Our specialized tours include mapped Indian restaurants and hotel partners who understand and respect all dietary restrictions completely.</p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] transform rotate-3" />
+              <div className="bg-card border border-border rounded-[2.5rem] p-10 relative z-10 shadow-2xl">
+                <h3 className="text-3xl font-serif font-bold mb-6 leading-tight">Start Planning Your {destinationName} Escape</h3>
+                <p className="text-muted-foreground text-lg mb-10 leading-relaxed">Stop relying on fragmented internet research. Let a human expert curate the perfect itinerary based on your exact budget, group size, and travel style.</p>
+                <div className="space-y-4">
+                  <Button className="w-full text-lg h-16 rounded-xl font-bold shadow-xl transition-transform hover:-translate-y-1" size="lg" asChild>
+                    <a href={`https://wa.me/919406182174?text=Hi, I am interested in planning a customized trip to ${destinationName}.`}>Talk to a Destination Expert</a>
+                  </Button>
+                  <Button variant="outline" className="w-full text-lg h-16 rounded-xl font-bold" size="lg" asChild>
+                    <Link to="/contact">Request a Callback</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERNAL HUB LINKS (PHASE 2C) */}
+      <section className="py-12 bg-card border-t border-border">
+        <div className="container max-w-6xl mx-auto text-center">
+          <h3 className="text-xl font-bold mb-6 text-foreground">Discover More Tours & Guides</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/international-packages" className="px-5 py-2.5 border bg-muted/30 rounded-full text-sm hover:bg-muted/80 transition flex items-center gap-2 shadow-sm font-medium">
+              🌍 All International Packages
+            </Link>
+            <Link to="/budget-tour-packages" className="px-5 py-2.5 border bg-muted/30 rounded-full text-sm hover:bg-muted/80 transition flex items-center gap-2 shadow-sm font-medium">
+              🎒 Budget-Friendly Tours
+            </Link>
+            <Link to="/contact" className="px-5 py-2.5 border bg-muted/30 rounded-full text-sm hover:bg-muted/80 transition flex items-center gap-2 shadow-sm font-medium">
+              📞 Contact Trip Advisor
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <FloatingWhatsApp />
     </>

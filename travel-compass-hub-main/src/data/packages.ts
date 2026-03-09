@@ -574,7 +574,7 @@ export const allPackages = [
     location: 'Leh-Ladakh & Spiti Valley',
     duration: '12 Days / 11 Nights',
     price: '₹34,999',
-    image: '/images/ladakh/ladakh-img-1.jpeg',
+    image: '/images/ladakh/ladakh-img-1.webp',
     tag: 'Adventure',
     type: 'domestic',
     famousPlaces: ['Pangong Lake', 'Nubra Valley', 'Khardung La', 'Chandratal', 'Rohtang Pass'],
@@ -595,9 +595,9 @@ export const allPackages = [
       'Day 12: Buffer day/Trip End.',
     ],
     gallery: [
-      '/images/ladakh/ladakh-img-1.jpeg',
-      '/images/ladakh/ladakh-img-6.jpeg',
-      '/images/ladakh/ladakh-img-7.jpeg',
+      '/images/ladakh/ladakh-img-1.webp',
+      '/images/ladakh/ladakh-img-6.webp',
+      '/images/ladakh/ladakh-img-7.webp',
     ],
   },
   {
@@ -606,7 +606,7 @@ export const allPackages = [
     location: 'Leh-Ladakh, India',
     duration: '8 Days / 7 Nights',
     price: '₹24,999',
-    image: '/images/ladakh/ladakh-img-2.jpeg',
+    image: '/images/ladakh/ladakh-img-2.webp',
     tag: 'Expedition',
     type: 'domestic',
     famousPlaces: ['Pangong Lake', 'Nubra Valley', 'Khardung La', 'Leh Palace', 'Magnetic Hill'],
@@ -623,9 +623,9 @@ export const allPackages = [
       'Day 8: Morning flight departure from Leh with memories of a lifetime.',
     ],
     gallery: [
-      '/images/ladakh/ladakh-img-2.jpeg',
-      '/images/ladakh/ladakh-img-3.jpeg',
-      '/images/ladakh/ladakh-img-4.jpeg',
+      '/images/ladakh/ladakh-img-2.webp',
+      '/images/ladakh/ladakh-img-3.webp',
+      '/images/ladakh/ladakh-img-4.webp',
     ],
   },
   {
@@ -1212,7 +1212,7 @@ export const allPackages = [
     location: 'Leh-Ladakh & Spiti Valley',
     duration: '12 Days / 11 Nights',
     price: '₹34,999',
-    image: '/images/ladakh/ladakh-img-6.jpeg',
+    image: '/images/ladakh/ladakh-img-6.webp',
     tag: 'Adventure',
     type: 'adventure',
     famousPlaces: ['Khardung La', 'Pangong Lake', 'Nubra Valley', 'Spiti Valley', 'Chandratal'],
@@ -1233,8 +1233,8 @@ export const allPackages = [
       'Day 12: Chandratal to Manali (120 km) via Kunzum Pass, Rohtang. Trip ends.',
     ],
     gallery: [
-      '/images/ladakh/ladakh-img-6.jpeg',
-      '/images/ladakh/ladakh-img-8.jpeg',
+      '/images/ladakh/ladakh-img-6.webp',
+      '/images/ladakh/ladakh-img-8.webp',
     ],
   },
   {

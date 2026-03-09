@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Calendar, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle, X as UtilityX } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Sparkles, Utensils, Camera, Map, ArrowRight, Banknote, Plane, HelpCircle, Shield, Clock, CheckCircle, X as UtilityX, Star, AlertTriangle } from 'lucide-react';
 import { allPackages, PHONE_NUMBER } from '@/data/packages';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -13,6 +13,7 @@ import SEOHead from '@/components/SEOHead';
 import { getBestTimeToVisit, getVisaGuidePath, HOME_CITY } from '@/lib/travelMeta';
 import RelatedDestinations from '@/components/internal-linking/RelatedDestinations';
 import RelatedServices from '@/components/internal-linking/RelatedServices';
+import SemanticLinks from '@/components/internal-linking/SemanticLinks';
 
 
 
@@ -276,8 +277,10 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
 
   const budgetKeywords = `cheapest ${pkg.title} package from Bhilai, budget ${pkg.location} trip, low cost ${pkg.title} tour, affordable holiday in ${pkg.location}`;
 
+  const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background relative pb-24 lg:pb-0">
       <SEOHead
         title={seoTitle}
         description={seoDescription}
@@ -764,21 +767,36 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
               <div className="sticky top-24">
                 <AnimatedSection animation="fade-up">
                   <div className="glass-card p-6">
+                    {/* Scarcity / Urgency Tag */}
+                    <div className="bg-red-50 text-red-700 p-3 rounded-lg mb-6 flex items-start gap-2 border border-red-100/50 shadow-sm animate-pulse-slow">
+                      <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-bold">High Demand in {currentMonth}</p>
+                        <p className="text-xs opacity-90">Only 2 group slots left for {pkg.location}</p>
+                      </div>
+                    </div>
+
                     <div className="text-center mb-6">
                       <p className="text-sm text-muted-foreground mb-1">Starting from</p>
                       <p className="text-4xl font-serif font-bold text-secondary">{pkg.price}</p>
                       <p className="text-sm text-muted-foreground">per person</p>
                     </div>
 
-                    {/* (Removed) Local pickup/office block from the page UI as requested */}
-
-                    <Button onClick={handleWhatsApp} className="w-full btn-gold text-base py-6 mb-4">
-                      Book Now
+                    <Button onClick={handleWhatsApp} className="w-full bg-gold hover:bg-gold-light text-navy-deep font-bold text-base py-6 mb-3 shadow-lg shadow-gold/20">
+                      Get Quote on WhatsApp
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
 
+                    {/* Trust Placement Under CTA */}
+                    <div className="flex items-center justify-center gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                      ))}
+                      <span className="text-xs font-bold text-navy-deep ml-1">4.9/5 from 150+ travelers</span>
+                    </div>
+
                     <p className="text-xs text-center text-muted-foreground">
-                      Click to chat with us on WhatsApp for instant booking
+                      No commitment required. Free consultation.
                     </p>
                   </div>
                 </AnimatedSection>
@@ -788,7 +806,21 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
         </div>
       </section>
 
+      {/* Sticky Mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 shadow-2xl z-50 lg:hidden flex gap-3 pb-safe">
+        <div className="flex-1">
+          <p className="text-xs text-gray-500 font-medium">Starting from</p>
+          <p className="text-lg font-bold text-navy-deep">{pkg.price}</p>
+        </div>
+        <Button onClick={handleWhatsApp} className="bg-gold hover:bg-gold-light text-navy-deep font-bold px-6 border border-gold/50 shadow-sm rounded-full">
+          Get Quote
+        </Button>
+      </div>
+
       {/* Internal Linking Components */}
+      <div className="container px-4">
+        <SemanticLinks tag={pkg.location === 'Dubai' || pkg.title.includes('Dubai') ? 'Dubai' : pkg.location === 'Thailand' || pkg.title.includes('Thailand') || pkg.location === 'Phuket' ? 'Thailand' : pkg.tag} />
+      </div>
       <RelatedServices serviceType="All" />
       <RelatedDestinations currentRegion={pkg.type === 'international' ? 'International' : 'Domestic'} currentPackageId={pkg.id} />
 

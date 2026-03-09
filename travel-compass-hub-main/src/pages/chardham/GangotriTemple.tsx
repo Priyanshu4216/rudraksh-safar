@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 
 import TempleSchema from '@/components/seo/TempleSchema';
+import FAQSection from '@/components/seo/FAQSection';
 
 const GangotriTemple = () => {
     const {
@@ -239,20 +240,61 @@ const GangotriTemple = () => {
                         </section>
 
                         {/* 9. FAQs */}
-                        <section id="faqs" className="scroll-mt-24">
-                            <h2 className="text-3xl font-serif font-bold mb-6">Frequently Asked Questions</h2>
-                            <div className="space-y-4">
-                                {faqs.map((faq, idx) => (
-                                    <div key={idx} className="bg-card border border-border rounded-xl p-5">
-                                        <h3 className="font-bold text-foreground mb-2 flex gap-3">
-                                            <span className="text-blue-500">Q.</span> {faq.question}
-                                        </h3>
-                                        <p className="text-muted-foreground text-sm ml-7 leading-relaxed">{faq.answer}</p>
-                                    </div>
-                                ))}
-                            </div>
+                        <section id="faqs" className="scroll-mt-24 mb-12">
+                            <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                         </section>
 
+                        {/* --- DEEP SEO CONTENT BLOCKS --- */}
+                        <section id="deep-seo" className="py-16 bg-muted/20 mt-12 mb-12 rounded-3xl">
+                            <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">The Ultimate Gangotri Pilgrimage Guide</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        Perched at an altitude of 3,100 meters amidst the towering Garhwal Himalayas, Gangotri is the spiritual source of India's most sacred river, the Ganges. The white granite temple, built in the 18th century by Amar Singh Thapa, stands on the banks of the Bhagirathi river (as the Ganges is known before Devprayag). For millions of devotees, a pilgrimage to Gangotri represents the washing away of ancestral sins and the ultimate quest for purity.
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        According to legend, King Bhagirath meditated here intensely for a thousand years to bring the cosmic river Ganges down to Earth to grant salvation to his ancestors. Lord Shiva caught the mighty river in his matted locks to save the Earth from its destructive force. The sheer mythological weight of this location makes it the most revered Dham for ritual bathing and collecting the holy Gangajal.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Travel Logistics & The Route to Gangotri</h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        Unlike Kedarnath or Yamunotri, Gangotri boasts excellent road connectivity right up to the temple precinct. The mesmerizing drive from Uttarkashi to Gangotri takes you through the lush, dense deodar forests of the Gangotri National Park, crossing the breathtaking bridge at Lanka and the apple orchards of Harsil.
+                                    </p>
+                                    <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                                        <li><strong>The Harsil Advantage:</strong> Many pilgrims experiencing high-altitude sickness prefer to stay in the picturesque cantonment town of Harsil (70 km before Gangotri) and make a day trip to the temple.</li>
+                                        <li><strong>Gomukh Trek (Advanced):</strong> The actual physical origin of the river is the Gomukh Glacier, an arduous 18-km uphill trek from the temple. This requires special permits from the forest department and is only recommended for seasoned trekkers.</li>
+                                        <li><strong>Acclimatization at Uttarkashi:</strong> We strongly advise spending a night in Uttarkashi (1,158m) before proceeding to the 3,100m elevation of Gangotri to prevent Acute Mountain Sickness (AMS).</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                                    <div className="flex flex-wrap gap-4 mt-4">
+                                        <Link to="/chardham/KedarnathTemple" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Kedarnath Guide</Link>
+                                        <Link to="/chardham/BadrinathTemple" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Badrinath Guide</Link>
+                                        <Link to="/chardham/YamunotriTemple" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Yamunotri Guide</Link>
+                                        <Link to="/chardham/CharDhamRegistration" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Yatra Registration</Link>
+                                        <Link to="/chardham/CharDhamRouteMap" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Char Dham Route</Link>
+                                        <Link to="/chardham-yatra-package" className="bg-white border text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 font-medium tracking-wide">Explore Tour Packages</Link>
+                                    </div>
+                                </div>
+
+                                {/* Conversion Layer */}
+                                <div className="bg-blue-50 dark:bg-blue-950/30 p-8 rounded-2xl border-2 border-blue-500 text-center my-10">
+                                    <h3 className="text-3xl font-bold mb-4">Plan Your Gangotri & Do-Dham Yatra</h3>
+                                    <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                        Experience the divinity of the Ganges with our all-inclusive packages. We provide premium tempo travelers, exceptional hotel stays in Harsil, and expert local guidance.
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                        <a href="https://wa.me/919406182174?text=Gangotri%20Yatra%20Enquiry" target="_blank" className="bg-blue-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-blue-700 transition">
+                                            WhatsApp Enquiry
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </article>
 
                     {/* RIGHT SIDEBAR */}

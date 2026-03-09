@@ -2,8 +2,8 @@ import { Search, MapPin, Calendar, Star, ShieldCheck, Award } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import { HERO_CONTENT } from '@/data/homeRedesignData';
 import posterImage from '@/assets/hero-poster.jpg';
-import heroVideoFile from '@/assets/hero-video.mp4';
 import { useState } from 'react';
+import LazyOptimizedImage from '@/components/LazyOptimizedImage';
 
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -50,13 +50,14 @@ const HeroSection = ({
             poster={posterImage}
             className="w-full h-full object-cover scale-105 animate-slow-zoom"
           >
-            <source src={heroVideoFile} type="video/mp4" />
+            <source src="/hero-video.mp4" type="video/mp4" />
           </video>
         ) : (
-          <img
+          <LazyOptimizedImage
             src={backgroundImage}
             alt={displayTitle}
             className="w-full h-full object-cover scale-105 animate-slow-zoom"
+            priority={true}
           />
         )}
 

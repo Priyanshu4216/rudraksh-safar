@@ -1,10 +1,40 @@
-
 import { Link } from 'react-router-dom';
 import { VISA_EASY_DESTINATIONS } from '@/data/homeRedesignData';
 import { BadgeCheck } from 'lucide-react';
-// import SmartImage from '@/components/SmartImage'; // Uncomment if using SmartImage for thumbnails
+import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
 
 const VisaEasy = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const DestinationCard = ({ dest }: { dest: any }) => (
+        <Link
+            to={dest.slug.startsWith('/') ? dest.slug : `/visa/${dest.slug}`}
+            className="group flex flex-col items-center bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-green-900/5 dark:hover:shadow-green-900/20 border border-slate-100 dark:border-slate-700 hover:border-green-100 dark:hover:border-green-500/30 transition-all duration-300 md:backdrop-blur-none backdrop-blur-[16px] md:bg-white bg-white/50 dark:bg-slate-800/80 md:dark:bg-slate-800 border-white/20 active:scale-95 h-full"
+        >
+            <div className="w-14 h-14 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                {/* Flag or Icon */}
+                <span className="text-lg font-bold">{dest.title.substring(0, 2).toUpperCase()}</span>
+            </div>
+            <h3 className={`text-slate-800 dark:text-slate-200 mb-1 ${dest.fontClass || 'font-semibold'}`}>
+                {dest.title}
+            </h3>
+            <span className="inline-flex items-center text-[10px] uppercase font-bold tracking-wider text-green-600/80 dark:text-green-400 bg-green-50 dark:bg-green-900/40 px-2 py-1 rounded-sm">
+                <BadgeCheck className="w-3 h-3 mr-1" /> Visa Ready
+            </span>
+        </Link>
+    );
+
     return (
         <section className="py-20 bg-slate-50 dark:bg-slate-900">
             <div className="container mx-auto px-4">
@@ -17,26 +47,30 @@ const VisaEasy = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {VISA_EASY_DESTINATIONS.map((dest) => (
-                        <Link
-                            key={dest.id}
-                            to={dest.slug.startsWith('/') ? dest.slug : `/visa/${dest.slug}`}
-                            className="group flex flex-col items-center bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-green-900/5 border border-slate-100 hover:border-green-100 transition-all duration-300"
+                {!isMobile ? (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                        {VISA_EASY_DESTINATIONS.map((dest) => (
+                            <DestinationCard key={dest.id} dest={dest} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="-mx-4 px-4 overflow-visible">
+                        <Swiper
+                            modules={[FreeMode]}
+                            slidesPerView={2.2}
+                            spaceBetween={12}
+                            freeMode={true}
+                            grabCursor={true}
+                            className="!pb-6 !overflow-visible"
                         >
-                            <div className="w-14 h-14 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                {/* Flag or Icon */}
-                                <span className="text-lg font-bold">{dest.title.substring(0, 2).toUpperCase()}</span>
-                            </div>
-                            <h3 className={`text-slate-800 dark:text-slate-200 mb-1 ${dest.fontClass || 'font-semibold'}`}>
-                                {dest.title}
-                            </h3>
-                            <span className="inline-flex items-center text-[10px] uppercase font-bold tracking-wider text-green-600/80 bg-green-50 px-2 py-1 rounded-sm">
-                                <BadgeCheck className="w-3 h-3 mr-1" /> Visa Ready
-                            </span>
-                        </Link>
-                    ))}
-                </div>
+                            {VISA_EASY_DESTINATIONS.map((dest) => (
+                                <SwiperSlide key={dest.id} className="!h-auto">
+                                    <DestinationCard dest={dest} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -397,14 +397,14 @@ const TravelAgentBhilai = () => {
 
               {/* SECTION: Meet The Expert (Trust Signal) */}
               <section id="meet-expert" className="mb-16 scroll-mt-24">
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800 p-8 rounded-2xl border border-blue-100 dark:border-slate-700 flex flex-col md:flex-row items-center gap-8">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800 p-8 rounded-2xl border border-blue-100 dark:border-slate-700 flex flex-col md:flex-row items-center gap-8 text-slate-900 dark:text-white">
                   <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg shrink-0 bg-gray-200 flex items-center justify-center">
                     <Users className="w-16 h-16 text-gray-400" />
                   </div>
                   <div>
-                    <Badge className="mb-3 bg-blue-600">Since 2010</Badge>
+                    <Badge className="mb-3 bg-blue-600 text-white">Since 2010</Badge>
                     <h3 className="text-2xl font-bold mb-2">Meet Your Local Travel Expert</h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-slate-700 dark:text-muted-foreground mb-4 leading-relaxed">
                       "At Rudraksh Safar, we aren't just an algorithm. We are real people living in Bhilai just like you. I personally oversee every package to ensure my fellow Bhilai residents get the safest, most value-for-money experience. If established trust matters to you, you are in the right place."
                     </p>
                     <div className="font-bold text-lg">- Senior Consultant, Rudraksh Safar Team</div>
@@ -419,51 +419,51 @@ const TravelAgentBhilai = () => {
                     <MapPin className="w-8 h-8 text-primary" /> Why Bhilai Travelers Prefer a Local Agent
                   </h2>
                   <p className="text-muted-foreground text-lg">
-                    Booking online is easy, but having a local expert is safe. Here is why families from <strong>Nehru Nagar, Supela, and Durg</strong> choose Rudraksh Safar.
+                    Booking online is easy, but having a local expert is safe. Here is why families from <strong>Nehru Nagar, Supela, and <Link to="/travel-agent-durg">Durg</Link></strong> choose Rudraksh Safar.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10 text-slate-900 dark:text-white">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-3 text-xl">
                         <Train className="w-6 h-6 text-orange-500" /> Seamless Connectivity
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-muted-foreground">
-                      We know the best connections from <strong>Durg Junction</strong> and <strong>Raipur Airport</strong>. We plan your itinerary accounting for actual travel times from Bhilai, so you never miss a flight or train.
+                    <CardContent className="text-slate-600 dark:text-muted-foreground">
+                      We know the best connections from <strong><Link to="/travel-agent-durg">Durg</Link> Junction</strong> and <strong><Link to="/travel-agent-raipur">Raipur</Link> Airport</strong>. We plan your itinerary accounting for actual travel times from Bhilai, so you never miss a flight or train.
                     </CardContent>
                   </Card>
 
-                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10 text-slate-900 dark:text-white">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-3 text-xl">
                         <Coffee className="w-6 h-6 text-brown-500" /> Face-to-Face Trust
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-muted-foreground">
+                    <CardContent className="text-slate-600 dark:text-muted-foreground">
                       Online apps don't serve chai! Come to our office in <strong>Bhilai 3</strong>. Sit with us, look at hotel photos, understand the visa process, and pay only when you are satisfied.
                     </CardContent>
                   </Card>
 
-                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10 text-slate-900 dark:text-white">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-3 text-xl">
                         <Landmark className="w-6 h-6 text-green-600" /> Cash & Flexible Payment
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-muted-foreground">
+                    <CardContent className="text-slate-600 dark:text-muted-foreground">
                       Don't have a credit card? No problem. We accept <strong>Cash, UPI, and Bank Transfers</strong>. You can even pay in installments for select advance bookings.
                     </CardContent>
                   </Card>
 
-                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10">
+                  <Card className="hover:shadow-md transition-shadow bg-white dark:bg-card border dark:border-white/10 text-slate-900 dark:text-white">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-3 text-xl">
                         <HeartHandshake className="w-6 h-6 text-red-500" /> Crisis Support
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-muted-foreground">
+                    <CardContent className="text-slate-600 dark:text-muted-foreground">
                       If your flight from Raipur is cancelled, you don't call a toll-free number. You call us. We rebook you immediately because we are your local guardians.
                     </CardContent>
                   </Card>
@@ -472,18 +472,18 @@ const TravelAgentBhilai = () => {
 
               {/* SECTION: Price Guide (High Value) */}
               <section id="price-guide" className="mb-16 scroll-mt-24">
-                <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2">
                     <IndianRupee className="w-7 h-7 text-green-600" /> Bhilai Travel Price Guide (2026)
                   </h2>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-slate-600 dark:text-muted-foreground mb-6">
                     Estimated starting prices for popular trips from Bhilai/Raipur.
                   </p>
 
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                       <thead>
-                        <tr className="border-b border-slate-300 dark:border-slate-700 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                        <tr className="border-b border-slate-300 dark:border-slate-700 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-muted-foreground">
                           <th className="py-3 px-4">Destination</th>
                           <th className="py-3 px-4">Avg. Price (per person)</th>
                           <th className="py-3 px-4">Duration</th>
@@ -492,31 +492,31 @@ const TravelAgentBhilai = () => {
                       </thead>
                       <tbody className="text-sm md:text-base divide-y divide-slate-200 dark:divide-slate-800">
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Goa</td>
+                          <td className="py-4 px-4 font-medium text-slate-900 dark:text-white">Goa</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹8,999 - ₹18,999</td>
                           <td className="py-4 px-4">3N/4D</td>
                           <td className="py-4 px-4"><Link to="/package/goa" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Kashmir</td>
+                          <td className="py-4 px-4 font-medium text-slate-900 dark:text-white">Kashmir</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹9,999 - ₹25,999</td>
                           <td className="py-4 px-4">5N/6D</td>
                           <td className="py-4 px-4"><Link to="/package/kashmir" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Thailand</td>
+                          <td className="py-4 px-4 font-medium text-slate-900 dark:text-white">Thailand</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹18,999 - ₹35,999</td>
                           <td className="py-4 px-4">4N/5D</td>
                           <td className="py-4 px-4"><Link to="/international-tours/thailand" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Dubai</td>
+                          <td className="py-4 px-4 font-medium text-slate-900 dark:text-white">Dubai</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹23,499 - ₹55,999</td>
                           <td className="py-4 px-4">5N/6D</td>
                           <td className="py-4 px-4"><Link to="/international-tours/dubai" className="text-primary hover:underline font-medium">View Plan</Link></td>
                         </tr>
                         <tr>
-                          <td className="py-4 px-4 font-medium text-foreground">Chardham Yatra</td>
+                          <td className="py-4 px-4 font-medium text-slate-900 dark:text-white">Chardham Yatra</td>
                           <td className="py-4 px-4 text-green-600 font-bold">₹22,000 - ₹35,000</td>
                           <td className="py-4 px-4">9N/10D</td>
                           <td className="py-4 px-4"><Link to="/chardham-yatra-package" className="text-primary hover:underline font-medium">View Plan</Link></td>
@@ -524,7 +524,7 @@ const TravelAgentBhilai = () => {
                       </tbody>
                     </table>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-4">* Prices vary based on season and flight rates from Raipur.</p>
+                  <p className="text-xs text-slate-500 dark:text-muted-foreground mt-4">* Prices vary based on season and flight rates from Raipur.</p>
                 </div>
               </section>
 
@@ -577,30 +577,30 @@ const TravelAgentBhilai = () => {
               <section id="testimonials" className="mb-16 scroll-mt-24">
                 <h2 className="text-3xl font-bold mb-8 text-center md:text-left">Local Stories from Bhilai</h2>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative">
+                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative text-slate-900 dark:text-white">
                     <div className="absolute top-6 right-6 text-yellow-400 flex"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
-                    <p className="italic text-muted-foreground mb-4 leading-relaxed">
-                      "We stay in <strong>Supela</strong> and were worried about booking our honeymoon online. We visited Rudraksh Safar office, spoke to the team, and booked our <strong>Kerala trip</strong>. Everything from the cab at Kochi airport to the houseboat was perfect."
+                    <p className="italic text-slate-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                      "We stay in <strong>Supela</strong> and were worried about booking our <Link to="/honeymoon-packages">honeymoon</Link> online. We visited Rudraksh Safar office, spoke to the team, and booked our <strong><Link to="/domestic-tours/kerala">Kerala trip</Link></strong>. Everything from the cab at Kochi airport to the houseboat was perfect."
                     </p>
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">RK</div>
                       <div>
                         <h4 className="font-bold text-sm">Rahul & Priya K.</h4>
-                        <p className="text-xs text-muted-foreground">Supela, Bhilai</p>
+                        <p className="text-xs text-slate-500 dark:text-muted-foreground">Supela, Bhilai</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative">
+                  <div className="bg-white dark:bg-card p-6 rounded-2xl border dark:border-white/10 shadow-sm relative text-slate-900 dark:text-white">
                     <div className="absolute top-6 right-6 text-yellow-400 flex"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
-                    <p className="italic text-muted-foreground mb-4 leading-relaxed">
-                      "I needed a specialized <strong>Dubai Visa</strong> urgently for a business trip. Their team in Bhilai 3 handled it professionally. No rejections, no stress. Highly recommended for international travel."
+                    <p className="italic text-slate-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                      "I needed a specialized <strong><Link to="/visa/dubai">Dubai Visa</Link></strong> urgently for a business trip. Their team in Bhilai 3 handled it professionally. No rejections, no stress. Highly recommended for international travel."
                     </p>
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">AS</div>
                       <div>
                         <h4 className="font-bold text-sm">Amit Singh</h4>
-                        <p className="text-xs text-muted-foreground">Nehru Nagar, Bhilai</p>
+                        <p className="text-xs text-slate-500 dark:text-muted-foreground">Nehru Nagar, Bhilai</p>
                       </div>
                     </div>
                   </div>
@@ -610,40 +610,40 @@ const TravelAgentBhilai = () => {
               {/* Google vs Local Comparison Table */}
               <section id="comparison" className="mb-16 scroll-mt-24">
                 <h2 className="text-3xl font-bold mb-6">Online Apps vs. Rudraksh Safar</h2>
-                <div className="overflow-x-auto border rounded-xl shadow-sm">
-                  <table className="w-full text-left border-collapse min-w-[600px]">
+                <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm text-slate-900 dark:text-white">
+                  <table className="w-full text-left border-collapse min-w-[600px] bg-white dark:bg-transparent">
                     <thead>
                       <tr className="bg-slate-100 dark:bg-slate-800">
-                        <th className="p-4 border-b">Feature</th>
-                        <th className="p-4 border-b text-red-500">Famous Online Apps</th>
-                        <th className="p-4 border-b text-green-600 font-bold bg-green-50 dark:bg-green-900/20">Rudraksh Safar (Local)</th>
+                        <th className="p-4 border-b border-slate-200 dark:border-slate-700">Feature</th>
+                        <th className="p-4 border-b border-slate-200 dark:border-slate-700 text-red-500">Famous Online Apps</th>
+                        <th className="p-4 border-b border-slate-200 dark:border-slate-700 text-green-600 font-bold bg-green-50 dark:bg-green-900/20">Rudraksh Safar (Local)</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="p-4 border-b font-medium">Customer Support</td>
-                        <td className="p-4 border-b text-muted-foreground">Chatbots & Email tickets</td>
-                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Personal Mobile Number</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium">Customer Support</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-muted-foreground">Chatbots & Email tickets</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium bg-green-50 dark:bg-green-900/10">Personal Mobile Number</td>
                       </tr>
                       <tr>
-                        <td className="p-4 border-b font-medium">Payment Flexibility</td>
-                        <td className="p-4 border-b text-muted-foreground">Full upfront (Digital only)</td>
-                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Part Payment + Cash/UPI at Office</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium">Payment Flexibility</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-muted-foreground">Full upfront (Digital only)</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium bg-green-50 dark:bg-green-900/10">Part Payment + Cash/UPI at Office</td>
                       </tr>
                       <tr>
-                        <td className="p-4 border-b font-medium">Emergency Help</td>
-                        <td className="p-4 border-b text-muted-foreground">Long wait times</td>
-                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Instant Local Assistance</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium">Emergency Help</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-muted-foreground">Long wait times</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium bg-green-50 dark:bg-green-900/10">Instant Local Assistance</td>
                       </tr>
                       <tr>
-                        <td className="p-4 border-b font-medium">Refunds</td>
-                        <td className="p-4 border-b text-muted-foreground">Takes 7-14 days (Credit shell)</td>
-                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">Immediate Processing</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium">Refunds</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-muted-foreground">Takes 7-14 days (Credit shell)</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium bg-green-50 dark:bg-green-900/10">Immediate Processing</td>
                       </tr>
                       <tr>
-                        <td className="p-4 border-b font-medium">Hidden Charges</td>
-                        <td className="p-4 border-b text-muted-foreground">Convenience Fees added at end</td>
-                        <td className="p-4 border-b font-medium bg-green-50 dark:bg-green-900/10">0% Hidden Fees</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium">Hidden Charges</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 text-slate-600 dark:text-muted-foreground">Convenience Fees added at end</td>
+                        <td className="p-4 border-b border-slate-200 dark:border-slate-700 font-medium bg-green-50 dark:bg-green-900/10">0% Hidden Fees</td>
                       </tr>
                     </tbody>
                   </table>

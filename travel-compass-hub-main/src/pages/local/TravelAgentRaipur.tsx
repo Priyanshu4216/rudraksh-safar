@@ -107,7 +107,7 @@ const TravelAgentRaipur = () => {
     ];
 
     const whyChooseUs = [
-        { icon: Users, title: "Serving Raipur & Bhilai", desc: "Deep local presence with office support in Twin Cities (Bhilai-Durg) for over 10 years." },
+        { icon: Users, title: "Serving Raipur & Bhilai", desc: <>Deep local presence with office support in Twin Cities (<Link to="/travel-agent-bhilai" className="hover:underline text-primary">Bhilai</Link>-<Link to="/travel-agent-durg" className="hover:underline text-primary">Durg</Link>) for over 10 years.</> },
         { icon: Shield, title: "On-Ground Support", desc: "We are real people, not a call center. Visit our office for face-to-face planning." },
         { icon: Award, title: "Local Pricing", desc: "Best deals negotiated specifically for travelers from Chhattisgarh." },
         { icon: Clock, title: "24/7 Trip Assistance", desc: "From departure to arrival, we are always just a phone call away." },
@@ -116,7 +116,7 @@ const TravelAgentRaipur = () => {
     const faqs = [
         {
             question: "Which is the best travel agent in Raipur?",
-            answer: "Rudraksh Safar is highly recommended for reliable travel services in Raipur. While our main office is in Bhilai (Twin City), we serve hundreds of clients from Raipur with personalized home-visit services and digital planning."
+            answer: <>Rudraksh Safar is highly recommended for reliable travel services in Raipur. While our main office is in <Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai</Link> (Twin City), we serve hundreds of clients from Raipur with personalized home-visit services and digital planning.</>
         },
         {
             question: "Do you offer international tour packages from Raipur?",
@@ -159,7 +159,7 @@ const TravelAgentRaipur = () => {
                                 </div>
                                 <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-4 py-2 rounded-full mb-6 border border-blue-200">
                                     <CheckCircle className="w-4 h-4" />
-                                    <span className="text-sm font-medium">Trusted by Travelers in Raipur & Bhilai</span>
+                                    <span className="text-sm font-medium">Trusted by Travelers in Raipur & <Link to="/travel-agent-bhilai" className="hover:underline">Bhilai</Link></span>
                                 </div>
                                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                                     Best Travel Agent in <span className="text-primary">Raipur</span>
@@ -203,7 +203,7 @@ const TravelAgentRaipur = () => {
                             <div className="p-4">
                                 <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
                                 <h3 className="font-bold text-lg">Office in Twin City</h3>
-                                <p className="text-sm text-muted-foreground">Just a short drive away in Bhilai. We offer home visits in Raipur for large bookings.</p>
+                                <p className="text-sm text-muted-foreground">Just a short drive away in <Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai</Link>. We offer home visits in Raipur for large bookings.</p>
                             </div>
                             <div className="p-4">
                                 <Award className="w-8 h-8 text-primary mx-auto mb-3" />

@@ -14,9 +14,9 @@ import {
 
 const PilgrimageSpecials = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-navy-deep to-black relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-b from-amber-50 to-white dark:from-navy-deep dark:to-black relative overflow-hidden">
             {/* Sacred Geometry Background (Abstract) */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none"
+            <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(circle at center, #d4af37 1px, transparent 1px)', backgroundSize: '40px 40px' }}
             />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none" />
@@ -24,13 +24,13 @@ const PilgrimageSpecials = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="max-w-xl animate-fade-up">
-                        <span className="text-orange-400 font-bold uppercase tracking-[0.2em] text-xs mb-3 block flex items-center gap-2">
+                        <span className="text-orange-600 dark:text-orange-400 font-bold uppercase tracking-[0.2em] text-xs mb-3 block flex items-center gap-2">
                             <Sparkles className="w-3 h-3" /> Sacred Journeys
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">
-                            Spiritual <span className="text-gradient-gold">Pilgrimages</span>
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-4 leading-tight">
+                            Spiritual <span className="text-orange-600 dark:text-gradient-gold">Pilgrimages</span>
                         </h2>
-                        <p className="text-white/60 text-lg font-light">
+                        <p className="text-slate-600 dark:text-white/60 text-lg font-light">
                             Embark on a journey of faith and inner peace. We handle the logistics so you can focus on the divine.
                         </p>
                     </div>
@@ -41,8 +41,8 @@ const PilgrimageSpecials = () => {
                 <div className="relative">
                     <Carousel opts={{ align: "start", loop: true }} className="w-full group">
                         <div className="absolute -top-[5rem] right-0 flex space-x-3 z-10">
-                            <CarouselPrevious className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Previous Slide" />
-                            <CarouselNext className="relative translate-y-0 h-12 w-12 border-white/10 bg-white/5 text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Next Slide" />
+                            <CarouselPrevious className="relative translate-y-0 h-12 w-12 border-slate-300 dark:border-white/10 bg-white dark:bg-white/5 text-slate-800 dark:text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Previous Slide" />
+                            <CarouselNext className="relative translate-y-0 h-12 w-12 border-slate-300 dark:border-white/10 bg-white dark:bg-white/5 text-slate-800 dark:text-white hover:bg-gold hover:border-gold hover:text-black transition-all" aria-label="Next Slide" />
                         </div>
 
                         <CarouselContent className="-ml-6 px-4 py-8">

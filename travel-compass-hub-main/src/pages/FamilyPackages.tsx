@@ -239,7 +239,7 @@ const FamilyPackages = () => {
       <main className="min-h-screen bg-background">
         <SEOHead
           title="Best Family Tour Packages from India (2026) - Safe & Kid-Friendly"
-          description="Plan a stress-free family vacation. Expert-curated packages for toddlers, teens & seniors. Verified safe hotels, private transfers & relaxed itineraries. Book now!"
+          description="Plan a stress-free family vacation. Expert-curated packages for toddlers, teens & seniors. Verified safe hotels, private transfers & relaxed itineraries. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh."
           keywords="family tour packages india, best places to visit with toddlers from india, safe international trips for families, kid friendly vacation packages, family trip planner"
           canonicalUrl="https://rudrakshsafar.com/family-packages"
           structuredData={structuredData}

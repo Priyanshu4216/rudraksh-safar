@@ -112,6 +112,22 @@ export const badrinathData: TemplePageData = {
         {
             question: 'Is Tapt Kund safe for bathing?',
             answer: 'Yes, the sulfur-rich water is hot (approx 45°C) even when outside temperature is freezing. It is considered medicinal for skin ailments.'
+        },
+        {
+            question: 'What is the altitude of Badrinath Temple?',
+            answer: 'Badrinath is situated at an altitude of 3,133 meters (10,279 ft) above sea level in the Garhwal Himalayas.'
+        },
+        {
+            question: 'Which is the nearest airport to Badrinath?',
+            answer: 'The nearest airport is Jolly Grant Airport in Dehradun, which is about 314 km away. Helicopter services are available from Sahastradhara helipad.'
+        },
+        {
+            question: 'Are there any age restrictions for the Badrinath Darshan?',
+            answer: 'There are no official age restrictions, but due to high altitude, infants and extreme senior citizens should consult a doctor before traveling.'
+        },
+        {
+            question: 'What kind of clothing is required for Badrinath?',
+            answer: 'Even in mid-summer, nights are cold. Heavy woolens, thermals, and windproof jackets are highly recommended, especially if you visit in early May or October.'
         }
     ]
 };

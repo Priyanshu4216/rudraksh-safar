@@ -19,7 +19,7 @@ import RelatedServices from '@/components/RelatedServices';
 
 const PHONE_NUMBER = '919406182174';
 
-const internationalPackages = [
+export const internationalPackages = [
   {
     id: 'phuket',
     title: 'Phuket Beach Paradise',
@@ -193,10 +193,22 @@ const PackageCard = ({ pkg, index }: { pkg: typeof internationalPackages[0]; ind
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const getPackageUrl = (pkgId: string) => {
+    const masterSilos: Record<string, string> = {
+      dubai: '/international-tours/dubai',
+      thailand: '/international-tours/thailand',
+      singapore: '/international-tours/singapore',
+      bali: '/international-tours/bali',
+      srilanka: '/international-tours/srilanka',
+      phuket: '/international-tours/thailand/phuket'
+    };
+    return masterSilos[pkgId] || `/package/${pkgId}`;
+  };
+
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
       <Link
-        to={pkg.id === 'dubai' ? '/international-tours/dubai' : `/package/${pkg.id}`}
+        to={getPackageUrl(pkg.id)}
         onClick={() => window.scrollTo(0, 0)}
         className="block h-full"
         aria-label={`View package: ${pkg.title}`}
@@ -307,7 +319,7 @@ const InternationalPackages = () => {
       <main className="min-h-screen bg-background">
         <SEOHead
           title="International Tour Packages from India: Best Holiday Deals 2025"
-          description="Discover the best international tour packages from India. Compare budget trips to Thailand & Nepal vs luxury vacations in Dubai & Maldives. Visa support included."
+          description="Discover the best international tour packages from India. Compare budget trips to Thailand & Nepal vs luxury vacations in Dubai & Maldives. Visa support included. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh."
           keywords="international tour packages from india, international tour packages from bhilai, international trip for first timers, cheapest international trip from india, abroad tour packages"
           canonicalUrl="https://rudrakshsafar.com/international-packages"
           structuredData={structuredData}
@@ -539,6 +551,27 @@ const InternationalPackages = () => {
                 </Button>
               </div>
             </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Internal Hub Links (SEO Component Phase 2C) */}
+        <section className="py-12 bg-background border-b border-border">
+          <div className="container">
+            <h3 className="text-xl font-bold mb-6">Essential Travel Resources for International Trips</h3>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/currency-guide" className="px-4 py-2 border rounded-full text-sm hover:bg-secondary/10 transition">
+                <Banknote className="inline w-4 h-4 mr-2 text-secondary" /> Read Our International Currency Guide
+              </Link>
+              <Link to="/budget-tour-packages" className="px-4 py-2 border rounded-full text-sm hover:bg-green-500/10 transition">
+                <Banknote className="inline w-4 h-4 mr-2 text-green-600" /> View Budget Tour Packages
+              </Link>
+              <Link to="/luxury-packages" className="px-4 py-2 border rounded-full text-sm hover:bg-purple-500/10 transition">
+                <Sparkles className="inline w-4 h-4 mr-2 text-purple-600" /> Explore Luxury International Escapes
+              </Link>
+              <Link to="/contact" className="px-4 py-2 border rounded-full text-sm hover:bg-blue-500/10 transition">
+                <MapPin className="inline w-4 h-4 mr-2 text-blue-600" /> Contact Our Bhilai Office
+              </Link>
+            </div>
           </div>
         </section>
 

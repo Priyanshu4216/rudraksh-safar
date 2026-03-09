@@ -289,7 +289,7 @@ const TravelPlanner = ({ isOpen, onClose, initialType }: TravelPlannerProps) => 
                     {/* Header */}
                     <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
                         {step > 1 && step < 6 && (
-                            <button onClick={handleBack} className="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
+                            <button onClick={handleBack} className="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors">
                                 <ArrowLeft className="w-5 h-5" />
                             </button>
                         )}
@@ -303,7 +303,7 @@ const TravelPlanner = ({ isOpen, onClose, initialType }: TravelPlannerProps) => 
                                 />
                             </div>
                         </div>
-                        <button onClick={onClose} className="p-2 hover:bg-red-50 hover:text-red-500 rounded-full transition-colors">
+                        <button onClick={onClose} className="p-2 text-slate-500 dark:text-slate-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:text-red-400 rounded-full transition-colors">
                             <X className="w-5 h-5" />
                         </button>
                     </div>

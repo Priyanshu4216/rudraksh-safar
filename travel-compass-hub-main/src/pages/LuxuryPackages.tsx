@@ -74,9 +74,17 @@ const PackageCard = ({ pkg, index }: { pkg: typeof luxuryPackages[0]; index: num
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  const getPackageUrl = (pkgId: string) => {
+    const masterSilos: Record<string, string> = {
+      'dubai-yacht': '/international-tours/dubai',
+      'bali-private-villa': '/international-tours/bali',
+    };
+    return masterSilos[pkgId] || `/package/${pkgId}`;
+  };
+
   return (
     <AnimatedSection animation="fade-up" delay={index * 100}>
-      <Link to={`/package/${pkg.id}`} onClick={() => window.scrollTo(0, 0)} className="block">
+      <Link to={getPackageUrl(pkg.id)} onClick={() => window.scrollTo(0, 0)} className="block">
         <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50/50 to-stone-50 dark:from-amber-950/10 dark:to-stone-950/20 border border-amber-200/30 dark:border-amber-800/20 hover:shadow-[0_20px_50px_-12px_rgba(217,175,124,0.3)] transition-all duration-700">
           {/* Luxury crown badge */}
           <div className="absolute top-4 right-4 z-10 flex items-center gap-1 bg-gradient-to-r from-amber-600 to-amber-500 text-white px-3 py-1.5 rounded-full text-xs font-medium tracking-wide">
@@ -277,6 +285,24 @@ const LuxuryPackages = () => {
                 </Button>
               </div>
             </AnimatedSection>
+          </div>
+        </section>
+
+        {/* INTERNAL HUB LINKS (PHASE 2C) */}
+        <section className="py-12 bg-white dark:bg-slate-950 border-t border-amber-200/30 dark:border-amber-800/20">
+          <div className="container">
+            <h3 className="text-xl font-bold mb-6 text-foreground">Explore More Travel Collections</h3>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/international-packages" className="px-5 py-2.5 border rounded-full text-sm hover:bg-slate-50 dark:hover:bg-slate-900 transition flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-blue-600" /> Premium International Tours
+              </Link>
+              <Link to="/domestic-packages" className="px-5 py-2.5 border rounded-full text-sm hover:bg-slate-50 dark:hover:bg-slate-900 transition flex items-center gap-2">
+                <Crown className="w-4 h-4 text-amber-600" /> Luxury Domestic Escapes
+              </Link>
+              <Link to="/budget-tour-packages" className="px-5 py-2.5 border rounded-full text-sm hover:bg-slate-50 dark:hover:bg-slate-900 transition flex items-center gap-2">
+                <Gem className="w-4 h-4 text-emerald-600" /> Compare with Budget Packages
+              </Link>
+            </div>
           </div>
         </section>
 

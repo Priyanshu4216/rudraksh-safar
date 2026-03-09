@@ -123,6 +123,26 @@ export const registrationData: RegistrationPageData = {
         {
             question: 'Do I need a separate pass for each temple?',
             answer: 'No, a single Yatra Pass covers all 4 temples (Yamunotri, Gangotri, Kedarnath, Badrinath) based on your itinerary selection.'
+        },
+        {
+            question: 'What documents are required for Char Dham registration?',
+            answer: 'You need a valid ID proof (Aadhar Card, Voter ID, or Passport), a passport-sized photograph, and a mobile number. Seniors might be asked for a medical fitness certificate.'
+        },
+        {
+            question: 'Is registration required if I am going by helicopter?',
+            answer: 'Yes. Helicopter tickets cannot be booked without a valid Yatra Registration Number. It is the first step regardless of travel mode.'
+        },
+        {
+            question: 'How long is the Yatra e-pass valid?',
+            answer: 'The e-pass is valid only for the specific travel window dates you select during the registration process.'
+        },
+        {
+            question: 'Do children need to be registered for Char Dham Yatra?',
+            answer: 'Yes, every individual in the group, including infants and children, must be registered and added to the Yatra plan.'
+        },
+        {
+            question: 'Can NRIs or foreigners register for the Yatra?',
+            answer: 'Yes, foreign nationals and NRIs can register online using their Passport details as ID proof.'
         }
     ]
 };

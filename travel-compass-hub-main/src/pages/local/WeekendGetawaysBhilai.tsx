@@ -217,7 +217,7 @@ const WeekendGetawaysBhilai = () => {
                                 </h3>
                                 <p className="text-muted-foreground">
                                     The cheapest trips from Bhilai include nearby destinations like <strong>Kabirdham (Kawardha), Amarkantak, Nagpur, and local attractions like Tandula Dam</strong>.
-                                    Budget travel can start below <strong>₹1,000 for local trips</strong> and around <strong>₹4,500 for multi-day budget tour packages</strong> to Manali, Goa, or Kerala depending on the season and transport mode.
+                                    Budget travel can start below <strong>₹1,000 for local trips</strong> and around <strong>₹4,500 for multi-day budget tour packages</strong> to <Link to="/package/shimla-manali">Manali</Link>, <Link to="/domestic-tours/goa">Goa</Link>, or <Link to="/domestic-tours/kerala">Kerala</Link> depending on the season and transport mode.
                                 </p>
                             </div>
 
@@ -619,7 +619,7 @@ const WeekendGetawaysBhilai = () => {
                                     <span className="text-primary mt-1">❓</span> What is the cheapest international trip from India?
                                 </h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
+                                    The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
                                 </p>
                             </div>
 
@@ -628,7 +628,7 @@ const WeekendGetawaysBhilai = () => {
                                     <span className="text-primary mt-1">❓</span> Which international trip is best?
                                 </h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    The best international trip depends on travel preferences. Thailand and Bali are popular for first-time international travelers, Dubai is ideal for luxury and short stays, Singapore suits families, and Nepal is best for budget and nature travel. The “best” trip varies based on budget, duration, and interests.
+                                    The best international trip depends on travel preferences. <Link to="/international-tours/thailand">Thailand</Link> and <Link to="/international-tours/bali">Bali</Link> are popular for first-time international travelers, <Link to="/international-tours/dubai">Dubai</Link> is ideal for luxury and short stays, <Link to="/international-tours/singapore">Singapore</Link> suits families, and Nepal is best for budget and nature travel. The “best” trip varies based on budget, duration, and interests.
                                 </p>
                             </div>
 
@@ -646,7 +646,7 @@ const WeekendGetawaysBhilai = () => {
                                     <span className="text-primary mt-1">❓</span> Which is the nearest airport to Bhilai?
                                 </h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    The nearest airport to Bhilai is Swami Vivekananda Airport, Raipur (RPR), located approximately 35–40 km away. It is well connected to major Indian cities like Delhi, Mumbai, Bangalore, and Hyderabad, making it the primary airport for travelers from Bhilai.
+                                    The nearest airport to Bhilai is Swami Vivekananda Airport, <Link to="/travel-agent-raipur">Raipur</Link> (RPR), located approximately 35–40 km away. It is well connected to major Indian cities like Delhi, Mumbai, Bangalore, and Hyderabad, making it the primary airport for travelers from Bhilai.
                                 </p>
                             </div>
 
@@ -664,7 +664,7 @@ const WeekendGetawaysBhilai = () => {
                                     <span className="text-primary mt-1">❓</span> Which country is best for a 4 day trip?
                                 </h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    For a 4-day international trip from India, destinations like Dubai, Nepal, Sri Lanka, Thailand, and Singapore are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration without rushing.
+                                    For a 4-day international trip from India, destinations like <Link to="/international-tours/dubai">Dubai</Link>, Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, and <Link to="/international-tours/singapore">Singapore</Link> are ideal. These countries offer short travel time, good connectivity, and enough attractions to enjoy within a limited duration without rushing.
                                 </p>
                             </div>
                         </div>

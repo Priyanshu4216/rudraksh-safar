@@ -4,6 +4,7 @@ import { ArrowRight, Star, Plane, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import LazyOptimizedImage from '@/components/LazyOptimizedImage';
 
 const categories = ["Trending Now", "Visa Free", "Easy Visa", "Domestic Gems"];
 
@@ -84,7 +85,7 @@ const DestinationShowcase = () => {
                                     <Star className="w-3 h-3 text-gold fill-gold" /> {dest.rating}
                                 </div>
 
-                                <img
+                                <LazyOptimizedImage
                                     src={dest.image}
                                     alt={dest.name}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

@@ -34,8 +34,9 @@ const navLinks = [
     ],
   },
   { name: 'Destinations 🌍', href: '/destinations', isRoute: true },
-  { name: 'For Travellers', href: '/for-travellers', isRoute: true },
   { name: 'Char Dham Yatra', href: '/chardham-yatra-package', isRoute: true, highlight: 'new' },
+  { name: 'B2B Partners', href: '/b2b-travel-partners', isRoute: true, highlight: 'premium' },
+  { name: 'For Travellers', href: '/for-travellers', isRoute: true },
   { name: 'Contact', href: '#contact' },
 ];
 

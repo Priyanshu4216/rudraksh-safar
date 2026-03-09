@@ -111,7 +111,7 @@ const TravelAgentDurg = () => {
         },
         {
             question: "Are there tour packages available from Durg?",
-            answer: "Yes, we have dedicated tour packages starting from Durg. Whether it's a train trip to Goa or a flight to Thailand from Raipur, we manage the complete logistics from your doorstep in Durg."
+            answer: <>Yes, we have dedicated tour packages starting from Durg. Whether it's a train trip to <Link to="/domestic-tours/goa" className="text-primary hover:underline">Goa</Link> or a flight to <Link to="/international-tours/thailand" className="text-primary hover:underline">Thailand</Link> from <Link to="/travel-agent-raipur" className="text-primary hover:underline">Raipur</Link>, we manage the complete logistics from your doorstep in Durg.</>
         },
         {
             question: "Do you help with Train tickets from Durg Junction?",
@@ -195,8 +195,8 @@ const TravelAgentDurg = () => {
                         <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
                         <h2 className="text-3xl font-bold mb-4">Why Durg Trusts Rudraksh Safar?</h2>
                         <p className="text-lg text-muted-foreground mb-8">
-                            We aren't just a website; we are your neighbors. We understand the specific travel needs of families in Durg-Bhilai.
-                            From catching the train at Durg Junction to finding the best connecting flights from Raipur, we plan it all seamlessly.
+                            We aren't just a website; we are your neighbors. We understand the specific travel needs of families in Durg-<Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai</Link>.
+                            From catching the train at Durg Junction to finding the best connecting flights from <Link to="/travel-agent-raipur" className="text-primary hover:underline">Raipur</Link>, we plan it all seamlessly.
                         </p>
                     </div>
                 </section>

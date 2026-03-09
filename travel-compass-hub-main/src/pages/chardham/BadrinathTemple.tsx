@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 
 import TempleSchema from '@/components/seo/TempleSchema';
+import FAQSection from '@/components/seo/FAQSection';
 
 const BadrinathTemple = () => {
     const {
@@ -273,18 +274,9 @@ const BadrinathTemple = () => {
                         </section>
 
                         {/* 9. FAQs */}
-                        <section id="faqs" className="scroll-mt-24">
-                            <h2 className="text-3xl font-serif font-bold mb-6">Frequently Asked Questions</h2>
-                            <div className="space-y-4">
-                                {faqs.map((faq, idx) => (
-                                    <div key={idx} className="bg-card border border-border rounded-xl p-5">
-                                        <h3 className="font-bold text-foreground mb-2 flex gap-3">
-                                            <span className="text-yellow-500">Q.</span> {faq.question}
-                                        </h3>
-                                        <p className="text-muted-foreground text-sm ml-7 leading-relaxed">{faq.answer}</p>
-                                    </div>
-                                ))}
-                            </div>
+
+                        <section className="mb-12">
+                            <FAQSection title="Frequently Asked Questions" faqs={faqs} />
                         </section>
 
                     </article>
@@ -370,6 +362,112 @@ const BadrinathTemple = () => {
 
                 </div>
             </main>
+
+            {/* --- DEEP SEO CONTENT BLOCKS --- */}
+            <section id="deep-seo" className="py-16 bg-muted/20">
+                <div className="container mx-auto px-4 max-w-4xl space-y-12">
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">The Significance of Badrinath Temple</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            Perched at an elevation of 3,133 meters (10,279 feet) along the banks of the Alaknanda River, the **Badrinath Temple** is one of the most universally revered shrines in the Hindu religion. Unlike the arduous trek required for Kedarnath, Badrinath is easily accessible by motorable roads, making it a prominent focal point for elders and families completing the Char Dham Yatra.
+                        </p>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            According to the Puranas, Lord Vishnu meditated here for thousands of years. To protect him from the harsh Himalayan weather, Goddess Lakshmi took the form of a Badri tree (jujube tree), spreading her branches over him—giving the location its name, "Badri-nath" (Lord of the Badri tree). Architecturally, the temple features a distinct, brightly painted facade with a conical roof topped by a small cupola, shining against the backdrop of the imposing Neelkanth peak.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">Key Rituals and Darshan Information</h2>
+                        <div className="space-y-6">
+                            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+                                <h3 className="text-xl font-bold text-orange-600 mb-2">Maha Abhishek Pooja</h3>
+                                <p className="text-muted-foreground">The most sacred ritual performed at Badrinath. Devotees must book in advance. The ritual involves the holy bathing of the Shaligram-stone idol of Lord Badrinarayan with milk, ghee, and local herbs.</p>
+                            </div>
+                            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+                                <h3 className="text-xl font-bold text-orange-600 mb-2">Tapt Kund (Hot Sulphur Spring)</h3>
+                                <p className="text-muted-foreground">Located just below the temple, taking a holy dip in the natural thermal springs of Tapt Kund is customary before entering the temple for Darshan. The water is naturally heated to around 45°C despite the freezing temperatures outside.</p>
+                            </div>
+                            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+                                <h3 className="text-xl font-bold text-orange-600 mb-2">Mana Village Sightseeing</h3>
+                                <p className="text-muted-foreground">Situated just 3 km from the Badrinath temple, Mana is the "Last Indian Village" before the Tibet border. Key attractions include Vyas Gufa (where sage Vyasa dictated the Mahabharata), Ganesh Gufa, and the roaring Saraswati river originating at Bhim Pul.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl font-bold mb-4">How to Reach Badrinath</h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                            Badrinath features excellent road connectivity compared to the other Dham shrines.
+                        </p>
+                        <ul className="list-disc pl-6 space-y-3 text-lg text-muted-foreground">
+                            <li><strong>By Air:</strong> The nearest airport is Jolly Grant Airport in Dehradun (314 km away). Pawan Hans offers helicopter flights connecting Dehradun and Phata to the Badrinath helipad.</li>
+                            <li><strong>By Train:</strong> Rishikesh is the nearest major railhead (295 km away). From there, National Highway 7 connects directly to Badrinath via Devprayag, Rudraprayag, Karnaprayag, and Joshimath.</li>
+                            <li><strong>By Road:</strong> Taxis and regular state buses ply from Haridwar and Rishikesh. The final stretch from Joshimath to Badrinath involves restricted gate timings to regulate mountain traffic.</li>
+                        </ul>
+                    </div>
+
+
+                    <div className="mt-12 border-t pt-12 border-border/50">
+                        <div className="mb-12">
+                            <h2 className="text-3xl font-bold mb-4">Essential Internal Links for Yatra Planning</h2>
+                            <div className="flex flex-wrap gap-4 mt-4">
+                                <Link to="/chardham/KedarnathTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Kedarnath Guide</Link>
+                                <Link to="/chardham/GangotriTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Gangotri Guide</Link>
+                                <Link to="/chardham/YamunotriTemple" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Yamunotri Guide</Link>
+                                <Link to="/chardham/CharDhamRegistration" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Yatra Registration</Link>
+                                <Link to="/chardham-yatra-package" className="bg-white border text-orange-600 px-4 py-2 rounded-full hover:bg-orange-50 font-medium tracking-wide">Explore Tour Packages</Link>
+                            </div>
+                        </div>
+
+                        <h2 className="text-3xl font-bold mb-4">Badrinath Travel Tips & Pilgrim Guidance</h2>
+
+                        <div className="grid md:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-orange-600 mb-3">Best Time to Visit Badrinath</h3>
+                                <p className="text-muted-foreground mb-3">
+                                    Badrinath remains accessible for only six months a year. The ideal visiting windows are May to June (peak summer) and September to late October (post-monsoon).
+                                </p>
+                                <p className="text-muted-foreground">
+                                    During the winter months (November to April), heavy snow renders the town inaccessible. The presiding deity is temporarily relocated to Pandukeshwar for winter worship.
+                                </p>
+                            </div>
+
+                            <div className="bg-card p-6 rounded-xl border border-border">
+                                <h3 className="text-xl font-bold text-blue-600 mb-3">Road Access & Altitude</h3>
+                                <p className="text-muted-foreground mb-3">
+                                    Altitude: 3,133 meters (10,279 ft). While lower than Kedarnath, the air is still thin. Acclimatization is essential.
+                                </p>
+                                <p className="text-muted-foreground">
+                                    The town is highly accessible by motorable road right up to the temple perimeter. However, the route features strict traffic gating operations between Joshimath and Badrinath to manage mountain traffic safely.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3 className="text-2xl font-bold mb-4">Accommodation & Food</h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                            Because Badrinath is fully motorable, it boasts a much wider spectrum of hotels compared to Kedarnath—ranging from budget Dharamshalas and GMVN guest houses to premium luxury hotels. Traditional Indian vegetarian food (Sattvic diet) without onion and garlic is strictly adhered to in and around the sanctuary area.
+                        </p>
+
+                        {/* Conversion Layer */}
+                        <div className="bg-orange-50 dark:bg-orange-950/30 p-8 rounded-2xl border-2 border-orange-500 text-center my-10">
+                            <h3 className="text-3xl font-bold mb-4">Plan Your Badrinath Yatra</h3>
+                            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                Want to visit Badrinath temple with the comfort of a private Tempo Traveller and pre-booked premium hotels? Contact our Yatra experts today.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <a href="https://wa.me/919406182174?text=I%20want%20to%20plan%20Badrinath%20Yatra" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                    Enquire on WhatsApp
+                                </a>
+                                <Link to="/chardham-yatra-package" className="bg-white text-orange-600 font-bold border-2 border-orange-600 px-8 py-4 rounded-full text-lg hover:bg-orange-50 transition">
+                                    View Char Dham Packages
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
             <Footer />
             <FloatingWhatsApp />
         </>

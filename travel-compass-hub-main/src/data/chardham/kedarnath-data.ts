@@ -9,7 +9,7 @@ export const kedarnathData: TemplePageData = {
         keywords: ['Kedarnath Temple', 'Kedarnath Trek', 'Kedarnath History', 'Kedarnath Helicopter Booking', 'Panch Kedar', 'Char Dham Yatra']
     },
     overview: {
-        bgImage: '/images/Kedarnath/Kedarnath 1.jpg',
+        bgImage: '/images/Kedarnath/Kedarnath 1.webp',
         title: 'Kedarnath Dham',
         subtitle: 'The Eternal Abode of Lord Shiva',
         highlights: [
@@ -20,11 +20,11 @@ export const kedarnathData: TemplePageData = {
         ]
     },
     gallery: [
-        '/images/Kedarnath/Kedarnath 1.jpg',
-        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.jpg',
-        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.jpg',
-        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.jpg',
-        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.png'
+        '/images/Kedarnath/Kedarnath 1.webp',
+        '/images/Kedarnath/3a169543-7014-4107-b226-1d288c4e1410.webp',
+        '/images/Kedarnath/f79d199efd4a0e78f7faf4bf2e56f1a9-processed.webp',
+        '/images/Kedarnath/f85a7ff66e318fb5e2fb046c4f7706e9-processed.webp',
+        '/images/Kedarnath/xm5nkhqq5hrmy0cwe4nap5hekr.webp'
     ],
     history: {
         origin: 'While the temple\'s exact origin is lost in time, architectural analysis suggests it is more than 1,000 years old.',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FileCheck, AlertTriangle, Clock, CheckCircle, XCircle, Info } from 'lucide-react';
+import { FileCheck, AlertTriangle, Clock, CheckCircle, XCircle, Info, FileText, Briefcase, Phone, BookOpen, Globe, Shield, Plane, Map } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -9,6 +10,37 @@ import PageLoader from '@/components/PageLoader';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import LastUpdated from '@/components/LastUpdated';
 import FAQsSection from '@/components/FAQsSection';
+
+const faqs = [
+  {
+    question: "Do I need Police Verification for passport renewal?",
+    answer: "Yes, Police Verification (PV) is generally mandatory for Indian passport renewals. However, under the Post-Police Verification scheme, a renewed passport may be dispatched before verification if your previous passport was clean, undamaged, and there are no criminal records associated with your file."
+  },
+  {
+    question: "Can I travel to Dubai if my passport expires in 5 months?",
+    answer: "Strictly no. Dubai (UAE) immigration mandates a minimum of 6 months validity on your passport from the date of entry. Airlines at Indian airports will deny you a boarding pass if your passport falls even one day short of this 6-month threshold."
+  },
+  {
+    question: "What is the difference between Tatkaal and Normal passport dispatch?",
+    answer: "Under the Normal scheme, passport printing and dispatch typically occur within 15-30 days, pending police verification. The Tatkaal scheme significantly accelerates this process, often dispatching the passport within 1-3 working days without awaiting prior police verification, though it costs more."
+  },
+  {
+    question: "My passport has a minor water stain. Will it be rejected for visa stamping?",
+    answer: "If the water stain obscures your photograph, the Machine Readable Zone (MRZ) barcode, or any personal core details, the passport is legally void and will be rejected for any visa processing. Even if the stain is on a blank page, foreign border control may exercise their right to deny entry. Apply for immediate reissue."
+  },
+  {
+    question: "Is the ECNR stamp required for international tourist travel?",
+    answer: "Emigration Check Not Required (ECNR) status is automatically granted to applicants possessing a 10th-grade matriculation certificate or higher, or those who have stayed abroad for over 3 years. ECNR is vital for Indian passport holders traveling to specific Middle Eastern countries for employment, but tourist visas rarely require ECNR checks."
+  },
+  {
+    question: "How do I correct a mismatched name on my airline ticket vs my passport?",
+    answer: "Your airline ticket name must exactly mirror your passport's Given Name and Surname parameters. You cannot legally change your passport name quickly before a flight. You must urgently contact the airline's customer support and submit your passport scan to manually amend the ticket name before check-in closes."
+  },
+  {
+    question: "Does a newborn baby require a separate Indian passport?",
+    answer: "Yes, absolutely. India does not endorse children on their parents' passports. Every citizen, heavily including infants and newborns, must possess their own distinct physical passport booklet for any degree of international traversal."
+  }
+];
 
 const PassportGuide = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,186 +54,155 @@ const PassportGuide = () => {
     return <PageLoader type="passport" />;
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <SEOHead
-        title="Indian Passport Rules 2026 - Validity, Damage & Renewal Guide | Rudraksh Safar"
-        description="Essential guide to Indian passport regulations. Verify your passport's validity, understand the '6-month rule', check for damage that could bar travel, and learn about blank page requirements."
-        keywords="Indian passport rules 2026, passport validity check, damaged passport rules India, minimum 6 months validity, passport blank pages requirement, name mismatch in passport and ticket"
+        title="Passport Application Guide India 2026 | Rules & Restrictions"
+        description="Comprehensive passport application guide India. Learn about issuance timelines, damage rules, ECNR requirements, and why passports are rejected."
+        keywords="passport application guide India, indian passport rules 2026, 6-month validity rule, damaged passport reissue, tatkaal passport processing time"
         canonicalUrl="https://rudrakshsafar.com/travel-services/passport-assistance"
+        structuredData={structuredData}
       />
 
       <Navbar />
 
-      <main className="pt-24 pb-16">
-        <div className="container max-w-4xl">
+      <main className="pt-24 pb-16 bg-slate-50">
+        <div className="container max-w-5xl">
           <AnimatedSection>
             <div className="text-center mb-12">
               <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Passport Guide', path: '/travel-services/passport-assistance' }]} />
-
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 mt-4 rounded-full bg-indigo-100 text-indigo-700 font-bold tracking-wide uppercase text-sm mb-4">
                 <FileCheck className="w-4 h-4" />
-                Travel Documents
+                Legal Documents Framework
               </span>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                Essential Indian Passport Rules
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">
+                Vital <span className="text-indigo-600">Passport Application Guide</span> for India
               </h1>
-              <p className="text-muted-foreground">
-                Don't let a document error ruin your trip. Master the critical passport regulations—from validity dates to physical condition—required for seamless international travel.
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                A passport is not just a booklet; it is a federal instrument of identity that controls your ability to cross international borders. Securing a flawlessly formatted, undamaged Indian passport is the definitive first step toward any global journey.
               </p>
-              <div className="flex justify-center mt-4">
+              <div className="flex justify-center mt-6">
                 <LastUpdated />
               </div>
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={80}>
-            <div className="bg-muted/30 border border-border rounded-xl p-4 mb-6">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                <div>
-                  <h2 className="font-semibold text-foreground">Disclaimer</h2>
-                  <p className="text-sm text-muted-foreground">
-                    This content is for general travel information only and is not legal advice. Passport rules can change—always confirm requirements with the official Passport Seva portal and the airline/embassy (if applicable).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Validity Requirements */}
+          {/* Featured Snippet Block */}
           <AnimatedSection delay={100}>
-            <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Clock className="w-8 h-8 text-secondary" />
-                <h2 className="text-2xl font-serif font-bold">Passport Validity Rules</h2>
-              </div>
-              <div className="space-y-4">
-                <div className="bg-muted/50 rounded-xl p-4">
-                  <h3 className="font-semibold mb-2">6-Month Validity Rule</h3>
-                  <p className="text-muted-foreground">
-                    Most countries require your passport to be valid for at least 6 months from your date of entry or return date. This is a universal requirement for over 90% of international destinations including Dubai, Thailand, Singapore, USA, UK, and Schengen countries.
-                  </p>
-                </div>
-                <div className="bg-muted/50 rounded-xl p-4">
-                  <h3 className="font-semibold mb-2">3-Month Validity Countries</h3>
-                  <p className="text-muted-foreground">
-                    Some countries like South Africa and a few others require only 3 months validity. However, always aim for 6 months to avoid any complications.
-                  </p>
-                </div>
-                <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold text-amber-800 dark:text-amber-200">Pro Tip</h4>
-                      <p className="text-sm text-amber-700 dark:text-amber-300">
-                        Renew your passport when it has less than 12 months validity remaining to ensure hassle-free travel planning.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-white border-l-4 border-indigo-600 rounded-r-2xl shadow-md p-6 lg:p-8 mb-16 max-w-4xl mx-auto">
+              <h2 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <FileCheck className="w-5 h-5 text-indigo-600" /> What is the ultimate passport application guide in India?
+              </h2>
+              <p className="text-slate-700 text-lg leading-relaxed font-medium">
+                The ultimate passport application guide dictates that Indian citizens must apply online via the official Passport Seva portal, booking appointments at the nearest Passport Seva Kendra (PSK). Valid applications mandate high-resolution address and age proofs, biometric capture during the PSK appointment, subsequent local police verification, and strict adherence to the critical 6-month international travel validity rule.
+              </p>
             </div>
           </AnimatedSection>
 
-          {/* Blank Pages */}
+          {/* Information Table Section */}
           <AnimatedSection delay={150}>
-            <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <FileCheck className="w-8 h-8 text-secondary" />
-                <h2 className="text-2xl font-serif font-bold">Blank Pages Requirement</h2>
-              </div>
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Blank pages are required for visa stamps, entry/exit stamps, and endorsements. Here's what you need:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-xl p-4">
-                    <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">Minimum Required</h4>
-                    <p className="text-green-700 dark:text-green-300">2 blank pages for most countries</p>
-                  </div>
-                  <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
-                    <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Recommended</h4>
-                    <p className="text-blue-700 dark:text-blue-300">4+ blank pages for frequent travellers</p>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  USA, Schengen, and several countries require minimum 2 blank visa pages (not endorsement pages). If running low on pages, consider passport re-issue.
-                </p>
+            <div className="bg-white rounded-3xl p-8 mb-16 shadow-sm border border-slate-100">
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 flex items-center gap-3">
+                <Clock className="w-8 h-8 text-secondary" />
+                Passport Application Fee & Processing Timeline Comparison
+              </h2>
+              <p className="text-slate-600 mb-6 text-lg tracking-wide">
+                Understanding the logistical disparities between standard routing protocols and Tatkaal emergency dispatch structures is crucial when facing imminent departure deadlines.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-slate-100/80 text-slate-800 border-b-2 border-slate-200">
+                      <th className="p-4 font-bold rounded-tl-xl w-1/4">Application Route</th>
+                      <th className="p-4 font-bold w-1/3">Standard Printing Matrix (Pages)</th>
+                      <th className="p-4 font-bold w-1/4">Estimated Dispatch Timeline</th>
+                      <th className="p-4 font-bold rounded-tr-xl w-1/6">Verification Tier</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-700">
+                    <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                      <td className="p-4 font-bold text-slate-900">Normal Application</td>
+                      <td className="p-4 font-medium">36 Pages / 60 Pages</td>
+                      <td className="p-4">15 – 30 Working Days</td>
+                      <td className="p-4 text-emerald-600">Pre-Police Verification Mandatory in most cases.</td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                      <td className="p-4 font-bold text-slate-900">Tatkaal Emergency</td>
+                      <td className="p-4 font-medium">36 Pages / 60 Pages</td>
+                      <td className="p-4 font-semibold text-red-600">1 – 3 Working Days</td>
+                      <td className="p-4">Post-Police Verification. Passport arrives before PV.</td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                      <td className="p-4 font-bold text-slate-900">Renewal (Expired)</td>
+                      <td className="p-4 font-medium">Standard 36/60 reissue</td>
+                      <td className="p-4">10 – 20 Working Days</td>
+                      <td className="p-4">Usually Post-Police Verification if address unbroken.</td>
+                    </tr>
+                    <tr className="hover:bg-slate-50 transition-colors">
+                      <td className="p-4 font-bold text-slate-900">Damaged Reissue</td>
+                      <td className="p-4 font-medium">Requires comprehensive review</td>
+                      <td className="p-4 text-amber-600">Heavy Delays (30+ Days)</td>
+                      <td className="p-4">Strict investigation and detailed PV required.</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Damaged Passport */}
+          {/* Traveler Intent Section 1: Validity and Visas */}
           <AnimatedSection delay={200}>
-            <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <XCircle className="w-8 h-8 text-red-500" />
-                <h2 className="text-2xl font-serif font-bold">Damaged Passport Policy</h2>
-              </div>
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  A damaged passport may be considered invalid and can result in denied boarding or entry. Your passport may be rejected if:
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 flex items-center gap-3">
+                <Globe className="w-8 h-8 text-blue-600" />
+                The Invincible 6-Month Validity Law
+              </h2>
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 space-y-6">
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  The supreme law of international boundary crossing is the 6-Month Validity Rule. Even if you possess a confirmed <Link to="/travel-services/visa-assistance" className="text-blue-600 font-semibold hover:underline">tourist visa</Link> and non-refundable flights to <Link to="/international-tours/thailand" className="text-blue-600 font-semibold hover:underline">Thailand</Link>, if your Indian passport expires exactly 5 months and 29 days from the moment you scan it at the immigration desk—you will be barred from boarding the aircraft.
                 </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span>Pages are torn, cut, or missing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span>Cover is severely damaged or detached</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span>Photo page is laminated poorly or peeling</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span>Water damage affecting personal details or photo</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span>Stamps or details are illegible</span>
-                  </li>
-                </ul>
-                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-xl p-4">
-                  <p className="text-red-700 dark:text-red-300">
-                    <strong>Action Required:</strong> If your passport shows any damage, apply for a new passport immediately before planning any international travel.
-                  </p>
-                </div>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Additionally, high-tier sovereign mandates like the Schengen zone enforce complex blank page limits. European consulates universally demand at least two totally blank visa pages inside the booklet to stamp their large sticker visas and subsequent entry/exit seals. If you are a <Link to="/travel-tips" className="text-blue-600 font-semibold hover:underline">frequent traveler</Link> whose 36-page booklet is utterly exhausted of space, you must immediately apply for a "Jumbo" 60-page booklet renewal.
+                </p>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Name Mismatch */}
+          {/* Traveler Intent Section 2: Rejections and Damage */}
           <AnimatedSection delay={250}>
-            <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Info className="w-8 h-8 text-secondary" />
-                <h2 className="text-2xl font-serif font-bold">Name Mismatch Rules</h2>
-              </div>
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Your name on airline tickets, visa, and passport must match exactly. Common issues and solutions:
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 flex items-center gap-3">
+                <XCircle className="w-8 h-8 text-red-500" />
+                Common Passport Rejection & Damage Metrics
+              </h2>
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 space-y-6">
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Applying for a fresh passport doesn't guarantee instantaneous issuance. Major bottlenecks occur during PSK Document Verification where residential proof data misaligns with core identity proof. The name structure (First Name vs. Surname) printed on your Aadhaar Card must surgically match the format you submit in the Passport online lattice.
                 </p>
-                <div className="space-y-3">
-                  <div className="bg-muted/50 rounded-xl p-4">
-                    <h4 className="font-semibold mb-1">Minor Spelling Differences</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Small variations (e.g., "SHARMA" vs "SHARMAS") may be acceptable with supporting documents. Carry original ID proof.
+                <div className="grid md:grid-cols-2 gap-8 mt-6">
+                  <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
+                    <h3 className="font-bold text-red-900 text-xl mb-3">The Damage Clause</h3>
+                    <p className="text-red-800 leading-relaxed">
+                      A damaged passport fundamentally destroys your travel capabilities. If the lamination peels vertically across your facial biometric photograph or the Machine Readable Zone (MRZ barcode) detaches from the lower rim of the data page, foreign <Link to="/travel-checklist" className="text-red-900 font-semibold hover:underline">airport security checks</Link> will identify the document as critically compromised.
                     </p>
                   </div>
-                  <div className="bg-muted/50 rounded-xl p-4">
-                    <h4 className="font-semibold mb-1">First Name / Last Name Order</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Indian passports often have different name formats. Ensure flight bookings match passport exactly - surname in surname field, given name in given name field.
-                    </p>
-                  </div>
-                  <div className="bg-muted/50 rounded-xl p-4">
-                    <h4 className="font-semibold mb-1">Name Change After Marriage</h4>
-                    <p className="text-sm text-muted-foreground">
-                      If name changed after marriage, update passport first before booking international travel. Carry marriage certificate as backup.
+                  <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6">
+                    <h3 className="font-bold text-slate-900 text-xl mb-3">Police Verification (PV) Failures</h3>
+                    <p className="text-slate-700 leading-relaxed">
+                      "Adverse" police verification reports instantly halt passport issuance. If an applicant has resided at their current address for less than one fiscal year, they must legally declare their preceding localized addresses across India. Omission of this tracking protocol guarantees rejection.
                     </p>
                   </div>
                 </div>
@@ -209,63 +210,85 @@ const PassportGuide = () => {
             </div>
           </AnimatedSection>
 
-          {/* Checklist */}
+          {/* Traveler Intent Section 3: Name Discrepancies */}
           <AnimatedSection delay={300}>
-            <div className="bg-secondary/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-serif font-bold mb-4">Quick Passport Checklist</h2>
-              <div className="grid md:grid-cols-2 gap-3">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Valid for 6+ months from travel date</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Minimum 2 blank visa pages</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>No physical damage or water stains</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Name matches tickets exactly</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Photo clearly visible</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>All pages intact and bound</span>
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 flex items-center gap-3">
+                <Info className="w-8 h-8 text-amber-500" />
+                Navigating Complex Name Discrepancies
+              </h2>
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 space-y-6">
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Flight ticketing algorithms demand mathematical precision regarding syntax matching. If an individual is printed as "Rajesh Kumar Sharma" on their passport's Machine Readable architecture, their airline itinerary matrix simply cannot be registered as "R K Sharma." This seemingly minor abbreviation is treated as a high-security discrepancy under global transport laws.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Post-marital name transitions also generate tremendous friction. Women altering their primary surnames must completely reissue their passports, providing formally notarized affidavits or valid wedding certificates. Neglecting this crucial update while <Link to="/international-tours/maldives" className="text-amber-600 font-semibold hover:underline">booking international honeymoons</Link> has resulted in hundreds of denied boarding scenarios annually across Indian departure hubs.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* FAQs */}
+          <AnimatedSection delay={350}>
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">Passport Processing FAQs</h2>
+              <FAQsSection faqs={faqs} title="" />
+            </div>
+          </AnimatedSection>
+
+          {/* Helpful Travel Guides */}
+          <AnimatedSection delay={400}>
+            <div className="bg-slate-100 rounded-3xl p-8 mb-16 border border-slate-200">
+              <h2 className="text-2xl font-bold mb-6 text-slate-900 flex items-center gap-3">
+                <BookOpen className="w-6 h-6 text-indigo-600" />
+                Helpful Travel Guides
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Link to="/travel-services/visa-assistance" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Visa Frameworks <FileText className="w-4 h-4 opacity-50" />
+                </Link>
+                <Link to="/travel-checklist" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Pre-Departure Checklist <Briefcase className="w-4 h-4 opacity-50" />
+                </Link>
+                <Link to="/travel-tips" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Immigration Preparation <Globe className="w-4 h-4 opacity-50" />
+                </Link>
+                <Link to="/travel-health" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Medical Evacuation Rules <Shield className="w-4 h-4 opacity-50" />
+                </Link>
+                <Link to="/currency-guide" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Travel Funds Setup <Map className="w-4 h-4 opacity-50" />
+                </Link>
+                <Link to="/best-time-to-visit" className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all font-semibold text-slate-800 hover:text-indigo-600 border border-slate-100 flex items-center justify-between">
+                  Routing Timelines <Plane className="w-4 h-4 opacity-50" />
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* CTA Conversion Layer */}
+          <AnimatedSection delay={450}>
+            <div className="bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 rounded-3xl p-10 lg:p-14 text-center text-white relative overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+              <div className="relative z-10">
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Ready to Stamp Your Passport?</h2>
+                <p className="text-xl text-slate-200 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                  If your passport boasts a pristine 6-month validity parameter, its time to start plotting. Our destination architects construct luxury and budget timelines across dynamic Asian circuits and European enclaves.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-6">
+                  <a href="https://wa.me/919406182174" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl">
+                    <Phone className="w-5 h-5" /> Travel Counsel
+                  </a>
+                  <Link to="/international-tours" className="bg-transparent border-2 border-white/50 hover:border-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg text-white transition-all flex items-center justify-center gap-2">
+                    <Plane className="w-5 h-5" /> Unlock Global Packages
+                  </Link>
                 </div>
               </div>
             </div>
           </AnimatedSection>
-        </div>
 
-        {/* FAQs */}
-        <FAQsSection
-          title="Common Passport Questions"
-          faqs={[
-            {
-              question: "Can I travel if my passport expires in 5 months?",
-              answer: "For most international destinations (Dubai, Thailand, Europe, USA), NO. You typically need 6 months validity. However, some countries may accept 3 months, but it's risky."
-            },
-            {
-              question: "My passport has a small water stain. Is it valid?",
-              answer: "If the personal details, photo, or chip are affected, it is INVALID. If it is just a small stain on a blank page, it *might* be okay, but airlines can deny boarding. It is best to reissue."
-            },
-            {
-              question: "Do children need a separate passport?",
-              answer: "Yes, every individual, including infants, must have their own separate passport."
-            },
-            {
-              question: "How do I fix a name mismatch on my ticket?",
-              answer: "You cannot change the name on the passport easily. You must ensure your ticket is booked with the EXACT name as in the passport. If booked wrong, contact the airline immediately to correct it."
-            }
-          ]}
-        />
-      </main >
+        </div>
+      </main>
 
       <Footer />
       <FloatingWhatsApp />

@@ -122,7 +122,7 @@ const ManaliVsSrinagar = () => {
                     {/* Manali Analysis */}
                     <div className="space-y-6">
                         <div className="aspect-video rounded-xl overflow-hidden">
-                            <img src="/images/ladakh/ladakh-img-15.jpeg" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Manali Route" />
+                            <img src="/images/ladakh/ladakh-img-15.webp" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Manali Route" />
                         </div>
                         <div>
                             <h2 className="text-2xl font-serif font-bold text-foreground mb-2">Option B: Via Manali</h2>
