@@ -102,11 +102,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-slot', 'lucide-react', 'framer-motion', 'clsx', 'tailwind-merge', 'embla-carousel-react'],
-          utils: ['date-fns', 'zod'],
-        }
+        // Let Vite organically code split
       },
       plugins: [
         {

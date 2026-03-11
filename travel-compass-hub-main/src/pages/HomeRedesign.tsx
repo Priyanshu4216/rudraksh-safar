@@ -6,17 +6,16 @@ import Navbar from '@/components/Navbar';
 import SEOHead from '@/components/SEOHead';
 import MobileAppShell from '@/components/mobile-ux/MobileAppShell';
 
-// Lazy loaded components (Below the fold)
-const PilgrimageSpecials = lazy(() => import('@/components/home-redesign/PilgrimageSpecials'));
-const SeasonalPicks = lazy(() => import('@/components/home-redesign/SeasonalPicks'));
-const VisaEasy = lazy(() => import('@/components/home-redesign/VisaEasy'));
-const TrustSection = lazy(() => import('@/components/home-redesign/TrustSection'));
-const HappyExplorers = lazy(() => import('@/components/home-redesign/HappyExplorers'));
-const ServicesSection = lazy(() => import('@/components/ServicesSection'));
-const ContactSection = lazy(() => import('@/components/ContactSection'));
-const CallToAction = lazy(() => import('@/components/home-redesign/CallToAction'));
-const FloatingWhatsApp = lazy(() => import('@/components/FloatingWhatsApp'));
-const SummerPackages = lazy(() => import('@/components/home-redesign/SummerPackages'));
+import PilgrimageSpecials from '@/components/home-redesign/PilgrimageSpecials';
+import SeasonalPicks from '@/components/home-redesign/SeasonalPicks';
+import VisaEasy from '@/components/home-redesign/VisaEasy';
+import TrustSection from '@/components/home-redesign/TrustSection';
+import HappyExplorers from '@/components/home-redesign/HappyExplorers';
+import ServicesSection from '@/components/ServicesSection';
+import ContactSection from '@/components/ContactSection';
+import CallToAction from '@/components/home-redesign/CallToAction';
+import SummerPackages from '@/components/home-redesign/SummerPackages';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const HomeRedesign = () => {
     return (
@@ -35,23 +34,19 @@ const HomeRedesign = () => {
                 <Hero />
                 <TravellerTypes /> {/* White - Persona */}
 
-                <Suspense fallback={<div className="h-32 flex items-center justify-center text-muted-foreground">Loading...</div>}>
-                    <ServicesSection /> {/* New: Services Section */}
-                    <TrustSection /> {/* Dark - Authority */}
-                    <SummerPackages /> {/* New: Exclusive Summer Deals */}
-                    <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
-                    <SeasonalPicks /> {/* White - Elegant Seasonal */}
-                    <VisaEasy /> {/* Light Grey - Utility */}
-                    <HappyExplorers /> {/* White - Social Proof + Gallery */}
-                    <ContactSection showGallery={false} />
-                    <CallToAction /> {/* Brand Color - Action */}
-                </Suspense>
+                <ServicesSection /> {/* New: Services Section */}
+                <TrustSection /> {/* Dark - Authority */}
+                <SummerPackages /> {/* New: Exclusive Summer Deals */}
+                <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
+                <SeasonalPicks /> {/* White - Elegant Seasonal */}
+                <VisaEasy /> {/* Light Grey - Utility */}
+                <HappyExplorers /> {/* White - Social Proof + Gallery */}
+                <ContactSection showGallery={false} />
+                <CallToAction /> {/* Brand Color - Action */}
             </main>
 
             <Footer />
-            <Suspense fallback={null}>
-                <FloatingWhatsApp />
-            </Suspense>
+            <FloatingWhatsApp />
         </div>
     );
 };
