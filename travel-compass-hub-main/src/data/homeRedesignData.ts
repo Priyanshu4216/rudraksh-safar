@@ -115,7 +115,7 @@ export const TRAVELLER_TYPES = [
         icon: Users2,
         description: 'Fun-filled itineraries',
         link: '/group-tour-packages',
-        image: "/images/join-homepage/friends.webp"
+        image: "/images/join-homepage/friends.png"
     },
     {
         id: 'solo',
@@ -432,7 +432,8 @@ export const PILGRIMAGE_SPECIALS = [
     {
         id: 4,
         name: "Jagannath Puri",
-        image: "https://commons.wikimedia.org/wiki/Special:FilePath/Puri_Jagannath_Temple.jpg?width=800",
+        // Using a reliable Unsplash placeholder for Temple/Pilgrimage as fallback
+        image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1000&auto=format&fit=crop",
         link: "/tour-packages-from-bhilai",
         fontClass: "font-serif font-bold italic"
     },
