@@ -4,10 +4,13 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 
-// 🚀 iOS PWA Fix: Force Service Worker Update on Reboot/Load
+// 🚀 iOS PWA Fix: Force Service Worker Clear/Update on Reboot/Load to prevent corrupted cache blank screens
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
-    registrations.forEach(reg => reg.update());
+    for (let reg of registrations) {
+      // Unregistering prevents corrupt PWA caches from blocking render
+      reg.unregister();
+    }
   });
 }
 

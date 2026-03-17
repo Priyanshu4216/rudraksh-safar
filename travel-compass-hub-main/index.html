@@ -12,15 +12,19 @@
       if (isApple) {
         document.documentElement.classList.add("apple-device");
 
-        // Force Cache Update on Apple Devices
+        // Force Cache Update on Apple Devices gracefully
         var appVersion = "1.0.1"; // Increment to force cache bust
-        var storedVersion = localStorage.getItem("rudraksh_cache_version");
-        if (storedVersion !== appVersion) {
-          localStorage.setItem("rudraksh_cache_version", appVersion);
-          if (window.location.search.indexOf("nocache=") === -1) {
-            var separator = window.location.href.indexOf("?") === -1 ? "?" : "&";
-            window.location.replace(window.location.href + separator + "nocache=" + new Date().getTime());
+        try {
+          var storedVersion = localStorage.getItem("rudraksh_cache_version");
+          if (storedVersion !== appVersion) {
+            localStorage.setItem("rudraksh_cache_version", appVersion);
+            if (window.location.search.indexOf("nocache=") === -1) {
+              var separator = window.location.href.indexOf("?") === -1 ? "?" : "&";
+              window.location.replace(window.location.href + separator + "nocache=" + new Date().getTime());
+            }
           }
+        } catch (e) {
+          console.warn("localStorage not available or blocked in Private Mode", e);
         }
       }
     })();

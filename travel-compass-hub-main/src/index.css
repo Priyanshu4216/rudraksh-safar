@@ -316,37 +316,36 @@
   }
 
   /* --- APPLE SAFE MODE HARDENING --- */
-  .apple-device body {
-    min-height: -webkit-fill-available;
-  }
+  @supports (-webkit-touch-callout: none) {
 
-  .apple-device #root,
-  .apple-device #app {
-    min-height: -webkit-fill-available;
-  }
+    html,
+    body,
+    #root,
+    #app {
+      min-height: 100dvh;
+    }
 
-  .apple-device .h-screen {
-    height: auto !important;
-    min-height: 100vh !important;
-    min-height: -webkit-fill-available !important;
-  }
+    .h-screen {
+      height: auto !important;
+      min-height: 100dvh !important;
+    }
 
-  .apple-device .flex,
-  .apple-device [class*="flex"] {
-    min-height: 0;
-  }
+    /* Target specific components for translateZ instead of global wrappers */
+    .card,
+    .image-zoom-container,
+    .animate-fade-in {
+      transform: translateZ(0);
+    }
 
-  .apple-device #root,
-  .apple-device .site-wrapper,
-  .apple-device .main-wrapper {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
+    .flex-container {
+      min-height: auto;
+    }
 
-  .apple-device .backdrop-blur,
-  .apple-device [style*="backdrop-filter"] {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    .backdrop-blur,
+    [style*="backdrop-filter"] {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
   }
 
   /* --- MOBILE LUXURY UX EXPERIENCES --- */
