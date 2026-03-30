@@ -100,6 +100,7 @@ export default defineConfig(({ mode }) => ({
     __APP_VERSION__: JSON.stringify(new Date().toISOString()),
   },
   build: {
+    target: 'es2015',
     rollupOptions: {
       output: {
         // Let Vite organically code split
@@ -107,9 +108,7 @@ export default defineConfig(({ mode }) => ({
       plugins: [
         {
           name: 'generate-version-file',
-          // @ts-ignore
           generateBundle(options, bundle) {
-            // @ts-ignore
             this.emitFile({
               type: 'asset',
               fileName: 'version.json',

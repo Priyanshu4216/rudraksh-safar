@@ -34,7 +34,7 @@ const HeroSection = ({
   const showVideo = !backgroundImage;
 
   return (
-    <section className="relative h-[100vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#0B1220]">
+    <section className="relative h-[100svh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#0B1220]">
       {/* --- Cinematic Background Layer --- */}
       <div className="absolute inset-0 z-0 select-none">
         <div className="absolute inset-0 bg-gradient-hero z-20 pointer-events-none mix-blend-multiply opacity-80" />

@@ -2,18 +2,18 @@
 // Script to generate sitemap-blog.xml
 // RUN: ts-node scripts/generate-blog-sitemap.ts
 
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { BLOG_POSTS, BLOG_CATEGORIES } from '../src/pages/blog/BlogData'; // Adjust path if running from root
 
 const SITEMAP_PATH = path.join(__dirname, '../public/sitemap-blog.xml');
 const BASE_URL = 'https://rudrakshsafar.com';
 
 const generateSitemap = () => {
-    console.log("🔍 Generating Blog Sitemap...");
+  console.log("🔍 Generating Blog Sitemap...");
 
-    // 1. Categories (Always Indexable)
-    const categoryUrls = BLOG_CATEGORIES.map(cat => `
+  // 1. Categories (Always Indexable)
+  const categoryUrls = BLOG_CATEGORIES.map(cat => `
   <url>
     <loc>${BASE_URL}/blog/${cat.slug}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
@@ -21,14 +21,14 @@ const generateSitemap = () => {
     <priority>0.8</priority>
   </url>`).join('');
 
-    // 2. Posts (GUARDRAIL: Only isIndexable=true)
-    const indexablePosts = BLOG_POSTS.filter(p => p.isIndexable);
+  // 2. Posts (GUARDRAIL: Only isIndexable=true)
+  const indexablePosts = BLOG_POSTS.filter(p => p.isIndexable);
 
-    console.log(`📊 Found ${BLOG_POSTS.length} total posts.`);
-    console.log(`✅ Included ${indexablePosts.length} indexable posts.`);
-    console.log(`🚫 Excluded ${BLOG_POSTS.length - indexablePosts.length} thin/placeholder posts.`);
+  console.log(`📊 Found ${BLOG_POSTS.length} total posts.`);
+  console.log(`✅ Included ${indexablePosts.length} indexable posts.`);
+  console.log(`🚫 Excluded ${BLOG_POSTS.length - indexablePosts.length} thin/placeholder posts.`);
 
-    const postUrls = indexablePosts.map(post => `
+  const postUrls = indexablePosts.map(post => `
   <url>
     <loc>${BASE_URL}/blog/${post.category}/${post.slug}</loc>
     <lastmod>${post.modifiedDate}</lastmod>
@@ -36,7 +36,7 @@ const generateSitemap = () => {
     <priority>0.7</priority>
   </url>`).join('');
 
-    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Blog Hub -->
   <url>
@@ -49,12 +49,12 @@ ${categoryUrls}
 ${postUrls}
 </urlset>`;
 
-    fs.writeFileSync(SITEMAP_PATH, sitemapContent);
-    console.log(`🎉 Sitemap generated at: ${SITEMAP_PATH}`);
+  fs.writeFileSync(SITEMAP_PATH, sitemapContent);
+  console.log(`🎉 Sitemap generated at: ${SITEMAP_PATH}`);
 };
 
 try {
-    generateSitemap();
+  generateSitemap();
 } catch (error) {
-    console.error("❌ Error generating sitemap:", error);
+  console.error("❌ Error generating sitemap:", error);
 }

@@ -134,6 +134,11 @@
     font-family: 'DM Sans', sans-serif;
   }
 
+  /* Safe container overflow for mobile */
+  #root {
+    @apply overflow-x-hidden w-full flex flex-col min-h-[100svh];
+  }
+
   h1,
   h2,
   h3,
@@ -311,8 +316,7 @@
 
   /* iOS Viewport Height Fix */
   .min-h-screen {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    min-height: 100svh;
   }
 
   /* --- APPLE SAFE MODE HARDENING --- */
