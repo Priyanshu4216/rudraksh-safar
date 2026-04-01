@@ -197,7 +197,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 1,
         title: "Thailand",
         subtitle: "The Kingdom of",
-        slug: "thailand", // Links to /visa/thailand
+        slug: "/international-tours/thailand",
         image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-playfair uppercase font-bold"
     },
@@ -205,7 +205,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 2,
         title: "Maldives",
         subtitle: "Create Memories in",
-        slug: "maldives", // Links to /visa/maldives
+        slug: "/package/maldives",
         image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-montserrat uppercase tracking-widest font-light"
     },
@@ -213,7 +213,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 3,
         title: "Bali",
         subtitle: "Island of Gods",
-        slug: "bali", // Links to /visa/bali
+        slug: "/international-tours/bali",
         image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-handwrite text-2xl"
     },
@@ -221,7 +221,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 4,
         title: "Malaysia",
         subtitle: "Truly Asia",
-        slug: "malaysia", // Links to /visa/malaysia
+        slug: "/package/malaysia",
         image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-serif font-bold italic"
     },
@@ -229,7 +229,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 5,
         title: "Vietnam",
         subtitle: "Timeless Charm",
-        slug: "/package/vietnam", // Links to Package (No Visa Page)
+        slug: "/package/vietnam",
         image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-playfair font-medium"
     },
@@ -237,7 +237,7 @@ export const VISA_EASY_DESTINATIONS = [
         id: 6,
         title: "Mauritius",
         subtitle: "The Star and Key",
-        slug: "/package/mauritius", // Links to Package (No Visa Page)
+        slug: "/package/mauritius",
         image: "https://images.unsplash.com/photo-1542359649-31e03cd4d909?q=80&w=1000&auto=format&fit=crop",
         fontClass: "font-montserrat font-bold"
     }
