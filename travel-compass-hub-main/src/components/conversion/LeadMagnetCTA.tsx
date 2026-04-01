@@ -30,7 +30,7 @@ const LeadMagnetCTA = ({
 
             // In a real app, this would trigger a WhatsApp API message or email dispatch
             // For now, we simulate providing the resource
-            window.open('https://wa.me/919406182174?text=' + encodeURIComponent(`Hi! I just unlocked the ${magnetType} from your website. Can you send me the PDF?`), '_blank');
+            window.open('https://wa.me/919203650311?text=' + encodeURIComponent(`Hi! I just unlocked the ${magnetType} from your website. Can you send me the PDF?`), '_blank');
         }, 800);
     };
 

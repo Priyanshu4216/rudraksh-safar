@@ -28,7 +28,7 @@ const TourPackagesRaipur = () => {
                 "@id": "https://rudrakshsafar.com/#travelagency",
                 "name": "Rudraksh Safar - Best Travel Agent in Raipur",
                 "image": "https://rudrakshsafar.com/logo.png",
-                "telephone": "+91-9406182174",
+                "telephone": "+91-9203650311",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "GE Road, Bhilai 3",
@@ -155,7 +155,7 @@ const TourPackagesRaipur = () => {
                                 <a href="#packages">Explore Packages</a>
                             </Button>
                             <Button size="lg" variant="outline" asChild>
-                                <a href="https://wa.me/919406182174?text=Send me package details from Raipur">Enquire Now</a>
+                                <a href="https://wa.me/919203650311?text=Send me package details from Raipur">Enquire Now</a>
                             </Button>
                         </div>
                     </div>
@@ -592,7 +592,7 @@ const TourPackagesRaipur = () => {
             {/* Sticky Mobile CTA */}
             <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
                 <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white shadow-xl rounded-full font-bold h-14" asChild>
-                    <a href="https://wa.me/919406182174?text=Get Raipur Price for Packages" className="flex items-center justify-center gap-2">
+                    <a href="https://wa.me/919203650311?text=Get Raipur Price for Packages" className="flex items-center justify-center gap-2">
                         <Phone className="w-5 h-5 fill-current" /> Get Raipur Package Price
                     </a>
                 </Button>

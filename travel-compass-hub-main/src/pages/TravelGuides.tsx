@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 // Guide articles data
 const guides = [
@@ -128,7 +128,7 @@ const guides = [
         { destination: 'Ooty', duration: '3-4 days', budget: '₹10,000 - ₹15,000', highlights: 'Tea gardens, toy train, botanical gardens' },
         { destination: 'Amritsar', duration: '2-3 days', budget: '₹7,000 - ₹12,000', highlights: 'Golden Temple, Wagah Border, food' },
       ],
-      bookingTip: 'Contact Rudraksh Safar at +91-9406182174 for customized packages with best rates from Bhilai.',
+      bookingTip: 'Contact Rudraksh Safar at +91-9203650311 for customized packages with best rates from Bhilai.',
     },
   },
 ];

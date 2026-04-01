@@ -7,7 +7,7 @@ import PageLoader from '@/components/PageLoader';
 import AnimatedSection from '@/components/AnimatedSection';
 import { FileCheck, Clock, Banknote, AlertCircle, FileText, Plane, Calendar, MessageCircle, ExternalLink } from 'lucide-react';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const SchengenVisa = () => {
   const [isLoading, setIsLoading] = useState(true);

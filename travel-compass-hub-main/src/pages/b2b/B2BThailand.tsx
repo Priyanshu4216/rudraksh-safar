@@ -127,7 +127,7 @@ const B2BThailand = () => {
                             <motion.a whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(212,175,55,0.4)" }} whileTap={{ scale: 0.95 }} href="#booking-process" className="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl inline-block">
                                 Explore B2B Workflows
                             </motion.a>
-                            <motion.a whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }} whileTap={{ scale: 0.95 }} href="https://wa.me/919406182174?text=Hi,%20I%20am%20a%20travel%20agent%20looking%20for%20B2B%20Thailand%20rates." className="bg-white/10 backdrop-blur-md border border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-2 transition-colors">
+                            <motion.a whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }} whileTap={{ scale: 0.95 }} href="https://wa.me/919203650311?text=Hi,%20I%20am%20a%20travel%20agent%20looking%20for%20B2B%20Thailand%20rates." className="bg-white/10 backdrop-blur-md border border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-2 transition-colors">
                                 <Phone className="w-5 h-5" /> Agent Registration Desk
                             </motion.a>
                         </motion.div>
@@ -346,7 +346,7 @@ const B2BThailand = () => {
                         Join hundreds of successful travel agents across India who trust Rudraksh Safar to handle their Thailand, Dubai, and Maldives deployments. Get access to our exclusive B2B Net Rates.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="https://wa.me/919406182174?text=Hello,%20I%20want%20to%20register%20my%20agency%20for%20B2B%20Thailand%20rates." className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg shadow-2xl flex items-center justify-center gap-3 hover:bg-slate-100 transition-colors">
+                        <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="https://wa.me/919203650311?text=Hello,%20I%20want%20to%20register%20my%20agency%20for%20B2B%20Thailand%20rates." className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg shadow-2xl flex items-center justify-center gap-3 hover:bg-slate-100 transition-colors">
                             <Phone className="w-5 h-5" /> Register For B2B Rates
                         </motion.a>
                         <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="/b2b-travel-partners" className="bg-white/10 backdrop-blur-md border border-white/50 text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:bg-white/20 transition-colors">

@@ -61,7 +61,7 @@ const LocationHero = ({ city, title, subtitle, bgImage, children }: LocationHero
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <Button size="lg" className="h-14 px-8 text-lg font-bold bg-secondary hover:bg-secondary/90 text-primary rounded-full group" asChild>
-                        <a href={`https://wa.me/919406182174?text=${encodeURIComponent(`Hello, I am interested in Tour Packages from ${city}. Please share the best deals and itineraries.`)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                        <a href={`https://wa.me/919203650311?text=${encodeURIComponent(`Hello, I am interested in Tour Packages from ${city}. Please share the best deals and itineraries.`)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                             <Phone className="w-5 h-5 fill-current" />
                             Get Quote
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

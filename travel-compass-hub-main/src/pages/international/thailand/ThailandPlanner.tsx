@@ -72,7 +72,7 @@ const ThailandPlanner = () => {
             `👥 Pax: ${formData.pax}\n\n` +
             `Generated via Thailand Planner`;
 
-        const waLink = `https://wa.me/919406182174?text=${encodeURIComponent(message)}`;
+        const waLink = `https://wa.me/919203650311?text=${encodeURIComponent(message)}`;
         window.open(waLink, '_blank');
 
         toast({

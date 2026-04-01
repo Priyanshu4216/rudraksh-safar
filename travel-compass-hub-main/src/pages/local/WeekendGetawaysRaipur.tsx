@@ -66,7 +66,7 @@ const WeekendGetawaysRaipur = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg h-14 px-8 rounded-full shadow-lg" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, suggest me a weekend trip from Raipur">
+                                <a href="https://wa.me/919203650311?text=Hi, suggest me a weekend trip from Raipur">
                                     <MessageCircle className="w-5 h-5 mr-2" /> Plan My Weekend
                                 </a>
                             </Button>
@@ -261,12 +261,12 @@ const WeekendGetawaysRaipur = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white h-14 px-8 rounded-full" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, need weekend trip options">
+                                <a href="https://wa.me/919203650311?text=Hi, need weekend trip options">
                                     <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-slate-900 border-white hover:bg-white/90 h-14 px-8 rounded-full" asChild>
-                                <a href="tel:+919406182174">
+                                <a href="tel:+919203650311">
                                     <Phone className="w-5 h-5 mr-2" /> Call Now
                                 </a>
                             </Button>

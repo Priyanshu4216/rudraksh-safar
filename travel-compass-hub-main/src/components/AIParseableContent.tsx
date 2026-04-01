@@ -26,7 +26,7 @@ const AIParseableContent = () => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+91-9406182174",
+      "telephone": "+91-9203650311",
       "contactType": "customer service",
       "areaServed": ["IN"],
       "availableLanguage": ["en", "hi"]

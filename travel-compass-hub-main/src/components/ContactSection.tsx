@@ -11,18 +11,23 @@ import { useBotProtection } from '@/hooks/useBotProtection';
 import { contactFormSchema, sanitizeUrlParam } from '@/lib/validation';
 import { motion } from 'framer-motion';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const contactInfo = [
   {
     icon: MapPin,
-    title: 'Visit Our Lounge',
-    details: ['GE Road, In Front of Petrol Pump', 'Bhilai 3, Chhattisgarh 490021'],
+    title: 'Main Office',
+    details: ['Shop No. 106, Satya Shanti Complex', 'Near Amantran Hotel, Supela', 'Chhattisgarh 490021'],
+  },
+  {
+    icon: MapPin,
+    title: 'Associate Office (Sanjeev Enterprises)',
+    details: ['GE Road, In Front of Petrol Pump', 'Bhilai-3, Durg 490021'],
   },
   {
     icon: Phone,
     title: 'Talk to an Expert',
-    details: ['+91 94061 82174'],
+    details: ['+91 92036 50311 (Main)', '+91 92291 50311 (Associate)'],
   },
   {
     icon: Mail,

@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Helmet } from 'react-helmet-async';
 import BrevoNewsletter from './newsletter/BrevoNewsletter';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const quickLinks = [
   { name: 'Home', href: '/' },
@@ -60,7 +60,7 @@ const legalContent = {
     content: `
       <p><strong>Last Updated:</strong> January 2026</p>
 
-      <p>Rudraksh Safar (“we”, “us”, “our”), located at GE Road, Bhilai 3, Chhattisgarh – 490021, India, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information.</p>
+      <p>Rudraksh Safar (“we”, “us”, “our”), located at Shop No. 106, Satya Shanti Complex, Near Amantran Hotel, Supela, Chhattisgarh – 490021, India, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information.</p>
       <p>By using our website or services, you agree to the terms of this Privacy Policy.</p>
 
       <h3>1. Information We Collect</h3>
@@ -148,9 +148,9 @@ const legalContent = {
 
       <h3>10. Contact Us</h3>
       <p><strong>Rudraksh Safar</strong><br/>
-      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Shop No. 106, Satya Shanti Complex, Near Amantran Hotel, Supela, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 94061 82174</p>
+      Phone: +91 92036 50311</p>
     `,
   },
   terms: {
@@ -220,9 +220,9 @@ const legalContent = {
 
       <h3>12. Contact Information</h3>
       <p><strong>Rudraksh Safar</strong><br/>
-      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Shop No. 106, Satya Shanti Complex, Near Amantran Hotel, Supela, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 94061 82174</p>
+      Phone: +91 92036 50311</p>
     `,
   },
   cookies: {
@@ -347,9 +347,9 @@ const legalContent = {
 
       <h3>10. Contact Information</h3>
       <p><strong>Rudraksh Safar</strong><br/>
-      GE Road, Bhilai 3, Chhattisgarh – 490021<br/>
+      Shop No. 106, Satya Shanti Complex, Near Amantran Hotel, Supela, Chhattisgarh – 490021<br/>
       Email: rudrakshsafar@gmail.com<br/>
-      Phone: +91 94061 82174</p>
+      Phone: +91 92036 50311</p>
     `,
   },
   refund: {
@@ -420,7 +420,7 @@ const legalContent = {
 
       <h3>9. Contact for Refund Requests</h3>
       <p>Email: rudrakshsafar@gmail.com<br/>
-      WhatsApp: +91 94061 82174<br/>
+      WhatsApp: +91 92036 50311<br/>
       <strong>Subject Line:</strong> Refund Request- [Booking ID]</p>
     `,
   },
@@ -430,7 +430,7 @@ const legalContent = {
       <p><strong>Effective Date:</strong> January 14, 2026 | <strong>Last Updated:</strong> January 14, 2026</p>
       
       <h3>1. General Cancellation Guidelines</h3>
-      <p>All cancellation requests must be submitted in writing via email (rudrakshsafar@gmail.com) or WhatsApp (+91 94061 82174). Verbal cancellation requests will not be accepted.</p>
+      <p>All cancellation requests must be submitted in writing via email (rudrakshsafar@gmail.com) or WhatsApp (+91 92036 50311). Verbal cancellation requests will not be accepted.</p>
       <p><strong>IMPORTANT:</strong> The cancellation charges outlined below are indicative and subject to the specific policies of Third-Party Service Providers (airlines, hotels, tour operators, etc.). Actual charges may be higher or lower based on their terms.</p>
       
       <h3>2. Standard Cancellation Timeline</h3>
@@ -509,7 +509,7 @@ const legalContent = {
       <h3>11. Contact Us</h3>
       <p>For cancellation assistance, contact us at:<br/>
       <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
-      <strong>Phone/WhatsApp:</strong> +91 94061 82174</p>
+      <strong>Phone/WhatsApp:</strong> +91 92036 50311</p>
     `,
   },
   booking: {
@@ -618,7 +618,7 @@ const legalContent = {
       <h3>13. Contact Us</h3>
       <p>For booking inquiries, contact us at:<br/>
       <strong>Email:</strong> rudrakshsafar@gmail.com<br/>
-      <strong>Phone/WhatsApp:</strong> +91 94061 82174</p>
+      <strong>Phone/WhatsApp:</strong> +91 92036 50311</p>
     `,
   },
   faqs: {
@@ -627,7 +627,7 @@ const legalContent = {
       <h3>Booking & Payments</h3>
       
       <h4>How do I book a trip with Rudraksh Safar?</h4>
-      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 94061 82174, (3) Call us directly, or (4) Email us at rudrakshsafar@gmail.com. Our travel experts will guide you through the entire process.</p>
+      <p>You can book by: (1) Filling out our inquiry form on the website, (2) WhatsApp us at +91 92036 50311, (3) Call us directly, or (4) Email us at rudrakshsafar@gmail.com. Our travel experts will guide you through the entire process.</p>
       
       <h4>What payment methods do you accept?</h4>
       <p>We accept bank transfers (NEFT/RTGS/IMPS), credit/debit cards (Visa, MasterCard, Amex), and UPI payments. All online payments are processed securely.</p>
@@ -765,12 +765,24 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 Crafting extraordinary travel experiences since 2010. We turn your journeys into timeless stories.
               </p>
               <div className="space-y-4 text-sm">
+                {/* Main Office */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors mt-1">
                     <MapPin className="w-4 h-4 text-gold" />
                   </div>
                   <span className="text-white/70">
-                    GE Road, Bhilai 3,<br />Chhattisgarh 490021
+                    <strong className="text-white">Main Office:</strong><br />
+                    Shop No. 106, Satya Shanti Complex,<br />Near Amantran Hotel, Supela,<br />Chhattisgarh 490021
+                  </span>
+                </div>
+                {/* Associate Office */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors mt-1">
+                    <MapPin className="w-4 h-4 text-slate-400" />
+                  </div>
+                  <span className="text-white/70">
+                    <strong className="text-white">Associate Office:</strong><br />
+                    Sanjeev Enterprises, GE Road,<br />In Front of Petrol Pump,<br />Bhilai-3, Durg 490021
                   </span>
                 </div>
                 <div className="flex items-center gap-4 group">
@@ -778,7 +790,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                     <Phone className="w-4 h-4 text-gold" />
                   </div>
                   <a href={`tel:+${PHONE_NUMBER}`} className="text-white/70 hover:text-gold transition-colors">
-                    +91 94061 82174
+                    +91 92036 50311
                   </a>
                 </div>
                 <div className="flex items-center gap-4 group">

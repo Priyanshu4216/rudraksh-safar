@@ -134,7 +134,7 @@ const Disclaimer = () => {
                 <strong>Rudraksh Safar</strong><br />
                 GE Road, Bhilai 3, Chhattisgarh – 490021<br />
                 Email: rudrakshsafar@gmail.com<br />
-                Phone: +91 94061 82174
+                Phone: +91 92036 50311
               </p>
             </div>
           </AnimatedSection>

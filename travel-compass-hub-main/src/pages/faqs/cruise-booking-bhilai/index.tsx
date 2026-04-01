@@ -332,7 +332,7 @@ const CruiseBookingBhilaiFAQ = () => {
                                 <Ship className="w-5 h-5" />
                                 Book Cruise Appointment
                             </Link>
-                            <a href="https://wa.me/919406182174" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
+                            <a href="https://wa.me/919203650311" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
                                 WhatsApp Us
                             </a>
                         </div>

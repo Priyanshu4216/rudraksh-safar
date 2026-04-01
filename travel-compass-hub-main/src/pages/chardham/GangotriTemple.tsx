@@ -288,7 +288,7 @@ const GangotriTemple = () => {
                                         Experience the divinity of the Ganges with our all-inclusive packages. We provide premium tempo travelers, exceptional hotel stays in Harsil, and expert local guidance.
                                     </p>
                                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                        <a href="https://wa.me/919406182174?text=Gangotri%20Yatra%20Enquiry" target="_blank" className="bg-blue-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-blue-700 transition">
+                                        <a href="https://wa.me/919203650311?text=Gangotri%20Yatra%20Enquiry" target="_blank" className="bg-blue-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-blue-700 transition">
                                             WhatsApp Enquiry
                                         </a>
                                     </div>

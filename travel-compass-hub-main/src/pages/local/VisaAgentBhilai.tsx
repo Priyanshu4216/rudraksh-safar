@@ -25,7 +25,7 @@ const VisaAgentBhilai = () => {
     "name": "Rudraksh Safar - Best Visa Agent In Bhilai",
     "image": "https://rudrakshsafar.com/og-image.png",
     "url": "https://rudrakshsafar.com/visa-agent-bhilai",
-    "telephone": "+919406182174",
+    "telephone": "+919203650311",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bhilai",
@@ -92,7 +92,7 @@ const VisaAgentBhilai = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-14 px-8 text-lg" asChild>
-                <a href="https://wa.me/919406182174?text=I need visa assistance">
+                <a href="https://wa.me/919203650311?text=I need visa assistance">
                   <Phone className="w-5 h-5 mr-2" /> Start Visa Process
                 </a>
               </Button>
@@ -228,7 +228,7 @@ const VisaAgentBhilai = () => {
             <div className="mt-8 text-center">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-4">Don't see your country? We cover 50+ destinations.</p>
               <Button variant="outline" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950" asChild>
-                <a href="https://wa.me/919406182174?text=Visa enquiry for other country">Check Other Rates</a>
+                <a href="https://wa.me/919203650311?text=Visa enquiry for other country">Check Other Rates</a>
               </Button>
             </div>
           </div>
@@ -385,7 +385,7 @@ const VisaAgentBhilai = () => {
                     </div>
                   </div>
                   <Button className="w-full mt-6" asChild>
-                    <a href="https://wa.me/919406182174?text=I need passport help">Book Appointment</a>
+                    <a href="https://wa.me/919203650311?text=I need passport help">Book Appointment</a>
                   </Button>
                 </CardContent>
               </Card>

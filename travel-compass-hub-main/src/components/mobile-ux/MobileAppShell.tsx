@@ -122,14 +122,14 @@ export default function MobileAppShell() {
                     <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
 
                     <div className="relative flex items-center justify-between px-6 py-3 bg-slate-900/80 dark:bg-white/10 backdrop-blur-[16px] border border-slate-700/50 dark:border-white/20 rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                        <a href="tel:+919406182174" className="flex flex-col items-center gap-1 active:scale-90 transition-transform text-slate-300 hover:text-white dark:text-white/90 dark:hover:text-white">
+                        <a href="tel:+919203650311" className="flex flex-col items-center gap-1 active:scale-90 transition-transform text-slate-300 hover:text-white dark:text-white/90 dark:hover:text-white">
                             <span className="p-2 rounded-full bg-indigo-500/20 text-indigo-300">
                                 <Phone className="w-5 h-5" />
                             </span>
                             <span className="text-[9px] font-semibold uppercase tracking-wider">Call</span>
                         </a>
 
-                        <a href="https://wa.me/919406182174?text=Hi, I am looking for a tour package." target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 active:scale-90 transition-transform text-slate-300 hover:text-white dark:text-white/90 dark:hover:text-white">
+                        <a href="https://wa.me/919203650311?text=Hi, I am looking for a tour package." target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 active:scale-90 transition-transform text-slate-300 hover:text-white dark:text-white/90 dark:hover:text-white">
                             <span className="p-2 rounded-full bg-emerald-500/20 text-emerald-300 relative">
                                 <span className="absolute -top-1 -right-1 flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

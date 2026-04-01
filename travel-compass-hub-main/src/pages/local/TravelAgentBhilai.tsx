@@ -29,7 +29,7 @@ const TravelAgentBhilai = () => {
     "@id": "https://rudrakshsafar.com/#travelagency",
     "name": "Rudraksh Safar - Best Travel Agent in Bhilai",
     "url": "https://rudrakshsafar.com/travel-agent-bhilai",
-    "telephone": "+919406182174",
+    "telephone": "+919203650311",
     "email": "rudrakshsafar@gmail.com",
     "priceRange": "₹₹",
     "image": "https://rudrakshsafar.com/og-image.png",
@@ -348,13 +348,13 @@ const TravelAgentBhilai = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" asChild className="text-lg px-8 h-12 shadow-lg hover:shadow-xl transition-all bg-green-600 hover:bg-green-700">
-                    <a href="https://wa.me/919406182174?text=Hi, I want to allow trip from Bhilai" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/919203650311?text=Hi, I want to allow trip from Bhilai" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-5 h-5 mr-2" />
                       Chat on WhatsApp
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12 border-primary/20 hover:bg-primary/5">
-                    <a href={`tel:+919406182174`}>
+                    <a href={`tel:+919203650311`}>
                       <Phone className="w-5 h-5 mr-2" /> Call Expert: 94061 82174
                     </a>
                   </Button>
@@ -728,7 +728,7 @@ const TravelAgentBhilai = () => {
 
                 <div className="mt-8 flex gap-4">
                   <Button asChild className="shadow-lg h-12 px-6">
-                    <a href="https://wa.me/919406182174?text=Hi, I want to allow appointment" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/919203650311?text=Hi, I want to allow appointment" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-4 h-4 mr-2" /> Book Appointment
                     </a>
                   </Button>

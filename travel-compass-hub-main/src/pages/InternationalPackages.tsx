@@ -17,7 +17,7 @@ import LastUpdated from '@/components/LastUpdated';
 import FAQsSection from '@/components/FAQsSection';
 import RelatedServices from '@/components/RelatedServices';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 export const internationalPackages = [
   {

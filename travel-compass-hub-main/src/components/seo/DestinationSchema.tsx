@@ -37,7 +37,7 @@ const DestinationSchema = ({
         },
         contactPoint: {
             '@type': 'ContactPoint',
-            telephone: '+919406182174',
+            telephone: '+919203650311',
             contactType: 'customer service',
             areaServed: 'IN'
         },

@@ -47,7 +47,7 @@ import coralIslandImg from "@/assets/hot-deals-coral-island.jpg";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import LastUpdated from "@/components/LastUpdated";
 
-const PHONE_NUMBER = "919406182174";
+const PHONE_NUMBER = "919203650311";
 
 const PATTAYA_PDF_HREF = "/downloads/Pattaya_New_Rudraksh_Safar.pdf";
 

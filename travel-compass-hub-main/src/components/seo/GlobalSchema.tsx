@@ -21,20 +21,33 @@ const GlobalSchema = () => {
                 "@type": "ImageObject",
                 "url": logoUrl
             },
-            "telephone": "+919406182174",
+            "telephone": "+919203650311",
             "email": "rudrakshsafar@gmail.com",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Shop No 182/2, GE Road, Bhilai 3",
-                "addressLocality": "Bhilai",
+                "streetAddress": "Shop No 106, Satya Shanti Complex, Near Amantran Hotel, Supela",
+                "addressLocality": "Durg",
                 "addressRegion": "Chhattisgarh",
                 "postalCode": "490021",
                 "addressCountry": "IN"
             },
+            "department": {
+                "@type": "TravelAgency",
+                "name": "Sanjeev Enterprises (Associate Office)",
+                "telephone": "+919229150311",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "GE Road, In Front of Petrol Pump",
+                    "addressLocality": "Bhilai-3, Durg",
+                    "addressRegion": "Chhattisgarh",
+                    "postalCode": "490021",
+                    "addressCountry": "IN"
+                }
+            },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "21.2094",
-                "longitude": "81.4285"
+                "latitude": "21.2120",
+                "longitude": "81.3733"
             },
             "openingHoursSpecification": [
                 {
@@ -66,7 +79,7 @@ const GlobalSchema = () => {
             },
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+919406182174",
+                "telephone": "+919203650311",
                 "contactType": "customer service",
                 "areaServed": "IN",
                 "availableLanguage": ["English", "Hindi"]

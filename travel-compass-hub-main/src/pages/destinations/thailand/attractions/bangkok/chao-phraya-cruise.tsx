@@ -251,7 +251,7 @@ const ChaoPhrayaCruise = () => {
                                     </ul>
 
                                     <Button className="w-full text-lg py-6 shadow-xl hover:-translate-y-1 transition-transform mb-4" size="lg" asChild>
-                                        <a href="https://wa.me/919406182174?text=Hi, I want to book the Chao Phraya Dinner Cruise in Bangkok.">
+                                        <a href="https://wa.me/919203650311?text=Hi, I want to book the Chao Phraya Dinner Cruise in Bangkok.">
                                             Get Ticket Pricing
                                         </a>
                                     </Button>

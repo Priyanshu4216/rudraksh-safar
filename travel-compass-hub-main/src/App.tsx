@@ -282,7 +282,6 @@ const GrandPalace = lazy(() => import("./pages/destinations/thailand/attractions
 const queryClient = new QueryClient();
 
 
-import NotificationPermission from "@/components/notifications/NotificationPermission";
 import CopyWatermark from "@/components/CopyWatermark";
 
 const App = () => (
@@ -294,7 +293,6 @@ const App = () => (
           <Sonner />
           <Sonner />
           <AutoUpdateController />
-          <NotificationPermission />
           <CopyWatermark />
           <BrowserRouter>
             <ScrollProgressBar />

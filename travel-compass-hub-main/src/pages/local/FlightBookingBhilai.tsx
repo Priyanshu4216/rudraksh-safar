@@ -91,7 +91,7 @@ const FlightBookingBhilai = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
-                                    <a href="https://wa.me/919406182174?text=I need flight prices" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://wa.me/919203650311?text=I need flight prices" target="_blank" rel="noopener noreferrer">
                                         <Phone className="w-5 h-5 mr-2" />
                                         Get Price Quote
                                     </a>
@@ -396,7 +396,7 @@ const FlightBookingBhilai = () => {
                         <h2 className="text-3xl font-bold mb-6">Book Your Flight Today</h2>
                         <p className="text-lg opacity-90 mb-8">Get the best price manual comparison by our experts.</p>
                         <Button size="lg" variant="secondary" className="text-lg px-8 text-blue-700" asChild>
-                            <a href="https://wa.me/919406182174?text=I want to book a flight">
+                            <a href="https://wa.me/919203650311?text=I want to book a flight">
                                 <Phone className="w-5 h-5 mr-2" /> Message Us
                             </a>
                         </Button>

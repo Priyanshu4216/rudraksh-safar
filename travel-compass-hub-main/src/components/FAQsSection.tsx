@@ -48,7 +48,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: 'How can I book a tour package with Rudraksh Safar?',
-    answer: 'You can book instantly by visiting our office in Bhilai 3 (GE Road) or calling +91-9406182174. We also offer online booking via WhatsApp with secure digital payment options (UPI/NetBanking) and EMI facilities for packages above ₹25,000.',
+    answer: 'You can book instantly by visiting our office in Bhilai 3 (GE Road) or calling +91-9203650311. We also offer online booking via WhatsApp with secure digital payment options (UPI/NetBanking) and EMI facilities for packages above ₹25,000.',
   },
   {
     question: 'Do you provide pickup from Raipur and Durg?',
@@ -156,14 +156,14 @@ const FAQsSection = ({
               <p className="text-foreground font-medium text-lg">
                 Still have specific questions?{' '}
                 <a
-                  href={`https://wa.me/919406182174`}
+                  href={`https://wa.me/919203650311`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-secondary font-bold hover:underline"
                 >
                   Chat with an Expert
                 </a>{' '}
-                or call +91-9406182174.
+                or call +91-9203650311.
               </p>
             </div>
           </AnimatedSection>

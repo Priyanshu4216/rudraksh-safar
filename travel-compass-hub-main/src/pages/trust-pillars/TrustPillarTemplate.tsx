@@ -113,7 +113,7 @@ const TrustPillarTemplate = ({
                                 <h3 className="text-xl font-bold text-navy-deep mb-4">Want similar results?</h3>
                                 <p className="text-sm text-gray-600 mb-6">Let our local travel experts properly craft your next international holiday.</p>
                                 <Button
-                                    onClick={() => window.open('https://wa.me/919406182174', '_blank')}
+                                    onClick={() => window.open('https://wa.me/919203650311', '_blank')}
                                     className="w-full bg-gold hover:bg-gold-light text-navy-deep font-bold py-6 rounded-xl transition-all shadow-md"
                                 >
                                     Consult with Us

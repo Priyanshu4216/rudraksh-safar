@@ -170,7 +170,7 @@ const BeachHolidayPackages = () => {
                                                 <Link to={dest.link !== "#" ? dest.link : "/Contact"}>View Packages</Link>
                                             </Button>
                                             <Button variant="ghost" size="icon" className="shrink-0 text-green-600 hover:bg-green-50" asChild>
-                                                <a href={`https://wa.me/919406182174?text=Quote for ${dest.name} beach package`} aria-label="WhatsApp Inquiry">
+                                                <a href={`https://wa.me/919203650311?text=Quote for ${dest.name} beach package`} aria-label="WhatsApp Inquiry">
                                                     <ArrowRight className="w-5 h-5" />
                                                 </a>
                                             </Button>
@@ -413,7 +413,7 @@ const BeachHolidayPackages = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" variant="secondary" className="text-lg h-14 px-8 text-cyan-900 shadow-xl" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I want to plan a custom beach holiday package.">
+                                <a href="https://wa.me/919203650311?text=Hi, I want to plan a custom beach holiday package.">
                                     Plan Your Trip via WhatsApp
                                 </a>
                             </Button>

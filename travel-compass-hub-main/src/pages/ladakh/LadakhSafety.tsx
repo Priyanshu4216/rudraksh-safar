@@ -114,7 +114,7 @@ const LadakhSafety = () => {
                         </div>
                         <div className="p-4 bg-background rounded-lg">
                             <p className="text-xs text-muted-foreground">Rudraksh Safar Support</p>
-                            <p className="font-bold text-xl text-gold">+91 94061 82174</p>
+                            <p className="font-bold text-xl text-gold">+91 92036 50311</p>
                         </div>
                     </div>
                 </div>

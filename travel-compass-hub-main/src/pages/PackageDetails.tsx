@@ -46,7 +46,7 @@ const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
-      answer: `Booking is simple! Contact Rudraksh Safar at +91-9406182174 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
+      answer: `Booking is simple! Contact Rudraksh Safar at +91-9203650311 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
     },
     {
       question: `Can I customize the ${pkg.title} itinerary?`,
@@ -155,7 +155,7 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
       "seller": {
         "@type": "TravelAgency",
         "name": "Rudraksh Safar",
-        "telephone": "+91-9406182174",
+        "telephone": "+91-9203650311",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
@@ -272,8 +272,8 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
   const seoTitle = pkg.id === 'phuket' ? 'Phuket Tour Package from India' : `${pkg.title} Tour Package from ${HOME_CITY}`;
   const seoDescription =
     pkg.id === 'phuket'
-      ? `Phuket tour package from India (${pkg.duration}) starting ${pkg.price}. Cheapest price guarantee. Best time to visit: ${bestTime}. View itinerary, inclusions, and FAQs. WhatsApp +91-9406182174.`
-      : `${pkg.title} tour package from ${HOME_CITY} (${pkg.duration}) starting ${pkg.price}. Lowest price budget deal. ${pickupText} Places: ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time to visit: ${bestTime}. WhatsApp +91-9406182174.`;
+      ? `Phuket tour package from India (${pkg.duration}) starting ${pkg.price}. Cheapest price guarantee. Best time to visit: ${bestTime}. View itinerary, inclusions, and FAQs. WhatsApp +91-9203650311.`
+      : `${pkg.title} tour package from ${HOME_CITY} (${pkg.duration}) starting ${pkg.price}. Lowest price budget deal. ${pickupText} Places: ${pkg.famousPlaces.slice(0, 3).join(', ')}. Best time to visit: ${bestTime}. WhatsApp +91-9203650311.`;
 
   const budgetKeywords = `cheapest ${pkg.title} package from Bhilai, budget ${pkg.location} trip, low cost ${pkg.title} tour, affordable holiday in ${pkg.location}`;
 

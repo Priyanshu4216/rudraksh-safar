@@ -104,7 +104,7 @@ const GroupTourPackages = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white text-lg h-14 px-8 rounded-full shadow-lg" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I need a group tour quote">
+                                <a href="https://wa.me/919203650311?text=Hi, I need a group tour quote">
                                     <MessageCircle className="w-5 h-5 mr-2" /> Get Group Quote
                                 </a>
                             </Button>
@@ -424,12 +424,12 @@ const GroupTourPackages = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white h-14 px-8 rounded-full" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I need help with group booking">
+                                <a href="https://wa.me/919203650311?text=Hi, I need help with group booking">
                                     <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900 h-14 px-8 rounded-full" asChild>
-                                <a href="tel:+919406182174">
+                                <a href="tel:+919203650311">
                                     <Phone className="w-5 h-5 mr-2" /> Call Now
                                 </a>
                             </Button>

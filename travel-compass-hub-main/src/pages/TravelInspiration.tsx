@@ -165,7 +165,7 @@ const TravelInspiration = () => {
                                         </div>
 
                                         <Button variant="outline" className="w-full group" asChild>
-                                            <a href={`https://wa.me/919406182174?text=I need suggestions for ${cat.title}`}>
+                                            <a href={`https://wa.me/919203650311?text=I need suggestions for ${cat.title}`}>
                                                 Get {cat.title} Quote
                                             </a>
                                         </Button>

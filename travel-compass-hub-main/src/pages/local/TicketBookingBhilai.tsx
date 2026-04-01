@@ -17,7 +17,7 @@ const TicketBookingBhilai = () => {
         "name": "Rudraksh Safar - Ticket Booking Agent Bhilai",
         "image": "https://rudrakshsafar.com/og-image.png",
         "url": "https://rudrakshsafar.com/ticket-booking-bhilai",
-        "telephone": "+919406182174",
+        "telephone": "+919203650311",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
@@ -56,7 +56,7 @@ const TicketBookingBhilai = () => {
                                 "name": "Rudraksh Safar - Ticket Booking Office",
                                 "image": "https://rudrakshsafar.com/og-image.png",
                                 "url": "https://rudrakshsafar.com/ticket-booking-bhilai",
-                                "telephone": "+919406182174",
+                                "telephone": "+919203650311",
                                 "address": {
                                     "@type": "PostalAddress",
                                     "streetAddress": "Shop No 16, Khursipar, GE Road",
@@ -148,13 +148,13 @@ const TicketBookingBhilai = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
-                                    <a href="https://wa.me/919406182174?text=Hi, I need to book a ticket" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://wa.me/919203650311?text=Hi, I need to book a ticket" target="_blank" rel="noopener noreferrer">
                                         <Phone className="w-5 h-5 mr-2" />
                                         Book on WhatsApp
                                     </a>
                                 </Button>
                                 <Button size="lg" variant="outline" asChild>
-                                    <a href="tel:+919406182174">Call: +91 94061 82174</a>
+                                    <a href="tel:+919203650311">Call: +91 92036 50311</a>
                                 </Button>
                             </div>
                         </div>
@@ -442,7 +442,7 @@ const TicketBookingBhilai = () => {
                         <h2 className="text-3xl font-bold mb-6">Need a Ticket Urgently?</h2>
                         <p className="text-lg opacity-90 mb-8">Don't risk waitlisted tickets. Talk to our expert.</p>
                         <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
-                            <a href="https://wa.me/919406182174?text=Urgent ticket booking help needed">
+                            <a href="https://wa.me/919203650311?text=Urgent ticket booking help needed">
                                 <Phone className="w-5 h-5 mr-2" /> Call Now
                             </a>
                         </Button>
@@ -454,7 +454,7 @@ const TicketBookingBhilai = () => {
                 <div className="fixed bottom-4 left-4 right-4 z-50 flex flex-col items-end gap-2 pointer-events-none md:hidden">
                     <div className="pointer-events-auto w-full">
                         <Button size="lg" className="w-full bg-blue-700 hover:bg-blue-800 text-white shadow-2xl rounded-full font-bold h-14" asChild>
-                            <a href="https://wa.me/919406182174?text=Hi, I need urgent ticket booking assistance">
+                            <a href="https://wa.me/919203650311?text=Hi, I need urgent ticket booking assistance">
                                 <Phone className="w-5 h-5 mr-2" /> Book Ticket Now
                             </a>
                         </Button>

@@ -22,7 +22,7 @@ export const HERO_CONTENT = {
     searchPlaceholder: "Search Kedarnath, Dubai, Bali…",
     primaryCta: "Call Now",
     secondaryCta: "WhatsApp Now",
-    phoneNumber: "919406182174"
+    phoneNumber: "919203650311"
 };
 
 export const POPULAR_DESTINATIONS = [

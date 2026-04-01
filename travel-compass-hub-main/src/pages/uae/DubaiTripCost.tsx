@@ -285,7 +285,7 @@ const DubaiTripCost = () => {
                             <Link to="/international/dubai/DubaiMaster" className="w-full">
                                 <Button className="w-full text-lg h-12 mb-3">View Dubai Packages</Button>
                             </Link>
-                            <a href="https://wa.me/919406182174?text=Hi, I want to know the latest Dubai package pricing." target="_blank" rel="noreferrer">
+                            <a href="https://wa.me/919203650311?text=Hi, I want to know the latest Dubai package pricing." target="_blank" rel="noreferrer">
                                 <Button variant="outline" className="w-full h-12 text-green-600 border-green-600 hover:bg-green-50">
                                     WhatsApp an Expert
                                 </Button>
@@ -336,7 +336,7 @@ const DubaiTripCost = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg h-14 px-8 rounded-full" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I would like to book a transparent Dubai package from India.">
+                                <a href="https://wa.me/919203650311?text=Hi, I would like to book a transparent Dubai package from India.">
                                     Start Planning via WhatsApp
                                 </a>
                             </Button>

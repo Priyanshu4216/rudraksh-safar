@@ -58,7 +58,7 @@ const CancellationPolicy = () => {
 
               <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">1. Cancellation Request</h2>
               <ul className="text-muted-foreground space-y-2">
-                <li>All cancellation requests must be submitted in writing via email to rudrakshsafar@gmail.com or WhatsApp (+91 94061 82174).</li>
+                <li>All cancellation requests must be submitted in writing via email to rudrakshsafar@gmail.com or WhatsApp (+91 92036 50311).</li>
                 <li>Cancellation is effective from the date we receive and acknowledge your request.</li>
                 <li>Verbal cancellation requests will not be processed.</li>
               </ul>
@@ -127,7 +127,7 @@ const CancellationPolicy = () => {
               <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">7. Contact for Cancellations</h2>
               <p className="text-muted-foreground">
                 <strong>Email:</strong> rudrakshsafar@gmail.com<br />
-                <strong>WhatsApp:</strong> +91 94061 82174<br />
+                <strong>WhatsApp:</strong> +91 92036 50311<br />
                 <strong>Response Time:</strong> Within 24-48 hours
               </p>
 

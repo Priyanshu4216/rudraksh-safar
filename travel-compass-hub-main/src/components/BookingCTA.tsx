@@ -24,7 +24,7 @@ const BookingCTA = ({
                     className="bg-white text-indigo-700 hover:bg-gray-100 font-bold h-14 px-8 text-lg"
                     asChild
                 >
-                    <a href="https://wa.me/919406182174?text=Hi,%20I%20am%20interested%20in%20a%20Goa%20Package" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/919203650311?text=Hi,%20I%20am%20interested%20in%20a%20Goa%20Package" target="_blank" rel="noopener noreferrer">
                         <Phone className="w-5 h-5 mr-2" />
                         Book via WhatsApp
                     </a>

@@ -102,7 +102,7 @@ const AboutUs = () => {
                             },
                             "contactPoint": {
                                 "@type": "ContactPoint",
-                                "telephone": "+91-9406182174",
+                                "telephone": "+91-9203650311",
                                 "contactType": "customer service",
                                 "contactOption": "TollFree",
                                 "areaServed": "IN",
@@ -292,6 +292,44 @@ const AboutUs = () => {
                     </div>
                 </section>
 
+                {/* Section: Our Workspace */}
+                <section id="our-offices" className="py-20 scroll-mt-24 bg-muted/10 border-t border-border">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12 max-w-3xl mx-auto">
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-foreground">Welcome to Our Workspace</h2>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                Step into our headquarters in Bhilai. More than just an office, it's where your dream vacations are meticulously crafted by our passionate travel experts.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                            <div className="lg:col-span-2 relative group overflow-hidden rounded-2xl shadow-md border border-border bg-card">
+                                <img src="/images/Office/Outer%20image.jpeg" alt="Rudraksh Safar External View" className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                    <span className="text-white font-bold text-2xl mb-1">Our Headquarters</span>
+                                    <span className="text-white/80 font-medium">Bhilai, Chhattisgarh</span>
+                                </div>
+                            </div>
+                            <div className="relative group overflow-hidden rounded-2xl shadow-md border border-border bg-card">
+                                <img src="/images/Office/Inside%201.jpeg" alt="Inside the Travel Desk 1" className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                    <span className="text-white font-bold text-xl mb-1">Consultation Desk</span>
+                                    <span className="text-white/80 text-sm font-medium">Where journeys begin</span>
+                                </div>
+                            </div>
+                            <div className="relative group overflow-hidden rounded-2xl shadow-md border border-border bg-card">
+                                <img src="/images/Office/inside%202.jpeg" alt="Inside the Travel Desk 2" className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                            </div>
+                            <div className="relative group overflow-hidden rounded-2xl shadow-md border border-border bg-card">
+                                <img src="/images/Office/inside%203.jpeg" alt="Inside the Travel Desk 3" className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                            </div>
+                            <div className="relative group overflow-hidden rounded-2xl shadow-md border border-border bg-card">
+                                <img src="/images/Office/inside%204.jpeg" alt="Inside the Travel Desk 4" className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Section 4: Trust Signals & Core Values */}
                 <section id="trust-signals" className="py-24 bg-slate-900 text-white scroll-mt-24">
                     <div className="container mx-auto px-4">
@@ -358,7 +396,7 @@ const AboutUs = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button size="lg" className="rounded-full shadow-2xl bg-white text-primary hover:bg-slate-100 text-lg h-14 px-8" asChild>
-                                <a href="https://wa.me/919406182174?text=Hello,%20I%20would%20like%20to%20visit%20your%20office%20to%20plan%20a%20trip.">
+                                <a href="https://wa.me/919203650311?text=Hello,%20I%20would%20like%20to%20visit%20your%20office%20to%20plan%20a%20trip.">
                                     <Phone className="w-5 h-5 mr-3" />
                                     Book an In-Office Appointment
                                 </a>

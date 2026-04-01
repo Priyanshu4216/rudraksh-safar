@@ -56,7 +56,7 @@ const TourPackagesFromRaipur = () => {
         { question: "Do you assist with visas for international trips from Raipur?", answer: "Yes, our Raipur office team provides complete visa assistance for all countries including Thailand, Dubai, Singapore, and Schengen countries." },
         { question: "Are flights included in the package cost?", answer: "Our standard packages include accommodation, transfers, and sightseeing. Flights are usually extra, but we can bundle them to give you an all-inclusive price." },
         { question: "Can I book a group tour from Raipur?", answer: "Absolutely. We organize group tours for families, colleges, and corporates from Raipur with special group discounts." },
-        { question: "How can I contact your Raipur agent?", answer: "You can reach our Raipur support directly via WhatsApp or call at +91 94061 82174 for quick quotes and itinerary planning." },
+        { question: "How can I contact your Raipur agent?", answer: "You can reach our Raipur support directly via WhatsApp or call at +91 92036 50311 for quick quotes and itinerary planning." },
     ];
 
     const jsonLd = {
@@ -67,7 +67,7 @@ const TourPackagesFromRaipur = () => {
         "provider": {
             "@type": "TravelAgency",
             "name": "Rudraksh Safar",
-            "telephone": "+919406182174",
+            "telephone": "+919203650311",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Raipur",

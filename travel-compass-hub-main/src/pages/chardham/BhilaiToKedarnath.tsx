@@ -520,7 +520,7 @@ const BhilaiToKedarnath = () => {
                                 Skip the stress of securing helicopter tickets and registering passes. Let our Bhilai-based experts craft an end-to-end luxury itinerary for your family.
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="https://wa.me/919406182174?text=I%20want%20to%20plan%20Kedarnath%20Yatra" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                <a href="https://wa.me/919203650311?text=I%20want%20to%20plan%20Kedarnath%20Yatra" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
                                     Quick Enquiry (WhatsApp)
                                 </a>
                                 <Link to="/chardham-yatra-package" className="bg-white text-orange-600 font-bold border-2 border-orange-600 px-8 py-4 rounded-full text-lg hover:bg-orange-50 transition">

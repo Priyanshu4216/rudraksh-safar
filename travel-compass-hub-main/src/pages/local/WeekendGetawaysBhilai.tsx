@@ -27,7 +27,7 @@ const WeekendGetawaysBhilai = () => {
             "@type": "TravelAgency",
             "name": "Rudraksh Safar",
             "url": "https://rudrakshsafar.com",
-            "telephone": "+919406182174"
+            "telephone": "+919203650311"
         }
     };
 
@@ -150,7 +150,7 @@ const WeekendGetawaysBhilai = () => {
 
                         <div className="flex gap-4 justify-center">
                             <Button size="lg" asChild className="text-lg px-8 shadow-lg">
-                                <a href="https://wa.me/919406182174?text=Hi, I want to plan a weekend trip from Bhilai" target="_blank" rel="noopener noreferrer">
+                                <a href="https://wa.me/919203650311?text=Hi, I want to plan a weekend trip from Bhilai" target="_blank" rel="noopener noreferrer">
                                     <Car className="w-5 h-5 mr-2" /> Plan My Trip
                                 </a>
                             </Button>
@@ -596,7 +596,7 @@ const WeekendGetawaysBhilai = () => {
                             Let us plan your perfect weekend escape. Cab, Hotel, and Peace of Mind included.
                         </p>
                         <Button size="lg" className="text-lg px-8" asChild>
-                            <a href="https://wa.me/919406182174?text=I want to book a weekend getaway">
+                            <a href="https://wa.me/919203650311?text=I want to book a weekend getaway">
                                 <Car className="w-5 h-5 mr-2" /> Book Now
                             </a>
                         </Button>

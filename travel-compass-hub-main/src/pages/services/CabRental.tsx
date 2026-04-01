@@ -110,10 +110,10 @@ const CabRental = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-yellow-500 text-black hover:bg-yellow-400 text-xl py-8 px-10 rounded-full shadow-lg hover:shadow-yellow-500/20 transition-all font-bold" asChild>
-                                <a href="https://wa.me/919406182174?text=I want to book a cab/bus">Book Now</a>
+                                <a href="https://wa.me/919203650311?text=I want to book a cab/bus">Book Now</a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-xl py-8 px-10 rounded-full" asChild>
-                                <a href="tel:+919406182174">Call +91 94061 82174</a>
+                                <a href="tel:+919203650311">Call +91 92036 50311</a>
                             </Button>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ const CabRental = () => {
                                         </div>
                                         <p className="text-muted-foreground mb-6">{vehicle.desc}</p>
                                         <Button className="w-full group-hover:bg-yellow-500 group-hover:text-black transition-colors" asChild>
-                                            <a href={`https://wa.me/919406182174?text=Book ${vehicle.name}`}>Check Availability</a>
+                                            <a href={`https://wa.me/919203650311?text=Book ${vehicle.name}`}>Check Availability</a>
                                         </Button>
                                     </CardContent>
                                 </Card>
@@ -368,7 +368,7 @@ const CabRental = () => {
                             Don't compromise on comfort. Book the best cabs and buses in Chhattisgarh today.
                         </p>
                         <Button size="lg" className="bg-black text-white hover:bg-gray-800 text-lg px-12 py-6 rounded-full" asChild>
-                            <a href="https://wa.me/919406182174?text=I want to book a cab now">Book Your Ride</a>
+                            <a href="https://wa.me/919203650311?text=I want to book a cab now">Book Your Ride</a>
                         </Button>
                     </div>
                 </section>

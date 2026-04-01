@@ -92,7 +92,7 @@ const CheapestTripsFromBhilai = () => {
                 "@id": "https://rudrakshsafar.com/#travelagency",
                 "name": "Rudraksh Safar",
                 "url": "https://rudrakshsafar.com",
-                "telephone": "+919406182174",
+                "telephone": "+919203650311",
                 "priceRange": "₹",
                 "areaServed": [
                     { "@type": "Place", "name": "Bhilai" },

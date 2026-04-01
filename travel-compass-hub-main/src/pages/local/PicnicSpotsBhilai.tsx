@@ -35,7 +35,7 @@ const PicnicSpotsBhilai = () => {
                     "@type": "LocalBusiness",
                     "name": "Rudraksh Safar",
                     "url": "https://rudrakshsafar.com",
-                    "telephone": "+919406182174",
+                    "telephone": "+919203650311",
                     "priceRange": "₹-₹₹",
                     "areaServed": ["Bhilai", "Raipur", "Durg", "Chhattisgarh"],
                     "knowsAbout": [
@@ -622,7 +622,7 @@ const PicnicSpotsBhilai = () => {
             {/* Sticky Mobile CTA */}
             <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
                 <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white shadow-xl rounded-full font-bold h-14" asChild>
-                    <a href="https://wa.me/919406182174?text=Top picnic spots planning help" className="flex items-center justify-center gap-2">
+                    <a href="https://wa.me/919203650311?text=Top picnic spots planning help" className="flex items-center justify-center gap-2">
                         <MapPin className="w-5 h-5 fill-current" /> Plan a One-Day Trip
                     </a>
                 </Button>

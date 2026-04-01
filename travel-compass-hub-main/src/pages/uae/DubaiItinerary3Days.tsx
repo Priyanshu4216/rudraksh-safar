@@ -213,7 +213,7 @@ const DubaiItinerary3Days = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg h-14 px-8 rounded-full" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I would like to book a 3-day Dubai weekend package.">
+                                <a href="https://wa.me/919203650311?text=Hi, I would like to book a 3-day Dubai weekend package.">
                                     Start Planning via WhatsApp
                                 </a>
                             </Button>

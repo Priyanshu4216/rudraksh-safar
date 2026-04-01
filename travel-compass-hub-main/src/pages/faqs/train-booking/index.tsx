@@ -158,7 +158,7 @@ const TrainBookingFAQ = () => {
         },
         {
             question: "How to contact you for urgent booking?",
-            answer: "For urgent inquiries, call or WhatsApp us at <b>+91-9406182174</b>. We are available to assist with last-minute travel plans from Bhilai, Durg, and Raipur."
+            answer: "For urgent inquiries, call or WhatsApp us at <b>+91-9203650311</b>. We are available to assist with last-minute travel plans from Bhilai, Durg, and Raipur."
         },
 
         // SECTION 8: INTERNAL LINK BOOSTERS

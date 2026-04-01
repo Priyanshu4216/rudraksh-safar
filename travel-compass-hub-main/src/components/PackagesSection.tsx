@@ -8,7 +8,7 @@ import { getBestTimeToVisit } from '@/lib/travelMeta';
 import SmartImage from '@/components/SmartImage';
 import { Helmet } from 'react-helmet-async';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const domesticPackages = [
   {

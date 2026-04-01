@@ -16,7 +16,7 @@ const IndiaPackagesBhilai = () => {
     "@type": "TravelAgency",
     "name": "Rudraksh Safar",
     "url": "https://rudrakshsafar.com",
-    "telephone": "+91-9406182174",
+    "telephone": "+91-9203650311",
     "email": "rudrakshsafar@gmail.com",
     "priceRange": "₹₹",
     "address": {
@@ -153,7 +153,7 @@ const IndiaPackagesBhilai = () => {
     <>
       <Helmet>
         <title>India Tour Packages from Bhilai | Goa Kashmir Kerala | Rudraksh Safar</title>
-        <meta name="description" content="Book national tour packages from Bhilai to Goa, Kashmir, Kerala, Rajasthan, Himachal & more. Starting ₹9,999. Family & honeymoon packages available. Call +91 94061 82174." />
+        <meta name="description" content="Book national tour packages from Bhilai to Goa, Kashmir, Kerala, Rajasthan, Himachal & more. Starting ₹9,999. Family & honeymoon packages available. Call +91 92036 50311." />
         <meta name="keywords" content="india tour packages bhilai, goa package from bhilai, kashmir tour from bhilai, kerala package bhilai, domestic tour from bhilai, national tour packages bhilai" />
         <link rel="canonical" href="https://rudrakshsafar.com/india-tour-packages-bhilai" />
 
@@ -190,7 +190,7 @@ const IndiaPackagesBhilai = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild className="text-lg px-8">
-                  <a href="https://wa.me/919406182174?text=Hi, I want to book an India tour package from Bhilai" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/919203650311?text=Hi, I want to book an India tour package from Bhilai" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Get Quote on WhatsApp
                   </a>
@@ -417,9 +417,9 @@ const IndiaPackagesBhilai = () => {
               Get the best deals on national tour packages. Family, honeymoon & group packages available.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <a href="https://wa.me/919406182174?text=Hi, I want to plan an India trip from Bhilai" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/919203650311?text=Hi, I want to plan an India trip from Bhilai" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5 mr-2" />
-                WhatsApp: +91 94061 82174
+                WhatsApp: +91 92036 50311
               </a>
             </Button>
           </div>

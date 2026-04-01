@@ -115,7 +115,7 @@ const TravelSafety = () => {
                             </p>
                             <div className="mt-4 flex gap-4">
                                 <Button variant="default" asChild>
-                                    <a href="tel:+919406182174">Speak to a Safety Expert</a>
+                                    <a href="tel:+919203650311">Speak to a Safety Expert</a>
                                 </Button>
                             </div>
                         </div>

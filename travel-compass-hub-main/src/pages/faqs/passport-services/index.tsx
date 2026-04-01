@@ -280,7 +280,7 @@ const PassportServicesFAQ = () => {
                                 <UserCheck className="w-5 h-5" />
                                 Apply for Passport
                             </Link>
-                            <a href="tel:919406182174" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
+                            <a href="tel:919203650311" className="inline-flex items-center justify-center gap-2 bg-white border border-input text-foreground px-8 py-4 rounded-lg font-semibold hover:bg-muted/50 transition-all">
                                 Call for Documents Check
                             </a>
                         </div>

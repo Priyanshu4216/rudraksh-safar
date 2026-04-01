@@ -44,15 +44,28 @@ const Contact = () => {
                             "@type": "TravelAgency",
                             "name": "Rudraksh Safar",
                             "image": "https://rudrakshsafar.com/logo.png",
-                            "telephone": "+919406182174",
+                            "telephone": "+919203650311",
                             "email": "rudrakshsafar@gmail.com",
                             "address": {
                                 "@type": "PostalAddress",
-                                "streetAddress": "GE Road, In Front of Petrol Pump",
-                                "addressLocality": "Bhilai 3",
+                                "streetAddress": "Shop No. 106, Satya Shanti Complex, Near Amantran Hotel, Supela",
+                                "addressLocality": "Durg",
                                 "addressRegion": "Chhattisgarh",
                                 "postalCode": "490021",
                                 "addressCountry": "IN"
+                            },
+                            "department": {
+                                "@type": "TravelAgency",
+                                "name": "Sanjeev Enterprises (Associate Office)",
+                                "telephone": "+919229150311",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "GE Road, In Front of Petrol Pump",
+                                    "addressLocality": "Bhilai-3, Durg",
+                                    "addressRegion": "Chhattisgarh",
+                                    "postalCode": "490021",
+                                    "addressCountry": "IN"
+                                }
                             },
                             "geo": {
                                 "@type": "GeoCoordinates",
@@ -134,33 +147,39 @@ const Contact = () => {
 
                             <div className="bg-card border border-border shadow-xl rounded-3xl p-8 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full z-0" />
-                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 relative z-10 text-foreground"><MapPin className="text-primary w-6 h-6" /> Visit Our Headquarters</h3>
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 relative z-10 text-foreground"><MapPin className="text-primary w-6 h-6" /> Visit Our Offices</h3>
                                 <div className="space-y-6 relative z-10">
                                     <p className="text-muted-foreground leading-relaxed">
-                                        We welcome walk-ins for travel consultations. Our office is strategically located on the main GE Road corridor for easy access from both Durg and Bhilai.
+                                        We welcome walk-ins for travel consultations. Visit our Main Office in Supela, or our Associate Office on GE Road.
                                     </p>
 
                                     <div className="space-y-4 bg-muted/40 p-6 rounded-2xl border border-border/50">
                                         <div className="flex items-start gap-3">
-                                            <Clock className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                                            <span className="text-xl">🏢</span>
                                             <div>
-                                                <span className="block font-bold text-foreground">Operating Hours</span>
-                                                <span className="text-muted-foreground text-sm block">Mon to Sun: 10:00 AM - 9:00 PM</span>
+                                                <span className="block font-bold text-foreground">Main Office (Rudraksh Safar)</span>
+                                                <span className="text-muted-foreground text-sm block">Shop No. 106, Satya Shanti Complex,<br />Near Amantran Hotel, Supela, Chhattisgarh 490021</span>
+                                                <span className="text-primary text-sm font-semibold block mt-1">+91 92036 50311</span>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div className="space-y-4 bg-muted/20 p-6 rounded-2xl border border-border/50">
                                         <div className="flex items-start gap-3">
-                                            <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                                            <span className="text-xl">🏬</span>
                                             <div>
-                                                <span className="block font-bold text-foreground">Address Coordinates</span>
-                                                <span className="text-muted-foreground text-sm block">GE Road, In Front of Petrol Pump, Bhilai 3, Chhattisgarh - 490021</span>
+                                                <span className="block font-bold text-foreground">Associate Office (Sanjeev Enterprises)</span>
+                                                <span className="text-muted-foreground text-sm block">GE Road, In Front of Petrol Pump,<br />Bhilai-3, Durg, Chhattisgarh 490021</span>
+                                                <span className="text-primary text-sm font-semibold block mt-1">+91 92291 50311</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-start gap-3">
-                                            <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                                            <div>
-                                                <span className="block font-bold text-foreground">Direct Line</span>
-                                                <span className="text-muted-foreground text-sm block">+91 94061 82174</span>
-                                            </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-3 mt-4 px-2">
+                                        <Clock className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                                        <div>
+                                            <span className="block font-bold text-foreground">Operating Hours</span>
+                                            <span className="text-muted-foreground text-sm block">Mon to Sun: 10:00 AM - 9:00 PM</span>
                                         </div>
                                     </div>
                                 </div>

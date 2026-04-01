@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import LastUpdated from '@/components/LastUpdated';
 import FAQsSection from '@/components/FAQsSection';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const faqSchema = {
   "@context": "https://schema.org",

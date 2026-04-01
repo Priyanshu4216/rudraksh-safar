@@ -230,7 +230,7 @@ const CharDhamRegistration = () => {
                                 Skip the stress of server crashes and registration forms. Book an all-inclusive Char Dham Yatra package and our backend team will secure all your permits, priority Darshan passes, and helicopter tickets.
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="https://wa.me/919406182174?text=CharDham%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                <a href="https://wa.me/919203650311?text=CharDham%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
                                     Speak to Our Tour Experts
                                 </a>
                                 <Link to="/chardham-yatra-package" className="bg-white text-orange-600 font-bold border-2 border-orange-600 px-8 py-4 rounded-full text-lg hover:bg-orange-50 transition">

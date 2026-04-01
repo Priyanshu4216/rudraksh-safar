@@ -66,7 +66,7 @@ const WhereToGoFromBhilai = () => {
                                 <h3 className="font-bold mb-2">Need a Personal Plan?</h3>
                                 <p className="text-sm text-muted-foreground mb-4">Chat with our Bhilai travel experts.</p>
                                 <Button className="w-full bg-green-600 hover:bg-green-700" asChild>
-                                    <a href="https://wa.me/919406182174?text=Suggest a destination for me">WhatsApp Us</a>
+                                    <a href="https://wa.me/919203650311?text=Suggest a destination for me">WhatsApp Us</a>
                                 </Button>
                             </div>
                         </aside>
@@ -123,7 +123,7 @@ const WhereToGoFromBhilai = () => {
                                                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> Best for Tiger Safari</li>
                                             </ul>
                                             <Button variant="outline" className="w-full" asChild>
-                                                <a href="https://wa.me/919406182174?text=Kanha trip enquiry">Check Availability</a>
+                                                <a href="https://wa.me/919203650311?text=Kanha trip enquiry">Check Availability</a>
                                             </Button>
                                         </CardContent>
                                     </Card>
@@ -140,7 +140,7 @@ const WhereToGoFromBhilai = () => {
                                                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> "Niagara of India"</li>
                                             </ul>
                                             <Button variant="outline" className="w-full" asChild>
-                                                <a href="https://wa.me/919406182174?text=Chitrakote trip enquiry">Plan Trip</a>
+                                                <a href="https://wa.me/919203650311?text=Chitrakote trip enquiry">Plan Trip</a>
                                             </Button>
                                         </CardContent>
                                     </Card>
@@ -157,7 +157,7 @@ const WhereToGoFromBhilai = () => {
                                                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> Source of Narmada</li>
                                             </ul>
                                             <Button variant="outline" className="w-full" asChild>
-                                                <a href="https://wa.me/919406182174?text=Amarkantak trip enquiry">Plan Trip</a>
+                                                <a href="https://wa.me/919203650311?text=Amarkantak trip enquiry">Plan Trip</a>
                                             </Button>
                                         </CardContent>
                                     </Card>
@@ -174,7 +174,7 @@ const WhereToGoFromBhilai = () => {
                                                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> "Shimla of Chhattisgarh"</li>
                                             </ul>
                                             <Button variant="outline" className="w-full" asChild>
-                                                <a href="https://wa.me/919406182174?text=Mainpat trip enquiry">Plan Trip</a>
+                                                <a href="https://wa.me/919203650311?text=Mainpat trip enquiry">Plan Trip</a>
                                             </Button>
                                         </CardContent>
                                     </Card>
@@ -311,7 +311,7 @@ const WhereToGoFromBhilai = () => {
                                     Don't waste days scrolling Instagram. Walk into our Bhilai office or call us. We’ll verify your dates, budget, and suggest the perfect trip.
                                 </p>
                                 <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 rounded-full" asChild>
-                                    <a href="tel:+919406182174">Call Expert: +91 94061 82174</a>
+                                    <a href="tel:+919203650311">Call Expert: +91 92036 50311</a>
                                 </Button>
                             </section>
                         </div>

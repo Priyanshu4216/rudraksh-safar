@@ -78,7 +78,7 @@ const HoneymoonPackagesFromBhilai = () => {
         "provider": {
             "@type": "TravelAgency",
             "name": "Rudraksh Safar",
-            "telephone": "+919406182174",
+            "telephone": "+919203650311",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Shop No. 04, New Civic Centre",

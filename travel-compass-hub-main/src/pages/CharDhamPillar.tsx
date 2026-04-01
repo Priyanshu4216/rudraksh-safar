@@ -464,12 +464,12 @@ const CharDhamPillar = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
                             <Button size="lg" className="bg-white text-orange-600 hover:bg-slate-100 font-bold h-16 px-10 rounded-full shadow-2xl text-lg transition-transform hover:scale-105" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I want to inquire about Char Dham Yatra 2026.">
+                                <a href="https://wa.me/919203650311?text=Hi, I want to inquire about Char Dham Yatra 2026.">
                                     <MessageCircle className="w-6 h-6 mr-3" /> WhatsApp the Helpdesk
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-white border-white/50 border-2 hover:bg-white/10 h-16 px-10 rounded-full shadow-lg text-lg transition-transform hover:scale-105" asChild>
-                                <a href="tel:+919406182174">
+                                <a href="tel:+919203650311">
                                     <Phone className="w-6 h-6 mr-3" /> Call a Yatra Expert
                                 </a>
                             </Button>

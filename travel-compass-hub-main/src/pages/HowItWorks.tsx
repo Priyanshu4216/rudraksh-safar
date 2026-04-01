@@ -248,7 +248,7 @@ const HowItWorks = () => {
                         <h2 className="text-3xl font-bold mb-6">Ready to Start Step 1?</h2>
                         <p className="text-muted-foreground mb-8">Let's plan your dream vacation today.</p>
                         <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-primary/25" asChild>
-                            <a href="https://wa.me/919406182174?text=Hi, I want to start my booking process" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/919203650311?text=Hi, I want to start my booking process" target="_blank" rel="noopener noreferrer">
                                 <MessageCircle className="mr-2 w-5 h-5" /> Start Inquiry
                             </a>
                         </Button>

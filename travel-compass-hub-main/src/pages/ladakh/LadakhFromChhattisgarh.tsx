@@ -79,7 +79,7 @@ const LadakhFromChhattisgarh = () => {
         "name": "Rudraksh Safar Chhattisgarh",
         "description": "Leading Ladakh Tour Operator in Chhattisgarh. Serving Raipur, Bilaspur, Bhilai, Korba & Jagdalpur. Best packages with flight/train assistance.",
         "areaServed": ["Chhattisgarh", "Raipur", "Bilaspur", "Korba", "Raigarh"],
-        "telephone": "+91-9406182174"
+        "telephone": "+91-9203650311"
     };
 
     const faqSchema = {

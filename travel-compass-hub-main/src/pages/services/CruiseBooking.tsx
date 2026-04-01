@@ -161,7 +161,7 @@ const CruiseBooking = () => {
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white border-0 text-lg h-14 px-8 rounded-full shadow-lg shadow-cyan-500/20" asChild>
-                                            <a href="https://wa.me/919406182174?text=I want to plan a cruise holiday">Plan My Cruise</a>
+                                            <a href="https://wa.me/919203650311?text=I want to plan a cruise holiday">Plan My Cruise</a>
                                         </Button>
                                     </div>
                                 </motion.div>
@@ -429,12 +429,12 @@ const CruiseBooking = () => {
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-6 rounded-full" asChild>
-                                            <a href="https://wa.me/919406182174?text=Hi, help me book a cruise">
+                                            <a href="https://wa.me/919203650311?text=Hi, help me book a cruise">
                                                 <MessageCircle className="w-5 h-5 mr-2" /> Chat on WhatsApp
                                             </a>
                                         </Button>
                                         <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 text-lg px-8 py-6 rounded-full" asChild>
-                                            <a href="tel:+919406182174">
+                                            <a href="tel:+919203650311">
                                                 <Phone className="w-5 h-5 mr-2" /> Call Expert
                                             </a>
                                         </Button>

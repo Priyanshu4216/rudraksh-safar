@@ -113,7 +113,7 @@ const BudgetTourPackages = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-teal-600 hover:bg-teal-500 text-white text-lg h-14 px-8 rounded-full shadow-2xl font-bold transition-all" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I need a budget tour quote. Here is my destination: ">
+                                <a href="https://wa.me/919203650311?text=Hi, I need a budget tour quote. Here is my destination: ">
                                     <MessageCircle className="w-5 h-5 mr-2" /> Request Free Custom Quote
                                 </a>
                             </Button>
@@ -478,12 +478,12 @@ const BudgetTourPackages = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
                             <Button size="lg" className="bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold h-16 px-10 rounded-full shadow-2xl text-lg transition-transform hover:scale-105" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I want a customized strictly budget-friendly holiday plan.">
+                                <a href="https://wa.me/919203650311?text=Hi, I want a customized strictly budget-friendly holiday plan.">
                                     <MessageCircle className="w-6 h-6 mr-3" /> Get a Free Quote via WhatsApp
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-white border-teal-500 border-2 hover:bg-teal-900/50 h-16 px-10 rounded-full shadow-lg text-lg transition-transform hover:scale-105" asChild>
-                                <a href="tel:+919406182174">
+                                <a href="tel:+919203650311">
                                     <Phone className="w-6 h-6 mr-3" /> Call Our Agent
                                 </a>
                             </Button>

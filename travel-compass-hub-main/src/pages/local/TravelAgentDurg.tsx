@@ -28,7 +28,7 @@ const TravelAgentDurg = () => {
         "@id": "https://rudrakshsafar.com/#travelagency",
         "name": "Rudraksh Safar",
         "image": "https://rudrakshsafar.com/logo.png",
-        "telephone": "+919406182174",
+        "telephone": "+919203650311",
         "email": "rudrakshsafar@gmail.com",
         "address": {
             "@type": "PostalAddress",

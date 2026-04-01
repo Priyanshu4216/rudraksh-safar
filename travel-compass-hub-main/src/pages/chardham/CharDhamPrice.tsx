@@ -278,7 +278,7 @@ const CharDhamPrice = () => {
                             <Link to="/chardham/CharDhamPillar" className="w-full">
                                 <Button className="w-full text-lg h-12 mb-3 bg-orange-600 hover:bg-orange-700">View Yatra Packages</Button>
                             </Link>
-                            <a href="https://wa.me/919406182174?text=Hi, I need an honest pricing quote for my upcoming Char Dham Yatra." target="_blank" rel="noreferrer">
+                            <a href="https://wa.me/919203650311?text=Hi, I need an honest pricing quote for my upcoming Char Dham Yatra." target="_blank" rel="noreferrer">
                                 <Button variant="outline" className="w-full h-12 text-orange-600 border-orange-600 hover:bg-orange-50">
                                     Consult our Pundit
                                 </Button>
@@ -329,7 +329,7 @@ const CharDhamPrice = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button size="lg" className="bg-white hover:bg-orange-50 text-orange-600 font-bold text-lg h-14 px-8 rounded-full" asChild>
-                                <a href="https://wa.me/919406182174?text=Hi, I would like to book a transparent Char Dham package.">
+                                <a href="https://wa.me/919203650311?text=Hi, I would like to book a transparent Char Dham package.">
                                     Start Planning via WhatsApp
                                 </a>
                             </Button>

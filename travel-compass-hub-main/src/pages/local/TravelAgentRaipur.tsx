@@ -25,7 +25,7 @@ const TravelAgentRaipur = () => {
         "@id": "https://rudrakshsafar.com/#travelagency",
         "name": "Rudraksh Safar",
         "url": "https://rudrakshsafar.com/travel-agent-raipur",
-        "telephone": "+91-9406182174",
+        "telephone": "+91-9203650311",
         "email": "rudrakshsafar@gmail.com",
         "priceRange": "₹₹",
         "image": "https://rudrakshsafar.com/og-image.png",
@@ -169,13 +169,13 @@ const TravelAgentRaipur = () => {
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Button size="lg" asChild className="text-lg px-8 h-12 shadow-md hover:shadow-lg transition-all">
-                                        <a href="https://wa.me/919406182174?text=Hi, I am from Raipur and need travel assistance" target="_blank" rel="noopener noreferrer">
+                                        <a href="https://wa.me/919203650311?text=Hi, I am from Raipur and need travel assistance" target="_blank" rel="noopener noreferrer">
                                             <MessageCircle className="w-5 h-5 mr-2" />
                                             Chat on WhatsApp
                                         </a>
                                     </Button>
                                     <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12">
-                                        <a href={`tel:+919406182174`}>Call Expert: 94061 82174</a>
+                                        <a href={`tel:+919203650311`}>Call Expert: 94061 82174</a>
                                     </Button>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@ const TravelAgentRaipur = () => {
                             Get the best deals and personalized itineraries. Connect with Raipur's trusted travel experts.
                         </p>
                         <Button size="lg" variant="secondary" asChild className="text-lg px-8">
-                            <a href="https://wa.me/919406182174?text=I want to plan a trip from Raipur">
+                            <a href="https://wa.me/919203650311?text=I want to plan a trip from Raipur">
                                 <MessageCircle className="w-5 h-5 mr-2" /> Get Free Quote
                             </a>
                         </Button>

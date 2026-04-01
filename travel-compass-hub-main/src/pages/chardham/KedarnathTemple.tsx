@@ -385,7 +385,7 @@ const KedarnathTemple = () => {
                                         Avoid the grueling queues and permit hurdles. Our local experts arrange guaranteed helicopter tickets, GMVN stays, and priority Darshan passes.
                                     </p>
                                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                        <a href="https://wa.me/919406182174?text=Kedarnath%20Yatra%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
+                                        <a href="https://wa.me/919203650311?text=Kedarnath%20Yatra%20Enquiry" target="_blank" className="bg-orange-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-orange-700 transition">
                                             WhatsApp Enquiry
                                         </a>
                                     </div>

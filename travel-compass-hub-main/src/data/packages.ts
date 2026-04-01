@@ -2,7 +2,7 @@ import { HOME_CITY } from '@/lib/travelMeta';
 import pattayaHero from "@/assets/hot-deals-pattaya-hero.jpg";
 import coralIslandImg from "@/assets/hot-deals-coral-island.jpg";
 
-export const PHONE_NUMBER = '919406182174';
+export const PHONE_NUMBER = '919203650311';
 
 export const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
   // If specific AEO FAQs are provided in the package data, use them partially or fully
@@ -32,7 +32,7 @@ export const generatePackageFAQs = (pkg: typeof allPackages[0]) => {
     },
     {
       question: `How do I book this ${pkg.location} tour from Bhilai?`,
-      answer: `Booking is simple! Contact Rudraksh Safar at +91-9406182174 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
+      answer: `Booking is simple! Contact Rudraksh Safar at +91-9203650311 via WhatsApp or call. We serve travelers from Bhilai, Raipur, Durg, and all of Chhattisgarh. We handle all arrangements from your doorstep including pickup, flights, hotels, and complete tour management.`
     },
     {
       question: `Can I customize the ${pkg.title} itinerary?`,

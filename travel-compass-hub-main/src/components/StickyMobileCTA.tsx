@@ -21,13 +21,13 @@ const StickyMobileCTA: React.FC<StickyMobileCTAProps> = ({ price, onEnquire }) =
                         size="icon"
                         variant="outline"
                         className="rounded-full h-12 w-12 border-primary/20 text-primary hover:bg-primary/5"
-                        onClick={() => window.open('tel:+919406182174', '_self')}
+                        onClick={() => window.open('tel:+919203650311', '_self')}
                     >
                         <Phone className="h-5 w-5" />
                     </Button>
                     <Button
                         className="rounded-full h-12 px-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg shadow-green-900/20"
-                        onClick={() => window.open('https://wa.me/919406182174?text=Hi, I am interested in this package', '_blank')}
+                        onClick={() => window.open('https://wa.me/919203650311?text=Hi, I am interested in this package', '_blank')}
                     >
                         <MessageSquare className="h-4 w-4 mr-2" />
                         Book Now

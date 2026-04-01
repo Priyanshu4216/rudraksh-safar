@@ -297,7 +297,7 @@ const YamunotriTemple = () => {
                                         Start your spiritual journey on the right note. We provide well-paced itineraries with pre-booked Palkis, premium stays at Barkot, and experienced hill drivers.
                                     </p>
                                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                        <a href="https://wa.me/919406182174?text=Yamunotri%20Yatra%20Enquiry" target="_blank" className="bg-yellow-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-700 transition">
+                                        <a href="https://wa.me/919203650311?text=Yamunotri%20Yatra%20Enquiry" target="_blank" className="bg-yellow-600 font-bold text-white px-8 py-4 rounded-full text-lg shadow-lg hover:bg-yellow-700 transition">
                                             WhatsApp Enquiry
                                         </a>
                                     </div>

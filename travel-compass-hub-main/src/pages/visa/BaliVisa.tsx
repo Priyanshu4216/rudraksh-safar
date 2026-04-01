@@ -9,7 +9,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FileCheck, Clock, Banknote, AlertCircle, FileText, Plane, Calendar, MessageCircle, ExternalLink, CheckCircle2, XCircle } from 'lucide-react';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const faqSchema = {
   "@context": "https://schema.org",

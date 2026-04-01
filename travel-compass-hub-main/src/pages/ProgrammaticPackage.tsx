@@ -138,7 +138,7 @@ const ProgrammaticPackage = () => {
                             </div>
 
                             <Button
-                                onClick={() => window.open(`https://wa.me/919406182174?text=Hi, I want to book a trip to ${destName} starting from ${originCapitalized}. Please provide a quote.`, '_blank')}
+                                onClick={() => window.open(`https://wa.me/919203650311?text=Hi, I want to book a trip to ${destName} starting from ${originCapitalized}. Please provide a quote.`, '_blank')}
                                 className="w-full bg-gold hover:bg-gold-light text-navy-deep font-bold py-6 text-lg rounded-xl transition-all hover:scale-105"
                             >
                                 Get Itinerary on WhatsApp

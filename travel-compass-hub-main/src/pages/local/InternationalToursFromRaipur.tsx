@@ -85,7 +85,7 @@ const InternationalToursFromRaipur = () => {
             "@type": "TravelAgency",
             "name": "Rudraksh Safar",
             "logo": "https://rudrakshsafar.com/logo.png",
-            "telephone": "+919406182174",
+            "telephone": "+919203650311",
             "areaServed": {
                 "@type": "City",
                 "name": "Raipur"

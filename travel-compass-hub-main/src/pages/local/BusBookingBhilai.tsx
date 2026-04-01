@@ -43,7 +43,7 @@ const BusBookingBhilai = () => {
         "@type": "TravelAgency",
         "name": "Rudraksh Safar - Bus Ticket Agent Bhilai",
         "intro": "Luxury Bus booking services from Bhilai to Hyderabad, Pune, Nagpur.",
-        "telephone": "+919406182174",
+        "telephone": "+919203650311",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Bhilai",
@@ -96,7 +96,7 @@ const BusBookingBhilai = () => {
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
-                                    <a href="https://wa.me/919406182174?text=I need bus ticket" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://wa.me/919203650311?text=I need bus ticket" target="_blank" rel="noopener noreferrer">
                                         <Phone className="w-5 h-5 mr-2" />
                                         Book Seat Now
                                     </a>
@@ -324,7 +324,7 @@ const BusBookingBhilai = () => {
                         <h2 className="text-3xl font-bold mb-6">How to book a bus seat?</h2>
                         <p className="text-lg opacity-90 mb-8">Secure your preferred seat before the bus fills up.</p>
                         <Button size="lg" variant="secondary" className="text-lg px-8 text-purple-700" asChild>
-                            <a href="https://wa.me/919406182174?text=Bus ticket enquiry">
+                            <a href="https://wa.me/919203650311?text=Bus ticket enquiry">
                                 <Phone className="w-5 h-5 mr-2" /> Book Bus Ticket
                             </a>
                         </Button>

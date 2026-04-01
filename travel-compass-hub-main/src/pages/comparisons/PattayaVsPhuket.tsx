@@ -227,7 +227,7 @@ const PattayaVsPhuket = () => {
                                 <Link to="/package/thailand">View All Thailand Packages</Link>
                             </Button>
                             <Button asChild variant="outline" size="lg" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10">
-                                <a href="https://wa.me/919406182174" target="_blank" rel="noopener noreferrer">Chat with an Expert</a>
+                                <a href="https://wa.me/919203650311" target="_blank" rel="noopener noreferrer">Chat with an Expert</a>
                             </Button>
                         </div>
                     </div>

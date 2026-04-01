@@ -209,7 +209,7 @@ const WhyChooseUs = () => {
                         </p>
                         <div className="flex gap-4 justify-center">
                             <Button size="lg" variant="secondary" asChild className="text-lg px-8 text-emerald-800">
-                                <a href="https://wa.me/919406182174?text=I want to experience Rudraksh Safar service">
+                                <a href="https://wa.me/919203650311?text=I want to experience Rudraksh Safar service">
                                     Start Planning
                                 </a>
                             </Button>
@@ -335,7 +335,7 @@ const WhyChooseUs = () => {
                         },
                         {
                             question: "What happens if I get scammed by a fake website using your name?",
-                            answer: "We only accept payments into our official business bank accounts or at our office. We will NEVER ask you to pay into a personal UPI or obscure wallet. Always verify the number you are speaking to—our official line is +91-9406182174. If you are unsure, visit our office on GE Road."
+                            answer: "We only accept payments into our official business bank accounts or at our office. We will NEVER ask you to pay into a personal UPI or obscure wallet. Always verify the number you are speaking to—our official line is +91-9203650311. If you are unsure, visit our office on GE Road."
                         },
                         {
                             question: "Do you support corporate GST invoices?",

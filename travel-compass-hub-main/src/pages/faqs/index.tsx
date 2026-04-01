@@ -120,7 +120,7 @@ const FAQHub = () => {
                             <Link to="/contact" className="btn-primary inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                                 Contact Us
                             </Link>
-                            <a href="https://wa.me/919406182174" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-input bg-background hover:bg-accent hover:text-accent-foreground">
+                            <a href="https://wa.me/919203650311" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-input bg-background hover:bg-accent hover:text-accent-foreground">
                                 WhatsApp Chat
                             </a>
                         </div>

@@ -287,7 +287,7 @@ const BlogPost = () => {
                                 </p>
                             </div>
                             <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" asChild>
-                                <a href="https://wa.me/919406182174" target="_blank" rel="noopener noreferrer">
+                                <a href="https://wa.me/919203650311" target="_blank" rel="noopener noreferrer">
                                     <span className="mr-2 font-bold">WhatsApp Expert</span>
                                     <Clock className="h-4 w-4" />
                                 </a>

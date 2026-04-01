@@ -251,7 +251,7 @@ const DestinationContent = () => {
                 <p className="text-muted-foreground text-lg mb-10 leading-relaxed">Stop relying on fragmented internet research. Let a human expert curate the perfect itinerary based on your exact budget, group size, and travel style.</p>
                 <div className="space-y-4">
                   <Button className="w-full text-lg h-16 rounded-xl font-bold shadow-xl transition-transform hover:-translate-y-1" size="lg" asChild>
-                    <a href={`https://wa.me/919406182174?text=Hi, I am interested in planning a customized trip to ${destinationName}.`}>Talk to a Destination Expert</a>
+                    <a href={`https://wa.me/919203650311?text=Hi, I am interested in planning a customized trip to ${destinationName}.`}>Talk to a Destination Expert</a>
                   </Button>
                   <Button variant="outline" className="w-full text-lg h-16 rounded-xl font-bold" size="lg" asChild>
                     <Link to="/contact">Request a Callback</Link>

@@ -54,7 +54,7 @@ const testimonials = [
   },
 ];
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

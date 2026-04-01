@@ -479,7 +479,7 @@ const BestTimeToVisit = () => {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button size="lg" className="bg-white text-primary hover:bg-slate-100 font-bold h-14 px-8 rounded-full shadow-lg text-lg" asChild>
-                  <a href="https://wa.me/919406182174?text=Hi, I am looking to plan a trip with optimal weather conditions.">
+                  <a href="https://wa.me/919203650311?text=Hi, I am looking to plan a trip with optimal weather conditions.">
                     Consult an Expert via WhatsApp
                   </a>
                 </Button>

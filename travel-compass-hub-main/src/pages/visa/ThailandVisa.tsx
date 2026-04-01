@@ -9,7 +9,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { FileCheck, Clock, AlertCircle, FileText, Calendar, MessageCircle, ExternalLink, CheckCircle, XCircle, Info, Plane } from 'lucide-react';
 
-const PHONE_NUMBER = '919406182174';
+const PHONE_NUMBER = '919203650311';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -447,7 +447,7 @@ const ThailandVisa = () => {
               </p>
               <p className="mt-4">
                 <strong>Rudraksh Safar</strong> | Bhilai, Chhattisgarh |
-                <a href="tel:+919406182174" className="text-secondary hover:underline ml-1">+91 94061 82174</a> |
+                <a href="tel:+919203650311" className="text-secondary hover:underline ml-1">+91 92036 50311</a> |
                 <a href="mailto:rudrakshsafar@gmail.com" className="text-secondary hover:underline ml-1">rudrakshsafar@gmail.com</a>
               </p>
             </div>

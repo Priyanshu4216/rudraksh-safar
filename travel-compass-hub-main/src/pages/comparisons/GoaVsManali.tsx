@@ -150,7 +150,7 @@ const GoaVsManali = () => {
                     <div className="flex justify-center gap-4">
                         <a href="/domestic-packages" className="underline text-indigo-600 font-medium">View All Packages</a>
                         <span className="text-muted-foreground">|</span>
-                        <a href="https://wa.me/919406182174" className="underline text-green-600 font-medium">Chat with Expert</a>
+                        <a href="https://wa.me/919203650311" className="underline text-green-600 font-medium">Chat with Expert</a>
                     </div>
                 </div>
 

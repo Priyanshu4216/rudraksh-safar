@@ -19,7 +19,7 @@ const LadakhPillar = () => {
         "description": "Premium Ladakh Tour Packages from Delhi. Expert-led road trips via Manali and Srinagar. Best price guarantee for 2026 expeditions.",
         "url": "https://rudrakshsafar.com/domestic-tours/ladakh",
         "image": heroImage,
-        "telephone": "+91-9406182174",
+        "telephone": "+91-9203650311",
         "priceRange": "₹₹",
         "address": {
             "@type": "PostalAddress",
@@ -269,7 +269,7 @@ const LadakhPillar = () => {
                                     Whether you want a budget trip or a luxury glamping experience, we customize packages from Bhilai, Raipur, and Delhi.
                                 </p>
                                 <Button variant="default" className="gap-2">
-                                    <Phone className="w-4 h-4" /> Call Expert: +91-9406182174
+                                    <Phone className="w-4 h-4" /> Call Expert: +91-9203650311
                                 </Button>
                             </div>
                         </section>

@@ -149,7 +149,7 @@ const RefundPolicy = () => {
               <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">9. Contact for Refund Requests</h2>
               <p className="text-muted-foreground">
                 Email: rudrakshsafar@gmail.com<br />
-                WhatsApp: +91 94061 82174
+                WhatsApp: +91 92036 50311
               </p>
               <p className="text-muted-foreground">
                 <strong>Subject Line:</strong> Refund Request- [Booking ID]

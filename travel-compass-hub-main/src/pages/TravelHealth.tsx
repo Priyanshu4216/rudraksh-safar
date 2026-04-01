@@ -283,7 +283,7 @@ const TravelHealth = () => {
                   Avoid the stress of solo planning. Have our destination specialists curate your entire trip, including securing robust travel insurance and validating local health protocols.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
-                  <a href="https://wa.me/919406182174" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl">
+                  <a href="https://wa.me/919203650311" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl">
                     <Phone className="w-5 h-5" /> Speak to an Expert
                   </a>
                   <Link to="/international-tours" className="bg-transparent border-2 border-white/50 hover:border-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg text-white transition-all flex items-center justify-center gap-2">

@@ -15,7 +15,7 @@ const FloatingWhatsApp = forwardRef<HTMLButtonElement>((_, ref) => {
     }
 
     window.open(
-      `https://wa.me/919406182174?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919203650311?text=${encodeURIComponent(message)}`,
       '_blank'
     );
   };
