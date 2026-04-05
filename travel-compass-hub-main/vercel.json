@@ -253,6 +253,10 @@
     ],
     "rewrites": [
         {
+            "source": "/(.*).txt$",
+            "destination": "/api/indexnow-key"
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }
