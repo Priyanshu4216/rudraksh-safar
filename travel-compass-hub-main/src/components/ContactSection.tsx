@@ -25,6 +25,16 @@ const contactInfo = [
     details: ['GE Road, In Front of Petrol Pump', 'Bhilai-3, Durg 490021'],
   },
   {
+    icon: MapPin,
+    title: 'Support Office (Uttarakhand)',
+    details: ['Gate No.4 Main Haridwar-Rishikesh Highway', 'Bhupatwala, Haridwar', 'Uttarakhand'],
+  },
+  {
+    icon: MapPin,
+    title: 'Support Office (Thailand)',
+    details: ['34, 42 M1 CHAITAPHON WITHI 21', 'Pattaya City, Bang Lamung District', 'Chon Buri 20150, Thailand'],
+  },
+  {
     icon: Phone,
     title: 'Talk to an Expert',
     details: ['+91 92036 50311 (Main)', '+91 92291 50311 (Associate)'],

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-indexnow-key.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "indexnow": "node scripts/indexnow.js",

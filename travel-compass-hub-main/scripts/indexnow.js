@@ -1,7 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { resolveKey } from '../api/utils/encryption.js';
-
 // Auto-load .env variables (native in modern Node)
 try {
     process.loadEnvFile(path.join(process.cwd(), '.env'));
@@ -18,7 +16,7 @@ async function run() {
         process.exit(1);
     }
 
-    const actualKey = resolveKey(rawAppKey);
+    const actualKey = rawAppKey;
     const host = 'rudrakshsafar.com';
 
     // 1. Discover URLs from your sitemaps
