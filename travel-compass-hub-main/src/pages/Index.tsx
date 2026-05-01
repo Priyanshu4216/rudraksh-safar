@@ -26,7 +26,6 @@ const TestimonialsSection = lazy(() => import('@/components/TestimonialsSection'
 const WhyChooseUsSection = lazy(() => import('@/components/WhyChooseUsSection')); // Section 10
 const ContactSection = lazy(() => import('@/components/ContactSection')); // Section 11
 const FinalCTA = lazy(() => import('@/components/FinalCTA')); // Section 12
-const OffersCarousel = lazy(() => import('@/components/OffersCarousel'));
 const FAQsSection = lazy(() => import('@/components/FAQsSection'));
 
 const Index = () => {
@@ -75,10 +74,6 @@ const Index = () => {
 
         {/* Section 2: Prestige Trust Bar */}
         <TrustBar />
-
-        <Suspense fallback={<div className="h-60" />}>
-          <OffersCarousel />
-        </Suspense>
 
         {/* Section 3: Luxury Catalogue */}
         <Suspense fallback={<div className="h-96" />}>
