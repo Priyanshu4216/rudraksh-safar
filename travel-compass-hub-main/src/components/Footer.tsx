@@ -805,6 +805,16 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                     34, 42 M1 CHAITAPHON WITHI 21,<br />Pattaya City, Bang Lamung District,<br />Chon Buri 20150, Thailand
                   </span>
                 </div>
+                {/* Kashmir Support Office */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors mt-1">
+                    <MapPin className="w-4 h-4 text-slate-400" />
+                  </div>
+                  <span className="text-white/70">
+                    <strong className="text-white">Support Office (Kashmir):</strong><br />
+                    Hotel Duke, The Boulevard,<br />Srinagar- 190001 Kashmir
+                  </span>
+                </div>
                 <div className="flex items-center gap-4 group">
                   <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
                     <Phone className="w-4 h-4 text-gold" />

@@ -35,6 +35,11 @@ const contactInfo = [
     details: ['34, 42 M1 CHAITAPHON WITHI 21', 'Pattaya City, Bang Lamung District', 'Chon Buri 20150, Thailand'],
   },
   {
+    icon: MapPin,
+    title: 'Support Office (Kashmir)',
+    details: ['Hotel Duke, The Boulevard', 'Srinagar- 190001 Kashmir'],
+  },
+  {
     icon: Phone,
     title: 'Talk to an Expert',
     details: ['+91 92036 50311 (Main)', '+91 92291 50311 (Associate)'],
