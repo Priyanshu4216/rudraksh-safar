@@ -148,6 +148,20 @@
     font-family: 'Cormorant Garamond', serif;
     @apply font-semibold tracking-tight;
   }
+
+  /* Cinematic Typography System */
+  .font-cinematic {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .text-cinematic-hero {
+    @apply font-cinematic text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] font-medium;
+  }
+  .text-cinematic-h2 {
+    @apply font-cinematic text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.2];
+  }
+  .text-editorial-body {
+    @apply font-sans text-lg md:text-xl leading-relaxed text-muted-foreground;
+  }
 }
 
 @layer components {
@@ -249,6 +263,35 @@
     to {
       opacity: 1;
     }
+  }
+
+  /* Cinematic Motion System */
+  .animate-cinematic-reveal {
+    animation: cinematicReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  @keyframes cinematicReveal {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  .hover-cinematic {
+    @apply transition-all duration-700;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .hover-cinematic:hover {
+    @apply transform scale-[1.02] -translate-y-1 shadow-2xl;
   }
 
   /* Stagger delays */

@@ -5,18 +5,41 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQsSection from '@/components/FAQsSection';
 
 const DomesticToursFAQ = () => {
+    const faqs = [
+        {
+            question: "Do your domestic packages include flight or train tickets?",
+            answer: "Our standard domestic packages usually start from the destination airport or railway station (e.g., 'Ex-Delhi' or 'Ex-Srinagar'). However, we can customize any package to include flight or train tickets from your home city like Raipur or Nagpur."
+        },
+        {
+            question: "What is a group departure package?",
+            answer: "A group departure (or fixed departure) package is a pre-planned tour where a group of travelers depart on a specific date. You travel together in a shared coach or tempo traveler. These are significantly cheaper than private tours and great for solo travelers or couples."
+        },
+        {
+            question: "Are meals included in the tour packages?",
+            answer: "Most of our domestic packages operate on a MAP (Modified American Plan) basis, which includes daily breakfast and dinner at the hotel. Lunch is usually excluded so you have the flexibility to try local cuisine while sightseeing."
+        },
+        {
+            question: "Can I customize the itinerary of a domestic package?",
+            answer: "Absolutely! Unless it is a fixed group departure, all our private domestic tour packages can be 100% customized. You can upgrade hotels, add extra days, or change the sightseeing spots based on your preferences."
+        },
+        {
+            question: "Is there a guide included in domestic tours?",
+            answer: "For most domestic trips, your driver acts as a basic guide for major routes. However, professional certified local guides at historical monuments or specific sites (like Taj Mahal or Khajuraho) can be arranged upon request for an additional fee."
+        }
+    ];
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     };
-
-    const faqs = [
-        {
-            question: "Questions Coming Soon",
-            answer: "We are compiling FAQs about domestic tour packages, group departures, and transport options."
-        }
-    ];
 
     return (
         <>

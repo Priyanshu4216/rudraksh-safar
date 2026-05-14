@@ -17,7 +17,7 @@ files.forEach(file => {
     const content = fs.readFileSync(file, 'utf8');
 
     // Word count approx (stripping TSX tags somewhat)
-    const textOnly = content.replace(/<[^>]+>/g, ' ').replace(/{[^}]+}/g, ' ');
+    const textOnly = content.replace(/<[^>]+>/g, ' ');
     const wordCount = textOnly.split(/\s+/).filter(w => w.length > 1).length;
 
     // Links count

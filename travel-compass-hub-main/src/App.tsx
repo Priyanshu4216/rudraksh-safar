@@ -25,6 +25,17 @@ const Contact = lazy(() => import('./pages/Contact'));
 // Route-level code splitting (improves initial load on slow networks)
 const DomesticPackages = lazy(() => import("./pages/DomesticPackages"));
 const InternationalPackages = lazy(() => import("./pages/InternationalPackages"));
+
+// Where To Go SEO Ecosystem (Phase 1 & 2)
+const WhereToGoHub = lazy(() => import("./pages/where-to-go/WhereToGoHub"));
+const AdventureSpots = lazy(() => import("./pages/where-to-go/AdventureSpots"));
+const HiddenGems = lazy(() => import("./pages/where-to-go/HiddenGems"));
+const HillsAndMountains = lazy(() => import("./pages/where-to-go/HillsAndMountains"));
+const BeachDestinations = lazy(() => import("./pages/where-to-go/BeachDestinations"));
+const UmlingLa = lazy(() => import("./pages/destinations/UmlingLa"));
+const GurezValley = lazy(() => import("./pages/destinations/GurezValley"));
+const UmlingLaBikeTrip = lazy(() => import("./pages/guides/UmlingLaBikeTrip"));
+
 const LadakhMaster = lazy(() => import("./pages/domestic/ladakh/LadakhMaster"));
 const HoneymoonPackages = lazy(() => import("./pages/HoneymoonPackages"));
 const FamilyPackages = lazy(() => import("./pages/FamilyPackages"));
@@ -314,10 +325,33 @@ const App = () => (
                   <Route path="/for-travellers" element={<ForTravellers />} />
                   <Route path="/package/:packageId" element={<PackageDetails />} />
 
+                  {/* Where To Go Master Ecosystem */}
+                  <Route path="/where-to-go" element={<WhereToGoHub />} />
+                  <Route path="/where-to-go/adventure-spots" element={<AdventureSpots />} />
+                  <Route path="/where-to-go/hidden-gems" element={<HiddenGems />} />
+                  <Route path="/where-to-go/hills-and-mountains" element={<HillsAndMountains />} />
+                  <Route path="/where-to-go/beach-destinations" element={<BeachDestinations />} />
+                  <Route path="/destinations/umling-la" element={<UmlingLa />} />
+                  <Route path="/destinations/gurez-valley" element={<GurezValley />} />
+                  <Route path="/travel-guides/umling-la-bike-trip" element={<UmlingLaBikeTrip />} />
+
                   {/* Destinations Hub (New Silo) */}
                   <Route path="/destinations" element={<Destinations />} />
                   <Route path="/destinations/thailand" element={<ThailandHub />} />
                   <Route path="/destinations/uae" element={<UAEHub />} />
+
+                  {/* Where To Go Destinations Fallbacks (Redirect to existing master/package pages) */}
+                  <Route path="/destinations/spiti-valley" element={<Navigate to="/spiti-valley-tour-package" replace />} />
+                  <Route path="/destinations/manali" element={<Navigate to="/domestic-tours/manali" replace />} />
+                  <Route path="/destinations/gulmarg" element={<Navigate to="/domestic-tours/kashmir" replace />} />
+                  <Route path="/destinations/chitkul" element={<Navigate to="/domestic-packages" replace />} />
+                  <Route path="/destinations/kalpa" element={<Navigate to="/domestic-packages" replace />} />
+                  <Route path="/destinations/jibhi" element={<Navigate to="/domestic-packages" replace />} />
+                  <Route path="/destinations/andaman" element={<Navigate to="/domestic-tours/andaman" replace />} />
+                  <Route path="/destinations/gokarna" element={<Navigate to="/domestic-packages" replace />} />
+                  <Route path="/destinations/lakshadweep" element={<Navigate to="/domestic-packages" replace />} />
+                  <Route path="/destinations/hanle" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+                  <Route path="/destinations/chadar-trek" element={<Navigate to="/domestic-tours/ladakh" replace />} />
 
                   {/* UAE Missing Attractions Fallback */}
                   <Route path="/destinations/uae/:cityId" element={<Navigate to="/destinations/uae" replace />} />

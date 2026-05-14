@@ -54,19 +54,56 @@ const Contact = () => {
                                 "postalCode": "490021",
                                 "addressCountry": "IN"
                             },
-                            "department": {
-                                "@type": "TravelAgency",
-                                "name": "Sanjeev Enterprises (Associate Office)",
-                                "telephone": "+919229150311",
-                                "address": {
-                                    "@type": "PostalAddress",
-                                    "streetAddress": "GE Road, In Front of Petrol Pump",
-                                    "addressLocality": "Bhilai-3, Durg",
-                                    "addressRegion": "Chhattisgarh",
-                                    "postalCode": "490021",
-                                    "addressCountry": "IN"
+                            "department": [
+                                {
+                                    "@type": "TravelAgency",
+                                    "name": "Sanjeev Enterprises (Associate Office)",
+                                    "telephone": "+919229150311",
+                                    "address": {
+                                        "@type": "PostalAddress",
+                                        "streetAddress": "GE Road, In Front of Petrol Pump",
+                                        "addressLocality": "Bhilai-3, Durg",
+                                        "addressRegion": "Chhattisgarh",
+                                        "postalCode": "490021",
+                                        "addressCountry": "IN"
+                                    }
+                                },
+                                {
+                                    "@type": "TravelAgency",
+                                    "name": "Rudraksh Safar (Support Office Uttarakhand)",
+                                    "address": {
+                                        "@type": "PostalAddress",
+                                        "streetAddress": "Gate No.4 Main Haridwar-Rishikesh Highway, Bhupatwala",
+                                        "addressLocality": "Haridwar",
+                                        "addressRegion": "Uttarakhand",
+                                        "addressCountry": "IN"
+                                    }
+                                },
+                                {
+                                    "@type": "TravelAgency",
+                                    "name": "Rudraksh Safar (Support Office Thailand)",
+                                    "address": {
+                                        "@type": "PostalAddress",
+                                        "streetAddress": "34, 42 M1 CHAITAPHON WITHI 21, Pattaya City, Bang Lamung District",
+                                        "addressLocality": "Pattaya",
+                                        "addressRegion": "Chon Buri",
+                                        "postalCode": "20150",
+                                        "addressCountry": "TH"
+                                    }
+                                },
+                                {
+                                    "@type": "TravelAgency",
+                                    "name": "Rudraksh Safar (Support Office Kashmir)",
+                                    "address": {
+                                        "@type": "PostalAddress",
+                                        "streetAddress": "Hotel Duke, The Boulevard",
+                                        "addressLocality": "Srinagar",
+                                        "addressRegion": "Jammu and Kashmir",
+                                        "postalCode": "190001",
+                                        "addressCountry": "IN"
+                                    }
                                 }
-                            },
+                            ],
                             "geo": {
                                 "@type": "GeoCoordinates",
                                 "latitude": "21.2120",

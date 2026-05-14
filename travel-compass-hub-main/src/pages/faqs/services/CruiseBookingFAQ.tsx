@@ -5,18 +5,41 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQsSection from '@/components/FAQsSection';
 
 const CruiseBookingFAQ = () => {
+    const faqs = [
+        {
+            question: "Do I need a passport for a cruise?",
+            answer: "For domestic cruises (e.g., Mumbai to Goa or Lakshadweep), Indian citizens only need a valid government-issued ID like an Aadhaar card or Voter ID. For international cruises (e.g., from Singapore or Dubai), a passport with at least 6 months validity from the end date of the cruise is strictly required."
+        },
+        {
+            question: "Is food included in the cruise package?",
+            answer: "Yes! Most cruise packages (like Cordelia Cruises) are all-inclusive regarding meals. They include breakfast, lunch, high tea, and dinner at designated buffet and dining rooms. Specialty restaurants on board may charge an extra fee."
+        },
+        {
+            question: "What activities are available on board?",
+            answer: "Cruises are floating resorts. You can expect swimming pools, Broadway-style theater shows, casinos (on international waters), rock climbing, fitness centers, kids' clubs, live music, and themed parties."
+        },
+        {
+            question: "Will I get seasick?",
+            answer: "Modern cruise ships are enormous and equipped with advanced underwater stabilizers that significantly reduce the rolling motion of the ship. Most passengers do not feel any motion at all. However, it's always wise to pack some anti-nausea medication just in case."
+        },
+        {
+            question: "What is the baggage allowance for a cruise?",
+            answer: "Cruise lines generally allow up to 20kg to 25kg of luggage per person, depending on the operator. It's similar to airline baggage policies. Please ensure you do not carry restricted items like drones, heating appliances, or weapons."
+        }
+    ];
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     };
-
-    const faqs = [
-        {
-            question: "Questions Coming Soon",
-            answer: "We are compiling FAQs about cruise packages, boarding processes, and onboard activities."
-        }
-    ];
 
     return (
         <>

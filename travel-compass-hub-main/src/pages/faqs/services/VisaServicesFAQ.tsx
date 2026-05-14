@@ -5,18 +5,41 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQsSection from '@/components/FAQsSection';
 
 const VisaServicesFAQ = () => {
+    const faqs = [
+        {
+            question: "Do Indians need a visa for Thailand?",
+            answer: "Currently, Thailand offers a visa-free entry for Indian citizens (often extended on a temporary basis) or Visa on Arrival, allowing a stay of up to 30 days for tourism purposes. It is recommended to carry proof of hotel booking, return flight tickets, and sufficient funds (at least 10,000 THB per person)."
+        },
+        {
+            question: "How long does a Dubai (UAE) visa take?",
+            answer: "A standard Dubai tourist visa (e-visa) typically takes 3 to 4 working days to process. We offer express visa services that can procure a UAE visa within 24 to 48 hours for an additional fee."
+        },
+        {
+            question: "What is a Schengen Visa and how do I get it?",
+            answer: "A Schengen Visa allows you to travel freely across 27 European countries (like France, Germany, Switzerland). You must apply at the embassy/VFS of the country you will spend the most days in, or the country of first entry. It requires extensive documentation including flight itineraries, hotel bookings, travel insurance, and financial proofs. We assist end-to-end with this complex process."
+        },
+        {
+            question: "Do you guarantee visa approval?",
+            answer: "No travel agency or consultant can guarantee visa approval. The decision rests entirely with the respective country's embassy or consulate. However, our rigorous document checking significantly minimizes the chances of rejection due to incomplete or incorrect paperwork."
+        },
+        {
+            question: "What is the difference between an e-Visa and a sticker Visa?",
+            answer: "An e-Visa is applied for online and you receive a digital copy via email to print and carry. A sticker visa requires you to submit your physical passport to an embassy (often via VFS Global), where a physical visa sticker is pasted onto one of your passport pages."
+        }
+    ];
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     };
-
-    const faqs = [
-        {
-            question: "Questions Coming Soon",
-            answer: "We are compiling FAQs about visa requirements for Dubai, Thailand, Singapore, and more."
-        }
-    ];
 
     return (
         <>

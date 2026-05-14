@@ -5,18 +5,41 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQsSection from '@/components/FAQsSection';
 
 const DurgFAQ = () => {
+    const faqs = [
+        {
+            question: "How far is your office from Durg?",
+            answer: "Our main office is located in Bhilai, which is just a 15-20 minute drive from Durg City. We regularly serve clients from Durg, Padmanabhpur, and surrounding areas."
+        },
+        {
+            question: "Can you arrange pick-up from Durg Railway Station?",
+            answer: "Yes! For our domestic tour packages and outstation cab bookings, we offer convenient pick-up directly from Durg Railway Station or your residence in Durg."
+        },
+        {
+            question: "Do you offer Tatkal passport assistance in Durg?",
+            answer: "While the Passport Seva Kendra is in Raipur, our team in Bhilai handles all the documentation, online applications, and appointment scheduling for residents of Durg to ensure a smooth process."
+        },
+        {
+            question: "Can I book a tour package without visiting your office?",
+            answer: "Absolutely. Many of our Durg clients prefer our online booking system. You can consult with our travel experts via phone or WhatsApp, and we will share customized itineraries and payment links digitally."
+        },
+        {
+            question: "What are the most popular packages booked from Durg?",
+            answer: "Our clients from Durg frequently book our economical Himachal Volvo packages, Char Dham Yatra group departures, and affordable Thailand/Dubai international tours."
+        }
+    ];
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     };
-
-    const faqs = [
-        {
-            question: "Questions Coming Soon",
-            answer: "We are compiling FAQs about trusted booking support near Durg Railway Station."
-        }
-    ];
 
     return (
         <>

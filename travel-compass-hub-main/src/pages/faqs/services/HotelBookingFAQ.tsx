@@ -5,18 +5,41 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FAQsSection from '@/components/FAQsSection';
 
 const HotelBookingFAQ = () => {
+    const faqs = [
+        {
+            question: "What does 'CP', 'MAP', and 'AP' mean in hotel meal plans?",
+            answer: "CP (Continental Plan) includes room and breakfast. MAP (Modified American Plan) includes room, breakfast, and one major meal (usually dinner). AP (American Plan) includes the room and all three major meals (breakfast, lunch, and dinner)."
+        },
+        {
+            question: "Can I get an early check-in or late check-out?",
+            answer: "Standard hotel check-in time is usually 2:00 PM and check-out is 11:00 AM. Early check-in or late check-out is strictly subject to room availability at the time of arrival/departure and may incur additional charges levied by the hotel."
+        },
+        {
+            question: "Are unmarried couples allowed to book hotels?",
+            answer: "Yes, there are many 'couple-friendly' hotels that welcome unmarried couples with valid local IDs. However, this policy varies by hotel. Please inform us during booking so we can select accommodations with clear policies allowing unmarried couples."
+        },
+        {
+            question: "Do I need a credit card to check in?",
+            answer: "While many budget hotels in India do not require a credit card, luxury 4-star and 5-star hotels (especially internationally) often require a credit card at check-in for an incidentals hold/security deposit. This hold is released upon check-out."
+        },
+        {
+            question: "What documents are required for hotel check-in?",
+            answer: "For domestic hotels, all adult guests must present a valid government-issued photo ID (Aadhaar, Voter ID, Passport, or Driving License; PAN cards are not accepted). For international hotels, a valid Passport and Visa are mandatory."
+        }
+    ];
+
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     };
-
-    const faqs = [
-        {
-            question: "Questions Coming Soon",
-            answer: "We are compiling FAQs about hotel reservations, check-in policies, and meal plans."
-        }
-    ];
 
     return (
         <>
