@@ -50,6 +50,7 @@ const Sitemap = () => {
             links: [
                 { name: 'Home', href: '/', desc: 'Overview of travel services, deals, and packages' },
                 { name: 'About Us', href: '/about-rudraksh-safar', desc: 'Information about Rudraksh Safar and our approach' },
+                { name: 'Why Rudraksh Safar', href: '/about/why-rudraksh-safar', desc: 'Our safety philosophy and trust signals' },
                 { name: 'Why Choose Us', href: '/why-choose-us', desc: 'Reasons travellers trust us for tours and bookings' },
                 { name: 'How It Works', href: '/how-it-works', desc: 'Step-by-step explanation of our booking process' },
                 { name: 'Contact Us', href: '/#contact', desc: 'Get in touch via call, WhatsApp, or enquiry form' },
@@ -92,6 +93,8 @@ const Sitemap = () => {
                 { name: "Ladakh Safety Tips", href: "/is-ladakh-safe", desc: "AMS & Health" },
                 { name: "Ladakh Packing List", href: "/ladakh-packing-list", desc: "Downloadable Checklist" },
                 { name: "Pangong Lake Guide", href: "/pangong-lake-guide", desc: "Attraction Details" },
+                { name: "Ladakh Family Packages", href: "/domestic/ladakh/family-tour-packages", desc: "Safe, oxygen-equipped family trips" },
+                { name: "Inner Line Permit Guide", href: "/guides/ladakh/inner-line-permits", desc: "Official ILP Rules & Costs 2026" },
             ]
         },
         {

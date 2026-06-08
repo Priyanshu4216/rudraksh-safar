@@ -38,6 +38,8 @@ const GurezValley = lazy(() => import("./pages/destinations/GurezValley"));
 const UmlingLaBikeTrip = lazy(() => import("./pages/guides/UmlingLaBikeTrip"));
 
 const LadakhMaster = lazy(() => import("./pages/domestic/ladakh/LadakhMaster"));
+const FamilyTourPackages = lazy(() => import("./pages/domestic/ladakh/FamilyTourPackages"));
+const InnerLinePermitGuide = lazy(() => import("./pages/guides/ladakh/InnerLinePermitGuide"));
 const HoneymoonPackages = lazy(() => import("./pages/HoneymoonPackages"));
 const FamilyPackages = lazy(() => import("./pages/FamilyPackages"));
 const AdventurePackages = lazy(() => import("./pages/AdventurePackages"));
@@ -114,6 +116,7 @@ const TravelDocuments = lazy(() => import("./pages/TravelDocuments"));
 const TravelSafety = lazy(() => import("./pages/TravelSafety"));
 const TravelInspiration = lazy(() => import("./pages/TravelInspiration"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
+const WhyRudrakshSafar = lazy(() => import("./pages/about/WhyRudrakshSafar"));
 const TravelGuideBhilai = lazy(() => import("./pages/local/TravelGuideBhilai"));
 const LegalDisclaimer = lazy(() => import("./pages/LegalDisclaimer"));
 const HotelBooking = lazy(() => import("./pages/services/HotelBooking"));
@@ -488,6 +491,7 @@ const App = () => (
                   <Route path="/travel-inspiration" element={<TravelInspiration />} />
                   <Route path="/about-rudraksh-safar" element={<AboutUs />} />
                   <Route path="/about-us" element={<Navigate to="/about-rudraksh-safar" replace />} />
+                  <Route path="/about/why-rudraksh-safar" element={<WhyRudrakshSafar />} />
                   <Route path="/travel-guide-from-bhilai" element={<TravelGuideBhilai />} />
                   <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
                   <Route path="/travel-services/hotel-booking" element={<HotelBooking />} />
@@ -544,6 +548,8 @@ const App = () => (
                   {/* Ladakh SEO Pages */}
                   {/* NEW MASTER SILO */}
                   <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
+                  <Route path="/domestic/ladakh/family-tour-packages" element={<FamilyTourPackages />} />
+                  <Route path="/guides/ladakh/inner-line-permits" element={<InnerLinePermitGuide />} />
 
                   {/* Kashmir Master Silo */}
                   <Route path="/domestic-tours/kashmir" element={<KashmirMaster />} />
