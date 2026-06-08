@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Sun, Snowflake, CloudRain, AlertTriangle, ArrowRight, CheckCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import LadakhFAQ from '@/components/ladakh/LadakhFAQ';
+import AuthorProfile from '@/components/seo/AuthorProfile';
 
 const BestTimeLadakh = () => {
     const structuredData = {
@@ -24,8 +25,8 @@ const BestTimeLadakh = () => {
     return (
         <main className="min-h-screen bg-background">
             <SEOHead
-                title="Best Time to Visit Ladakh 2026 | Road Opening Dates & Weather"
-                description="Detailed guide on the best time to visit Ladakh. Know when Manali & Srinagar highways open. Weather in May, June, July, September, and Winter."
+                title="When is the Best Time to Visit Ladakh? (2026 Weather & Roads)"
+                description="Want to know when the Ladakh roads open in 2026? Find out the exact best time to visit Ladakh for your family trip or bike expedition."
                 keywords="best time to visit ladakh, ladakh in may, ladakh in june, manali leh highway opening date 2026, ladakh weather by month"
                 canonicalUrl="https://rudrakshsafar.com/best-time-to-visit-ladakh"
                 structuredData={structuredData}
@@ -168,6 +169,15 @@ const BestTimeLadakh = () => {
                 </section>
 
                 <LadakhFAQ />
+
+                <AuthorProfile 
+                    name="Priyanshu Safar"
+                    role="Lead Himalayan Expedition Expert"
+                    experience="12+ Years navigating Himalayan terrains"
+                    destinations="Ladakh, Spiti, Zanskar, Kashmir"
+                    imageUrl="https://ui-avatars.com/api/?name=Priyanshu+Safar&background=0D8ABC&color=fff"
+                    bio="Priyanshu has personally led over 50 successful bike expeditions across the Manali-Leh and Srinagar-Leh highways. His real-time tracking of snow clearance and weather patterns has made him the definitive authority on Ladakh travel windows."
+                />
 
             </div>
 

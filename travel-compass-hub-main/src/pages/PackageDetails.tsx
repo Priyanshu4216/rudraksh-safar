@@ -11,6 +11,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 import SEOHead from '@/components/SEOHead';
 import { getBestTimeToVisit, getVisaGuidePath, HOME_CITY } from '@/lib/travelMeta';
+import TourPackageSchema from '@/components/seo/TourPackageSchema';
 import RelatedDestinations from '@/components/internal-linking/RelatedDestinations';
 import RelatedServices from '@/components/internal-linking/RelatedServices';
 import SemanticLinks from '@/components/internal-linking/SemanticLinks';
@@ -285,10 +286,19 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
         title={seoTitle}
         description={seoDescription}
         keywords={`${pkg.title} tour package, ${pkg.title} tour packages from ${HOME_CITY}, ${pkg.location} tour from ${HOME_CITY}, ${pkg.tag} tour package, ${budgetKeywords}, best time to visit ${pkg.location}, ${pkg.famousPlaces.slice(0, 4).join(', ')}${extraSeoKeywords ? `, ${extraSeoKeywords}` : ''}`}
-        canonicalUrl={`https://rudrakshsafar.com/package/${pkg.id}`}
+        canonicalUrl={`https://rudrakshsafar.com/packages/${pkg.id}`}
         ogImage={pkg.image}
         ogType="product"
         structuredData={structuredData}
+      />
+      <TourPackageSchema 
+          name={pkg.title}
+          description={`Book the best ${pkg.title} package from ${HOME_CITY}. Includes ${pkg.duration} of travel, hotels, and sightseeing.`}
+          image={pkg.image}
+          price={pkg.price}
+          url={`https://rudrakshsafar.com/packages/${pkg.id}`}
+          durationDays={parseInt(pkg.duration)}
+          destinationName={pkg.location}
       />
 
       {/* Additional Schema Markup - Product and Breadcrumb only, FAQ removed to prevent duplicate schema errors */}

@@ -1,6 +1,17 @@
 {
     "redirects": [
         {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.rudrakshsafar.com"
+                }
+            ],
+            "destination": "https://rudrakshsafar.com/$1",
+            "permanent": true
+        },
+        {
             "source": "/visa-guide",
             "destination": "/travel-services/visa-assistance",
             "permanent": true

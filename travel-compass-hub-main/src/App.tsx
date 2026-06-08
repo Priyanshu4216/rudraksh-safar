@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SecurityProvider from "./components/SecurityProvider";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import AutoUpdateController from "./components/AutoUpdateController";
+import StickyMobileCTA from "./components/StickyMobileCTA";
 const Index = lazy(() => import("./pages/Index"));
 import HomeRedesign from "./pages/HomeRedesign";
 const SearchExperience = lazy(() => import("./pages/SearchExperience"));
@@ -744,6 +745,7 @@ const App = () => (
             </GlobalError>
             <CookieConsent />
             <PWAInstallPrompt />
+            <StickyMobileCTA />
           </BrowserRouter >
         </TooltipProvider >
       </SecurityProvider >
