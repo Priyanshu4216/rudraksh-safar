@@ -80,6 +80,7 @@ const Sitemap = () => {
             icon: Mountain,
             links: [
                 { name: "Ladakh Tour Packages", href: "/domestic-tours/ladakh", desc: "Main Pillar Page" },
+                { name: "Ladakh Opening Date 2026", href: "/ladakh-opening-date-2026", desc: "Opening Predictions & Road Status" },
                 { name: "Ultimate Ladakh Expedition", href: "/ladakh-ultimate-expedition", desc: "13 Days Full Circuit" },
                 { name: "Ladakh Tour via Srinagar", href: "/ladakh-tour-via-srinagar", desc: "Scenic Route" },
                 { name: "Ladakh Tour via Manali", href: "/ladakh-tour-via-manali", desc: "Adventure Route" },
