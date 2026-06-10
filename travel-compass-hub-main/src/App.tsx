@@ -217,6 +217,7 @@ const DubaiTripCost = lazy(() => import("./pages/uae/DubaiTripCost"));
 const DubaiVsAbuDhabi = lazy(() => import("./pages/comparisons/DubaiVsAbuDhabi"));
 
 // Ladakh SEO Pages - Lazy Loaded
+const LadakhOpeningDate = lazy(() => import("./pages/ladakh/LadakhOpeningDate"));
 const LadakhPillar = lazy(() => import("./pages/ladakh/LadakhPillar"));
 const LadakhViaSrinagar = lazy(() => import("./pages/ladakh/LadakhViaSrinagar"));
 const LadakhViaManali = lazy(() => import("./pages/ladakh/LadakhViaManali"));
@@ -546,6 +547,7 @@ const App = () => (
                   <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
 
                   {/* Ladakh SEO Pages */}
+                  <Route path="/ladakh-opening-date-2026" element={<LadakhOpeningDate />} />
                   {/* NEW MASTER SILO */}
                   <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
                   <Route path="/domestic/ladakh/family-tour-packages" element={<FamilyTourPackages />} />

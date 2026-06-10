@@ -21,6 +21,7 @@ const quickLinks = [
   { name: 'Bhilai Tour Packages', href: '/tour-packages-from-bhilai' },
   { name: 'Travel Agent Bhilai', href: '/travel-agent-bhilai' },
   { name: 'Travel Tips & Hacks', href: '/travel-tips' },
+  { name: 'Ladakh Opening Date 2026', href: '/ladakh-opening-date-2026' },
   { name: 'Travel Health Guide', href: '/travel-health' },
   { name: 'Pre-Travel Checklist', href: '/travel-checklist' },
   { name: 'Passport Application Guide', href: '/travel-services/passport-assistance' },
