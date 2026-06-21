@@ -355,7 +355,7 @@ const TravelAgentBhilai = () => {
                   </Button>
                   <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12 border-primary/20 hover:bg-primary/5">
                     <a href={`tel:+919203650311`}>
-                      <Phone className="w-5 h-5 mr-2" /> Call Expert: 94061 82174
+                      <Phone className="w-5 h-5 mr-2" /> Call Expert: 92036 50311
                     </a>
                   </Button>
                 </div>

@@ -142,6 +142,75 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
 
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-navy-deep dark:to-black relative overflow-hidden" aria-labelledby="contact-heading">
+      {/* JSON-LD for Local Business / AEO SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "Rudraksh Safar",
+            "telephone": "+91 92036 50311",
+            "email": "rudrakshsafar@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Shop No. 106, Satya Shanti Complex, Near Amantran Hotel",
+              "addressLocality": "Supela",
+              "addressRegion": "Chhattisgarh",
+              "postalCode": "490021",
+              "addressCountry": "IN"
+            },
+            "department": [
+              {
+                "@type": "TravelAgency",
+                "name": "Rudraksh Safar - Associate Office (Sanjeev Enterprises)",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "GE Road, In Front of Petrol Pump",
+                  "addressLocality": "Bhilai-3, Durg",
+                  "postalCode": "490021",
+                  "addressCountry": "IN"
+                }
+              },
+              {
+                "@type": "TravelAgency",
+                "name": "Rudraksh Safar - Support Office (Uttarakhand)",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Gate No.4 Main Haridwar-Rishikesh Highway, Bhupatwala",
+                  "addressLocality": "Haridwar",
+                  "addressRegion": "Uttarakhand",
+                  "addressCountry": "IN"
+                }
+              },
+              {
+                "@type": "TravelAgency",
+                "name": "Rudraksh Safar - Support Office (Thailand)",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "34, 42 M1 CHAITAPHON WITHI 21",
+                  "addressLocality": "Pattaya City, Bang Lamung District",
+                  "addressRegion": "Chon Buri",
+                  "postalCode": "20150",
+                  "addressCountry": "TH"
+                }
+              },
+              {
+                "@type": "TravelAgency",
+                "name": "Rudraksh Safar - Support Office (Kashmir)",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Hotel Duke, The Boulevard",
+                  "addressLocality": "Srinagar",
+                  "addressRegion": "Jammu & Kashmir",
+                  "postalCode": "190001",
+                  "addressCountry": "IN"
+                }
+              }
+            ]
+          })
+        }}
+      />
 
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 dark:bg-navy-light/10 skew-x-12 pointer-events-none" />
@@ -175,11 +244,21 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800 dark:text-white/90 mb-1">{info.title}</h3>
-                    {info.details.map((detail, index) => (
-                      <p key={index} className="text-slate-600 dark:text-white/60 text-sm">
-                        {detail}
-                      </p>
-                    ))}
+                    {info.title.includes('Office') ? (
+                      <address className="not-italic">
+                        {info.details.map((detail, index) => (
+                          <p key={index} className="text-slate-600 dark:text-white/60 text-sm">
+                            {detail}
+                          </p>
+                        ))}
+                      </address>
+                    ) : (
+                      info.details.map((detail, index) => (
+                        <p key={index} className="text-slate-600 dark:text-white/60 text-sm">
+                          {detail}
+                        </p>
+                      ))
+                    )}
                   </div>
                 </div>
               ))}
@@ -233,7 +312,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Rahul Verma"
+                      placeholder="e.g. Priyanshu Chaudhary"
                       required
                       maxLength={100}
                       className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.name ? 'border-red-500' : ''}`}
@@ -250,7 +329,7 @@ const ContactSection = ({ showGallery = true }: ContactSectionProps) => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="rahul@example.com"
+                      placeholder="priyanshu@example.com"
                       required
                       maxLength={255}
                       className={`bg-slate-50 dark:bg-navy-deep/50 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 h-12 focus:border-gold/50 ${errors.email ? 'border-red-500' : ''}`}

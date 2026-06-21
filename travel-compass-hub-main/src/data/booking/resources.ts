@@ -3,13 +3,13 @@ import { Phone, Mail, MessageCircle, FileText, CheckCircle2, Clock, Ban } from '
 export const supportContacts = {
     sales: {
         name: 'Sales Team',
-        phone: '+91-94061-82174',
+        phone: '+91-92036-50311',
         email: 'bookings@rudrakshsafar.com',
         available: '10:00 AM - 8:00 PM'
     },
     support: {
         name: 'Urgent Support',
-        phone: '+91-94061-82174', // Using same for now, can be distinguished later
+        phone: '+91-92036-50311', // Using same for now, can be distinguished later
         available: '24/7 for On-Trip Guests'
     }
 };
