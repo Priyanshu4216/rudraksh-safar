@@ -198,6 +198,9 @@ const BhilaiToKedarnath = lazy(() => import("./pages/chardham/BhilaiToKedarnath"
 // Phase 7: Thailand Prominence
 const ThailandCityGuide = lazy(() => import('./pages/international/thailand/ThailandCityGuide'));
 const ThailandPlanner = lazy(() => import('./pages/international/thailand/ThailandPlanner'));
+const KrabiDestinationAuthority = lazy(() => import('./pages/international/thailand/KrabiDestinationAuthority'));
+const PattayaDestinationAuthority = lazy(() => import('./pages/international/thailand/PattayaDestinationAuthority'));
+const PhuketDestinationAuthority = lazy(() => import('./pages/international/thailand/PhuketDestinationAuthority'));
 
 // Panch Kedar Pages
 const Tungnath = lazy(() => import("./pages/chardham/Tungnath"));
@@ -572,6 +575,9 @@ const App = () => (
                   <Route path="/international-tours/thailand-from-bhilai" element={<Navigate to="/international-tours/thailand" replace />} />
 
                   {/* Thailand Prominence Routes */}
+                  <Route path="/international-tours/thailand/krabi" element={<KrabiDestinationAuthority />} />
+        <Route path="/international-tours/thailand/pattaya" element={<PattayaDestinationAuthority />} />
+                  <Route path="/international-tours/thailand/phuket" element={<PhuketDestinationAuthority />} />
                   <Route path="/international-tours/thailand/:cityId" element={<ThailandCityGuide />} />
                   <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
 

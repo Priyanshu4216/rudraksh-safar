@@ -1,29 +1,20 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
-const ReadingProgress = () => {
-    const [progress, setProgress] = useState(0);
+const ReadingProgress = ({ colorClass = 'bg-[#0EA5E9]' }: { colorClass?: string }) => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
-    useEffect(() => {
-        const updateProgress = () => {
-            const currentProgress = window.scrollY;
-            const scrollHeight = document.body.scrollHeight - window.innerHeight;
-            if (scrollHeight) {
-                setProgress(Number((currentProgress / scrollHeight).toFixed(2)) * 100);
-            }
-        };
-
-        window.addEventListener('scroll', updateProgress);
-        return () => window.removeEventListener('scroll', updateProgress);
-    }, []);
-
-    return (
-        <div className="fixed top-0 left-0 w-full h-1 z-50 bg-transparent">
-            <div
-                className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-150 ease-out"
-                style={{ width: `${progress}%` }}
-            />
-        </div>
-    );
+  return (
+    <motion.div
+      className={`fixed top-0 left-0 right-0 h-1.5 origin-left z-50 ${colorClass}`}
+      style={{ scaleX }}
+    />
+  );
 };
 
 export default ReadingProgress;
