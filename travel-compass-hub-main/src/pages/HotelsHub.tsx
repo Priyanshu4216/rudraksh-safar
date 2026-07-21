@@ -145,6 +145,8 @@ export const HotelsHub: React.FC = () => {
                     guestInfo: searchData.guestInfo || searchData.adults?.toString() || '2'
                   };
 
+                  if (searchData.hotelName) searchPayload.hotelName = searchData.hotelName;
+                  if (searchData.hotelId) searchPayload.hotelId = searchData.hotelId;
                   if (searchData.countryCode) searchPayload.countryCode = searchData.countryCode;
 
                   // Fallback country code parsing from city string if contains comma

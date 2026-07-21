@@ -59,8 +59,12 @@ serve(async (req) => {
       checkin: params.chkIn || params.checkin,
       checkout: params.chkOut || params.checkout,
       timeout: 15,
-      limit: 20,
+      limit: 50,
     };
+    
+    if (params.hotelId) {
+      payload.hotelId = params.hotelId;
+    }
     
     if (countryCode) {
       payload.countryCode = countryCode;
@@ -132,25 +136,22 @@ serve(async (req) => {
       }
 
       // Also try to get any metadata directly from rates response
-      // (some API versions include it)
       const name = item.name || item.hotelName || item.hotel_name || '';
       const address = item.address || item.hotelAddress || item.hotel_address || '';
       const stars = item.stars ?? item.starRating ?? item.star_rating ?? item.rating ?? null;
       const photo = item.main_photo || item.thumbnail || item.hotelImages?.[0]?.url || item.hotelImages?.[0] || null;
 
       if (name || photo) {
-        // Metadata partially available in rates
         ratesMap[item.hotelId] = { ...ratesMap[item.hotelId], _name: name, _address: address, _stars: stars, _photo: photo };
       }
     }
 
-    // Now fetch hotel metadata from the /hotels/list endpoint
+    // Now fetch hotel metadata from the /hotels list endpoint
     let hotelMetaMap: Record<string, any> = {};
 
     if (hotelIds.length > 0) {
       try {
         const metaUrl = new URL("https://api.liteapi.travel/v3.0/hotels");
-        // Use countryCode/cityName to get hotel list with metadata
         if (params.countryCode) metaUrl.searchParams.set("countryCode", params.countryCode);
         if (params.cityName) metaUrl.searchParams.set("cityName", params.cityName.split(',')[0].trim());
         metaUrl.searchParams.set("limit", "50");
@@ -163,16 +164,10 @@ serve(async (req) => {
           const metaJson = await metaResp.json();
           const metaArray: any[] = metaJson.data || [];
           console.log(`[hotel-search] Got ${metaArray.length} hotels from metadata endpoint`);
-          if (metaArray.length > 0) {
-            console.log("[hotel-search] Meta hotel keys:", JSON.stringify(Object.keys(metaArray[0])));
-            console.log("[hotel-search] Meta sample:", JSON.stringify(metaArray[0]).substring(0, 500));
-          }
           for (const hotel of metaArray) {
-            // The /hotels list endpoint uses 'id' not 'hotelId'
             const id = hotel.id || hotel.hotelId;
             if (id) {
               hotelMetaMap[id] = hotel;
-              // Also index without prefix in case of "lp" prefix differences
               if (id.startsWith('lp')) hotelMetaMap[id.replace(/^lp/, '')] = hotel;
             }
           }
@@ -202,7 +197,22 @@ serve(async (req) => {
         main_photo: meta.main_photo || meta.thumbnail || meta.hotelImages?.[0]?.url || meta.hotelImages?.[0] || rateInfo._photo || null,
         thumbnail: meta.thumbnail || meta.main_photo || rateInfo._photo || null,
       };
-    }).filter((h: any) => ratesMap[h.hotelId]); // only include hotels we have rates for
+    }).filter((h: any) => ratesMap[h.hotelId]);
+
+    // Smart Relevance Sorting: Rank hotels matching target name or brand query first
+    const targetQuery = (params.hotelName || params.cityName || '').toLowerCase().trim();
+    if (targetQuery && targetQuery.length > 2) {
+      const searchTerms = targetQuery.split(' ').filter(t => t.length > 1);
+      hotels.sort((a, b) => {
+        const aName = (a.name || '').toLowerCase();
+        const bName = (b.name || '').toLowerCase();
+        const aMatch = searchTerms.every(term => aName.includes(term));
+        const bMatch = searchTerms.every(term => bName.includes(term));
+        if (aMatch && !bMatch) return -1;
+        if (!aMatch && bMatch) return 1;
+        return 0;
+      });
+    }
 
     console.log(`[hotel-search] Final: ${hotels.length} hotels with metadata`);
 
