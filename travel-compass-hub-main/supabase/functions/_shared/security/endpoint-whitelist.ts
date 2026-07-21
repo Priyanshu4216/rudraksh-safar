@@ -25,12 +25,12 @@ export const FREE_ENDPOINTS = [
   '/bookings',
   '/bookings/cancel',
   '/bookings/amend-guest',
-  '/prices/hotels',
   '/data/currencies'
 ];
 
 export const PAID_ENDPOINTS = [
   '/pricing',
+  '/prices',
   '/places',
   '/ai-insights',
   '/logs',

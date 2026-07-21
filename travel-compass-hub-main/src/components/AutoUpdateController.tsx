@@ -72,11 +72,6 @@ const AutoUpdateController = () => {
 
                 // Set Safety Flag
                 sessionStorage.setItem('updateTriggered', 'true');
-
-                // Grace Period (Soft Reload)
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
             } else {
                 // Version matches, clear safety flag
                 sessionStorage.removeItem('updateTriggered');

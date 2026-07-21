@@ -5,21 +5,27 @@ import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import "./index.css";
 
-// 🛡️ SENTRY INITIALIZATION: Error & Performance Tracking
-Sentry.init({
-  // TODO: Replace with your actual Sentry DSN
-  dsn: "https://placeholder@o0.ingest.sentry.io/0",
-  integrations: [
-    Sentry.browserTracingIntegration(),
-    Sentry.replayIntegration({
-      maskAllText: false,
-      blockAllMedia: false,
-    }),
-  ],
-  tracesSampleRate: 1.0,
-  replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1.0,
-});
+// 🛡️ SENTRY INITIALIZATION: Error & Performance Tracking (Safely wrapped)
+const sentryDsn = import.meta.env.VITE_SENTRY_DSN;
+if (sentryDsn && sentryDsn.startsWith('http')) {
+  try {
+    Sentry.init({
+      dsn: sentryDsn,
+      integrations: [
+        Sentry.browserTracingIntegration(),
+        Sentry.replayIntegration({
+          maskAllText: false,
+          blockAllMedia: false,
+        }),
+      ],
+      tracesSampleRate: 1.0,
+      replaysSessionSampleRate: 0.1,
+      replaysOnErrorSampleRate: 1.0,
+    });
+  } catch (e) {
+    console.warn("Sentry failed to initialize:", e);
+  }
+}
 
 // 🚀 iOS PWA Fix: Force Service Worker Clear/Update on Reboot/Load to prevent corrupted cache blank screens
 if ('serviceWorker' in navigator) {
