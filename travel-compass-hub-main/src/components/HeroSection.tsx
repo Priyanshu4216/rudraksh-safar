@@ -4,6 +4,7 @@ import { HERO_CONTENT } from '@/data/homeRedesignData';
 import posterImage from '@/assets/hero-poster.jpg';
 import { useState } from 'react';
 import LazyOptimizedImage from '@/components/LazyOptimizedImage';
+import LiteApiSearchBar from '@/components/search/LiteApiSearchBar';
 
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -86,29 +87,8 @@ const HeroSection = ({
         </p>
 
         {/* Luxury Glass Search Bar or CTA Button */}
-        <div className="w-full max-w-2xl animate-fade-up delay-200 relative z-40">
-          <Link to={linkTarget} className="block relative group cursor-pointer" onClick={(e) => {
-            if (linkTarget.startsWith('#')) {
-              e.preventDefault();
-              const element = document.querySelector(linkTarget);
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}>
-            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 via-white/10 to-gold/20 rounded-full opacity-50 blur-lg group-hover:opacity-100 transition duration-1000"></div>
-            <div
-              className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full p-2 shadow-2xl transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-[1.01]"
-            >
-              <div className="pl-6 text-gold">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div className="flex-1 text-left px-4 h-12 flex items-center text-white/80 text-lg font-light">
-                {ctaText ? "Check Packages" : "Where is your dream destination?"}
-              </div>
-              <Button type="button" className="rounded-full h-12 px-8 bg-gold hover:bg-gold-light text-navy-deep font-bold transition-transform hover:scale-105 shadow-lg pointer-events-none">
-                {buttonText}
-              </Button>
-            </div>
-          </Link>
+        <div className="w-full max-w-5xl animate-fade-up delay-200 relative z-40 mt-8">
+          <LiteApiSearchBar />
         </div>
 
         {/* Trust Badges - Text Style */}

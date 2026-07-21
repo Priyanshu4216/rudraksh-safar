@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { CurrencyProvider } from "./contexts/CurrencyContext";
 import ScrollToTop from "./components/ScrollToTop";
 import SecurityProvider from "./components/SecurityProvider";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
@@ -12,6 +13,10 @@ import AutoUpdateController from "./components/AutoUpdateController";
 import StickyMobileCTA from "./components/StickyMobileCTA";
 const Index = lazy(() => import("./pages/Index"));
 import HomeRedesign from "./pages/HomeRedesign";
+import { HotelsHub } from "./pages/HotelsHub";
+import { HotelDetails } from "./pages/HotelDetails";
+import { Checkout } from './pages/Checkout';
+import { BookingConfirmation } from './pages/BookingConfirmation';
 const SearchExperience = lazy(() => import("./pages/SearchExperience"));
 import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
@@ -19,6 +24,7 @@ import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
 import HomeLoader from "./components/HomeLoader";
 import GlobalError from "./components/GlobalError";
 import GlobalSchema from "./components/seo/GlobalSchema";
+import { Bookings } from "./pages/Bookings";
 const AuthorPage = lazy(() => import('./pages/blog/AuthorPage'));
 const Contact = lazy(() => import('./pages/Contact'));
 // Traveller Guide Pages
@@ -305,465 +311,473 @@ import CopyWatermark from "@/components/CopyWatermark";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="light" storageKey="rudraksh-safar-theme">
-      <SecurityProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Sonner />
-          <AutoUpdateController />
-          <CopyWatermark />
-          <BrowserRouter>
-            <ScrollProgressBar />
-            <HomeLoader />
-            <ScrollToTop />
-            <GlobalSchema />
-            <GlobalError>
-              <Suspense fallback={<GlobalLoader />}>
-                <Routes>
-                  <Route path="/" element={<HomeRedesign />} />
-                  <Route path="/search" element={<SearchExperience />} />
-                  <Route path="/old-home" element={<Index />} />
-                  <Route path="/domestic-packages" element={<DomesticPackages />} />
-                  <Route path="/international-packages" element={<InternationalPackages />} />
-                  <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
-                  <Route path="/family-packages" element={<FamilyPackages />} />
-                  <Route path="/adventure-packages" element={<AdventurePackages />} />
-                  <Route path="/luxury-packages" element={<LuxuryPackages />} />
-                  <Route path="/for-travellers" element={<ForTravellers />} />
-                  <Route path="/package/:packageId" element={<PackageDetails />} />
-
-                  {/* Where To Go Master Ecosystem */}
-                  <Route path="/where-to-go" element={<WhereToGoHub />} />
-                  <Route path="/where-to-go/adventure-spots" element={<AdventureSpots />} />
-                  <Route path="/where-to-go/hidden-gems" element={<HiddenGems />} />
-                  <Route path="/where-to-go/hills-and-mountains" element={<HillsAndMountains />} />
-                  <Route path="/where-to-go/beach-destinations" element={<BeachDestinations />} />
-                  <Route path="/destinations/umling-la" element={<UmlingLa />} />
-                  <Route path="/destinations/gurez-valley" element={<GurezValley />} />
-                  <Route path="/travel-guides/umling-la-bike-trip" element={<UmlingLaBikeTrip />} />
-
-                  {/* Destinations Hub (New Silo) */}
-                  <Route path="/destinations" element={<Destinations />} />
-                  <Route path="/destinations/thailand" element={<ThailandHub />} />
-                  <Route path="/destinations/uae" element={<UAEHub />} />
-
-                  {/* Where To Go Destinations Fallbacks (Redirect to existing master/package pages) */}
-                  <Route path="/destinations/spiti-valley" element={<Navigate to="/spiti-valley-tour-package" replace />} />
-                  <Route path="/destinations/manali" element={<Navigate to="/domestic-tours/manali" replace />} />
-                  <Route path="/destinations/gulmarg" element={<Navigate to="/domestic-tours/kashmir" replace />} />
-                  <Route path="/destinations/chitkul" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/destinations/kalpa" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/destinations/jibhi" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/destinations/andaman" element={<Navigate to="/domestic-tours/andaman" replace />} />
-                  <Route path="/destinations/gokarna" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/destinations/lakshadweep" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/destinations/hanle" element={<Navigate to="/domestic-tours/ladakh" replace />} />
-                  <Route path="/destinations/chadar-trek" element={<Navigate to="/domestic-tours/ladakh" replace />} />
-
-                  {/* UAE Missing Attractions Fallback */}
-                  <Route path="/destinations/uae/:cityId" element={<Navigate to="/destinations/uae" replace />} />
-                  <Route path="/destinations/uae/:cityId/:attractionId" element={<Navigate to="/destinations/uae" replace />} />
-
-                  {/* B2B Partner Silos */}
-                  <Route path="/b2b-travel-partners" element={<B2BHub />} />
-                  <Route path="/b2b/thailand" element={<B2BThailand />} />
-
-
-                  {/* Thailand Supporting Guides */}
-                  <Route path="/destinations/thailand/itinerary" element={<ThailandItinerary />} />
-                  <Route path="/destinations/thailand/trip-cost-from-india" element={<TripCostFromIndia />} />
-                  <Route path="/destinations/thailand/budget-guide" element={<ThailandBudgetGuide />} />
-                  <Route path="/destinations/thailand/best-time-to-visit" element={<BestTimeToVisitThailand />} />
-                  <Route path="/destinations/thailand/travel-tips" element={<ThailandTravelTips />} />
-                  <Route path="/destinations/thailand/packing-guide" element={<ThailandPackingGuide />} />
-                  <Route path="/destinations/thailand/first-time-guide" element={<FirstTimeThailandGuide />} />
-
-                  {/* Thailand City Silos */}
-                  <Route path="/destinations/thailand/pattaya" element={<PattayaCity />} />
-                  <Route path="/destinations/thailand/bangkok" element={<BangkokCity />} />
-                  <Route path="/destinations/thailand/phuket" element={<PhuketCity />} />
-                  <Route path="/destinations/thailand/krabi" element={<KrabiCity />} />
-                  <Route path="/destinations/thailand/koh-samui" element={<KohSamuiCity />} />
-
-                  {/* Thailand Attractions */}
-                  <Route path="/destinations/thailand/attractions/pattaya/coral-island" element={<CoralIsland />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/nong-nooch-garden" element={<NongNoochGarden />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/tiger-park" element={<TigerPark />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/alcazar-show" element={<AlcazarShow />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/underwater-world" element={<UnderwaterWorld />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/tiffany-show" element={<TiffanyShow />} />
-                  <Route path="/destinations/thailand/attractions/pattaya/ramayana-water-park" element={<RamayanaWaterPark />} />
-
-                  <Route path="/destinations/thailand/attractions/bangkok/safari-world" element={<SafariWorld />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/chao-phraya-cruise" element={<ChaoPhrayaCruise />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/temple-tour" element={<TempleTour />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/dream-world" element={<DreamWorld />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/sky-walk" element={<SkyWalk />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/sea-life" element={<SeaLife />} />
-                  <Route path="/destinations/thailand/attractions/bangkok/grand-palace" element={<GrandPalace />} />
-
-                  <Route path="/destinations/thailand/attractions/krabi/4-islands-tour" element={<FourIslandsTour />} />
-                  <Route path="/destinations/thailand/attractions/krabi/7-islands-tour" element={<SevenIslandsTour />} />
-                  <Route path="/destinations/thailand/attractions/krabi/jungle-tour" element={<JungleTour />} />
-                  <Route path="/destinations/thailand/attractions/krabi/krabi-city-tour" element={<KrabiCityTour />} />
-                  <Route path="/destinations/thailand/attractions/krabi/elephant-trekking" element={<ElephantTrekking />} />
-
-                  <Route path="/destinations/thailand/attractions/phuket/phi-phi-island" element={<PhiPhiIsland />} />
-                  <Route path="/destinations/thailand/attractions/phuket/james-bond-island" element={<JamesBondIsland />} />
-                  <Route path="/destinations/thailand/attractions/phuket/fantasea-show" element={<FantaSeaShow />} />
-                  <Route path="/destinations/thailand/attractions/phuket/dolphin-show" element={<DolphinShow />} />
-                  <Route path="/destinations/thailand/attractions/phuket/tiger-kingdom" element={<TigerKingdom />} />
-
-                  <Route path="/destinations/thailand/attractions/koh-samui/jungle-safari" element={<JungleSafari />} />
-                  <Route path="/destinations/thailand/attractions/koh-samui/koh-samui-city-tour" element={<KohSamuiCityTour />} />
-                  <Route path="/destinations/thailand/attractions/koh-samui/ang-thong-marine-park" element={<AngThongMarinePark />} />
-                  <Route path="/destinations/thailand/attractions/koh-samui/safari-tour" element={<SafariTour />} />
-
-                  {/* Traveller Guide Routes */}
-                  <Route path="/travel-services/visa-assistance" element={<VisaGuide />} />
-                  <Route path="/travel-services/passport-assistance" element={<PassportGuide />} />
-
-                  <Route path="/visa-free-countries" element={<VisaFreeCountries />} />
-                  <Route path="/travel-checklist" element={<TravelChecklist />} />
-                  <Route path="/currency-guide" element={<CurrencyGuide />} />
-                  <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
-
-                  {/* FAQ Silos - Phase 29 */}
-                  <Route path="/faqs" element={<FAQHub />} />
-                  <Route path="/faqs/train-booking" element={<TrainBookingFAQ />} />
-                  <Route path="/faqs/flight-booking" element={<FlightBookingFAQ />} />
-                  <Route path="/faqs/tour-packages" element={<TourPackageFAQ />} />
-                  <Route path="/faqs/international-tours" element={<InternationalToursFAQ />} />
-                  <Route path="/faqs/hotel-booking" element={<HotelBookingFAQ />} />
-                  <Route path="/faqs/cab-booking" element={<CabBookingFAQ />} />
-                  <Route path="/faqs/visa-services" element={<VisaServicesFAQ />} />
-                  <Route path="/faqs/passport-services" element={<PassportServicesFAQ />} />
-                  <Route path="/faqs/cruise-booking" element={<CruiseBookingFAQ />} />
-                  {/* <Route path="/faqs/passport-services" element={<PassportServicesFAQ />} />
-                  <Route path="/faqs/international-tours" element={<InternationalToursFAQ />} />
-                  <Route path="/faqs/domestic-tours" element={<DomesticToursFAQ />} />
-                  <Route path="/faqs/cruise-booking" element={<CruiseBookingFAQ />} /> */}
-                  <Route path="/faqs/bhilai" element={<BhilaiFAQ />} />
-                  <Route path="/faqs/raipur" element={<RaipurFAQ />} />
-                  <Route path="/faqs/durg" element={<DurgFAQ />} />
-
-                  <Route path="/travel-health" element={<TravelHealth />} />
-                  <Route path="/travel-tips" element={<TravelTips />} />
-                  <Route path="/hot-deals" element={<HotDeals />} />
-
-                  {/* Destination SEO Pages moved to bottom */}
-
-                  {/* Visa Country Routes */}
-                  <Route path="/visa/dubai" element={<DubaiVisa />} />
-                  <Route path="/visa/thailand" element={<ThailandVisa />} />
-                  <Route path="/visa/singapore" element={<SingaporeVisa />} />
-                  <Route path="/visa/bali" element={<BaliVisa />} />
-                  <Route path="/visa/maldives" element={<MaldivesVisa />} />
-                  <Route path="/visa/turkey" element={<TurkeyVisa />} />
-                  <Route path="/visa/schengen" element={<SchengenVisa />} />
-                  <Route path="/visa/sri-lanka" element={<SriLankaVisa />} />
-
-                  {/* Local SEO Pages - Raipur & Bhilai */}
-                  <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
-                  <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
-                  <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
-
-                  <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
-                  <Route path="/tour-packages-from-bhilai/corporate-tours" element={<CorporateTourPackagesBhilai />} />
-
-                  {/* Thematic SEO Pages */}
-                  <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
-                  <Route path="/summer-holiday-packages" element={<SummerHolidayPackages />} />
-                  <Route path="/group-tour-packages" element={<GroupTourPackages />} />
-                  <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
-                  <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
-                  <Route path="/summer-special-packages" element={<SummerSpecialPackages />} />
-                  <Route path="/why-choose-us" element={<WhyChooseUs />} />
-                  <Route path="/visa/nepal" element={<NepalVisa />} />
-                  <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
-                  <Route path="/travel-services/cab-rental" element={<CabRental />} />
-                  <Route path="/travel-services/cruise-booking" element={<CruiseBooking />} />
-                  <Route path="/cruise-booking" element={<Navigate to="/travel-services/cruise-booking" replace />} />
-                  <Route path="/visa-guide" element={<Navigate to="/travel-services/visa-assistance" replace />} />
-                  <Route path="/cab-rental" element={<Navigate to="/travel-services/cab-rental" replace />} />
-                  <Route path="/hotel-booking" element={<Navigate to="/travel-services/hotel-booking" replace />} />
-
-                  <Route path="/how-it-works" element={<HowItWorks />} />
-                  <Route path="/travel-documents" element={<TravelDocuments />} />
-                  <Route path="/travel-safety" element={<TravelSafety />} />
-                  <Route path="/travel-inspiration" element={<TravelInspiration />} />
-                  <Route path="/about-rudraksh-safar" element={<AboutUs />} />
-                  <Route path="/about-us" element={<Navigate to="/about-rudraksh-safar" replace />} />
-                  <Route path="/about/why-rudraksh-safar" element={<WhyRudrakshSafar />} />
-                  <Route path="/travel-guide-from-bhilai" element={<TravelGuideBhilai />} />
-                  <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
-                  <Route path="/travel-services/hotel-booking" element={<HotelBooking />} />
-
-                  {/* Char Dham Yatra Pillar (Phase 1) */}
-                  <Route path="/chardham-yatra-package" element={<CharDhamPillar />} />
-                  <Route path="/kedarnath-temple" element={<KedarnathTemple />} />
-                  <Route path="/badrinath-temple" element={<BadrinathTemple />} />
-                  <Route path="/gangotri-temple" element={<GangotriTemple />} />
-                  <Route path="/yamunotri-temple" element={<YamunotriTemple />} />
-
-                  {/* Panch Kedar */}
-                  <Route path="/tungnath-temple" element={<Tungnath />} />
-                  <Route path="/rudranath-temple" element={<Rudranath />} />
-                  <Route path="/madhyamaheshwar-temple" element={<Madhyamaheshwar />} />
-                  <Route path="/kalpeshwar-temple" element={<Kalpeshwar />} />
-                  <Route path="/is-chardham-yatra-safe" element={<IsCharDhamSafe />} />
-                  <Route path="/chardham-yatra-route-map" element={<CharDhamRouteMap />} />
-                  <Route path="/chardham-yatra-price" element={<CharDhamPrice />} />
-                  <Route path="/chardham-yatra-for-seniors" element={<CharDhamSeniors />} />
-                  <Route path="/chardham-yatra-from-bhilai" element={<CharDhamFromBhilai />} />
-                  <Route path="/what-to-pack-for-chardham-yatra" element={<CharDhamPacking />} />
-                  <Route path="/chardham-yatra-registration-process" element={<CharDhamRegistration />} />
-                  <Route path="/plan-your-yatra" element={<CharDhamPackageBuilder />} />
-                  <Route path="/bhilai-to-kedarnath-yatra-package-2026" element={<BhilaiToKedarnath />} />
-
-                  {/* Thailand Dominance - MOVED TO MASTER SILO */}
-                  <Route path="/thailand-tour-packages" element={<Navigate to="/international-tours/thailand" replace />} />
-                  <Route path="/thailand-tour-packages-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
-                  <Route path="/thailand-tour-packages/bangkok" element={<Navigate to="/international-tours/thailand/bangkok" replace />} />
-                  <Route path="/thailand-tour-packages/pattaya" element={<Navigate to="/international-tours/thailand/pattaya" replace />} />
-                  <Route path="/thailand-tour-packages/phuket" element={<Navigate to="/international-tours/thailand/phuket" replace />} />
-                  <Route path="/thailand-tour-packages/krabi" element={<Navigate to="/international-tours/thailand/krabi" replace />} />
-                  <Route path="/thailand-tour-packages/:cityId" element={<Navigate to="/international-tours/thailand" replace />} />
-                  {/* <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} /> */}
-
-                  {/* Phase 10: UAE Domination (Attraction Engine) */}
-                  <Route path="/dubai-travel-guide" element={<DubaiTravelGuide />} />
-
-                  <Route path="/dubai-all-packages" element={<DubaiPackages />} />
-                  <Route path="/dubai-visa-for-indians" element={<DubaiVisaGuide />} />
-                  <Route path="/uae/dubai-itinerary-3-days" element={<DubaiItinerary3Days />} />
-                  <Route path="/dubai-3-day-itinerary" element={<DubaiItinerary3Days />} />
-                  <Route path="/dubai-4-day-itinerary" element={<DubaiItinerary4Days />} />
-                  <Route path="/dubai-5-day-itinerary" element={<DubaiItinerary5Days />} />
-                  <Route path="/uae/dubai-trip-cost" element={<DubaiTripCost />} />
-                  <Route path="/destinations/uae/dubai-trip-cost" element={<Navigate to="/uae/dubai-trip-cost" replace />} />
-                  <Route path="/dubai-tour-packages-from-raipur" element={<Navigate to="/international-tours/dubai" replace />} />
-                  <Route path="/dubai/:slug" element={<AttractionPage />} />
-                  <Route path="/abu-dhabi/:slug" element={<AttractionPage />} />
-                  {/* Redirect Legacy if needed or just keep /uae as fallback if links exist */}
-                  <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
-
-                  {/* Ladakh SEO Pages */}
-                  <Route path="/ladakh-opening-date-2026" element={<LadakhOpeningDate />} />
-                  {/* NEW MASTER SILO */}
-                  <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
-                  <Route path="/domestic/ladakh/family-tour-packages" element={<FamilyTourPackages />} />
-                  <Route path="/guides/ladakh/inner-line-permits" element={<InnerLinePermitGuide />} />
-
-                  {/* Kashmir Master Silo */}
-                  <Route path="/domestic-tours/kashmir" element={<KashmirMaster />} />
-                  <Route path="/domestic-tours/kashmir-from-bhilai" element={<Navigate to="/domestic-tours/kashmir" replace />} />
-                  <Route path="/domestic/kashmir/kashmir-trip-cost" element={<KashmirTripCost />} />
-
-                  {/* Manali Master Silo */}
-                  <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
-                  <Route path="/domestic-tours/manali-from-bhilai" element={<Navigate to="/domestic-tours/manali" replace />} />
-
-                  {/* Kerala Master Silo */}
-                  <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
-                  <Route path="/domestic-tours/kerala-from-bhilai" element={<Navigate to="/domestic-tours/kerala" replace />} />
-
-                  {/* Thailand Master Silo */}
-                  <Route path="/international-tours/thailand" element={<ThailandMaster />} />
-                  <Route path="/international-tours/thailand-from-raipur" element={<Navigate to="/international-tours/thailand" replace />} />
-                  <Route path="/international-tours/thailand-from-bhilai" element={<Navigate to="/international-tours/thailand" replace />} />
-
-                  {/* Thailand Prominence Routes */}
-                  <Route path="/international-tours/thailand/krabi" element={<KrabiDestinationAuthority />} />
-        <Route path="/international-tours/thailand/pattaya" element={<PattayaDestinationAuthority />} />
-                  <Route path="/international-tours/thailand/phuket" element={<PhuketDestinationAuthority />} />
-                  <Route path="/international-tours/thailand/:cityId" element={<ThailandCityGuide />} />
-                  <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
-
-                  {/* Dubai Master Silo */}
-                  <Route path="/international-tours/dubai" element={<DubaiMaster />} />
-                  <Route path="/dubai-tour-packages" element={<Navigate to="/international-tours/dubai" replace />} />
-                  <Route path="/international-tours/dubai-from-raipur" element={<Navigate to="/international-tours/dubai" replace />} />
-                  <Route path="/international-tours/dubai-from-bhilai" element={<Navigate to="/international-tours/dubai" replace />} />
-
-                  {/* Singapore Master Silo */}
-                  <Route path="/international-tours/singapore" element={<SingaporeMaster />} />
-                  <Route path="/international-tours/singapore-from-bhilai" element={<Navigate to="/international-tours/singapore" replace />} />
-
-                  {/* Bali Master Silo */}
-                  <Route path="/international-tours/bali" element={<BaliMaster />} />
-                  <Route path="/international-tours/bali-from-raipur" element={<Navigate to="/international-tours/bali" replace />} />
-                  <Route path="/international-tours/bali-from-bhilai" element={<Navigate to="/international-tours/bali" replace />} />
-
-                  {/* Sri Lanka Master Silo */}
-                  <Route path="/international-tours/srilanka" element={<SriLankaMaster />} />
-                  <Route path="/international-tours/srilanka-from-raipur" element={<Navigate to="/international-tours/srilanka" replace />} />
-                  <Route path="/international-tours/srilanka-from-bhilai" element={<Navigate to="/international-tours/srilanka" replace />} />
-
-                  {/* Andaman Master Silo */}
-                  <Route path="/domestic-tours/andaman" element={<AndamanMaster />} />
-                  <Route path="/domestic-tours/andaman-from-bhilai" element={<Navigate to="/domestic-tours/andaman" replace />} />
-
-                  {/* Goa Master Silo */}
-                  <Route path="/domestic-tours/goa" element={<GoaMaster />} />
-                  <Route path="/domestic-tours/goa-from-bhilai" element={<Navigate to="/domestic-tours/goa" replace />} />
-                  <Route path="/domestic-tours/goa-from-raipur" element={<Navigate to="/domestic-tours/goa" replace />} />
-                  <Route path="/domestic-tours/goa-from-durg" element={<Navigate to="/domestic-tours/goa" replace />} />
-
-                  <Route path="/domestic-tours/goa-trip-from-supela" element={<Navigate to="/domestic-tours/goa" replace />} />
-
-                  <Route path="/domestic-tours/goa-trip-under-10000" element={<GoaTripUnder10000 />} />
-                  <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} />
-
-                  <Route path="/domestic-tours/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
-
-                  <Route path="/domestic-tours/goa-budget-itinerary" element={<GoaBudgetItinerary />} />
-                  <Route path="/goa-budget-itinerary-from-bhilai" element={<GoaBudgetItinerary />} />
-
-                  <Route path="/domestic-tours/north-vs-south-goa" element={<NorthVsSouthGoa />} />
-                  <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} />
-
-                  <Route path="/domestic-tours/train-vs-flight-goa" element={<TrainVsFlightGoa />} />
-                  <Route path="/train-vs-flight-goa-from-cg" element={<TrainVsFlightGoa />} />
-
-                  {/* Goa Specials (from Sitemap) */}
-                  <Route path="/goa-tour-package-from-bhilai" element={<GoaMaster />} />
-                  <Route path="/domestic-tours/goa-from-bhilai" element={<GoaMaster />} />
-                  <Route path="/goa-package-from-raipur" element={<GoaMaster />} />
-                  <Route path="/domestic-tours/goa-from-raipur" element={<GoaMaster />} />
-                  <Route path="/goa-package-from-durg" element={<GoaMaster />} />
-                  <Route path="/domestic-tours/goa-from-durg" element={<GoaMaster />} />
-                  <Route path="/goa-trip-from-supela" element={<GoaMaster />} />
-                  <Route path="/domestic-tours/goa-trip-from-supela" element={<GoaMaster />} />
-                  <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
-
-                  <Route path="/ladakh-tour-via-srinagar" element={<LadakhViaSrinagar />} />
-                  <Route path="/ladakh-tour-via-manali" element={<LadakhViaManali />} />
-                  <Route path="/manali-vs-srinagar-route-ladakh" element={<ManaliVsSrinagar />} />
-                  <Route path="/ladakh-trip-cost" element={<LadakhTripCost />} />
-                  <Route path="/best-time-to-visit-ladakh" element={<BestTimeLadakh />} />
-                  <Route path="/ladakh-bike-trip-packages" element={<LadakhBikePackages />} />
-                  <Route path="/ladakh-ultimate-expedition" element={<LadakhUltimateExpedition />} />
-                  <Route path="/domestic-tours/ladakh-from-raipur" element={<Navigate to="/domestic-tours/ladakh" replace />} />
-
-                  <Route path="/domestic-tours/ladakh-from-bhilai" element={<Navigate to="/domestic-tours/ladakh" replace />} />
-
-                  <Route path="/ladakh-tour-packages-from-chhattisgarh" element={<LadakhFromChhattisgarh />} />
-                  <Route path="/ladakh-tour-package-from-bhilai" element={<LadakhFromChhattisgarh />} />
-                  <Route path="/ladakh-tour-package-from-raipur" element={<LadakhFromChhattisgarh />} />
-
-                  <Route path="/is-ladakh-safe" element={<LadakhSafety />} />
-
-                  <Route path="/ladakh-packing-list" element={<LadakhPackingList />} />
-
-                  <Route path="/pangong-lake-guide" element={<PangongLake />} />
-
-                  {/* Summer Special Routes */}
-                  <Route path="/kashmir-tour-package-from-bhilai" element={<KashmirSummerSpecial />} />
-                  <Route path="/manali-tour-package-from-bhilai" element={<ManaliSummerSpecial />} />
-                  <Route path="/spiti-valley-tour-package" element={<SpitiSummerSpecial />} />
-                  <Route path="/sikkim-tour-package" element={<SikkimSummerSpecial />} />
-                  <Route path="/munsiyari-tour-package" element={<MunsiyariSummerSpecial />} />
-
-                  {/* Local Destination Routes (from Sitemap) */}
-                  <Route path="/kerala-tour-package-from-bhilai" element={<KeralaMaster />} />
-                  <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/andaman-tour-package-from-bhilai" element={<AndamanMaster />} />
-                  <Route path="/thailand-tour-package-from-bhilai" element={<ThailandMaster />} />
-                  <Route path="/dubai-tour-package-from-bhilai" element={<DubaiMaster />} />
-                  <Route path="/singapore-tour-package-from-bhilai" element={<SingaporeMaster />} />
-                  <Route path="/nepal-tour-package-from-bhilai" element={<Navigate to="/international-packages" replace />} />
-                  <Route path="/sri-lanka-tour-package-from-bhilai" element={<SriLankaMaster />} />
-                  <Route path="/bali-tour-package-from-bhilai" element={<BaliMaster />} />
-                  <Route path="/bali-tour-package-from-raipur" element={<BaliMaster />} />
-                  <Route path="/sri-lanka-tour-package-from-raipur" element={<SriLankaMaster />} />
-
-                  {/* Legal Routes */}
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-conditions" element={<TermsConditions />} />
-                  <Route path="/cancellation-policy" element={<CancellationPolicy />} />
-                  <Route path="/refund-policy" element={<RefundPolicy />} />
-                  <Route path="/disclaimer" element={<Disclaimer />} />
-
-                  {/* Local SEO Routes */}
-                  <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
-                  <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
-                  <Route path="/passport-agent-bhilai" element={<Navigate to="/travel-services/passport-assistance" replace />} />
-                  <Route path="/tour-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai" replace />} />
-                  <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
-                  <Route path="/tour-packages-from-bhilai/weekend-getaways" element={<WeekendGetawaysBhilai />} />
-                  <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
-                  <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
-                  <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
-                  <Route path="/tour-packages-from-bhilai/cheapest-trips" element={<CheapestTripsFromBhilai />} />
-                  <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
-                  <Route path="/tour-packages-from-bhilai/picnic-spots" element={<PicnicSpotsBhilai />} />
-
-                  {/* BLOG SYSTEM ROUTES */}
-                  <Route path="/blog" element={<BlogIndex />} />
-                  <Route path="/blog/:category" element={<CategoryPage />} />
-                  <Route path="/blog/:category/:slug" element={<BlogPost />} />
-                  <Route path="/authors/:slug" element={<AuthorPage />} />
-
-                  <Route path="/tour-packages-from-bhilai" element={<TourPackagesFromBhilai />} />
-                  <Route path="/tour-packages-from-raipur" element={<TourPackagesFromRaipur />} />
-                  <Route path="/dubai-tour-packages-from-bhilai" element={<Navigate to="/international-tours/dubai" replace />} />
-
-                  {/* Raipur Silo Children */}
-                  <Route path="/tour-packages-from-raipur/international-tours" element={<InternationalToursFromRaipur />} />
-                  <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
-
-                  {/* Bhilai Silo Children */}
-                  <Route path="/tour-packages-from-bhilai/international-tours" element={<InternationalToursFromBhilai />} />
-                  <Route path="/tour-packages-from-bhilai/honeymoon-packages" element={<HoneymoonPackagesFromBhilai />} />
-
-                  {/* Phase 1: Goa Search Monopoly */}
-                  <Route path="/chardham-yatra-package-from-bhilai" element={<ChardhamYatraPackageFromBhilai />} />
-                  <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
-                  <Route path="/nepal-tour-package-from-bhilai" element={<Navigate to="/international-packages" replace />} />
-
-
-                  {/* Sitemap */}
-                  <Route path="/sitemap" element={<Sitemap />} />
-
-                  {/* New Content Hub Routes - Phase 9 */}
-                  <Route path="/guides/where-to-go-from-bhilai" element={<WhereToGoFromBhilai />} />
-                  <Route path="/guides/after-booking-guide" element={<AfterBookingGuide />} />
-                  <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
-                  <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
-                  <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
-                  <Route path="/contact" element={<Contact />} />
-
-                  {/* FAQ Silos - Phase 29 */}
-                  <Route path="/faqs/train-booking" element={<TrainBookingFAQ />} />
-
-                  {/* Generic Package Route */}
-                  <Route path="/package/:packageId" element={<PackageDetails />} />
-
-                  {/* Destination SEO Pages (Top brand style) - Moved here to prevent catching static routes */}
-                  <Route path="/:destinationSlug/:pageSlug" element={<DestinationContent />} />
-
-                  {/* Programmatic Scale Route (Phase 2 SEO) */}
-                  <Route path="/packages/from-:origin/:destination" element={<ProgrammaticPackage />} />
-
-                  {/* Trust Pillars (Case Studies) */}
-                  <Route path="/case-studies/dubai-corporate-tour" element={<DubaiCorporate />} />
-                  <Route path="/case-studies/chardham-vip-yatra" element={<ChardhamVIP />} />
-                  <Route path="/case-studies/thailand-honeymoon" element={<ThailandHoneymoon />} />
-
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </GlobalError>
-            <CookieConsent />
-            <PWAInstallPrompt />
-            <StickyMobileCTA />
-          </BrowserRouter >
-        </TooltipProvider >
-      </SecurityProvider >
-    </ThemeProvider >
+    <CurrencyProvider>
+      <ThemeProvider defaultTheme="light" storageKey="rudraksh-safar-theme">
+        <SecurityProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Sonner />
+            <AutoUpdateController />
+            <CopyWatermark />
+            <BrowserRouter>
+              <ScrollProgressBar />
+              <HomeLoader />
+              <ScrollToTop />
+              <GlobalSchema />
+              <GlobalError>
+                <Suspense fallback={<GlobalLoader />}>
+                  <Routes>
+                    <Route path="/" element={<HomeRedesign />} />
+                    <Route path="/hotels" element={<HotelsHub />} />
+                    <Route path="/hotel/:id" element={<HotelDetails />} />
+                    <Route path="/checkout/:offerId" element={<Checkout />} />
+                    <Route path="/booking/confirm" element={<BookingConfirmation />} />
+                    <Route path="/bookings" element={<Bookings />} />
+                    <Route path="/destinations" element={<Destinations />} />
+                    <Route path="/search" element={<SearchExperience />} />
+                    <Route path="/old-home" element={<Index />} />
+                    <Route path="/domestic-packages" element={<DomesticPackages />} />
+                    <Route path="/international-packages" element={<InternationalPackages />} />
+                    <Route path="/honeymoon-packages" element={<HoneymoonPackages />} />
+                    <Route path="/family-packages" element={<FamilyPackages />} />
+                    <Route path="/adventure-packages" element={<AdventurePackages />} />
+                    <Route path="/luxury-packages" element={<LuxuryPackages />} />
+                    <Route path="/for-travellers" element={<ForTravellers />} />
+                    <Route path="/package/:packageId" element={<PackageDetails />} />
+
+                    {/* Where To Go Master Ecosystem */}
+                    <Route path="/where-to-go" element={<WhereToGoHub />} />
+                    <Route path="/where-to-go/adventure-spots" element={<AdventureSpots />} />
+                    <Route path="/where-to-go/hidden-gems" element={<HiddenGems />} />
+                    <Route path="/where-to-go/hills-and-mountains" element={<HillsAndMountains />} />
+                    <Route path="/where-to-go/beach-destinations" element={<BeachDestinations />} />
+                    <Route path="/destinations/umling-la" element={<UmlingLa />} />
+                    <Route path="/destinations/gurez-valley" element={<GurezValley />} />
+                    <Route path="/travel-guides/umling-la-bike-trip" element={<UmlingLaBikeTrip />} />
+
+                    {/* Destinations Hub (New Silo) */}
+                    <Route path="/destinations" element={<Destinations />} />
+                    <Route path="/destinations/thailand" element={<ThailandHub />} />
+                    <Route path="/destinations/uae" element={<UAEHub />} />
+
+                    {/* Where To Go Destinations Fallbacks (Redirect to existing master/package pages) */}
+                    <Route path="/destinations/spiti-valley" element={<Navigate to="/spiti-valley-tour-package" replace />} />
+                    <Route path="/destinations/manali" element={<Navigate to="/domestic-tours/manali" replace />} />
+                    <Route path="/destinations/gulmarg" element={<Navigate to="/domestic-tours/kashmir" replace />} />
+                    <Route path="/destinations/chitkul" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/destinations/kalpa" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/destinations/jibhi" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/destinations/andaman" element={<Navigate to="/domestic-tours/andaman" replace />} />
+                    <Route path="/destinations/gokarna" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/destinations/lakshadweep" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/destinations/hanle" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+                    <Route path="/destinations/chadar-trek" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+
+                    {/* UAE Missing Attractions Fallback */}
+                    <Route path="/destinations/uae/:cityId" element={<Navigate to="/destinations/uae" replace />} />
+                    <Route path="/destinations/uae/:cityId/:attractionId" element={<Navigate to="/destinations/uae" replace />} />
+
+                    {/* B2B Partner Silos */}
+                    <Route path="/b2b-travel-partners" element={<B2BHub />} />
+                    <Route path="/b2b/thailand" element={<B2BThailand />} />
+
+
+                    {/* Thailand Supporting Guides */}
+                    <Route path="/destinations/thailand/itinerary" element={<ThailandItinerary />} />
+                    <Route path="/destinations/thailand/trip-cost-from-india" element={<TripCostFromIndia />} />
+                    <Route path="/destinations/thailand/budget-guide" element={<ThailandBudgetGuide />} />
+                    <Route path="/destinations/thailand/best-time-to-visit" element={<BestTimeToVisitThailand />} />
+                    <Route path="/destinations/thailand/travel-tips" element={<ThailandTravelTips />} />
+                    <Route path="/destinations/thailand/packing-guide" element={<ThailandPackingGuide />} />
+                    <Route path="/destinations/thailand/first-time-guide" element={<FirstTimeThailandGuide />} />
+
+                    {/* Thailand City Silos */}
+                    <Route path="/destinations/thailand/pattaya" element={<PattayaCity />} />
+                    <Route path="/destinations/thailand/bangkok" element={<BangkokCity />} />
+                    <Route path="/destinations/thailand/phuket" element={<PhuketCity />} />
+                    <Route path="/destinations/thailand/krabi" element={<KrabiCity />} />
+                    <Route path="/destinations/thailand/koh-samui" element={<KohSamuiCity />} />
+
+                    {/* Thailand Attractions */}
+                    <Route path="/destinations/thailand/attractions/pattaya/coral-island" element={<CoralIsland />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/nong-nooch-garden" element={<NongNoochGarden />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/tiger-park" element={<TigerPark />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/alcazar-show" element={<AlcazarShow />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/underwater-world" element={<UnderwaterWorld />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/tiffany-show" element={<TiffanyShow />} />
+                    <Route path="/destinations/thailand/attractions/pattaya/ramayana-water-park" element={<RamayanaWaterPark />} />
+
+                    <Route path="/destinations/thailand/attractions/bangkok/safari-world" element={<SafariWorld />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/chao-phraya-cruise" element={<ChaoPhrayaCruise />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/temple-tour" element={<TempleTour />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/dream-world" element={<DreamWorld />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/sky-walk" element={<SkyWalk />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/sea-life" element={<SeaLife />} />
+                    <Route path="/destinations/thailand/attractions/bangkok/grand-palace" element={<GrandPalace />} />
+
+                    <Route path="/destinations/thailand/attractions/krabi/4-islands-tour" element={<FourIslandsTour />} />
+                    <Route path="/destinations/thailand/attractions/krabi/7-islands-tour" element={<SevenIslandsTour />} />
+                    <Route path="/destinations/thailand/attractions/krabi/jungle-tour" element={<JungleTour />} />
+                    <Route path="/destinations/thailand/attractions/krabi/krabi-city-tour" element={<KrabiCityTour />} />
+                    <Route path="/destinations/thailand/attractions/krabi/elephant-trekking" element={<ElephantTrekking />} />
+
+                    <Route path="/destinations/thailand/attractions/phuket/phi-phi-island" element={<PhiPhiIsland />} />
+                    <Route path="/destinations/thailand/attractions/phuket/james-bond-island" element={<JamesBondIsland />} />
+                    <Route path="/destinations/thailand/attractions/phuket/fantasea-show" element={<FantaSeaShow />} />
+                    <Route path="/destinations/thailand/attractions/phuket/dolphin-show" element={<DolphinShow />} />
+                    <Route path="/destinations/thailand/attractions/phuket/tiger-kingdom" element={<TigerKingdom />} />
+
+                    <Route path="/destinations/thailand/attractions/koh-samui/jungle-safari" element={<JungleSafari />} />
+                    <Route path="/destinations/thailand/attractions/koh-samui/koh-samui-city-tour" element={<KohSamuiCityTour />} />
+                    <Route path="/destinations/thailand/attractions/koh-samui/ang-thong-marine-park" element={<AngThongMarinePark />} />
+                    <Route path="/destinations/thailand/attractions/koh-samui/safari-tour" element={<SafariTour />} />
+
+                    {/* Traveller Guide Routes */}
+                    <Route path="/travel-services/visa-assistance" element={<VisaGuide />} />
+                    <Route path="/travel-services/passport-assistance" element={<PassportGuide />} />
+
+                    <Route path="/visa-free-countries" element={<VisaFreeCountries />} />
+                    <Route path="/travel-checklist" element={<TravelChecklist />} />
+                    <Route path="/currency-guide" element={<CurrencyGuide />} />
+                    <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
+
+                    {/* FAQ Silos - Phase 29 */}
+                    <Route path="/faqs" element={<FAQHub />} />
+                    <Route path="/faqs/train-booking" element={<TrainBookingFAQ />} />
+                    <Route path="/faqs/flight-booking" element={<FlightBookingFAQ />} />
+                    <Route path="/faqs/tour-packages" element={<TourPackageFAQ />} />
+                    <Route path="/faqs/international-tours" element={<InternationalToursFAQ />} />
+                    <Route path="/faqs/hotel-booking" element={<HotelBookingFAQ />} />
+                    <Route path="/faqs/cab-booking" element={<CabBookingFAQ />} />
+                    <Route path="/faqs/visa-services" element={<VisaServicesFAQ />} />
+                    <Route path="/faqs/passport-services" element={<PassportServicesFAQ />} />
+                    <Route path="/faqs/cruise-booking" element={<CruiseBookingFAQ />} />
+                    {/* <Route path="/faqs/passport-services" element={<PassportServicesFAQ />} />
+                    <Route path="/faqs/international-tours" element={<InternationalToursFAQ />} />
+                    <Route path="/faqs/domestic-tours" element={<DomesticToursFAQ />} />
+                    <Route path="/faqs/cruise-booking" element={<CruiseBookingFAQ />} /> */}
+                    <Route path="/faqs/bhilai" element={<BhilaiFAQ />} />
+                    <Route path="/faqs/raipur" element={<RaipurFAQ />} />
+                    <Route path="/faqs/durg" element={<DurgFAQ />} />
+
+                    <Route path="/travel-health" element={<TravelHealth />} />
+                    <Route path="/travel-tips" element={<TravelTips />} />
+                    <Route path="/hot-deals" element={<HotDeals />} />
+
+                    {/* Destination SEO Pages moved to bottom */}
+
+                    {/* Visa Country Routes */}
+                    <Route path="/visa/dubai" element={<DubaiVisa />} />
+                    <Route path="/visa/thailand" element={<ThailandVisa />} />
+                    <Route path="/visa/singapore" element={<SingaporeVisa />} />
+                    <Route path="/visa/bali" element={<BaliVisa />} />
+                    <Route path="/visa/maldives" element={<MaldivesVisa />} />
+                    <Route path="/visa/turkey" element={<TurkeyVisa />} />
+                    <Route path="/visa/schengen" element={<SchengenVisa />} />
+                    <Route path="/visa/sri-lanka" element={<SriLankaVisa />} />
+
+                    {/* Local SEO Pages - Raipur & Bhilai */}
+                    <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
+                    <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
+                    <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
+
+                    <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
+                    <Route path="/tour-packages-from-bhilai/corporate-tours" element={<CorporateTourPackagesBhilai />} />
+
+                    {/* Thematic SEO Pages */}
+                    <Route path="/budget-tour-packages" element={<BudgetTourPackages />} />
+                    <Route path="/summer-holiday-packages" element={<SummerHolidayPackages />} />
+                    <Route path="/group-tour-packages" element={<GroupTourPackages />} />
+                    <Route path="/beach-holiday-packages" element={<BeachHolidayPackages />} />
+                    <Route path="/mountain-holiday-packages" element={<MountainHolidayPackages />} />
+                    <Route path="/summer-special-packages" element={<SummerSpecialPackages />} />
+                    <Route path="/why-choose-us" element={<WhyChooseUs />} />
+                    <Route path="/visa/nepal" element={<NepalVisa />} />
+                    <Route path="/visa/malaysia" element={<MalaysiaVisa />} />
+                    <Route path="/travel-services/cab-rental" element={<CabRental />} />
+                    <Route path="/travel-services/cruise-booking" element={<CruiseBooking />} />
+                    <Route path="/cruise-booking" element={<Navigate to="/travel-services/cruise-booking" replace />} />
+                    <Route path="/visa-guide" element={<Navigate to="/travel-services/visa-assistance" replace />} />
+                    <Route path="/cab-rental" element={<Navigate to="/travel-services/cab-rental" replace />} />
+                    <Route path="/hotel-booking" element={<Navigate to="/travel-services/hotel-booking" replace />} />
+
+                    <Route path="/how-it-works" element={<HowItWorks />} />
+                    <Route path="/travel-documents" element={<TravelDocuments />} />
+                    <Route path="/travel-safety" element={<TravelSafety />} />
+                    <Route path="/travel-inspiration" element={<TravelInspiration />} />
+                    <Route path="/about-rudraksh-safar" element={<AboutUs />} />
+                    <Route path="/about-us" element={<Navigate to="/about-rudraksh-safar" replace />} />
+                    <Route path="/about/why-rudraksh-safar" element={<WhyRudrakshSafar />} />
+                    <Route path="/travel-guide-from-bhilai" element={<TravelGuideBhilai />} />
+                    <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
+                    <Route path="/travel-services/hotel-booking" element={<HotelBooking />} />
+
+                    {/* Char Dham Yatra Pillar (Phase 1) */}
+                    <Route path="/chardham-yatra-package" element={<CharDhamPillar />} />
+                    <Route path="/kedarnath-temple" element={<KedarnathTemple />} />
+                    <Route path="/badrinath-temple" element={<BadrinathTemple />} />
+                    <Route path="/gangotri-temple" element={<GangotriTemple />} />
+                    <Route path="/yamunotri-temple" element={<YamunotriTemple />} />
+
+                    {/* Panch Kedar */}
+                    <Route path="/tungnath-temple" element={<Tungnath />} />
+                    <Route path="/rudranath-temple" element={<Rudranath />} />
+                    <Route path="/madhyamaheshwar-temple" element={<Madhyamaheshwar />} />
+                    <Route path="/kalpeshwar-temple" element={<Kalpeshwar />} />
+                    <Route path="/is-chardham-yatra-safe" element={<IsCharDhamSafe />} />
+                    <Route path="/chardham-yatra-route-map" element={<CharDhamRouteMap />} />
+                    <Route path="/chardham-yatra-price" element={<CharDhamPrice />} />
+                    <Route path="/chardham-yatra-for-seniors" element={<CharDhamSeniors />} />
+                    <Route path="/chardham-yatra-from-bhilai" element={<CharDhamFromBhilai />} />
+                    <Route path="/what-to-pack-for-chardham-yatra" element={<CharDhamPacking />} />
+                    <Route path="/chardham-yatra-registration-process" element={<CharDhamRegistration />} />
+                    <Route path="/plan-your-yatra" element={<CharDhamPackageBuilder />} />
+                    <Route path="/bhilai-to-kedarnath-yatra-package-2026" element={<BhilaiToKedarnath />} />
+
+                    {/* Thailand Dominance - MOVED TO MASTER SILO */}
+                    <Route path="/thailand-tour-packages" element={<Navigate to="/international-tours/thailand" replace />} />
+                    <Route path="/thailand-tour-packages-from-raipur" element={<Navigate to="/international-tours/thailand-from-raipur" replace />} />
+                    <Route path="/thailand-tour-packages/bangkok" element={<Navigate to="/international-tours/thailand/bangkok" replace />} />
+                    <Route path="/thailand-tour-packages/pattaya" element={<Navigate to="/international-tours/thailand/pattaya" replace />} />
+                    <Route path="/thailand-tour-packages/phuket" element={<Navigate to="/international-tours/thailand/phuket" replace />} />
+                    <Route path="/thailand-tour-packages/krabi" element={<Navigate to="/international-tours/thailand/krabi" replace />} />
+                    <Route path="/thailand-tour-packages/:cityId" element={<Navigate to="/international-tours/thailand" replace />} />
+                    {/* <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} /> */}
+
+                    {/* Phase 10: UAE Domination (Attraction Engine) */}
+                    <Route path="/dubai-travel-guide" element={<DubaiTravelGuide />} />
+
+                    <Route path="/dubai-all-packages" element={<DubaiPackages />} />
+                    <Route path="/dubai-visa-for-indians" element={<DubaiVisaGuide />} />
+                    <Route path="/uae/dubai-itinerary-3-days" element={<DubaiItinerary3Days />} />
+                    <Route path="/dubai-3-day-itinerary" element={<DubaiItinerary3Days />} />
+                    <Route path="/dubai-4-day-itinerary" element={<DubaiItinerary4Days />} />
+                    <Route path="/dubai-5-day-itinerary" element={<DubaiItinerary5Days />} />
+                    <Route path="/uae/dubai-trip-cost" element={<DubaiTripCost />} />
+                    <Route path="/destinations/uae/dubai-trip-cost" element={<Navigate to="/uae/dubai-trip-cost" replace />} />
+                    <Route path="/dubai-tour-packages-from-raipur" element={<Navigate to="/international-tours/dubai" replace />} />
+                    <Route path="/dubai/:slug" element={<AttractionPage />} />
+                    <Route path="/abu-dhabi/:slug" element={<AttractionPage />} />
+                    {/* Redirect Legacy if needed or just keep /uae as fallback if links exist */}
+                    <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
+
+                    {/* Ladakh SEO Pages */}
+                    <Route path="/ladakh-opening-date-2026" element={<LadakhOpeningDate />} />
+                    {/* NEW MASTER SILO */}
+                    <Route path="/domestic-tours/ladakh" element={<LadakhMaster />} />
+                    <Route path="/domestic/ladakh/family-tour-packages" element={<FamilyTourPackages />} />
+                    <Route path="/guides/ladakh/inner-line-permits" element={<InnerLinePermitGuide />} />
+
+                    {/* Kashmir Master Silo */}
+                    <Route path="/domestic-tours/kashmir" element={<KashmirMaster />} />
+                    <Route path="/domestic-tours/kashmir-from-bhilai" element={<Navigate to="/domestic-tours/kashmir" replace />} />
+                    <Route path="/domestic/kashmir/kashmir-trip-cost" element={<KashmirTripCost />} />
+
+                    {/* Manali Master Silo */}
+                    <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
+                    <Route path="/domestic-tours/manali-from-bhilai" element={<Navigate to="/domestic-tours/manali" replace />} />
+
+                    {/* Kerala Master Silo */}
+                    <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
+                    <Route path="/domestic-tours/kerala-from-bhilai" element={<Navigate to="/domestic-tours/kerala" replace />} />
+
+                    {/* Thailand Master Silo */}
+                    <Route path="/international-tours/thailand" element={<ThailandMaster />} />
+                    <Route path="/international-tours/thailand-from-raipur" element={<Navigate to="/international-tours/thailand" replace />} />
+                    <Route path="/international-tours/thailand-from-bhilai" element={<Navigate to="/international-tours/thailand" replace />} />
+
+                    {/* Thailand Prominence Routes */}
+                    <Route path="/international-tours/thailand/krabi" element={<KrabiDestinationAuthority />} />
+                    <Route path="/international-tours/thailand/pattaya" element={<PattayaDestinationAuthority />} />
+                    <Route path="/international-tours/thailand/phuket" element={<PhuketDestinationAuthority />} />
+                    <Route path="/international-tours/thailand/:cityId" element={<ThailandCityGuide />} />
+                    <Route path="/plan-your-thailand-trip" element={<ThailandPlanner />} />
+
+                    {/* Dubai Master Silo */}
+                    <Route path="/international-tours/dubai" element={<DubaiMaster />} />
+                    <Route path="/dubai-tour-packages" element={<Navigate to="/international-tours/dubai" replace />} />
+                    <Route path="/international-tours/dubai-from-raipur" element={<Navigate to="/international-tours/dubai" replace />} />
+                    <Route path="/international-tours/dubai-from-bhilai" element={<Navigate to="/international-tours/dubai" replace />} />
+
+                    {/* Singapore Master Silo */}
+                    <Route path="/international-tours/singapore" element={<SingaporeMaster />} />
+                    <Route path="/international-tours/singapore-from-bhilai" element={<Navigate to="/international-tours/singapore" replace />} />
+
+                    {/* Bali Master Silo */}
+                    <Route path="/international-tours/bali" element={<BaliMaster />} />
+                    <Route path="/international-tours/bali-from-raipur" element={<Navigate to="/international-tours/bali" replace />} />
+                    <Route path="/international-tours/bali-from-bhilai" element={<Navigate to="/international-tours/bali" replace />} />
+
+                    {/* Sri Lanka Master Silo */}
+                    <Route path="/international-tours/srilanka" element={<SriLankaMaster />} />
+                    <Route path="/international-tours/srilanka-from-raipur" element={<Navigate to="/international-tours/srilanka" replace />} />
+                    <Route path="/international-tours/srilanka-from-bhilai" element={<Navigate to="/international-tours/srilanka" replace />} />
+
+                    {/* Andaman Master Silo */}
+                    <Route path="/domestic-tours/andaman" element={<AndamanMaster />} />
+                    <Route path="/domestic-tours/andaman-from-bhilai" element={<Navigate to="/domestic-tours/andaman" replace />} />
+
+                    {/* Goa Master Silo */}
+                    <Route path="/domestic-tours/goa" element={<GoaMaster />} />
+                    <Route path="/domestic-tours/goa-from-bhilai" element={<Navigate to="/domestic-tours/goa" replace />} />
+                    <Route path="/domestic-tours/goa-from-raipur" element={<Navigate to="/domestic-tours/goa" replace />} />
+                    <Route path="/domestic-tours/goa-from-durg" element={<Navigate to="/domestic-tours/goa" replace />} />
+
+                    <Route path="/domestic-tours/goa-trip-from-supela" element={<Navigate to="/domestic-tours/goa" replace />} />
+
+                    <Route path="/domestic-tours/goa-trip-under-10000" element={<GoaTripUnder10000 />} />
+                    <Route path="/goa-trip-under-10000-from-bhilai" element={<GoaTripUnder10000 />} />
+
+                    <Route path="/domestic-tours/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
+
+                    <Route path="/domestic-tours/goa-budget-itinerary" element={<GoaBudgetItinerary />} />
+                    <Route path="/goa-budget-itinerary-from-bhilai" element={<GoaBudgetItinerary />} />
+
+                    <Route path="/domestic-tours/north-vs-south-goa" element={<NorthVsSouthGoa />} />
+                    <Route path="/north-vs-south-goa-from-cg" element={<NorthVsSouthGoa />} />
+
+                    <Route path="/domestic-tours/train-vs-flight-goa" element={<TrainVsFlightGoa />} />
+                    <Route path="/train-vs-flight-goa-from-cg" element={<TrainVsFlightGoa />} />
+
+                    {/* Goa Specials (from Sitemap) */}
+                    <Route path="/goa-tour-package-from-bhilai" element={<GoaMaster />} />
+                    <Route path="/domestic-tours/goa-from-bhilai" element={<GoaMaster />} />
+                    <Route path="/goa-package-from-raipur" element={<GoaMaster />} />
+                    <Route path="/domestic-tours/goa-from-raipur" element={<GoaMaster />} />
+                    <Route path="/goa-package-from-durg" element={<GoaMaster />} />
+                    <Route path="/domestic-tours/goa-from-durg" element={<GoaMaster />} />
+                    <Route path="/goa-trip-from-supela" element={<GoaMaster />} />
+                    <Route path="/domestic-tours/goa-trip-from-supela" element={<GoaMaster />} />
+                    <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
+
+                    <Route path="/ladakh-tour-via-srinagar" element={<LadakhViaSrinagar />} />
+                    <Route path="/ladakh-tour-via-manali" element={<LadakhViaManali />} />
+                    <Route path="/manali-vs-srinagar-route-ladakh" element={<ManaliVsSrinagar />} />
+                    <Route path="/ladakh-trip-cost" element={<LadakhTripCost />} />
+                    <Route path="/best-time-to-visit-ladakh" element={<BestTimeLadakh />} />
+                    <Route path="/ladakh-bike-trip-packages" element={<LadakhBikePackages />} />
+                    <Route path="/ladakh-ultimate-expedition" element={<LadakhUltimateExpedition />} />
+                    <Route path="/domestic-tours/ladakh-from-raipur" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+
+                    <Route path="/domestic-tours/ladakh-from-bhilai" element={<Navigate to="/domestic-tours/ladakh" replace />} />
+
+                    <Route path="/ladakh-tour-packages-from-chhattisgarh" element={<LadakhFromChhattisgarh />} />
+                    <Route path="/ladakh-tour-package-from-bhilai" element={<LadakhFromChhattisgarh />} />
+                    <Route path="/ladakh-tour-package-from-raipur" element={<LadakhFromChhattisgarh />} />
+
+                    <Route path="/is-ladakh-safe" element={<LadakhSafety />} />
+
+                    <Route path="/ladakh-packing-list" element={<LadakhPackingList />} />
+
+                    <Route path="/pangong-lake-guide" element={<PangongLake />} />
+
+                    {/* Summer Special Routes */}
+                    <Route path="/kashmir-tour-package-from-bhilai" element={<KashmirSummerSpecial />} />
+                    <Route path="/manali-tour-package-from-bhilai" element={<ManaliSummerSpecial />} />
+                    <Route path="/spiti-valley-tour-package" element={<SpitiSummerSpecial />} />
+                    <Route path="/sikkim-tour-package" element={<SikkimSummerSpecial />} />
+                    <Route path="/munsiyari-tour-package" element={<MunsiyariSummerSpecial />} />
+
+                    {/* Local Destination Routes (from Sitemap) */}
+                    <Route path="/kerala-tour-package-from-bhilai" element={<KeralaMaster />} />
+                    <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/andaman-tour-package-from-bhilai" element={<AndamanMaster />} />
+                    <Route path="/thailand-tour-package-from-bhilai" element={<ThailandMaster />} />
+                    <Route path="/dubai-tour-package-from-bhilai" element={<DubaiMaster />} />
+                    <Route path="/singapore-tour-package-from-bhilai" element={<SingaporeMaster />} />
+                    <Route path="/nepal-tour-package-from-bhilai" element={<Navigate to="/international-packages" replace />} />
+                    <Route path="/sri-lanka-tour-package-from-bhilai" element={<SriLankaMaster />} />
+                    <Route path="/bali-tour-package-from-bhilai" element={<BaliMaster />} />
+                    <Route path="/bali-tour-package-from-raipur" element={<BaliMaster />} />
+                    <Route path="/sri-lanka-tour-package-from-raipur" element={<SriLankaMaster />} />
+
+                    {/* Legal Routes */}
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/terms-conditions" element={<TermsConditions />} />
+                    <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+                    <Route path="/refund-policy" element={<RefundPolicy />} />
+                    <Route path="/disclaimer" element={<Disclaimer />} />
+
+                    {/* Local SEO Routes */}
+                    <Route path="/travel-agent-bhilai" element={<TravelAgentBhilai />} />
+                    <Route path="/visa-agent-bhilai" element={<VisaAgentBhilai />} />
+                    <Route path="/passport-agent-bhilai" element={<Navigate to="/travel-services/passport-assistance" replace />} />
+                    <Route path="/tour-packages-bhilai" element={<Navigate to="/tour-packages-from-bhilai" replace />} />
+                    <Route path="/india-tour-packages-bhilai" element={<IndiaPackagesBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/weekend-getaways" element={<WeekendGetawaysBhilai />} />
+                    <Route path="/ticket-booking-bhilai" element={<TicketBookingBhilai />} />
+                    <Route path="/train-booking-bhilai" element={<TrainBookingBhilai />} />
+                    <Route path="/flight-booking-bhilai" element={<FlightBookingBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/cheapest-trips" element={<CheapestTripsFromBhilai />} />
+                    <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/picnic-spots" element={<PicnicSpotsBhilai />} />
+
+                    {/* BLOG SYSTEM ROUTES */}
+                    <Route path="/blog" element={<BlogIndex />} />
+                    <Route path="/blog/:category" element={<CategoryPage />} />
+                    <Route path="/blog/:category/:slug" element={<BlogPost />} />
+                    <Route path="/authors/:slug" element={<AuthorPage />} />
+
+                    <Route path="/tour-packages-from-bhilai" element={<TourPackagesFromBhilai />} />
+                    <Route path="/tour-packages-from-raipur" element={<TourPackagesFromRaipur />} />
+                    <Route path="/dubai-tour-packages-from-bhilai" element={<Navigate to="/international-tours/dubai" replace />} />
+
+                    {/* Raipur Silo Children */}
+                    <Route path="/tour-packages-from-raipur/international-tours" element={<InternationalToursFromRaipur />} />
+                    <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
+
+                    {/* Bhilai Silo Children */}
+                    <Route path="/tour-packages-from-bhilai/international-tours" element={<InternationalToursFromBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/honeymoon-packages" element={<HoneymoonPackagesFromBhilai />} />
+
+                    {/* Phase 1: Goa Search Monopoly */}
+                    <Route path="/chardham-yatra-package-from-bhilai" element={<ChardhamYatraPackageFromBhilai />} />
+                    <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/nepal-tour-package-from-bhilai" element={<Navigate to="/international-packages" replace />} />
+
+
+                    {/* Sitemap */}
+                    <Route path="/sitemap" element={<Sitemap />} />
+
+                    {/* New Content Hub Routes - Phase 9 */}
+                    <Route path="/guides/where-to-go-from-bhilai" element={<WhereToGoFromBhilai />} />
+                    <Route path="/guides/after-booking-guide" element={<AfterBookingGuide />} />
+                    <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
+                    <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
+                    <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
+                    <Route path="/contact" element={<Contact />} />
+
+                    {/* FAQ Silos - Phase 29 */}
+                    <Route path="/faqs/train-booking" element={<TrainBookingFAQ />} />
+
+                    {/* Generic Package Route */}
+                    <Route path="/package/:packageId" element={<PackageDetails />} />
+
+                    {/* Destination SEO Pages (Top brand style) - Moved here to prevent catching static routes */}
+                    <Route path="/:destinationSlug/:pageSlug" element={<DestinationContent />} />
+
+                    {/* Programmatic Scale Route (Phase 2 SEO) */}
+                    <Route path="/packages/from-:origin/:destination" element={<ProgrammaticPackage />} />
+
+                    {/* Trust Pillars (Case Studies) */}
+                    <Route path="/case-studies/dubai-corporate-tour" element={<DubaiCorporate />} />
+                    <Route path="/case-studies/chardham-vip-yatra" element={<ChardhamVIP />} />
+                    <Route path="/case-studies/thailand-honeymoon" element={<ThailandHoneymoon />} />
+
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </GlobalError>
+              <CookieConsent />
+              <PWAInstallPrompt />
+              <StickyMobileCTA />
+            </BrowserRouter >
+          </TooltipProvider >
+        </SecurityProvider >
+      </ThemeProvider >
+    </CurrencyProvider>
   </QueryClientProvider >
 );
 

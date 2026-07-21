@@ -1,0 +1,3 @@
+ALTER TABLE hotel_bookings 
+ADD COLUMN IF NOT EXISTS transaction_id VARCHAR(255),
+ADD COLUMN IF NOT EXISTS secret_key VARCHAR(255);

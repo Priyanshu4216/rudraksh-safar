@@ -11,6 +11,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 import AEOStructuredData from '@/components/AEOStructuredData';
 import AIParseableContent from '@/components/AIParseableContent';
 import PattayaPromoPopup from '@/components/PattayaPromoPopup';
+import LiteApiHotelsList from '@/components/search/LiteApiHotelsList';
 import heroVideo from '@/assets/hero-video.mp4';
 import heroPoster from '@/assets/hero-poster.jpg';
 import Footer from '@/components/Footer';
@@ -79,6 +80,24 @@ const Index = () => {
         <Suspense fallback={<div className="h-96" />}>
           <TravelStyle />
         </Suspense>
+
+        {/* Section 3.5: Featured Hotels Widget */}
+        <section className="section-padding bg-background relative overflow-hidden">
+          <div className="container px-4 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="text-gold font-medium tracking-wider text-sm uppercase mb-3 block">Premium Stays</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+                Featured <span className="text-gradient-gold">Hotels</span>
+              </h2>
+              <p className="text-white/60 text-lg">
+                Discover handpicked luxury accommodations for your next getaway.
+              </p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl">
+              <LiteApiHotelsList placeId="ChIJdd4hrwug2EcRmSrV3Vo6llI" rows={2} hasSearchBar={false} />
+            </div>
+          </div>
+        </section>
 
         {/* Section 4: Signature Journeys */}
         <Suspense fallback={<div className="h-96" />}>

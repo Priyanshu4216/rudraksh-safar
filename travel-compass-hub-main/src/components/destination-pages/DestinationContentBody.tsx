@@ -11,6 +11,7 @@ import {
     PlacesToVisitSection,
     NightlifeSection
 } from '@/components/DestinationRichContent';
+import { LiteApiWidget } from '@/components/LiteApiWidget';
 
 interface DestinationContentBodyProps {
     destinationSlug: string;
@@ -189,6 +190,19 @@ const DestinationContentBody = ({ destinationSlug, pageSlug }: DestinationConten
                         <Button asChild>
                             <Link to={`/package/${destinationSlug}`}>View {destinationName} Packages</Link>
                         </Button>
+                    </div>
+
+                    {/* Integrated LiteAPI Widget for live hotel prices */}
+                    <div className="mt-12">
+                        <h2 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-4">Live Hotels in {destinationName}</h2>
+                        <p className="text-muted-foreground mb-6">Explore real-time availability and prices. Click any hotel to book instantly with our secure checkout.</p>
+                        
+                        {/* We use a fallback Place ID (London) from docs if we don't have a specific one mapped yet */}
+                        <LiteApiWidget 
+                           type="list" 
+                           placeId={data?.placeId || 'ChIJdd4hrwug2EcRmSrV3Vo6llI'} 
+                           rows={2} 
+                        />
                     </div>
                 </RichContentWrapper>
             );

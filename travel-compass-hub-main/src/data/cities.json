@@ -1,0 +1,12 @@
+[
+  { "id": "NYC", "name": "New York", "country": "US", "code": "US" },
+  { "id": "LHR", "name": "London", "country": "UK", "code": "GB" },
+  { "id": "DXB", "name": "Dubai", "country": "UAE", "code": "AE" },
+  { "id": "PAR", "name": "Paris", "country": "France", "code": "FR" },
+  { "id": "TOK", "name": "Tokyo", "country": "Japan", "code": "JP" },
+  { "id": "BOM", "name": "Mumbai", "country": "India", "code": "IN" },
+  { "id": "DEL", "name": "New Delhi", "country": "India", "code": "IN" },
+  { "id": "BLI", "name": "Bali", "country": "Indonesia", "code": "ID" },
+  { "id": "SIN", "name": "Singapore", "country": "Singapore", "code": "SG" },
+  { "id": "BKK", "name": "Bangkok", "country": "Thailand", "code": "TH" }
+]

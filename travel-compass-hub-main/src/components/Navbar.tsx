@@ -2,14 +2,14 @@ import React, { forwardRef, useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import { CurrencySelector } from './CurrencySelector';
 import { useTheme } from './ThemeProvider';
 import logoTransparent from '@/assets/dark_mode_web_logo_crop-removebg-preview.png';
 import { Helmet } from 'react-helmet-async';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
-
-  { name: 'Hot Deals', href: '/hot-deals', isRoute: true, highlight: true },
+  { name: 'Hotel Booking', href: '/hotels', isRoute: true, highlight: 'premium' },
   {
     name: 'Services',
     href: '#services',
@@ -33,10 +33,8 @@ const navLinks = [
       { name: 'Luxury', href: '/luxury-packages', isRoute: true },
     ],
   },
-  { name: 'Destinations 🌍', href: '/destinations', isRoute: true },
-  { name: 'Char Dham Yatra', href: '/chardham-yatra-package', isRoute: true, highlight: 'new' },
+  { name: 'My Bookings', href: '/bookings', isRoute: true },
   { name: 'B2B Partners', href: '/b2b-travel-partners', isRoute: true, highlight: 'premium' },
-  { name: 'For Travellers', href: '/for-travellers', isRoute: true },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -122,11 +120,11 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex items-center justify-between px-6 md:px-8">
+        <div className="container mx-auto flex items-center justify-between px-6 md:px-8 relative">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group z-10"
             aria-label="Rudraksh Safar Home"
           >
             <img
@@ -138,8 +136,8 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
             />
           </Link>
 
-          {/* Desktop Navigation - Moved to right */}
-          <div className={`hidden lg:flex items-center gap-4 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+          {/* Desktop Navigation - Centered */}
+          <div className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
             <ul className={`flex items-center gap-1 rounded-full px-2 py-1.5 transition-all duration-300 ${isScrolled
               ? 'bg-muted/80'
               : isHomePage
@@ -236,11 +234,17 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Desktop Right Side Controls */}
+          <div className={`hidden lg:flex items-center gap-4 transition-all duration-500 z-10 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+            <CurrencySelector />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className={`flex lg:hidden items-center gap-3 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+            <CurrencySelector />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
