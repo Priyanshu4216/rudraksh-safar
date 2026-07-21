@@ -4,27 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <script>
-    window.onload_errors = [];
     window.onerror = function (msg, src, line, col, err) {
-      console.error("Global Error Caught:", msg, err);
-      var displayMsg = "<div style='color:white; font-size:16px; padding:20px; z-index:999999; position:fixed; top:0; left:0; width:100%; height:100%; background:#8b0000; font-family:sans-serif; overflow-y:auto;'><b>🚨 CRITICAL SAFARI JS ERROR:</b><br><br>" + msg + "<br><br><b>File:</b> " + src + ":" + line + "</div>";
-      if (document.body) {
-        document.body.innerHTML = displayMsg;
-      } else {
-        window.onload_errors.push(displayMsg);
-      }
+      console.error("Global Error Caught:", msg, "File:", src, "Line:", line, err);
     };
     window.addEventListener('unhandledrejection', function (event) {
       console.error("Unhandled Promise Rejection:", event.reason);
-      if (document.body && !document.body.innerHTML.includes('CRITICAL SAFARI JS ERROR')) {
-        document.body.innerHTML += "<div style='color:white; font-size:16px; padding:20px; z-index:999998; position:fixed; bottom:0; left:0; width:100%; background:#a00; border-top:2px solid #f00;'><b>🚨 PROMISE FAILURE:</b> " + (event.reason ? event.reason.toString() : "Unknown") + "</div>";
-      }
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      if (window.onload_errors && window.onload_errors.length > 0) {
-        document.body.innerHTML = window.onload_errors[0];
-      }
     });
   </script>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
