@@ -40,10 +40,10 @@ export const BookingConfirmation = () => {
             checkout: '2026-08-18',
             hotel_id: 'Taj Lake Palace, Udaipur',
             guest_info: {
-              firstName: 'Rahul',
-              lastName: 'Sharma',
-              email: 'rahul.sharma@example.com',
-              phone: '+91 98765 43210',
+              firstName: 'Priyanshu',
+              lastName: 'Chaudhary',
+              email: 'rudrakshsafar@gmail.com',
+              phone: '+91 97130 57086',
               gstin: '22AAAAA0000A1Z5',
               roomName: 'Luxury Lake View Suite',
               boardName: 'Complimentary Buffet Breakfast Included',
@@ -61,10 +61,10 @@ export const BookingConfirmation = () => {
             rooms: [{ name: 'Luxury Lake View Suite', boardName: 'Complimentary Buffet Breakfast Included' }]
           });
           setGuestDetails({
-            firstName: 'Rahul',
-            lastName: 'Sharma',
-            email: 'rahul.sharma@example.com',
-            phone: '+91 98765 43210',
+            firstName: 'Priyanshu',
+            lastName: 'Chaudhary',
+            email: 'rudrakshsafar@gmail.com',
+            phone: '+91 97130 57086',
             gstin: '22AAAAA0000A1Z5',
             specialRequests: 'High floor with Lake Pichola view'
           });

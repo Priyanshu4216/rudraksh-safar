@@ -276,7 +276,7 @@ export const Checkout = () => {
                       <label className="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
                       <input
                         type="text" required autoComplete="given-name"
-                        placeholder="Rahul"
+                        placeholder="Priyanshu"
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                         value={firstName}
                         onChange={e => setFirstName(e.target.value)}
@@ -286,7 +286,7 @@ export const Checkout = () => {
                       <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name *</label>
                       <input
                         type="text" required autoComplete="family-name"
-                        placeholder="Sharma"
+                        placeholder="Chaudhary"
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                         value={lastName}
                         onChange={e => setLastName(e.target.value)}
@@ -300,7 +300,7 @@ export const Checkout = () => {
                       <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
                       <input
                         type="email" required autoComplete="email"
-                        placeholder="rahul@example.com"
+                        placeholder="rudrakshsafar@gmail.com"
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -314,7 +314,7 @@ export const Checkout = () => {
                         <Phone className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
                         <input
                           type="tel" required autoComplete="tel"
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 97130 57086"
                           className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                           value={phone}
                           onChange={e => setPhone(e.target.value)}
