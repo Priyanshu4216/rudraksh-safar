@@ -12,6 +12,7 @@ const fetchUserCurrency = async () => 'INR';
 export const HotelsHub: React.FC = () => {
   const [hotels, setHotels] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [ratesLoading, setRatesLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -20,54 +21,69 @@ export const HotelsHub: React.FC = () => {
   // Track rates by hotel ID as they stream in
   const [ratesMap, setRatesMap] = useState<Map<string, any>>(new Map());
 
-  const handleSearch = useCallback(async (params: Record<string, string>) => {
+  const [offset, setOffset] = useState(0);
+
+  const handleSearch = useCallback(async (params: Record<string, string>, isLoadMore = false, currentOffset = 0) => {
     setIsLoading(true);
+    setRatesLoading(true);
     setError(null);
     setHasSearched(true);
-    setHotels([]);
-    setRatesMap(new Map());
-    setLastSearchParams(params);
     
-    let accumulatedHotels: any[] = [];
-    const currentRates = new Map<string, any>();
-
+    if (!isLoadMore) {
+      setHotels([]);
+      setRatesMap(new Map());
+      setLastSearchParams(params);
+      setOffset(0);
+    }
+    
     try {
       const currency = await fetchUserCurrency();
-      const searchParams = { ...params, currency, guestInfo: params.guestInfo || '2' };
+      const searchParams = { ...params, currency, guestInfo: params.guestInfo || '2', offset: currentOffset };
       
       await HotelApiService.searchStream(searchParams, (chunk) => {
-        console.log('[HotelsHub] Chunk received:', chunk);
         if (chunk.done) {
           setIsLoading(false);
+          setRatesLoading(false);
           return;
         }
 
-        // If chunk contains rates, store them
         if (chunk.rates) {
-          console.log('[HotelsHub] Rates chunk, count:', chunk.rates.length);
-          chunk.rates.forEach((rate: any) => {
-            currentRates.set(rate.hotelId, rate);
+          setRatesMap(prev => {
+            const next = new Map(prev);
+            chunk.rates.forEach((rate: any) => next.set(rate.hotelId, rate));
+            return next;
           });
-          setRatesMap(new Map(currentRates));
+          setRatesLoading(false);
         }
 
-        // If chunk contains hotels, append them
         if (chunk.hotels) {
-          console.log('[HotelsHub] Hotels chunk, count:', chunk.hotels.length);
           const newHotels = chunk.hotels.map((h: any) => ({
             ...h,
             image: h.main_photo || h.thumbnail || null
           }));
-          accumulatedHotels = [...accumulatedHotels, ...newHotels];
-          setHotels([...accumulatedHotels]);
+          setHotels(prev => {
+            // Deduplicate by ID
+            const existingIds = new Set(prev.map(p => p.id || p.hotelId));
+            const uniqueNew = newHotels.filter(h => !existingIds.has(h.id || h.hotelId));
+            return [...prev, ...uniqueNew];
+          });
         }
       });
     } catch (err: any) {
       console.error(err);
       setError(err.message || 'Failed to fetch hotels. Please try again.');
       setIsLoading(false);
+      setRatesLoading(false);
     }
   }, []);
+
+  const handleLoadMore = () => {
+    if (!lastSearchParams) return;
+    const newOffset = offset + 600; // Same as MAX_HOTELS_TO_PRICE in backend
+    setOffset(newOffset);
+    handleSearch(lastSearchParams, true, newOffset);
+  };
+
 
   const FAMOUS_HOTEL_BRANDS = [
     { name: 'Mayfair Hotels', category: 'Heritage & Spa Resorts' },
@@ -124,8 +140,8 @@ export const HotelsHub: React.FC = () => {
               <LiteApiSearchBar 
                 onSearch={async (searchData) => {
                   const formatDate = (d: Date) => d.toISOString().split('T')[0];
-                  let chkIn = searchData.checkin || searchData.checkIn;
-                  let chkOut = searchData.checkout || searchData.checkOut;
+                  let chkIn = searchData.checkin || searchData.checkIn || searchData.chkIn;
+                  let chkOut = searchData.checkout || searchData.checkOut || searchData.chkOut;
                   
                   if (chkIn && typeof chkIn === 'string') chkIn = chkIn.replace(/\s+/g, '-');
                   if (chkOut && typeof chkOut === 'string') chkOut = chkOut.replace(/\s+/g, '-');
@@ -133,51 +149,27 @@ export const HotelsHub: React.FC = () => {
                   if (!chkIn && searchData.dates?.start) chkIn = formatDate(new Date(searchData.dates.start));
                   if (!chkOut && searchData.dates?.end) chkOut = formatDate(new Date(searchData.dates.end));
                   
-                  if (!chkIn) chkIn = formatDate(new Date(Date.now() + 86400000 * 7));
-                  if (!chkOut) chkOut = formatDate(new Date(Date.now() + 86400000 * 10));
+                  if (!chkIn) chkIn = formatDate(new Date(Date.now() + 86400000));
+                  if (!chkOut) chkOut = formatDate(new Date(Date.now() + 86400000 * 2));
 
                   const finalCity = searchData.cityName || searchData.query || '';
 
+                  // Build search payload — pass placeId if available (unlocks full inventory)
                   const searchPayload: any = {
                     cityName: finalCity,
-                    chkIn: chkIn,
-                    chkOut: chkOut,
-                    guestInfo: searchData.guestInfo || searchData.adults?.toString() || '2'
+                    chkIn,
+                    chkOut,
+                    checkin: chkIn,
+                    checkout: chkOut,
+                    guestInfo: searchData.guestInfo || String(searchData.adults || 2),
                   };
 
-                  if (searchData.hotelName) searchPayload.hotelName = searchData.hotelName;
+                  // Pass through placeId for full inventory search (same as widget)
+                  if (searchData.placeId) searchPayload.placeId = searchData.placeId;
                   if (searchData.hotelId) searchPayload.hotelId = searchData.hotelId;
-                  if (searchData.countryCode) searchPayload.countryCode = searchData.countryCode;
-
-                  // Fallback country code parsing from city string if contains comma
-                  if (!searchPayload.countryCode && finalCity.includes(',')) {
-                    const parts = finalCity.split(',').map((p: string) => p.trim().toLowerCase());
-                    const countryMap: Record<string, string> = {
-                      'india': 'IN', 'usa': 'US', 'united states': 'US', 'uk': 'GB',
-                      'united kingdom': 'GB', 'france': 'FR', 'germany': 'DE', 'italy': 'IT',
-                      'spain': 'ES', 'canada': 'CA', 'australia': 'AU', 'japan': 'JP',
-                      'china': 'CN', 'brazil': 'BR', 'mexico': 'MX', 'thailand': 'TH',
-                      'indonesia': 'ID', 'malaysia': 'MY', 'singapore': 'SG', 'vietnam': 'VN',
-                      'philippines': 'PH', 'south korea': 'KR', 'switzerland': 'CH',
-                      'netherlands': 'NL', 'uae': 'AE', 'united arab emirates': 'AE', 'portugal': 'PT',
-                      'himachal pradesh': 'IN', 'rajasthan': 'IN', 'goa': 'IN', 'kerala': 'IN',
-                      'maharashtra': 'IN', 'uttarakhand': 'IN', 'punjab': 'IN', 'haryana': 'IN',
-                      'jammu & kashmir': 'IN', 'jammu and kashmir': 'IN', 'gujarat': 'IN',
-                      'karnataka': 'IN', 'tamil nadu': 'IN', 'andhra pradesh': 'IN',
-                      'telangana': 'IN', 'west bengal': 'IN', 'odisha': 'IN', 'bihar': 'IN',
-                      'uttar pradesh': 'IN', 'madhya pradesh': 'IN', 'chhattisgarh': 'IN',
-                      'jharkhand': 'IN', 'assam': 'IN', 'sikkim': 'IN', 'manipur': 'IN',
-                      'meghalaya': 'IN', 'mizoram': 'IN', 'nagaland': 'IN', 'tripura': 'IN',
-                      'arunachal pradesh': 'IN', 'delhi': 'IN',
-                    };
-                    let resolved = '';
-                    for (let i = parts.length - 1; i >= 0; i--) {
-                      if (countryMap[parts[i]]) { resolved = countryMap[parts[i]]; break; }
-                    }
-                    if (resolved) searchPayload.countryCode = resolved;
-                  }
 
                   handleSearch(searchPayload);
+
                 }} 
               />
             </div>
@@ -245,75 +237,111 @@ export const HotelsHub: React.FC = () => {
           </div>
         )}
 
-        {hasSearched && !isLoading && hotels.length === 0 && !error && (
+        {/* "No results" — only show after both hotels AND rates have finished loading */}
+        {hasSearched && !isLoading && !ratesLoading && ratesMap.size === 0 && !error && (
           <div className="text-center py-20">
-            <h3 className="text-2xl font-bold text-gray-700">No matches found</h3>
-            <p className="text-gray-500 mt-2">Try adjusting your destination or search query.</p>
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-50 rounded-full mb-5">
+              <Building2 className="w-10 h-10 text-blue-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-700 mb-2">No Available Hotels Found</h3>
+            <p className="text-gray-500 mt-2 max-w-md mx-auto">
+              No hotels with room availability were found for your selected dates. Try different dates or a nearby destination.
+            </p>
           </div>
         )}
 
-        {hasSearched && (hotels.length > 0 || isLoading) && (
+        {hasSearched && (isLoading || ratesLoading || ratesMap.size > 0) && (
           <>
-            <div className="mb-8">
-              <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
-                Search Results
-              </h2>
-              <p className="text-gray-500 text-lg">
-                Found {hotels.length} luxury properties.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {hotels.map((hotel) => {
-                const rate = ratesMap.get(hotel.id || hotel.hotelId);
-                
-                let price = null;
-                let currency = 'INR';
-                let initialPrice = null;
-                
-                if (rate) {
-                  if (rate.roomTypes && rate.roomTypes.length > 0) {
-                    const allRates = rate.roomTypes.flatMap((rt: any) => rt.rates || []);
-                    if (allRates.length > 0) {
-                      price = Math.min(...allRates.map((r: any) => r.retailRate?.total?.[0]?.amount || r.price || 999999));
-                      currency = allRates[0].retailRate?.total?.[0]?.currency || allRates[0].currency || 'INR';
-                      initialPrice = allRates[0].retailRate?.initialPrice || null;
-                    }
-                  } else if (rate.finalRate != null) {
-                    price = rate.finalRate;
-                    currency = rate.currency || 'INR';
-                  }
-                }
-
-                return (
-                  <HotelCard
-                    key={hotel.id || hotel.hotelId}
-                    id={hotel.id || hotel.hotelId}
-                    name={hotel.name || ''}
-                    address={hotel.address || ''}
-                    stars={hotel.stars ?? null}
-                    rating={hotel.reviewScore ?? hotel.rating ?? undefined}
-                    image={hotel.main_photo || hotel.thumbnail || hotel.image || ''}
-                    city={hotel.city || ''}
-                    country={hotel.country || ''}
-                    price={price}
-                    currency={currency}
-                    initialPrice={initialPrice}
-                    roomName={rate?.roomName || ''}
-                    promotions={rate?.promotions || []}
-                    perks={rate?.perks || []}
-                    checkin={lastSearchParams.chkIn}
-                    checkout={lastSearchParams.chkOut}
-                  />
-                );
-              })}
-              
-              {isLoading && (
-                [...Array(6)].map((_, i) => <SkeletonCard key={`skeleton-${i}`} />)
+            <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+              <div>
+                <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
+                  Available Hotels
+                </h2>
+                <p className="text-gray-500 text-base">
+                  {isLoading || ratesLoading
+                    ? `Searching for available rooms…`
+                    : `${ratesMap.size} hotels with confirmed availability · sorted by price`}
+                </p>
+              </div>
+              {!isLoading && !ratesLoading && ratesMap.size > 0 && (
+                <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+                  ✓ Only showing hotels with available rooms
+                </span>
               )}
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {/* Only render hotels that have confirmed rates */}
+              {hotels
+                .filter(hotel => ratesMap.has(hotel.id || hotel.hotelId))
+                .map((hotel) => {
+                  const rate = ratesMap.get(hotel.id || hotel.hotelId);
+
+                  let price: number | null = null;
+                  let currency = 'INR';
+                  let initialPrice: number | null = null;
+
+                  if (rate) {
+                    if (rate.finalRate != null) {
+                      price = rate.finalRate;
+                      currency = rate.currency || 'INR';
+                      initialPrice = rate.initialRate ?? null;
+                    } else if (rate.roomTypes?.length > 0) {
+                      const allRates = rate.roomTypes.flatMap((rt: any) => rt.rates || []);
+                      if (allRates.length > 0) {
+                        const prices = allRates.map((r: any) =>
+                          r.finalRate ?? r.retailRate?.total?.[0]?.amount ?? 999999
+                        );
+                        price = Math.min(...prices);
+                        currency = allRates[0].retailRate?.total?.[0]?.currency || allRates[0].currency || 'INR';
+                        initialPrice = allRates[0].retailRate?.initialPrice ?? null;
+                      }
+                    }
+                  }
+
+                  return (
+                    <HotelCard
+                      key={hotel.id || hotel.hotelId}
+                      id={hotel.id || hotel.hotelId}
+                      name={hotel.name || ''}
+                      address={hotel.address || ''}
+                      stars={hotel.stars ?? null}
+                      rating={hotel.reviewScore ?? hotel.rating ?? undefined}
+                      image={hotel.main_photo || hotel.thumbnail || hotel.image || ''}
+                      city={hotel.city || ''}
+                      country={hotel.country || ''}
+                      price={price}
+                      currency={currency}
+                      initialPrice={initialPrice}
+                      roomName={rate?.roomName || ''}
+                      promotions={rate?.promotions || []}
+                      perks={rate?.perks || []}
+                      checkin={lastSearchParams.chkIn || lastSearchParams.checkin}
+                      checkout={lastSearchParams.chkOut || lastSearchParams.checkout}
+                    />
+                  );
+                })}
+
+              {/* Skeleton cards while loading */}
+              {(isLoading || ratesLoading) && (
+                [...Array(8)].map((_, i) => <SkeletonCard key={`skeleton-${i}`} />)
+              )}
+            </div>
+
+            {/* Load More Button */}
+            {hasSearched && !isLoading && !ratesLoading && hotels.length > offset + 600 && (
+              <div className="mt-12 flex justify-center">
+                <button
+                  onClick={handleLoadMore}
+                  className="px-8 py-3 bg-white border-2 border-blue-600 text-blue-600 font-bold rounded-xl shadow-sm hover:bg-blue-50 transition-all active:scale-95 flex items-center gap-2"
+                >
+                  Load More Available Hotels
+                </button>
+              </div>
+            )}
           </>
         )}
+
       </section>
     </div>
   );
