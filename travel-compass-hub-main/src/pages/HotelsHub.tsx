@@ -6,6 +6,7 @@ import { HotelCard } from '../components/HotelCard';
 import { SkeletonCard } from '../components/SkeletonCard';
 import Navbar from '../components/Navbar';
 import { HotelApiService } from '../services/api/hotel.service';
+import { AiRoomSearch } from '../components/AiRoomSearch';
 
 const fetchUserCurrency = async () => 'INR';
 
@@ -15,6 +16,7 @@ export const HotelsHub: React.FC = () => {
   const [ratesLoading, setRatesLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
+  const [searchMode, setSearchMode] = useState<'standard' | 'ai'>('standard');
 
   const [lastSearchParams, setLastSearchParams] = useState<Record<string, string>>({});
   
@@ -22,6 +24,12 @@ export const HotelsHub: React.FC = () => {
   const [ratesMap, setRatesMap] = useState<Map<string, any>>(new Map());
 
   const [offset, setOffset] = useState(0);
+
+  // Filtering and Sorting State
+  const [sortOrder, setSortOrder] = useState<'recommended' | 'price_asc' | 'price_desc'>('recommended');
+  const [minPrice, setMinPrice] = useState<number | ''>('');
+  const [maxPrice, setMaxPrice] = useState<number | ''>('');
+  const [minStars, setMinStars] = useState<number>(0);
 
   const handleSearch = useCallback(async (params: Record<string, string>, isLoadMore = false, currentOffset = 0) => {
     setIsLoading(true);
@@ -34,6 +42,12 @@ export const HotelsHub: React.FC = () => {
       setRatesMap(new Map());
       setLastSearchParams(params);
       setOffset(0);
+      
+      // Reset filters on new search
+      setSortOrder('recommended');
+      setMinPrice('');
+      setMaxPrice('');
+      setMinStars(0);
     }
     
     try {
@@ -100,6 +114,42 @@ export const HotelsHub: React.FC = () => {
     { name: 'Novotel & Accor', category: 'Contemporary Modern' },
   ];
 
+  // Apply filtering and sorting
+  const processedHotels = React.useMemo(() => {
+    // 1. Filter by rates presence
+    let result = hotels.filter(hotel => ratesMap.has(hotel.id || hotel.hotelId));
+
+    // 2. Filter by stars
+    if (minStars > 0) {
+      result = result.filter(hotel => (hotel.stars || 0) >= minStars);
+    }
+
+    // 3. Filter by price range
+    if (minPrice !== '' || maxPrice !== '') {
+      result = result.filter(hotel => {
+        const rate = ratesMap.get(hotel.id || hotel.hotelId);
+        const price = rate?.finalRate ?? rate?.initialRate ?? 999999;
+        if (minPrice !== '' && price < Number(minPrice)) return false;
+        if (maxPrice !== '' && price > Number(maxPrice)) return false;
+        return true;
+      });
+    }
+
+    // 4. Sort
+    if (sortOrder === 'price_asc' || sortOrder === 'price_desc') {
+      result.sort((a, b) => {
+        const rateA = ratesMap.get(a.id || a.hotelId);
+        const priceA = rateA?.finalRate ?? rateA?.initialRate ?? 999999;
+        const rateB = ratesMap.get(b.id || b.hotelId);
+        const priceB = rateB?.finalRate ?? rateB?.initialRate ?? 999999;
+        
+        return sortOrder === 'price_asc' ? priceA - priceB : priceB - priceA;
+      });
+    }
+
+    return result;
+  }, [hotels, ratesMap, sortOrder, minPrice, maxPrice, minStars]);
+
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <Navbar />
@@ -136,9 +186,25 @@ export const HotelsHub: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="w-full max-w-5xl"
           >
-            <div className="w-full shadow-2xl rounded-2xl">
-              <LiteApiSearchBar 
-                onSearch={async (searchData) => {
+            <div className="flex justify-center mb-6 gap-3">
+              <button 
+                onClick={() => setSearchMode('standard')}
+                className={`px-6 py-2 rounded-full font-bold text-sm transition-all ${searchMode === 'standard' ? 'bg-white text-blue-600 shadow-md' : 'bg-black/20 text-white hover:bg-black/40 border border-white/20'}`}
+              >
+                Standard Search
+              </button>
+              <button 
+                onClick={() => setSearchMode('ai')}
+                className={`flex items-center gap-2 px-6 py-2 rounded-full font-bold text-sm transition-all ${searchMode === 'ai' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/30' : 'bg-black/20 text-white hover:bg-black/40 border border-white/20'}`}
+              >
+                <Sparkles className="w-4 h-4" /> AI Magic Search
+              </button>
+            </div>
+
+            {searchMode === 'standard' ? (
+              <div className="w-full shadow-2xl rounded-2xl">
+                <LiteApiSearchBar 
+                  onSearch={async (searchData) => {
                   const formatDate = (d: Date) => d.toISOString().split('T')[0];
                   let chkIn = searchData.checkin || searchData.checkIn || searchData.chkIn;
                   let chkOut = searchData.checkout || searchData.checkOut || searchData.chkOut;
@@ -167,12 +233,18 @@ export const HotelsHub: React.FC = () => {
                   // Pass through placeId for full inventory search (same as widget)
                   if (searchData.placeId) searchPayload.placeId = searchData.placeId;
                   if (searchData.hotelId) searchPayload.hotelId = searchData.hotelId;
+                  if (searchData.countryCode) searchPayload.countryCode = searchData.countryCode;
 
                   handleSearch(searchPayload);
 
                 }} 
               />
-            </div>
+              </div>
+            ) : (
+              <div className="w-full">
+                <AiRoomSearch />
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -229,13 +301,14 @@ export const HotelsHub: React.FC = () => {
         </div>
       </section>
       
-      {/* Results Rendering */}
-      <section className="max-w-7xl mx-auto px-4 py-10">
-        {error && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
-            <p className="text-red-700 font-medium">{error}</p>
-          </div>
-        )}
+      {/* Results Rendering - Only show for standard search */}
+      {searchMode === 'standard' && (
+        <section className="max-w-7xl mx-auto px-4 py-10">
+          {error && (
+            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
+              <p className="text-red-700 font-medium">{error}</p>
+            </div>
+          )}
 
         {/* "No results" — only show after both hotels AND rates have finished loading */}
         {hasSearched && !isLoading && !ratesLoading && ratesMap.size === 0 && !error && (
@@ -252,7 +325,7 @@ export const HotelsHub: React.FC = () => {
 
         {hasSearched && (isLoading || ratesLoading || ratesMap.size > 0) && (
           <>
-            <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+            <div className="mb-6 flex flex-col xl:flex-row xl:items-end justify-between gap-4">
               <div>
                 <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
                   Available Hotels
@@ -260,21 +333,88 @@ export const HotelsHub: React.FC = () => {
                 <p className="text-gray-500 text-base">
                   {isLoading || ratesLoading
                     ? `Searching for available rooms…`
-                    : `${ratesMap.size} hotels with confirmed availability · sorted by price`}
+                    : `${processedHotels.length} hotels with confirmed availability`}
                 </p>
               </div>
-              {!isLoading && !ratesLoading && ratesMap.size > 0 && (
-                <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
-                  ✓ Only showing hotels with available rooms
-                </span>
+              
+              {/* Filter & Sort Controls */}
+              {ratesMap.size > 0 && (
+                <div className="flex flex-wrap items-center gap-3 bg-white p-3 rounded-xl border border-gray-200 shadow-sm">
+                  {/* Sort */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Sort By</label>
+                    <select 
+                      value={sortOrder}
+                      onChange={(e) => setSortOrder(e.target.value as any)}
+                      className="bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 outline-none font-medium cursor-pointer"
+                    >
+                      <option value="recommended">Recommended</option>
+                      <option value="price_asc">Price: Low to High</option>
+                      <option value="price_desc">Price: High to Low</option>
+                    </select>
+                  </div>
+                  
+                  <div className="w-px h-10 bg-gray-200 mx-1 hidden sm:block"></div>
+                  
+                  {/* Price Range */}
+                  <div className="flex items-center gap-2">
+                    <div className="flex flex-col">
+                      <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Min Price</label>
+                      <input 
+                        type="number" 
+                        placeholder="₹ Min" 
+                        value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value ? Number(e.target.value) : '')}
+                        className="w-20 bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg p-2 outline-none font-medium"
+                      />
+                    </div>
+                    <span className="text-gray-400 mt-4">-</span>
+                    <div className="flex flex-col">
+                      <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Max Price</label>
+                      <input 
+                        type="number" 
+                        placeholder="₹ Max" 
+                        value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value ? Number(e.target.value) : '')}
+                        className="w-20 bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg p-2 outline-none font-medium"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-px h-10 bg-gray-200 mx-1 hidden md:block"></div>
+                  
+                  {/* Star Rating */}
+                  <div className="flex flex-col hidden md:flex">
+                    <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Stars</label>
+                    <div className="flex bg-gray-50 rounded-lg p-1 border border-gray-200 gap-1">
+                      {[0, 3, 4, 5].map(star => (
+                        <button
+                          key={star}
+                          onClick={() => setMinStars(star)}
+                          className={`px-3 py-1 text-xs font-bold rounded-md transition-colors ${minStars === star ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
+                        >
+                          {star === 0 ? 'Any' : `${star}+`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Clear Filters */}
+                  {(sortOrder !== 'recommended' || minPrice !== '' || maxPrice !== '' || minStars > 0) && (
+                    <button 
+                      onClick={() => { setSortOrder('recommended'); setMinPrice(''); setMaxPrice(''); setMinStars(0); }}
+                      className="ml-auto sm:ml-2 text-xs font-bold text-red-500 hover:text-red-700 px-3 py-2 rounded-lg hover:bg-red-50 transition-colors"
+                    >
+                      Clear All
+                    </button>
+                  )}
+                </div>
               )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {/* Only render hotels that have confirmed rates */}
-              {hotels
-                .filter(hotel => ratesMap.has(hotel.id || hotel.hotelId))
-                .map((hotel) => {
+              {/* Only render processed (filtered & sorted) hotels */}
+              {processedHotels.map((hotel) => {
                   const rate = ratesMap.get(hotel.id || hotel.hotelId);
 
                   let price: number | null = null;
@@ -342,7 +482,8 @@ export const HotelsHub: React.FC = () => {
           </>
         )}
 
-      </section>
+        </section>
+      )}
     </div>
   );
 };

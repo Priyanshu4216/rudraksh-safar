@@ -248,6 +248,23 @@ const LadakhPackingList = lazy(() => import("./pages/ladakh/LadakhPackingList"))
 const PangongLake = lazy(() => import("./pages/ladakh/PangongLake"));
 
 // Destinations Hub & Silos
+// Bilaspur SEO Domination
+const BilaspurHub = lazy(() => import("./pages/bilaspur/BilaspurHub").then(m => ({ default: m.BilaspurHub })));
+const BilaspurToGoa = lazy(() => import("./pages/bilaspur/destinations/BilaspurToGoa").then(m => ({ default: m.BilaspurToGoa })));
+const BilaspurToKashmir = lazy(() => import("./pages/bilaspur/destinations/BilaspurToKashmir").then(m => ({ default: m.BilaspurToKashmir })));
+const BilaspurToManali = lazy(() => import("./pages/bilaspur/destinations/BilaspurToManali").then(m => ({ default: m.BilaspurToManali })));
+const BilaspurToThailand = lazy(() => import("./pages/bilaspur/destinations/BilaspurToThailand").then(m => ({ default: m.BilaspurToThailand })));
+const BilaspurToDubai = lazy(() => import("./pages/bilaspur/destinations/BilaspurToDubai").then(m => ({ default: m.BilaspurToDubai })));
+const BilaspurToKerala = lazy(() => import("./pages/bilaspur/destinations/BilaspurToKerala").then(m => ({ default: m.BilaspurToKerala })));
+const BilaspurToAndaman = lazy(() => import("./pages/bilaspur/destinations/BilaspurToAndaman").then(m => ({ default: m.BilaspurToAndaman })));
+const BilaspurToBali = lazy(() => import("./pages/bilaspur/destinations/BilaspurToBali").then(m => ({ default: m.BilaspurToBali })));
+const BilaspurToShimla = lazy(() => import("./pages/bilaspur/destinations/BilaspurToShimla").then(m => ({ default: m.BilaspurToShimla })));
+const BilaspurToLadakh = lazy(() => import("./pages/bilaspur/destinations/BilaspurToLadakh").then(m => ({ default: m.BilaspurToLadakh })));
+const BilaspurToRajasthan = lazy(() => import("./pages/bilaspur/destinations/BilaspurToRajasthan").then(m => ({ default: m.BilaspurToRajasthan })));
+const BilaspurToSingapore = lazy(() => import("./pages/bilaspur/destinations/BilaspurToSingapore").then(m => ({ default: m.BilaspurToSingapore })));
+const BilaspurToMalaysia = lazy(() => import("./pages/bilaspur/destinations/BilaspurToMalaysia").then(m => ({ default: m.BilaspurToMalaysia })));
+const BilaspurToVietnam = lazy(() => import("./pages/bilaspur/destinations/BilaspurToVietnam").then(m => ({ default: m.BilaspurToVietnam })));
+
 const Destinations = lazy(() => import("./pages/destinations/index"));
 const ThailandHub = lazy(() => import("./pages/destinations/thailand/index"));
 const UAEHub = lazy(() => import("./pages/destinations/uae/index"));
@@ -561,6 +578,24 @@ const App = () => (
                     <Route path="/abu-dhabi/:slug" element={<AttractionPage />} />
                     {/* Redirect Legacy if needed or just keep /uae as fallback if links exist */}
                     <Route path="/uae/:slug" element={<Navigate to="/dubai/:slug" replace />} />
+
+                    {/* Bilaspur Master Silo */}
+                    <Route path="/bilaspur" element={<BilaspurHub />} />
+                    <Route path="/bilaspur/goa-package" element={<BilaspurToGoa />} />
+                    <Route path="/bilaspur/kashmir-package" element={<BilaspurToKashmir />} />
+                    <Route path="/bilaspur/manali-package" element={<BilaspurToManali />} />
+                    <Route path="/bilaspur/thailand-package" element={<BilaspurToThailand />} />
+                    <Route path="/bilaspur/dubai-package" element={<BilaspurToDubai />} />
+                    <Route path="/bilaspur/kerala-package" element={<BilaspurToKerala />} />
+                    <Route path="/bilaspur/andaman-package" element={<BilaspurToAndaman />} />
+                    <Route path="/bilaspur/bali-package" element={<BilaspurToBali />} />
+                    <Route path="/bilaspur/shimla-package" element={<BilaspurToShimla />} />
+                    <Route path="/bilaspur/ladakh-package" element={<BilaspurToLadakh />} />
+                    <Route path="/bilaspur/rajasthan-package" element={<BilaspurToRajasthan />} />
+                    <Route path="/bilaspur/singapore-package" element={<BilaspurToSingapore />} />
+                    <Route path="/bilaspur/malaysia-package" element={<BilaspurToMalaysia />} />
+                    <Route path="/bilaspur/vietnam-package" element={<BilaspurToVietnam />} />
+
 
                     {/* Ladakh SEO Pages */}
                     <Route path="/ladakh-opening-date-2026" element={<LadakhOpeningDate />} />

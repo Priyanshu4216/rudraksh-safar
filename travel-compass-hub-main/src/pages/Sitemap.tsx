@@ -157,6 +157,28 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "Local Travel Services (Bilaspur)",
+            description: "Dedicated tour packages and local travel assistance for travellers from Bilaspur.",
+            icon: MapPin,
+            links: [
+                { name: 'Travel Agency in Bilaspur', href: '/bilaspur', desc: 'Central Bilaspur Travel Hub' },
+                { name: 'Goa Package from Bilaspur', href: '/bilaspur/goa-package', desc: 'Beach holiday from Bilaspur' },
+                { name: 'Kashmir Package from Bilaspur', href: '/bilaspur/kashmir-package', desc: 'Paradise on earth from Bilaspur' },
+                { name: 'Manali Package from Bilaspur', href: '/bilaspur/manali-package', desc: 'Mountain trip from Bilaspur' },
+                { name: 'Thailand Package from Bilaspur', href: '/bilaspur/thailand-package', desc: 'International tour from Bilaspur' },
+                { name: 'Dubai Package from Bilaspur', href: '/bilaspur/dubai-package', desc: 'Luxury travel from Bilaspur' },
+                { name: 'Kerala Package from Bilaspur', href: '/bilaspur/kerala-package', desc: 'Backwaters from Bilaspur' },
+                { name: 'Andaman Package from Bilaspur', href: '/bilaspur/andaman-package', desc: 'Island getaway from Bilaspur' },
+                { name: 'Bali Package from Bilaspur', href: '/bilaspur/bali-package', desc: 'Tropical holiday from Bilaspur' },
+                { name: 'Shimla Package from Bilaspur', href: '/bilaspur/shimla-package', desc: 'Hill station trip from Bilaspur' },
+                { name: 'Ladakh Package from Bilaspur', href: '/bilaspur/ladakh-package', desc: 'Adventure trip from Bilaspur' },
+                { name: 'Rajasthan Package from Bilaspur', href: '/bilaspur/rajasthan-package', desc: 'Royal tour from Bilaspur' },
+                { name: 'Singapore Package from Bilaspur', href: '/bilaspur/singapore-package', desc: 'Family trip from Bilaspur' },
+                { name: 'Malaysia Package from Bilaspur', href: '/bilaspur/malaysia-package', desc: 'Twin towers from Bilaspur' },
+                { name: 'Vietnam Package from Bilaspur', href: '/bilaspur/vietnam-package', desc: 'Halong Bay from Bilaspur' },
+            ]
+        },
+        {
             title: "Local Travel Services (Raipur)",
             description: "Services designed for travellers from Raipur and surrounding regions.",
             icon: Building,

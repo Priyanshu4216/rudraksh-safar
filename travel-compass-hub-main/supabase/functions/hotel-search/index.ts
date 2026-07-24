@@ -76,6 +76,20 @@ async function fetchHotelsByPlaceId(placeId: string): Promise<any[]> {
   return all;
 }
 
+// ─── Step 1b: Fetch single hotel metadata ──────────────────────────────────
+async function fetchHotelById(hotelId: string): Promise<any> {
+  try {
+    const url = `${BASE_URL}/data/hotel?hotelId=${encodeURIComponent(hotelId)}`;
+    const resp = await fetch(url, { headers: HEADERS });
+    if (!resp.ok) return null;
+    const json = await resp.json();
+    return json.data || json.hotel || json;
+  } catch (e: any) {
+    console.warn('[hotel-search] Single hotel fetch error:', e.message);
+    return null;
+  }
+}
+
 // ─── Step 2b: Fallback — fetch by countryCode + cityName ────────────────────
 async function fetchHotelsByCityName(countryCode: string, cityName: string): Promise<any[]> {
   const PAGE_SIZE = 1000;
@@ -110,6 +124,7 @@ async function fetchHotelsByCityName(countryCode: string, cityName: string): Pro
 
 // ─── Country resolution for fallback ────────────────────────────────────────
 const CITY_COUNTRY: Record<string, string> = {
+  // India
   'goa': 'IN', 'mumbai': 'IN', 'delhi': 'IN', 'bangalore': 'IN', 'bengaluru': 'IN',
   'hyderabad': 'IN', 'chennai': 'IN', 'kolkata': 'IN', 'pune': 'IN', 'jaipur': 'IN',
   'manali': 'IN', 'shimla': 'IN', 'mussoorie': 'IN', 'nainital': 'IN', 'rishikesh': 'IN',
@@ -124,19 +139,35 @@ const CITY_COUNTRY: Record<string, string> = {
   'rajasthan': 'IN', 'himachal pradesh': 'IN', 'uttarakhand': 'IN', 'kerala': 'IN',
   'karnataka': 'IN', 'tamil nadu': 'IN', 'maharashtra': 'IN', 'gujarat': 'IN',
   'jammu': 'IN', 'kashmir': 'IN', 'india': 'IN',
+  // UAE
   'dubai': 'AE', 'abu dhabi': 'AE', 'uae': 'AE', 'united arab emirates': 'AE',
-  'bangkok': 'TH', 'phuket': 'TH', 'chiang mai': 'TH', 'thailand': 'TH',
+  // Thailand
+  'bangkok': 'TH', 'phuket': 'TH', 'chiang mai': 'TH', 'pattaya': 'TH', 'thailand': 'TH',
+  // Indonesia
   'bali': 'ID', 'jakarta': 'ID', 'indonesia': 'ID',
+  // Malaysia & Singapore
   'singapore': 'SG', 'kuala lumpur': 'MY', 'malaysia': 'MY',
-  'tokyo': 'JP', 'osaka': 'JP', 'japan': 'JP',
-  'paris': 'FR', 'france': 'FR', 'rome': 'IT', 'milan': 'IT', 'italy': 'IT',
-  'barcelona': 'ES', 'madrid': 'ES', 'spain': 'ES',
-  'london': 'GB', 'uk': 'GB', 'united kingdom': 'GB',
-  'new york': 'US', 'los angeles': 'US', 'usa': 'US', 'united states': 'US',
-  'sydney': 'AU', 'melbourne': 'AU', 'australia': 'AU',
-  'toronto': 'CA', 'vancouver': 'CA', 'canada': 'CA',
+  // Japan
+  'tokyo': 'JP', 'osaka': 'JP', 'kyoto': 'JP', 'japan': 'JP',
+  // Europe
+  'paris': 'FR', 'nice': 'FR', 'lyon': 'FR', 'france': 'FR', 
+  'rome': 'IT', 'milan': 'IT', 'venice': 'IT', 'florence': 'IT', 'italy': 'IT',
+  'barcelona': 'ES', 'madrid': 'ES', 'seville': 'ES', 'spain': 'ES',
+  'london': 'GB', 'edinburgh': 'GB', 'manchester': 'GB', 'uk': 'GB', 'united kingdom': 'GB',
+  'amsterdam': 'NL', 'berlin': 'DE', 'munich': 'DE', 'vienna': 'AT', 
+  'zurich': 'CH', 'geneva': 'CH', 'prague': 'CZ', 'budapest': 'HU', 
+  'warsaw': 'PL', 'krakow': 'PL',
+  // Americas
+  'new york': 'US', 'los angeles': 'US', 'las vegas': 'US', 'miami': 'US', 'chicago': 'US', 'usa': 'US', 'united states': 'US',
+  'toronto': 'CA', 'vancouver': 'CA', 'montreal': 'CA', 'canada': 'CA',
+  'rio de janeiro': 'BR', 'buenos aires': 'AR', 'lima': 'PE', 'cancun': 'MX', 'mexico city': 'MX',
+  // Australia
+  'sydney': 'AU', 'melbourne': 'AU', 'brisbane': 'AU', 'australia': 'AU',
+  // Others
   'kathmandu': 'NP', 'nepal': 'NP', 'colombo': 'LK', 'sri lanka': 'LK',
   'male': 'MV', 'maldives': 'MV',
+  'istanbul': 'TR', 'antalya': 'TR',
+  'cairo': 'EG', 'marrakech': 'MA', 'cape town': 'ZA'
 };
 
 function resolveCountryCode(rawCity: string, passedCode?: string): string {
@@ -177,33 +208,41 @@ serve(async (req) => {
 
     console.log(`[hotel-search] "${cityOnly}" (${countryCode}) | ${checkin}→${checkout} | ${adults} adults`);
 
-    // ── STEP 1: Get placeId ──────────────────────────────────────────────────
-    // Priority: passed placeId → resolve from city name via LiteAPI Places API
-    let resolvedPlaceId = params.placeId || null;
-
-    if (!resolvedPlaceId && cityOnly) {
-      // Try to resolve placeId using LiteAPI's own places autocomplete
-      resolvedPlaceId = await resolvePlaceId(cityOnly);
-    }
-
-    // ── STEP 2: Fetch hotel metadata (names, photos, addresses) ─────────────
     let hotelList: any[] = [];
 
-    if (resolvedPlaceId) {
-      console.log(`[hotel-search] Fetching hotels by placeId: ${resolvedPlaceId}`);
-      hotelList = await fetchHotelsByPlaceId(resolvedPlaceId);
-    }
+    // ── STEP 1: Check if specific hotelId was requested ──────────────────────
+    if (params.hotelId) {
+      console.log(`[hotel-search] Fetching specific hotel by hotelId: ${params.hotelId}`);
+      const singleHotel = await fetchHotelById(params.hotelId);
+      if (singleHotel) {
+        hotelList = [singleHotel];
+      }
+    } else {
+      // Priority: passed placeId → resolve from city name via LiteAPI Places API
+      let resolvedPlaceId = params.placeId || null;
 
-    // Fallback to countryCode + cityName if placeId returned nothing
-    if (hotelList.length === 0 && cityOnly) {
-      console.log(`[hotel-search] PlaceId returned 0, falling back to cityName search`);
-      hotelList = await fetchHotelsByCityName(countryCode, cityOnly);
-    }
+      if (!resolvedPlaceId && cityOnly) {
+        // Try to resolve placeId using LiteAPI's own places autocomplete
+        resolvedPlaceId = await resolvePlaceId(cityOnly);
+      }
 
-    // Last resort: country only
-    if (hotelList.length === 0 && countryCode) {
-      console.log(`[hotel-search] CityName returned 0, falling back to country-only`);
-      hotelList = await fetchHotelsByCityName(countryCode, '');
+      // ── STEP 2: Fetch hotel metadata (names, photos, addresses) ─────────────
+      if (resolvedPlaceId) {
+        console.log(`[hotel-search] Fetching hotels by placeId: ${resolvedPlaceId}`);
+        hotelList = await fetchHotelsByPlaceId(resolvedPlaceId);
+      }
+
+      // Fallback to countryCode + cityName if placeId returned nothing
+      if (hotelList.length === 0 && cityOnly) {
+        console.log(`[hotel-search] PlaceId returned 0, falling back to cityName search`);
+        hotelList = await fetchHotelsByCityName(countryCode, cityOnly);
+      }
+
+      // Last resort: country only
+      if (hotelList.length === 0 && countryCode) {
+        console.log(`[hotel-search] CityName returned 0, falling back to country-only`);
+        hotelList = await fetchHotelsByCityName(countryCode, '');
+      }
     }
 
     console.log(`[hotel-search] Total hotel metadata fetched: ${hotelList.length}`);
