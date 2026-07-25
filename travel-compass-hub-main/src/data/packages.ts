@@ -1,4 +1,5 @@
 import { HOME_CITY } from '@/lib/travelMeta';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 import pattayaHero from "@/assets/hot-deals-pattaya-hero.jpg";
 import coralIslandImg from "@/assets/hot-deals-coral-island.jpg";
 
@@ -664,7 +665,7 @@ export const allPackages = [
     title: 'Goa Getaway',
     location: 'Goa, India',
     duration: '4 Days / 3 Nights',
-    price: '₹11,999',
+    price: formatPrice(getPrice('goa', 'standard')?.basePrice || 9999),
     image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2074&auto=format&fit=crop',
     tag: 'Beach',
     type: 'domestic',

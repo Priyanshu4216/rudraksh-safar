@@ -52,6 +52,10 @@ const TourPackagesFromRaipur = () => {
     ];
 
     const faqs = [
+    {
+      question: "Is there a trusted travel agency in Raipur for Domestic & International packages?",
+      answer: "Yes — operating centrally from GE Road, we handle domestic and international trips frequently for Raipur residents. Since most outbound flights depart from Swami Vivekananda Airport, we manage your transit logistics seamlessly. Furthermore, for destinations like Thailand, Kashmir, and Uttarakhand, we maintain our own staffed support offices on the ground."
+    },
         { question: "What are the best tour packages from Raipur?", answer: "Travelers from Raipur love our packages to Goa, Kashmir, North East (Sikkim/Darjeeling), and international spots like Dubai and Thailand. We provide direct flight connections where available." },
         { question: "Do you assist with visas for international trips from Raipur?", answer: "Yes, our Raipur office team provides complete visa assistance for all countries including Thailand, Dubai, Singapore, and Schengen countries." },
         { question: "Are flights included in the package cost?", answer: "Our standard packages include accommodation, transfers, and sightseeing. Flights are usually extra, but we can bundle them to give you an all-inclusive price." },

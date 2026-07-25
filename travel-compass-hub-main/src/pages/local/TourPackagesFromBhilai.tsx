@@ -22,6 +22,7 @@ import RelatedServices from '@/components/RelatedServices';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { domesticPackages } from '@/pages/DomesticPackages';
 import { internationalPackages } from '@/pages/InternationalPackages';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 const TourPackagesFromBhilai = () => {
 
 
@@ -56,10 +57,14 @@ const TourPackagesFromBhilai = () => {
     ];
 
     const faqs = [
+    {
+      question: "Is there a trusted travel agency in Bhilai for Domestic & International packages?",
+      answer: "Yes — Rudraksh Safar operates right here from GE Road in Bhilai. For destinations like Thailand, Kashmir, and Uttarakhand, our own staffed support offices manage your on-ground experience. For other locations, our Bhilai team coordinates directly with verified suppliers to ensure transparent pricing and 24/7 support throughout your trip."
+    },
         {
             question: "How much does a tour package from Bhilai cost?",
-            answer: "Domestic packages typically range from ₹8,000 to ₹25,000 per person. International packages start from ₹29,000 (Thailand) to ₹65,000 (Maldives). Prices vary based on travel dates and hotel choices.",
-            answerText: "Domestic packages typically range from ₹8,000 to ₹25,000 per person. International packages start from ₹29,000 (Thailand) to ₹65,000 (Maldives)."
+            answer: `Domestic packages typically range from ₹8,000 to ${formatPrice(getPrice('thailand-pattaya')?.basePrice || 12499)} per person. International packages start from ₹29,000 (Thailand) to ₹65,000 (Maldives). Prices vary based on travel dates and hotel choices.`,
+            answerText: `Domestic packages typically range from ₹8,000 to ${formatPrice(getPrice('thailand-pattaya')?.basePrice || 12499)} per person. International packages start from ₹29,000 (Thailand) to ₹65,000 (Maldives).`
         },
         {
             question: "Which airport is used for tour packages from Bhilai?",
@@ -264,7 +269,7 @@ const TourPackagesFromBhilai = () => {
                         cons={[
                             "Don't rely on last-minute Tatkal for group trips.",
                             "Avoid agents who don't give a written itinerary.",
-                            "Don't ignore the 'monsoon surcharge' in hill stations.",
+                            "Don't ignore the 'monsoon surcharge` in hill stations.",
                             "Avoid booking separate flights on connecting routes."
                         ]}
                     />
@@ -338,7 +343,7 @@ const TourPackagesFromBhilai = () => {
                                         <span className="text-primary mt-1">❓</span> What is the cheapest international trip from India?
                                     </h3>
                                     <p className="text-muted-foreground text-sm leading-relaxed">
-                                        The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
+                                        The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, <Link to="/international-tours/thailand">Thailand</Link>, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–${formatPrice(getPrice('thailand-pattaya')?.basePrice || 12499)} per person when booked with economy flights, budget hotels, and off-season travel dates.
                                     </p>
                                 </div>
 

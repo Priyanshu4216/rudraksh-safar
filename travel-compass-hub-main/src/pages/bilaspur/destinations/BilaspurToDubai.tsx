@@ -10,6 +10,10 @@ export const BilaspurToDubai = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Dubai package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Dubai from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Dubai, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I book a flight from Bilaspur to Dubai?",
       answer: "The easiest way is to fly from Swami Vivekananda Airport (Raipur) to Dubai International Airport (DXB), usually connecting via Mumbai or Delhi. Our team in Bilaspur handles all the flight bookings for you."
     },

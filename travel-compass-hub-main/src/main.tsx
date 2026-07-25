@@ -4,6 +4,11 @@ import { HelmetProvider } from "react-helmet-async";
 import * as Sentry from "@sentry/react";
 import App from "./App.tsx";
 import "./index.css";
+import { reportWebVitals } from './reportWebVitals';
+import { monitorHydrationErrors } from './monitorHydration';
+
+// Initialize Hydration Error Monitoring (Phase 4 Deliverable)
+monitorHydrationErrors();
 
 // 🛡️ SENTRY INITIALIZATION: Error & Performance Tracking (Safely wrapped)
 const sentryDsn = import.meta.env.VITE_SENTRY_DSN;
@@ -82,3 +87,9 @@ try {
     `;
   }
 }
+
+// Track Core Web Vitals to prove prerendered HTML passes Google standards (Phase 4 Deliverable)
+reportWebVitals((metric) => {
+  // If we had an analytics endpoint, we would POST it here
+  console.log(`[Web Vitals] ${metric.name}: ${metric.value}`);
+});

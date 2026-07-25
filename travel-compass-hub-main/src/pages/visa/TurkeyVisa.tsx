@@ -35,8 +35,8 @@ const TurkeyVisa = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Turkey e-Visa Assistance",
+            "@type": "Service",
+            "name": "Turkey Visa Processing",
             "description": "Professional assistance for Turkey e-Visa application for Indian citizens. 24-48 hour processing.",
             "image": "https://rudrakshsafar.com/visa-turkey.jpg",
             "brand": {

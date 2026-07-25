@@ -10,6 +10,10 @@ export const BilaspurToSingapore = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Singapore package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Singapore from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Singapore, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I travel to Singapore from Bilaspur?",
       answer: "We book your connecting flights from Swami Vivekananda Airport (Raipur) to Changi Airport (SIN) in Singapore. The most common connections are via Kolkata, Chennai, or New Delhi."
     },

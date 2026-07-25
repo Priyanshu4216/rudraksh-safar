@@ -4,11 +4,16 @@ import Footer from '../../../components/Footer';
 import { BilaspurSchema } from '../../../components/seo/BilaspurSchema';
 import { MapPin, Phone, MessageCircle, Calendar, Check, X, Clock, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 export const BilaspurToGoa = () => {
   const price = 12999;
   
   const faqs = [
+    {
+      question: "Is there a trusted travel agency in Bilaspur for a Goa package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Goa from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Goa, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
     {
       question: "What is the best way to travel from Bilaspur to Goa?",
       answer: "The fastest and most convenient way is to take a direct or connecting flight from Swami Vivekananda Airport in Raipur to Dabolim Airport (GOI) or Mopa Airport (GOX) in Goa. Alternatively, you can take a train from Bilaspur Junction to Madgaon (MAO) if you prefer a scenic rail journey."
@@ -19,7 +24,7 @@ export const BilaspurToGoa = () => {
     },
     {
       question: "Does the package price include flight tickets from Raipur?",
-      answer: "The starting price of ₹12,999 is for the land package only (hotel, meals, sightseeing, and local transfers). We can add round-trip flights from Raipur to Goa at the best available rates based on your travel dates."
+      answer: `The starting price of ${formatPrice(getPrice('goa')?.basePrice || 9999)} is for the land package only (hotel, meals, sightseeing, and local transfers). We can add round-trip flights from Raipur to Goa at the best available rates based on your travel dates.`
     },
     {
       question: "What are the best months to visit Goa?",

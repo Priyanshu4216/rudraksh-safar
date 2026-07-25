@@ -273,6 +273,9 @@ const AboutUs = () => {
                                 <p className="text-lg text-muted-foreground leading-relaxed">
                                     This direct contracting gives us tremendous negotiating power, which led to the creation of our dedicated B2B division. Today, we are proud to function as a premier <Link to="/b2b/thailand" className="text-primary hover:underline font-bold">B2B DMC for Thailand</Link>. We supply over 300+ independent travel agents across India with white-label transport, verified tour guides, and wholesale hotel tariffs, actively facilitating group MICE tours and bespoke luxury holidays.
                                 </p>
+                                <p className="text-lg text-muted-foreground leading-relaxed">
+                                    We aren't just a booking desk in Chhattisgarh. We operate with a real, staffed on-ground presence in three key destinations: Kashmir, Thailand, and Uttarakhand. This direct operational control ensures our clients receive immediate, real-time support throughout their journey.
+                                </p>
                                 <ul className="space-y-3 mt-4">
                                     <li className="flex items-center gap-3">
                                         <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />

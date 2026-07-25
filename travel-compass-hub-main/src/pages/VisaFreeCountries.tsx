@@ -7,6 +7,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
 import SEOHead from '@/components/SEOHead';
 import PageLoader from '@/components/PageLoader';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const visaFreeDestinations = [
   { name: 'Maldives', flag: '🇲🇻', stay: '30 days', notes: 'Free 30-day tourist visa on arrival', region: 'Asia' },
@@ -334,7 +335,7 @@ const VisaFreeCountries = () => {
                   <span className="text-primary mt-1">❓</span> What is the cheapest international trip from India?
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–₹25,000 per person when booked with economy flights, budget hotels, and off-season travel dates.
+                  The cheapest international trips from India are usually to nearby countries such as Nepal, Sri Lanka, Thailand, Malaysia, and Indonesia (Bali). Budget international trips can start from ₹15,000–{formatPrice(getPrice('thailand-pattaya')?.basePrice || 12499)} per person when booked with economy flights, budget hotels, and off-season travel dates.
                 </p>
               </div>
 

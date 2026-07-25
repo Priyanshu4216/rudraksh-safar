@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RelatedServices from '@/components/RelatedServices';
 
 import FAQsSection from '@/components/FAQsSection';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const TourPackagesBhilai = () => {
   const structuredData = {
@@ -140,12 +141,12 @@ const TourPackagesBhilai = () => {
   ];
 
   const popularDestinations = [
-    { name: "Goa", type: "Beach", duration: "3N/4D", price: "₹9,999" },
+    { name: "Goa", type: "Beach", duration: "3N/4D", price: formatPrice(getPrice('goa')?.basePrice || 9999) },
     { name: "Kerala", type: "Backwaters", duration: "4N/5D", price: "₹14,999" },
     { name: "Rajasthan", type: "Heritage", duration: "5N/6D", price: "₹16,999" },
-    { name: "Kashmir", type: "Mountains", duration: "5N/6D", price: "₹19,999" },
-    { name: "Thailand", type: "International", duration: "4N/5D", price: "₹29,999" },
-    { name: "Dubai", type: "International", duration: "4N/5D", price: "₹45,999" },
+    { name: "Kashmir", type: "Mountains", duration: "5N/6D", price: formatPrice(getPrice('kashmir')?.basePrice || 9999) },
+    { name: "Thailand", type: "International", duration: "4N/5D", price: formatPrice(getPrice('thailand-pattaya')?.basePrice || 12499) },
+    { name: "Dubai", type: "International", duration: "4N/5D", price: formatPrice(getPrice('dubai')?.basePrice || 23499) },
   ];
 
   return (
@@ -180,7 +181,7 @@ const TourPackagesBhilai = () => {
                 Best Tour Packages from <span className="text-primary">Bhilai</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Discover amazing holiday packages for every budget. Most of our Bhilai customers come from Supela, Smriti Nagar, Nehru Nagar, Risali, and nearby areas.
+                Discover amazing holiday packages tailored for travelers from the steel city. We understand the best routes from <strong>Durg Junction (DURG)</strong> and arrange seamless cabs for the 44km drive to Raipur Airport via NH53. Most of our customers come from Supela, Smriti Nagar, and Power House.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild className="text-lg px-8">
@@ -335,10 +336,10 @@ const TourPackagesBhilai = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
-                    "Local office in Bhilai for face-to-face consultation",
-                    "Familiarity with Raipur Airport flight connections",
-                    "Assistance with Durg Railway Station departures",
-                    "Secure payment options (Cash/UPI) at our office"
+                    "Local office in Bhilai 3 for face-to-face consultation",
+                    "Seamless cab transfers for the 44km drive to Raipur Airport via NH53",
+                    "Confirmed Tatkal assistance from Durg Junction (DURG)",
+                    "Secure payment options (Cash/UPI) at our Supela/Nehru Nagar office"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <ShieldCheck className="w-5 h-5 text-primary shrink-0" />

@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import RelatedServices from '@/components/RelatedServices';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const IndiaPackagesBhilai = () => {
   const localBusinessSchema = {
@@ -88,7 +89,7 @@ const IndiaPackagesBhilai = () => {
         "name": "What are the best India tour packages from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Popular India tour packages from Bhilai include Goa (₹9,999), Kerala (₹14,999), Kashmir (₹17,999), Rajasthan (₹12,999), Himachal (₹11,999), and North-East (₹19,999). All packages include accommodation, transport, and sightseeing."
+          "text": `Popular India tour packages from Bhilai include Goa (${formatPrice(getPrice('goa')?.basePrice || 9999)}), Kerala (₹14,999), Kashmir ({formatPrice(getPrice('kashmir')?.basePrice || 9999)}), Rajasthan ({formatPrice(getPrice('goa')?.basePrice || 9999)}), Himachal ({formatPrice(getPrice('goa')?.basePrice || 9999)}), and North-East ({formatPrice(getPrice('kashmir')?.basePrice || 9999)}). All packages include accommodation, transport, and sightseeing.`
         }
       },
       {
@@ -96,7 +97,7 @@ const IndiaPackagesBhilai = () => {
         "name": "How much does a Goa trip cost from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Goa tour packages from Bhilai start from ₹9,999 per person for 3N/4D including hotel stay, beach tours, and transfers. Flight packages start from ₹15,999."
+          "text": `Goa tour packages from Bhilai start from ${formatPrice(getPrice('goa')?.basePrice || 9999)} per person for 3N/4D including hotel stay, beach tours, and transfers. Flight packages start from ₹15,999.`
         }
       },
       {
@@ -104,18 +105,18 @@ const IndiaPackagesBhilai = () => {
         "name": "Do you offer Kashmir packages from Bhilai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we offer Kashmir tour packages from Bhilai starting ₹17,999 for 5N/6D covering Srinagar, Gulmarg, Pahalgam, and Sonmarg with hotel, houseboat stay, and sightseeing."
+          "text": `Yes, we offer Kashmir tour packages from Bhilai starting ${formatPrice(getPrice('kashmir')?.basePrice || 9999)} for 5N/6D covering Srinagar, Gulmarg, Pahalgam, and Sonmarg with hotel, houseboat stay, and sightseeing.`
         }
       }
     ]
   };
 
   const destinations = [
-    { name: "Goa", price: "₹9,999", days: "3N/4D", image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/package/goa", highlights: ["Beaches", "Nightlife", "Water Sports"] },
+    { name: "Goa", price: formatPrice(getPrice('goa')?.basePrice || 9999), days: "3N/4D", image: "https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/package/goa", highlights: ["Beaches", "Nightlife", "Water Sports"] },
     { name: "Kerala", price: "₹14,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800", link: "/domestic-tours/kerala-from-bhilai", highlights: ["Backwaters", "Munnar", "Alleppey"] },
-    { name: "Kashmir", price: "₹17,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/domestic-tours/kashmir-from-bhilai", highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
+    { name: "Kashmir", price: formatPrice(getPrice('kashmir')?.basePrice || 9999), days: "5N/6D", image: "https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/domestic-tours/kashmir-from-bhilai", highlights: ["Srinagar", "Gulmarg", "Pahalgam"] },
     { name: "Rajasthan", price: "₹12,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800", link: "/package/rajasthan-family", highlights: ["Jaipur", "Udaipur", "Jaisalmer"] },
-    { name: "Himachal", price: "₹11,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/domestic-tours/manali-from-bhilai", highlights: ["Manali", "Shimla", "Dharamshala"] },
+    { name: "Himachal", price: formatPrice(getPrice('manali')?.basePrice || 9999), days: "5N/6D", image: "https://images.unsplash.com/photo-1712388430474-ace0c16051e2?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", link: "/domestic-tours/manali-from-bhilai", highlights: ["Manali", "Shimla", "Dharamshala"] },
     { name: "Ladakh", price: "₹24,999", days: "6N/7D", image: "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&q=80&w=800", link: "/package/ladakh", highlights: ["Leh", "Pangong", "Nubra"] },
     { name: "North-East", price: "₹19,999", days: "6N/7D", image: "https://images.unsplash.com/photo-1596482855174-8b067332da2f?auto=format&fit=crop&q=80&w=800", link: "/package/gangtok-darjeeling", highlights: ["Shillong", "Kaziranga", "Tawang"] },
     { name: "Andaman", price: "₹22,999", days: "5N/6D", image: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=80&w=800", link: "/package/andaman", highlights: ["Havelock", "Neil Island", "Scuba"] },
@@ -137,15 +138,15 @@ const IndiaPackagesBhilai = () => {
     },
     {
       question: "What are the best India tour packages from Bhilai?",
-      answer: "Popular India tour packages from Bhilai include Goa (₹9,999), Kerala (₹14,999), Kashmir (₹17,999), Rajasthan (₹12,999), Himachal (₹11,999), and North-East (₹19,999). All packages include accommodation, transport, and sightseeing."
+      answer: `Popular India tour packages from Bhilai include Goa (${formatPrice(getPrice('goa')?.basePrice || 9999)}), Kerala (₹14,999), Kashmir ({formatPrice(getPrice('kashmir')?.basePrice || 9999)}), Rajasthan ({formatPrice(getPrice('goa')?.basePrice || 9999)}), Himachal ({formatPrice(getPrice('goa')?.basePrice || 9999)}), and North-East ({formatPrice(getPrice('kashmir')?.basePrice || 9999)}). All packages include accommodation, transport, and sightseeing.`
     },
     {
       question: "How much does a Goa trip cost from Bhilai?",
-      answer: "Goa tour packages from Bhilai start from ₹9,999 per person for 3N/4D including hotel stay, beach tours, and transfers. Flight packages start from ₹15,999."
+      answer: `Goa tour packages from Bhilai start from ${formatPrice(getPrice('goa')?.basePrice || 9999)} per person for 3N/4D including hotel stay, beach tours, and transfers. Flight packages start from ₹15,999.`
     },
     {
       question: "Do you offer Kashmir packages from Bhilai?",
-      answer: "Yes, we offer Kashmir tour packages from Bhilai starting ₹17,999 for 5N/6D covering Srinagar, Gulmarg, Pahalgam, and Sonmarg with hotel, houseboat stay, and sightseeing."
+      answer: `Yes, we offer Kashmir tour packages from Bhilai starting ${formatPrice(getPrice('kashmir')?.basePrice || 9999)} for 5N/6D covering Srinagar, Gulmarg, Pahalgam, and Sonmarg with hotel, houseboat stay, and sightseeing.`
     },
   ];
 
@@ -153,12 +154,12 @@ const IndiaPackagesBhilai = () => {
     <>
       <Helmet>
         <title>India Tour Packages from Bhilai | Goa Kashmir Kerala | Rudraksh Safar</title>
-        <meta name="description" content="Book national tour packages from Bhilai to Goa, Kashmir, Kerala, Rajasthan, Himachal & more. Starting ₹9,999. Family & honeymoon packages available. Call +91 92036 50311." />
+        <meta name="description" content={`Book national tour packages from Bhilai to Goa, Kashmir, Kerala, Rajasthan, Himachal & more. Starting ${formatPrice(getPrice('goa')?.basePrice || 9999)}. Family & honeymoon packages available. Call +91 92036 50311.`} />
         <meta name="keywords" content="india tour packages bhilai, goa package from bhilai, kashmir tour from bhilai, kerala package bhilai, domestic tour from bhilai, national tour packages bhilai" />
         <link rel="canonical" href="https://rudrakshsafar.com/india-tour-packages-bhilai" />
 
         <meta property="og:title" content="India Tour Packages from Bhilai | Rudraksh Safar" />
-        <meta property="og:description" content="Book domestic holidays from Bhilai. Goa, Kashmir, Kerala & more from ₹9,999." />
+        <meta property="og:description" content={`Book domestic holidays from Bhilai. Goa, Kashmir, Kerala & more from ${formatPrice(getPrice('goa')?.basePrice || 9999)}.`} />
         <meta property="og:url" content="https://rudrakshsafar.com/india-tour-packages-bhilai" />
         <meta property="og:type" content="website" />
 

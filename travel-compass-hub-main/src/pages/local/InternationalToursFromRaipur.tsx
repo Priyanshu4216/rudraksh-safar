@@ -43,6 +43,10 @@ const InternationalToursFromRaipur = () => {
         });
 
     const faqs = [
+    {
+      question: "Is there a trusted travel agency in Raipur for Dubai/Thailand/Singapore packages?",
+      answer: "Yes — operating centrally from GE Road, we handle international trips frequently for Raipur residents. Since most outbound flights depart from Swami Vivekananda Airport, we manage your transit logistics seamlessly. Furthermore, for destinations like Thailand, Kashmir, and Uttarakhand, we maintain our own staffed support offices on the ground."
+    },
         {
             question: "Do I need to go to Delhi for international visas from Raipur?",
             answer: "No. For most destinations (Dubai, Thailand, Singapore, Bali, Europe), we process visas online or handle the submission from our Raipur/Bhilai office. You rarely need to visit the embassy physically."
@@ -182,7 +186,7 @@ const InternationalToursFromRaipur = () => {
                                 <MapPin className="w-10 h-10 text-orange-500 mx-auto mb-4" />
                                 <h3 className="font-bold text-lg mb-2">3. Arrival Support</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    From the moment you land, our local partners handle forex, sim cards, and hotel transfers. You are never alone in a new country.
+                                    From the moment you land, our on-ground team handles forex, sim cards, and hotel transfers. You are never alone in a new country.
                                 </p>
                             </div>
                         </div>

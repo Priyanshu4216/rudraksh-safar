@@ -10,6 +10,10 @@ export const BilaspurToManali = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Manali package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Manali from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Manali, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "What is the best way to travel from Bilaspur to Manali?",
       answer: "The most popular route for travelers from Bilaspur is to take a train to Delhi (New Delhi Railway Station) or Chandigarh, and then board an overnight Volvo bus to Manali. Alternatively, you can fly from Raipur to Delhi or Chandigarh and take a cab or bus from there."
     },

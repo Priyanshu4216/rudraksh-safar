@@ -15,6 +15,10 @@ const KashmirTripCost = () => {
 
     const faqs = [
         {
+            question: "Do you have local support during the Kashmir trip?",
+            answer: "Yes — we have our own support office and staff based in Srinagar, so you have real, on-ground help throughout your trip, not just a phone number back in Chhattisgarh."
+        },
+        {
             question: "How much does a Kashmir trip cost for a couple?",
             answer: "A comfortable 6-day honeymoon or couple's trip to Kashmir typically costs between ₹55,000 to ₹75,000 per couple (excluding flights). This includes a private taxi (Innova/Sedan) for all days, 3/4-star hotels, a Houseboat stay in Dal Lake, and standard activities like Shikara rides."
         },

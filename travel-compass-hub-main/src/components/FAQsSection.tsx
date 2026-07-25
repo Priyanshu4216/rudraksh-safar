@@ -9,6 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import { ReactNode } from 'react';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 interface FAQ {
   question: string;
@@ -32,7 +33,7 @@ const defaultFaqs: FAQ[] = [
   },
   {
     question: 'What are the cheapest tour packages available from Bhilai?',
-    answer: 'Our value packages start from ₹9,999. Best-sellers include: Manali Volo Trip (from Durg Station), Goa Group Tour (from Raipur Airport), and budget-friendly Kedarnath Yatra. All packages clearly list inclusions like meals, hotels, and transfers with no hidden costs.',
+    answer: `Our value packages start from ${formatPrice(getPrice('goa')?.basePrice || 9999)}. Best-sellers include: Manali Volo Trip (from Durg Station), Goa Group Tour (from Raipur Airport), and budget-friendly Kedarnath Yatra. All packages clearly list inclusions like meals, hotels, and transfers with no hidden costs.`,
   },
   {
     question: 'How much does Char Dham Yatra package cost from Bhilai?',

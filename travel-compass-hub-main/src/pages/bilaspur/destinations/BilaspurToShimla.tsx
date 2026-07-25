@@ -10,6 +10,10 @@ export const BilaspurToShimla = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Shimla package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Shimla from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Shimla, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I reach Shimla from Bilaspur?",
       answer: "We recommend taking a train from Bilaspur to New Delhi, and then boarding an overnight AC Volvo bus to Shimla. Alternatively, you can take a train to Kalka and experience the famous Kalka-Shimla Toy Train ride."
     },

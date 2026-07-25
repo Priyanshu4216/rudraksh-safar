@@ -177,7 +177,7 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
   // Product schema for e-commerce signals
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "TouristTrip",
     "name": `${pkg.title} Tour Package`,
     "description": `${pkg.duration} ${pkg.title} tour from Bhilai. Visit ${pkg.famousPlaces.slice(0, 3).join(', ')}. Book with Rudraksh Safar.`,
     "image": pkg.gallery,
@@ -190,11 +190,12 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
       "price": pkg.price.replace('₹', '').replace(',', ''),
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Organization",
+      "url": "https://rudrakshsafar.com/package",
+      "offeredBy": {
+        "@type": "TravelAgency",
         "name": "Rudraksh Safar"
       }
-    },
+    }
   };
 
   // FAQ Schema for AEO

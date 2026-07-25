@@ -10,6 +10,14 @@ export const BilaspurToKashmir = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for Kashmir packages?",
+      answer: "Yes — Rudraksh Safar is based on GE Road in Durg-Bhilai (easily accessible via trains to Durg Junction) and has a genuinely staffed support office in Srinagar, so you get real on-ground help during your trip, not just a phone number back home. Our pricing is 100% transparent and synchronized across all platforms."
+    },
+    {
+      question: "Does this Bilaspur travel agency have an office in Kashmir?",
+      answer: "Yes — we maintain a support office in Srinagar staffed by our own team. It's a support/coordination office rather than a walk-in storefront, but it means real, direct assistance during your trip if anything comes up."
+    },
+    {
       question: "How do I reach Kashmir from Bilaspur?",
       answer: "The most convenient route is to take a flight from Swami Vivekananda Airport (Raipur) to Srinagar International Airport (SXR), usually with a layover in Delhi. Alternatively, you can take a train from Bilaspur Junction to Jammu Tawi, followed by a scenic road trip to Srinagar."
     },

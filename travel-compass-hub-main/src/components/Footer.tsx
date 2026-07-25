@@ -677,7 +677,7 @@ const legalContent = {
       <h3>During Travel</h3>
       
       <h4>What if there's an emergency during my trip?</h4>
-      <p>Contact us immediately on our 24/7 emergency line. We will coordinate with local partners to assist you. Always keep your insurance provider's contact handy as well.</p>
+      <p>Contact us immediately on our 24/7 emergency line. We will coordinate with our local support offices to assist you. Always keep your insurance provider's contact handy as well.</p>
       
       <h4>What if my flight is delayed or cancelled?</h4>
       <p>Contact the airline directly for immediate assistance. Inform us so we can help coordinate with hotels and other services if needed. Flight delays/cancellations are beyond our control.</p>

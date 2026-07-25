@@ -10,6 +10,14 @@ export const BilaspurToThailand = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for Thailand packages?",
+      answer: "Yes — Rudraksh Safar is based on GE Road in Durg-Bhilai (easily accessible via trains to Durg Junction) and has a genuinely staffed support office in Pattaya, so you get real on-ground help during your trip, not just a phone number back home. Our pricing is 100% transparent and synchronized across all platforms."
+    },
+    {
+      question: "Does this Bilaspur travel agency have an office in Thailand?",
+      answer: "Yes — we maintain a support office in Pattaya staffed by our own team. It's a support/coordination office rather than a walk-in storefront, but it means real, direct assistance during your trip if anything comes up."
+    },
+    {
       question: "Are there direct flights from Raipur or Bilaspur to Thailand?",
       answer: "No, there are no direct flights to Bangkok or Phuket from Chhattisgarh. We book connecting flights for our Bilaspur clients from Swami Vivekananda Airport (Raipur) to Bangkok (BKK/DMK) via Kolkata or New Delhi."
     },
@@ -165,7 +173,7 @@ export const BilaspurToThailand = () => {
               <section className="bg-blue-50 p-8 rounded-3xl shadow-sm border border-blue-100">
                 <h3 className="text-xl font-bold text-blue-900 mb-3">Why book with Rudraksh Safar from Bilaspur?</h3>
                 <p className="text-blue-800 leading-relaxed">
-                  International travel can be daunting, especially when coordinating flights from Raipur and navigating visa rules. Unlike impersonal online booking sites, Rudraksh Safar provides complete hand-holding. You can walk into our office in Bilaspur to discuss your itinerary, hand over your passport for visa checks, and get a clear explanation of forex requirements. We ensure your first international trip is absolutely stress-free.
+                  International travel can be daunting, especially when coordinating flights from Raipur and navigating visa rules. Unlike impersonal online booking sites, Rudraksh Safar provides complete hand-holding. You can walk into our main office in Bhilai to discuss your itinerary, hand over your passport for visa checks, and get a clear explanation of forex requirements. We ensure your first international trip is absolutely stress-free.
                 </p>
               </section>
 

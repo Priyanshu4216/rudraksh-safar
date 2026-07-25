@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import AnimatedSection from '@/components/AnimatedSection';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const PHONE_NUMBER = '919203650311';
 
@@ -119,8 +120,8 @@ const guides = [
     content: {
       intro: 'You don\'t need a big budget to explore incredible India. These trips cost under ₹20,000 including travel, stay, and food.',
       trips: [
-        { destination: 'Manali', duration: '4-5 days', budget: '₹9,999 - ₹15,000', highlights: 'Solang Valley, Rohtang, Old Manali, snow activities' },
-        { destination: 'Goa', duration: '3-4 days', budget: '₹11,999 - ₹18,000', highlights: 'Beaches, nightlife, water sports, churches' },
+        { destination: 'Manali', duration: '4-5 days', budget: '{formatPrice(getPrice('manali')?.basePrice || 9999)} - ₹15,000', highlights: 'Solang Valley, Rohtang, Old Manali, snow activities' },
+        { destination: 'Goa', duration: '3-4 days', budget: '{formatPrice(getPrice('goa')?.basePrice || 9999)} - ₹18,000', highlights: 'Beaches, nightlife, water sports, churches' },
         { destination: 'Rishikesh-Haridwar', duration: '3 days', budget: '₹8,000 - ₹12,000', highlights: 'Ganga aarti, rafting, yoga, temples' },
         { destination: 'Udaipur', duration: '3-4 days', budget: '₹10,000 - ₹16,000', highlights: 'Lakes, palaces, romantic vibes, heritage' },
         { destination: 'Coorg', duration: '3 days', budget: '₹12,000 - ₹18,000', highlights: 'Coffee plantations, waterfalls, trekking' },

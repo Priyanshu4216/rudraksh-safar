@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-indexnow-key.js",
+    "build": "vite build && node scripts/generate-indexnow-key.js && node scripts/prerender.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "indexnow": "node scripts/indexnow.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:hydration": "node scripts/test-hydration.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -74,6 +75,7 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9",
     "vite-plugin-pwa": "^1.2.0",
+    "web-vitals": "^6.0.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -89,6 +91,7 @@
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "express": "^5.2.1",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.13",
     "postcss": "^8.5.6",

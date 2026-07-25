@@ -5,11 +5,11 @@ const GlobalSchema = () => {
     const logoUrl = `${siteUrl}/logo-dark.png`;
 
     const graph = [
-        // 1. Organization Schema (The Brand)
+        // 1. Organization Schema (The Brand) - GE Road Office
         {
             "@type": "TravelAgency",
             "@id": `${siteUrl}/#organization`,
-            "name": "Rudraksh Safar",
+            "name": "Sanjeev Enterprises (Rudraksh Safar)",
             "url": siteUrl,
             "logo": {
                 "@type": "ImageObject",
@@ -25,62 +25,12 @@ const GlobalSchema = () => {
             "email": "rudrakshsafar@gmail.com",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Shop No 106, Satya Shanti Complex, Near Amantran Hotel, Supela",
+                "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai-3",
                 "addressLocality": "Durg",
                 "addressRegion": "Chhattisgarh",
                 "postalCode": "490021",
                 "addressCountry": "IN"
             },
-            "department": [
-                {
-                    "@type": "TravelAgency",
-                    "name": "Sanjeev Enterprises (Associate Office)",
-                    "telephone": "+919229150311",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "GE Road, In Front of Petrol Pump",
-                        "addressLocality": "Bhilai-3, Durg",
-                        "addressRegion": "Chhattisgarh",
-                        "postalCode": "490021",
-                        "addressCountry": "IN"
-                    }
-                },
-                {
-                    "@type": "TravelAgency",
-                    "name": "Rudraksh Safar (Support Office Uttarakhand)",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "Gate No.4 Main Haridwar-Rishikesh Highway, Bhupatwala",
-                        "addressLocality": "Haridwar",
-                        "addressRegion": "Uttarakhand",
-                        "addressCountry": "IN"
-                    }
-                },
-                {
-                    "@type": "TravelAgency",
-                    "name": "Rudraksh Safar (Support Office Thailand)",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "34, 42 M1 CHAITAPHON WITHI 21, Pattaya City, Bang Lamung District",
-                        "addressLocality": "Pattaya",
-                        "addressRegion": "Chon Buri",
-                        "postalCode": "20150",
-                        "addressCountry": "TH"
-                    }
-                },
-                {
-                    "@type": "TravelAgency",
-                    "name": "Rudraksh Safar (Support Office Kashmir)",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "Hotel Duke, The Boulevard",
-                        "addressLocality": "Srinagar",
-                        "addressRegion": "Jammu and Kashmir",
-                        "postalCode": "190001",
-                        "addressCountry": "IN"
-                    }
-                }
-            ],
             "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": "21.2120",
@@ -103,23 +53,73 @@ const GlobalSchema = () => {
                 { "@type": "AdministrativeArea", "name": "Bhilai" },
                 { "@type": "AdministrativeArea", "name": "Durg" },
                 { "@type": "AdministrativeArea", "name": "Raipur" },
+                { "@type": "AdministrativeArea", "name": "Bilaspur" },
+                { "@type": "Place", "name": "Naya Raipur" },
+                { "@type": "Place", "name": "Supela" },
+                { "@type": "Place", "name": "Durg-Bhilai" },
                 { "@type": "AdministrativeArea", "name": "Chhattisgarh" },
                 { "@type": "Country", "name": "India" }
             ],
             "priceRange": "₹₹",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "150",
-                "bestRating": "5",
-                "worstRating": "1"
-            },
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+919203650311",
                 "contactType": "customer service",
                 "areaServed": "IN",
                 "availableLanguage": ["English", "Hindi"]
+            }
+        },
+
+        // Support Office - Uttarakhand
+        {
+            "@type": "LocalBusiness",
+            "@id": `${siteUrl}/#office-uttarakhand`,
+            "name": "Rudraksh Safar (Support Office Uttarakhand)",
+            "branchOf": {
+                "@id": `${siteUrl}/#organization`
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Gate No.4, Main Haridwar-Rishikesh Highway, Bhupatwala",
+                "addressLocality": "Haridwar",
+                "addressRegion": "Uttarakhand",
+                "addressCountry": "IN"
+            }
+        },
+
+        // Support Office - Thailand
+        {
+            "@type": "LocalBusiness",
+            "@id": `${siteUrl}/#office-thailand`,
+            "name": "Rudraksh Safar (Support Office Thailand)",
+            "branchOf": {
+                "@id": `${siteUrl}/#organization`
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "34, 42 M1 Chaitaphon Withi 21, Pattaya City, Bang Lamung District",
+                "addressLocality": "Pattaya",
+                "addressRegion": "Chon Buri",
+                "postalCode": "20150",
+                "addressCountry": "TH"
+            }
+        },
+
+        // Support Office - Kashmir
+        {
+            "@type": "LocalBusiness",
+            "@id": `${siteUrl}/#office-kashmir`,
+            "name": "Rudraksh Safar (Support Office Kashmir)",
+            "branchOf": {
+                "@id": `${siteUrl}/#organization`
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Hotel Duke, The Boulevard",
+                "addressLocality": "Srinagar",
+                "addressRegion": "Kashmir",
+                "postalCode": "190001",
+                "addressCountry": "IN"
             }
         },
 

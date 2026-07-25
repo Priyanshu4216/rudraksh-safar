@@ -10,6 +10,10 @@ import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 
 const faqs = [
+        {
+            question: "Do you have local support during the Thailand trip?",
+            answer: "Yes — we have our own support office and staff based in Pattaya, so you have real, on-ground help throughout your trip, not just a phone number back in Chhattisgarh."
+        },
     {
         question: "What is your exact scope as a Thailand DMC?",
         answer: "As a specialized Thailand Destination Management Company (DMC), we provide comprehensive end-to-end ground handling. This includes direct 4-star and 5-star hotel contracting, multi-city transport and airport transfers (private and SIC), and curated excursions across major hubs like Bangkok, Pattaya, Phuket, Koh Samui, and Krabi. We manage the entire backend logistics so you can focus on sales."

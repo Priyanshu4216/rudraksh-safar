@@ -70,7 +70,7 @@ const TourPackagesRaipur = () => {
                 ]
             },
             {
-                "@type": "Product",
+                "@type": "TouristTrip",
                 "name": "Tour Packages from Raipur",
                 "description": "Affordable domestic and international tour packages from Raipur (RPR) including flights, hotels, and visa assistance.",
                 "brand": {
@@ -148,7 +148,7 @@ const TourPackagesRaipur = () => {
                             Tour Packages from <span className="text-orange-600">Raipur</span>
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                            Explore the world with our customized holiday packages for families, honeymoon couples, and groups. Depart directly from Swami Vivekananda Airport (RPR).
+                            Explore the world with our customized holiday packages. We handle everything from direct flights at <strong>Swami Vivekananda Airport (RPR)</strong> to premium stays, ensuring smooth journeys for residents of Raipur, Naya Raipur, and Birgaon.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-orange-600 hover:bg-orange-700" asChild>
@@ -164,15 +164,12 @@ const TourPackagesRaipur = () => {
                 {/* Commercial Context (Affordable Packages) */}
                 <section id="raipur-packages-context" className="py-12 bg-orange-50/50 dark:bg-orange-950/10 border-b">
                     <div className="container mx-auto px-4 max-w-4xl text-center">
-                        <h2 className="text-3xl font-bold mb-4">Affordable Tour Packages in Raipur for Every Travel Style</h2>
+                        <h2 className="text-3xl font-bold mb-4">Mastering Logistics from Raipur Junction & Airport</h2>
                         <p className="text-lg text-muted-foreground mb-4">
-                            Our tour packages in Raipur are designed for families, honeymoon couples,
-                            students, and corporate groups looking for transparent pricing,
-                            flexible payment options, and reliable local support.
+                            Whether you need to catch the Chhattisgarh Express from <strong>Raipur Junction (R)</strong>, or you are taking a road trip via <strong>NH130 (Raipur–Bilaspur Expressway)</strong>, we optimize your itinerary around actual local travel times.
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            Looking for flight logistics? Check our page for <Link to="/tour-packages-from-raipur" className="text-primary hover:underline">planning trips departing from Raipur airport</Link>.
-                            First time traveler? Read our <Link to="/travel-guide-from-bhilai" className="text-primary hover:underline">detailed travel planning guide for Bhilai & Raipur travelers</Link>.
+                            Did you know? We secure exclusive rates on direct flights from RPR to <strong>Goa (GOI)</strong>, Delhi, Mumbai, and Kolkata.
                         </p>
                     </div>
                 </section>

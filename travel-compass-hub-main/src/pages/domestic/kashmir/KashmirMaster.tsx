@@ -32,7 +32,7 @@ const KashmirMaster = () => {
                     <div className="bg-green-50/50 dark:bg-green-950/20 border border-green-200 dark:border-green-900 p-8 rounded-xl shadow-sm">
                         <h2 className="text-2xl font-bold mb-4 text-green-700 dark:text-green-400">Family Safety First</h2>
                         <p className="text-muted-foreground mb-4">
-                            We understand your concerns. All our Kashmir tours are operated by our verified local partners. You will have a dedicated local driver and 24/7 support throughout your journey in Srinagar, Gulmarg, and Pahalgam.
+                            We understand your concerns. All our Kashmir tours are operated with on-ground support from our staff in Kashmir. You will have a dedicated local driver and 24/7 support throughout your journey in Srinagar, Gulmarg, and Pahalgam.
                         </p>
                         <p className="font-bold text-green-700 dark:text-green-400">✓ 100% Verified Local Guides</p>
                     </div>

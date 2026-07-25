@@ -39,6 +39,10 @@ const InternationalToursFromBhilai = () => {
     ];
 
     const faqs = [
+    {
+      question: "Is there a trusted travel agency in Bhilai for Dubai/Thailand/Singapore packages?",
+      answer: "Yes — Rudraksh Safar operates right here from GE Road in Bhilai. For destinations like Thailand, Kashmir, and Uttarakhand, our own staffed support offices manage your on-ground experience. For other locations, our Bhilai team coordinates directly with verified suppliers to ensure transparent pricing and 24/7 support throughout your trip."
+    },
         {
             question: "Which international destination is easiest to travel to from Bhilai?",
             answer: <span><strong>Thailand</strong> and <strong>Vietnam</strong> are the easiest. We arrange flights from Swami Vivekananda Airport (Raipur) to Kolkata/Delhi connecting directly to Bangkok. Visa is on arrival!</span>,

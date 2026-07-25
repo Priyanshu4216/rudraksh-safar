@@ -24,6 +24,7 @@ import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
 import HomeLoader from "./components/HomeLoader";
 import GlobalError from "./components/GlobalError";
 import GlobalSchema from "./components/seo/GlobalSchema";
+import RouteBasedSchema from "./components/seo/RouteBasedSchema";
 import { Bookings } from "./pages/Bookings";
 const AuthorPage = lazy(() => import('./pages/blog/AuthorPage'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -108,9 +109,14 @@ const FlightBookingBhilai = lazy(() => import("./pages/local/FlightBookingBhilai
 const CheapestTripsFromBhilai = lazy(() => import("./pages/local/CheapestTripsFromBhilai"));
 const BusBookingBhilai = lazy(() => import("./pages/local/BusBookingBhilai"));
 const PicnicSpotsBhilai = lazy(() => import("./pages/local/PicnicSpotsBhilai"));
+const WaterfallsNearBhilai = lazy(() => import("./pages/local/WaterfallsNearBhilai"));
+const DamsAndLakesNearBhilai = lazy(() => import("./pages/local/DamsAndLakesNearBhilai"));
+const HiddenGemsChhattisgarh = lazy(() => import("./pages/local/HiddenGemsChhattisgarh"));
 const PassportAgentBhilai = lazy(() => import("./pages/local/PassportAgentBhilai"));
 const TravelAgentRaipur = lazy(() => import("./pages/local/TravelAgentRaipur"));
 const TravelAgentDurg = lazy(() => import("./pages/local/TravelAgentDurg"));
+const TravelAgentBilaspur = lazy(() => import("./pages/local/TravelAgentBilaspur"));
+const TourPackagesBilaspur = lazy(() => import("./pages/local/TourPackagesBilaspur"));
 const TourPackagesRaipur = lazy(() => import("./pages/local/TourPackagesRaipur"));
 const WeekendGetawaysRaipur = lazy(() => import("./pages/local/WeekendGetawaysRaipur"));
 const CorporateTourPackagesBhilai = lazy(() => import("./pages/local/CorporateTourPackagesBhilai"));
@@ -342,6 +348,7 @@ const App = () => (
               <HomeLoader />
               <ScrollToTop />
               <GlobalSchema />
+              <RouteBasedSchema />
               <GlobalError>
                 <Suspense fallback={<GlobalLoader />}>
                   <Routes>
@@ -497,6 +504,8 @@ const App = () => (
                     {/* Local SEO Pages - Raipur & Bhilai */}
                     <Route path="/travel-agent-raipur" element={<TravelAgentRaipur />} />
                     <Route path="/travel-agent-durg" element={<TravelAgentDurg />} />
+                    <Route path="/travel-agent-bilaspur" element={<TravelAgentBilaspur />} />
+                    <Route path="/tour-packages-from-bilaspur" element={<TourPackagesBilaspur />} />
                     <Route path="/tour-packages-raipur" element={<TourPackagesRaipur />} />
 
                     <Route path="/tour-packages-from-raipur/weekend-getaways" element={<WeekendGetawaysRaipur />} />
@@ -747,6 +756,9 @@ const App = () => (
                     <Route path="/tour-packages-from-bhilai/cheapest-trips" element={<CheapestTripsFromBhilai />} />
                     <Route path="/bus-booking-bhilai" element={<BusBookingBhilai />} />
                     <Route path="/tour-packages-from-bhilai/picnic-spots" element={<PicnicSpotsBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/waterfalls" element={<WaterfallsNearBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/dams-and-lakes" element={<DamsAndLakesNearBhilai />} />
+                    <Route path="/tour-packages-from-bhilai/hidden-gems" element={<HiddenGemsChhattisgarh />} />
 
                     {/* BLOG SYSTEM ROUTES */}
                     <Route path="/blog" element={<BlogIndex />} />

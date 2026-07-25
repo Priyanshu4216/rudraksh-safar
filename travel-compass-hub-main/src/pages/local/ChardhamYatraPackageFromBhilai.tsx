@@ -22,7 +22,7 @@ const ChardhamYatraPackageFromBhilai = () => {
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Product",
+                        "@type": "TouristTrip",
                         "name": "Chardham Yatra Package from Bhilai",
                         "description": "11N/12D Chardham Yatra (Yamunotri, Gangotri, Kedarnath, Badrinath) for Bhilai families. Includes Train Tickets, Registration, and Hotels.",
                         "brand": { "@type": "Brand", "name": "Rudraksh Safar" },

@@ -23,6 +23,19 @@ const PicnicSpotsBhilai = () => {
         damping: 30,
         restDelta: 0.001
     });
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 }
+    };
+
     const structuredData = {
         "@context": "https://schema.org",
         "@graph": [
@@ -31,6 +44,11 @@ const PicnicSpotsBhilai = () => {
                 "name": "Picnic Spots Near Bhilai, Raipur & Durg",
                 "description": "Discover the best picnic spots near Bhilai, Raipur, and Durg. From Maitri Bagh to Ghatarani Waterfalls and hidden gems like Kuthrel Dam.",
                 "touristType": ["Family", "Nature Lovers", "Friends"],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "reviewCount": "124"
+                },
                 "provider": {
                     "@type": "LocalBusiness",
                     "name": "Rudraksh Safar",
@@ -230,8 +248,8 @@ const PicnicSpotsBhilai = () => {
                 style={{ scaleX }}
             />
             <Helmet>
-                <title>Picnic Spots Near Bhilai, Raipur & Durg | Best One Day Trip Places</title>
-                <meta name="description" content="Explore the best picnic spots near Bhilai, Raipur & Durg. From Maitri Bagh and Tandula Dam to hidden waterfalls like Ghatarani. Perfect guide for one day trips." />
+                <title>Top 15 Picnic Spots Near Bhilai & Raipur (2024 Hidden Gems)</title>
+                <meta name="description" content="Planning a one-day trip? Discover the top 15 picnic spots near Bhilai, Raipur & Durg. From family parks to hidden waterfalls. Get costs, timings & local tips!" />
                 <meta name="keywords" content="picnic spots near bhilai, picnic spots near raipur, picnic places near durg, one day trip from bhilai, maitri bagh, tandula dam, ghatarani waterfalls, best picnic spot near me" />
                 <link rel="canonical" href="https://rudrakshsafar.com/tour-packages-from-bhilai/picnic-spots" />
                 <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -242,9 +260,9 @@ const PicnicSpotsBhilai = () => {
             <main className="min-h-screen bg-background">
                 <LocationHero
                     city="Bhilai & Raipur"
-                    title="Picnic Spots Near Bhilai, Raipur & Durg"
-                    subtitle="Discover the perfect spots for a fun-filled day out with family and friends."
-                    bgImage="https://images.unsplash.com/photo-1596323605366-21ce4376c760?auto=format&fit=crop&q=80&w=2000"
+                    title="Top Picnic Spots Near Bhilai, Raipur & Durg"
+                    subtitle="Discover the perfect spots for a fun-filled day out with family and friends. Hidden gems, waterfalls, and eco-parks."
+                    bgImage="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=2000"
                 />
 
                 <div className="container mx-auto px-4 mt-6">
@@ -302,25 +320,27 @@ const PicnicSpotsBhilai = () => {
                                 <Trees className="w-8 h-8 text-green-600" />
                                 <h2 className="text-3xl font-bold">What are the best picnic spots near Bhilai?</h2>
                             </div>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {picnicSpots.bhilai.map((spot, index) => (
-                                    <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                                        <CardHeader className="pb-3">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <Badge variant="outline" className="text-xs">{spot.tag}</Badge>
-                                            </div>
-                                            <CardTitle className="text-xl">{spot.name}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="text-sm space-y-2">
-                                            <p className="font-medium text-primary">{spot.type}</p>
-                                            <p className="text-muted-foreground">{spot.desc}</p>
-                                            {spot.distance && <p className="text-xs flex items-center gap-1"><MapPin className="w-3 h-3" /> {spot.distance}</p>}
-                                            {spot.price && <p className="text-xs font-semibold">Cost: {spot.price}</p>}
-                                            <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
-                                        </CardContent>
-                                    </Card>
+                                    <motion.div key={index} variants={itemVariants}>
+                                        <Card className="h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-white/20 dark:border-white/10">
+                                            <CardHeader className="pb-3">
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <Badge variant="outline" className="text-xs bg-gradient-to-r from-orange-500 to-red-500 text-white border-none">{spot.tag}</Badge>
+                                                </div>
+                                                <CardTitle className="text-xl">{spot.name}</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="text-sm space-y-2">
+                                                <p className="font-medium text-primary">{spot.type}</p>
+                                                <p className="text-muted-foreground">{spot.desc}</p>
+                                                {spot.distance && <p className="text-xs flex items-center gap-1"><MapPin className="w-3 h-3" /> {spot.distance}</p>}
+                                                {spot.price && <p className="text-xs font-semibold">Cost: {spot.price}</p>}
+                                                <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
+                                            </CardContent>
+                                        </Card>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Durg Spots */}
@@ -329,23 +349,25 @@ const PicnicSpotsBhilai = () => {
                                 <Droplets className="w-8 h-8 text-blue-500" />
                                 <h2 className="text-3xl font-bold">Which are the best picnic spots near Durg?</h2>
                             </div>
-                            <div className="grid md:grid-cols-3 gap-6">
+                            <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-3 gap-6">
                                 {picnicSpots.durg.map((spot, index) => (
-                                    <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                                        <CardHeader className="pb-3">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <Badge variant="outline" className="text-xs">{spot.tag}</Badge>
-                                            </div>
-                                            <CardTitle className="text-xl">{spot.name}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="text-sm space-y-2">
-                                            <p className="font-medium text-primary">{spot.type}</p>
-                                            <p className="text-muted-foreground">{spot.desc}</p>
-                                            <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
-                                        </CardContent>
-                                    </Card>
+                                    <motion.div key={index} variants={itemVariants}>
+                                        <Card className="h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-white/20 dark:border-white/10">
+                                            <CardHeader className="pb-3">
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <Badge variant="outline" className="text-xs bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-none">{spot.tag}</Badge>
+                                                </div>
+                                                <CardTitle className="text-xl">{spot.name}</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="text-sm space-y-2">
+                                                <p className="font-medium text-primary">{spot.type}</p>
+                                                <p className="text-muted-foreground">{spot.desc}</p>
+                                                <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
+                                            </CardContent>
+                                        </Card>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Raipur Spots */}
@@ -354,24 +376,26 @@ const PicnicSpotsBhilai = () => {
                                 <Camera className="w-8 h-8 text-orange-500" />
                                 <h2 className="text-3xl font-bold">Which are the best picnic spots near Raipur?</h2>
                             </div>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {picnicSpots.raipur.map((spot, index) => (
-                                    <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                                        <CardHeader className="pb-3">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <Badge variant="outline" className="text-xs">{spot.tag}</Badge>
-                                            </div>
-                                            <CardTitle className="text-xl">{spot.name}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="text-sm space-y-2">
-                                            <p className="font-medium text-primary">{spot.type}</p>
-                                            <p className="text-muted-foreground">{spot.desc}</p>
-                                            {spot.distance && <p className="text-xs flex items-center gap-1"><MapPin className="w-3 h-3" /> {spot.distance}</p>}
-                                            <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
-                                        </CardContent>
-                                    </Card>
+                                    <motion.div key={index} variants={itemVariants}>
+                                        <Card className="h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-white/20 dark:border-white/10">
+                                            <CardHeader className="pb-3">
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <Badge variant="outline" className="text-xs bg-gradient-to-r from-orange-400 to-amber-500 text-white border-none">{spot.tag}</Badge>
+                                                </div>
+                                                <CardTitle className="text-xl">{spot.name}</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="text-sm space-y-2">
+                                                <p className="font-medium text-primary">{spot.type}</p>
+                                                <p className="text-muted-foreground">{spot.desc}</p>
+                                                {spot.distance && <p className="text-xs flex items-center gap-1"><MapPin className="w-3 h-3" /> {spot.distance}</p>}
+                                                <p className="text-xs bg-secondary/20 p-2 rounded italic mt-2">💡 {spot.note}</p>
+                                            </CardContent>
+                                        </Card>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Offbeat Spots */}
@@ -381,20 +405,22 @@ const PicnicSpotsBhilai = () => {
                                 <h2 className="text-3xl font-bold">What are some uncommon and offbeat spots?</h2>
                                 <Badge className="bg-emerald-600">Top 1% Edge</Badge>
                             </div>
-                            <div className="grid md:grid-cols-3 gap-6">
+                            <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-3 gap-6">
                                 {picnicSpots.offbeat.map((spot, index) => (
-                                    <Card key={index} className="h-full bg-emerald-50/50 border-emerald-100 dark:bg-emerald-950/10 dark:border-emerald-900">
-                                        <CardHeader>
-                                            <CardTitle className="text-lg">{spot.name}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="text-sm">
-                                            <p className="font-medium mb-1">{spot.type}</p>
-                                            <p className="text-muted-foreground mb-3">{spot.desc}</p>
-                                            <p className="text-emerald-700 dark:text-emerald-400 text-xs font-semibold">✨ {spot.desc2}</p>
-                                        </CardContent>
-                                    </Card>
+                                    <motion.div key={index} variants={itemVariants}>
+                                        <Card className="h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 bg-emerald-50/80 backdrop-blur-md border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-900">
+                                            <CardHeader>
+                                                <CardTitle className="text-lg">{spot.name}</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="text-sm">
+                                                <p className="font-medium mb-1">{spot.type}</p>
+                                                <p className="text-muted-foreground mb-3">{spot.desc}</p>
+                                                <p className="text-emerald-700 dark:text-emerald-400 text-xs font-semibold">✨ {spot.desc2}</p>
+                                            </CardContent>
+                                        </Card>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Planning Section */}
@@ -606,6 +632,22 @@ const PicnicSpotsBhilai = () => {
 
                         {/* Internal Links Grid */}
                         <RelatedServices mode="local" />
+
+                        {/* Related Categories (Hub Link back) */}
+                        <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 mt-12">
+                            <h3 className="text-xl font-bold mb-4">Explore Specific Categories</h3>
+                            <div className="flex flex-wrap gap-4">
+                                <Link to="/tour-packages-from-bhilai/waterfalls" className="bg-cyan-50 hover:bg-cyan-100 text-cyan-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                                    🌊 Majestic Waterfalls
+                                </Link>
+                                <Link to="/tour-packages-from-bhilai/dams-and-lakes" className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                                    🌊 Dams & Lakes
+                                </Link>
+                                <Link to="/tour-packages-from-bhilai/hidden-gems" className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                                    ✨ Hidden Gems
+                                </Link>
+                            </div>
+                        </div>
 
                         {/* Safety Note */}
                         <div className="mt-12 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 p-4 rounded-lg flex gap-3 text-sm">

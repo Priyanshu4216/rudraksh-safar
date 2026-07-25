@@ -10,6 +10,10 @@ export const BilaspurToMalaysia = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Malaysia package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Malaysia from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Malaysia, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I reach Malaysia from Bilaspur?",
       answer: "We book connecting flights from Raipur (RPR) to Kuala Lumpur International Airport (KUL), typically routing through Delhi or Kolkata."
     },

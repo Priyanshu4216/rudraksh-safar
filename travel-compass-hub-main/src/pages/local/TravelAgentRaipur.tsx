@@ -19,6 +19,29 @@ import FAQsSection from '@/components/FAQsSection';
 
 const TravelAgentRaipur = () => {
     // LocalBusiness Schema - Optimized for Raipur
+    const faqs = [
+    {
+      question: "How do I verify a travel agency before booking from Raipur?",
+      answer: "Instead of relying on faceless online portals, Raipur residents can verify an agency through their GST registration (ours is 22AGBPC7350G1ZZ) and transparent pricing. Located a short drive down the highway in Bhilai, our team provides seamless coordination, including logistics for flights departing from Swami Vivekananda Airport."
+    },
+        {
+            question: "Is there a direct flight from Raipur to Goa?",
+            answer: "Yes, Swami Vivekananda Airport (RPR) offers direct flights to Goa (GOX). We can bundle these flights into a seamless 4-day Goa package starting right from Raipur."
+        },
+        {
+            question: "How do I get my passport quickly in Raipur?",
+            answer: "The PSK (Passport Seva Kendra) is located in Raipur. We assist with Tatkaal appointments and complete document verification to ensure no delays in your application."
+        },
+        {
+            question: "Which international destinations have easy connectivity from Raipur?",
+            answer: "Dubai and Thailand are extremely popular because connecting flights via Delhi or Mumbai from RPR have short layovers. We provide complete Visa and Forex support locally."
+        },
+        {
+            question: "Do you arrange corporate tours near Raipur?",
+            answer: "Yes, we handle large corporate groups for offsites. We arrange luxury AC coaches from Raipur to destinations like Kanha, Chitrakote, or direct flights to domestic hill stations."
+        }
+    ];
+
     const localBusinessSchema = {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
@@ -29,12 +52,23 @@ const TravelAgentRaipur = () => {
         "email": "rudrakshsafar@gmail.com",
         "priceRange": "₹₹",
         "image": "https://rudrakshsafar.com/og-image.png",
-        "address": {
+                        "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Raipur",
+            "streetAddress": "Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3",
+            "addressLocality": "Durg",
             "addressRegion": "Chhattisgarh",
+            "postalCode": "490021",
             "addressCountry": "IN"
         },
+                "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Bhilai" },
+            { "@type": "AdministrativeArea", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Durg" },
+            { "@type": "AdministrativeArea", "name": "Bilaspur" },
+            { "@type": "Place", "name": "Naya Raipur" },
+            { "@type": "Place", "name": "Supela" },
+            { "@type": "Place", "name": "Durg-Bhilai" }
+        ],
         "sameAs": [
             "https://www.facebook.com/people/Rudraksh-Safar/pfbid0iAvSgkmW94itABRQ4h3f8kSkkyT16Kn7ocq97wUWVY35GWgj61YjdQNBeLy2nVTtl/",
             "https://www.instagram.com/rudrakshsafar",
@@ -78,10 +112,7 @@ const TravelAgentRaipur = () => {
             "Visa Assistance and Documentation",
             "Travel Insurance Assistance"
         ],
-        "areaServed": {
-            "@type": "Place",
-            "name": ["Raipur", "Bhilai", "Naya Raipur", "Birgaon"]
-        }
+        /* REMOVED DUP */
     };
 
     // FAQ Schema handled by FAQsSection component
@@ -89,12 +120,12 @@ const TravelAgentRaipur = () => {
 
 
     const services = [
-        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Domestic Tours", desc: "Kashmir, Goa, Kerala, and Himachal packages from Raipur.", link: "/domestic-packages" },
-        { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "International Tours", desc: "Dubai, Thailand, Bali & Singapore with Visa assistance.", link: "/international-packages" },
-        { icon: <Users className="w-10 h-10 text-primary mx-auto" />, title: "Group Tours", desc: "Special rates for College Industrial Visits and Family Groups.", link: "/group-tour-packages" },
-        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Assistance", desc: "Expert guidance for Schengen, US, UK, and Asian visas.", link: "/travel-services/visa-assistance" },
-        { icon: <Award className="w-10 h-10 text-primary mx-auto" />, title: "Honeymoon Specials", desc: "Romantic getaways with candlelight dinners and flower decoration.", link: "/honeymoon-packages" },
-        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Services", desc: "New application and renewal assistance in Raipur.", link: "/travel-services/passport-assistance" },
+        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Domestic Escapes", desc: "Customized itineraries for Kashmir, Goa, and Kerala starting directly from Swami Vivekananda Airport (RPR).", link: "/domestic-packages" },
+        { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "International Holidays", desc: "Seamless Dubai, Thailand & Singapore trips including direct connecting flights from Raipur.", link: "/international-packages" },
+        { icon: <Users className="w-10 h-10 text-primary mx-auto" />, title: "Corporate & MICE Tours", desc: "Specialized offsite planning for companies based in Naya Raipur, Urla, and Siltara Industrial estates.", link: "/group-tour-packages" },
+        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Processing", desc: "Expert Schengen, US, UK, and Dubai tourist visa filing for Raipur residents.", link: "/travel-services/visa-assistance" },
+        { icon: <Award className="w-10 h-10 text-primary mx-auto" />, title: "Premium Honeymoons", desc: "Luxury resorts and romantic getaways carefully curated for newlyweds from Chhattisgarh's capital.", link: "/honeymoon-packages" },
+        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Assistance", desc: "Tatkaal and fresh passport application support for applicants at PSK Raipur.", link: "/travel-services/passport-assistance" },
     ];
 
     const popularRoutes = [
@@ -107,30 +138,13 @@ const TravelAgentRaipur = () => {
     ];
 
     const whyChooseUs = [
-        { icon: Users, title: "Serving Raipur & Bhilai", desc: <>Deep local presence with office support in Twin Cities (<Link to="/travel-agent-bhilai" className="hover:underline text-primary">Bhilai</Link>-<Link to="/travel-agent-durg" className="hover:underline text-primary">Durg</Link>) for over 10 years.</> },
-        { icon: Shield, title: "On-Ground Support", desc: "We are real people, not a call center. Visit our office for face-to-face planning." },
-        { icon: Award, title: "Local Pricing", desc: "Best deals negotiated specifically for travelers from Chhattisgarh." },
-        { icon: Clock, title: "24/7 Trip Assistance", desc: "From departure to arrival, we are always just a phone call away." },
+        { icon: Users, title: "Capital City Expertise", desc: "We handle high-volume bookings for families and businesses across Raipur, Naya Raipur, and Birgaon with 10+ years of proven trust." },
+        { icon: Plane, title: "Airport Logistics Handled", desc: "Complimentary airport transfers from your home in Raipur to Swami Vivekananda Airport for premium packages." },
+        { icon: Award, title: "Direct Flight Advantage", desc: "We optimize your itinerary around direct flights from RPR to Delhi, Mumbai, and Kolkata to minimize layovers." },
+        { icon: Clock, title: "24/7 Concierge Support", desc: "Dedicated local support staff available round the clock during your entire journey." },
     ];
 
-    const faqs = [
-        {
-            question: "Which is the best travel agent in Raipur?",
-            answer: <>Rudraksh Safar is highly recommended for reliable travel services in Raipur. While our main office is in <Link to="/travel-agent-bhilai" className="text-primary hover:underline">Bhilai</Link> (Twin City), we serve hundreds of clients from Raipur with personalized home-visit services and digital planning.</>
-        },
-        {
-            question: "Do you offer international tour packages from Raipur?",
-            answer: "Absolutely. We specialize in international tours from Raipur. We arrange flights from Swami Vivekananda Airport (RPR) and handle all visa requirements for destinations like Dubai, Singapore, Thailand, and Malaysia."
-        },
-        {
-            question: "What are the payment options?",
-            answer: "We offer flexible payment options including Online Bank Transfer, UPI, and Cash. For expensive international trips, we can also discuss part-payment schedules to make it easier for you."
-        },
-        {
-            question: "Do you organize group tours from Raipur?",
-            answer: "Yes, we organize fixed departure group tours for families, as well as customized corporate and college tours from Raipur with tour managers."
-        }
-    ];
+    
 
     return (
         <>
@@ -162,10 +176,10 @@ const TravelAgentRaipur = () => {
                                     <span className="text-sm font-medium">Trusted by Travelers in Raipur & <Link to="/travel-agent-bhilai" className="hover:underline">Bhilai</Link></span>
                                 </div>
                                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-                                    Best Travel Agent in <span className="text-primary">Raipur</span>
+                                    Raipur's Most Trusted <span className="text-primary">Travel Agency</span>
                                 </h1>
                                 <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-                                    Expert holiday planning right from your city. Specializing in family trips, honeymoons, and group tours from <strong>Raipur (RPR)</strong>.
+                                    Your gateway to global exploration. We specialize in curating premium family vacations, international holidays, and corporate MICE tours directly from <strong>Swami Vivekananda Airport (RPR)</strong> and Raipur Junction.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Button size="lg" asChild className="text-lg px-8 h-12 shadow-md hover:shadow-lg transition-all">

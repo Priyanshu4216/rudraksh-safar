@@ -10,6 +10,10 @@ export const BilaspurToRajasthan = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Rajasthan package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Rajasthan from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Rajasthan, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How to travel to Rajasthan from Bilaspur?",
       answer: "The most convenient way is to take a direct train from Bilaspur Junction to Jaipur (e.g., Durg Jaipur Express or Bikaner Express). Alternatively, you can fly from Raipur to Jaipur Airport (JAI), often with a short layover in Delhi or Mumbai."
     },

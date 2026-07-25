@@ -1,531 +1,554 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Main Category Pages -->
+<?xml version="1" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://rudrakshsafar.com/faqs/tour-packages</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/thailand-tour-packages</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/thailand-tour-packages/bangkok</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/thailand-tour-packages/pattaya</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/thailand-tour-packages/phuket</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/thailand-tour-packages/krabi</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/dubai-tour-packages</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-05-19</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://rudrakshsafar.com/domestic-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/international-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/honeymoon-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/family-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/adventure-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/luxury-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
-
-  <!-- Thematic Pages -->
   <url>
     <loc>https://rudrakshsafar.com/budget-tour-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/summer-holiday-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/group-tour-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/beach-holiday-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/mountain-holiday-packages</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
   </url>
-
-  <!-- Domestic Packages -->
   <url>
     <loc>https://rudrakshsafar.com/package/andaman</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/kashmir</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/udaipur</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/shimla-manali</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/kodaikanal</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/chardham</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/ladakh</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/goa</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&amp;w=2070</image:loc>
+      <image:title>Goa Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/manali</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&amp;w=2067</image:loc>
+      <image:title>Manali Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/munnar</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/haridwar-rishikesh</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/gangtok-darjeeling</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/darjeeling</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/spiti</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- International Packages -->
   <url>
     <loc>https://rudrakshsafar.com/package/phuket</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/singapore</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/dubai</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/thailand</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/srilanka</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/nepal</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/maldives</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/bali</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- Honeymoon Specific -->
   <url>
     <loc>https://rudrakshsafar.com/package/manali-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&amp;w=2067</image:loc>
+      <image:title>Manali Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/kashmir-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/goa-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&amp;w=2070</image:loc>
+      <image:title>Goa Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/bali-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/maldives-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/paris-honeymoon</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- Family Specific -->
   <url>
     <loc>https://rudrakshsafar.com/package/kerala-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&amp;w=2070</image:loc>
+      <image:title>Kerala Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/rajasthan-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/singapore-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/dubai-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/thailand-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/himachal-family</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- Adventure Specific -->
   <url>
     <loc>https://rudrakshsafar.com/package/ladakh-bike</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/rishikesh-rafting</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/nepal-trek</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/andaman-scuba</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/meghalaya-caving</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/spiti-expedition</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- Luxury Specific -->
   <url>
     <loc>https://rudrakshsafar.com/package/udaipur-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/maldives-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/swiss-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/dubai-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/kashmir-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/package/bali-luxury</loc>
+    <priority>0.6</priority>
     <lastmod>2026-01-17</lastmod>
-    <priority>0.8</priority>
   </url>
-
-  <!-- Char Dham Temples -->
   <url>
     <loc>https://rudrakshsafar.com/chardham-yatra-package</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/kedarnath-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/badrinath-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/gangotri-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/yamunotri-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.85</priority>
   </url>
-
-  <!-- Panch Kedar -->
   <url>
     <loc>https://rudrakshsafar.com/tungnath-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/rudranath-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/madhyamaheshwar-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/kalpeshwar-temple</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
-
-
-
-  <!-- Thailand Resources (Phase 7) -->
   <url>
     <loc>https://rudrakshsafar.com/international-tours/thailand</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/plan-your-thailand-trip</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
-
-  <!-- Dubai Resources (Phase 10) -->
   <url>
     <loc>https://rudrakshsafar.com/international-tours/dubai</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/dubai-all-packages</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/dubai-travel-guide</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/dubai-4-day-itinerary</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/dubai-5-day-itinerary</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512453979798-5ea90b7cadc9?q=80&amp;w=2074</image:loc>
+      <image:title>Dubai Tour Package</image:title>
+    </image:image>
   </url>
-
-  <!-- Goa Resources -->
   <url>
     <loc>https://rudrakshsafar.com/domestic-tours/goa-cheap-trip-guide</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&amp;w=2070</image:loc>
+      <image:title>Goa Tour Package</image:title>
+    </image:image>
   </url>
-
-  <!-- Ladakh Resources -->
   <url>
     <loc>https://rudrakshsafar.com/ladakh-ultimate-expedition</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/domestic-tours/ladakh</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/ladakh-tour-via-srinagar</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/ladakh-tour-via-manali</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/manali-vs-srinagar-route-ladakh</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1626621341476-3b37d7a9693c?q=80&amp;w=2067</image:loc>
+      <image:title>Manali Tour Package</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/ladakh-trip-cost</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/best-time-to-visit-ladakh</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/ladakh-bike-trip-packages</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/is-ladakh-safe</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/ladakh-packing-list</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/pangong-lake-guide</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
-
-  <!-- Summer Specials -->
   <url>
     <loc>https://rudrakshsafar.com/summer-special-packages</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/spiti-valley-tour-package</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/sikkim-tour-package</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/munsiyari-tour-package</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
-
-  <!-- Char Dham Resources -->
   <url>
     <loc>https://rudrakshsafar.com/chardham-yatra-route-map</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/is-chardham-yatra-safe</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/chardham-yatra-for-seniors</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/what-to-pack-for-chardham-yatra</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/chardham-yatra-registration-process</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/plan-your-yatra</loc>
-    <lastmod>2026-02-18</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rudrakshsafar.com/chardham-yatra-price</loc>
+    <priority>0.5</priority>
     <lastmod>2026-02-09</lastmod>
-    <priority>0.8</priority>
   </url>
-
 </urlset>

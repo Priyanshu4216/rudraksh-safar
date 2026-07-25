@@ -10,6 +10,10 @@ export const BilaspurToAndaman = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Andaman package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Andaman from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Andaman, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "Are there direct flights to Andaman from Bilaspur?",
       answer: "No, there are no direct flights. You will need to take a connecting flight from Raipur (RPR) to Port Blair (IXZ), usually with a layover in Kolkata, Chennai, or Delhi."
     },

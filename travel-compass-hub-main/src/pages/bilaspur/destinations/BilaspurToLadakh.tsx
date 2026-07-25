@@ -10,6 +10,10 @@ export const BilaspurToLadakh = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Ladakh package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Ladakh from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Ladakh, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I reach Leh-Ladakh from Bilaspur?",
       answer: "The fastest and most common way is to take a flight from Swami Vivekananda Airport (Raipur) to Kushok Bakula Rimpochee Airport (IXL) in Leh, with a layover in Delhi. Alternatively, for adventure enthusiasts, we arrange bike/SUV trips starting from Manali or Srinagar."
     },

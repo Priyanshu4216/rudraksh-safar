@@ -10,6 +10,10 @@ export const BilaspurToBali = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Bali package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Bali from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Bali, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I travel from Bilaspur to Bali?",
       answer: "We book connecting flights from Swami Vivekananda Airport in Raipur (RPR) to Ngurah Rai International Airport in Bali (DPS). Connections are usually through Kuala Lumpur, Singapore, or Bangkok depending on the airline."
     },

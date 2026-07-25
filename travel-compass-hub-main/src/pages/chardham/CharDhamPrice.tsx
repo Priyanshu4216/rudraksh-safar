@@ -15,6 +15,10 @@ const CharDhamPrice = () => {
 
     const faqs = [
         {
+            question: "Do you have local support during the Uttarakhand trip?",
+            answer: "Yes — we have our own support office and staff based in Haridwar, so you have real, on-ground help throughout your trip, not just a phone number back in Chhattisgarh."
+        },
+        {
             question: "What is the average Char Dham Yatra cost from Haridwar?",
             answer: "A standard 10 to 12-day Char Dham Yatra starting from Haridwar or Rishikesh typically costs between ₹25,000 to ₹35,000 per person in a group tour (using bus/tempo traveller). A private Innova tour for 4 people will cost around ₹40,000 to ₹50,000 per person."
         },

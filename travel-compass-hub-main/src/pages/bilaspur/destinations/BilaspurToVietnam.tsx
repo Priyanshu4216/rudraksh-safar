@@ -10,6 +10,10 @@ export const BilaspurToVietnam = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Vietnam package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Vietnam from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Vietnam, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "How do I reach Vietnam from Bilaspur?",
       answer: "The best route is to fly from Swami Vivekananda Airport (Raipur) to Kolkata (CCU) or New Delhi (DEL), and then take a direct flight (e.g., VietJet) to Hanoi (HAN) or Ho Chi Minh City (SGN)."
     },

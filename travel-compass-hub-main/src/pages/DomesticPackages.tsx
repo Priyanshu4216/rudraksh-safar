@@ -15,6 +15,7 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import LastUpdated from '@/components/LastUpdated';
 import FAQsSection from '@/components/FAQsSection';
 import RelatedServices from '@/components/RelatedServices';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const PHONE_NUMBER = '919203650311';
 
@@ -352,10 +353,10 @@ const DomesticPackages = () => {
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-3">Best for long weekends (3-5 Days).</p>
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><strong className="text-foreground">Manali:</strong> Starts ₹9,999. Adventure & Snow.</li>
-                    <li className="flex items-center gap-2"><strong className="text-foreground">Goa:</strong> Starts ₹11,999. Beaches & Nightlife.</li>
-                    <li className="flex items-center gap-2"><strong className="text-foreground">Haridwar:</strong> Starts ₹9,999. Spiritual short trip.</li>
-                  </ul>
+                      <li className="flex items-center gap-2"><strong className="text-foreground">Manali:</strong> Starts {formatPrice(getPrice('manali')?.basePrice || 9999)}. Adventure & Snow.</li>
+                      <li className="flex items-center gap-2"><strong className="text-foreground">Goa:</strong> Starts {formatPrice(getPrice('goa')?.basePrice || 9999)}. Beaches & Nightlife.</li>
+                      <li className="flex items-center gap-2"><strong className="text-foreground">Haridwar:</strong> Starts ₹9,999. Spiritual short trip.</li>
+                    </ul>
                 </CardContent>
               </Card>
 

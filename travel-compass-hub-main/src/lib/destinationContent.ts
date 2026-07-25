@@ -6,6 +6,7 @@ import { baliData } from '@/data/destinations/bali';
 import { dubaiData } from '@/data/destinations/dubai';
 import { singaporeData } from '@/data/destinations/singapore';
 import { maldivesData } from '@/data/destinations/maldives';
+import { nepalData } from '@/data/destinations/nepal';
 import { DestinationContentData } from '@/data/destinations/types';
 
 export type DestinationPageSlug =
@@ -414,6 +415,9 @@ export const getDestinationData = (slug: string, pageSlug?: string): Destination
   }
   if (slug === 'maldives' && pageSlug && maldivesData[pageSlug]) {
     return maldivesData[pageSlug];
+  }
+  if (slug === 'nepal' && pageSlug && nepalData[pageSlug]) {
+    return nepalData[pageSlug];
   }
 
   // 2. Fallback to Legacy Data

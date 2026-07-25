@@ -20,10 +20,34 @@ import ReadingProgress from '@/components/ui/ReadingProgress';
 import TableOfContents from '@/components/content/TableOfContents';
 import DecisionHelper from '@/components/content/DecisionHelper';
 import RelatedServices from '@/components/RelatedServices';
+import { getPrice, formatPrice } from '@/utils/getPrice';
 
 const TravelAgentBhilai = () => {
   // LocalBusiness Schema - Optimized for Google Local Pack
-  const localBusinessSchema = {
+  const faqs = [
+    {
+      question: "How do I verify a travel agency before booking from Bhilai?",
+      answer: "A trustworthy agency should have transparent pricing and a verifiable local presence. Rudraksh Safar's primary operations center is located right here in Bhilai-3 on GE Road. We issue official GST bills (GST: 22AGBPC7350G1ZZ) and encourage face-to-face consultations to discuss your itinerary."
+    },
+    {
+      question: "Is booking through a travel agent cheaper than online?",
+      answer: "Often, yes. We have B2B contracts with hotels and airlines that aren't available to the public. Plus, we save you from hidden 'convenience fees' and unexpected cancellation charges that online portals often hide."
+    },
+    {
+      question: "Do you provide support for visas and passports?",
+      answer: "Absolutely. We are a full-service travel agency. From filling out complex visa forms for Europe/UK to scheduling your passport appointment in Raipur, we handle the boring paperwork so you can enjoy the trip."
+    },
+    {
+      question: "Can I pay in cash at your office?",
+      answer: "Yes! Unlike online websites where you must pay digitally, you can visit our office in Bhilai 3 and pay via Cash, UPI, Cheque, or Card. We offer flexible payment options for your convenience."
+    },
+    {
+      question: "What if I face an issue during my trip (e.g., flight cancelled)?",
+      answer: "This is where we shine. Instead of waiting on hold with an airline call center for hours, you call us directly. We will rebook your flight, arrange hotel stays, or sort out transport issues instantly. We act as your safety net."
+    }
+  ];
+
+    const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "@id": "https://rudrakshsafar.com/#travelagency",
@@ -33,14 +57,14 @@ const TravelAgentBhilai = () => {
     "email": "rudrakshsafar@gmail.com",
     "priceRange": "₹₹",
     "image": "https://rudrakshsafar.com/og-image.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "GE Road, In Front of Petrol Pump, Bhilai 3",
-      "addressLocality": "Bhilai",
-      "addressRegion": "Chhattisgarh",
-      "postalCode": "490021",
-      "addressCountry": "IN"
-    },
+                    "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3",
+            "addressLocality": "Durg",
+            "addressRegion": "Chhattisgarh",
+            "postalCode": "490021",
+            "addressCountry": "IN"
+        },
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": "21.206181",
@@ -61,18 +85,15 @@ const TravelAgentBhilai = () => {
       "Train Ticket Booking",
       "Passport Services"
     ],
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "Bhilai" },
-      { "@type": "Place", "name": "Supela, Bhilai" },
-      { "@type": "Place", "name": "Smriti Nagar, Bhilai" },
-      { "@type": "Place", "name": "Power House, Bhilai" },
-      { "@type": "Place", "name": "Nehru Nagar, Bhilai" },
-      { "@type": "Place", "name": "Risali, Bhilai" },
-      { "@type": "Place", "name": "Charoda, Bhilai" },
-      { "@type": "Place", "name": "Hudco, Bhilai" },
-      { "@type": "AdministrativeArea", "name": "Durg" },
-      { "@type": "AdministrativeArea", "name": "Raipur" }
-    ],
+            "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Bhilai" },
+            { "@type": "AdministrativeArea", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Durg" },
+            { "@type": "AdministrativeArea", "name": "Bilaspur" },
+            { "@type": "Place", "name": "Naya Raipur" },
+            { "@type": "Place", "name": "Supela" },
+            { "@type": "Place", "name": "Durg-Bhilai" }
+        ],
     "sameAs": [
       "https://www.facebook.com/rudrakshsafar",
       "https://www.instagram.com/rudrakshsafar",
@@ -188,56 +209,17 @@ const TravelAgentBhilai = () => {
   };
 
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-near-me",
-        "name": "Is there a travel agent near me in Bhilai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Rudraksh Safar is a top-rated travel agent located on GE Road, Bhilai 3 (Near SBI). We serve clients from Supela, Smriti Nagar, Durg, and Raipur with personalized tour packages and booking assistance."
-        }
-      },
-      {
-        "@type": "Question",
-        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-best-agency",
-        "name": "Which is the best travel agency in Bhilai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Rudraksh Safar is rated as one of the best travel agencies in Bhilai due to our 10+ years of experience, 5000+ happy customers involved in Chardham Yatra and International tours, and our transparent pricing with no hidden fees."
-        }
-      },
-      {
-        "@type": "Question",
-        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-local-vs-online",
-        "name": "Why should I choose a local travel agent instead of online portals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "When you book with us, you get accountability. Online portals offer chatbots; we offer a personal mobile number. If a problem arises, we solve it instantly. Plus, we accept flexible payments including cash at our Bhilai office."
-        }
-      },
-      {
-        "@type": "Question",
-        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-visa",
-        "name": "Do you provide visa assistance in Bhilai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we are expert visa consultants in Bhilai. We handle tourist and business visas for Dubai, Thailand, Singapore, Schengen, and more with a 99% success rate."
-        }
-      },
-      {
-        "@type": "Question",
-        "@id": "https://rudrakshsafar.com/travel-agent-bhilai#faq-packages",
-        "name": "What are the popular tour packages from Bhilai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our most popular packages from Bhilai include Goa (with flight/train), Kashmir, Kerala, Chardham Yatra, and international trips to Thailand and Dubai. We customize these starting from Raipur Airport or Durg Railway Station."
-        }
-      }
-    ]
-  };
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    };
 
   const services = [
     { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Domestic & international flights from Raipur (RPR).", link: "/flight-booking-bhilai" },
@@ -249,9 +231,9 @@ const TravelAgentBhilai = () => {
   ];
 
   const popularRoutes = [
-    { name: "Bhilai to Goa", type: "Domestic", price: "Starts ₹12,999", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options.", link: "/package/goa" },
-    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts ₹18,999", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow.", link: "/package/kashmir" },
-    { name: "Bhilai to Manali", type: "Domestic", price: "Starts ₹9,999", icon: Mountain, desc: "Adventure & Snow. Perfect for couples.", link: "/package/shimla-manali" },
+    { name: "Bhilai to Goa", type: "Domestic", price: "Starts {formatPrice(getPrice('goa')?.basePrice || 9999)}", icon: Palmtree, desc: "Sun, Sand & Sea. Flight/Train options.", link: "/package/goa" },
+    { name: "Bhilai to Kashmir", type: "Domestic", price: "Starts {formatPrice(getPrice('kashmir')?.basePrice || 9999)}", icon: Snowflake, desc: "Paradise on Earth. Houseboats & Snow.", link: "/package/kashmir" },
+    { name: "Bhilai to Manali", type: "Domestic", price: "Starts {formatPrice(getPrice('manali')?.basePrice || 9999)}", icon: Mountain, desc: "Adventure & Snow. Perfect for couples.", link: "/package/shimla-manali" },
     { name: "Bhilai to Thailand", type: "International", price: "Starts ₹24,999", icon: Plane, desc: "Bangkok & Pattaya fun with Visa support.", link: "/international-tours/thailand" },
     { name: "Bhilai to Dubai", type: "International", price: "Starts ₹35,999", icon: Plane, desc: "Luxury, Shopping & Desert Safari.", link: "/international-tours/dubai" },
     { name: "Bhilai to Chardham", type: "Pilgrimage", price: "Customized", icon: Mountain, desc: "Sacred Yatra from Chhattisgarh.", link: "/chardham-yatra-package" },
@@ -259,24 +241,7 @@ const TravelAgentBhilai = () => {
 
 
 
-  const faqs = [
-    {
-      question: "Is booking through a travel agent cheaper than online?",
-      answer: "Often, yes. We have B2B contracts with hotels and airlines that aren't available to the public. Plus, we save you from hidden 'convenience fees' and unexpected cancellation charges that online portals often hide."
-    },
-    {
-      question: "Do you provide support for visas and passports?",
-      answer: "Absolutely. We are a full-service travel agency. From filling out complex visa forms for Europe/UK to scheduling your passport appointment in Raipur, we handle the boring paperwork so you can enjoy the trip."
-    },
-    {
-      question: "Can I pay in cash at your office?",
-      answer: "Yes! Unlike online websites where you must pay digitally, you can visit our office in Bhilai 3 and pay via Cash, UPI, Cheque, or Card. We offer flexible payment options for your convenience."
-    },
-    {
-      question: "What if I face an issue during my trip (e.g., flight cancelled)?",
-      answer: "This is where we shine. Instead of waiting on hold with an airline call center for hours, you call us directly. We will rebook your flight, arrange hotel stays, or sort out transport issues instantly. We act as your safety net."
-    }
-  ];
+  
 
   const tocItems = [
     { id: "hero", label: "Overview" },

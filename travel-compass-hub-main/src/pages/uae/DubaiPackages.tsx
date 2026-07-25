@@ -80,11 +80,11 @@ const DubaiPackages = () => {
                                 }
                             ]
                         },
-                        // Product Schema for the Featured Package
+                        // TouristTrip Schema for the Featured Package
                         {
                             "@context": "https://schema.org",
-                            "@type": "Product",
-                            "name": "Dubai Essentials Tour Package",
+                            "@type": "TouristTrip",
+                            "name": "Dubai Tour Packages",
                             "description": "5 Days / 4 Nights Dubai Tour including Burj Khalifa, Desert Safari, and Marina Cruise.",
                             "image": "https://images.unsplash.com/photo-1512453979798-5ea932a23518?auto=format&fit=crop&q=80&w=2000",
                             "offers": {

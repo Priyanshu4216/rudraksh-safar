@@ -22,89 +22,11 @@ import LocalCoverage from '@/components/LocalCoverage';
 const TravelAgentDurg = () => {
 
     // LocalBusiness Schema - Optimized for Durg
-    const localBusinessSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAgency",
-        "@id": "https://rudrakshsafar.com/#travelagency",
-        "name": "Rudraksh Safar",
-        "image": "https://rudrakshsafar.com/logo.png",
-        "telephone": "+919203650311",
-        "email": "rudrakshsafar@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Shop No 182/2, GE Road, Bhilai 3",
-            "addressLocality": "Bhilai",
-            "addressRegion": "Chhattisgarh",
-            "postalCode": "490021",
-            "addressCountry": "IN"
-        },
-        "priceRange": "₹₹",
-        "openingHoursSpecification": [{
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "10:00",
-            "closes": "21:00"
-        }],
-        "url": "https://rudrakshsafar.com/travel-agent-durg",
-        "areaServed": [
-            { "@type": "AdministrativeArea", "name": "Durg" },
-            { "@type": "Place", "name": "Mohan Nagar, Durg" },
-            { "@type": "Place", "name": "Padmanabhpur, Durg" },
-            { "@type": "AdministrativeArea", "name": "Bhilai" },
-            { "@type": "AdministrativeArea", "name": "Raipur" },
-            { "@type": "AdministrativeArea", "name": "Chhattisgarh" }
-        ],
-        "knowsAbout": [
-            "Domestic Tour Packages",
-            "International Holiday Packages",
-            "Visa Assistance",
-            "Flight Booking",
-            "Train Ticket Booking",
-            "Passport Services"
-        ]
-    };
-
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Who is the best travel agency in Durg?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Rudraksh Safar is widely trusted in Durg for providing reliable tour packages, visa services, and flight bookings. We offer doorstep assistance to our Durg clients and personalized travel planning."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I book international tour packages from Durg?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we specialize in international packages from Durg to Dubai, Thailand, Singapore, and Europe. We handle the entire visa process and flight bookings from Raipur airport."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Do you provide home service in Durg?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, for our clients in Durg, we can arrange a home visit or a consultation at a cafe to discuss trip plans, collect documents, and handle payments securely."
-                }
-            }
-        ]
-    };
-
-    const services = [
-        { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Best flight rates from Raipur to anywhere. Better deals than online apps.", link: "/flight-booking-bhilai" },
-        { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed Tatkal tickets from Durg Junction. No waiting list tension.", link: "/train-booking-bhilai" },
-        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Consultant", desc: "Expert help for fresh passports and renewals for Durg residents.", link: "/passport-agent-bhilai" },
-        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Services", desc: "High success rate tourist visas for Durg families looking to travel abroad.", link: "/visa-agent-bhilai" },
-        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized domestic and international tours starting from Durg.", link: "/tour-packages-from-bhilai" },
-        { icon: <Shield className="w-10 h-10 text-primary mx-auto" />, title: "Travel Insurance", desc: "Comprehensive travel insurance to keep your family safe during trips.", link: "/travel-safety" },
-    ];
-
     const faqs = [
+    {
+      question: "How do I verify a travel agency before booking from Durg?",
+      answer: "A verifiable agency should have a clear local presence and transparent billing. Rudraksh Safar is headquartered locally on GE Road in the Durg district. We issue official GST bills (GST: 22AGBPC7350G1ZZ) and have extensive experience coordinating train transit from Durg Junction."
+    },
         {
             question: "Who is the best travel agency in Durg?",
             answer: "Rudraksh Safar is highly recommended in Durg for our transparent services, 24/7 support, and affordable tour packages. We bridge the gap between Durg and world-class travel experiences."
@@ -126,6 +48,73 @@ const TravelAgentDurg = () => {
             answer: "Booking with a local registered agent like Rudraksh Safar is safer than anonymous online sites. We are accountable, accessible, and available in person to solve any travel issues."
         }
     ];
+
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "@id": "https://rudrakshsafar.com/#travelagency",
+        "name": "Rudraksh Safar",
+        "image": "https://rudrakshsafar.com/logo.png",
+        "telephone": "+919203650311",
+        "email": "rudrakshsafar@gmail.com",
+                        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3",
+            "addressLocality": "Durg",
+            "addressRegion": "Chhattisgarh",
+            "postalCode": "490021",
+            "addressCountry": "IN"
+        },
+        "priceRange": "₹₹",
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "21:00"
+        }],
+        "url": "https://rudrakshsafar.com/travel-agent-durg",
+                "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Bhilai" },
+            { "@type": "AdministrativeArea", "name": "Raipur" },
+            { "@type": "AdministrativeArea", "name": "Durg" },
+            { "@type": "AdministrativeArea", "name": "Bilaspur" },
+            { "@type": "Place", "name": "Naya Raipur" },
+            { "@type": "Place", "name": "Supela" },
+            { "@type": "Place", "name": "Durg-Bhilai" }
+        ],
+        "knowsAbout": [
+            "Domestic Tour Packages",
+            "International Holiday Packages",
+            "Visa Assistance",
+            "Flight Booking",
+            "Train Ticket Booking",
+            "Passport Services"
+        ]
+    };
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    };
+
+    const services = [
+        { icon: <Plane className="w-10 h-10 text-primary mx-auto" />, title: "Flight Booking", desc: "Best flight rates from Raipur to anywhere. Better deals than online apps.", link: "/flight-booking-bhilai" },
+        { icon: <Clock className="w-10 h-10 text-primary mx-auto" />, title: "Train Tickets", desc: "Confirmed Tatkal tickets from Durg Junction. No waiting list tension.", link: "/train-booking-bhilai" },
+        { icon: <FileCheck className="w-10 h-10 text-primary mx-auto" />, title: "Passport Consultant", desc: "Expert help for fresh passports and renewals for Durg residents.", link: "/passport-agent-bhilai" },
+        { icon: <CheckCircle className="w-10 h-10 text-primary mx-auto" />, title: "Visa Services", desc: "High success rate tourist visas for Durg families looking to travel abroad.", link: "/visa-agent-bhilai" },
+        { icon: <Sun className="w-10 h-10 text-primary mx-auto" />, title: "Holiday Packages", desc: "Customized domestic and international tours starting from Durg.", link: "/tour-packages-from-bhilai" },
+        { icon: <Shield className="w-10 h-10 text-primary mx-auto" />, title: "Travel Insurance", desc: "Comprehensive travel insurance to keep your family safe during trips.", link: "/travel-safety" },
+    ];
+
+    
 
     return (
         <>

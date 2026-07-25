@@ -21,7 +21,7 @@ const PremiumDestinationTemplate = ({ data }: PremiumDestinationTemplateProps) =
 
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "TouristTrip",
         "name": data.title,
         "description": data.overview,
         "image": data.image,
@@ -29,12 +29,12 @@ const PremiumDestinationTemplate = ({ data }: PremiumDestinationTemplateProps) =
             "@type": "Offer",
             "price": data.price.replace(/[^0-9]/g, ''),
             "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "124"
+            "availability": "https://schema.org/InStock",
+            "url": `https://rudrakshsafar.com${window.location.pathname}`,
+            "offeredBy": {
+                "@type": "TravelAgency",
+                "name": "Rudraksh Safar"
+            }
         }
     };
 

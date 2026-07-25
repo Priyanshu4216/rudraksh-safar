@@ -10,6 +10,10 @@ export const BilaspurToKerala = () => {
   
   const faqs = [
     {
+      question: "Is there a trusted travel agency in Bilaspur for a Kerala package?",
+      answer: "Yes — Rudraksh Safar has been arranging domestic and international packages including Kerala from Bilaspur for years, with transparent pricing and direct phone/WhatsApp support throughout your trip. We don't have a local office in Kerala, but our team (easily accessible via trains to Durg Junction) coordinates your itinerary, hotel, and transport in advance and stays reachable during your trip."
+    },
+    {
       question: "What is the best way to travel from Bilaspur to Kerala?",
       answer: "The fastest option is to take a flight from Raipur (RPR) to Kochi (COK). Alternatively, if you have time, there are direct trains from Bilaspur Junction (BSP) to Ernakulam Junction (ERS), which takes about 35-40 hours."
     },

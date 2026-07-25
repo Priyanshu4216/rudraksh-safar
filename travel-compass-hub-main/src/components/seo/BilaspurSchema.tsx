@@ -61,11 +61,11 @@ export const BilaspurSchema: React.FC<BilaspurSchemaProps> = ({
     }
   };
 
-  // Product Schema if price is provided
-  const productSchema = price ? {
+  // TouristTrip Schema if price is provided
+  const touristTripSchema = price ? {
     "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": title,
+    "@type": "TouristTrip",
+    "name": "Bilaspur Tour Packages",
     "image": "https://rudrakshsafar.com/logo.png",
     "description": description,
     "brand": {
@@ -74,12 +74,12 @@ export const BilaspurSchema: React.FC<BilaspurSchemaProps> = ({
     },
     "offers": {
       "@type": "Offer",
-      "url": canonicalUrl,
       "priceCurrency": "INR",
       "price": price,
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Organization",
+      "url": canonicalUrl,
+      "offeredBy": {
+        "@type": "TravelAgency",
         "name": "Rudraksh Safar"
       }
     }

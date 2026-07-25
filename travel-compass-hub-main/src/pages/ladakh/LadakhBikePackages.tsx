@@ -14,12 +14,26 @@ const LadakhBikePackages = () => {
 
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "TouristTrip",
         "name": "Ladakh Bike Trip Package 2026",
         "description": "Ultimate Ladakh Bike Trip. Rental included (Himalayan/Royal Enfield). Mechanic support, fuel, and camping. Manali to Leh bike tours available.",
-        "brand": {
-            "@type": "Brand",
+        "provider": {
+            "@type": "TravelAgency",
             "name": "Rudraksh Safar"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Ladakh Bike Trip Packages",
+            "itemListElement": [
+                {
+                    "@type": "Service",
+                    "name": "Ladakh Bike Rental Package"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Self-Owned Bike Tour Package"
+                }
+            ]
         },
         "aggregateRating": {
             "@type": "AggregateRating",
