@@ -138,9 +138,9 @@ export const BilaspurSchema: React.FC<BilaspurSchemaProps> = ({
       <script type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}
       </script>
-      {productSchema && (
+      {touristTripSchema && (
         <script type="application/ld+json">
-          {JSON.stringify(productSchema)}
+          {JSON.stringify(touristTripSchema)}
         </script>
       )}
       {faqSchema && (
