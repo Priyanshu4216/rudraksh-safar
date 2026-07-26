@@ -616,20 +616,24 @@ const App = () => (
                     {/* Kashmir Master Silo */}
                     <Route path="/domestic-tours/kashmir" element={<KashmirMaster />} />
                     <Route path="/domestic-tours/kashmir-from-bhilai" element={<Navigate to="/domestic-tours/kashmir" replace />} />
+                    <Route path="/domestic-tours/kashmir-from-bilaspur" element={<Navigate to="/bilaspur/kashmir-package" replace />} />
                     <Route path="/domestic/kashmir/kashmir-trip-cost" element={<KashmirTripCost />} />
 
                     {/* Manali Master Silo */}
                     <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
                     <Route path="/domestic-tours/manali-from-bhilai" element={<Navigate to="/domestic-tours/manali" replace />} />
+                    <Route path="/domestic-tours/manali-from-bilaspur" element={<Navigate to="/bilaspur/manali-package" replace />} />
 
                     {/* Kerala Master Silo */}
                     <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
                     <Route path="/domestic-tours/kerala-from-bhilai" element={<Navigate to="/domestic-tours/kerala" replace />} />
+                    <Route path="/domestic-tours/kerala-from-bilaspur" element={<Navigate to="/bilaspur/kerala-package" replace />} />
 
                     {/* Thailand Master Silo */}
                     <Route path="/international-tours/thailand" element={<ThailandMaster />} />
                     <Route path="/international-tours/thailand-from-raipur" element={<Navigate to="/international-tours/thailand" replace />} />
                     <Route path="/international-tours/thailand-from-bhilai" element={<Navigate to="/international-tours/thailand" replace />} />
+                    <Route path="/international-tours/thailand-from-bilaspur" element={<Navigate to="/bilaspur/thailand-package" replace />} />
 
                     {/* Thailand Prominence Routes */}
                     <Route path="/international-tours/thailand/krabi" element={<KrabiDestinationAuthority />} />
@@ -643,24 +647,29 @@ const App = () => (
                     <Route path="/dubai-tour-packages" element={<Navigate to="/international-tours/dubai" replace />} />
                     <Route path="/international-tours/dubai-from-raipur" element={<Navigate to="/international-tours/dubai" replace />} />
                     <Route path="/international-tours/dubai-from-bhilai" element={<Navigate to="/international-tours/dubai" replace />} />
+                    <Route path="/international-tours/dubai-from-bilaspur" element={<Navigate to="/bilaspur/dubai-package" replace />} />
 
                     {/* Singapore Master Silo */}
                     <Route path="/international-tours/singapore" element={<SingaporeMaster />} />
                     <Route path="/international-tours/singapore-from-bhilai" element={<Navigate to="/international-tours/singapore" replace />} />
+                    <Route path="/international-tours/singapore-from-bilaspur" element={<Navigate to="/bilaspur/singapore-package" replace />} />
 
                     {/* Bali Master Silo */}
                     <Route path="/international-tours/bali" element={<BaliMaster />} />
                     <Route path="/international-tours/bali-from-raipur" element={<Navigate to="/international-tours/bali" replace />} />
                     <Route path="/international-tours/bali-from-bhilai" element={<Navigate to="/international-tours/bali" replace />} />
+                    <Route path="/international-tours/bali-from-bilaspur" element={<Navigate to="/bilaspur/bali-package" replace />} />
 
                     {/* Sri Lanka Master Silo */}
                     <Route path="/international-tours/srilanka" element={<SriLankaMaster />} />
                     <Route path="/international-tours/srilanka-from-raipur" element={<Navigate to="/international-tours/srilanka" replace />} />
                     <Route path="/international-tours/srilanka-from-bhilai" element={<Navigate to="/international-tours/srilanka" replace />} />
+                    <Route path="/international-tours/srilanka-from-bilaspur" element={<Navigate to="/international-tours/srilanka" replace />} />
 
                     {/* Andaman Master Silo */}
                     <Route path="/domestic-tours/andaman" element={<AndamanMaster />} />
                     <Route path="/domestic-tours/andaman-from-bhilai" element={<Navigate to="/domestic-tours/andaman" replace />} />
+                    <Route path="/domestic-tours/andaman-from-bilaspur" element={<Navigate to="/bilaspur/andaman-package" replace />} />
 
                     {/* Goa Master Silo */}
                     <Route path="/domestic-tours/goa" element={<GoaMaster />} />
@@ -783,6 +792,18 @@ const App = () => (
                     <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
                     <Route path="/nepal-tour-package-from-bhilai" element={<Navigate to="/international-packages" replace />} />
 
+                    {/* Bilaspur Legacy Redirects */}
+                    <Route path="/domestic-tours/goa-from-bilaspur" element={<Navigate to="/bilaspur/goa-package" replace />} />
+                    <Route path="/domestic-tours/shimla-from-bilaspur" element={<Navigate to="/bilaspur/shimla-package" replace />} />
+                    <Route path="/domestic-tours/ladakh-from-bilaspur" element={<Navigate to="/bilaspur/ladakh-package" replace />} />
+                    <Route path="/domestic-tours/rajasthan-from-bilaspur" element={<Navigate to="/bilaspur/rajasthan-package" replace />} />
+                    <Route path="/international-tours/malaysia-from-bilaspur" element={<Navigate to="/bilaspur/malaysia-package" replace />} />
+                    <Route path="/international-tours/vietnam-from-bilaspur" element={<Navigate to="/bilaspur/vietnam-package" replace />} />
+                    <Route path="/domestic-tours/darjeeling-from-bilaspur" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/domestic-tours/uttarakhand-from-bilaspur" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/domestic-tours/meghalaya-from-bilaspur" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/international-tours/maldives-from-bilaspur" element={<Navigate to="/international-packages" replace />} />
+                    <Route path="/international-tours/europe-from-bilaspur" element={<Navigate to="/international-packages" replace />} />
 
                     {/* Sitemap */}
                     <Route path="/sitemap" element={<Sitemap />} />
