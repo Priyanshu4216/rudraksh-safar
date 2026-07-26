@@ -6,7 +6,7 @@ import { MapPin, Phone, MessageCircle, Calendar, Check, X, Clock, Sun } from 'lu
 import { Link } from 'react-router-dom';
 
 export const BilaspurToThailand = () => {
-  const price = 25999;
+  const price = 12499;
   
   const faqs = [
     {
@@ -42,8 +42,8 @@ export const BilaspurToThailand = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <BilaspurSchema 
-        title="Thailand Tour Package from Bilaspur | Bangkok & Pattaya"
-        description="Book your Thailand tour package from Bilaspur. Explore Bangkok & Pattaya with customized itineraries, coral island tours, and visa assistance. Call now!"
+        title="Thailand - Pattaya 4 Days / 3 Nights Package from Bilaspur"
+        description="Book your Pattaya 4 Days / 3 Nights tour package from Bilaspur for ₹12,499. Enjoy Coral Island Tour, Alcazar Cabaret Show, and Pattaya City Tour. Call now!"
         canonicalUrl="https://rudrakshsafar.com/bilaspur/thailand-package"
         faqs={faqs}
         price={price}
@@ -73,7 +73,7 @@ export const BilaspurToThailand = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                <h1 className="text-3xl md:text-5xl font-extrabold text-white">Thailand Package from Bilaspur</h1>
+                <h1 className="text-3xl md:text-5xl font-extrabold text-white">Thailand - Pattaya Package</h1>
               </div>
             </div>
             
@@ -101,26 +101,27 @@ export const BilaspurToThailand = () => {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Trip Overview</h2>
                 <div className="prose text-gray-600 leading-relaxed max-w-none">
                   <p>
-                    Ready for an international getaway? Our <strong>Thailand Tour Package from Bilaspur</strong> is specifically designed to give you a seamless experience from Chhattisgarh to the Land of Smiles. We cover the vibrant city life of Bangkok and the beautiful beaches of Pattaya in one action-packed itinerary.
+                    Ready for a quick international getaway? Our <strong>Thailand – Pattaya 4 Days / 3 Nights Package</strong> is specifically designed to give you a seamless experience from Chhattisgarh to the vibrant coastal city of Pattaya. 
                   </p>
                   <p className="mt-4">
-                    Departing from Bilaspur is easy. Our travel experts will book connecting flights for you from Swami Vivekananda Airport (Raipur) directly to Bangkok. We handle your entire itinerary, including airport transfers in Thailand, hotel bookings in safe and prime locations, and all major sightseeing tours so you don't have to navigate foreign transport alone.
+                    Pattaya offers a perfect blend of relaxation and excitement. Stay at the comfortable 4-Star Hotel SunCity Pattaya, located conveniently near Walking Street and Pattaya Beach.
                   </p>
                   <p className="mt-4">
-                    From the spectacular Alcazar Cabaret Show in Pattaya to the ornate temples of Bangkok, this 4-night, 5-day package is the perfect blend of culture, shopping, and relaxation.
+                    From the spectacular Alcazar Cabaret Show to the stunning white sands of Coral Island, this 3-night, 4-day package is the perfect blend of culture, beach life, and exploration at an unbeatable price.
                   </p>
                 </div>
               </section>
 
               <section className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Detailed Itinerary (4N/5D Bangkok & Pattaya)</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Detailed Itinerary (3N/4D Pattaya)</h2>
                 
                 <div className="space-y-8">
                   <div className="relative pl-8 border-l-2 border-blue-200">
                     <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 1: Arrival in Bangkok & Transfer to Pattaya</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 1: Arrival in Pattaya & Alcazar Show</h3>
                     <p className="text-gray-600">
-                      Upon arrival at Suvarnabhumi Airport (BKK) or Don Mueang (DMK), complete your visa formalities. Our English-speaking driver will meet you at the arrival hall and transfer you to your hotel in Pattaya (approx. 2-hour drive). In the evening, experience the world-famous Alcazar Cabaret Show. Overnight stay in Pattaya.
+                      <strong>Arrival: DMK / BKK Airport</strong><br/>
+                      Meet & greet upon arrival. Enjoy a private/SIC transfer from Bangkok Airport to your hotel in Pattaya. Check-in at Hotel SunCity Pattaya (4★) and relax. In the evening, witness the world-famous Alcazar Cabaret Show (Standard Ticket Included). Return to the hotel for an overnight stay.
                     </p>
                   </div>
 
@@ -128,31 +129,26 @@ export const BilaspurToThailand = () => {
                     <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">Day 2: Coral Island Tour with Lunch</h3>
                     <p className="text-gray-600">
-                      After breakfast, take a speedboat ride to the beautiful Coral Island (Koh Larn). Enjoy the pristine white-sand beaches and crystal-clear waters. You can partake in water sports like parasailing and underwater sea walking (extra cost). A delicious Indian buffet lunch is included. Return to Pattaya for a free evening.
+                      <strong>Meals: Breakfast & Lunch</strong><br/>
+                      After breakfast, proceed for the exciting Coral Island Tour via speed boat. Enjoy free time to relax on the beach or experience optional water sports (at additional cost). A delicious Indian/Local Lunch is included. Return to Pattaya for an overnight stay at Hotel SunCity.
                     </p>
                   </div>
 
                   <div className="relative pl-8 border-l-2 border-blue-200">
                     <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 3: Transfer to Bangkok & City Tour</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 3: Pattaya City Tour</h3>
                     <p className="text-gray-600">
-                      Check out from your Pattaya hotel after breakfast and head to Bangkok. En route, enjoy a half-day Bangkok City & Temple Tour. Visit the famous Wat Traimit (Temple of the Golden Buddha) and Wat Benchamabophit (Marble Temple). Check into your Bangkok hotel and spend the evening shopping at Pratunam or MBK Center.
+                      <strong>Meals: Breakfast</strong><br/>
+                      After breakfast, proceed for a Pattaya City Tour (Transfer Only). Explore the city's popular attractions at your own pace. You have free time for shopping, visiting local cafés, and sightseeing. After completion of the tour, return to the hotel for an overnight stay.
                     </p>
                   </div>
                   
                   <div className="relative pl-8 border-l-2 border-blue-200">
                     <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 4: Safari World & Marine Park</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 4: Departure</h3>
                     <p className="text-gray-600">
-                      After breakfast, enjoy a full-day tour to Safari World & Marine Park. Drive through the open zoo to see wild animals in their natural habitat, and enjoy spectacular shows featuring dolphins, sea lions, and orangutans. Lunch is provided at the park. Return to the hotel in the late afternoon.
-                    </p>
-                  </div>
-
-                  <div className="relative pl-8 border-l-2 border-blue-200">
-                    <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Day 5: Departure back to India</h3>
-                    <p className="text-gray-600">
-                      Enjoy your final breakfast in Thailand. You have free time for last-minute shopping depending on your flight schedule. Our driver will transfer you to the Bangkok airport for your return flight to Raipur.
+                      <strong>Meals: Breakfast</strong><br/>
+                      Check-out from the hotel after breakfast. Transfer from Pattaya back to Bangkok (BKK/DMK Airport) for your onward journey. Tour Ends with Wonderful Memories!
                     </p>
                   </div>
                 </div>
@@ -188,7 +184,7 @@ export const BilaspurToThailand = () => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3 text-gray-600">
                     <Clock className="w-5 h-5 text-blue-500" />
-                    <span>4 Nights / 5 Days</span>
+                    <span>3 Nights / 4 Days</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-600">
                     <Sun className="w-5 h-5 text-yellow-500" />
@@ -203,22 +199,22 @@ export const BilaspurToThailand = () => {
                 <div className="mb-6">
                   <h4 className="font-bold text-gray-900 mb-3">Inclusions</h4>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> 2N stay in Pattaya (3/4-star)</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> 2N stay in Bangkok (3/4-star)</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Daily Breakfast at hotels</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Coral Island Tour with Lunch</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Bangkok City & Temple Tour</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> All Airport & Inter-city Transfers</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> 3N stay in Hotel SunCity Pattaya (4★)</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Daily Breakfast</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Airport to Pattaya & Return Transfers</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Alcazar Show Standard Ticket</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Coral Island Tour by Speed Boat with Lunch</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /> Pattaya City Tour (Transfer Only)</li>
                   </ul>
                 </div>
 
                 <div className="mb-8">
                   <h4 className="font-bold text-gray-900 mb-3">Exclusions</h4>
                   <ul className="space-y-2">
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> International Airfare from Raipur/Delhi</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Thailand Visa Fees</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> National Park fees at Coral Island</li>
-                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Personal expenses & Tips</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Airfare & Visa Charges</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Personal Expenses & Tips</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Water Sports</li>
+                    <li className="flex items-start gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" /> Travel Insurance</li>
                   </ul>
                 </div>
 
