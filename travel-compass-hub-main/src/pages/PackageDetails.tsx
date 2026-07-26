@@ -413,7 +413,7 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
                     </div>
                     <div>
                       <p className="text-muted-foreground">Price Range</p>
-                      <p className="font-semibold text-secondary">{pkg.price} onwards</p>
+                      <p className="font-bold text-navy-deep">{pkg.price} onwards</p>
                     </div>
                     <div>
                       <p className="text-muted-foreground">Best Time</p>
@@ -789,8 +789,8 @@ const PackageDetails = ({ packageIdOverride }: PackageDetailsProps = {}) => {
 
                     <div className="text-center mb-6">
                       <p className="text-sm text-muted-foreground mb-1">Starting from</p>
-                      <p className="text-4xl font-serif font-bold text-secondary">{pkg.price}</p>
-                      <p className="text-sm text-muted-foreground">per person</p>
+                      <p className="text-4xl font-extrabold text-navy-deep tracking-tight">{pkg.price}</p>
+                      <p className="text-sm text-muted-foreground mt-1">per person</p>
                     </div>
 
                     <Button onClick={handleWhatsApp} className="w-full bg-gold hover:bg-gold-light text-navy-deep font-bold text-base py-6 mb-3 shadow-lg shadow-gold/20">
