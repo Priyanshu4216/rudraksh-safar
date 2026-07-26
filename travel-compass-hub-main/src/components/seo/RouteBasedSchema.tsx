@@ -54,10 +54,10 @@ const RouteBasedSchema = () => {
     const matchedDest = destinations.find(d => path.includes(d.pathStr));
 
     if (matchedDest && !path.includes('faqs') && !schema) {
-        const price = getPrice(matchedDest.name);
+        const priceObj = getPrice(matchedDest.name);
         // Only output if a valid price is found to avoid schema errors
-        if (price !== "Price on Request") {
-            const numericPrice = price.replace(/[^0-9]/g, '');
+        if (priceObj && typeof priceObj.price === 'number') {
+            const numericPrice = priceObj.price.toString();
             schema = {
                 "@context": "https://schema.org",
                 "@type": "TouristTrip",
