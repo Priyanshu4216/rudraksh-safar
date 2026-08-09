@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Loader2, Sparkles, Star, Building2, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import { LiteApiSearchBar } from '../components/LiteApiSearchBar';
 import { HotelCard } from '../components/HotelCard';
 import { SkeletonCard } from '../components/SkeletonCard';
@@ -8,9 +9,34 @@ import Navbar from '../components/Navbar';
 import { HotelApiService } from '../services/api/hotel.service';
 import { AiRoomSearch } from '../components/AiRoomSearch';
 
-const fetchUserCurrency = async () => 'INR';
+const CURRENCY = 'INR';
+
+// Detect user nationality from browser locale
+function detectNationality(): string {
+  try {
+    const locale = navigator.language || navigator.languages?.[0] || 'en-IN';
+    const parts = locale.split('-');
+    if (parts.length >= 2) {
+      const country = parts[parts.length - 1].toUpperCase();
+      if (country.length === 2) return country;
+    }
+  } catch {}
+  return 'IN';
+}
+
+// Get or create session ID for price consistency
+function getSessionId(): string {
+  const key = 'hotel_search_session_id';
+  let id = sessionStorage.getItem(key);
+  if (!id) {
+    id = crypto.randomUUID();
+    sessionStorage.setItem(key, id);
+  }
+  return id;
+}
 
 export const HotelsHub: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [hotels, setHotels] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [ratesLoading, setRatesLoading] = useState(false);
@@ -18,7 +44,7 @@ export const HotelsHub: React.FC = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [searchMode, setSearchMode] = useState<'standard' | 'ai'>('standard');
 
-  const [lastSearchParams, setLastSearchParams] = useState<Record<string, string>>({});
+  const [lastSearchParams, setLastSearchParams] = useState<Record<string, any>>({});
   
   // Track rates by hotel ID as they stream in
   const [ratesMap, setRatesMap] = useState<Map<string, any>>(new Map());
@@ -31,7 +57,7 @@ export const HotelsHub: React.FC = () => {
   const [maxPrice, setMaxPrice] = useState<number | ''>('');
   const [minStars, setMinStars] = useState<number>(0);
 
-  const handleSearch = useCallback(async (params: Record<string, string>, isLoadMore = false, currentOffset = 0) => {
+  const handleSearch = useCallback(async (params: Record<string, any>, isLoadMore = false, currentOffset = 0) => {
     setIsLoading(true);
     setRatesLoading(true);
     setError(null);
@@ -51,8 +77,29 @@ export const HotelsHub: React.FC = () => {
     }
     
     try {
-      const currency = await fetchUserCurrency();
-      const searchParams = { ...params, currency, guestInfo: params.guestInfo || '2', offset: currentOffset };
+      const searchParamsPayload: Record<string, any> = {
+        ...params,
+        currency: CURRENCY,
+        guestInfo: params.guestInfo || String(params.adults || 2),
+        guestNationality: params.guestNationality || detectNationality(),
+        sessionId: params.sessionId || getSessionId(),
+        offset: currentOffset,
+      };
+
+      // Pass occupancies (multi-room + children) if provided
+      if (params.occupancies) {
+        searchParamsPayload.occupancies = typeof params.occupancies === 'string'
+          ? params.occupancies
+          : JSON.stringify(params.occupancies);
+      }
+      if (params.childrenAges?.length) {
+        searchParamsPayload.childrenAges = JSON.stringify(params.childrenAges);
+      }
+      if (params.rooms) {
+        searchParamsPayload.rooms = String(params.rooms);
+      }
+
+      const searchParams = searchParamsPayload;
       
       await HotelApiService.searchStream(searchParams, (chunk) => {
         if (chunk.done) {
@@ -91,9 +138,37 @@ export const HotelsHub: React.FC = () => {
     }
   }, []);
 
+  // Auto-trigger search if URL has ?city= or ?placeId= (from SearchExperience navigation)
+  useEffect(() => {
+    const cityFromUrl = searchParams.get('city');
+    const placeIdFromUrl = searchParams.get('placeId');
+    const hotelIdFromUrl = searchParams.get('hotelId');
+    const countryFromUrl = searchParams.get('country');
+
+    if (cityFromUrl || placeIdFromUrl || hotelIdFromUrl) {
+      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      const dayAfter = new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0];
+      handleSearch({
+        cityName: cityFromUrl || '',
+        placeId: placeIdFromUrl || undefined,
+        hotelId: hotelIdFromUrl || undefined,
+        countryCode: countryFromUrl || undefined,
+        chkIn: tomorrow,
+        chkOut: dayAfter,
+        checkin: tomorrow,
+        checkout: dayAfter,
+        guestInfo: '2',
+        adults: 2,
+        guestNationality: detectNationality(),
+        sessionId: getSessionId(),
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleLoadMore = () => {
     if (!lastSearchParams) return;
-    const newOffset = offset + 600; // Same as MAX_HOTELS_TO_PRICE in backend
+    const newOffset = offset + 600;
     setOffset(newOffset);
     handleSearch(lastSearchParams, true, newOffset);
   };
@@ -204,39 +279,23 @@ export const HotelsHub: React.FC = () => {
             {searchMode === 'standard' ? (
               <div className="w-full shadow-2xl rounded-2xl">
                 <LiteApiSearchBar 
-                  onSearch={async (searchData) => {
+                  onSearch={(searchData) => {
                   const formatDate = (d: Date) => d.toISOString().split('T')[0];
                   let chkIn = searchData.checkin || searchData.checkIn || searchData.chkIn;
                   let chkOut = searchData.checkout || searchData.checkOut || searchData.chkOut;
                   
-                  if (chkIn && typeof chkIn === 'string') chkIn = chkIn.replace(/\s+/g, '-');
-                  if (chkOut && typeof chkOut === 'string') chkOut = chkOut.replace(/\s+/g, '-');
-                  
-                  if (!chkIn && searchData.dates?.start) chkIn = formatDate(new Date(searchData.dates.start));
-                  if (!chkOut && searchData.dates?.end) chkOut = formatDate(new Date(searchData.dates.end));
-                  
                   if (!chkIn) chkIn = formatDate(new Date(Date.now() + 86400000));
                   if (!chkOut) chkOut = formatDate(new Date(Date.now() + 86400000 * 2));
 
-                  const finalCity = searchData.cityName || searchData.query || '';
-
-                  // Build search payload — pass placeId if available (unlocks full inventory)
-                  const searchPayload: any = {
-                    cityName: finalCity,
+                  // Pass ALL searchData fields through — the new bar includes
+                  // sessionId, guestNationality, occupancies, childrenAges, rooms
+                  handleSearch({
+                    ...searchData,
                     chkIn,
                     chkOut,
                     checkin: chkIn,
                     checkout: chkOut,
-                    guestInfo: searchData.guestInfo || String(searchData.adults || 2),
-                  };
-
-                  // Pass through placeId for full inventory search (same as widget)
-                  if (searchData.placeId) searchPayload.placeId = searchData.placeId;
-                  if (searchData.hotelId) searchPayload.hotelId = searchData.hotelId;
-                  if (searchData.countryCode) searchPayload.countryCode = searchData.countryCode;
-
-                  handleSearch(searchPayload);
-
+                  });
                 }} 
               />
               </div>

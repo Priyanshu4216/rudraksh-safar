@@ -1,7 +1,7 @@
 import { supabase, supabaseUrl, supabaseAnonKey } from '../../lib/supabase';
 
 export class HotelApiService {
-  static async search(params: Record<string, string>) {
+  static async search(params: Record<string, any>) {
     const { data, error } = await supabase.functions.invoke('hotel-search', {
       body: params,
       method: 'POST'
@@ -11,7 +11,7 @@ export class HotelApiService {
     return data?.data || data;
   }
 
-  static async searchStream(params: Record<string, string>, onChunk: (data: any) => void) {
+  static async searchStream(params: Record<string, any>, onChunk: (data: any) => void) {
     const response = await fetch(`${supabaseUrl}/functions/v1/hotel-search`, {
       method: 'POST',
       headers: {
@@ -69,6 +69,67 @@ export class HotelApiService {
       }
       messageBuffer = messages[messages.length - 1];
     }
+  }
+
+  /** 
+   * Fetch minimum rates for a list of hotels — fast, for listing pages.
+   * Returns a map of hotelId → { minRate, currency }
+   */
+  static async getMinRates(params: {
+    hotelIds: string[];
+    checkin: string;
+    checkout: string;
+    adults?: number;
+    childrenAges?: number[];
+    currency?: string;
+    guestNationality?: string;
+    sessionId?: string;
+  }) {
+    const { data, error } = await supabase.functions.invoke('hotel-min-rates', {
+      body: params,
+      method: 'POST'
+    });
+    if (error) throw new Error(error.message);
+    return data?.data || {};
+  }
+
+  /**
+   * Semantic hotel search — natural language queries like "romantic beach hotel in Goa"
+   */
+  static async searchSemantic(params: { query: string; limit?: number; minRating?: number }) {
+    const { data, error } = await supabase.functions.invoke('hotel-semantic-search', {
+      body: {
+        query: params.query,
+        limit: params.limit || 20,
+        min_rating: params.minRating,
+      },
+      method: 'POST'
+    });
+    if (error) throw new Error(error.message);
+    return data?.data || data || [];
+  }
+
+  /**
+   * Visual/semantic room search — find hotels by room style/amenity queries
+   * e.g. "twin room with city view", "luxury modernist bathroom"
+   */
+  static async searchRoomsSemantic(params: {
+    query: string;
+    limit?: number;
+    placeId?: string;
+    city?: string;
+    country?: string;
+    latitude?: number;
+    longitude?: number;
+    radius?: number;
+  }) {
+    const { data, error } = await supabase.functions.invoke('hotel-room-search', {
+      body: params,
+      method: 'POST'
+    });
+    if (error) throw new Error(error.message);
+    const result = data?.data || data;
+    return Array.isArray(result) ? result : (result?.hotels || []);
   }
 
   static async getDetails(hotelId: string) {
@@ -149,7 +210,6 @@ export class HotelApiService {
     if (error) throw new Error(error.message);
     return data?.data || data;
   }
-
 
   static async getCities(countryCode: string) {
     const { data, error } = await supabase.functions.invoke('hotel-cities', {
@@ -292,7 +352,3 @@ export class HotelApiService {
     return data?.data || data;
   }
 }
-
-
-
-

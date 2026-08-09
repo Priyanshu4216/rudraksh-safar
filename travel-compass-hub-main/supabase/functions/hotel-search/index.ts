@@ -14,27 +14,17 @@ function sseChunk(data: any): string {
   return `data: ${JSON.stringify(data)}\n\n`;
 }
 
-// ─── Step 1: Resolve city name → placeId via LiteAPI Places autocomplete ────
-// This is what the widget does internally. placeId covers the FULL geographic
-// area (district, state, etc.) and returns ALL hotels in that region.
+// ─── Resolve city name → placeId via LiteAPI Places autocomplete ────────────
 async function resolvePlaceId(query: string): Promise<string | null> {
   try {
     const url = `${BASE_URL}/data/places?text=${encodeURIComponent(query)}&type=city`;
-    console.log(`[hotel-search] Resolving placeId for "${query}": ${url}`);
     const resp = await fetch(url, { headers: HEADERS });
-    if (!resp.ok) {
-      console.warn(`[hotel-search] Places API failed: ${resp.status}`);
-      return null;
-    }
+    if (!resp.ok) return null;
     const json = await resp.json();
-    // Response: { data: [{ placeId, displayName, ... }, ...] }
     const places = json.data || json.places || (Array.isArray(json) ? json : []);
-    if (places.length === 0) {
-      console.warn(`[hotel-search] No places found for "${query}"`);
-      return null;
-    }
+    if (places.length === 0) return null;
     const placeId = places[0].placeId || places[0].place_id || places[0].id;
-    console.log(`[hotel-search] Resolved placeId: ${placeId} for "${places[0].displayName || query}"`);
+    console.log(`[hotel-search] Resolved placeId: ${placeId} for "${query}"`);
     return placeId || null;
   } catch (e: any) {
     console.warn('[hotel-search] Places resolve error:', e.message);
@@ -42,89 +32,8 @@ async function resolvePlaceId(query: string): Promise<string | null> {
   }
 }
 
-// ─── Step 2: Fetch ALL hotels for a placeId (paginated) ─────────────────────
-async function fetchHotelsByPlaceId(placeId: string): Promise<any[]> {
-  const PAGE_SIZE = 1000;
-  let all: any[] = [];
-
-  const fetchPage = async (offset: number) => {
-    const url = `${BASE_URL}/data/hotels?placeId=${encodeURIComponent(placeId)}&limit=${PAGE_SIZE}${offset > 0 ? `&offset=${offset}` : ''}`;
-    const resp = await fetch(url, { headers: HEADERS });
-    if (!resp.ok) return { data: [], total: 0 };
-    const json = await resp.json();
-    return { data: json.data || [], total: json.total || json.totalCount || 0 };
-  };
-
-  const first = await fetchPage(0);
-  all = [...first.data];
-  console.log(`[hotel-search] PlaceId hotels page 0: ${first.data.length} (total: ${first.total})`);
-
-  // Fetch additional pages if there are more (cap at 5 pages = 5000 hotels)
-  if (first.data.length === PAGE_SIZE && first.total > PAGE_SIZE) {
-    const totalPages = Math.min(Math.ceil(first.total / PAGE_SIZE), 5);
-    const extraPromises = [];
-    for (let p = 1; p < totalPages; p++) {
-      extraPromises.push(fetchPage(p * PAGE_SIZE));
-    }
-    const extras = await Promise.all(extraPromises);
-    for (const e of extras) {
-      all = [...all, ...e.data];
-      console.log(`[hotel-search] Extra page: ${e.data.length} hotels`);
-    }
-  }
-
-  return all;
-}
-
-// ─── Step 1b: Fetch single hotel metadata ──────────────────────────────────
-async function fetchHotelById(hotelId: string): Promise<any> {
-  try {
-    const url = `${BASE_URL}/data/hotel?hotelId=${encodeURIComponent(hotelId)}`;
-    const resp = await fetch(url, { headers: HEADERS });
-    if (!resp.ok) return null;
-    const json = await resp.json();
-    return json.data || json.hotel || json;
-  } catch (e: any) {
-    console.warn('[hotel-search] Single hotel fetch error:', e.message);
-    return null;
-  }
-}
-
-// ─── Step 2b: Fallback — fetch by countryCode + cityName ────────────────────
-async function fetchHotelsByCityName(countryCode: string, cityName: string): Promise<any[]> {
-  const PAGE_SIZE = 1000;
-  let all: any[] = [];
-
-  const fetchPage = async (offset: number) => {
-    const url = new URL(`${BASE_URL}/data/hotels`);
-    url.searchParams.set('countryCode', countryCode);
-    if (cityName) url.searchParams.set('cityName', cityName);
-    url.searchParams.set('limit', String(PAGE_SIZE));
-    if (offset > 0) url.searchParams.set('offset', String(offset));
-    const resp = await fetch(url.toString(), { headers: HEADERS });
-    if (!resp.ok) return { data: [], total: 0 };
-    const json = await resp.json();
-    return { data: json.data || [], total: json.total || json.totalCount || 0 };
-  };
-
-  const first = await fetchPage(0);
-  all = [...first.data];
-  console.log(`[hotel-search] CityName hotels page 0: ${first.data.length} (total: ${first.total})`);
-
-  if (first.data.length === PAGE_SIZE && first.total > PAGE_SIZE) {
-    const totalPages = Math.min(Math.ceil(first.total / PAGE_SIZE), 5);
-    const extras = await Promise.all(
-      Array.from({ length: totalPages - 1 }, (_, i) => fetchPage((i + 1) * PAGE_SIZE))
-    );
-    for (const e of extras) all = [...all, ...e.data];
-  }
-
-  return all;
-}
-
-// ─── Country resolution for fallback ────────────────────────────────────────
+// ─── Country resolution for guestNationality fallback ─────────────────────
 const CITY_COUNTRY: Record<string, string> = {
-  // India
   'goa': 'IN', 'mumbai': 'IN', 'delhi': 'IN', 'bangalore': 'IN', 'bengaluru': 'IN',
   'hyderabad': 'IN', 'chennai': 'IN', 'kolkata': 'IN', 'pune': 'IN', 'jaipur': 'IN',
   'manali': 'IN', 'shimla': 'IN', 'mussoorie': 'IN', 'nainital': 'IN', 'rishikesh': 'IN',
@@ -139,40 +48,33 @@ const CITY_COUNTRY: Record<string, string> = {
   'rajasthan': 'IN', 'himachal pradesh': 'IN', 'uttarakhand': 'IN', 'kerala': 'IN',
   'karnataka': 'IN', 'tamil nadu': 'IN', 'maharashtra': 'IN', 'gujarat': 'IN',
   'jammu': 'IN', 'kashmir': 'IN', 'india': 'IN',
-  // UAE
-  'dubai': 'AE', 'abu dhabi': 'AE', 'uae': 'AE', 'united arab emirates': 'AE',
-  // Thailand
+  'dubai': 'AE', 'abu dhabi': 'AE', 'uae': 'AE', 'united arab emirates': 'AE', 'sharjah': 'AE',
   'bangkok': 'TH', 'phuket': 'TH', 'chiang mai': 'TH', 'pattaya': 'TH', 'thailand': 'TH',
-  // Indonesia
-  'bali': 'ID', 'jakarta': 'ID', 'indonesia': 'ID',
-  // Malaysia & Singapore
-  'singapore': 'SG', 'kuala lumpur': 'MY', 'malaysia': 'MY',
-  // Japan
-  'tokyo': 'JP', 'osaka': 'JP', 'kyoto': 'JP', 'japan': 'JP',
-  // Europe
-  'paris': 'FR', 'nice': 'FR', 'lyon': 'FR', 'france': 'FR', 
+  'bali': 'ID', 'jakarta': 'ID', 'indonesia': 'ID', 'lombok': 'ID',
+  'singapore': 'SG', 'kuala lumpur': 'MY', 'malaysia': 'MY', 'penang': 'MY',
+  'tokyo': 'JP', 'osaka': 'JP', 'kyoto': 'JP', 'japan': 'JP', 'hiroshima': 'JP',
+  'paris': 'FR', 'nice': 'FR', 'lyon': 'FR', 'france': 'FR', 'marseille': 'FR',
   'rome': 'IT', 'milan': 'IT', 'venice': 'IT', 'florence': 'IT', 'italy': 'IT',
   'barcelona': 'ES', 'madrid': 'ES', 'seville': 'ES', 'spain': 'ES',
   'london': 'GB', 'edinburgh': 'GB', 'manchester': 'GB', 'uk': 'GB', 'united kingdom': 'GB',
-  'amsterdam': 'NL', 'berlin': 'DE', 'munich': 'DE', 'vienna': 'AT', 
-  'zurich': 'CH', 'geneva': 'CH', 'prague': 'CZ', 'budapest': 'HU', 
-  'warsaw': 'PL', 'krakow': 'PL',
-  // Americas
-  'new york': 'US', 'los angeles': 'US', 'las vegas': 'US', 'miami': 'US', 'chicago': 'US', 'usa': 'US', 'united states': 'US',
+  'amsterdam': 'NL', 'berlin': 'DE', 'munich': 'DE', 'vienna': 'AT',
+  'zurich': 'CH', 'geneva': 'CH', 'prague': 'CZ', 'budapest': 'HU',
+  'new york': 'US', 'los angeles': 'US', 'las vegas': 'US', 'miami': 'US', 'chicago': 'US', 'usa': 'US',
   'toronto': 'CA', 'vancouver': 'CA', 'montreal': 'CA', 'canada': 'CA',
-  'rio de janeiro': 'BR', 'buenos aires': 'AR', 'lima': 'PE', 'cancun': 'MX', 'mexico city': 'MX',
-  // Australia
   'sydney': 'AU', 'melbourne': 'AU', 'brisbane': 'AU', 'australia': 'AU',
-  // Others
   'kathmandu': 'NP', 'nepal': 'NP', 'colombo': 'LK', 'sri lanka': 'LK',
-  'male': 'MV', 'maldives': 'MV',
-  'istanbul': 'TR', 'antalya': 'TR',
-  'cairo': 'EG', 'marrakech': 'MA', 'cape town': 'ZA'
+  'male': 'MV', 'maldives': 'MV', 'istanbul': 'TR', 'antalya': 'TR',
+  'cairo': 'EG', 'marrakech': 'MA', 'cape town': 'ZA', 'nairobi': 'KE',
+  'doha': 'QA', 'qatar': 'QA', 'riyadh': 'SA', 'muscat': 'OM',
+  'hong kong': 'HK', 'macau': 'MO', 'seoul': 'KR', 'south korea': 'KR',
+  'beijing': 'CN', 'shanghai': 'CN', 'china': 'CN', 'taipei': 'TW',
+  'new delhi': 'IN', 'north goa': 'IN', 'south goa': 'IN', 'coorg': 'IN', 'coorg': 'IN',
 };
 
 function resolveCountryCode(rawCity: string, passedCode?: string): string {
   if (passedCode && passedCode.length === 2) return passedCode.toUpperCase();
-  const parts = rawCity.split(',').map(p => p.trim().toLowerCase());
+  const lower = rawCity.toLowerCase();
+  const parts = lower.split(',').map(p => p.trim());
   for (let i = parts.length - 1; i >= 0; i--) {
     if (CITY_COUNTRY[parts[i]]) return CITY_COUNTRY[parts[i]];
   }
@@ -180,21 +82,48 @@ function resolveCountryCode(rawCity: string, passedCode?: string): string {
   return 'IN';
 }
 
-// ─── Main Handler ──────────────────────────────────────────────────────────
+// ─── Parse occupancies from request params ────────────────────────────────
+// Supports: simple adults count, JSON occupancy array, or children ages array
+function parseOccupancies(params: any): Array<{ adults: number; children?: number[] }> {
+  // If explicit occupancies array passed (multi-room support)
+  if (params.occupancies) {
+    try {
+      const parsed = typeof params.occupancies === 'string'
+        ? JSON.parse(params.occupancies)
+        : params.occupancies;
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    } catch {}
+  }
 
+  // Single room with children
+  const adults = parseInt(params.guestInfo || params.adults || '2', 10);
+  const rooms = parseInt(params.rooms || '1', 10);
+  let childrenAges: number[] = [];
+
+  if (params.childrenAges) {
+    try {
+      childrenAges = typeof params.childrenAges === 'string'
+        ? JSON.parse(params.childrenAges)
+        : params.childrenAges;
+    } catch {}
+  }
+
+  const singleRoom: { adults: number; children?: number[] } = { adults };
+  if (childrenAges.length > 0) singleRoom.children = childrenAges;
+
+  // Duplicate for multiple rooms
+  return Array.from({ length: Math.max(1, rooms) }, () => ({ ...singleRoom }));
+}
+
+// ─── Main Handler ──────────────────────────────────────────────────────────
 serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405, headers: corsHeaders });
 
   try {
     const params = await req.json();
-
-    if (!params.placeId && !params.cityName && (!params.latitude || !params.longitude)) {
-      return new Response(JSON.stringify({ error: 'Provide cityName, placeId, or lat/lon.' }), {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      });
-    }
 
     const rawCity = (params.cityName || '').trim();
     const cityOnly = rawCity.split(',')[0].trim();
@@ -204,223 +133,120 @@ serve(async (req) => {
       new Date(Date.now() + 86400000).toISOString().split('T')[0];
     const checkout = params.chkOut || params.checkout ||
       new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0];
-    const adults = parseInt(params.guestInfo || params.adults || '2', 10);
 
-    console.log(`[hotel-search] "${cityOnly}" (${countryCode}) | ${checkin}→${checkout} | ${adults} adults`);
+    const occupancies = parseOccupancies(params);
+    const currency = params.currency || 'INR';
+    // Use passed guestNationality, else derive from destination country, else default IN
+    const guestNationality = params.guestNationality || countryCode || 'IN';
+    const sessionId = params.sessionId || undefined;
+    const minStarRating = params.minStarRating ? parseInt(params.minStarRating, 10) : undefined;
+    const facilities = params.facilities || undefined;
+    const hotelChain = params.hotelChain || undefined;
 
-    let hotelList: any[] = [];
+    console.log(`[hotel-search] "${cityOnly}" (${countryCode}) | ${checkin}→${checkout} | ${JSON.stringify(occupancies)} | nationality: ${guestNationality}`);
 
-    // ── STEP 1: Check if specific hotelId was requested ──────────────────────
-    if (params.hotelId) {
-      console.log(`[hotel-search] Fetching specific hotel by hotelId: ${params.hotelId}`);
-      const singleHotel = await fetchHotelById(params.hotelId);
-      if (singleHotel) {
-        hotelList = [singleHotel];
-      }
-    } else {
-      // Priority: passed placeId → resolve from city name via LiteAPI Places API
-      let resolvedPlaceId = params.placeId || null;
+    // ── STRATEGY: Direct /hotels/rates with placeId + includeHotelData ─────
+    // This is the ONE-CALL approach that returns hotels + rates + photos together,
+    // replacing the old slow 2-step: fetch hotel list → fetch rates.
 
-      if (!resolvedPlaceId && cityOnly) {
-        // Try to resolve placeId using LiteAPI's own places autocomplete
-        resolvedPlaceId = await resolvePlaceId(cityOnly);
-      }
+    let resolvedPlaceId = params.placeId || null;
+    let hotelId = params.hotelId || null;
 
-      // ── STEP 2: Fetch hotel metadata (names, photos, addresses) ─────────────
-      if (resolvedPlaceId) {
-        console.log(`[hotel-search] Fetching hotels by placeId: ${resolvedPlaceId}`);
-        hotelList = await fetchHotelsByPlaceId(resolvedPlaceId);
-      }
-
-      // Fallback to countryCode + cityName if placeId returned nothing
-      if (hotelList.length === 0 && cityOnly) {
-        console.log(`[hotel-search] PlaceId returned 0, falling back to cityName search`);
-        hotelList = await fetchHotelsByCityName(countryCode, cityOnly);
-      }
-
-      // Last resort: country only
-      if (hotelList.length === 0 && countryCode) {
-        console.log(`[hotel-search] CityName returned 0, falling back to country-only`);
-        hotelList = await fetchHotelsByCityName(countryCode, '');
-      }
+    // Resolve placeId from city name if not passed
+    if (!resolvedPlaceId && !hotelId && cityOnly) {
+      resolvedPlaceId = await resolvePlaceId(cityOnly);
     }
 
-    console.log(`[hotel-search] Total hotel metadata fetched: ${hotelList.length}`);
-
-    if (hotelList.length === 0) {
-      const s = new ReadableStream({ start(c) {
-        const e = new TextEncoder();
-        c.enqueue(e.encode(sseChunk({ hotels: [] })));
-        c.enqueue(e.encode(`data: [DONE]\n\n`));
-        c.close();
-      }});
-      return new Response(s, { headers: { ...corsHeaders, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' } });
-    }
-
-    // ── STEP 3: Build metadata map (deduplicated) ────────────────────────────
-    const hotelMetaMap: Record<string, any> = {};
-    const orderedIds: string[] = [];
-
-    for (const hotel of hotelList) {
-      const id = hotel.id || hotel.hotelId;
-      if (!id || hotelMetaMap[id]) continue;
-      hotelMetaMap[id] = hotel;
-      orderedIds.push(id);
-    }
-
-    // ── STEP 4: Sort metadata: hotels with photos first, then by stars ───────
-    const getPhoto = (meta: any) =>
-      meta.main_photo || meta.thumbnail || meta.thumbnailUrl ||
-      meta.hotelImages?.[0]?.url || meta.hotelImages?.[0]?.urlHd ||
-      (typeof meta.hotelImages?.[0] === 'string' ? meta.hotelImages[0] : null) ||
-      meta.images?.[0]?.url || (typeof meta.images?.[0] === 'string' ? meta.images[0] : null) ||
-      null;
-
-    orderedIds.sort((a, b) => {
-      const am = hotelMetaMap[a], bm = hotelMetaMap[b];
-      const aP = !!getPhoto(am), bP = !!getPhoto(bm);
-      if (aP && !bP) return -1;
-      if (!aP && bP) return 1;
-      const aS = am?.stars ?? am?.starRating ?? 0;
-      const bS = bm?.stars ?? bm?.starRating ?? 0;
-      return bS - aS;
-    });
-
-    // ── STEP 5: Fetch rates for hotels in parallel chunks of 200 ───
-    const MAX_HOTELS_TO_PRICE = 600; // Limit to 600 per request (3 batches of 200) to keep it fast
-    const CHUNK_SIZE = 200;
-    const rateOffset = parseInt(params.offset || '0', 10);
-    const idsToPrice = orderedIds.slice(rateOffset, rateOffset + MAX_HOTELS_TO_PRICE);
-    console.log(`[hotel-search] Fetching rates for hotels ${rateOffset} to ${rateOffset + idsToPrice.length} in batches of ${CHUNK_SIZE}`);
-
-
-    let ratesData: any[] = [];
-    
-    // Split into chunks
-    const chunks: string[][] = [];
-    for (let i = 0; i < idsToPrice.length; i += CHUNK_SIZE) {
-      chunks.push(idsToPrice.slice(i, i + CHUNK_SIZE));
-    }
-
-    try {
-      for (let i = 0; i < chunks.length; i++) {
-        const chunkIds = chunks[i];
-        const ratesResp = await fetch(`${BASE_URL}/hotels/rates`, {
-          method: 'POST',
-          headers: HEADERS,
-          body: JSON.stringify({
-            hotelIds: chunkIds,
-            occupancies: [{ adults }],
-            currency: params.currency || 'INR',
-            guestNationality: params.guestNationality || 'IN',
-            checkin,
-            checkout,
-            timeout: 25,
-          }),
-        });
-
-        if (ratesResp.ok) {
-          const ratesJson = await ratesResp.json();
-          const batchData = ratesJson.data || ratesJson.hotels || (Array.isArray(ratesJson) ? ratesJson : []);
-          console.log(`[hotel-search] Batch ${i + 1}/${chunks.length}: Got rates for ${batchData.length} hotels`);
-          ratesData.push(...batchData);
-        } else {
-          const e = await ratesResp.text();
-          console.warn(`[hotel-search] Rates batch ${i + 1} failed ${ratesResp.status}:`, e.substring(0, 200));
-        }
-
-        // Add a 500ms delay between chunks to avoid rate limiting
-        if (i < chunks.length - 1) {
-          await new Promise(resolve => setTimeout(resolve, 500));
-        }
-      }
-
-      console.log(`[hotel-search] Total rates fetched: ${ratesData.length}`);
-    } catch (e: any) {
-      console.warn('[hotel-search] Rates error:', e.message);
-    }
-
-    // ── STEP 6: Build rates lookup ───────────────────────────────────────────
-    const ratesLookup: Record<string, any> = {};
-    const ratesForFrontend: any[] = [];
-
-    for (const item of ratesData) {
-      if (!item.hotelId) continue;
-      const allRoomRates: any[] = item.roomTypes?.flatMap((rt: any) => rt.rates || []) || [];
-      if (allRoomRates.length === 0) continue;
-
-      const cheapest = allRoomRates.reduce((a: any, b: any) => {
-        const aP = a.finalRate ?? a.retailRate?.total?.[0]?.amount ?? 999999;
-        const bP = b.finalRate ?? b.retailRate?.total?.[0]?.amount ?? 999999;
-        return aP < bP ? a : b;
-      });
-
-      const entry = {
-        hotelId: item.hotelId,
-        finalRate: cheapest.finalRate ?? cheapest.retailRate?.total?.[0]?.amount ?? null,
-        currency: cheapest.currency || cheapest.retailRate?.total?.[0]?.currency || 'INR',
-        offerId: cheapest.offerId,
-        roomName: cheapest.roomName || cheapest.name || '',
-        promotions: cheapest.promotions || [],
-        perks: cheapest.perks || [],
-        initialRate: cheapest.retailRate?.initialPrice ?? cheapest.initialRate ?? null,
-        roomTypes: item.roomTypes,
-      };
-      ratesLookup[item.hotelId] = entry;
-      ratesForFrontend.push(entry);
-    }
-
-    // ── STEP 7: Build final list — hotels WITH rates first (price asc), rest after ──
-    const withRates = orderedIds
-      .filter(id => ratesLookup[id])
-      .sort((a, b) => (ratesLookup[a]?.finalRate ?? 999999) - (ratesLookup[b]?.finalRate ?? 999999));
-
-    const withoutRates = orderedIds.filter(id => !ratesLookup[id]);
-
-    const finalIds = [...withRates, ...withoutRates];
-
-    const buildHotel = (id: string) => {
-      const m = hotelMetaMap[id] || {};
-      return {
-        id,
-        hotelId: id,
-        name: m.name || m.hotelName || m.hotel_name || '',
-        address: m.address || m.hotelAddress || m.hotel_address || '',
-        city: m.city || m.cityName || cityOnly || '',
-        country: m.country || m.countryCode || countryCode || '',
-        stars: m.stars ?? m.starRating ?? m.star_rating ?? null,
-        reviewScore: m.reviewScore ?? m.review_score ?? m.guestScore ?? null,
-        main_photo: getPhoto(m),
-        thumbnail: getPhoto(m),
-        latitude: m.latitude || m.lat || null,
-        longitude: m.longitude || m.lng || m.lon || null,
-      };
+    // Build the rates request body
+    const ratesBody: Record<string, any> = {
+      checkin,
+      checkout,
+      currency,
+      guestNationality,
+      occupancies,
+      timeout: 25,
+      includeHotelData: true,  // ← Returns hotel name, photos, address inline!
     };
 
-    const finalHotels = finalIds.map(buildHotel);
+    // Add sessionId for price consistency across listing → detail page
+    if (sessionId) ratesBody.sessionId = sessionId;
 
-    console.log(`[hotel-search] Streaming ${finalHotels.length} hotels (${withRates.length} priced, ${withoutRates.length} unpriced)`);
+    // Server-side filters
+    if (minStarRating && minStarRating > 0) ratesBody.minStarRating = minStarRating;
+    if (facilities) ratesBody.facilities = facilities;
+    if (hotelChain) ratesBody.hotelChain = hotelChain;
 
-    // ── STEP 8: Stream results ───────────────────────────────────────────────
-    const stream = new ReadableStream({
-      start(controller) {
-        const enc = new TextEncoder();
-        const batchSize = 10;
-        for (let i = 0; i < finalHotels.length; i += batchSize) {
-          controller.enqueue(enc.encode(sseChunk({ hotels: finalHotels.slice(i, i + batchSize) })));
+    // Location — priority: hotelId > placeId > cityName+countryCode > lat/lng
+    if (hotelId) {
+      ratesBody.hotelIds = [hotelId];
+      ratesBody.includeHotelData = true;
+    } else if (resolvedPlaceId) {
+      ratesBody.placeId = resolvedPlaceId;
+    } else if (cityOnly && countryCode) {
+      ratesBody.cityName = cityOnly;
+      ratesBody.countryCode = countryCode;
+    } else if (params.latitude && params.longitude) {
+      ratesBody.latitude = parseFloat(params.latitude);
+      ratesBody.longitude = parseFloat(params.longitude);
+      ratesBody.radius = params.radius ? parseInt(params.radius, 10) : 15;
+    } else {
+      return new Response(JSON.stringify({ error: 'Provide cityName, placeId, hotelId, or coordinates.' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Pagination offset
+    const pageOffset = parseInt(params.offset || '0', 10);
+    if (pageOffset > 0) ratesBody.offset = pageOffset;
+
+    console.log(`[hotel-search] Calling /hotels/rates with placeId=${resolvedPlaceId || 'N/A'}, includeHotelData=true`);
+
+    // ── Single API call: rates + hotel data together ─────────────────────
+    const ratesResp = await fetch(`${BASE_URL}/hotels/rates`, {
+      method: 'POST',
+      headers: HEADERS,
+      body: JSON.stringify(ratesBody),
+    });
+
+    if (!ratesResp.ok) {
+      const errText = await ratesResp.text();
+      console.error(`[hotel-search] Rates API failed ${ratesResp.status}:`, errText.substring(0, 300));
+
+      // Fallback: try cityName+countryCode if placeId failed
+      if (resolvedPlaceId && (ratesResp.status === 400 || ratesResp.status === 404)) {
+        console.log('[hotel-search] PlaceId failed, falling back to cityName+countryCode');
+        const fallbackBody = { ...ratesBody };
+        delete fallbackBody.placeId;
+        if (cityOnly) {
+          fallbackBody.cityName = cityOnly;
+          fallbackBody.countryCode = countryCode;
         }
-        if (ratesForFrontend.length > 0) {
-          controller.enqueue(enc.encode(sseChunk({ rates: ratesForFrontend })));
+        const fallbackResp = await fetch(`${BASE_URL}/hotels/rates`, {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify(fallbackBody),
+        });
+        if (fallbackResp.ok) {
+          return streamRatesResponse(await fallbackResp.json(), cityOnly, countryCode);
         }
-        controller.enqueue(enc.encode(`data: [DONE]\n\n`));
-        controller.close();
       }
-    });
 
-    return new Response(stream, {
-      headers: { ...corsHeaders, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
-      status: 200,
-    });
+      // Empty result on failure
+      const emptyStream = new ReadableStream({
+        start(c) {
+          const enc = new TextEncoder();
+          c.enqueue(enc.encode(sseChunk({ hotels: [] })));
+          c.enqueue(enc.encode(`data: [DONE]\n\n`));
+          c.close();
+        }
+      });
+      return new Response(emptyStream, {
+        headers: { ...corsHeaders, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' }
+      });
+    }
+
+    const ratesJson = await ratesResp.json();
+    return streamRatesResponse(ratesJson, cityOnly, countryCode);
 
   } catch (err: any) {
     console.error('[hotel-search] Fatal error:', err.message, err.stack);
@@ -430,3 +256,107 @@ serve(async (req) => {
     });
   }
 });
+
+// ─── Transform & Stream the /hotels/rates response ───────────────────────
+function streamRatesResponse(ratesJson: any, cityOnly: string, countryCode: string): Response {
+  const rawHotels: any[] = ratesJson.data?.hotels || ratesJson.hotels || (Array.isArray(ratesJson.data) ? ratesJson.data : []);
+
+  console.log(`[hotel-search] /hotels/rates returned ${rawHotels.length} hotels with rates`);
+
+  if (rawHotels.length === 0) {
+    const emptyStream = new ReadableStream({
+      start(c) {
+        const enc = new TextEncoder();
+        c.enqueue(enc.encode(sseChunk({ hotels: [] })));
+        c.enqueue(enc.encode(`data: [DONE]\n\n`));
+        c.close();
+      }
+    });
+    return new Response(emptyStream, {
+      headers: { ...corsHeaders, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' }
+    });
+  }
+
+  // Process hotels and extract rates
+  const finalHotels: any[] = [];
+  const ratesForFrontend: any[] = [];
+
+  for (const item of rawHotels) {
+    const hotelId = item.hotelId || item.id;
+    if (!hotelId) continue;
+
+    // Hotel metadata — comes via includeHotelData=true
+    const meta = item.hotelData || item.hotel || {};
+    const mainPhoto = getPhoto(item) || getPhoto(meta);
+
+    const hotelObj = {
+      id: hotelId,
+      hotelId,
+      name: item.name || meta.name || meta.hotelName || '',
+      address: item.address || meta.address || meta.hotelAddress || '',
+      city: item.city || meta.city || meta.cityName || cityOnly,
+      country: item.country || meta.country || meta.countryCode || countryCode,
+      stars: item.stars ?? item.starRating ?? meta.stars ?? meta.starRating ?? null,
+      reviewScore: item.reviewScore ?? item.guestScore ?? meta.reviewScore ?? null,
+      main_photo: mainPhoto,
+      thumbnail: mainPhoto,
+      latitude: item.latitude || meta.latitude || null,
+      longitude: item.longitude || meta.longitude || null,
+    };
+    finalHotels.push(hotelObj);
+
+    // Extract cheapest rate for this hotel
+    const allRoomRates: any[] = item.roomTypes?.flatMap((rt: any) => rt.rates || []) || [];
+    if (allRoomRates.length > 0) {
+      const cheapest = allRoomRates.reduce((a: any, b: any) => {
+        const aP = a.finalRate ?? a.retailRate?.total?.[0]?.amount ?? 999999;
+        const bP = b.finalRate ?? b.retailRate?.total?.[0]?.amount ?? 999999;
+        return aP < bP ? a : b;
+      });
+      ratesForFrontend.push({
+        hotelId,
+        finalRate: cheapest.finalRate ?? cheapest.retailRate?.total?.[0]?.amount ?? null,
+        initialRate: cheapest.retailRate?.initialPrice ?? cheapest.initialRate ?? null,
+        currency: cheapest.currency || cheapest.retailRate?.total?.[0]?.currency || 'INR',
+        offerId: cheapest.offerId,
+        roomName: cheapest.roomName || cheapest.name || '',
+        promotions: cheapest.promotions || [],
+        perks: cheapest.perks || [],
+        roomTypes: item.roomTypes,
+      });
+    }
+  }
+
+  console.log(`[hotel-search] Streaming ${finalHotels.length} hotels (${ratesForFrontend.length} priced)`);
+
+  const stream = new ReadableStream({
+    start(controller) {
+      const enc = new TextEncoder();
+      const batchSize = 10;
+      for (let i = 0; i < finalHotels.length; i += batchSize) {
+        controller.enqueue(enc.encode(sseChunk({ hotels: finalHotels.slice(i, i + batchSize) })));
+      }
+      if (ratesForFrontend.length > 0) {
+        controller.enqueue(enc.encode(sseChunk({ rates: ratesForFrontend })));
+      }
+      controller.enqueue(enc.encode(`data: [DONE]\n\n`));
+      controller.close();
+    }
+  });
+
+  return new Response(stream, {
+    headers: { ...corsHeaders, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+    status: 200,
+  });
+}
+
+// ─── Photo extraction helper ──────────────────────────────────────────────
+function getPhoto(obj: any): string | null {
+  if (!obj) return null;
+  return obj.main_photo || obj.thumbnail || obj.thumbnailUrl ||
+    obj.mainPhoto ||
+    obj.hotelImages?.[0]?.url || obj.hotelImages?.[0]?.urlHd ||
+    (typeof obj.hotelImages?.[0] === 'string' ? obj.hotelImages[0] : null) ||
+    obj.images?.[0]?.url || (typeof obj.images?.[0] === 'string' ? obj.images[0] : null) ||
+    null;
+}
