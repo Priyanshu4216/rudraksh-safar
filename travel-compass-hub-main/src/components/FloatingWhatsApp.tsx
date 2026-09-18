@@ -24,7 +24,7 @@ const FloatingWhatsApp = forwardRef<HTMLButtonElement>((_, ref) => {
     <button
       ref={ref}
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 flex items-center justify-center group animate-soft-pulse md:animate-none"
+    className="hidden md:flex fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 items-center justify-center group"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-7 h-7 md:w-8 md:h-8" />

@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
+  { name: 'Flights', href: '/flights', isRoute: true, highlight: 'premium' },
   { name: 'Hotel Booking', href: '/hotels', isRoute: true, highlight: 'premium' },
   {
     name: 'Services',
@@ -243,14 +244,18 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className={`flex lg:hidden items-center gap-3 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
-            <CurrencySelector />
-            <ThemeToggle />
+          <div className="flex lg:hidden items-center gap-3">
+            {/* Currency & Theme - only visible after scroll on homepage */}
+            <div className={`flex items-center gap-2 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+              <CurrencySelector />
+              <ThemeToggle />
+            </div>
+            {/* Hamburger - ALWAYS visible & clickable */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
                 ? 'bg-muted text-foreground'
-                : 'glass text-primary-foreground'
+                : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'
                 }`}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}

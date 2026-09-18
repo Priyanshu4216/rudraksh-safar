@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Search</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      /* Match the parent page's dark background exactly */
+      background: #0f172a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      color-scheme: dark;
+    }
+
+    /* Ensure the widget containers span full width with no gaps */
+    #tpwl-search,
+    #tpwl-tickets {
+      width: 100%;
+    }
+
+    /*
+      Override any white / light backgrounds the widget injects so it
+      blends into our dark page. These are best-effort CSS overrides;
+      the widget's own theming config (set in the TP dashboard) is the
+      primary theming lever.
+    */
+    :root {
+      color-scheme: dark;
+    }
+  </style>
+
+  <!-- TravelPayouts White Label main script (wl_id=20971) -->
+  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+    (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.type = "module";
+      script.src = "https://tpwgt.com/wl_web/main.js?wl_id=20971";
+      document.head.appendChild(script);
+    })();
+  </script>
+</head>
+<body>
+  <!-- Metasearch / search form -->
+  <div id="tpwl-search"></div>
+
+  <!-- Search results -->
+  <div id="tpwl-tickets"></div>
+
+  <script>
+    // Continuously send the document height to the parent so the
+    // iframe auto-grows as results load (used by FlightSearch.tsx).
+    function postHeight() {
+      var h = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight
+      );
+      window.parent.postMessage({ type: 'tp-iframe-height', height: h }, '*');
+    }
+    // Poll every 300ms for the first 10 s (widget loads async), then slow down
+    var fastTimer = setInterval(postHeight, 300);
+    setTimeout(function () {
+      clearInterval(fastTimer);
+      setInterval(postHeight, 1000);
+    }, 10000);
+    window.addEventListener('load', postHeight);
+    // Also fire when the widget injects DOM nodes
+    var observer = new MutationObserver(postHeight);
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+</body>
+</html>

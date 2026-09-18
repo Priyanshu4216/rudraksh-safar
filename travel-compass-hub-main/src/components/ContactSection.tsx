@@ -42,7 +42,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Talk to an Expert',
-    details: ['+91 92036 50311 (Main)', '+91 92291 50311 (Associate)'],
+    details: ['+91 92036 50311 (Office)', '+91 92291 50311 (Sanjeev Chaudhary)', '+91 97130 57086 (Priyanshu Chaudhary)'],
   },
   {
     icon: Mail,

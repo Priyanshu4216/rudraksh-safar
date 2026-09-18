@@ -18,6 +18,7 @@ import { HotelDetails } from "./pages/HotelDetails";
 import { Checkout } from './pages/Checkout';
 import { BookingConfirmation } from './pages/BookingConfirmation';
 const SearchExperience = lazy(() => import("./pages/SearchExperience"));
+const FlightSearch = lazy(() => import("./pages/FlightSearch"));
 import CookieConsent from "./components/CookieConsent";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import GlobalLoader from "./components/GlobalLoader"; // Fixed loader path
@@ -360,6 +361,7 @@ const App = () => (
                     <Route path="/bookings" element={<Bookings />} />
                     <Route path="/destinations" element={<Destinations />} />
                     <Route path="/search" element={<SearchExperience />} />
+                    <Route path="/flights" element={<FlightSearch />} />
                     <Route path="/old-home" element={<Index />} />
                     <Route path="/domestic-packages" element={<DomesticPackages />} />
                     <Route path="/international-packages" element={<InternationalPackages />} />
@@ -556,6 +558,7 @@ const App = () => (
                     <Route path="/chardham-yatra-price" element={<CharDhamPrice />} />
                     <Route path="/chardham-yatra-for-seniors" element={<CharDhamSeniors />} />
                     <Route path="/chardham-yatra-from-bhilai" element={<CharDhamFromBhilai />} />
+                    <Route path="/chardham-yatra-from-raipur" element={<CharDhamFromRaipur />} />
                     <Route path="/what-to-pack-for-chardham-yatra" element={<CharDhamPacking />} />
                     <Route path="/chardham-yatra-registration-process" element={<CharDhamRegistration />} />
                     <Route path="/plan-your-yatra" element={<CharDhamPackageBuilder />} />
@@ -605,6 +608,10 @@ const App = () => (
                     <Route path="/bilaspur/malaysia-package" element={<BilaspurToMalaysia />} />
                     <Route path="/bilaspur/vietnam-package" element={<BilaspurToVietnam />} />
 
+
+                    {/* Missing sitemap routes — Weekend Getaways Bhilai + Passport Guide */}
+                    <Route path="/weekend-getaways-bhilai" element={<WeekendGetawaysBhilai />} />
+                    <Route path="/passport-guide" element={<Navigate to="/travel-services/passport-assistance" replace />} />
 
                     {/* Ladakh SEO Pages */}
                     <Route path="/ladakh-opening-date-2026" element={<LadakhOpeningDate />} />

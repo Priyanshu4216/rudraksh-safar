@@ -821,11 +821,14 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                     <Phone className="w-4 h-4 text-gold" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <a href={`tel:+${PHONE_NUMBER}`} className="text-white/70 hover:text-gold transition-colors font-medium">
-                      +91 92036 50311 <span className="text-white/40 text-xs ml-1 font-normal">(Main)</span>
+                    <a href="tel:+919203650311" className="text-white/70 hover:text-gold transition-colors font-medium">
+                      +91 92036 50311 <span className="text-white/40 text-xs ml-1 font-normal">(Office)</span>
                     </a>
                     <a href="tel:+919229150311" className="text-white/70 hover:text-gold transition-colors font-medium">
-                      +91 92291 50311 <span className="text-white/40 text-xs ml-1 font-normal">(Associate)</span>
+                      +91 92291 50311 <span className="text-white/40 text-xs ml-1 font-normal">(Sanjeev Chaudhary)</span>
+                    </a>
+                    <a href="tel:+919713057086" className="text-white/70 hover:text-gold transition-colors font-medium">
+                      +91 97130 57086 <span className="text-white/40 text-xs ml-1 font-normal">(Priyanshu Chaudhary)</span>
                     </a>
                   </div>
                 </div>
