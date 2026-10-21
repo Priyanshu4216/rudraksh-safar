@@ -48,7 +48,7 @@ const CancellationPolicy = () => {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={100}>
+          <div>
             <div className="bg-card border border-border rounded-2xl p-6 md:p-8 prose prose-sm max-w-none">
               <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-6">
                 <p className="text-amber-800 dark:text-amber-200 text-sm font-medium">
@@ -244,7 +244,7 @@ const CancellationPolicy = () => {
                 </p>
               </div>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </main>
 

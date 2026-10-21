@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={100}>
+          <div>
             <div className="bg-card border border-border rounded-2xl p-6 md:p-8 prose prose-sm max-w-none">
               <p className="text-muted-foreground leading-relaxed">
                 Rudraksh Safar ("we", "us", "our"), located at GE Road, Bhilai 3, Chhattisgarh – 490021, India, is committed to protecting your privacy and the security of your personal information. This Privacy Policy explains in detail how we collect, use, store, share, and protect your personal data when you use our website or services.
@@ -233,7 +233,7 @@ const PrivacyPolicy = () => {
                 <em>Response Time: Within 30 days of complaint receipt</em>
               </p>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </main>
 

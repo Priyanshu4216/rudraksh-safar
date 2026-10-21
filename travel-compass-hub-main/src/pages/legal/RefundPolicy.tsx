@@ -48,7 +48,7 @@ const RefundPolicy = () => {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={100}>
+          <div>
             <div className="bg-card border border-border rounded-2xl p-6 md:p-8 prose prose-sm max-w-none">
               <p className="text-muted-foreground">
                 Rudraksh Safar acts solely as an intermediary between customers and independent third-party service providers including airlines, hotels, transport operators, visa processing agencies, and tour suppliers. <strong>All refunds are governed primarily by the refund policies of the respective third-party suppliers.</strong> Rudraksh Safar facilitates the refund process on your behalf but does not control refund approvals, amounts, or timelines.
@@ -262,7 +262,7 @@ const RefundPolicy = () => {
                 <strong>Response Time:</strong> Within 48 working hours of request receipt
               </p>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </main>
 
