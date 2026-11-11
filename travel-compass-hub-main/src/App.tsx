@@ -54,6 +54,8 @@ const AdventurePackages = lazy(() => import("./pages/AdventurePackages"));
 const LuxuryPackages = lazy(() => import("./pages/LuxuryPackages"));
 const KashmirMaster = lazy(() => import("./pages/domestic/kashmir/KashmirMaster"));
 const ManaliMaster = lazy(() => import("./pages/domestic/manali/ManaliMaster"));
+const ManaliKasolStrangersTrip = lazy(() => import("./pages/domestic/manali/ManaliKasolStrangersTrip"));
+const ManaliKasolCitySilo = lazy(() => import("./pages/domestic/manali/ManaliKasolCitySilo"));
 const KeralaMaster = lazy(() => import("./pages/domestic/kerala/KeralaMaster"));
 const ThailandMaster = lazy(() => import("./pages/international/thailand/ThailandMaster"));
 const DubaiMaster = lazy(() => import("./pages/international/dubai/DubaiMaster"));
@@ -630,6 +632,16 @@ const App = () => (
                     <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
                     <Route path="/domestic-tours/manali-from-bhilai" element={<Navigate to="/domestic-tours/manali" replace />} />
                     <Route path="/domestic-tours/manali-from-bilaspur" element={<Navigate to="/bilaspur/manali-package" replace />} />
+                    <Route path="/manali-kasol-strangers-trip" element={<ManaliKasolStrangersTrip />} />
+                    <Route path="/manali-kasol-group-trip" element={<Navigate to="/manali-kasol-strangers-trip" replace />} />
+                    <Route path="/packages/manali-kasol-strangers-trip" element={<Navigate to="/manali-kasol-strangers-trip" replace />} />
+                    {/* Manali Kasol Local SEO Silos */}
+                    <Route path="/manali-kasol-strangers-trip/from-bhilai" element={<ManaliKasolCitySilo forcedCityKey="bhilai" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-raipur" element={<ManaliKasolCitySilo forcedCityKey="raipur" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-durg" element={<ManaliKasolCitySilo forcedCityKey="durg" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-bilaspur" element={<ManaliKasolCitySilo forcedCityKey="bilaspur" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-rajnandgaon" element={<ManaliKasolCitySilo forcedCityKey="rajnandgaon" />} />
+                    <Route path="/manali-kasol-strangers-trip/:cityParam" element={<ManaliKasolCitySilo />} />
 
                     {/* Kerala Master Silo */}
                     <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
