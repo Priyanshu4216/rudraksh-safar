@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Hero from '@/components/home-redesign/Hero';
+import ImagineJourneySection from '@/components/home-redesign/ImagineJourneySection';
 import TravellerTypes from '@/components/home-redesign/TravellerTypes';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
@@ -7,6 +8,7 @@ import SEOHead from '@/components/SEOHead';
 import MobileAppShell from '@/components/mobile-ux/MobileAppShell';
 
 import PilgrimageSpecials from '@/components/home-redesign/PilgrimageSpecials';
+import { KumbhHomePromoCard } from '@/components/kumbh/KumbhHomePromoCard';
 import SeasonalPicks from '@/components/home-redesign/SeasonalPicks';
 import VisaEasy from '@/components/home-redesign/VisaEasy';
 import TrustSection from '@/components/home-redesign/TrustSection';
@@ -32,10 +34,12 @@ const HomeRedesign = () => {
 
             <main className="pb-24 md:pb-0">
                 <Hero />
+                <ImagineJourneySection />
                 <TravellerTypes /> {/* White - Persona */}
 
                 <ServicesSection /> {/* New: Services Section */}
                 <TrustSection /> {/* Dark - Authority */}
+                <KumbhHomePromoCard />
                 <SummerPackages /> {/* New: Exclusive Summer Deals */}
                 <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
                 <SeasonalPicks /> {/* White - Elegant Seasonal */}

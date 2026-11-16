@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const distDir = path.resolve(__dirname, '../dist');
 
 const sitemapDir = path.resolve(__dirname, '../public');
-const sitemaps = ['sitemap-main.xml', 'sitemap-packages.xml', 'sitemap-local.xml', 'sitemap-blog.xml'];
+const sitemaps = ['sitemap-main.xml', 'sitemap-packages.xml', 'sitemap-local.xml', 'sitemap-blog.xml', 'sitemap-kumbh.xml'];
 
 let routes = [];
 

@@ -1,0 +1,34 @@
+# Rudraksh Safar - Haridwar Ardh Kumbh Mela 2027 Information Architecture
+# Source: Uttarakhand Mela Administration announcement (15 April 2026, reported by PTI)
+# Publisher: Rudraksh Safar (https://rudrakshsafar.com)
+
+> Haridwar Ardh Kumbh Mela 2027 takes place along the River Ganga in Haridwar, Uttarakhand from 14 January 2027 (Makar Sankranti) to 20 April 2027 (Chaitra Purnima). The official schedule contains 10 major bathing festivals, including 3 official Amrit Snans (Shahi Snans) by the 13 Akharas on 6 March 2027 (Mahashivratri), 8 March 2027 (Phalguna Amavasya), and 14 April 2027 (Mesh Sankranti).
+
+## English Hub and Spokes
+- https://rudrakshsafar.com/kumbh-mela-2027: Haridwar Ardh Kumbh 2027 Master Hub, Snan Calendar, Ardh vs Purna definition, and 13 Akharas overview.
+- https://rudrakshsafar.com/kumbh-mela-2027/snan-dates: Complete 10-date bathing calendar, Amrit Snan filters, and crowd estimates.
+- https://rudrakshsafar.com/kumbh-mela-2027/live-updates: Real-time countdown to next snan and administrative notices changelog.
+- https://rudrakshsafar.com/kumbh-mela-2027/how-to-reach: Origin-wise transit guide (Delhi, Dehradun, Mumbai, Jaipur, Lucknow, Raipur).
+- https://rudrakshsafar.com/kumbh-mela-2027/stay: Haridwar accommodation zone matrix (Har Ki Pauri, Kankhal, Bhoopatwala, Jwalapur, Rishikesh camps).
+- https://rudrakshsafar.com/kumbh-mela-2027/parking-and-traffic: Vehicle movement advisories, highway satellite parking, and pedestrian cordons.
+- https://rudrakshsafar.com/kumbh-mela-2027/senior-family-guide: Elder care checklist, calm-date picker, and wheelchair assistance.
+- https://rudrakshsafar.com/kumbh-mela-2027/ardh-kumbh-explained: Definitive guide to Ardh vs Purna Kumbh, 13 Akharas, and Peshwai tradition.
+- https://rudrakshsafar.com/kumbh-mela-2027/dos-and-donts: Essential bathing rules, packing checklist, and mela etiquette.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages: Pilgrimage packages, luxury Swiss cottage tents, and ashram accommodation tiers.
+
+## Chhattisgarh Pilgrimage Departure Silo
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/chhattisgarh: State departure overview from Chhattisgarh to Haridwar Kumbh.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/from-raipur: Tour packages and flight/train connections from Raipur.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/from-bhilai: Steel township retiree packages and in-person consultation at Supela, Bhilai.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/from-bilaspur: North Chhattisgarh rail departure packages from Bilaspur Junction.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/from-durg: District headquarters departures and long halts from Durg Junction.
+- https://rudrakshsafar.com/kumbh-mela-2027/packages/from-rajnandgaon: Small-group and Dongargarh pilgrim departures from Rajnandgaon.
+
+## Hindi Mirrors (/hi/)
+- https://rudrakshsafar.com/hi/kumbh-mela-2027
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/snan-dates
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/from-raipur
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/from-bhilai
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/from-bilaspur
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/from-durg
+- https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/from-rajnandgaon

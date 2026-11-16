@@ -44,6 +44,26 @@ const supportLinks = [
   { name: 'FAQs', href: '#faqs' },
 ];
 
+const kumbhFooterLinks = [
+  { name: 'Haridwar Kumbh 2027 Hub', href: '/kumbh-mela-2027' },
+  { name: 'Official Snan Dates', href: '/kumbh-mela-2027/snan-dates' },
+  { name: 'How to Reach Haridwar', href: '/kumbh-mela-2027/how-to-reach' },
+  { name: 'Hotels & Luxury Camps', href: '/kumbh-mela-2027/stay' },
+  { name: 'Parking & Traffic Rules', href: '/kumbh-mela-2027/parking-and-traffic' },
+  { name: 'Senior & Family Guide', href: '/kumbh-mela-2027/senior-family-guide' },
+  { name: 'Kumbh Tour Packages', href: '/kumbh-mela-2027/packages' },
+  { name: 'Live Updates & Notices', href: '/kumbh-mela-2027/live-updates' },
+];
+
+const chhattisgarhCitiesFooter = [
+  { name: 'Kumbh Package from Raipur', href: '/kumbh-mela-2027/packages/from-raipur' },
+  { name: 'Kumbh Package from Bhilai', href: '/kumbh-mela-2027/packages/from-bhilai' },
+  { name: 'Kumbh Package from Bilaspur', href: '/kumbh-mela-2027/packages/from-bilaspur' },
+  { name: 'Kumbh Package from Durg', href: '/kumbh-mela-2027/packages/from-durg' },
+  { name: 'Kumbh Package from Rajnandgaon', href: '/kumbh-mela-2027/packages/from-rajnandgaon' },
+  { name: 'All Chhattisgarh Departures', href: '/kumbh-mela-2027/packages/chhattisgarh' },
+];
+
 const socialLinks = [
   { icon: Facebook, href: 'https://www.facebook.com/people/Rudraksh-Safar/pfbid0iAvSgkmW94itABRQ4h3f8kSkkyT16Kn7ocq97wUWVY35GWgj61YjdQNBeLy2nVTtl/', label: 'Facebook' },
   { icon: Instagram, href: 'https://www.instagram.com/rudrakshsafar?igsh=MWhnY25ieDBlNDVwbw==', label: 'Instagram' },
@@ -752,7 +772,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
         {/* Main Footer */}
         <div className="container relative z-10 py-20 px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-6">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <Link to="/" className="block mb-8">
@@ -917,6 +937,30 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </nav>
             </div>
 
+            {/* Kumbh 2027 Column */}
+            <div>
+              <h3 className="font-serif font-bold text-lg text-white mb-8 flex items-center gap-2">
+                <span>Kumbh 2027</span>
+                <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-orange-600 text-white leading-none">
+                  Special
+                </span>
+              </h3>
+              <nav>
+                <ul className="space-y-4">
+                  {kumbhFooterLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-white/60 hover:text-gold transition-colors text-sm block hover:translate-x-1 duration-300"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+
             {/* Newsletter & Social */}
             <div>
               <BrevoNewsletter />
@@ -937,6 +981,26 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                   </a>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Kumbh 2027 from Chhattisgarh Row */}
+        <div className="border-t border-white/10 py-6 container relative z-10 text-xs">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+            <span className="font-semibold text-gold uppercase tracking-wider text-xs whitespace-nowrap">
+              Haridwar Kumbh 2027 from Chhattisgarh:
+            </span>
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-white/60">
+              {chhattisgarhCitiesFooter.map((city) => (
+                <Link
+                  key={city.name}
+                  to={city.href}
+                  className="hover:text-gold transition-colors hover:underline"
+                >
+                  {city.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

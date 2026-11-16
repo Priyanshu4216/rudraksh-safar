@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { CurrencySelector } from './CurrencySelector';
@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 const navLinks = [
   { name: 'Home', href: '/', isRoute: true },
+  { name: 'AI Generator', href: '#ai-planner', isRoute: false, isAi: true },
   { name: 'Flights', href: '/flights', isRoute: true, highlight: 'premium' },
   { name: 'Hotel Booking', href: '/hotels', isRoute: true, highlight: 'premium' },
   {
@@ -23,6 +24,28 @@ const navLinks = [
     ],
   },
   {
+    name: 'Kumbh 2027',
+    href: '/kumbh-mela-2027',
+    isRoute: true,
+    badge: '2027',
+    dropdown: [
+      { name: 'Haridwar Kumbh Hub', href: '/kumbh-mela-2027', isRoute: true },
+      { name: 'Snan Dates & Calendar', href: '/kumbh-mela-2027/snan-dates', isRoute: true },
+      { name: 'Tour Packages', href: '/kumbh-mela-2027/packages', isRoute: true },
+      { name: 'Kumbh: From Chhattisgarh', href: '/kumbh-mela-2027/packages/chhattisgarh', isRoute: true },
+      { name: '  • From Raipur', href: '/kumbh-mela-2027/packages/from-raipur', isRoute: true },
+      { name: '  • From Bhilai', href: '/kumbh-mela-2027/packages/from-bhilai', isRoute: true },
+      { name: '  • From Bilaspur', href: '/kumbh-mela-2027/packages/from-bilaspur', isRoute: true },
+      { name: '  • From Durg', href: '/kumbh-mela-2027/packages/from-durg', isRoute: true },
+      { name: '  • From Rajnandgaon', href: '/kumbh-mela-2027/packages/from-rajnandgaon', isRoute: true },
+      { name: 'How to Reach', href: '/kumbh-mela-2027/how-to-reach', isRoute: true },
+      { name: 'Stay & Tents', href: '/kumbh-mela-2027/stay', isRoute: true },
+      { name: 'Parking & Traffic', href: '/kumbh-mela-2027/parking-and-traffic', isRoute: true },
+      { name: 'Senior & Family Guide', href: '/kumbh-mela-2027/senior-family-guide', isRoute: true },
+      { name: 'Live Updates', href: '/kumbh-mela-2027/live-updates', isRoute: true },
+    ],
+  },
+  {
     name: 'Packages',
     href: '#packages',
     dropdown: [
@@ -32,6 +55,7 @@ const navLinks = [
       { name: 'Family', href: '/family-packages', isRoute: true },
       { name: 'Adventure', href: '/adventure-packages', isRoute: true },
       { name: 'Luxury', href: '/luxury-packages', isRoute: true },
+      { name: 'Kumbh 2027 Packages', href: '/kumbh-mela-2027/packages', isRoute: true },
     ],
   },
   { name: 'My Bookings', href: '/bookings', isRoute: true },
@@ -115,13 +139,13 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b ${isScrolled
           ? 'bg-black/90 backdrop-blur-xl shadow-2xl py-3 border-white/10 translate-y-0 opacity-100'
           : isHomePage
-            ? 'bg-transparent py-6 border-transparent translate-y-0 opacity-100'
+            ? 'bg-transparent py-5 border-transparent translate-y-0 opacity-100'
             : 'bg-black/20 backdrop-blur-sm py-4 border-white/5 translate-y-0 opacity-100'
           }`}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex items-center justify-between px-6 md:px-8 relative">
+        <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 relative">
           {/* Logo */}
           <Link
             to="/"
@@ -161,6 +185,11 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                         aria-haspopup="true"
                       >
                         {link.name}
+                        {(link as any).badge && (
+                          <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded bg-orange-600 text-white leading-none">
+                            {(link as any).badge}
+                          </span>
+                        )}
                         <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
                       </button>
                       {/* Dropdown Menu */}
@@ -195,6 +224,14 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                         </ul>
                       </div>
                     </>
+                  ) : (link as any).isAi ? (
+                    <button
+                      onClick={() => handleNavClick(link.href)}
+                      className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-sm hover:shadow-orange-500/25 transition-all transform active:scale-95"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-amber-200 animate-pulse" />
+                      <span>{link.name}</span>
+                    </button>
                   ) : link.isRoute ? (
                     <Link
                       to={link.href}
@@ -238,22 +275,32 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           </div>
 
           {/* Desktop Right Side Controls */}
-          <div className={`hidden lg:flex items-center gap-4 transition-all duration-500 z-10 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+          <div className={`hidden lg:flex items-center gap-3 transition-all duration-500 z-10 ${isHomePage && !isScrolled ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'}`}>
             <CurrencySelector />
             <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-3">
-            {/* Currency & Theme - only visible after scroll on homepage */}
-            <div className={`flex items-center gap-2 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+          {/* Mobile Header Controls */}
+          <div className="flex lg:hidden items-center gap-2">
+            {/* Direct AI Plan Button on Mobile */}
+            <button
+              onClick={() => handleNavClick('#ai-planner')}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-bold text-xs shadow-sm active:scale-95 border border-white/20"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-200 animate-pulse" />
+              <span>AI Plan</span>
+            </button>
+
+            {/* Currency & Theme */}
+            <div className={`flex items-center gap-1.5 transition-all duration-500 ${isHomePage && !isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
               <CurrencySelector />
               <ThemeToggle />
             </div>
+
             {/* Hamburger - ALWAYS visible & clickable */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
+              className={`p-2 rounded-xl transition-all duration-300 ${isScrolled || !isHomePage
                 ? 'bg-muted text-foreground'
                 : 'bg-white/10 backdrop-blur-sm text-white border border-white/20'
                 }`}
@@ -284,17 +331,45 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           {/* Panel */}
           <div className="relative mt-[72px]">
             <div className="bg-background/95 backdrop-blur-xl mx-4 rounded-2xl p-5 max-h-[80vh] overflow-y-auto border border-border shadow-xl">
+              
+              {/* Feature AI Banner at top of Mobile Menu */}
+              <button
+                onClick={() => handleNavClick('#ai-planner')}
+                className="w-full mb-3.5 p-3.5 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-bold text-sm flex items-center justify-between shadow-lg shadow-orange-500/20 active:scale-98 transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-white/20 rounded-xl">
+                    <Sparkles className="w-5 h-5 text-amber-100 animate-pulse" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-extrabold text-sm flex items-center gap-1.5">
+                      AI Trip Generator
+                      <span className="px-1.5 py-0.5 text-[9px] font-black uppercase rounded bg-white text-orange-600">NEW</span>
+                    </div>
+                    <div className="text-[11px] font-normal text-white/90">Instant custom itinerary & expert quote</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-white/90" />
+              </button>
+
               <ul className="flex flex-col">
-                {navLinks.map((link) => (
+                {navLinks.filter(l => !(l as any).isAi).map((link) => (
                   <li key={link.name} className="border-b border-border/30 last:border-0">
                     {link.dropdown ? (
                       <div>
                         <button
                           onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                          className="flex items-center justify-between w-full py-4 font-medium text-foreground"
+                          className="flex items-center justify-between w-full py-4 min-h-[44px] font-medium text-foreground"
                           aria-expanded={openDropdown === link.name}
                         >
-                          {link.name}
+                          <span className="flex items-center gap-2">
+                            {link.name}
+                            {(link as any).badge && (
+                              <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-orange-600 text-white leading-none">
+                                {(link as any).badge}
+                              </span>
+                            )}
+                          </span>
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : ''
                               }`}
@@ -335,6 +410,19 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                           ))}
                         </ul>
                       </div>
+                    ) : (link as any).isAi ? (
+                      <button
+                        onClick={() => handleNavClick(link.href)}
+                        className="flex items-center justify-between w-full py-3.5 font-bold text-orange-600 dark:text-orange-400"
+                      >
+                        <span className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-orange-500 animate-pulse" />
+                          {link.name}
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300 text-[10px] font-bold">
+                          AI PLANNER
+                        </span>
+                      </button>
                     ) : link.isRoute ? (
                       <Link
                         to={link.href}
