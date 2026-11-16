@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/generate-indexnow-key.js && node scripts/prerender.js",
     "build:dev": "vite build --mode development",
+    "check:todo": "node scripts/check-todo.ts",
     "lint": "eslint .",
     "indexnow": "node scripts/indexnow.js",
     "preview": "vite preview",
