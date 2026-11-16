@@ -1,4 +1,4 @@
-import { RouteOrigin } from './types';
+import type { RouteOrigin } from './types.ts';
 
 export const HOW_TO_REACH_ROUTES: RouteOrigin[] = [
   {

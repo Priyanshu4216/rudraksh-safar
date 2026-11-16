@@ -54,6 +54,8 @@ const AdventurePackages = lazy(() => import("./pages/AdventurePackages"));
 const LuxuryPackages = lazy(() => import("./pages/LuxuryPackages"));
 const KashmirMaster = lazy(() => import("./pages/domestic/kashmir/KashmirMaster"));
 const ManaliMaster = lazy(() => import("./pages/domestic/manali/ManaliMaster"));
+const ManaliKasolStrangersTrip = lazy(() => import("./pages/domestic/manali/ManaliKasolStrangersTrip"));
+const ManaliKasolCitySilo = lazy(() => import("./pages/domestic/manali/ManaliKasolCitySilo"));
 const KeralaMaster = lazy(() => import("./pages/domestic/kerala/KeralaMaster"));
 const ThailandMaster = lazy(() => import("./pages/international/thailand/ThailandMaster"));
 const DubaiMaster = lazy(() => import("./pages/international/dubai/DubaiMaster"));
@@ -328,6 +330,20 @@ const KohSamuiCityTour = lazy(() => import("./pages/destinations/thailand/attrac
 const AngThongMarinePark = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/ang-thong-marine-park"));
 const SafariTour = lazy(() => import("./pages/destinations/thailand/attractions/koh-samui/safari-tour"));
 const GrandPalace = lazy(() => import("./pages/destinations/thailand/attractions/bangkok/grand-palace"));
+
+// Haridwar Ardh Kumbh 2027 Ecosystem
+const KumbhMela2027Pillar = lazy(() => import("./pages/domestic/kumbh/KumbhMela2027Pillar"));
+const SnanDatesPage = lazy(() => import("./pages/domestic/kumbh/SnanDatesPage"));
+const LiveUpdatesPage = lazy(() => import("./pages/domestic/kumbh/LiveUpdatesPage"));
+const HowToReachPage = lazy(() => import("./pages/domestic/kumbh/HowToReachPage"));
+const StayAndTentsPage = lazy(() => import("./pages/domestic/kumbh/StayAndTentsPage"));
+const ParkingTrafficPage = lazy(() => import("./pages/domestic/kumbh/ParkingTrafficPage"));
+const SeniorFamilyGuidePage = lazy(() => import("./pages/domestic/kumbh/SeniorFamilyGuidePage"));
+const ArdhKumbhExplainedPage = lazy(() => import("./pages/domestic/kumbh/ArdhKumbhExplainedPage"));
+const DosAndDontsPage = lazy(() => import("./pages/domestic/kumbh/DosAndDontsPage"));
+const PackagesPage = lazy(() => import("./pages/domestic/kumbh/PackagesPage"));
+const ChhattisgarhStateLandingPage = lazy(() => import("./pages/domestic/kumbh/ChhattisgarhStateLandingPage"));
+const CityPackagePage = lazy(() => import("./pages/domestic/kumbh/CityPackagePage"));
 const queryClient = new QueryClient();
 
 
@@ -371,6 +387,34 @@ const App = () => (
                     <Route path="/luxury-packages" element={<LuxuryPackages />} />
                     <Route path="/for-travellers" element={<ForTravellers />} />
                     <Route path="/package/:packageId" element={<PackageDetails />} />
+
+                    {/* Haridwar Ardh Kumbh 2027 Ecosystem (English) */}
+                    <Route path="/kumbh-mela-2027" element={<KumbhMela2027Pillar lang="en" />} />
+                    <Route path="/kumbh-mela-2027/snan-dates" element={<SnanDatesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/live-updates" element={<LiveUpdatesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/how-to-reach" element={<HowToReachPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/stay" element={<StayAndTentsPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/parking-and-traffic" element={<ParkingTrafficPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/senior-family-guide" element={<SeniorFamilyGuidePage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/ardh-kumbh-explained" element={<ArdhKumbhExplainedPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/dos-and-donts" element={<DosAndDontsPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages" element={<PackagesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/chhattisgarh" element={<ChhattisgarhStateLandingPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="en" />} />
+
+                    {/* Haridwar Ardh Kumbh 2027 Ecosystem (Hindi - /hi/...) */}
+                    <Route path="/hi/kumbh-mela-2027" element={<KumbhMela2027Pillar lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/snan-dates" element={<SnanDatesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/live-updates" element={<LiveUpdatesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/how-to-reach" element={<HowToReachPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/stay" element={<StayAndTentsPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/parking-and-traffic" element={<ParkingTrafficPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/senior-family-guide" element={<SeniorFamilyGuidePage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/ardh-kumbh-explained" element={<ArdhKumbhExplainedPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/dos-and-donts" element={<DosAndDontsPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages" element={<PackagesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/chhattisgarh" element={<ChhattisgarhStateLandingPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="hi" />} />
 
                     {/* Where To Go Master Ecosystem */}
                     <Route path="/where-to-go" element={<WhereToGoHub />} />
@@ -630,6 +674,16 @@ const App = () => (
                     <Route path="/domestic-tours/manali" element={<ManaliMaster />} />
                     <Route path="/domestic-tours/manali-from-bhilai" element={<Navigate to="/domestic-tours/manali" replace />} />
                     <Route path="/domestic-tours/manali-from-bilaspur" element={<Navigate to="/bilaspur/manali-package" replace />} />
+                    <Route path="/manali-kasol-strangers-trip" element={<ManaliKasolStrangersTrip />} />
+                    <Route path="/manali-kasol-group-trip" element={<Navigate to="/manali-kasol-strangers-trip" replace />} />
+                    <Route path="/packages/manali-kasol-strangers-trip" element={<Navigate to="/manali-kasol-strangers-trip" replace />} />
+                    {/* Manali Kasol Local SEO Silos */}
+                    <Route path="/manali-kasol-strangers-trip/from-bhilai" element={<ManaliKasolCitySilo forcedCityKey="bhilai" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-raipur" element={<ManaliKasolCitySilo forcedCityKey="raipur" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-durg" element={<ManaliKasolCitySilo forcedCityKey="durg" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-bilaspur" element={<ManaliKasolCitySilo forcedCityKey="bilaspur" />} />
+                    <Route path="/manali-kasol-strangers-trip/from-rajnandgaon" element={<ManaliKasolCitySilo forcedCityKey="rajnandgaon" />} />
+                    <Route path="/manali-kasol-strangers-trip/:cityParam" element={<ManaliKasolCitySilo />} />
 
                     {/* Kerala Master Silo */}
                     <Route path="/domestic-tours/kerala" element={<KeralaMaster />} />
@@ -828,6 +882,34 @@ const App = () => (
 
                     {/* Generic Package Route */}
                     <Route path="/package/:packageId" element={<PackageDetails />} />
+
+                    {/* Haridwar Ardh Kumbh 2027 Ecosystem (English) */}
+                    <Route path="/kumbh-mela-2027" element={<KumbhMela2027Pillar lang="en" />} />
+                    <Route path="/kumbh-mela-2027/snan-dates" element={<SnanDatesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/live-updates" element={<LiveUpdatesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/how-to-reach" element={<HowToReachPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/stay" element={<StayAndTentsPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/parking-and-traffic" element={<ParkingTrafficPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/senior-family-guide" element={<SeniorFamilyGuidePage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/ardh-kumbh-explained" element={<ArdhKumbhExplainedPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/dos-and-donts" element={<DosAndDontsPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages" element={<PackagesPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/chhattisgarh" element={<ChhattisgarhStateLandingPage lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="en" />} />
+
+                    {/* Haridwar Ardh Kumbh 2027 Ecosystem (Hindi - /hi/...) */}
+                    <Route path="/hi/kumbh-mela-2027" element={<KumbhMela2027Pillar lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/snan-dates" element={<SnanDatesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/live-updates" element={<LiveUpdatesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/how-to-reach" element={<HowToReachPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/stay" element={<StayAndTentsPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/parking-and-traffic" element={<ParkingTrafficPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/senior-family-guide" element={<SeniorFamilyGuidePage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/ardh-kumbh-explained" element={<ArdhKumbhExplainedPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/dos-and-donts" element={<DosAndDontsPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages" element={<PackagesPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/chhattisgarh" element={<ChhattisgarhStateLandingPage lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="hi" />} />
 
                     {/* Destination SEO Pages (Top brand style) - Moved here to prevent catching static routes */}
                     <Route path="/:destinationSlug/:pageSlug" element={<DestinationContent />} />

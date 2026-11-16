@@ -1,5 +1,5 @@
-import { PackageTier } from './types';
-import { KUMBH_DISCLAIMERS } from './disclaimers';
+import type { PackageTier } from './types.ts';
+import { KUMBH_DISCLAIMERS } from './disclaimers.ts';
 
 export const KUMBH_PACKAGES: PackageTier[] = [
   {

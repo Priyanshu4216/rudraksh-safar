@@ -1,5 +1,5 @@
-import { FAQItem } from './types';
-import { KUMBH_SITE } from './site';
+import type { FAQItem } from './types.ts';
+import { KUMBH_SITE } from './site.ts';
 
 export const HARIDWAR_KUMBH_FAQS: FAQItem[] = [
   {

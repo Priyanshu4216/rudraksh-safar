@@ -1,4 +1,4 @@
-import { CityData } from './types';
+import type { CityData } from './types.ts';
 
 export const CHHATTISGARH_CITIES: CityData[] = [
   // ==========================================

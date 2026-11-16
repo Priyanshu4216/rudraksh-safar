@@ -32,6 +32,28 @@ const navLinks = [
       { name: 'Family', href: '/family-packages', isRoute: true },
       { name: 'Adventure', href: '/adventure-packages', isRoute: true },
       { name: 'Luxury', href: '/luxury-packages', isRoute: true },
+      { name: 'Kumbh: From Chhattisgarh', href: '/kumbh-mela-2027/packages/chhattisgarh', isRoute: true },
+      { name: '  • From Raipur', href: '/kumbh-mela-2027/packages/from-raipur', isRoute: true },
+      { name: '  • From Bhilai', href: '/kumbh-mela-2027/packages/from-bhilai', isRoute: true },
+      { name: '  • From Bilaspur', href: '/kumbh-mela-2027/packages/from-bilaspur', isRoute: true },
+      { name: '  • From Durg', href: '/kumbh-mela-2027/packages/from-durg', isRoute: true },
+      { name: '  • From Rajnandgaon', href: '/kumbh-mela-2027/packages/from-rajnandgaon', isRoute: true },
+    ],
+  },
+  {
+    name: 'Kumbh 2027',
+    href: '/kumbh-mela-2027',
+    isRoute: true,
+    badge: '2027',
+    dropdown: [
+      { name: 'Haridwar Kumbh Hub', href: '/kumbh-mela-2027', isRoute: true },
+      { name: 'Snan Dates & Calendar', href: '/kumbh-mela-2027/snan-dates', isRoute: true },
+      { name: 'How to Reach', href: '/kumbh-mela-2027/how-to-reach', isRoute: true },
+      { name: 'Stay & Tents', href: '/kumbh-mela-2027/stay', isRoute: true },
+      { name: 'Parking & Traffic', href: '/kumbh-mela-2027/parking-and-traffic', isRoute: true },
+      { name: 'Senior & Family Guide', href: '/kumbh-mela-2027/senior-family-guide', isRoute: true },
+      { name: 'Tour Packages', href: '/kumbh-mela-2027/packages', isRoute: true },
+      { name: 'Live Updates', href: '/kumbh-mela-2027/live-updates', isRoute: true },
     ],
   },
   { name: 'My Bookings', href: '/bookings', isRoute: true },
@@ -161,6 +183,11 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                         aria-haspopup="true"
                       >
                         {link.name}
+                        {(link as any).badge && (
+                          <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded bg-orange-600 text-white leading-none">
+                            {(link as any).badge}
+                          </span>
+                        )}
                         <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
                       </button>
                       {/* Dropdown Menu */}
@@ -291,10 +318,17 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                       <div>
                         <button
                           onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                          className="flex items-center justify-between w-full py-4 font-medium text-foreground"
+                          className="flex items-center justify-between w-full py-4 min-h-[44px] font-medium text-foreground"
                           aria-expanded={openDropdown === link.name}
                         >
-                          {link.name}
+                          <span className="flex items-center gap-2">
+                            {link.name}
+                            {(link as any).badge && (
+                              <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-orange-600 text-white leading-none">
+                                {(link as any).badge}
+                              </span>
+                            )}
+                          </span>
                           <ChevronDown
                             className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : ''
                               }`}

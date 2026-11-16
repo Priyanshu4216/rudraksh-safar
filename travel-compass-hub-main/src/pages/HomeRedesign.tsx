@@ -7,6 +7,7 @@ import SEOHead from '@/components/SEOHead';
 import MobileAppShell from '@/components/mobile-ux/MobileAppShell';
 
 import PilgrimageSpecials from '@/components/home-redesign/PilgrimageSpecials';
+import { KumbhHomePromoCard } from '@/components/kumbh/KumbhHomePromoCard';
 import SeasonalPicks from '@/components/home-redesign/SeasonalPicks';
 import VisaEasy from '@/components/home-redesign/VisaEasy';
 import TrustSection from '@/components/home-redesign/TrustSection';
@@ -37,6 +38,7 @@ const HomeRedesign = () => {
                 <ServicesSection /> {/* New: Services Section */}
                 <TrustSection /> {/* Dark - Authority */}
                 <SummerPackages /> {/* New: Exclusive Summer Deals */}
+                <KumbhHomePromoCard />
                 <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
                 <SeasonalPicks /> {/* White - Elegant Seasonal */}
                 <VisaEasy /> {/* Light Grey - Utility */}

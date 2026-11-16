@@ -1,4 +1,4 @@
-import { SnanEntry, SourceItem } from './types';
+import type { SnanEntry, SourceItem } from './types.ts';
 
 export const HARIDWAR_KUMBH_FACTS = {
   eventNameEn: "Haridwar Ardh Kumbh Mela 2027",

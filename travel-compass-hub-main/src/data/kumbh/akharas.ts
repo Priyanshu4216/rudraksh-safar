@@ -1,4 +1,4 @@
-import { AkharaItem } from './types';
+import type { AkharaItem } from './types.ts';
 
 export const TRADITIONAL_AKHARAS: AkharaItem[] = [
   // --- Shaiva Akharas (7) ---

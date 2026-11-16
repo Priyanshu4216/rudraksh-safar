@@ -8,6 +8,8 @@
     "build": "vite build && node scripts/generate-indexnow-key.js && node scripts/prerender.js",
     "build:dev": "vite build --mode development",
     "check:todo": "node scripts/check-todo.ts",
+    "check:uniqueness": "node scripts/check-city-uniqueness.ts",
+    "check:schema": "node scripts/validate-schema.ts",
     "lint": "eslint .",
     "indexnow": "node scripts/indexnow.js",
     "preview": "vite preview",
