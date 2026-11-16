@@ -38,6 +38,9 @@ Allow: /
 # ---------------------------------------------------------------------------
 # 2. AI & Answer Engines (Explicitly Allowed)
 # ---------------------------------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
