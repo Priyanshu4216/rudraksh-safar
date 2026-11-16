@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Hero from '@/components/home-redesign/Hero';
+import ImagineJourneySection from '@/components/home-redesign/ImagineJourneySection';
 import TravellerTypes from '@/components/home-redesign/TravellerTypes';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
@@ -33,12 +34,13 @@ const HomeRedesign = () => {
 
             <main className="pb-24 md:pb-0">
                 <Hero />
+                <ImagineJourneySection />
                 <TravellerTypes /> {/* White - Persona */}
 
                 <ServicesSection /> {/* New: Services Section */}
                 <TrustSection /> {/* Dark - Authority */}
-                <SummerPackages /> {/* New: Exclusive Summer Deals */}
                 <KumbhHomePromoCard />
+                <SummerPackages /> {/* New: Exclusive Summer Deals */}
                 <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
                 <SeasonalPicks /> {/* White - Elegant Seasonal */}
                 <VisaEasy /> {/* Light Grey - Utility */}

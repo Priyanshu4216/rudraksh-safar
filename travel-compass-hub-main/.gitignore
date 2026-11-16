@@ -11,10 +11,19 @@ node_modules
 dist
 dist-ssr
 *.local
+.tsbuildinfo*
 
-# Environment Variables
+# Environment Variables & Sensitive Secrets
 .env
 .env.*
+!.env.example
+*.env
+*.key
+*.pem
+*.cert
+*.secret
+credentials.json
+serviceAccountKey.json
 
 # Editor directories and files
 .vscode/*

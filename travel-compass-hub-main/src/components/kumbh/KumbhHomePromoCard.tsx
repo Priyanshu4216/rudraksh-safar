@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, MapPin, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { SnanCalendarWidget } from './SnanCalendarWidget';
 
 export const KumbhHomePromoCard: React.FC = () => {
   return (
     <section className="container mx-auto px-4 sm:px-6 my-10 md:my-14" aria-label="Haridwar Kumbh 2027 Featured Guide">
-      <div className="relative overflow-hidden rounded-3xl border-2 border-orange-500/30 bg-gradient-to-br from-orange-500/15 via-background to-orange-500/5 p-6 md:p-10 shadow-lg">
+      <div className="relative overflow-hidden rounded-3xl border-2 border-orange-500/30 bg-gradient-to-br from-orange-500/15 via-background to-orange-500/5 p-6 md:p-10 shadow-lg mb-8">
         {/* Sacred subtle aura */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -55,6 +56,9 @@ export const KumbhHomePromoCard: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Interactive Snan Calendar Grid with Hover & Mobile Drawers */}
+      <SnanCalendarWidget />
     </section>
   );
 };

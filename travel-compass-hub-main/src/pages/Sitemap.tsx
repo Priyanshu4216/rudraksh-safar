@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+﻿import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -28,6 +28,7 @@ const Sitemap = () => {
     const localDestinations = [
         { name: 'Kashmir from Bhilai', href: '/kashmir-tour-package-from-bhilai', desc: 'Paradise on Earth packages' },
         { name: 'Manali from Bhilai', href: '/manali-tour-package-from-bhilai', desc: 'Himachal adventure tours' },
+        { name: 'Manali x Kasol Strangers Trip from Bhilai', href: '/manali-kasol-strangers-trip/from-bhilai', desc: '5N/6D Social Group Trip ₹5,999' },
         { name: 'Kerala from Bhilai', href: '/kerala-tour-package-from-bhilai', desc: 'God\'s Own Country trips' },
         { name: 'Rajasthan from Bhilai', href: '/rajasthan-tour-package-from-bhilai', desc: 'Royal heritage tours' },
         { name: 'Andaman from Bhilai', href: '/andaman-tour-package-from-bhilai', desc: 'Island getaway packages' },
@@ -72,6 +73,19 @@ const Sitemap = () => {
                 { name: 'Group Tour Packages', href: '/group-tour-packages', desc: 'Travel for families, friends, and organisations' },
                 { name: 'Island Holiday Packages', href: '/beach-holiday-packages', desc: 'Coastal destinations' },
                 { name: 'Mountain Holiday Packages', href: '/mountain-holiday-packages', desc: 'Hill stations and mountain travel' },
+            ]
+        },
+                {
+            title: "Manali × Kasol Strangers Trip (₹5,999 Special 🔥)",
+            description: "5N/6D Social Group & Backpacking Trip covering Manali, Solang Valley, Kullu, Kasol & Manikaran Sahib with local departures from Chhattisgarh.",
+            icon: Mountain,
+            links: [
+                { name: "Manali × Kasol Strangers Trip (Main Hub)", href: "/manali-kasol-strangers-trip", desc: "5N/6D Delhi Departure ₹5,999" },
+                { name: "Manali Kasol Trip from Bhilai", href: "/manali-kasol-strangers-trip/from-bhilai", desc: "Bhilai Departure & Train Connectivity" },
+                { name: "Manali Kasol Trip from Raipur", href: "/manali-kasol-strangers-trip/from-raipur", desc: "Raipur Flight/Train Connectivity" },
+                { name: "Manali Kasol Trip from Durg", href: "/manali-kasol-strangers-trip/from-durg", desc: "Durg Junction Direct Train Guide" },
+                { name: "Manali Kasol Trip from Bilaspur", href: "/manali-kasol-strangers-trip/from-bilaspur", desc: "Bilaspur Rajdhani & Express Connectivity" },
+                { name: "Manali Kasol Trip from Rajnandgaon", href: "/manali-kasol-strangers-trip/from-rajnandgaon", desc: "Rajnandgaon Departure & Transit Info" },
             ]
         },
         {
