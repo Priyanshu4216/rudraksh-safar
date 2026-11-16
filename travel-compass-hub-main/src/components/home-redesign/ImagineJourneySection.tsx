@@ -115,26 +115,6 @@ export const ImagineJourneySection: React.FC = () => {
     const [activeTab, setActiveTab] = useState<ModalTab>('timeline');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    // Live Budget Estimator calculation
-    const calculateEstimatedBudget = () => {
-        let perDayRate = 4200;
-        if (style.includes('Luxury')) perDayRate = 9800;
-        else if (style.includes('Comfort')) perDayRate = 5600;
-        else if (style.includes('Budget')) perDayRate = 3200;
-
-        const baseMin = days * perDayRate;
-        const baseMax = Math.round(baseMin * 1.3);
-
-        return {
-            min: baseMin.toLocaleString('en-IN'),
-            max: baseMax.toLocaleString('en-IN'),
-            totalMin: (baseMin * travellers).toLocaleString('en-IN'),
-            totalMax: (baseMax * travellers).toLocaleString('en-IN')
-        };
-    };
-
-    const budgetEstimate = calculateEstimatedBudget();
-
     const applyPreset = (preset: DestinationPreset) => {
         setDestination(preset.dest);
         setDays(preset.defaultDays);
@@ -614,36 +594,32 @@ export const ImagineJourneySection: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* LIVE ESTIMATED BUDGET & ACTION BAR (Elevated New Experience) */}
+                    {/* ACTION BAR */}
                     <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-orange-50 via-amber-50/40 to-orange-50/80 dark:from-slate-800/90 dark:via-slate-800 dark:to-slate-900 border border-orange-200/80 dark:border-slate-700 flex flex-col md:flex-row items-center justify-between gap-5">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-3xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
                             
-                            {/* Live Pricing Breakdown */}
-                            <div className="text-center md:text-left space-y-1">
-                                <div className="flex items-center justify-center md:justify-start gap-2">
-                                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#ea580c] bg-orange-100 dark:bg-orange-950 px-2 py-0.5 rounded-md">
-                                        Smart Budget Meter
-                                    </span>
-                                    <span className="text-xs text-slate-500 font-medium">
-                                        {days} Days • {travellers} Guests • {style.split(' ')[0]}
-                                    </span>
+                            {/* Summary & Trust Badge */}
+                            <div className="flex items-center gap-3 text-center sm:text-left">
+                                <div className="w-10 h-10 rounded-2xl bg-orange-100 dark:bg-orange-950/70 text-[#ea580c] flex items-center justify-center shrink-0 hidden sm:flex">
+                                    <Sparkles className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                                 </div>
-                                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                                    ₹{budgetEstimate.min} – ₹{budgetEstimate.max}
-                                    <span className="text-xs sm:text-sm font-semibold text-slate-500 ml-1.5">/ person approx.</span>
+                                <div>
+                                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                                        Tailor-Made by Rudraksh Safar
+                                    </h4>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        Instant day-by-day blueprint with hotels, sightseeing & 1-click printable PDF
+                                    </p>
                                 </div>
-                                <p className="text-xs text-slate-600 dark:text-slate-400">
-                                    Total for {travellers} guest(s): ~₹{budgetEstimate.totalMin} (Includes stays, chauffeur & breakfast)
-                                </p>
                             </div>
 
-                            {/* DUAL ACTION BUTTONS (Empowering & Useful) */}
-                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+                            {/* DUAL ACTION BUTTONS */}
+                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
                                 {/* Primary AI Generator Button */}
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-orange-600/30 hover:shadow-orange-600/40 transition-all transform active:scale-98 cursor-pointer disabled:opacity-60"
+                                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-orange-600/30 hover:shadow-orange-600/40 transition-all transform active:scale-98 cursor-pointer disabled:opacity-60"
                                 >
                                     <Sparkles className="w-5 h-5 text-amber-200 animate-pulse" />
                                     <span>Build My Custom Itinerary</span>
@@ -654,7 +630,7 @@ export const ImagineJourneySection: React.FC = () => {
                                 <button
                                     type="button"
                                     onClick={handleWhatsAppDirect}
-                                    className="w-full sm:w-auto px-5 py-4 rounded-2xl bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
+                                    className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
                                 >
                                     <MessageCircle className="w-4 h-4 text-emerald-600" />
                                     <span>WhatsApp Specialist</span>
