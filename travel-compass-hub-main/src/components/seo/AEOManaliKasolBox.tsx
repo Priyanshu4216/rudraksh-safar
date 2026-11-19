@@ -133,7 +133,7 @@ export const AEOManaliKasolBox: React.FC<AEOManaliKasolBoxProps> = ({
           <div className="p-4 rounded-xl bg-white border border-slate-200">
             <span className="text-slate-500 text-xs block font-semibold uppercase">Verified Rating</span>
             <strong className="text-slate-900 text-sm block mt-0.5">4.9 / 5.0 Rating</strong>
-            <span className="text-[11px] text-amber-600 font-semibold">148+ Verified Reviews</span>
+            <span className="text-[11px] text-amber-600 font-semibold">154 Verified Google Reviews</span>
           </div>
         </div>
 

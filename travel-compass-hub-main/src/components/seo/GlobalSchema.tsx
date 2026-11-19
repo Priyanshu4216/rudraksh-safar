@@ -21,7 +21,15 @@ const GlobalSchema = () => {
                 "@type": "ImageObject",
                 "url": logoUrl
             },
-            "telephone": "+919203650311",
+            "telephone": "+919713057086",
+            "taxID": "22AGBPC7350G1ZZ",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "154",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
             "email": "rudrakshsafar@gmail.com",
             "address": {
                 "@type": "PostalAddress",
