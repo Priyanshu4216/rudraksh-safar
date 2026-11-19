@@ -195,6 +195,7 @@ const ManaliInWinter = lazy(() => import("./pages/guides/ManaliInWinter"));
 const AtalTunnelSolangGuide = lazy(() => import("./pages/guides/AtalTunnelSolangGuide"));
 const ManaliWeatherByMonth = lazy(() => import("./pages/guides/ManaliWeatherByMonth"));
 const ManaliSnowPackingList = lazy(() => import("./pages/guides/ManaliSnowPackingList"));
+const HaridwarRishikeshMaster = lazy(() => import("./pages/domestic/haridwar/HaridwarRishikeshMaster"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
 const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
 const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
@@ -876,6 +877,7 @@ const App = () => (
                     <Route path="/guides/atal-tunnel-solang-guide" element={<AtalTunnelSolangGuide />} />
                     <Route path="/guides/manali-weather-by-month" element={<ManaliWeatherByMonth />} />
                     <Route path="/guides/manali-snow-packing-list" element={<ManaliSnowPackingList />} />
+                    <Route path="/domestic-tours/haridwar-rishikesh" element={<HaridwarRishikeshMaster />} />
                     <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
                     <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
                     <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
