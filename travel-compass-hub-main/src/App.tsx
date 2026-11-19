@@ -756,13 +756,9 @@ const App = () => (
 
                     {/* Goa Specials (from Sitemap) */}
                     <Route path="/goa-tour-package-from-bhilai" element={<GoaMaster />} />
-                    <Route path="/domestic-tours/goa-from-bhilai" element={<GoaMaster />} />
                     <Route path="/goa-package-from-raipur" element={<GoaMaster />} />
-                    <Route path="/domestic-tours/goa-from-raipur" element={<GoaMaster />} />
                     <Route path="/goa-package-from-durg" element={<GoaMaster />} />
-                    <Route path="/domestic-tours/goa-from-durg" element={<GoaMaster />} />
                     <Route path="/goa-trip-from-supela" element={<GoaMaster />} />
-                    <Route path="/domestic-tours/goa-trip-from-supela" element={<GoaMaster />} />
                     <Route path="/goa-cheap-trip-guide" element={<GoaCheapTripGuide />} />
 
                     <Route path="/ladakh-tour-via-srinagar" element={<LadakhViaSrinagar />} />

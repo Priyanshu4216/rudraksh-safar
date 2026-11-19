@@ -89,6 +89,31 @@ const Sitemap = () => {
             ]
         },
         {
+            title: "Haridwar Maha Kumbh Mela 2027 (Official Guide)",
+            description: "Complete spiritual guides, Shahi Snan dates, camp bookings, and travel packages from Chhattisgarh.",
+            icon: Sparkles,
+            links: [
+                { name: "Haridwar Kumbh Mela 2027 (Hub)", href: "/kumbh-mela-2027", desc: "Main Haridwar Kumbh Mela Portal" },
+                { name: "Shahi Snan Dates 2027", href: "/kumbh-mela-2027/snan-dates", desc: "Auspicious Bathing Calendar & Timings" },
+                { name: "Live Updates & Crowd Status", href: "/kumbh-mela-2027/live-updates", desc: "Real-time Ghat & Weather Advisory" },
+                { name: "How to Reach Haridwar", href: "/kumbh-mela-2027/how-to-reach", desc: "Flights, Trains & Road Route Guide" },
+                { name: "Tent City & Camp Booking", href: "/kumbh-mela-2027/stay", desc: "Luxury Tents & Hotel Reservations" },
+                { name: "Parking & Traffic Advisory", href: "/kumbh-mela-2027/parking-and-traffic", desc: "Authorized Parking & Entry Routes" },
+                { name: "Senior Citizens & Family Guide", href: "/kumbh-mela-2027/senior-family-guide", desc: "Wheelchairs, Battery Carts & Medical" },
+                { name: "Ardh Kumbh Explained", href: "/kumbh-mela-2027/ardh-kumbh-explained", desc: "History, Significance & Rituals" },
+                { name: "Do's and Don'ts Guide", href: "/kumbh-mela-2027/dos-and-donts", desc: "Safety & Cultural Etiquette" },
+                { name: "Kumbh Tour Packages (All)", href: "/kumbh-mela-2027/packages", desc: "Complete All-Inclusive Packages" },
+                { name: "Chhattisgarh Special Departure", href: "/kumbh-mela-2027/packages/chhattisgarh", desc: "State-wide Group Departures" },
+                { name: "Kumbh Package from Raipur", href: "/kumbh-mela-2027/packages/from-raipur", desc: "Raipur Flight & Train Connect" },
+                { name: "Kumbh Package from Bhilai", href: "/kumbh-mela-2027/packages/from-bhilai", desc: "Bhilai Departure & Group Tours" },
+                { name: "Kumbh Package from Bilaspur", href: "/kumbh-mela-2027/packages/from-bilaspur", desc: "Bilaspur Express Trains & Stays" },
+                { name: "Kumbh Package from Durg", href: "/kumbh-mela-2027/packages/from-durg", desc: "Durg Junction Direct Rail Booking" },
+                { name: "Kumbh Package from Rajnandgaon", href: "/kumbh-mela-2027/packages/from-rajnandgaon", desc: "Rajnandgaon Pilgrim Departures" },
+                { name: "हरिद्वार महाकुंभ 2027 (हिंदी मुख्य पृष्ठ)", href: "/hi/kumbh-mela-2027", desc: "सम्पूर्ण महाकुंभ गाइड हिंदी में" },
+                { name: "शाही स्नान तिथियां 2027 (हिंदी)", href: "/hi/kumbh-mela-2027/snan-dates", desc: "प्रमुख स्नान तिथियां एवं मुहूर्त" }
+            ]
+        },
+        {
             title: "Ladakh Expeditions (New 🔥)",
             description: "Complete guide for Ladakh trips - Routes, Bike Trips, Family Packages & Local Departures.",
             icon: Mountain,
@@ -146,6 +171,7 @@ const Sitemap = () => {
                 { name: 'Registration Process', href: '/chardham-yatra-registration-process', desc: 'Step-by-step permit guide' },
                 { name: 'Yatra for Seniors', href: '/chardham-yatra-for-seniors', desc: 'Elderly care guide' },
                 { name: 'Yatra from Bhilai', href: '/chardham-yatra-from-bhilai', desc: 'Train & Flight info' },
+                { name: 'Char Dham Package from Bhilai', href: '/chardham-yatra-package-from-bhilai', desc: 'Dedicated 2026 departure package' },
                 { name: 'Bhilai to Kedarnath Guide', href: '/bhilai-to-kedarnath-yatra-package-2026', desc: 'Complete Guide & Packages' },
                 { name: 'Yatra from Raipur', href: '/chardham-yatra-from-raipur', desc: 'Packages from Capital' },
             ]
@@ -190,12 +216,8 @@ const Sitemap = () => {
                 { name: 'Singapore Package from Bilaspur', href: '/bilaspur/singapore-package', desc: 'Family trip from Bilaspur' },
                 { name: 'Malaysia Package from Bilaspur', href: '/bilaspur/malaysia-package', desc: 'Twin towers from Bilaspur' },
                 { name: 'Vietnam Package from Bilaspur', href: '/bilaspur/vietnam-package', desc: 'Halong Bay from Bilaspur' },
-                { name: 'Darjeeling Package from Bilaspur', href: '/domestic-tours/darjeeling-from-bilaspur', desc: 'Tea gardens from Bilaspur' },
-                { name: 'Uttarakhand Package from Bilaspur', href: '/domestic-tours/uttarakhand-from-bilaspur', desc: 'Nainital trips from Bilaspur' },
-                { name: 'Meghalaya Package from Bilaspur', href: '/domestic-tours/meghalaya-from-bilaspur', desc: 'North East tours from Bilaspur' },
-                { name: 'Maldives Package from Bilaspur', href: '/international-tours/maldives-from-bilaspur', desc: 'Luxury honeymoon from Bilaspur' },
-                { name: 'Europe Package from Bilaspur', href: '/international-tours/europe-from-bilaspur', desc: 'Swiss & Paris from Bilaspur' },
-                { name: 'Sri Lanka Package from Bilaspur', href: '/international-tours/srilanka-from-bilaspur', desc: 'Ramayana trail from Bilaspur' },
+                { name: 'Travel Agent in Bilaspur', href: '/travel-agent-bilaspur', desc: 'Expert trip planning and consultation in Bilaspur' },
+                { name: 'Tour Packages from Bilaspur', href: '/tour-packages-from-bilaspur', desc: 'Direct holiday departures from Bilaspur' },
             ]
         },
         {
@@ -215,6 +237,8 @@ const Sitemap = () => {
             description: "High-intent pages for travellers ready to book specific services.",
             icon: Ticket,
             links: [
+                { name: 'Flight Search & Booking', href: '/flights', desc: 'Instant flight tickets & schedule search' },
+                { name: 'Hotel Reservation Portal', href: '/hotels', desc: 'Verified luxury & budget hotel bookings' },
                 { name: 'Flight Booking Service', href: '/flight-booking-bhilai', desc: 'Domestic & Intl flights' },
                 { name: 'Train Booking Service', href: '/train-booking-bhilai', desc: 'Confirmed rail tickets' },
                 { name: 'Bus Booking Service', href: '/bus-booking-bhilai', desc: 'Intercity bus tickets' },

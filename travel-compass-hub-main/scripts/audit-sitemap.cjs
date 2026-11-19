@@ -8,7 +8,8 @@ const SITEMAP_FILES = [
     'sitemap-main.xml',
     'sitemap-packages.xml',
     'sitemap-local.xml',
-    'sitemap-blog.xml'
+    'sitemap-blog.xml',
+    'sitemap-kumbh.xml'
 ];
 
 // Helpers

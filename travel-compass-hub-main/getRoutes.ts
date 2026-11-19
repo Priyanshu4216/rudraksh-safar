@@ -3,7 +3,7 @@ import path from 'path';
 
 export function getSitemapRoutes() {
     const sitemapDir = path.resolve(__dirname, 'public');
-    const sitemaps = ['sitemap-main.xml', 'sitemap-packages.xml', 'sitemap-local.xml', 'sitemap-blog.xml'];
+    const sitemaps = ['sitemap-main.xml', 'sitemap-packages.xml', 'sitemap-local.xml', 'sitemap-blog.xml', 'sitemap-kumbh.xml'];
     let routes = [];
 
     for (const s of sitemaps) {
