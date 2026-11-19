@@ -29,10 +29,10 @@ export const BilaspurSchema: React.FC<BilaspurSchemaProps> = ({
     "telephone": "+91-9203650311",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Vyapar Vihar",
-      "addressLocality": "Bilaspur",
+      "streetAddress": "Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3",
+      "addressLocality": "Durg",
       "addressRegion": "Chhattisgarh",
-      "postalCode": "495001",
+      "postalCode": "490021",
       "addressCountry": "IN"
     },
     "areaServed": [

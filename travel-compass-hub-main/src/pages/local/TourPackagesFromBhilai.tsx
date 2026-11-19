@@ -14,6 +14,7 @@ import LocationHero from '@/components/LocationHero';
 import WhyTravelSection from '@/components/WhyTravelSection';
 import DestinationBuckets, { Destination } from '@/components/DestinationBuckets';
 import LogisticsSection from '@/components/LogisticsSection';
+import DepartureLogisticsEngine from '@/components/DepartureLogisticsEngine';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
 import TLDRSection from '@/components/TLDRSection';
@@ -329,6 +330,7 @@ const TourPackagesFromBhilai = () => {
                     </div>
                 </section>
 
+                <DepartureLogisticsEngine originCity="Bhilai" />
                 <LogisticsSection bestTimeData={bestTimeData} />
 
                 {/* PAA - Frequently Asked Travel Questions */}

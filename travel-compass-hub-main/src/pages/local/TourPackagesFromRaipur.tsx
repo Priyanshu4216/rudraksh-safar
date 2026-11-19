@@ -7,6 +7,7 @@ import LocationHero from '@/components/LocationHero';
 import WhyTravelSection from '@/components/WhyTravelSection';
 import DestinationBuckets, { Destination } from '@/components/DestinationBuckets';
 import LogisticsSection from '@/components/LogisticsSection';
+import DepartureLogisticsEngine from '@/components/DepartureLogisticsEngine';
 import FAQsSection from '@/components/FAQsSection';
 import LocationPageLoader from '@/components/LocationPageLoader';
 import TLDRSection from '@/components/TLDRSection';
@@ -74,9 +75,15 @@ const TourPackagesFromRaipur = () => {
             "telephone": "+919203650311",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Raipur",
+                "streetAddress": "Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3",
+                "addressLocality": "Durg",
                 "addressRegion": "Chhattisgarh",
+                "postalCode": "490021",
                 "addressCountry": "IN"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Raipur"
             }
         }
     };
@@ -179,6 +186,7 @@ const TourPackagesFromRaipur = () => {
                     </div>
                 </section>
 
+                <DepartureLogisticsEngine originCity="Raipur" />
                 <LogisticsSection bestTimeData={bestTimeData} />
 
                 <FAQsSection

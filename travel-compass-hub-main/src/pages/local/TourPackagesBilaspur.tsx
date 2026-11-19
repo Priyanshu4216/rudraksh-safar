@@ -7,6 +7,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RelatedServices from '@/components/RelatedServices';
+import DepartureLogisticsEngine from '@/components/DepartureLogisticsEngine';
 
 import FAQsSection from '@/components/FAQsSection';
 import { getPrice, formatPrice } from '@/utils/getPrice';

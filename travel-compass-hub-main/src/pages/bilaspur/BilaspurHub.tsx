@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { BilaspurSchema } from '../../components/seo/BilaspurSchema';
+import DepartureLogisticsEngine from '../../components/DepartureLogisticsEngine';
 import { MapPin, Phone, MessageCircle, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
