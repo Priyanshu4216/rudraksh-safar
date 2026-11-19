@@ -204,6 +204,9 @@ const VietnamMaster = lazy(() => import("./pages/international/vietnam/VietnamMa
 const AlmatyMaster = lazy(() => import("./pages/international/almaty/AlmatyMaster"));
 const RajasthanMaster = lazy(() => import("./pages/domestic/rajasthan/RajasthanMaster"));
 const PuriMaster = lazy(() => import("./pages/domestic/puri/PuriMaster"));
+const PilgrimagePackages = lazy(() => import("./pages/PilgrimagePackages"));
+const SeniorCitizenTourPackages = lazy(() => import("./pages/SeniorCitizenTourPackages"));
+const TravelInsurance = lazy(() => import("./pages/services/TravelInsurance"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
 const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
 const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
@@ -894,6 +897,12 @@ const App = () => (
                     <Route path="/international-tours/almaty-kazakhstan" element={<AlmatyMaster />} />
                     <Route path="/domestic-tours/rajasthan" element={<RajasthanMaster />} />
                     <Route path="/domestic-tours/puri-jagannath-dham" element={<PuriMaster />} />
+                    <Route path="/pilgrimage-packages" element={<PilgrimagePackages />} />
+                    <Route path="/senior-citizen-tour-packages" element={<SeniorCitizenTourPackages />} />
+                    <Route path="/travel-services/travel-insurance" element={<TravelInsurance />} />
+                    <Route path="/corporate-tours" element={<CorporateTourPackagesBhilai />} />
+                    <Route path="/mice-tours" element={<CorporateTourPackagesBhilai />} />
+                    <Route path="/travel-services/forex-assistance" element={<CurrencyGuide />} />
                     <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
                     <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
                     <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
