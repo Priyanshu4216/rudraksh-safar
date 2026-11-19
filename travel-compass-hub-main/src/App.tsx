@@ -196,6 +196,10 @@ const AtalTunnelSolangGuide = lazy(() => import("./pages/guides/AtalTunnelSolang
 const ManaliWeatherByMonth = lazy(() => import("./pages/guides/ManaliWeatherByMonth"));
 const ManaliSnowPackingList = lazy(() => import("./pages/guides/ManaliSnowPackingList"));
 const HaridwarRishikeshMaster = lazy(() => import("./pages/domestic/haridwar/HaridwarRishikeshMaster"));
+const CantonFairMaster = lazy(() => import("./pages/international/canton/CantonFairMaster"));
+const CantonFairVisaGuide = lazy(() => import("./pages/guides/CantonFairVisaGuide"));
+const CantonFairDatesGuide = lazy(() => import("./pages/guides/CantonFairDatesGuide"));
+const CantonFairBuyerBadgeGuide = lazy(() => import("./pages/guides/CantonFairBuyerBadgeGuide"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
 const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
 const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
@@ -878,6 +882,10 @@ const App = () => (
                     <Route path="/guides/manali-weather-by-month" element={<ManaliWeatherByMonth />} />
                     <Route path="/guides/manali-snow-packing-list" element={<ManaliSnowPackingList />} />
                     <Route path="/domestic-tours/haridwar-rishikesh" element={<HaridwarRishikeshMaster />} />
+                    <Route path="/international-tours/canton-fair-china" element={<CantonFairMaster />} />
+                    <Route path="/guides/canton-fair-visa-for-indians" element={<CantonFairVisaGuide />} />
+                    <Route path="/guides/canton-fair-dates-and-phases" element={<CantonFairDatesGuide />} />
+                    <Route path="/guides/canton-fair-buyer-registration-guide" element={<CantonFairBuyerBadgeGuide />} />
                     <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
                     <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
                     <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
