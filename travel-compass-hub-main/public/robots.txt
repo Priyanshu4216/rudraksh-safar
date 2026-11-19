@@ -102,5 +102,6 @@ Disallow: /*?order=
 # ---------------------------------------------------------------------------
 # 5. Sitemap & Host
 # ---------------------------------------------------------------------------
+Sitemap: https://rudrakshsafar.com/sitemap.xml
 Sitemap: https://rudrakshsafar.com/sitemap-index.xml
 Host: https://rudrakshsafar.com

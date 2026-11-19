@@ -64,14 +64,17 @@ const server = app.listen(3000, async () => {
                     let filePath = path.join(distDir, route);
                     if (route === '/') {
                         filePath = path.join(distDir, 'index.html');
+                        fs.writeFileSync(filePath, html);
                     } else {
+                        // 1. Directory index.html (supports /route/ trailing slash on static hosts)
                         if (!fs.existsSync(filePath)) {
                             fs.mkdirSync(filePath, { recursive: true });
                         }
-                        filePath = path.join(filePath, 'index.html');
+                        fs.writeFileSync(path.join(filePath, 'index.html'), html);
+
+                        // 2. Clean flat .html (supports /route non-trailing slash on Cloudflare Pages without 308 redirect)
+                        fs.writeFileSync(`${filePath}.html`, html);
                     }
-                    
-                    fs.writeFileSync(filePath, html);
                 } catch(e) {
                     console.error(`Failed to prerender ${route}:`, e);
                 } finally {
