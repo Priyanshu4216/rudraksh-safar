@@ -1,0 +1,806 @@
+{
+  "b1Audit": [
+    {
+      "name": "Thailand",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 53,
+      "existingRedirectCount": 11,
+      "matchedUrls": [
+        "/destinations/thailand",
+        "/b2b/thailand",
+        "/destinations/thailand/itinerary",
+        "/destinations/thailand/trip-cost-from-india",
+        "/destinations/thailand/budget-guide"
+      ],
+      "notes": "Found 53 active pages"
+    },
+    {
+      "name": "Bali",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 5,
+      "existingRedirectCount": 4,
+      "matchedUrls": [
+        "/visa/bali",
+        "/bilaspur/bali-package",
+        "/international-tours/bali",
+        "/bali-tour-package-from-bhilai",
+        "/bali-tour-package-from-raipur"
+      ],
+      "notes": "Found 5 active pages"
+    },
+    {
+      "name": "Dubai",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 15,
+      "existingRedirectCount": 8,
+      "matchedUrls": [
+        "/visa/dubai",
+        "/dubai-travel-guide",
+        "/dubai-all-packages",
+        "/dubai-visa-for-indians",
+        "/uae/dubai-itinerary-3-days"
+      ],
+      "notes": "Found 15 active pages"
+    },
+    {
+      "name": "Vietnam",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/bilaspur/vietnam-package"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Seychelles",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Almaty (Kazakhstan)",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Macau",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Philippines",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Sri Lanka",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 4,
+      "matchedUrls": [
+        "/international-tours/srilanka"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Japan",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Malaysia",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 2,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/visa/malaysia",
+        "/bilaspur/malaysia-package"
+      ],
+      "notes": "Found 2 active pages"
+    },
+    {
+      "name": "Singapore",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 4,
+      "existingRedirectCount": 3,
+      "matchedUrls": [
+        "/visa/singapore",
+        "/bilaspur/singapore-package",
+        "/international-tours/singapore",
+        "/singapore-tour-package-from-bhilai"
+      ],
+      "notes": "Found 4 active pages"
+    },
+    {
+      "name": "China (Canton Fair)",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Char Dham",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 11,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/chardham-yatra-package",
+        "/is-chardham-yatra-safe",
+        "/chardham-yatra-route-map",
+        "/chardham-yatra-price",
+        "/chardham-yatra-for-seniors"
+      ],
+      "notes": "Found 11 active pages"
+    },
+    {
+      "name": "Kerala",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 3,
+      "existingRedirectCount": 3,
+      "matchedUrls": [
+        "/bilaspur/kerala-package",
+        "/domestic-tours/kerala",
+        "/kerala-tour-package-from-bhilai"
+      ],
+      "notes": "Found 3 active pages"
+    },
+    {
+      "name": "Haridwar-Rishikesh",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Haridwar Kumbh",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 48,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/kumbh-mela-2027",
+        "/kumbh-mela-2027/snan-dates",
+        "/kumbh-mela-2027/live-updates",
+        "/kumbh-mela-2027/how-to-reach",
+        "/kumbh-mela-2027/stay"
+      ],
+      "notes": "Found 48 active pages"
+    },
+    {
+      "name": "Kashmir",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 4,
+      "existingRedirectCount": 3,
+      "matchedUrls": [
+        "/bilaspur/kashmir-package",
+        "/domestic-tours/kashmir",
+        "/domestic/kashmir/kashmir-trip-cost",
+        "/kashmir-tour-package-from-bhilai"
+      ],
+      "notes": "Found 4 active pages"
+    },
+    {
+      "name": "Puri",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Manali",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 13,
+      "existingRedirectCount": 6,
+      "matchedUrls": [
+        "/bilaspur/manali-package",
+        "/domestic-tours/manali",
+        "/manali-kasol-strangers-trip",
+        "/manali-kasol-strangers-trip/from-bhilai",
+        "/manali-kasol-strangers-trip/from-raipur"
+      ],
+      "notes": "Found 13 active pages"
+    },
+    {
+      "name": "Ladakh",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 17,
+      "existingRedirectCount": 5,
+      "matchedUrls": [
+        "/bilaspur/ladakh-package",
+        "/ladakh-opening-date-2026",
+        "/domestic-tours/ladakh",
+        "/domestic/ladakh/family-tour-packages",
+        "/guides/ladakh/inner-line-permits"
+      ],
+      "notes": "Found 17 active pages"
+    },
+    {
+      "name": "Goa",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 17,
+      "existingRedirectCount": 8,
+      "matchedUrls": [
+        "/bilaspur/goa-package",
+        "/domestic-tours/goa",
+        "/domestic-tours/goa-trip-under-10000",
+        "/goa-trip-under-10000-from-bhilai",
+        "/domestic-tours/goa-cheap-trip-guide"
+      ],
+      "notes": "Found 17 active pages"
+    },
+    {
+      "name": "Rajasthan",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 3,
+      "matchedUrls": [
+        "/bilaspur/rajasthan-package"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Gujarat",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    }
+  ],
+  "b2Audit": [
+    {
+      "name": "Manali Group Trip at ₹5,999",
+      "type": "general",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 7,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/manali-kasol-strangers-trip",
+        "/manali-kasol-strangers-trip/from-bhilai",
+        "/manali-kasol-strangers-trip/from-raipur",
+        "/manali-kasol-strangers-trip/from-durg",
+        "/manali-kasol-strangers-trip/from-bilaspur"
+      ],
+      "notes": "Found 7 active pages"
+    },
+    {
+      "name": "Haridwar Kumbh",
+      "type": "general",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 48,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/kumbh-mela-2027",
+        "/kumbh-mela-2027/snan-dates",
+        "/kumbh-mela-2027/live-updates",
+        "/kumbh-mela-2027/how-to-reach",
+        "/kumbh-mela-2027/stay"
+      ],
+      "notes": "Found 48 active pages"
+    },
+    {
+      "name": "Canton Fair",
+      "type": "general",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Winter-peak leisure (Kashmir, Manali, Ladakh, Kerala, Thailand, Bali, Dubai, Vietnam, Singapore, Malaysia, Japan)",
+      "type": "general",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    }
+  ],
+  "b3Audit": [
+    {
+      "name": "Andaman & Nicobar",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 3,
+      "existingRedirectCount": 4,
+      "matchedUrls": [
+        "/bilaspur/andaman-package",
+        "/domestic-tours/andaman",
+        "/andaman-tour-package-from-bhilai"
+      ],
+      "notes": "Found 3 active pages"
+    },
+    {
+      "name": "Himachal beyond Manali (Shimla, Dharamshala, Kasauli, Spiti)",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/bilaspur/shimla-package"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Sikkim-Darjeeling-Gangtok",
+      "type": "india",
+      "status": "REDIRECT_EXISTS_NO_ACTIVE_PAGE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 1,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Meghalaya and Northeast (Shillong, Cherrapunji, Kaziranga)",
+      "type": "india",
+      "status": "REDIRECT_EXISTS_NO_ACTIVE_PAGE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 1,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Uttarakhand beyond Haridwar (Nainital, Mussoorie, Jim Corbett, Auli)",
+      "type": "india",
+      "status": "REDIRECT_EXISTS_NO_ACTIVE_PAGE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 1,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Kedarnath-Badrinath (circuits)",
+      "type": "india",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 2,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/kedarnath-temple",
+        "/bhilai-to-kedarnath-yatra-package-2026"
+      ],
+      "notes": "Found 2 active pages"
+    },
+    {
+      "name": "Ayodhya-Varanasi-Prayagraj (Kashi-Ayodhya circuit)",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Vaishno Devi & Amritsar",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Tirupati, Rameshwaram, Madurai",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Shirdi-Nashik",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Mahakaleshwar-Omkareshwar & Jyotirlinga circuits",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Dwarka-Somnath & Gujarat circuits",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Ooty-Kodaikanal-Coorg-Mysuru-Hampi",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Amarnath Yatra",
+      "type": "india",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Maldives",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/visa/maldives"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Hong Kong (and HK + Macau combo)",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Europe (Switzerland, Paris, Italy; Schengen)",
+      "type": "international",
+      "status": "REDIRECT_EXISTS_NO_ACTIVE_PAGE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 1,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Turkey",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/visa/turkey"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Azerbaijan",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Georgia",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Nepal",
+      "type": "international",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 2,
+      "matchedUrls": [
+        "/visa/nepal"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Bhutan",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Mauritius",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "South Korea",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Egypt",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Uzbekistan",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Cambodia (Angkor)",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Singapore + Malaysia combo",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Thailand + Vietnam/Cambodia combo",
+      "type": "international",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Honeymoon Packages",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 3,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/honeymoon-packages",
+        "/tour-packages-from-bhilai/honeymoon-packages",
+        "/case-studies/thailand-honeymoon"
+      ],
+      "notes": "Found 3 active pages"
+    },
+    {
+      "name": "Family Packages",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 6,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/family-packages",
+        "/kumbh-mela-2027/senior-family-guide",
+        "/hi/kumbh-mela-2027/senior-family-guide",
+        "/domestic/ladakh/family-tour-packages",
+        "/kumbh-mela-2027/senior-family-guide"
+      ],
+      "notes": "Found 6 active pages"
+    },
+    {
+      "name": "Group Tours",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/group-tour-packages"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Budget Packages",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 4,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/destinations/thailand/budget-guide",
+        "/budget-tour-packages",
+        "/domestic-tours/goa-budget-itinerary",
+        "/goa-budget-itinerary-from-bhilai"
+      ],
+      "notes": "Found 4 active pages"
+    },
+    {
+      "name": "Luxury Packages",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 1,
+      "existingRedirectCount": 0,
+      "matchedUrls": [
+        "/luxury-packages"
+      ],
+      "notes": "Found 1 active pages"
+    },
+    {
+      "name": "Corporate / MICE / Incentive trips",
+      "type": "theme",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 2,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/tour-packages-from-bhilai/corporate-tours",
+        "/case-studies/dubai-corporate-tour"
+      ],
+      "notes": "Found 2 active pages"
+    },
+    {
+      "name": "Visa Assistance",
+      "type": "service",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 15,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/travel-services/visa-assistance",
+        "/visa-free-countries",
+        "/faqs/visa-services",
+        "/visa/dubai",
+        "/visa/thailand"
+      ],
+      "notes": "Found 15 active pages"
+    },
+    {
+      "name": "Travel Insurance",
+      "type": "service",
+      "status": "CREATE",
+      "action": "CREATE",
+      "existingActiveCount": 0,
+      "existingRedirectCount": 0,
+      "matchedUrls": [],
+      "notes": "No active page found"
+    },
+    {
+      "name": "Flight + Hotel Booking",
+      "type": "service",
+      "status": "SIMILAR_PAGE_EXISTS",
+      "action": "UPGRADE-IN-PLACE",
+      "existingActiveCount": 5,
+      "existingRedirectCount": 1,
+      "matchedUrls": [
+        "/flights",
+        "/faqs/flight-booking",
+        "/domestic-tours/train-vs-flight-goa",
+        "/train-vs-flight-goa-from-cg",
+        "/flight-booking-bhilai"
+      ],
+      "notes": "Found 5 active pages"
+    }
+  ],
+  "unlistedDestinationsOnSite": [
+    "Sri-lanka",
+    "Badrinath",
+    "Abu-dhabi",
+    "Pattaya"
+  ]
+}
