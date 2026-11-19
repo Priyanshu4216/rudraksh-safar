@@ -13,7 +13,7 @@ try {
 }
 
 const host = 'rudrakshsafar.com';
-const apiKey = process.env.INDEXNOW_API_KEY || process.env.VITE_INDEXNOW_KEY || 'TODO_VERIFY';
+const apiKey = process.env.INDEXNOW_API_KEY || process.env.VITE_INDEXNOW_KEY || '0b29c2d25285406c999772325726af2e';
 
 export const KUMBH_2027_URLS = [
   // English Hub & Spokes

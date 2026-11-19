@@ -1,34 +1,49 @@
 import fs from 'fs';
 import path from 'path';
-// Auto-load .env variables (native in modern Node)
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+// Auto-load .env variables
 try {
-    process.loadEnvFile(path.join(process.cwd(), '.env'));
+    process.loadEnvFile(path.join(rootDir, '.env'));
 } catch (e) {
-    // Ignore if not present
+    try {
+        process.loadEnvFile(path.join(process.cwd(), '.env'));
+    } catch {}
 }
 
 async function run() {
     console.log('\n🚀 Starting IndexNow URL Submission...\n');
 
-    const rawAppKey = process.env.INDEXNOW_API_KEY;
+    const rawAppKey = process.env.INDEXNOW_API_KEY || process.env.VITE_INDEXNOW_KEY;
     if (!rawAppKey) {
         console.error('❌ Error: INDEXNOW_API_KEY is missing in your .env file.');
         process.exit(1);
     }
 
-    const actualKey = rawAppKey;
+    const actualKey = rawAppKey.trim();
     const host = 'rudrakshsafar.com';
 
-    // 1. Discover URLs from your sitemaps
-    const sitemapsToCheck = ['sitemap-main.xml', 'sitemap-packages.xml'];
+    // 1. Discover URLs from all sitemaps
+    const publicDir = path.join(rootDir, 'public');
+    const sitemapsToCheck = [
+        'sitemap-main.xml',
+        'sitemap-packages.xml',
+        'sitemap-blog.xml',
+        'sitemap-kumbh.xml',
+        'sitemap-local.xml'
+    ];
     let urlsToSubmit = [];
 
     for (const sitemapFile of sitemapsToCheck) {
-        const p = path.join(process.cwd(), 'public', sitemapFile);
+        const p = path.join(publicDir, sitemapFile);
         if (fs.existsSync(p)) {
             const content = fs.readFileSync(p, 'utf8');
             const matches = [...content.matchAll(/<loc>(.*?)<\/loc>/g)];
-            const extracted = matches.map(m => m[1]).filter(u => u.includes(host));
+            const extracted = matches.map(m => m[1].trim()).filter(u => u.includes(host));
             urlsToSubmit.push(...extracted);
             console.log(`✅ Found ${extracted.length} URLs in ${sitemapFile}.`);
         }
@@ -42,8 +57,8 @@ async function run() {
         urlsToSubmit.push(`https://${host}/`);
     }
 
-    // 2. We submit the first 100 for now to respect basic limits
-    const batch = urlsToSubmit.slice(0, 100);
+    // IndexNow accepts up to 10,000 URLs per call
+    const batch = urlsToSubmit.slice(0, 1000);
     console.log(`\n📤 Preparing to submit batch of ${batch.length} URLs for indexing...`);
 
     const payload = {
@@ -56,15 +71,15 @@ async function run() {
     try {
         const response = await fetch('https://api.indexnow.org/indexnow', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
             body: JSON.stringify(payload)
         });
 
         if (response.ok || response.status === 202) {
-            console.log(`\n🎉 Success! Bing accepted the submission. Status: ${response.status}`);
-            console.log(`URLs successfully submitted for domain: ${host}`);
+            console.log(`\n🎉 Success! IndexNow accepted the submission. Status: ${response.status}`);
+            console.log(`✅ ${batch.length} URLs submitted for host: ${host}`);
         } else {
-            console.error(`\n❌ Submission might have failed. HTTP Status: ${response.status}`);
+            console.error(`\n❌ Submission returned HTTP Status: ${response.status}`);
             const textDesc = await response.text();
             console.error('Details:', textDesc);
         }
