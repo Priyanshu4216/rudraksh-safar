@@ -736,4 +736,28 @@
       <image:title>Manali Kasol Strangers Trip from Rajnandgaon ₹5,999</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://rudrakshsafar.com/guides/manali-in-winter</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/guides/atal-tunnel-solang-guide</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/guides/manali-weather-by-month</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rudrakshsafar.com/guides/manali-snow-packing-list</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

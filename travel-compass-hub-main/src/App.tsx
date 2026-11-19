@@ -191,6 +191,10 @@ const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const WhereToGoFromBhilai = lazy(() => import("./pages/guides/WhereToGoFromBhilai"));
 const AfterBookingGuide = lazy(() => import("./pages/guides/AfterBookingGuide"));
+const ManaliInWinter = lazy(() => import("./pages/guides/ManaliInWinter"));
+const AtalTunnelSolangGuide = lazy(() => import("./pages/guides/AtalTunnelSolangGuide"));
+const ManaliWeatherByMonth = lazy(() => import("./pages/guides/ManaliWeatherByMonth"));
+const ManaliSnowPackingList = lazy(() => import("./pages/guides/ManaliSnowPackingList"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
 const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
 const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
@@ -868,6 +872,10 @@ const App = () => (
                     {/* New Content Hub Routes - Phase 9 */}
                     <Route path="/guides/where-to-go-from-bhilai" element={<WhereToGoFromBhilai />} />
                     <Route path="/guides/after-booking-guide" element={<AfterBookingGuide />} />
+                    <Route path="/guides/manali-in-winter" element={<ManaliInWinter />} />
+                    <Route path="/guides/atal-tunnel-solang-guide" element={<AtalTunnelSolangGuide />} />
+                    <Route path="/guides/manali-weather-by-month" element={<ManaliWeatherByMonth />} />
+                    <Route path="/guides/manali-snow-packing-list" element={<ManaliSnowPackingList />} />
                     <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
                     <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
                     <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
