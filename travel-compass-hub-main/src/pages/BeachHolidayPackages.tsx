@@ -167,7 +167,7 @@ const BeachHolidayPackages = () => {
                                         <p className="text-muted-foreground mb-6 line-clamp-4 leading-relaxed">{dest.desc}</p>
                                         <div className="flex gap-4">
                                             <Button className="w-full group-hover:bg-cyan-600 group-hover:text-white transition-colors" variant="outline" asChild>
-                                                <Link to={dest.link !== "#" ? dest.link : "/Contact"}>View Packages</Link>
+                                                <Link to={dest.link !== "#" ? dest.link : "/contact"}>View Packages</Link>
                                             </Button>
                                             <Button variant="ghost" size="icon" className="shrink-0 text-green-600 hover:bg-green-50" asChild>
                                                 <a href={`https://wa.me/919203650311?text=Quote for ${dest.name} beach package`} aria-label="WhatsApp Inquiry">
@@ -418,7 +418,7 @@ const BeachHolidayPackages = () => {
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="text-lg h-14 px-8 bg-transparent text-white border-white hover:bg-white hover:text-cyan-900 shadow-xl" asChild>
-                                <Link to="/Contact">
+                                <Link to="/contact">
                                     Request a Callback
                                 </Link>
                             </Button>

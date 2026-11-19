@@ -1,277 +1,657 @@
 {
-    "trailingSlash": false,
-    "cleanUrls": true,
-    "redirects": [
+  "trailingSlash": false,
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
         {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "www.rudrakshsafar.com"
-                }
-            ],
-            "destination": "https://rudrakshsafar.com/$1",
-            "permanent": true
-        },
-        {
-            "source": "/visa-guide",
-            "destination": "/travel-services/visa-assistance",
-            "permanent": true
-        },
-        {
-            "source": "/passport-guide",
-            "destination": "/travel-services/passport-assistance",
-            "permanent": true
-        },
-        {
-            "source": "/cab-rental",
-            "destination": "/travel-services/cab-rental",
-            "permanent": true
-        },
-        {
-            "source": "/cruise-booking",
-            "destination": "/travel-services/cruise-booking",
-            "permanent": true
-        },
-        {
-            "source": "/hotel-booking",
-            "destination": "/travel-services/hotel-booking",
-            "permanent": true
-        },
-        {
-            "source": "/about-us",
-            "destination": "/about-rudraksh-safar",
-            "permanent": true
-        },
-        {
-            "source": "/tour-packages-bhilai",
-            "destination": "/tour-packages-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/international-packages-bhilai",
-            "destination": "/tour-packages-from-bhilai/international-tours",
-            "permanent": true
-        },
-        {
-            "source": "/corporate-tour-packages-bhilai",
-            "destination": "/tour-packages-from-bhilai/corporate-tours",
-            "permanent": true
-        },
-        {
-            "source": "/international-tour-packages-bhilai",
-            "destination": "/tour-packages-from-bhilai/international-tours",
-            "permanent": true
-        },
-        {
-            "source": "/weekend-getaways-bhilai",
-            "destination": "/tour-packages-from-bhilai/weekend-getaways",
-            "permanent": true
-        },
-        {
-            "source": "/weekend-getaways-raipur",
-            "destination": "/tour-packages-from-raipur/weekend-getaways",
-            "permanent": true
-        },
-        {
-            "source": "/international-tours-from-raipur",
-            "destination": "/tour-packages-from-raipur/international-tours",
-            "permanent": true
-        },
-        {
-            "source": "/international-tours-from-bhilai",
-            "destination": "/tour-packages-from-bhilai/international-tours",
-            "permanent": true
-        },
-        {
-            "source": "/honeymoon-packages-from-bhilai",
-            "destination": "/tour-packages-from-bhilai/honeymoon-packages",
-            "permanent": true
-        },
-        {
-            "source": "/ladakh-tour-packages",
-            "destination": "/domestic-tours/ladakh",
-            "permanent": true
-        },
-        {
-            "source": "/ladakh-tour-packages-from-delhi",
-            "destination": "/domestic-tours/ladakh",
-            "permanent": true
-        },
-        {
-            "source": "/kashmir-tour-packages",
-            "destination": "/domestic-tours/kashmir",
-            "permanent": true
-        },
-        {
-            "source": "/kashmir-tour-package-from-bhilai",
-            "destination": "/domestic-tours/kashmir-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/manali-tour-packages",
-            "destination": "/domestic-tours/manali",
-            "permanent": true
-        },
-        {
-            "source": "/manali-tour-package-from-bhilai",
-            "destination": "/domestic-tours/manali-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/kerala-tour-packages",
-            "destination": "/domestic-tours/kerala",
-            "permanent": true
-        },
-        {
-            "source": "/kerala-tour-package-from-bhilai",
-            "destination": "/domestic-tours/kerala-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/andaman-tour-packages",
-            "destination": "/domestic-tours/andaman",
-            "permanent": true
-        },
-        {
-            "source": "/andaman-tour-package-from-bhilai",
-            "destination": "/domestic-tours/andaman-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/goa-tour-packages",
-            "destination": "/domestic-tours/goa",
-            "permanent": true
-        },
-        {
-            "source": "/goa-tour-package-from-bhilai",
-            "destination": "/domestic-tours/goa-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/goa-package-from-raipur",
-            "destination": "/domestic-tours/goa-from-raipur",
-            "permanent": true
-        },
-        {
-            "source": "/goa-package-from-durg",
-            "destination": "/domestic-tours/goa-from-durg",
-            "permanent": true
-        },
-        {
-            "source": "/goa-trip-from-supela",
-            "destination": "/domestic-tours/goa-trip-from-supela",
-            "permanent": true
-        },
-        {
-            "source": "/goa-cheap-trip-guide",
-            "destination": "/domestic-tours/goa-cheap-trip-guide",
-            "permanent": true
-        },
-        {
-            "source": "/goa-budget-itinerary-from-cg",
-            "destination": "/domestic-tours/goa-budget-itinerary",
-            "permanent": true
-        },
-        {
-            "source": "/north-vs-south-goa-from-cg",
-            "destination": "/domestic-tours/north-vs-south-goa",
-            "permanent": true
-        },
-        {
-            "source": "/train-vs-flight-to-goa-from-cg",
-            "destination": "/domestic-tours/train-vs-flight-goa",
-            "permanent": true
-        },
-        {
-            "source": "/train-vs-flight-goa-from-cg",
-            "destination": "/domestic-tours/train-vs-flight-goa",
-            "permanent": true
-        },
-        {
-            "source": "/dubai-tour-packages",
-            "destination": "/international-tours/dubai",
-            "permanent": true
-        },
-        {
-            "source": "/dubai-tour-package-from-raipur",
-            "destination": "/international-tours/dubai-from-raipur",
-            "permanent": true
-        },
-        {
-            "source": "/dubai-tour-package-from-bhilai",
-            "destination": "/international-tours/dubai-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/thailand-tour-packages",
-            "destination": "/international-tours/thailand",
-            "permanent": true
-        },
-        {
-            "source": "/thailand-tour-packages-from-raipur",
-            "destination": "/international-tours/thailand-from-raipur",
-            "permanent": true
-        },
-        {
-            "source": "/thailand-tour-package-from-raipur",
-            "destination": "/international-tours/thailand-from-raipur",
-            "permanent": true
-        },
-        {
-            "source": "/thailand-tour-package-from-bhilai",
-            "destination": "/international-tours/thailand-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/singapore-tour-packages",
-            "destination": "/international-tours/singapore",
-            "permanent": true
-        },
-        {
-            "source": "/singapore-tour-package-from-bhilai",
-            "destination": "/international-tours/singapore-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/bali-tour-packages",
-            "destination": "/international-tours/bali",
-            "permanent": true
-        },
-        {
-            "source": "/bali-tour-package-from-raipur",
-            "destination": "/international-tours/bali-from-raipur",
-            "permanent": true
-        },
-        {
-            "source": "/bali-tour-package-from-bhilai",
-            "destination": "/international-tours/bali-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/srilanka-tour-packages",
-            "destination": "/international-tours/srilanka",
-            "permanent": true
-        },
-        {
-            "source": "/sri-lanka-tour-package-from-bhilai",
-            "destination": "/international-tours/srilanka-from-bhilai",
-            "permanent": true
-        },
-        {
-            "source": "/sri-lanka-tour-package-from-raipur",
-            "destination": "/international-tours/srilanka-from-raipur",
-            "permanent": true
+          "type": "host",
+          "value": "www.rudrakshsafar.com"
         }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*).txt$",
-            "destination": "/api/indexnow-key"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ]
+      ],
+      "destination": "https://rudrakshsafar.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/visa-guide",
+      "destination": "/travel-services/visa-assistance",
+      "permanent": true
+    },
+    {
+      "source": "/passport-guide",
+      "destination": "/travel-services/passport-assistance",
+      "permanent": true
+    },
+    {
+      "source": "/cab-rental",
+      "destination": "/travel-services/cab-rental",
+      "permanent": true
+    },
+    {
+      "source": "/cruise-booking",
+      "destination": "/travel-services/cruise-booking",
+      "permanent": true
+    },
+    {
+      "source": "/hotel-booking",
+      "destination": "/travel-services/hotel-booking",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about-rudraksh-safar",
+      "permanent": true
+    },
+    {
+      "source": "/tour-packages-bhilai",
+      "destination": "/tour-packages-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/international-packages-bhilai",
+      "destination": "/tour-packages-from-bhilai/international-tours",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-tour-packages-bhilai",
+      "destination": "/tour-packages-from-bhilai/corporate-tours",
+      "permanent": true
+    },
+    {
+      "source": "/international-tour-packages-bhilai",
+      "destination": "/tour-packages-from-bhilai/international-tours",
+      "permanent": true
+    },
+    {
+      "source": "/weekend-getaways-bhilai",
+      "destination": "/tour-packages-from-bhilai/weekend-getaways",
+      "permanent": true
+    },
+    {
+      "source": "/weekend-getaways-raipur",
+      "destination": "/tour-packages-from-raipur/weekend-getaways",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours-from-raipur",
+      "destination": "/tour-packages-from-raipur/international-tours",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours-from-bhilai",
+      "destination": "/tour-packages-from-bhilai/international-tours",
+      "permanent": true
+    },
+    {
+      "source": "/honeymoon-packages-from-bhilai",
+      "destination": "/tour-packages-from-bhilai/honeymoon-packages",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-tour-packages",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-tour-packages-from-delhi",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/kashmir-tour-packages",
+      "destination": "/domestic-tours/kashmir",
+      "permanent": true
+    },
+    {
+      "source": "/kashmir-tour-package-from-bhilai",
+      "destination": "/domestic-tours/kashmir-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/manali-tour-packages",
+      "destination": "/domestic-tours/manali",
+      "permanent": true
+    },
+    {
+      "source": "/manali-tour-package-from-bhilai",
+      "destination": "/domestic-tours/manali-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/kerala-tour-packages",
+      "destination": "/domestic-tours/kerala",
+      "permanent": true
+    },
+    {
+      "source": "/kerala-tour-package-from-bhilai",
+      "destination": "/domestic-tours/kerala-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/andaman-tour-packages",
+      "destination": "/domestic-tours/andaman",
+      "permanent": true
+    },
+    {
+      "source": "/andaman-tour-package-from-bhilai",
+      "destination": "/domestic-tours/andaman-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/goa-tour-packages",
+      "destination": "/domestic-tours/goa",
+      "permanent": true
+    },
+    {
+      "source": "/goa-tour-package-from-bhilai",
+      "destination": "/domestic-tours/goa-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/goa-package-from-raipur",
+      "destination": "/domestic-tours/goa-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/goa-package-from-durg",
+      "destination": "/domestic-tours/goa-from-durg",
+      "permanent": true
+    },
+    {
+      "source": "/goa-trip-from-supela",
+      "destination": "/domestic-tours/goa-trip-from-supela",
+      "permanent": true
+    },
+    {
+      "source": "/goa-cheap-trip-guide",
+      "destination": "/domestic-tours/goa-cheap-trip-guide",
+      "permanent": true
+    },
+    {
+      "source": "/goa-budget-itinerary-from-cg",
+      "destination": "/domestic-tours/goa-budget-itinerary",
+      "permanent": true
+    },
+    {
+      "source": "/north-vs-south-goa-from-cg",
+      "destination": "/domestic-tours/north-vs-south-goa",
+      "permanent": true
+    },
+    {
+      "source": "/train-vs-flight-to-goa-from-cg",
+      "destination": "/domestic-tours/train-vs-flight-goa",
+      "permanent": true
+    },
+    {
+      "source": "/train-vs-flight-goa-from-cg",
+      "destination": "/domestic-tours/train-vs-flight-goa",
+      "permanent": true
+    },
+    {
+      "source": "/dubai-tour-packages",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/dubai-tour-package-from-raipur",
+      "destination": "/international-tours/dubai-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/dubai-tour-package-from-bhilai",
+      "destination": "/international-tours/dubai-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/thailand-tour-packages",
+      "destination": "/international-tours/thailand",
+      "permanent": true
+    },
+    {
+      "source": "/thailand-tour-packages-from-raipur",
+      "destination": "/international-tours/thailand-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/thailand-tour-package-from-raipur",
+      "destination": "/international-tours/thailand-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/thailand-tour-package-from-bhilai",
+      "destination": "/international-tours/thailand-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/singapore-tour-packages",
+      "destination": "/international-tours/singapore",
+      "permanent": true
+    },
+    {
+      "source": "/singapore-tour-package-from-bhilai",
+      "destination": "/international-tours/singapore-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/bali-tour-packages",
+      "destination": "/international-tours/bali",
+      "permanent": true
+    },
+    {
+      "source": "/bali-tour-package-from-raipur",
+      "destination": "/international-tours/bali-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/bali-tour-package-from-bhilai",
+      "destination": "/international-tours/bali-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/srilanka-tour-packages",
+      "destination": "/international-tours/srilanka",
+      "permanent": true
+    },
+    {
+      "source": "/sri-lanka-tour-package-from-bhilai",
+      "destination": "/international-tours/srilanka-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/sri-lanka-tour-package-from-raipur",
+      "destination": "/international-tours/srilanka-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours",
+      "destination": "/domestic-packages",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours",
+      "destination": "/international-packages",
+      "permanent": true
+    },
+    {
+      "source": "/b2b",
+      "destination": "/b2b-travel-partners",
+      "permanent": true
+    },
+    {
+      "source": "/reviews",
+      "destination": "https://maps.app.goo.gl/rudrakshsafar",
+      "permanent": false
+    },
+    {
+      "source": "/Contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/best-time-to-visit-goa",
+      "destination": "/destinations/goa",
+      "permanent": true
+    },
+    {
+      "source": "/best-time-to-visit-dubai",
+      "destination": "/dubai-travel-guide",
+      "permanent": true
+    },
+    {
+      "source": "/dubai-trip-cost",
+      "destination": "/uae/dubai-trip-cost",
+      "permanent": true
+    },
+    {
+      "source": "/dubai-food-guide",
+      "destination": "/dubai-travel-guide",
+      "permanent": true
+    },
+    {
+      "source": "/dubai/burj-khalifa",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours/rishikesh",
+      "destination": "/domestic-tours/haridwar-rishikesh",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours/uttarakhand",
+      "destination": "/domestic-packages",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours/himachal",
+      "destination": "/domestic-packages",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours/himachal-pradesh",
+      "destination": "/domestic-packages",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours/maldives",
+      "destination": "/international-packages",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours/europe",
+      "destination": "/international-packages",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours/nepal",
+      "destination": "/international-packages",
+      "permanent": true
+    },
+    {
+      "source": "/international-tours/thailand/bangkok",
+      "destination": "/destinations/thailand/bangkok",
+      "permanent": true
+    },
+    {
+      "source": "/family-holiday-packages",
+      "destination": "/family-tour-packages",
+      "permanent": true
+    },
+    {
+      "source": "/cab-booking",
+      "destination": "/travel-services/cab-rental",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/KedarnathTemple",
+      "destination": "/chardham/kedarnath-temple",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/BadrinathTemple",
+      "destination": "/chardham/badrinath-temple",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/CharDhamPrice",
+      "destination": "/chardham-yatra-package-cost",
+      "permanent": true
+    },
+    {
+      "source": "/package/dubai",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/package/goa",
+      "destination": "/domestic-tours/goa",
+      "permanent": true
+    },
+    {
+      "source": "/package/kashmir",
+      "destination": "/domestic-tours/kashmir",
+      "permanent": true
+    },
+    {
+      "source": "/package/manali",
+      "destination": "/domestic-tours/manali",
+      "permanent": true
+    },
+    {
+      "source": "/package/pattaya",
+      "destination": "/destinations/thailand/pattaya",
+      "permanent": true
+    },
+    {
+      "source": "/domestic/andaman/AndamanMaster",
+      "destination": "/domestic-tours/andaman",
+      "permanent": true
+    },
+    {
+      "source": "/international/dubai/DubaiMaster",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/domestic/kashmir/KashmirMaster",
+      "destination": "/domestic-tours/kashmir",
+      "permanent": true
+    },
+    {
+      "source": "/domestic/ladakh/LadakhMaster",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/international/bali",
+      "destination": "/international-tours/bali",
+      "permanent": true
+    },
+    {
+      "source": "/international/thailand",
+      "destination": "/destinations/thailand",
+      "permanent": true
+    },
+    {
+      "source": "/international/singapore",
+      "destination": "/international-tours/singapore",
+      "permanent": true
+    },
+    {
+      "source": "/international/maldives",
+      "destination": "/international-packages",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-travel-safety-tips",
+      "destination": "/is-ladakh-safe",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-packing-checklist",
+      "destination": "/ladakh-packing-list",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-travel-guide",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/BestTimeToVisit",
+      "destination": "/best-time-to-visit",
+      "permanent": true
+    },
+    {
+      "source": "/CurrencyGuide",
+      "destination": "/currency-guide",
+      "permanent": true
+    },
+    {
+      "source": "/char-dham/registration",
+      "destination": "/chardham-yatra-registration-process",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/CharDhamRegistration",
+      "destination": "/chardham-yatra-registration-process",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/CharDhamPillar",
+      "destination": "/chardham-yatra-package",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/CharDhamRouteMap",
+      "destination": "/chardham-yatra-route-map",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/BhilaiToKedarnath",
+      "destination": "/bhilai-to-kedarnath-yatra-package-2026",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/IsCharDhamSafe",
+      "destination": "/is-chardham-yatra-safe",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/GangotriTemple",
+      "destination": "/chardham-yatra-package",
+      "permanent": true
+    },
+    {
+      "source": "/chardham/YamunotriTemple",
+      "destination": "/chardham-yatra-package",
+      "permanent": true
+    },
+    {
+      "source": "/domestic/kashmir/KashmirTripCost",
+      "destination": "/tours/kashmir",
+      "permanent": true
+    },
+    {
+      "source": "/uae/burj-khalifa",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/international/thailand/guides",
+      "destination": "/destinations/thailand",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ladakh/altitude-sickness-ams-protocol",
+      "destination": "/is-ladakh-safe",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ladakh/ladakh-vs-spiti",
+      "destination": "/destinations/spiti-valley",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ladakh/mobile-network-internet-connectivity",
+      "destination": "/is-ladakh-safe",
+      "permanent": true
+    },
+    {
+      "source": "/cheapest-trips-from-bhilai",
+      "destination": "/tour-packages-from-bhilai",
+      "permanent": true
+    },
+    {
+      "source": "/visa/vietnam",
+      "destination": "/international-tours/vietnam",
+      "permanent": true
+    },
+    {
+      "source": "/tour-packages-from-raipur/spiti-valley",
+      "destination": "/destinations/spiti-valley",
+      "permanent": true
+    },
+    {
+      "source": "/tour-packages-from-raipur/kashmir",
+      "destination": "/domestic-tours/kashmir-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/tour-packages-from-raipur/ladakh",
+      "destination": "/domestic-tours/ladakh-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/about/founder",
+      "destination": "/about-rudraksh-safar",
+      "permanent": true
+    },
+    {
+      "source": "/uae/dubai-itinerary-4-days",
+      "destination": "/dubai-4-day-itinerary",
+      "permanent": true
+    },
+    {
+      "source": "/uae/dubai-itinerary-5-days",
+      "destination": "/dubai-5-day-itinerary",
+      "permanent": true
+    },
+    {
+      "source": "/places-to-visit-in-ladakh/pangong-lake",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/places-to-visit-in-ladakh/nubra-valley",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/places-to-visit-in-ladakh/umling-la-pass",
+      "destination": "/domestic-tours/ladakh",
+      "permanent": true
+    },
+    {
+      "source": "/ladakh-tour-packages-from-raipur",
+      "destination": "/domestic-tours/ladakh-from-raipur",
+      "permanent": true
+    },
+    {
+      "source": "/package/kerala-family",
+      "destination": "/domestic-tours/kerala",
+      "permanent": true
+    },
+    {
+      "source": "/package/shimla-manali",
+      "destination": "/domestic-tours/manali",
+      "permanent": true
+    },
+    {
+      "source": "/uae/sheikh-zayed-mosque",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/uae/ferrari-world",
+      "destination": "/international-tours/dubai",
+      "permanent": true
+    },
+    {
+      "source": "/package/thailand",
+      "destination": "/destinations/thailand",
+      "permanent": true
+    },
+    {
+      "source": "/package/phuket",
+      "destination": "/destinations/thailand/phuket",
+      "permanent": true
+    },
+    {
+      "source": "/budget-tours",
+      "destination": "/budget-tour-packages",
+      "permanent": true
+    },
+    {
+      "source": "/luxury-tours",
+      "destination": "/luxury-tour-packages",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-tours/goa-package-from-durg",
+      "destination": "/domestic-tours/goa-from-durg",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*).txt$",
+      "destination": "/api/indexnow-key"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

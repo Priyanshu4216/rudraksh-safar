@@ -17,17 +17,17 @@ export const Schema = () => {
           "name": "Rudraksh Safar",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.rudrakshsafar.com/images/logo.png"
+            "url": "https://rudrakshsafar.com/images/logo.png"
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://www.rudrakshsafar.com/ladakh-opening-date-2026"
+          "@id": "https://rudrakshsafar.com/ladakh-opening-date-2026"
         },
         "dateModified": "2026-06-09T00:00:00+05:30",
         "image": {
           "@type": "ImageObject",
-          "url": "https://www.rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg"
+          "url": "https://rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg"
         }
       },
       {
@@ -58,13 +58,13 @@ export const Schema = () => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.rudrakshsafar.com/"
+            "item": "https://rudrakshsafar.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Ladakh Guide",
-            "item": "https://www.rudrakshsafar.com/ladakh-tours"
+            "item": "https://rudrakshsafar.com/ladakh-tours"
           },
           {
             "@type": "ListItem",
@@ -75,17 +75,17 @@ export const Schema = () => {
       },
       {
         "@type": "WebPage",
-        "@id": "https://www.rudrakshsafar.com/ladakh-opening-date-2026",
-        "url": "https://www.rudrakshsafar.com/ladakh-opening-date-2026",
+        "@id": "https://rudrakshsafar.com/ladakh-opening-date-2026",
+        "url": "https://rudrakshsafar.com/ladakh-opening-date-2026",
         "name": "Ladakh Opening Date 2026: Official Road Status & Best Time to Visit",
         "description": "Comprehensive guide on Leh Ladakh opening dates for 2026, including Manali-Leh and Srinagar-Leh highway statuses, predictions, and travel tips."
       },
       {
         "@type": "Organization",
-        "@id": "https://www.rudrakshsafar.com/#organization",
+        "@id": "https://rudrakshsafar.com/#organization",
         "name": "Rudraksh Safar",
-        "url": "https://www.rudrakshsafar.com/",
-        "logo": "https://www.rudrakshsafar.com/images/logo.png"
+        "url": "https://rudrakshsafar.com/",
+        "logo": "https://rudrakshsafar.com/images/logo.png"
       }
     ]
   };
@@ -94,20 +94,20 @@ export const Schema = () => {
     <Helmet>
       <title>Ladakh Opening Date 2026: Official Road Status & Best Time to Visit</title>
       <meta name="description" content="Planning a trip to Leh Ladakh in 2026? Get the official Ladakh opening dates, Manali-Leh & Srinagar-Leh highway road status, and expert travel advice." />
-      <link rel="canonical" href="https://www.rudrakshsafar.com/ladakh-opening-date-2026" />
+      <link rel="canonical" href="https://rudrakshsafar.com/ladakh-opening-date-2026" />
       
       {/* Open Graph Tags */}
       <meta property="og:title" content="Ladakh Opening Date 2026: Official Road Status & Best Time to Visit" />
       <meta property="og:description" content="The ultimate guide to Leh Ladakh road opening dates for 2026. Includes historical data, BRO updates, weather predictions, and expert travel tips." />
       <meta property="og:type" content="article" />
-      <meta property="og:url" content="https://www.rudrakshsafar.com/ladakh-opening-date-2026" />
-      <meta property="og:image" content="https://www.rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg" />
+      <meta property="og:url" content="https://rudrakshsafar.com/ladakh-opening-date-2026" />
+      <meta property="og:image" content="https://rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="🛣️ Ladakh Opening Date 2026: Official Road Status & Updates" />
       <meta name="twitter:description" content="Will the Manali-Leh or Srinagar-Leh highway open early in 2026? Check the latest road status, predictions, and travel tips from Rudraksh Safar! #Ladakh2026" />
-      <meta name="twitter:image" content="https://www.rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg" />
+      <meta name="twitter:image" content="https://rudrakshsafar.com/images/ladakh-opening-date-2026-hero-snow-walls.jpg" />
 
       {/* JSON-LD Schema */}
       <script type="application/ld+json">

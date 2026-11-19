@@ -204,11 +204,11 @@ const AboutUs = () => {
                                 </p>
 
                                 <p>
-                                    We established our physical presence to bring the human element back to travel planning. What began as a localized desk handling <Link to="/domestic-tours" className="text-primary hover:underline font-medium">domestic Indian holidays</Link> and ticketing has steadily evolved over 14 years. We matured by listening to our clients, prioritizing safety, and realizing that a successful trip requires meticulous, unseen backend coordination.
+                                    We established our physical presence to bring the human element back to travel planning. What began as a localized desk handling <Link to="/domestic-packages" className="text-primary hover:underline font-medium">domestic Indian holidays</Link> and ticketing has steadily evolved over 14 years. We matured by listening to our clients, prioritizing safety, and realizing that a successful trip requires meticulous, unseen backend coordination.
                                 </p>
 
                                 <p>
-                                    Today, we are a full-scale outbound tour operator and a recognized <Link to="/b2b" className="text-primary hover:underline font-medium">B2B DMC</Link> (Destination Management Company). Despite our massive growth and handling over 15,000 itineraries, we maintain our foundational ethos: every client deserves a direct phone line to an expert who genuinely cares about their vacation.
+                                    Today, we are a full-scale outbound tour operator and a recognized <Link to="/b2b-travel-partners" className="text-primary hover:underline font-medium">B2B DMC</Link> (Destination Management Company). Despite our massive growth and handling over 15,000 itineraries, we maintain our foundational ethos: every client deserves a direct phone line to an expert who genuinely cares about their vacation.
                                 </p>
                             </div>
                             <div className="lg:col-span-5 relative">
@@ -287,7 +287,7 @@ const AboutUs = () => {
                                     </li>
                                     <li className="flex items-center gap-3">
                                         <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                                        <span className="text-foreground font-medium"><Link to="/b2b" className="hover:text-primary transition-colors">Trusted by 300+ Travel Partners (B2B Hub)</Link></span>
+                                        <span className="text-foreground font-medium"><Link to="/b2b-travel-partners" className="hover:text-primary transition-colors">Trusted by 300+ Travel Partners (B2B Hub)</Link></span>
                                     </li>
                                 </ul>
                             </div>
@@ -405,7 +405,7 @@ const AboutUs = () => {
                                 </a>
                             </Button>
                             <Button size="lg" variant="outline" className="rounded-full shadow-xl bg-primary/20 backdrop-blur-sm border-white/50 text-white hover:bg-white hover:text-primary transition-all text-lg h-14 px-8" asChild>
-                                <Link to="/Contact">
+                                <Link to="/contact">
                                     View Office Address & Map
                                 </Link>
                             </Button>

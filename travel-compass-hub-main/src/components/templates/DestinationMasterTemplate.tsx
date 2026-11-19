@@ -191,7 +191,7 @@ const DestinationMasterTemplate = ({ data }: DestinationMasterTemplateProps) => 
                                 {data.packages.map((pkg) => (
                                     <div key={pkg.id} className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl transition-all flex flex-col md:flex-row">
                                         <div className="w-full md:w-64 h-48 md:h-auto relative overflow-hidden">
-                                            <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                            <img src={pkg.image} alt={pkg.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                             {pkg.tag && (
                                                 <span className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
                                                     {pkg.tag}
@@ -229,7 +229,7 @@ const DestinationMasterTemplate = ({ data }: DestinationMasterTemplateProps) => 
                             <div className="grid sm:grid-cols-2 gap-6">
                                 {data.attractions.map((place, idx) => (
                                     <div key={idx} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                                        <img src={place.image} alt={place.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                        <img src={place.image} alt={place.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                                             <h3 className="text-xl font-bold text-white mb-1">{place.title}</h3>
                                             <p className="text-sm text-white/80 line-clamp-2">{place.description}</p>
@@ -305,12 +305,12 @@ const DestinationMasterTemplate = ({ data }: DestinationMasterTemplateProps) => 
                                 <h4 className="font-bold mb-4">Explore More</h4>
                                 <ul className="space-y-3 text-sm">
                                     <li>
-                                        <Link to="/domestic-tours" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                                        <Link to="/domestic-packages" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                                             <ArrowRight className="w-4 h-4" /> All Domestic Tours
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/international-tours" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
+                                        <Link to="/international-packages" className="flex items-center gap-2 hover:text-orange-600 transition-colors">
                                             <ArrowRight className="w-4 h-4" /> International Packages
                                         </Link>
                                     </li>

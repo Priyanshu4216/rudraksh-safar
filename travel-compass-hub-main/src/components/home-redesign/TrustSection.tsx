@@ -150,9 +150,9 @@ const TrustSection = () => {
                     </div>
 
                     <div className="hidden md:block">
-                        <Link to="/reviews" className="text-xs font-semibold uppercase tracking-wider text-green-600 bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full hover:bg-green-200 transition-colors">
+                        <a href="https://maps.app.goo.gl/rudrakshsafar" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold uppercase tracking-wider text-green-600 bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full hover:bg-green-200 transition-colors">
                             Read All Reviews
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
