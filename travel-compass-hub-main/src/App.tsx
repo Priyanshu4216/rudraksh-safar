@@ -200,6 +200,10 @@ const CantonFairMaster = lazy(() => import("./pages/international/canton/CantonF
 const CantonFairVisaGuide = lazy(() => import("./pages/guides/CantonFairVisaGuide"));
 const CantonFairDatesGuide = lazy(() => import("./pages/guides/CantonFairDatesGuide"));
 const CantonFairBuyerBadgeGuide = lazy(() => import("./pages/guides/CantonFairBuyerBadgeGuide"));
+const VietnamMaster = lazy(() => import("./pages/international/vietnam/VietnamMaster"));
+const AlmatyMaster = lazy(() => import("./pages/international/almaty/AlmatyMaster"));
+const RajasthanMaster = lazy(() => import("./pages/domestic/rajasthan/RajasthanMaster"));
+const PuriMaster = lazy(() => import("./pages/domestic/puri/PuriMaster"));
 const GoaVsManali = lazy(() => import("./pages/comparisons/GoaVsManali"));
 const PattayaVsPhuket = lazy(() => import("./pages/comparisons/PattayaVsPhuket"));
 const CharDhamPillar = lazy(() => import("./pages/CharDhamPillar"));
@@ -800,7 +804,7 @@ const App = () => (
 
                     {/* Local Destination Routes (from Sitemap) */}
                     <Route path="/kerala-tour-package-from-bhilai" element={<KeralaMaster />} />
-                    <Route path="/rajasthan-tour-package-from-bhilai" element={<Navigate to="/domestic-packages" replace />} />
+                    <Route path="/rajasthan-tour-package-from-bhilai" element={<RajasthanMaster />} />
                     <Route path="/andaman-tour-package-from-bhilai" element={<AndamanMaster />} />
                     <Route path="/thailand-tour-package-from-bhilai" element={<ThailandMaster />} />
                     <Route path="/dubai-tour-package-from-bhilai" element={<DubaiMaster />} />
@@ -886,6 +890,10 @@ const App = () => (
                     <Route path="/guides/canton-fair-visa-for-indians" element={<CantonFairVisaGuide />} />
                     <Route path="/guides/canton-fair-dates-and-phases" element={<CantonFairDatesGuide />} />
                     <Route path="/guides/canton-fair-buyer-registration-guide" element={<CantonFairBuyerBadgeGuide />} />
+                    <Route path="/international-tours/vietnam" element={<VietnamMaster />} />
+                    <Route path="/international-tours/almaty-kazakhstan" element={<AlmatyMaster />} />
+                    <Route path="/domestic-tours/rajasthan" element={<RajasthanMaster />} />
+                    <Route path="/domestic-tours/puri-jagannath-dham" element={<PuriMaster />} />
                     <Route path="/comparisons/goa-vs-manali-from-chhattisgarh" element={<GoaVsManali />} />
                     <Route path="/comparisons/pattaya-vs-phuket" element={<PattayaVsPhuket />} />
                     <Route path="/comparisons/dubai-vs-abu-dhabi" element={<DubaiVsAbuDhabi />} />
