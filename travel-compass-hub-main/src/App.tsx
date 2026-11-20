@@ -311,6 +311,16 @@ const KohSamuiCity = lazy(() => import("./pages/destinations/thailand/koh-samui/
 // B2B Partner Silos
 const B2BHub = lazy(() => import("./pages/b2b/B2BHub"));
 const B2BThailand = lazy(() => import("./pages/b2b/B2BThailand"));
+const B2BChardham = lazy(() => import("./pages/b2b/B2BChardham"));
+const B2BKashmir = lazy(() => import("./pages/b2b/B2BKashmir"));
+const B2BLadakh = lazy(() => import("./pages/b2b/B2BLadakh"));
+const B2BManali = lazy(() => import("./pages/b2b/B2BManali"));
+const B2BNainital = lazy(() => import("./pages/b2b/B2BNainital"));
+const B2BMussoorie = lazy(() => import("./pages/b2b/B2BMussoorie"));
+const B2BPuri = lazy(() => import("./pages/b2b/B2BPuri"));
+const B2BAndaman = lazy(() => import("./pages/b2b/B2BAndaman"));
+const B2BDubai = lazy(() => import("./pages/b2b/B2BDubai"));
+const B2BVietnam = lazy(() => import("./pages/b2b/B2BVietnam"));
 
 
 // Thailand Attractions
@@ -467,6 +477,16 @@ const App = () => (
                     {/* B2B Partner Silos */}
                     <Route path="/b2b-travel-partners" element={<B2BHub />} />
                     <Route path="/b2b/thailand" element={<B2BThailand />} />
+                    <Route path="/b2b/chardham" element={<B2BChardham />} />
+                    <Route path="/b2b/kashmir" element={<B2BKashmir />} />
+                    <Route path="/b2b/ladakh" element={<B2BLadakh />} />
+                    <Route path="/b2b/manali" element={<B2BManali />} />
+                    <Route path="/b2b/nainital" element={<B2BNainital />} />
+                    <Route path="/b2b/mussoorie" element={<B2BMussoorie />} />
+                    <Route path="/b2b/puri" element={<B2BPuri />} />
+                    <Route path="/b2b/andaman" element={<B2BAndaman />} />
+                    <Route path="/b2b/dubai" element={<B2BDubai />} />
+                    <Route path="/b2b/vietnam" element={<B2BVietnam />} />
 
 
                     {/* Thailand Supporting Guides */}

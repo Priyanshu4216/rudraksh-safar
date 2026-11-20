@@ -83,7 +83,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Complimentary medical-grade portable oxygen canisters in every vehicle'
         ],
         foodSupport: 'Pure Vegetarian & Sattvic Jain cuisine guaranteed throughout Uttarakhand properties.',
-        canonicalRoute: '/chardham-yatra-package'
+        canonicalRoute: '/b2b/chardham'
     },
     {
         id: 'kashmir',
@@ -110,7 +110,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Airport placard pickup with your agency logo and direct non-branded welcome kits'
         ],
         foodSupport: 'Traditional Kashmiri Wazwan, pure North Indian vegetarian, and dedicated Jain meal arrangements.',
-        canonicalRoute: '/tours/kashmir'
+        canonicalRoute: '/b2b/kashmir'
     },
     {
         id: 'ladakh',
@@ -137,7 +137,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Portable medical-grade oxygen cylinder and fingertip pulse oximeter provided in every vehicle'
         ],
         foodSupport: 'Fresh, warm buffet meals suited for high altitude with special Gujarati & Jain dining options at remote camps.',
-        canonicalRoute: '/domestic-tours/ladakh'
+        canonicalRoute: '/b2b/ladakh'
     },
     {
         id: 'manali',
@@ -164,7 +164,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Customizable unbranded day-wise PDF itinerary branded with your agency logo in 1 hour'
         ],
         foodSupport: 'Extensive multi-cuisine buffets catering to student groups, North Indian families, and corporate gatherings.',
-        canonicalRoute: '/packages/manali-kasol-strangers-trip'
+        canonicalRoute: '/b2b/manali'
     },
     {
         id: 'nainital',
@@ -191,7 +191,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Team-building rope activities and cocktail dinner setups for corporate offsite clients'
         ],
         foodSupport: 'Kumaoni regional specialties alongside lavish North/South Indian buffets and live barbecue counters.',
-        canonicalRoute: '/domestic-packages'
+        canonicalRoute: '/b2b/nainital'
     },
     {
         id: 'mussoorie',
@@ -218,7 +218,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Corporate banquet hall bookings with full audio-visual conference equipment'
         ],
         foodSupport: 'Full American Plan (AP / all meals) and Modified American Plan (MAP) with pure vegetarian and Jain kitchens.',
-        canonicalRoute: '/domestic-packages'
+        canonicalRoute: '/b2b/mussoorie'
     },
     {
         id: 'puri',
@@ -245,7 +245,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Private motorized catamaran boat charters at Chilika Lake (Satapada) for Irrawaddy Dolphin spotting'
         ],
         foodSupport: 'Pure vegetarian Odia Mahaprasad feasts, South Indian tiffin, and authentic North Indian vegetarian dining.',
-        canonicalRoute: '/domestic-tours/puri-jagannath-dham'
+        canonicalRoute: '/b2b/puri'
     },
     {
         id: 'andaman',
@@ -273,7 +273,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Romantic beachside candlelight dinner and flower-bed honeymoon decorations on request'
         ],
         foodSupport: 'Fresh coastal dining with dedicated pure vegetarian and Jain kitchens available across all partner resorts.',
-        canonicalRoute: '/domestic-tours/andaman'
+        canonicalRoute: '/b2b/andaman'
     },
     {
         id: 'dubai',
@@ -301,7 +301,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Abu Dhabi day tour including Sheikh Zayed Grand Mosque, BAPS Hindu Mandir, and Ferrari World passes'
         ],
         foodSupport: 'Extensive partnerships with authentic Indian restaurants across Dubai providing Jain, Gujarati, and South Indian catering.',
-        canonicalRoute: '/international-tours/dubai'
+        canonicalRoute: '/b2b/dubai'
     },
     {
         id: 'vietnam',
@@ -328,7 +328,7 @@ const b2bDestinations: DestinationDMC[] = [
             'Bespoke MICE gala dinners with customized branding, stage setup, and Indian tandoor live counters'
         ],
         foodSupport: 'Dedicated Indian meals at certified Indian restaurants across Hanoi, Halong, Da Nang, and Saigon with Jain food guarantee.',
-        canonicalRoute: '/international-tours/vietnam'
+        canonicalRoute: '/b2b/vietnam'
     },
     {
         id: 'thailand',
@@ -725,16 +725,12 @@ const B2BHub = () => {
                                     </div>
 
                                     <div className="pt-5 mt-4 border-t border-slate-100 flex items-center gap-2">
-                                        <button 
-                                            onClick={() => {
-                                                setSelectedDest(dest);
-                                                const el = document.getElementById('dest-detail-modal');
-                                                if (el) el.scrollIntoView({ behavior: 'smooth' });
-                                            }}
-                                            className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold py-2.5 rounded-lg transition-colors text-center"
+                                        <Link 
+                                            to={dest.canonicalRoute}
+                                            className="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded-lg transition-colors text-center flex items-center justify-center gap-1"
                                         >
-                                            Inspect Operations
-                                        </button>
+                                            DMC Rates <ArrowRight className="w-3.5 h-3.5" />
+                                        </Link>
                                         <a 
                                             href={`https://wa.me/919203650311?text=Hi%20Rudraksh%20Safar%20B2B%20Desk,%20please%20share%20wholesale%20net%20rates%20and%20quotation%20format%20for%20${encodeURIComponent(dest.name)}`}
                                             target="_blank"
