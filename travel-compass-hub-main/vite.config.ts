@@ -9,7 +9,7 @@ import legacy from '@vitejs/plugin-legacy';
 export default defineConfig(({ mode }) => ({
   server: {
     host: "0.0.0.0",
-    port: 8080,
+    port: 5173,
   },
   base: "/", // Ensure absolute path for assets
   plugins: [

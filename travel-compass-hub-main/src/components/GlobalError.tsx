@@ -9,6 +9,7 @@ interface Props {
 interface State {
     hasError: boolean;
     isChunkError: boolean;
+    error?: Error;
 }
 
 class GlobalError extends Component<Props, State> {
@@ -21,8 +22,9 @@ class GlobalError extends Component<Props, State> {
         // Check if the error is due to a missing file (ChunkLoadError)
         const isChunkError = error.message.includes("Loading chunk") ||
             error.message.includes("Importing a module script failed") ||
+            error.message.includes("Failed to fetch dynamically imported module") ||
             error.name === 'ChunkLoadError';
-        return { hasError: true, isChunkError };
+        return { hasError: true, isChunkError, error };
     }
 
     public override componentDidCatch(error: Error) {
@@ -31,9 +33,6 @@ class GlobalError extends Component<Props, State> {
         // Automatically reload if it's a chunk error (stale cache)
         if (this.state.isChunkError) {
             console.log("Chunk error detected, reloading...");
-            // Using window.location.reload() without arguments which is standard. 
-            // Many browsers treat this as a solid reload now, but we can't force 'true' in strict TypeScript sometimes without casting, 
-            // but simply reloading usually refetches the document.
             window.location.reload();
         }
     }
@@ -54,13 +53,26 @@ class GlobalError extends Component<Props, State> {
 
             return (
                 <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-background text-foreground text-center">
-                    <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
-                    <p className="text-muted-foreground mb-6 max-w-md">
+                    <h2 className="text-2xl font-bold mb-2">Something went wrong</h2>
+                    <p className="text-muted-foreground mb-4 max-w-md">
                         We encountered an unexpected error. Please try refreshing the page.
                     </p>
-                    <Button onClick={() => window.location.reload()} variant="default">
-                        Refresh Page
-                    </Button>
+                    {this.state.error && (
+                        <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl max-w-2xl text-left overflow-auto text-xs text-red-600 dark:text-red-400 font-mono">
+                            <div className="font-bold">{this.state.error.message}</div>
+                            {this.state.error.stack && (
+                                <pre className="mt-2 text-[10px] whitespace-pre-wrap opacity-75">{this.state.error.stack}</pre>
+                            )}
+                        </div>
+                    )}
+                    <div className="flex gap-3">
+                        <Button onClick={() => window.location.href = '/'} variant="outline">
+                            Back to Home
+                        </Button>
+                        <Button onClick={() => window.location.reload()} variant="default">
+                            Refresh Page
+                        </Button>
+                    </div>
                 </div>
             );
         }

@@ -32,9 +32,9 @@ const KeralaMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Kerala Tour Packages', url: '/domestic-tours/kerala' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Kerala Tour Packages', path: '/domestic-tours/kerala' }
   ];
 
   const destinationSchema = {

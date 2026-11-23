@@ -33,9 +33,9 @@ const AlmatyMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Almaty Kazakhstan Tour Packages', url: '/international-tours/almaty-kazakhstan' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Almaty Kazakhstan Tour Packages', path: '/international-tours/almaty-kazakhstan' }
   ];
 
   const destinationSchema = {

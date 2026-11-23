@@ -33,9 +33,9 @@ const KashmirMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Kashmir Tour Packages', url: '/domestic-tours/kashmir' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Kashmir Tour Packages', path: '/domestic-tours/kashmir' }
   ];
 
   const destinationSchema = {

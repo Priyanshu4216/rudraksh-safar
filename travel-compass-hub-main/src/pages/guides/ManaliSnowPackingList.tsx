@@ -24,10 +24,10 @@ const ManaliSnowPackingList = () => {
   const canonicalUrl = 'https://rudrakshsafar.com/guides/manali-snow-packing-list';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Manali Hub', url: '/domestic-tours/manali' },
-    { name: 'Snow Packing Checklist', url: '/guides/manali-snow-packing-list' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Manali Hub', path: '/domestic-tours/manali' },
+    { label: 'Snow Packing Checklist', path: '/guides/manali-snow-packing-list' }
   ];
 
   return (

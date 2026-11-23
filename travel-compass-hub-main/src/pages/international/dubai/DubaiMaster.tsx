@@ -33,9 +33,9 @@ const DubaiMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Dubai Tour Packages', url: '/international-tours/dubai' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Dubai Tour Packages', path: '/international-tours/dubai' }
   ];
 
   const destinationSchema = {

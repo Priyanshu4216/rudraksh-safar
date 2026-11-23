@@ -28,10 +28,10 @@ const CantonFairDatesGuide = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Canton Fair China', url: '/international-tours/canton-fair-china' },
-    { name: 'Dates & Phases Guide', url: '/guides/canton-fair-dates-and-phases' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Canton Fair China', path: '/international-tours/canton-fair-china' },
+    { label: 'Dates & Phases Guide', path: '/guides/canton-fair-dates-and-phases' }
   ];
 
   const guideSchema = {

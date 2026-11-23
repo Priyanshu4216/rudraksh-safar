@@ -30,10 +30,10 @@ const ManaliInWinter = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Manali Hub', url: '/domestic-tours/manali' },
-    { name: 'Manali in Winter Guide', url: '/guides/manali-in-winter' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Manali Hub', path: '/domestic-tours/manali' },
+    { label: 'Manali in Winter Guide', path: '/guides/manali-in-winter' }
   ];
 
   const guideSchema = {

@@ -29,9 +29,9 @@ const TravelInsurance = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Travel Services', url: '/travel-services/visa-assistance' },
-    { name: 'Travel Insurance', url: '/travel-services/travel-insurance' }
+    { label: 'Home', path: '/' },
+    { label: 'Travel Services', path: '/travel-services/visa-assistance' },
+    { label: 'Travel Insurance', path: '/travel-services/travel-insurance' }
   ];
 
   const serviceSchema = {

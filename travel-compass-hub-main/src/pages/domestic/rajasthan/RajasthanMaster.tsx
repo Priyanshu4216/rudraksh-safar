@@ -32,9 +32,9 @@ const RajasthanMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Rajasthan Tour Packages', url: '/domestic-tours/rajasthan' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Rajasthan Tour Packages', path: '/domestic-tours/rajasthan' }
   ];
 
   const destinationSchema = {

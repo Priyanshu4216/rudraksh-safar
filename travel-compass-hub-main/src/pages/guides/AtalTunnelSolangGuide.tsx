@@ -29,10 +29,10 @@ const AtalTunnelSolangGuide = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Manali Hub', url: '/domestic-tours/manali' },
-    { name: 'Atal Tunnel & Solang Guide', url: '/guides/atal-tunnel-solang-guide' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Manali Hub', path: '/domestic-tours/manali' },
+    { label: 'Atal Tunnel & Solang Guide', path: '/guides/atal-tunnel-solang-guide' }
   ];
 
   const guideSchema = {

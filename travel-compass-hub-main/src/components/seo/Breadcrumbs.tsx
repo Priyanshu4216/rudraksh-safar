@@ -2,12 +2,16 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
-interface BreadcrumbItem {
-    label: string;
-    path: string;
+export interface BreadcrumbItem {
+    label?: string;
+    path?: string;
+    name?: string;
+    url?: string;
+    title?: string;
+    href?: string;
 }
 
-interface BreadcrumbsProps {
+export interface BreadcrumbsProps {
     items: BreadcrumbItem[];
 }
 
@@ -15,8 +19,18 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
     // Top-1% Rule: Don't render broken or empty breadcrumbs
     if (!items || items.length === 0) return null;
 
+    // Normalize item fields (support label/path, name/url, title/href)
+    const normalizedItems = items
+        .map(item => ({
+            label: item.label || item.name || item.title || '',
+            path: item.path || item.url || item.href || ''
+        }))
+        .filter(item => Boolean(item.label && item.path));
+
     // Filter out 'Home' if it was explicitly passed to prevent duplication
-    const cleanItems = items.filter(item => item.path !== '/' && item.label.toLowerCase() !== 'home');
+    const cleanItems = normalizedItems.filter(
+        item => item.path !== '/' && item.label.toLowerCase() !== 'home'
+    );
 
     // If there were only Home items, don't render a breadcrumb trail to just Home
     if (cleanItems.length === 0) return null;

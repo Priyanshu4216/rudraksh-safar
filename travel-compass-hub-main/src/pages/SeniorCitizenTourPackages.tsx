@@ -33,9 +33,9 @@ const SeniorCitizenTourPackages = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Senior Citizen Packages', url: '/senior-citizen-tour-packages' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Senior Citizen Packages', path: '/senior-citizen-tour-packages' }
   ];
 
   const collectionSchema = {

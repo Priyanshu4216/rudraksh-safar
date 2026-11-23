@@ -33,9 +33,9 @@ const PilgrimagePackages = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Pilgrimage Packages', url: '/pilgrimage-packages' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Pilgrimage Packages', path: '/pilgrimage-packages' }
   ];
 
   const collectionSchema = {

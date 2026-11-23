@@ -34,9 +34,9 @@ const BaliMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Bali Tour Packages', url: '/international-tours/bali' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Bali Tour Packages', path: '/international-tours/bali' }
   ];
 
   const destinationSchema = {

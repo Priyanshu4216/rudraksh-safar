@@ -25,10 +25,10 @@ const ManaliWeatherByMonth = () => {
   const canonicalUrl = 'https://rudrakshsafar.com/guides/manali-weather-by-month';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Manali Hub', url: '/domestic-tours/manali' },
-    { name: 'Weather by Month Guide', url: '/guides/manali-weather-by-month' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Manali Hub', path: '/domestic-tours/manali' },
+    { label: 'Weather by Month Guide', path: '/guides/manali-weather-by-month' }
   ];
 
   const monthlyData = [

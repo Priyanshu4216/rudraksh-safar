@@ -1,4 +1,3 @@
-
 import { Plane, Train, Hotel, Bus, FileText, Stamp, Ship, MapPin, ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -9,7 +8,7 @@ const services = [
   {
     icon: Plane,
     title: 'Flight Booking',
-    description: 'Domestic & international flights at unbeatable corporate rates.',
+    description: 'Domestic & international flights at corporate rates.',
     schemaDescription: "Authorized flight booking agent in Bhilai for domestic and international airlines.",
     link: '/flight-booking-bhilai',
     serviceType: "FlightReservation",
@@ -27,7 +26,7 @@ const services = [
   {
     icon: Hotel,
     title: 'Premium Stays',
-    description: 'Handpicked luxury hotels and resorts for your comfort.',
+    description: 'Handpicked luxury hotels and premium resorts.',
     schemaDescription: "Hotel and resort booking service for domestic and international destinations.",
     link: '/travel-services/hotel-booking',
     serviceType: "LodgingReservation",
@@ -36,7 +35,7 @@ const services = [
   {
     icon: Bus,
     title: 'Luxury Transfers',
-    description: 'Premium cabs and volatility buses for seamless travel.',
+    description: 'Premium cabs and luxury buses for travel.',
     schemaDescription: "Intercity bus and taxi booking service provider in Chhattisgarh.",
     link: '/travel-services/cab-rental',
     serviceType: "TaxiService",
@@ -45,7 +44,7 @@ const services = [
   {
     icon: Ship,
     title: 'Cruise Voyages',
-    description: 'Experience the ocean like never before with our cruise packages.',
+    description: 'Luxury cruise packages & ocean holiday voyages.',
     schemaDescription: "Booking agent for luxury cruises including Cordelia and international liners.",
     link: '/travel-services/cruise-booking',
     serviceType: "TravelAgency",
@@ -54,7 +53,7 @@ const services = [
   {
     icon: FileText,
     title: 'Visa Assistance',
-    description: 'Hassle-free visa processing for all major countries.',
+    description: 'Hassle-free visa processing for all countries.',
     schemaDescription: "Visa consultant in Bhilai for tourist, student, and business visas.",
     link: '/travel-services/visa-assistance',
     serviceType: "AdministrativeService",
@@ -63,7 +62,7 @@ const services = [
   {
     icon: Stamp,
     title: 'Passport Services',
-    description: 'Expedited passport application and renewal support.',
+    description: 'Expedited passport application & renewal support.',
     schemaDescription: "Passport application and renewal assistance service in Durg and Bhilai.",
     link: '/travel-services/passport-assistance',
     serviceType: "AdministrativeService",
@@ -122,7 +121,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="services" className="py-12 bg-slate-50 dark:bg-slate-900 relative overflow-hidden transition-colors duration-500">
+    <section ref={sectionRef} id="services" className="py-10 bg-slate-50 dark:bg-slate-900 relative overflow-hidden transition-colors duration-500">
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
@@ -136,64 +135,64 @@ const ServicesSection = () => {
         <div className="absolute top-[40%] left-[20%] w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center max-w-3xl mx-auto mb-8"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="text-secondary font-bold tracking-[0.2em] text-sm md:text-base uppercase mb-4 block">
+          <span className="text-secondary font-bold tracking-[0.2em] text-xs md:text-sm uppercase mb-2 block">
             Comprehensive Travel Solutions
           </span>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-slate-900 dark:text-white mb-6 leading-tight transition-colors">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-3 leading-tight transition-colors">
             Everything You Need <span className="text-primary italic">for Your Journey</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl font-light leading-relaxed transition-colors">
+          <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base font-light leading-relaxed transition-colors">
             We go beyond just bookings. We provide end-to-end travel management to ensure your peace of mind.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Services in One Single Line (8-column on desktop, horizontal scroll on mobile) */}
+        <div className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-2.5 sm:gap-3 pb-2 pt-1 lg:pb-0 lg:grid lg:grid-cols-8 lg:gap-2 xl:gap-3 snap-x">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="h-full"
+              transition={{ duration: 0.4, delay: index * 0.04 }}
+              className="h-full min-w-[130px] sm:min-w-[140px] lg:min-w-0 flex-1 snap-start"
             >
               <Link
                 to={service.link}
                 className="block h-full group outline-none"
               >
-                <div className="h-full bg-white dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-8 shadow-xl dark:shadow-2xl hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                <div className="h-full bg-white dark:bg-white/5 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-2xl p-3.5 sm:p-4 lg:p-2.5 xl:p-3.5 shadow-md hover:shadow-xl dark:shadow-2xl hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
 
                   {/* Subtle Top Border Glow */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
                   {/* Glow Behind the Icon */}
-                  <div className={`absolute top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br ${service.color} rounded-full blur-[50px] opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-40 transition-opacity duration-500 pointer-events-none`} />
+                  <div className={`absolute top-4 left-1/2 -translate-x-1/2 w-14 h-14 bg-gradient-to-br ${service.color} rounded-full blur-[25px] opacity-10 dark:opacity-20 group-hover:opacity-25 dark:group-hover:opacity-40 transition-opacity duration-500 pointer-events-none`} />
 
                   {/* Icon Box */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 text-white shadow-lg`}>
-                    <service.icon className="w-8 h-8" />
+                  <div className={`w-10 h-10 lg:w-9 lg:h-9 xl:w-11 xl:h-11 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-2.5 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 text-white shadow-md`}>
+                    <service.icon className="w-5 h-5 lg:w-4.5 lg:h-4.5 xl:w-5 xl:h-5" />
                   </div>
 
-                  <h3 className="text-xl font-serif font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xs sm:text-sm lg:text-[12px] xl:text-[13px] font-serif font-bold text-slate-900 dark:text-white mb-1.5 leading-snug group-hover:text-primary transition-colors text-center line-clamp-1">
                     {service.title}
                   </h3>
 
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-8 flex-grow transition-colors">
+                  <p className="text-slate-500 dark:text-slate-400 text-[11px] lg:text-[10px] xl:text-[11px] leading-tight mb-2.5 flex-grow transition-colors text-center line-clamp-2">
                     {service.description}
                   </p>
 
-                  <div className="flex items-center text-xs font-bold text-primary uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity mt-auto">
-                    Details <ArrowUpRight className="ml-1 w-4 h-4" />
+                  <div className="flex items-center justify-center text-[10px] xl:text-[11px] font-bold text-primary uppercase tracking-wider opacity-75 group-hover:opacity-100 transition-opacity mt-auto">
+                    <span>Details</span> <ArrowUpRight className="ml-0.5 w-3 h-3" />
                   </div>
                 </div>
               </Link>
@@ -206,4 +205,3 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
-

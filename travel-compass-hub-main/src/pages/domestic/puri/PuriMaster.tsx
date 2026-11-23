@@ -32,9 +32,9 @@ const PuriMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Puri Jagannath Tour Packages', url: '/domestic-tours/puri-jagannath-dham' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Puri Jagannath Tour Packages', path: '/domestic-tours/puri-jagannath-dham' }
   ];
 
   const destinationSchema = {

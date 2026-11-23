@@ -28,10 +28,10 @@ const CantonFairVisaGuide = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Canton Fair China', url: '/international-tours/canton-fair-china' },
-    { name: 'China Business Visa Guide', url: '/guides/canton-fair-visa-for-indians' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Canton Fair China', path: '/international-tours/canton-fair-china' },
+    { label: 'China Business Visa Guide', path: '/guides/canton-fair-visa-for-indians' }
   ];
 
   const guideSchema = {

@@ -30,9 +30,9 @@ const HaridwarRishikeshMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Haridwar & Rishikesh Tour Packages', url: '/domestic-tours/haridwar-rishikesh' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Haridwar & Rishikesh Tour Packages', path: '/domestic-tours/haridwar-rishikesh' }
   ];
 
   const pageSchema = {

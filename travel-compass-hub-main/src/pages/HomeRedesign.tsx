@@ -1,52 +1,98 @@
-import { lazy, Suspense } from 'react';
-import Hero from '@/components/home-redesign/Hero';
-import ImagineJourneySection from '@/components/home-redesign/ImagineJourneySection';
-import TravellerTypes from '@/components/home-redesign/TravellerTypes';
-import Footer from '@/components/Footer';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import SEOHead from '@/components/SEOHead';
 import MobileAppShell from '@/components/mobile-ux/MobileAppShell';
-
-import PilgrimageSpecials from '@/components/home-redesign/PilgrimageSpecials';
-import { KumbhHomePromoCard } from '@/components/kumbh/KumbhHomePromoCard';
-import SeasonalPicks from '@/components/home-redesign/SeasonalPicks';
-import VisaEasy from '@/components/home-redesign/VisaEasy';
-import TrustSection from '@/components/home-redesign/TrustSection';
-import HappyExplorers from '@/components/home-redesign/HappyExplorers';
-import ServicesSection from '@/components/ServicesSection';
-import ContactSection from '@/components/ContactSection';
-import CallToAction from '@/components/home-redesign/CallToAction';
-import SummerPackages from '@/components/home-redesign/SummerPackages';
+import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import SEOHead from '@/components/SEOHead';
 
-const HomeRedesign = () => {
+// Inspired Redesign Components
+import Hero from '@/components/home-redesign/Hero';
+import DestinationExplorer from '@/components/home-redesign/DestinationExplorer';
+import ImagineJourneySection from '@/components/home-redesign/ImagineJourneySection';
+import MoodTripMatcher from '@/components/home-redesign/MoodTripMatcher';
+import CityDepartures from '@/components/home-redesign/CityDepartures';
+import CharDhamSpecial from '@/components/home-redesign/CharDhamSpecial';
+import MonthEscapes from '@/components/home-redesign/MonthEscapes';
+import BentoDestinations from '@/components/home-redesign/BentoDestinations';
+import WhatsAppChatFlow from '@/components/home-redesign/WhatsAppChatFlow';
+import HomeFAQ from '@/components/home-redesign/HomeFAQ';
+import TellUsCTA from '@/components/home-redesign/TellUsCTA';
+
+// Kept Sections as requested by user
+import ServicesSection from '@/components/ServicesSection'; // KEPT: Services Section
+import { KumbhHomePromoCard } from '@/components/kumbh/KumbhHomePromoCard'; // KEPT: Kumbh Mela Section
+import TrustSection from '@/components/home-redesign/TrustSection'; // KEPT: Trust Section
+import HappyExplorers from '@/components/home-redesign/HappyExplorers'; // KEPT: Reviews Section
+
+const HomeRedesign: React.FC = () => {
+    useEffect(() => {
+        if (window.location.hash === '#ai-planner') {
+            setTimeout(() => {
+                const el = document.getElementById('ai-planner');
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+    }, []);
+
     return (
-        <div className="min-h-screen bg-background font-sans selection:bg-indigo-100 selection:text-indigo-900">
+        <div className="min-h-screen bg-[#fffbf5] dark:bg-slate-950 font-sans selection:bg-amber-200 selection:text-amber-950">
             <SEOHead
-                title="Trusted Travel Agency in Bhilai - Rudraksh Safar"
-                description="Book domestic & international tour packages from Bhilai. Best deals on Kedarnath, Dubai, Thailand, and Family trips. Ideal for travelers from Bhilai, Raipur, and across Chhattisgarh."
-                keywords="Travel Agency in Bhilai, Tour Packages from Bhilai, Best Travel Agent Raipur, Rudraksh Safar"
+                title="Trusted Travel Agency in Bhilai & Raipur - Rudraksh Safar"
+                description="Book customized domestic, international & pilgrimage tour packages from Bhilai and Raipur. Best verified deals on Kedarnath, Char Dham, Kumbh Mela 2027, Ladakh, Thailand, and Dubai."
+                keywords="Travel Agency in Bhilai, Tour Packages from Bhilai, Best Travel Agent Raipur, Kumbh Mela 2027 Packages, Char Dham Yatra from Raipur, Rudraksh Safar"
                 canonicalUrl="https://rudrakshsafar.com/"
             />
 
             <Navbar />
             <MobileAppShell />
 
-            <main className="pb-24 md:pb-0">
+            <main className="pt-[86px] sm:pt-[94px] pb-20 md:pb-0">
+                {/* 1. Hero with Billboard Carousel, Animated Rotator, Search & Configurator */}
                 <Hero />
-                <ImagineJourneySection />
-                <TravellerTypes /> {/* White - Persona */}
 
-                <ServicesSection /> {/* New: Services Section */}
-                <TrustSection /> {/* Dark - Authority */}
+                {/* 2. Destination Explorer with Circular Avatars & "Spin The World / Surprise Me" */}
+                <DestinationExplorer />
+
+                {/* 3. AI Trip Architect & Custom Itinerary Planner */}
+                <ImagineJourneySection />
+
+                {/* 4. Interactive Mood & Group Trip Matcher */}
+                <MoodTripMatcher />
+
+                {/* 5. Hot Right Now: Departing from City Filter */}
+                <CityDepartures />
+
+                {/* 6. Services Section (KEPT as requested) */}
+                <ServicesSection />
+
+                {/* 7. Kumbh Mela 2027 Official Hub & Live Countdown (KEPT as requested) */}
                 <KumbhHomePromoCard />
-                <SummerPackages /> {/* New: Exclusive Summer Deals */}
-                <PilgrimageSpecials /> {/* Amber/Light - Spiritual */}
-                <SeasonalPicks /> {/* White - Elegant Seasonal */}
-                <VisaEasy /> {/* Light Grey - Utility */}
-                <HappyExplorers /> {/* White - Social Proof + Gallery */}
-                <ContactSection showGallery={false} />
-                <CallToAction /> {/* Brand Color - Action */}
+
+                {/* 8. Trust Section: 8+ Years, 5,000+ Happy Travelers (KEPT as requested) */}
+                <TrustSection />
+
+                {/* 9. Char Dham Pilgrimage Specialists & Connected Sacred Route */}
+                <CharDhamSpecial />
+
+                {/* 10. Best Trips by Month: 12-Month Interactive Season Explorer */}
+                <MonthEscapes />
+
+                {/* 11. Handcrafted Bento Destinations Portfolio */}
+                <BentoDestinations />
+
+                {/* 12. Customer Reviews & Google Verified Ratings (KEPT as requested) */}
+                <HappyExplorers />
+
+                {/* 13. "Skip the forms. Just chat." - WhatsApp Booking Simulation */}
+                <WhatsAppChatFlow />
+
+                {/* 14. FAQ Section: Before You Book */}
+                <HomeFAQ />
+
+                {/* 15. High-Impact Lead Action Banner */}
+                <TellUsCTA />
             </main>
 
             <Footer />

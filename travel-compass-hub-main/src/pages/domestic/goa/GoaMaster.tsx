@@ -33,9 +33,9 @@ const GoaMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'Domestic Packages', url: '/domestic-packages' },
-    { name: 'Goa Tour Packages', url: '/domestic-tours/goa' }
+    { label: 'Home', path: '/' },
+    { label: 'Domestic Packages', path: '/domestic-packages' },
+    { label: 'Goa Tour Packages', path: '/domestic-tours/goa' }
   ];
 
   const destinationSchema = {

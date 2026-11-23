@@ -63,9 +63,9 @@ const CantonFairMaster = () => {
   };
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Canton Fair China', url: '/international-tours/canton-fair-china' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Canton Fair China', path: '/international-tours/canton-fair-china' }
   ];
 
   const pageSchema = {

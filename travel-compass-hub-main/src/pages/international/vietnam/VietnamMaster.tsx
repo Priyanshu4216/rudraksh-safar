@@ -33,9 +33,9 @@ const VietnamMaster = () => {
   const contactPhone = '9713057086';
 
   const breadcrumbs = [
-    { name: 'Home', url: '/' },
-    { name: 'International Packages', url: '/international-packages' },
-    { name: 'Vietnam Tour Packages', url: '/international-tours/vietnam' }
+    { label: 'Home', path: '/' },
+    { label: 'International Packages', path: '/international-packages' },
+    { label: 'Vietnam Tour Packages', path: '/international-tours/vietnam' }
   ];
 
   const destinationSchema = {
