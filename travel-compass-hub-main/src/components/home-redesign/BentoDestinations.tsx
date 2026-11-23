@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 const BentoDestinations: React.FC = () => {
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
@@ -25,11 +25,14 @@ const BentoDestinations: React.FC = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[160px] sm:auto-rows-[180px]">
+        <div className="flex sm:hidden items-center justify-between text-xs mb-2.5 px-0.5 text-slate-500 font-semibold">
+          <span className="text-[#ff7a1a]">Swipe handcrafted destinations →</span>
+        </div>
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-3.5 sm:gap-4 pb-3 sm:pb-0 scrollbar-none sm:grid-cols-2 lg:grid-cols-4 sm:auto-rows-[180px]">
           {/* Tile 1: Ladakh (Large 2x2 Tile) */}
           <Link
             to="/domestic-tours/ladakh"
-            className="group relative sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20"
+            className="group relative sm:col-span-2 sm:row-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20 shrink-0 w-[270px] h-[230px] sm:w-auto sm:h-auto snap-start"
           >
             <img
               src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=1000&auto=format&fit=crop"
@@ -56,7 +59,7 @@ const BentoDestinations: React.FC = () => {
           {/* Tile 2: Thailand (2 cols span 1 row) */}
           <Link
             to="/international-tours/thailand"
-            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20"
+            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20 shrink-0 w-[260px] h-[230px] sm:w-auto sm:h-auto snap-start"
           >
             <img
               src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800&auto=format&fit=crop"
@@ -114,7 +117,7 @@ const BentoDestinations: React.FC = () => {
           {/* Tile 5: Dubai (2 cols) */}
           <Link
             to="/international-tours/dubai"
-            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20"
+            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20 shrink-0 w-[260px] h-[230px] sm:w-auto sm:h-auto snap-start"
           >
             <img
               src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop"
@@ -172,7 +175,7 @@ const BentoDestinations: React.FC = () => {
           {/* Tile 8: Kerala (2 cols) */}
           <Link
             to="/domestic-tours/kerala"
-            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20"
+            className="group relative sm:col-span-2 rounded-3xl overflow-hidden shadow-lg p-6 flex flex-col justify-end text-white border border-amber-900/20 shrink-0 w-[260px] h-[230px] sm:w-auto sm:h-auto snap-start"
           >
             <img
               src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800&auto=format&fit=crop"

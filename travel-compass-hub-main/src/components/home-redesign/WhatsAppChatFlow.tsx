@@ -11,7 +11,7 @@ const STEPS = [
 
 const WhatsAppChatFlow: React.FC = () => {
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left: 5 Steps */}
@@ -61,7 +61,7 @@ const WhatsAppChatFlow: React.FC = () => {
           </div>
 
           {/* Right: WhatsApp Mockup Simulation */}
-          <div className="lg:col-span-6">
+          <div className="hidden md:block lg:col-span-6">
             <div className="max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-900 bg-[#e5ddd5] dark:bg-slate-900">
               {/* WhatsApp Header */}
               <div className="bg-[#075e54] text-white p-3.5 flex items-center justify-between">

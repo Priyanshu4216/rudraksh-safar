@@ -251,7 +251,7 @@ const CityDepartures: React.FC = () => {
   const packages = PACKAGES_BY_CITY[selectedCity] || PACKAGES_BY_CITY['Raipur'];
 
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
@@ -282,11 +282,14 @@ const CityDepartures: React.FC = () => {
         </div>
 
         {/* Package Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex sm:hidden items-center justify-between text-xs mb-2.5 px-0.5 text-slate-500 font-semibold">
+          <span className="text-[#8c1d2f] dark:text-amber-400">Swipe departures →</span>
+        </div>
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-4 sm:gap-6 pb-3 sm:pb-0 scrollbar-none sm:grid-cols-2 lg:grid-cols-4">
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-amber-200/80 dark:border-slate-800 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-amber-200/80 dark:border-slate-800 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shrink-0 w-[265px] sm:w-auto snap-start"
             >
               <div>
                 {/* Photo & Badge */}

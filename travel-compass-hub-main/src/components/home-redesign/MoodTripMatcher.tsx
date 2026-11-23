@@ -327,7 +327,7 @@ const MoodTripMatcher: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}

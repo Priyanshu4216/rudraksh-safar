@@ -129,7 +129,7 @@ const DestinationExplorer: React.FC = () => {
   const selectedDest = DESTINATIONS[surpriseIdx];
 
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section 1: Where do you want to go? Rail */}
         <div className="mb-14">
@@ -181,7 +181,7 @@ const DestinationExplorer: React.FC = () => {
           </div>
 
           {/* Style Filter Chips */}
-          <div className="flex flex-wrap items-center gap-2 pt-4">
+          <div className="flex overflow-x-auto sm:flex-wrap items-center gap-2 pt-4 pb-2 sm:pb-0 scrollbar-none">
             {STYLE_CHIPS.map((chip, idx) => (
               <Link
                 key={idx}
@@ -195,7 +195,7 @@ const DestinationExplorer: React.FC = () => {
         </div>
 
         {/* Section 2: Interactive "Spin the world. Pick your next stop." */}
-        <div className="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#fff3e2] via-[#ffe8d6] to-[#fff0e6] dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 border border-amber-200 dark:border-slate-800 shadow-xl overflow-hidden text-center">
+        <div className="relative rounded-3xl p-5 sm:p-12 bg-gradient-to-br from-[#fff3e2] via-[#ffe8d6] to-[#fff0e6] dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 border border-amber-200 dark:border-slate-800 shadow-xl overflow-hidden text-center">
           <div className="max-w-xl mx-auto space-y-3 mb-8">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-[#8c1d2f] dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
               <Compass className="w-3.5 h-3.5" />

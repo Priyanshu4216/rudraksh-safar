@@ -169,7 +169,18 @@ export const SnanCalendarWidget: React.FC<SnanCalendarWidgetProps> = ({ lang = '
                 </div>
 
                 {/* Grid of Snan Date Cards (5 columns x 2 rows on large desktop matching reference image) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+                
+                {/* Mobile Swipe Cue */}
+                <div className="flex sm:hidden items-center justify-between text-xs mb-2.5 px-0.5">
+                    <span className="font-bold text-[#ea580c] flex items-center gap-1.5">
+                        <Flame className="w-3.5 h-3.5 fill-orange-500 text-orange-500 animate-pulse" />
+                        Swipe Holy Snan Dates
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-400">10 Dates Available →</span>
+                </div>
+
+                {/* Horizontal Snap Rail on Mobile, Grid on Tablet/Desktop */}
+                <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-3 sm:gap-4 pb-3 sm:pb-0 scrollbar-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                     {filteredDates.map((snan) => {
                         const isAmrit = snan.type === 'amrit';
                         const isFinal = snan.type === 'final';
@@ -183,7 +194,7 @@ export const SnanCalendarWidget: React.FC<SnanCalendarWidgetProps> = ({ lang = '
                                 onMouseEnter={() => setHoveredSnanId(snan.id)}
                                 onMouseLeave={() => setHoveredSnanId(null)}
                                 onClick={() => setActiveMobileSnan(snan)}
-                                className={`relative rounded-2xl p-4 sm:p-5 transition-all duration-300 cursor-pointer flex flex-col justify-between group ${
+                                className={`relative rounded-2xl p-4 sm:p-5 transition-all duration-300 cursor-pointer flex flex-col justify-between group shrink-0 w-[240px] sm:w-auto snap-start ${
                                     isAmrit
                                         ? 'border-2 border-orange-400 dark:border-orange-500/80 bg-gradient-to-br from-orange-50/90 via-white to-amber-50/40 dark:from-orange-950/40 dark:via-slate-900 dark:to-slate-900 shadow-sm hover:shadow-xl hover:border-orange-500 hover:-translate-y-1'
                                         : 'border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs hover:shadow-lg hover:border-orange-300 dark:hover:border-slate-700 hover:-translate-y-1'

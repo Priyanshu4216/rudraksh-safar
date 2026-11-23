@@ -40,8 +40,8 @@ export const KumbhHomePromoCard: React.FC = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 my-10 md:my-14" aria-label="Haridwar Kumbh 2027 Featured Guide">
-      <div className="relative overflow-hidden rounded-3xl border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/15 via-[#fffbf5] dark:via-slate-900 to-amber-500/10 p-6 md:p-10 shadow-xl mb-8">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 my-6 md:my-14" aria-label="Haridwar Kumbh 2027 Featured Guide">
+      <div className="relative overflow-hidden rounded-3xl border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/15 via-[#fffbf5] dark:via-slate-900 to-amber-500/10 p-4 sm:p-6 md:p-10 shadow-xl mb-6 md:mb-8">
         {/* Sacred subtle aura */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -59,33 +59,33 @@ export const KumbhHomePromoCard: React.FC = () => {
             </h2>
 
             {/* Countdown Clock Display */}
-            <div className="flex flex-wrap gap-2.5 sm:gap-4 pt-1">
-              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] shadow-md">
-                <span className="block font-serif font-black text-2xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
+            <div className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-4 pt-1 max-w-sm sm:max-w-none">
+              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-2 sm:p-4 text-center min-w-0 sm:min-w-[85px] shadow-md">
+                <span className="block font-serif font-black text-xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
                   {timeLeft.days}
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1 block">
                   Days
                 </span>
               </div>
-              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] shadow-md">
-                <span className="block font-serif font-black text-2xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
+              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-2 sm:p-4 text-center min-w-0 sm:min-w-[85px] shadow-md">
+                <span className="block font-serif font-black text-xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
                   {timeLeft.hours}
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1 block">
                   Hours
                 </span>
               </div>
-              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] shadow-md">
-                <span className="block font-serif font-black text-2xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
+              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-2 sm:p-4 text-center min-w-0 sm:min-w-[85px] shadow-md">
+                <span className="block font-serif font-black text-xl sm:text-4xl text-[#8c1d2f] dark:text-amber-400 leading-none">
                   {timeLeft.mins}
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1 block">
                   Mins
                 </span>
               </div>
-              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] shadow-md">
-                <span className="block font-serif font-black text-2xl sm:text-4xl text-[#ff7a1a] leading-none">
+              <div className="bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 rounded-2xl p-2 sm:p-4 text-center min-w-0 sm:min-w-[85px] shadow-md">
+                <span className="block font-serif font-black text-xl sm:text-4xl text-[#ff7a1a] leading-none">
                   {timeLeft.secs}
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mt-1 block">

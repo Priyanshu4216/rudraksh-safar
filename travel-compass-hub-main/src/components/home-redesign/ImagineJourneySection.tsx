@@ -107,6 +107,7 @@ export const ImagineJourneySection: React.FC = () => {
     const [selectedAddons, setSelectedAddons] = useState<string[]>(['airport-chauffeur']);
     const [includeFlight, setIncludeFlight] = useState<boolean>(true);
     const [customNotes, setCustomNotes] = useState<string>('');
+    const [showMobileAdvanced, setShowMobileAdvanced] = useState<boolean>(false);
 
     // Modal & generation state
     const [isLoading, setIsLoading] = useState(false);
@@ -223,7 +224,7 @@ export const ImagineJourneySection: React.FC = () => {
     };
 
     return (
-        <section id="ai-planner" className="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-orange-50/20 to-slate-50 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950 transition-colors scroll-mt-24">
+        <section id="ai-planner" className="py-10 md:py-24 bg-gradient-to-b from-slate-50 via-orange-50/20 to-slate-50 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950 transition-colors scroll-mt-24">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
                 
                 {/* Section Header */}
@@ -232,10 +233,10 @@ export const ImagineJourneySection: React.FC = () => {
                         <Sparkles className="w-3.5 h-3.5 text-orange-500 animate-pulse" />
                         <span>RUDRAKSH SAFAR • AI TRIP ARCHITECT</span>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white tracking-tight">
+                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white tracking-tight">
                         Craft Your Dream Journey in <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500">30 Seconds</span>
                     </h2>
-                    <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                    <p className="hidden sm:block text-sm md:text-base text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
                         No generic packages. Set your rhythm, destinations, and dates—our intelligent engine drafts an on-ground day-by-day plan with transparent pricing, verified stays, and local secrets.
                     </p>
                 </div>
@@ -289,7 +290,7 @@ export const ImagineJourneySection: React.FC = () => {
                 {/* Main Interactive Studio Form */}
                 <form 
                     onSubmit={handleSubmit}
-                    className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-slate-200/80 dark:border-slate-800 space-y-8"
+                    className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl border border-slate-200/80 dark:border-slate-800 space-y-5 sm:space-y-8"
                 >
                     {/* SECTION 1: DESTINATION & HUB */}
                     <div className="space-y-4">
@@ -370,9 +371,9 @@ export const ImagineJourneySection: React.FC = () => {
                             </h3>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4">
                             {/* Days */}
-                            <div className="lg:col-span-3 space-y-1.5">
+                            <div className="col-span-1 lg:col-span-3 space-y-1.5">
                                 <label className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                                     <span>Duration (Days)</span>
                                     <span className="text-orange-600">{days - 1} Nights</span>
@@ -399,7 +400,7 @@ export const ImagineJourneySection: React.FC = () => {
                             </div>
 
                             {/* Travellers */}
-                            <div className="lg:col-span-3 space-y-1.5">
+                            <div className="col-span-1 lg:col-span-3 space-y-1.5">
                                 <label className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                                     <span>Total Travellers</span>
                                     <span className="text-orange-600">{travellers > 1 ? 'Group' : 'Solo'}</span>
@@ -426,7 +427,7 @@ export const ImagineJourneySection: React.FC = () => {
                             </div>
 
                             {/* Style Cards */}
-                            <div className="lg:col-span-6 space-y-1.5">
+                            <div className="col-span-2 lg:col-span-6 space-y-1.5">
                                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                                     Stay Classification & Comfort
                                 </label>
@@ -461,6 +462,26 @@ export const ImagineJourneySection: React.FC = () => {
                             </div>
                         </div>
 
+                        
+                        {/* Mobile Toggle for Advanced Preferences */}
+                        <div className="md:hidden pt-1">
+                            <button
+                                type="button"
+                                onClick={() => setShowMobileAdvanced(!showMobileAdvanced)}
+                                className="w-full py-2.5 px-3.5 rounded-2xl bg-orange-50/80 dark:bg-slate-800/80 border border-orange-200 dark:border-slate-700 text-xs font-bold text-orange-700 dark:text-orange-300 flex items-center justify-between transition-colors shadow-xs"
+                            >
+                                <span className="flex items-center gap-2">
+                                    <Sliders className="w-3.5 h-3.5 text-orange-600" />
+                                    <span>{showMobileAdvanced ? 'Hide Advanced Options' : '+ Customize Vibes, Pace & Stays (Optional)'}</span>
+                                </span>
+                                <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-white dark:bg-slate-700 shadow-xs">
+                                    {showMobileAdvanced ? 'Less ▲' : 'More ▼'}
+                                </span>
+                            </button>
+                        </div>
+
+                        {/* Collapsible Wrapper for Extra Customizations on Mobile */}
+                        <div className={showMobileAdvanced ? "space-y-5 animate-fade-in" : "hidden md:block space-y-5"}>
                         {/* Pace & Flight Toggle Row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
                             {/* Travel Pace */}
@@ -592,6 +613,9 @@ export const ImagineJourneySection: React.FC = () => {
                                 className="w-full bg-slate-50 dark:bg-slate-800/80 rounded-2xl px-4 py-3 text-xs sm:text-sm text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80 placeholder:text-slate-400 focus:outline-none focus:border-orange-500"
                             />
                         </div>
+                    </div>
+
+                                            </div>
                     </div>
 
                     {/* ACTION BAR */}

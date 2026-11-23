@@ -297,7 +297,7 @@ const MonthEscapes: React.FC = () => {
   const picks = MONTH_DATA[activeMonth] || MONTH_DATA['Apr'];
 
   return (
-    <section className="py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
+    <section className="py-10 md:py-16 bg-[#fffbf5] dark:bg-slate-950 border-t border-amber-200/60 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
@@ -331,12 +331,15 @@ const MonthEscapes: React.FC = () => {
         </div>
 
         {/* 3 Featured Month Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex sm:hidden items-center justify-between text-xs mb-2.5 px-0.5 text-slate-500 font-semibold">
+          <span className="text-[#8c1d2f] dark:text-amber-400">Swipe monthly picks →</span>
+        </div>
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 md:gap-6 pb-3 md:pb-0 scrollbar-none md:grid-cols-3">
           {picks.map((item, idx) => (
             <Link
               key={idx}
               to={item.href}
-              className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-amber-200/90 dark:border-slate-800 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-amber-200/90 dark:border-slate-800 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between shrink-0 w-[275px] md:w-auto snap-start"
             >
               <div>
                 <div className="relative h-48 overflow-hidden">
