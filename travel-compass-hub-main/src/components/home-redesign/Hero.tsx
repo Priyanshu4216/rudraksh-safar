@@ -202,13 +202,12 @@ const ROTATING_WORDS = ['Ladakh', 'Thailand', 'Kedarnath', 'Dubai', 'Kashmir'];
 const CITIES = ['Raipur', 'Bhilai', 'Durg', 'Bilaspur', 'Nagpur', 'Delhi'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const SLIDE_DURATION = 6500; // 6.5s per slide
+const SLIDE_DURATION = 5000; // 5s auto-change
 
 const Hero: React.FC = () => {
   // Slideshow state
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(0);
 
   // Rotating title word
   const [wordIdx, setWordIdx] = useState(0);
@@ -227,7 +226,7 @@ const Hero: React.FC = () => {
 
   // Smooth Auto-timer with live progress bar
   useEffect(() => {
-    if (isPaused) return;
+    // auto-advancing every 5 seconds
     
     const startTime = Date.now();
     const interval = setInterval(() => {
@@ -242,7 +241,7 @@ const Hero: React.FC = () => {
     }, 50);
 
     return () => clearInterval(interval);
-  }, [currentSlide, isPaused]);
+  }, [currentSlide]);
 
   // Reset progress when changing slides manually
   const goToSlide = (idx: number) => {
@@ -287,9 +286,7 @@ const Hero: React.FC = () => {
       <section
         className="max-w-7xl mx-auto px-3 sm:px-6 pt-3 sm:pt-4"
         aria-label="Featured Trips Billboard"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
+              >
         <div className="relative min-h-[510px] sm:h-[500px] md:h-[540px] rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-amber-500/20 group">
           {SLIDES.map((slide, idx) => {
             const isActive = idx === currentSlide;
@@ -305,7 +302,7 @@ const Hero: React.FC = () => {
                   <img
                     src={slide.image}
                     alt={slide.title}
-                    style={{ transitionDuration: "7000ms" }}
+                    style={{ transitionDuration: "5000ms" }}
                     className={`w-full h-full object-cover object-center transition-transform ease-out ${
                       isActive ? 'scale-110 translate-x-1' : 'scale-100 translate-x-0'
                     }`}
