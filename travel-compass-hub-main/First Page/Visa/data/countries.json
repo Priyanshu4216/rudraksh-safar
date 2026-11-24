@@ -1,0 +1,940 @@
+[
+ {
+  "slug": "usa",
+  "name": "USA",
+  "code": "US",
+  "lat": 38,
+  "lon": -97,
+  "summary": "Visitor visa (B1/B2). Interview-based, so a well-prepared file matters most.",
+  "officialUrl": "https://travel.state.gov",
+  "entryType": "Visa required",
+  "route": "B1/B2 visitor visa",
+  "stay": "Decided at the port of entry (commonly up to 6 months)",
+  "documents": [
+   "Passport valid for your intended stay (6+ months recommended)",
+   "DS-160 confirmation page (we prepare it)",
+   "Visa fee payment receipt",
+   "Interview appointment confirmation",
+   "Recent photo that meets US specifications",
+   "Bank statements and income tax returns",
+   "Employment, business or study proof",
+   "Proof of ties to India (family, property, job)",
+   "Travel plan (avoid non-refundable tickets before approval)"
+  ],
+  "notes": [
+   "Most applicants must attend an interview in person."
+  ],
+  "attendance": "Interview and fingerprints are attended in person.",
+  "governmentFee": "US$185 visa fee",
+  "feeDetails": [
+   "Visa application (MRV) fee: US$185, non-refundable",
+   "A US$250 Visa Integrity Fee has been reported at some consular posts in 2026",
+   "Interview wait times vary widely by city"
+  ],
+  "bestTime": "Spring and autumn suit most cities",
+  "popularPlaces": "New York, Los Angeles, Las Vegas, Orlando",
+  "tips": [
+   "Book the interview slot early. Wait times vary by city and season.",
+   "Keep your answers short and consistent with your file."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "uae",
+  "name": "UAE (Dubai)",
+  "code": "AE",
+  "lat": 25.2,
+  "lon": 55.3,
+  "summary": "Dubai and Abu Dhabi. Our fastest: about 4 hours*.",
+  "officialUrl": "https://icp.gov.ae",
+  "entryType": "e-Visa",
+  "route": "Tourist e-visa, issued through a licensed sponsor",
+  "stay": "30, 60 or 90 days depending on visa type",
+  "documents": [
+   "Passport valid 6+ months with 2 blank pages",
+   "Colour scan of the passport bio page",
+   "Recent passport photo on a white background",
+   "Confirmed return ticket",
+   "Hotel booking or host details in the UAE",
+   "Aadhaar or PAN, if requested",
+   "Marriage certificate if your spouse’s name is not in the passport"
+  ],
+  "notes": [
+   "Overstay fines start from the first day after the visa expires (tightened in 2026).",
+   "Some travellers with valid US, UK or EU visas may qualify for visa on arrival. We check this for you."
+  ],
+  "attendance": "",
+  "governmentFee": "About AED 252 to 285 (30 days, single entry)",
+  "feeDetails": [
+   "The published government fee for a 30-day single-entry visa is about AED 252, plus 5% VAT",
+   "Amounts differ by emirate, channel and stay length",
+   "Longer stays and multiple entry cost more"
+  ],
+  "bestTime": "Nov to Mar for pleasant weather",
+  "popularPlaces": "Dubai, Abu Dhabi, Sharjah",
+  "tips": [
+   "Hotel and return ticket must match your visa dates.",
+   "Keep a printed visa copy for hotel check-in."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "indonesia",
+  "name": "Indonesia (Bali)",
+  "code": "ID",
+  "lat": -8.4,
+  "lon": 115.2,
+  "summary": "Bali and beyond: e-VOA or visa on arrival, plus the arrival card and Bali levy.",
+  "officialUrl": "https://evisa.imigrasi.go.id",
+  "entryType": "Visa-free or on arrival",
+  "route": "e-VOA or Visa on Arrival",
+  "stay": "30 days, extendable once by 30 days",
+  "documents": [
+   "Passport valid 6+ months",
+   "Return or onward ticket",
+   "Accommodation booking",
+   "Proof of funds (bank statement)",
+   "Email address for e-VOA delivery",
+   "All Indonesia Arrival Card (free, within 72 hours before arrival)",
+   "Bali tourist levy of IDR 150,000 (for Bali only)"
+  ],
+  "notes": [
+   "The Visa on Arrival fee was IDR 500,000 when we checked."
+  ],
+  "attendance": "",
+  "governmentFee": "IDR 500,000 (visa on arrival)",
+  "feeDetails": [
+   "Visa on Arrival fee was IDR 500,000 when we checked",
+   "Bali tourist levy: IDR 150,000",
+   "The All Indonesia Arrival Card is free"
+  ],
+  "bestTime": "Apr to Oct is the drier season in Bali",
+  "popularPlaces": "Bali, Jakarta, Lombok, Yogyakarta",
+  "tips": [
+   "Pay the Bali levy and save the arrival-card QR offline before boarding.",
+   "Carry proof of onward travel, as airlines check it."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "thailand",
+  "name": "Thailand",
+  "code": "TH",
+  "lat": 13.7,
+  "lon": 100.5,
+  "summary": "Bangkok, Phuket and Pattaya. Visa-free for tourism, with a digital arrival card.",
+  "officialUrl": "https://www.thaievisa.go.th",
+  "entryType": "Visa-free or on arrival",
+  "route": "Visa-free tourism entry plus Thailand Digital Arrival Card (TDAC)",
+  "stay": "Up to 30 days (from 15 Sep 2026)",
+  "documents": [
+   "Passport valid 6+ months",
+   "TDAC filed online, free, within 3 days before arrival",
+   "Confirmed return or onward ticket",
+   "Proof of accommodation",
+   "Proof of funds",
+   "For stays over 30 days: Thai e-visa at thaievisa.go.th"
+  ],
+  "notes": [
+   "Thailand changed its rules several times in 2026. We re-check before you travel."
+  ],
+  "attendance": "",
+  "governmentFee": "Free (TDAC)",
+  "feeDetails": [
+   "The Thailand Digital Arrival Card is free",
+   "A Thai e-visa for stays over 30 days has its own fee"
+  ],
+  "bestTime": "Nov to Feb is cooler and drier",
+  "popularPlaces": "Bangkok, Phuket, Pattaya, Chiang Mai",
+  "tips": [
+   "File the TDAC and keep the QR code handy.",
+   "Carry stay and funds proof, as officers may ask."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "china",
+  "name": "China",
+  "code": "CN",
+  "lat": 35,
+  "lon": 103,
+  "summary": "Beijing, Shanghai and Guangzhou. Tourist (L) visa with careful document checks.",
+  "officialUrl": "https://cova.mfa.gov.cn",
+  "entryType": "Visa required",
+  "route": "L (tourist) visa",
+  "stay": "Depends on the visa issued",
+  "documents": [
+   "Passport valid 6+ months with blank pages",
+   "Online application form on the official portal, approved at online review",
+   "Recent photo on a white background",
+   "Flight and hotel itinerary",
+   "Bank statements (the Mumbai centre cited a balance above ₹1,00,000 in Aug 2026)",
+   "Previous passport or Chinese visa copies, if any",
+   "Employment or student proof"
+  ],
+  "notes": [
+   "From 26 Oct 2026 the Chinese Embassy and Consulates accept applications directly, after an online review."
+  ],
+  "attendance": "Fingerprints are taken in person at submission.",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Spring and autumn",
+  "popularPlaces": "Beijing, Shanghai, Guangzhou, Chengdu",
+  "tips": [
+   "Match every date across forms, tickets and hotels.",
+   "Plan time for the in-person fingerprint step."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "saudi-arabia",
+  "name": "Saudi Arabia",
+  "code": "SA",
+  "lat": 24.7,
+  "lon": 46.7,
+  "summary": "Tourism, business and pilgrimage travel. Your route depends on your travel history.",
+  "officialUrl": "https://visa.visitsaudi.com",
+  "entryType": "e-Visa",
+  "route": "Tourist e-visa or visa on arrival if eligible, otherwise a visa through an authorised centre",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months with 2 blank pages",
+   "Recent photo",
+   "Copy of a valid US, UK or Schengen visa (for the e-visa or arrival route)",
+   "Return ticket",
+   "Hotel booking",
+   "Bank statements",
+   "Travel insurance, where applicable"
+  ],
+  "notes": [
+   "Eligibility for the e-visa or arrival route depends on your travel history. We confirm your route first."
+  ],
+  "attendance": "The authorised-centre route may need biometrics.",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Nov to Mar for milder weather",
+  "popularPlaces": "Riyadh, Jeddah, AlUla, Makkah and Madinah",
+  "tips": [
+   "Check which route fits your travel history before paying.",
+   "Umrah and tourist visas follow different rules."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "vietnam",
+  "name": "Vietnam",
+  "code": "VN",
+  "lat": 14,
+  "lon": 108,
+  "summary": "Hanoi, Da Nang and Ho Chi Minh City. Our fastest: under 60 minutes*.",
+  "officialUrl": "https://evisa.gov.vn",
+  "entryType": "e-Visa",
+  "route": "Tourist e-visa (online)",
+  "stay": "e-visa valid up to 90 days, multiple entry",
+  "documents": [
+   "Passport valid 6+ months (bio page scan)",
+   "Recent passport-size photo",
+   "Entry and exit points and stay details",
+   "Pre-arrival declaration, where applicable (new in 2026)",
+   "Printed e-visa to carry at the airport",
+   "Return or onward ticket (carry for the airport)"
+  ],
+  "notes": [
+   "Phu Quoc Island: visa-free up to 30 days if you fly directly to the island and stay only there."
+  ],
+  "attendance": "",
+  "governmentFee": "US$25 single entry, US$50 multiple entry",
+  "feeDetails": [
+   "Official e-visa fee, valid up to 90 days",
+   "Fees are paid to the Vietnamese government and are generally non-refundable"
+  ],
+  "bestTime": "Feb to Apr and Sep to Nov are popular",
+  "popularPlaces": "Hanoi, Ho Chi Minh City, Da Nang, Phu Quoc",
+  "tips": [
+   "Spell your name exactly as in the passport.",
+   "Print the e-visa and carry it for the airport."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "malaysia",
+  "name": "Malaysia",
+  "code": "MY",
+  "lat": 3.1,
+  "lon": 101.7,
+  "summary": "Kuala Lumpur, Langkawi and Penang. Visa-free until 31 Dec 2026, then a visa is expected.",
+  "officialUrl": "https://www.imi.gov.my",
+  "entryType": "Visa-free or on arrival",
+  "route": "Visa-free tourism entry plus MDAC. A visa is expected from 1 Jan 2027 unless extended",
+  "stay": "Up to 30 days",
+  "documents": [
+   "Passport valid 6+ months",
+   "Malaysia Digital Arrival Card (MDAC), free, within 3 days before arrival",
+   "Confirmed return or onward ticket",
+   "Accommodation proof",
+   "Proof of funds",
+   "From 1 Jan 2027: a visa application (we confirm the document list)"
+  ],
+  "notes": [
+   "Reports on 19 Nov 2026 said Malaysia’s visa-free entry for Indians ends on 31 Dec 2026. Plan 2027 trips with this in mind."
+  ],
+  "attendance": "",
+  "governmentFee": "MDAC is free",
+  "feeDetails": [
+   "The Malaysia Digital Arrival Card is free",
+   "If a visa becomes mandatory from 1 Jan 2027, its fee will be confirmed in your quote"
+  ],
+  "bestTime": "May to Sep is drier on the west coast",
+  "popularPlaces": "Kuala Lumpur, Langkawi, Penang, Kota Kinabalu",
+  "tips": [
+   "File the MDAC within 3 days before arrival.",
+   "If you travel after 31 Dec 2026, confirm the visa rule first."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "qatar",
+  "name": "Qatar",
+  "code": "QA",
+  "lat": 25.3,
+  "lon": 51.5,
+  "summary": "Doha stopovers and short stays. Free visa waiver on arrival with conditions.",
+  "officialUrl": "https://visitqatar.com",
+  "entryType": "Visa-free or on arrival",
+  "route": "Free visa waiver on arrival (conditions apply)",
+  "stay": "Up to 30 days",
+  "documents": [
+   "Passport validity as required (3 to 6 months; we confirm for your dates)",
+   "Confirmed return or onward ticket",
+   "Confirmed hotel booking through Discover Qatar (minimum 2 nights)",
+   "Proof of funds",
+   "Health insurance, if required at entry"
+  ],
+  "notes": [
+   "The hotel must be booked through the Discover Qatar website to qualify for the waiver."
+  ],
+  "attendance": "",
+  "governmentFee": "Free waiver (conditions apply)",
+  "feeDetails": [
+   "The 30-day visa waiver on arrival is free",
+   "Hotel booking and return ticket are required"
+  ],
+  "bestTime": "Nov to Mar for outdoor plans",
+  "popularPlaces": "Doha, Lusail, The Pearl, desert camps",
+  "tips": [
+   "Book the hotel through Discover Qatar to qualify.",
+   "Keep your return ticket and funds proof ready."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "singapore",
+  "name": "Singapore",
+  "code": "SG",
+  "lat": 1.35,
+  "lon": 103.8,
+  "summary": "City-state trips for tourism and business, filed with careful checks.",
+  "officialUrl": "https://www.ica.gov.sg",
+  "entryType": "Visa required",
+  "route": "Short-visit visa filed through authorised channels",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Recent photo",
+   "Confirmed flight and hotel details",
+   "Bank statements (3 to 6 months)",
+   "Employment or business proof",
+   "ITR or income proof"
+  ],
+  "notes": [
+   "Requirements vary by profile. We confirm the exact list before you pay."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Feb to Apr is drier",
+  "popularPlaces": "Marina Bay, Sentosa, Orchard Road, Gardens by the Bay",
+  "tips": [
+   "Share a clear itinerary and stay details.",
+   "Keep bank and employment proof recent."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "france",
+  "name": "France",
+  "code": "FR",
+  "lat": 46.6,
+  "lon": 2.4,
+  "summary": "Paris and the French Riviera. Schengen rules apply, so itinerary proof matters.",
+  "officialUrl": "https://france-visas.gouv.fr",
+  "entryType": "Visa required",
+  "route": "Schengen short-stay visa (VFS appointment)",
+  "stay": "Up to 90 days in any 180",
+  "documents": [
+   "Passport valid 3+ months beyond your return date, issued in the last 10 years, with 2 blank pages",
+   "Schengen application form",
+   "2 recent photos (35 x 45 mm)",
+   "Travel medical insurance (EUR 30,000 cover)",
+   "Flight reservation and hotel bookings, or an invitation",
+   "Bank statements for the last 3 to 6 months",
+   "ITR, employment letter or business proof",
+   "Cover letter with a day-wise itinerary"
+  ],
+  "notes": [
+   "Apply to the country where you will spend the most nights."
+  ],
+  "attendance": "Biometrics are taken in person at the visa centre.",
+  "governmentFee": "€90 adult, €45 child (6 to 11)",
+  "feeDetails": [
+   "Children under 6 are exempt from the visa fee",
+   "The visa centre charges a separate service fee that varies by country and centre"
+  ],
+  "bestTime": "Apr to Jun and Sep to Oct",
+  "popularPlaces": "Paris, Nice, Lyon, Bordeaux",
+  "tips": [
+   "Apply through the country where you spend the most nights.",
+   "Insurance, bookings and bank balance must tell the same story."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "australia",
+  "name": "Australia",
+  "code": "AU",
+  "lat": -25,
+  "lon": 134,
+  "summary": "Sydney, Melbourne and the Gold Coast. Tourist, visitor and student routes.",
+  "officialUrl": "https://immi.homeaffairs.gov.au",
+  "entryType": "Visa required",
+  "route": "Visitor visa (subclass 600)",
+  "stay": "As granted (commonly up to 3 months)",
+  "documents": [
+   "Passport valid for your whole stay",
+   "Online application through ImmiAccount (we prepare it)",
+   "Recent photo",
+   "Bank statements and proof of funds",
+   "ITR and employment proof",
+   "Travel itinerary"
+  ],
+  "notes": [
+   "Health checks or police certificates may be requested for some applicants."
+  ],
+  "attendance": "Biometrics only if requested.",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Sep to Nov and Mar to May",
+  "popularPlaces": "Sydney, Melbourne, Gold Coast, Perth",
+  "tips": [
+   "Upload clean scans in the ImmiAccount portal.",
+   "Show strong ties to India and enough funds."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "europe",
+  "name": "Europe (Schengen)",
+  "code": "EU",
+  "lat": 48,
+  "lon": 10,
+  "summary": "One visa for many European countries. We plan the itinerary proof with you.",
+  "officialUrl": "https://home-affairs.ec.europa.eu",
+  "entryType": "Visa required",
+  "route": "Schengen short-stay visa for multiple countries",
+  "stay": "Up to 90 days in any 180",
+  "documents": [
+   "Passport valid 3+ months beyond your return date, issued in the last 10 years, with 2 blank pages",
+   "Schengen application form",
+   "2 recent photos (35 x 45 mm)",
+   "Travel medical insurance (EUR 30,000 cover)",
+   "Flight reservation and hotel bookings, or an invitation",
+   "Bank statements for the last 3 to 6 months",
+   "ITR, employment letter or business proof",
+   "Cover letter with a day-wise itinerary"
+  ],
+  "notes": [
+   "Apply to the country where you will spend the most nights, or the first entry if equal."
+  ],
+  "attendance": "Biometrics are taken in person at the visa centre.",
+  "governmentFee": "€90 adult, €45 child (6 to 11)",
+  "feeDetails": [
+   "Children under 6 are exempt from the visa fee",
+   "The visa centre charges a separate service fee that varies by country and centre"
+  ],
+  "bestTime": "Apr to Jun and Sep to Oct",
+  "popularPlaces": "Switzerland, Italy, Germany, Spain, Netherlands",
+  "tips": [
+   "Keep the day-wise itinerary realistic and matching your bookings.",
+   "Typically apply between 6 months and 15 days before travel."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "russia",
+  "name": "Russia",
+  "code": "RU",
+  "lat": 55.7,
+  "lon": 37.6,
+  "summary": "Moscow and St Petersburg. Tourist visits from India.",
+  "officialUrl": "https://electronic-visa.kdmid.ru",
+  "entryType": "e-Visa",
+  "route": "Tourist e-visa (online)",
+  "stay": "Short stay set by the e-visa",
+  "documents": [
+   "Passport valid 6+ months",
+   "Passport bio page scan",
+   "Digital passport-style photo",
+   "Itinerary and hotel booking",
+   "Return ticket",
+   "Travel medical insurance (recommended)"
+  ],
+  "notes": [
+   "We confirm eligibility and current e-visa rules before filing."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Jun to Aug for long days, Dec to Feb for snow",
+  "popularPlaces": "Moscow, St Petersburg",
+  "tips": [
+   "Confirm e-visa eligibility and the allowed city list before filing.",
+   "Keep medical insurance details handy."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "jordan",
+  "name": "Jordan",
+  "code": "JO",
+  "lat": 31.2,
+  "lon": 36.5,
+  "summary": "Petra, Wadi Rum and the Dead Sea. Great for culture and adventure trips.",
+  "officialUrl": "https://www.visitjordan.com",
+  "entryType": "Visa required",
+  "route": "Tourist visa (route confirmed on chat)",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Recent photo",
+   "Return ticket",
+   "Hotel booking",
+   "Bank statements",
+   "Day-wise itinerary"
+  ],
+  "notes": [
+   "The Jordan Pass may cover the visa fee for some travellers. We confirm your eligibility."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Mar to May and Sep to Nov",
+  "popularPlaces": "Petra, Wadi Rum, Amman, Dead Sea",
+  "tips": [
+   "Ask us about Jordan Pass eligibility.",
+   "Book accommodation before filing."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "sri-lanka",
+  "name": "Sri Lanka",
+  "code": "LK",
+  "lat": 7.9,
+  "lon": 80.7,
+  "summary": "Colombo, Kandy and the beaches. Free tourist ETA, required before you fly.",
+  "officialUrl": "https://eta.gov.lk",
+  "entryType": "e-Visa",
+  "route": "Free tourist ETA (online)",
+  "stay": "30 days, double entry (per the official portal)",
+  "documents": [
+   "Passport valid 6+ months from arrival",
+   "ETA approval, printed or on your phone",
+   "Return or onward ticket",
+   "Proof of accommodation",
+   "Proof of funds, as required at entry",
+   "Apply only on the official ETA portal"
+  ],
+  "notes": [
+   "Free does not mean optional. The ETA is required before arrival."
+  ],
+  "attendance": "",
+  "governmentFee": "Free (tourist ETA)",
+  "feeDetails": [
+   "The tourist ETA has been free since 25 May 2026",
+   "Apply only on the official portal"
+  ],
+  "bestTime": "Dec to Mar on the west and south coasts",
+  "popularPlaces": "Colombo, Kandy, Galle, Ella",
+  "tips": [
+   "Apply only on the official ETA portal. Lookalike sites charge extra.",
+   "Keep your return ticket and stay proof."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "hong-kong",
+  "name": "Hong Kong",
+  "code": "HK",
+  "lat": 22.3,
+  "lon": 114.2,
+  "summary": "Shopping, Disneyland and city breaks. Free Pre-Arrival Registration needed.",
+  "officialUrl": "https://www.immd.gov.hk",
+  "entryType": "Visa-free or on arrival",
+  "route": "Visa-free visit with free Pre-Arrival Registration (PAR)",
+  "stay": "Up to 14 days",
+  "documents": [
+   "Indian passport valid 6+ months",
+   "PAR notification slip (free, valid 6 months)",
+   "Valid return ticket",
+   "Proof of sufficient funds",
+   "Travel on the same passport used for PAR"
+  ],
+  "notes": [
+   "PAR is a registration. It does not guarantee entry."
+  ],
+  "attendance": "",
+  "governmentFee": "Free (PAR)",
+  "feeDetails": [
+   "Pre-Arrival Registration is free"
+  ],
+  "bestTime": "Oct to Dec is dry and mild",
+  "popularPlaces": "Victoria Peak, Kowloon, Disneyland, Lantau",
+  "tips": [
+   "Use the same passport for PAR and travel.",
+   "Save the PAR slip on your phone."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "uk",
+  "name": "United Kingdom",
+  "code": "GB",
+  "lat": 51.5,
+  "lon": -0.1,
+  "summary": "London, Scotland and beyond. Standard Visitor visa with biometrics.",
+  "officialUrl": "https://www.gov.uk/standard-visitor",
+  "entryType": "Visa required",
+  "route": "Standard Visitor visa",
+  "stay": "Up to 6 months",
+  "documents": [
+   "Passport valid for your stay, with a blank page",
+   "Online application and fee payment",
+   "Bank statements (6 months)",
+   "Employment, business or study proof",
+   "Itinerary and accommodation details",
+   "Proof of ties to India"
+  ],
+  "notes": [
+   "Biometrics are required at the visa centre."
+  ],
+  "attendance": "Biometrics are taken in person at the visa centre.",
+  "governmentFee": "£135 (Standard Visitor, 6 months)",
+  "feeDetails": [
+   "Fee applies from 8 Apr 2026",
+   "Visa centre fees and optional priority services are extra"
+  ],
+  "bestTime": "May to Sep for long days",
+  "popularPlaces": "London, Edinburgh, Manchester, the Cotswolds",
+  "tips": [
+   "Show about 6 months of clean bank history.",
+   "Explain the purpose of your trip in plain words."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "canada",
+  "name": "Canada",
+  "code": "CA",
+  "lat": 56,
+  "lon": -106,
+  "summary": "Toronto, Vancouver and the Rockies. Visitor visa (TRV).",
+  "officialUrl": "https://www.canada.ca/en/immigration-refugees-citizenship.html",
+  "entryType": "Visa required",
+  "route": "Visitor visa (TRV)",
+  "stay": "As granted by the officer",
+  "documents": [
+   "Passport valid beyond your stay",
+   "Application forms (we prepare them)",
+   "Recent photo",
+   "Bank statements and ITR",
+   "Employment proof",
+   "Travel history and itinerary",
+   "Purpose-of-visit letter"
+  ],
+  "notes": [
+   "Biometrics are required for most applicants."
+  ],
+  "attendance": "Biometrics are taken in person at the visa centre.",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Jun to Sep, or Dec to Mar for snow",
+  "popularPlaces": "Toronto, Vancouver, Banff, Niagara Falls",
+  "tips": [
+   "Add a clear purpose-of-visit letter.",
+   "Book biometrics soon after applying."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "japan",
+  "name": "Japan",
+  "code": "JP",
+  "lat": 36,
+  "lon": 138,
+  "summary": "Tokyo, Kyoto and Osaka. A day-wise itinerary is part of the file.",
+  "officialUrl": "https://www.mofa.go.jp",
+  "entryType": "Visa required",
+  "route": "Tourist visa",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid for your whole stay",
+   "Application form with photo",
+   "Day-wise itinerary (we prepare it)",
+   "Flight and hotel bookings",
+   "Bank statements and ITR",
+   "Employment proof"
+  ],
+  "notes": [
+   "Japan expects a detailed schedule of stay."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Mar to Apr for blossom, Oct to Nov for autumn colour",
+  "popularPlaces": "Tokyo, Kyoto, Osaka, Hokkaido",
+  "tips": [
+   "Prepare a day-wise schedule of stay.",
+   "Keep hotel names and dates consistent."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "south-korea",
+  "name": "South Korea",
+  "code": "KR",
+  "lat": 37.5,
+  "lon": 127,
+  "summary": "Seoul, Busan and Jeju. Short-term visit visa.",
+  "officialUrl": "https://www.visa.go.kr",
+  "entryType": "Visa required",
+  "route": "Short-term visit visa",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Application form and photo",
+   "Flight and hotel bookings",
+   "Bank statements",
+   "Employment proof and ITR",
+   "Itinerary"
+  ],
+  "notes": [
+   "We confirm the exact list for your profile before you pay."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Apr to Jun and Sep to Nov",
+  "popularPlaces": "Seoul, Busan, Jeju",
+  "tips": [
+   "Show clear funds and return plans.",
+   "Keep itinerary dates consistent."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "turkey",
+  "name": "Turkey",
+  "code": "TR",
+  "lat": 39,
+  "lon": 35,
+  "summary": "Istanbul and Cappadocia. Your route depends on your travel history.",
+  "officialUrl": "https://www.evisa.gov.tr",
+  "entryType": "e-Visa",
+  "route": "e-Visa if you hold a valid US, UK or Schengen visa, otherwise an embassy visa",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Copy of a valid US, UK, Schengen or Ireland visa (e-visa route)",
+   "Return ticket",
+   "Hotel booking",
+   "Bank statements (embassy route)"
+  ],
+  "notes": [
+   "We confirm which route applies to you first."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Apr to Jun and Sep to Nov",
+  "popularPlaces": "Istanbul, Cappadocia, Antalya, Pamukkale",
+  "tips": [
+   "Check whether your US, UK or Schengen visa qualifies you for the e-visa.",
+   "Carry hotel and return ticket."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "azerbaijan",
+  "name": "Azerbaijan",
+  "code": "AZ",
+  "lat": 40.4,
+  "lon": 49.9,
+  "summary": "Baku and the Caucasus. Online e-visa.",
+  "officialUrl": "https://evisa.gov.az",
+  "entryType": "e-Visa",
+  "route": "e-Visa (ASAN)",
+  "stay": "As per the e-visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Passport scan",
+   "Email address",
+   "Hotel booking",
+   "Return ticket"
+  ],
+  "notes": [
+   "We confirm current rules and fees on chat."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Apr to Jun and Sep to Oct",
+  "popularPlaces": "Baku, Gabala, Sheki",
+  "tips": [
+   "Apply on the official e-visa site only.",
+   "Keep hotel and return ticket ready."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "georgia",
+  "name": "Georgia",
+  "code": "GE",
+  "lat": 41.7,
+  "lon": 44.8,
+  "summary": "Tbilisi and the mountains. Popular for short trips without Schengen paperwork.",
+  "officialUrl": "https://www.evisa.gov.ge",
+  "entryType": "e-Visa",
+  "route": "e-Visa",
+  "stay": "As per the e-visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Passport scan and photo",
+   "Return ticket",
+   "Hotel booking",
+   "Travel insurance",
+   "Proof of funds"
+  ],
+  "notes": [
+   "We confirm current rules and fees on chat."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "May to Jun and Sep to Oct",
+  "popularPlaces": "Tbilisi, Batumi, Kazbegi",
+  "tips": [
+   "Apply on the official e-visa site.",
+   "Carry funds proof and insurance."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "egypt",
+  "name": "Egypt",
+  "code": "EG",
+  "lat": 26.8,
+  "lon": 30.8,
+  "summary": "Cairo, Luxor and the Red Sea. Tourist visa.",
+  "officialUrl": "https://visa2egypt.gov.eg",
+  "entryType": "Visa required",
+  "route": "Tourist visa (e-visa where available)",
+  "stay": "As per the visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Recent photo",
+   "Return ticket",
+   "Hotel booking",
+   "Bank statements"
+  ],
+  "notes": [
+   "Reports in 2026 said Egypt visa fees may rise from 2027."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Oct to Apr",
+  "popularPlaces": "Cairo, Luxor, Aswan, Sharm El Sheikh",
+  "tips": [
+   "Check the current visa fee before you pay.",
+   "Keep hotel and return ticket ready."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "cambodia",
+  "name": "Cambodia",
+  "code": "KH",
+  "lat": 12.5,
+  "lon": 104.9,
+  "summary": "Siem Reap and Angkor Wat. Online e-visa.",
+  "officialUrl": "https://www.evisa.gov.kh",
+  "entryType": "e-Visa",
+  "route": "e-Visa",
+  "stay": "As per the e-visa issued",
+  "documents": [
+   "Passport valid 6+ months",
+   "Recent photo",
+   "Email address",
+   "Return ticket",
+   "Hotel booking"
+  ],
+  "notes": [
+   "We confirm current rules and fees on chat."
+  ],
+  "attendance": "",
+  "governmentFee": "Confirmed in your quote",
+  "feeDetails": [],
+  "bestTime": "Nov to Mar",
+  "popularPlaces": "Siem Reap, Phnom Penh, Sihanoukville",
+  "tips": [
+   "Use the official e-visa portal.",
+   "Carry hotel and return ticket."
+  ],
+  "checked": "2026-11-24"
+ },
+ {
+  "slug": "maldives",
+  "name": "Maldives",
+  "code": "MV",
+  "lat": 3.2,
+  "lon": 73.2,
+  "summary": "Resort holidays. Free arrival visa with a confirmed booking.",
+  "officialUrl": "https://immigration.gov.mv",
+  "entryType": "Visa-free or on arrival",
+  "route": "Free visa on arrival (30 days)",
+  "stay": "30 days",
+  "documents": [
+   "Passport valid for your stay",
+   "Confirmed hotel or resort booking",
+   "Return ticket",
+   "Proof of funds",
+   "Pre-arrival traveller declaration, where required"
+  ],
+  "notes": [
+   "A confirmed booking is required at entry."
+  ],
+  "attendance": "",
+  "governmentFee": "Free (visa on arrival)",
+  "feeDetails": [
+   "The 30-day visa on arrival is free",
+   "A confirmed booking is required"
+  ],
+  "bestTime": "Nov to Apr",
+  "popularPlaces": "Malé and the resort atolls",
+  "tips": [
+   "Carry the confirmed resort booking.",
+   "Keep return ticket and funds proof."
+  ],
+  "checked": "2026-11-24"
+ }
+]

@@ -20,6 +20,7 @@ import Footer from '@/components/Footer';
 const TravelStyle = lazy(() => import('@/components/TravelStyle')); // Section 3
 const SignatureJourneys = lazy(() => import('@/components/SignatureJourneys')); // Section 4
 const ServicesSection = lazy(() => import('@/components/ServicesSection')); // Section 5
+const VisaSection = lazy(() => import('@/components/visa/VisaSection')); // Section 5.5
 const PilgrimageSpecials = lazy(() => import('@/components/home-redesign/PilgrimageSpecials')); // Section 6
 const DestinationShowcase = lazy(() => import('@/components/DestinationShowcase')); // Section 7
 const DestinationFinder = lazy(() => import('@/components/DestinationFinder')); // Section 8
@@ -107,6 +108,11 @@ const Index = () => {
         {/* Section 5: Refined Travel Solutions */}
         <Suspense fallback={<div className="h-96" />}>
           <ServicesSection />
+        </Suspense>
+
+        {/* Section 5.5: Global Visa Section */}
+        <Suspense fallback={<div className="h-96" />}>
+          <VisaSection />
         </Suspense>
 
         {/* Section 6: Spiritual Experiences */}

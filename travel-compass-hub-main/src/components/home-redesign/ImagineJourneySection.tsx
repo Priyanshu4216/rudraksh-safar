@@ -532,6 +532,7 @@ export const ImagineJourneySection: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                    </div>
 
                     {/* SECTION 3: EXPERIENCES & SPECIAL ADD-ONS */}
                     <div className="space-y-4">
@@ -613,9 +614,6 @@ export const ImagineJourneySection: React.FC = () => {
                                 className="w-full bg-slate-50 dark:bg-slate-800/80 rounded-2xl px-4 py-3 text-xs sm:text-sm text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80 placeholder:text-slate-400 focus:outline-none focus:border-orange-500"
                             />
                         </div>
-                    </div>
-
-                                            </div>
                     </div>
 
                     {/* ACTION BAR */}

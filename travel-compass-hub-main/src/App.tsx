@@ -82,6 +82,7 @@ const HotDeals = lazy(() => import("./pages/HotDeals"));
 const DestinationContent = lazy(() => import("./pages/DestinationContent"));
 
 // Visa Country Pages
+const CountryVisaPage = lazy(() => import("./pages/visa/CountryVisaPage"));
 const DubaiVisa = lazy(() => import("./pages/visa/DubaiVisa"));
 const ThailandVisa = lazy(() => import("./pages/visa/ThailandVisa"));
 const SingaporeVisa = lazy(() => import("./pages/visa/SingaporeVisa"));
@@ -574,6 +575,7 @@ const App = () => (
                     {/* Destination SEO Pages moved to bottom */}
 
                     {/* Visa Country Routes */}
+                    <Route path="/visa/:countrySlug" element={<CountryVisaPage />} />
                     <Route path="/visa/dubai" element={<DubaiVisa />} />
                     <Route path="/visa/thailand" element={<ThailandVisa />} />
                     <Route path="/visa/singapore" element={<SingaporeVisa />} />
@@ -607,6 +609,7 @@ const App = () => (
                     <Route path="/travel-services/cruise-booking" element={<CruiseBooking />} />
                     <Route path="/cruise-booking" element={<Navigate to="/travel-services/cruise-booking" replace />} />
                     <Route path="/visa-guide" element={<Navigate to="/travel-services/visa-assistance" replace />} />
+                    <Route path="/visa" element={<VisaGuide />} />
                     <Route path="/cab-rental" element={<Navigate to="/travel-services/cab-rental" replace />} />
                     <Route path="/hotel-booking" element={<Navigate to="/travel-services/hotel-booking" replace />} />
 
