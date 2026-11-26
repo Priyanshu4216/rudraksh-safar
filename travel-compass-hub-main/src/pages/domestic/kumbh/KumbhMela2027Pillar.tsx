@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { KumbhLayout } from '@/components/kumbh/KumbhLayout';
 import { SnanCalendarWidget } from '@/components/kumbh/SnanCalendarWidget';
 import { NextSnanCountdown } from '@/components/kumbh/NextSnanCountdown';
@@ -21,6 +21,7 @@ interface KumbhPillarPageProps {
 
 const KumbhMela2027Pillar: React.FC<KumbhPillarPageProps> = ({ lang = 'en' }) => {
   const isHi = lang === 'hi';
+  const navigate = useNavigate();
   const faqs = getKumbhFAQs();
 
   const breadcrumbs = [
@@ -480,50 +481,122 @@ const KumbhMela2027Pillar: React.FC<KumbhPillarPageProps> = ({ lang = 'en' }) =>
           </Link>
         </div>
 
-        {/* Package Tiers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {KUMBH_PACKAGES.map((pkg) => (
-            <div
-              key={pkg.id}
-              className="rounded-2xl border border-border bg-card p-5 flex flex-col justify-between hover:shadow-md transition-shadow"
-            >
-              <div>
-                <span className="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">
-                  {pkg.duration}
-                </span>
-                <h3 className="font-bold text-base text-foreground mb-2">
-                  {isHi ? pkg.titleHi : pkg.titleEn}
-                </h3>
-                <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-                  {isHi ? pkg.idealForHi : pkg.idealForEn}
-                </p>
+        {/* Package Tiers Grid - Modern Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {KUMBH_PACKAGES.map((pkg) => {
+            const detailUrl = isHi
+              ? `/hi/kumbh-mela-2027/packages/${pkg.slug}`
+              : `/kumbh-mela-2027/packages/${pkg.slug}`;
 
-                <div className="space-y-1.5 text-xs text-muted-foreground mb-4">
-                  <strong className="text-foreground block text-[11px] uppercase tracking-wider">
-                    {isHi ? "शामिल सुविधाएं:" : "Key Inclusions:"}
-                  </strong>
-                  {(isHi ? pkg.inclusionsHi : pkg.inclusionsEn).slice(0, 3).map((inc, i) => (
-                    <div key={i} className="flex items-start gap-1.5">
-                      <span className="text-green-600 font-bold">✓</span>
-                      <span>{inc}</span>
+            return (
+              <div
+                key={pkg.id}
+                className="rounded-3xl border border-border/80 bg-card overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col group"
+              >
+                {/* Top Image Banner */}
+                <div className="relative h-52 w-full overflow-hidden bg-muted">
+                  <img
+                    src={pkg.imageUrl}
+                    alt={isHi ? pkg.titleHi : pkg.titleEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+
+                  <div className="absolute top-4 inset-x-4 flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full bg-white/95 dark:bg-card/95 text-orange-600 dark:text-orange-400 text-[11px] font-bold uppercase tracking-wider shadow-sm backdrop-blur">
+                      {isHi ? pkg.badgeTextHi || "प्रमाणित 2027" : pkg.badgeTextEn || "CERTIFIED 2027"}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-black/40 backdrop-blur text-white text-[10px] font-medium border border-white/20">
+                      Haridwar 2027
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-4 inset-x-4">
+                    <h3 className="font-serif font-bold text-white text-lg leading-snug drop-shadow-sm mb-1 line-clamp-2">
+                      <Link to={detailUrl} className="hover:underline">
+                        {isHi ? pkg.titleHi : pkg.titleEn}
+                      </Link>
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-xs text-orange-200">
+                      <MapPin className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+                      <span className="truncate font-medium">{isHi ? pkg.routeHi || pkg.routeEn : pkg.routeEn}</span>
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
+                        <Calendar className="w-4 h-4 text-orange-600" />
+                        <span>{pkg.duration}</span>
+                      </div>
+                      <span className="px-2.5 py-0.5 rounded-md bg-emerald-600/10 text-emerald-700 dark:text-emerald-400 border border-emerald-600/20 text-[10px] font-bold uppercase tracking-wider">
+                        {isHi ? pkg.categoryTagHi || "पावन तीर्थ" : pkg.categoryTagEn || "TAILOR-MADE"}
+                      </span>
+                    </div>
+
+                    <div className="border-b border-dashed border-border/80 my-3" />
+
+                    <div className="flex items-end justify-between gap-3 mb-4">
+                      <div>
+                        <span className="text-[11px] text-muted-foreground block font-medium">
+                          {isHi ? "व्यक्तिगत कोटेशन" : "Personal quotation"}
+                        </span>
+                        <p className="text-xl font-bold font-serif text-foreground leading-none mt-1">
+                          {pkg.priceStarting}
+                        </p>
+                      </div>
+
+                      <Link
+                        to={detailUrl}
+                        className="px-3 py-1.5 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 font-bold text-xs transition-colors shrink-0"
+                      >
+                        {isHi ? "विवरण देखें" : "View details"}
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 pt-2">
+                    <Link
+                      to={detailUrl}
+                      className="w-full py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                    >
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>{isHi ? "अभी बुक करें" : "Book Now"}</span>
+                    </Link>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href={pkg.pdfCleanUrl || pkg.pdfUrl}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2 px-2 rounded-xl bg-muted/60 hover:bg-muted text-foreground font-semibold text-[11px] transition-colors flex items-center justify-center gap-1.5 border border-border/60"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>PDF</span>
+                      </a>
+
+                      <a
+                        href={`https://wa.me/${KUMBH_SITE.whatsappNumber}?text=${encodeURIComponent(
+                          `Hi Rudraksh Safar, I want to talk to an executive regarding ${pkg.titleEn} (${pkg.duration}).`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2 px-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-semibold text-[11px] transition-colors flex items-center justify-center gap-1.5 border border-emerald-500/20"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>{isHi ? "सलाहकार" : "Executive"}</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="pt-3 border-t border-border/60">
-                <p className="text-[11px] text-muted-foreground italic mb-3">
-                  {isHi ? KUMBH_DISCLAIMERS.pricingDisclaimerHi : KUMBH_DISCLAIMERS.pricingDisclaimer}
-                </p>
-                <Link
-                  to={isHi ? "/hi/kumbh-mela-2027/packages" : "/kumbh-mela-2027/packages"}
-                  className="block w-full py-2 text-center rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-semibold transition-colors"
-                >
-                  {isHi ? "पैकेज विवरण एवं पूछताछ" : "View Details & Enquire"}
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* High-Converting Chhattisgarh Silo Banner */}

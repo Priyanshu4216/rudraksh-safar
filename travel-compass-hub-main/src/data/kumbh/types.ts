@@ -60,20 +60,66 @@ export interface RouteOrigin {
   routes: RouteRow[];
 }
 
+export interface DayPlan {
+  day: number;
+  titleEn: string;
+  titleHi: string;
+  descEn: string;
+  descHi: string;
+  meals?: string;
+  stay?: string;
+  activities?: string[];
+}
+
 export interface PackageTier {
   id: string;
+  slug: string;
   titleEn: string;
   titleHi: string;
   duration: string;
-  priceRangeInr: string; // literal string 'TODO_VERIFY' until supplied
+  departure?: string;
+  routeEn?: string;
+  routeHi?: string;
+  nightStayEn?: string;
+  nightStayHi?: string;
+  hotelProposedEn?: string;
+  hotelProposedHi?: string;
+  mealsEn?: string;
+  mealsHi?: string;
+  priceStarting?: string;
+  priceRangeInr: string;
+  priceNoteEn?: string;
+  priceNoteHi?: string;
+  pdfUrl?: string;
+  pdfCleanUrl?: string;
+  imageUrl?: string;
+  badgeTextEn?: string;
+  badgeTextHi?: string;
+  categoryTagEn?: string;
+  categoryTagHi?: string;
+  idealForEn: string;
+  idealForHi: string;
+  itinerary?: DayPlan[];
+  highlightsEn?: string[];
+  highlightsHi?: string[];
   inclusionsEn: string[];
   inclusionsHi: string[];
   exclusionsEn: string[];
   exclusionsHi: string[];
   cancellationPolicyEn: string;
   cancellationPolicyHi: string;
-  idealForEn: string;
-  idealForHi: string;
+  bookingConditionsEn?: string[];
+  bookingConditionsHi?: string[];
+  paymentPolicyEn?: string[];
+  paymentPolicyHi?: string[];
+  legalDisclaimerEn?: string[];
+  legalDisclaimerHi?: string[];
+  keywords?: string[];
+  metaTitleEn?: string;
+  metaTitleHi?: string;
+  metaDescriptionEn?: string;
+  metaDescriptionHi?: string;
+  faqs?: FAQItem[];
 }
 
 export interface CityDepartureLogistics {
