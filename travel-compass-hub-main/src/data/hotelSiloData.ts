@@ -48,6 +48,8 @@ export interface HotelCityData {
   faqs: HotelFAQ[];
   nearbyCitySlugs: string[];
   lastUpdated: string;
+  /** Set to false while drafting to keep page noindex and out of sitemap-hotels.xml */
+  readyToIndex?: boolean;
 }
 
 export interface HotelStateData {
@@ -61,6 +63,8 @@ export interface HotelStateData {
   highlights: string[];
   faqs: HotelFAQ[];
   lastUpdated: string;
+  /** Set to false while drafting to keep page noindex and out of sitemap-hotels.xml */
+  readyToIndex?: boolean;
 }
 
 export const HOTEL_NAP = {

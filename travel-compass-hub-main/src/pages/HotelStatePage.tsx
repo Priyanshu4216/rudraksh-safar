@@ -44,6 +44,7 @@ export const HotelStatePage: React.FC<HotelStatePageProps> = ({ stateData }) => 
         title={stateData.metaTitle}
         description={stateData.metaDescription}
         canonicalPath={`/hotels/${stateData.slug}`}
+        noindex={stateData.readyToIndex === false}
         breadcrumbs={breadcrumbs}
         faqs={stateData.faqs}
         itemList={{

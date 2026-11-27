@@ -2,11 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rudrakshsafar.com/hotels</loc>
-    <lastmod>2026-11-28</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- State Hubs -->
   <url>
     <loc>https://rudrakshsafar.com/hotels/chhattisgarh</loc>
     <lastmod>2026-11-28</lastmod>
@@ -25,7 +24,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- Chhattisgarh Home Silo Cities -->
   <url>
     <loc>https://rudrakshsafar.com/hotels/bhilai</loc>
     <lastmod>2026-11-28</lastmod>
@@ -50,7 +48,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- Priority Lead Cities -->
   <url>
     <loc>https://rudrakshsafar.com/hotels/manali</loc>
     <lastmod>2026-11-28</lastmod>

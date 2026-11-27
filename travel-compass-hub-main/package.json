@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-indexnow-key.js && node scripts/prerender.js",
+    "sitemap:hotels": "node scripts/generate-hotels-sitemap.mjs",
+    "build": "node scripts/generate-hotels-sitemap.mjs && vite build && node scripts/generate-indexnow-key.js && node scripts/prerender.js",
     "build:dev": "vite build --mode development",
     "check:todo": "node scripts/check-todo.ts",
     "check:uniqueness": "node scripts/check-city-uniqueness.ts",

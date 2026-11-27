@@ -1,0 +1,40 @@
+name: Auto IndexNow on Live Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'travel-compass-hub-main/public/sitemap*.xml'
+      - 'travel-compass-hub-main/src/data/**'
+      - 'travel-compass-hub-main/src/pages/**'
+  workflow_dispatch:
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: travel-compass-hub-main
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies (for sitemap generator)
+        run: npm ci --ignore-scripts
+
+      - name: Regenerate hotel sitemap from ready pages
+        run: node scripts/generate-hotels-sitemap.mjs
+
+      - name: Wait for Cloudflare Pages live rollout
+        run: sleep 90
+
+      - name: Submit all ready sitemap URLs to IndexNow
+        env:
+          INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY || '0b29c2d25285406c999772325726af2e' }}
+        run: node scripts/indexnow.js

@@ -164,7 +164,7 @@ export const HotelCityPage: React.FC<HotelCityPageProps> = ({ cityData }) => {
         title={cityData.metaTitle}
         description={cityData.metaDescription}
         canonicalPath={`/hotels/${cityData.slug}`}
-        noindex={hasQueryParams}
+        noindex={hasQueryParams || cityData.readyToIndex === false}
         breadcrumbs={breadcrumbs}
         faqs={cityData.faqs}
         itemList={{
