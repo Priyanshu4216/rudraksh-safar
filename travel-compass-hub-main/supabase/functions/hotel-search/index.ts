@@ -1,23 +1,43 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "jsr:@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
+import { LITEAPI_BASE_URL, getLiteApiHeaders } from "../_shared/config/liteapi-config.ts";
 
-const LITEAPI_KEY =
-  Deno.env.get('NUITEE_API_KEY') ||
-  Deno.env.get('NUITEE_APT_KEY') ||
-  Deno.env.get('LITEAPI_KEY') ||
-  'sand_c0155ab8-c683-4f26-8f94-b5e92c5797b9';
+const BASE_URL = LITEAPI_BASE_URL;
+const HEADERS = getLiteApiHeaders();
 
-const BASE_URL = 'https://api.liteapi.travel/v3.0';
-const HEADERS = { 'X-API-Key': LITEAPI_KEY, 'Content-Type': 'application/json' };
+const supabaseAdmin = (Deno.env.get('SUPABASE_URL') && Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'))
+  ? createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!)
+  : null;
 
 function sseChunk(data: any): string {
   return `data: ${JSON.stringify(data)}\n\n`;
 }
 
-// ─── Resolve city name → placeId via LiteAPI Places autocomplete ────────────
+// ─── Resolve city name → placeId (with 7-day DB cache) ─────────────────────
 async function resolvePlaceId(query: string): Promise<string | null> {
+  const cacheKey = query.trim().toLowerCase();
+
+  // 1. Check place_id_cache first
+  if (supabaseAdmin) {
+    try {
+      const { data: cached } = await supabaseAdmin
+        .from('place_id_cache')
+        .select('place_id, expires_at')
+        .eq('query_key', cacheKey)
+        .single();
+      if (cached?.place_id && new Date(cached.expires_at) > new Date()) {
+        console.log(`[hotel-search] Cache hit placeId: ${cached.place_id} for "${query}"`);
+        return cached.place_id;
+      }
+    } catch {
+      // Cache miss or table unavailable
+    }
+  }
+
   try {
-    const url = `${BASE_URL}/data/places?text=${encodeURIComponent(query)}&type=city`;
+    // LiteAPI v3 /data/places requires 'textQuery' (not 'text') and omit type=city so regions/towns resolve
+    const url = `${BASE_URL}/data/places?textQuery=${encodeURIComponent(query)}`;
     const resp = await fetch(url, { headers: HEADERS });
     if (!resp.ok) return null;
     const json = await resp.json();
@@ -25,11 +45,37 @@ async function resolvePlaceId(query: string): Promise<string | null> {
     if (places.length === 0) return null;
     const placeId = places[0].placeId || places[0].place_id || places[0].id;
     console.log(`[hotel-search] Resolved placeId: ${placeId} for "${query}"`);
+
+    // 2. Store in place_id_cache (TTL 7 days)
+    if (placeId && supabaseAdmin) {
+      const expiresAt = new Date(Date.now() + 7 * 86400000).toISOString();
+      supabaseAdmin.from('place_id_cache').upsert({
+        query_key: cacheKey,
+        place_id: placeId,
+        display_name: places[0].displayName || query,
+        expires_at: expiresAt,
+      }).then(() => {}).catch(() => {});
+    }
+
     return placeId || null;
   } catch (e: any) {
     console.warn('[hotel-search] Places resolve error:', e.message);
     return null;
   }
+}
+
+function recordSearchMetric(metric: {
+  query_text: string;
+  place_id: string | null;
+  country_code: string;
+  strategy_used: string;
+  hotel_count: number;
+  priced_count: number;
+  latency_ms: number;
+  error_message?: string;
+}) {
+  if (!supabaseAdmin) return;
+  supabaseAdmin.from('hotel_search_metrics').insert(metric).then(() => {}).catch(() => {});
 }
 
 // ─── Country resolution for guestNationality fallback ─────────────────────
@@ -68,7 +114,8 @@ const CITY_COUNTRY: Record<string, string> = {
   'doha': 'QA', 'qatar': 'QA', 'riyadh': 'SA', 'muscat': 'OM',
   'hong kong': 'HK', 'macau': 'MO', 'seoul': 'KR', 'south korea': 'KR',
   'beijing': 'CN', 'shanghai': 'CN', 'china': 'CN', 'taipei': 'TW',
-  'new delhi': 'IN', 'north goa': 'IN', 'south goa': 'IN', 'coorg': 'IN', 'coorg': 'IN',
+  'new delhi': 'IN', 'north goa': 'IN', 'south goa': 'IN', 'coorg': 'IN',
+  'bhilai': 'IN', 'raipur': 'IN', 'durg': 'IN', 'bilaspur': 'IN', 'nagpur': 'IN',
 };
 
 function resolveCountryCode(rawCity: string, passedCode?: string): string {
@@ -123,6 +170,7 @@ serve(async (req) => {
   if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405, headers: corsHeaders });
 
   try {
+    const startTime = Date.now();
     const params = await req.json();
 
     const rawCity = (params.cityName || '').trim();
@@ -136,18 +184,14 @@ serve(async (req) => {
 
     const occupancies = parseOccupancies(params);
     const currency = params.currency || 'INR';
-    // Use passed guestNationality, else derive from destination country, else default IN
-    const guestNationality = params.guestNationality || countryCode || 'IN';
+    // Always use the guest's actual nationality (default IN) — never derive from destination country
+    const guestNationality = params.guestNationality || 'IN';
     const sessionId = params.sessionId || undefined;
     const minStarRating = params.minStarRating ? parseInt(params.minStarRating, 10) : undefined;
     const facilities = params.facilities || undefined;
     const hotelChain = params.hotelChain || undefined;
 
     console.log(`[hotel-search] "${cityOnly}" (${countryCode}) | ${checkin}→${checkout} | ${JSON.stringify(occupancies)} | nationality: ${guestNationality}`);
-
-    // ── STRATEGY: Direct /hotels/rates with placeId + includeHotelData ─────
-    // This is the ONE-CALL approach that returns hotels + rates + photos together,
-    // replacing the old slow 2-step: fetch hotel list → fetch rates.
 
     let resolvedPlaceId = params.placeId || null;
     let hotelId = params.hotelId || null;
@@ -164,8 +208,11 @@ serve(async (req) => {
       currency,
       guestNationality,
       occupancies,
-      timeout: 25,
-      includeHotelData: true,  // ← Returns hotel name, photos, address inline!
+      timeout: 15,             // Supplier aggregation wait (recommended 10-15s)
+      limit: params.limit ? parseInt(params.limit, 10) : 200,
+      maxRatesPerHotel: 1,     // Fast listing: cheapest rate per hotel
+      roomMapping: false,      // Maximum coverage: do not drop unmapped/boutique hotels
+      includeHotelData: true,  // Returns hotel metadata in ratesJson.hotels alongside ratesJson.data
     };
 
     // Add sessionId for price consistency across listing → detail page
@@ -197,37 +244,84 @@ serve(async (req) => {
 
     // Pagination offset
     const pageOffset = parseInt(params.offset || '0', 10);
-    if (pageOffset > 0) ratesBody.offset = pageOffset;
+    const pageLimit = params.limit ? parseInt(params.limit, 10) : 200;
 
-    console.log(`[hotel-search] Calling /hotels/rates with placeId=${resolvedPlaceId || 'N/A'}, includeHotelData=true`);
+    console.log(`[hotel-search] Calling /hotels/rates with placeId=${resolvedPlaceId || 'N/A'}, offset=${pageOffset}, limit=${pageLimit}`);
 
-    // ── Single API call: rates + hotel data together ─────────────────────
-    const ratesResp = await fetch(`${BASE_URL}/hotels/rates`, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify(ratesBody),
-    });
+    // ── Helper: fetch /hotels/rates with 30s HTTP timeout ───────────────────
+    const fetchRates = async (bodyPayload: Record<string, any>) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
+      try {
+        return await fetch(`${BASE_URL}/hotels/rates`, {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify(bodyPayload),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
+    // For offset > 0 (Load More), use 2-step /data/hotels?offset=... -> /hotels/rates { hotelIds }
+    if (pageOffset > 0 && resolvedPlaceId) {
+      const listResp = await fetch(
+        `${BASE_URL}/data/hotels?placeId=${encodeURIComponent(resolvedPlaceId)}&offset=${pageOffset}&limit=${pageLimit}`,
+        { headers: HEADERS }
+      );
+      if (listResp.ok) {
+        const listJson = await listResp.json();
+        const total = listJson.total || 0;
+        const ids = (listJson.data || []).map((h: any) => h.id || h.hotelId).filter(Boolean).slice(0, 200);
+        if (ids.length > 0) {
+          const twoStepBody = { ...ratesBody, hotelIds: ids };
+          delete twoStepBody.placeId;
+          const r2 = await fetchRates(twoStepBody);
+          if (r2.ok) {
+            return streamRatesResponse(await r2.json(), cityOnly, countryCode, currency, {
+              offset: pageOffset,
+              limit: pageLimit,
+              total,
+              hasMore: total > pageOffset + ids.length,
+            });
+          }
+        }
+      }
+    }
+
+    const ratesResp = await fetchRates(ratesBody);
 
     if (!ratesResp.ok) {
       const errText = await ratesResp.text();
       console.error(`[hotel-search] Rates API failed ${ratesResp.status}:`, errText.substring(0, 300));
 
-      // Fallback: try cityName+countryCode if placeId failed
-      if (resolvedPlaceId && (ratesResp.status === 400 || ratesResp.status === 404)) {
-        console.log('[hotel-search] PlaceId failed, falling back to cityName+countryCode');
-        const fallbackBody = { ...ratesBody };
-        delete fallbackBody.placeId;
-        if (cityOnly) {
-          fallbackBody.cityName = cityOnly;
-          fallbackBody.countryCode = countryCode;
+      // Fallback 1: Two-step /data/hotels?placeId=... -> /hotels/rates { hotelIds }
+      if (resolvedPlaceId) {
+        console.log('[hotel-search] Falling back to 2-step /data/hotels?placeId -> /hotels/rates');
+        const listResp = await fetch(`${BASE_URL}/data/hotels?placeId=${encodeURIComponent(resolvedPlaceId)}&limit=200`, { headers: HEADERS });
+        if (listResp.ok) {
+          const listJson = await listResp.json();
+          const ids = (listJson.data || []).map((h: any) => h.id || h.hotelId).filter(Boolean).slice(0, 200);
+          if (ids.length > 0) {
+            const twoStepBody = { ...ratesBody, hotelIds: ids };
+            delete twoStepBody.placeId;
+            const r2 = await fetchRates(twoStepBody);
+            if (r2.ok) {
+              return streamRatesResponse(await r2.json(), cityOnly, countryCode, currency);
+            }
+          }
         }
-        const fallbackResp = await fetch(`${BASE_URL}/hotels/rates`, {
-          method: 'POST',
-          headers: HEADERS,
-          body: JSON.stringify(fallbackBody),
-        });
+      }
+
+      // Fallback 2: cityName + countryCode
+      if (resolvedPlaceId && cityOnly) {
+        console.log('[hotel-search] Falling back to cityName+countryCode');
+        const fallbackBody = { ...ratesBody, cityName: cityOnly, countryCode };
+        delete fallbackBody.placeId;
+        const fallbackResp = await fetchRates(fallbackBody);
         if (fallbackResp.ok) {
-          return streamRatesResponse(await fallbackResp.json(), cityOnly, countryCode);
+          return streamRatesResponse(await fallbackResp.json(), cityOnly, countryCode, currency);
         }
       }
 
@@ -246,7 +340,40 @@ serve(async (req) => {
     }
 
     const ratesJson = await ratesResp.json();
-    return streamRatesResponse(ratesJson, cityOnly, countryCode);
+    // If placeId returned 0 hotels, try cityName+countryCode fallback before giving up
+    const dataCount = Array.isArray(ratesJson.data) ? ratesJson.data.length : (ratesJson.hotels?.length || 0);
+    if (dataCount === 0 && resolvedPlaceId && cityOnly) {
+      console.log('[hotel-search] 0 results for placeId, trying cityName+countryCode fallback');
+      const fallbackBody = { ...ratesBody, cityName: cityOnly, countryCode };
+      delete fallbackBody.placeId;
+      const fallbackResp = await fetchRates(fallbackBody);
+      if (fallbackResp.ok) {
+        const fbJson = await fallbackResp.json();
+        const fbCount = Array.isArray(fbJson.data) ? fbJson.data.length : (fbJson.hotels?.length || 0);
+        recordSearchMetric({
+          query_text: cityOnly,
+          place_id: resolvedPlaceId,
+          country_code: countryCode,
+          strategy_used: 'cityName_fallback',
+          hotel_count: fbCount,
+          priced_count: fbCount,
+          latency_ms: Date.now() - startTime,
+        });
+        return streamRatesResponse(fbJson, cityOnly, countryCode, currency);
+      }
+    }
+
+    recordSearchMetric({
+      query_text: cityOnly || hotelId || 'geo',
+      place_id: resolvedPlaceId,
+      country_code: countryCode,
+      strategy_used: hotelId ? 'hotelId' : (resolvedPlaceId ? 'placeId' : 'cityName'),
+      hotel_count: dataCount,
+      priced_count: dataCount,
+      latency_ms: Date.now() - startTime,
+    });
+
+    return streamRatesResponse(ratesJson, cityOnly, countryCode, currency);
 
   } catch (err: any) {
     console.error('[hotel-search] Fatal error:', err.message, err.stack);
@@ -258,12 +385,48 @@ serve(async (req) => {
 });
 
 // ─── Transform & Stream the /hotels/rates response ───────────────────────
-function streamRatesResponse(ratesJson: any, cityOnly: string, countryCode: string): Response {
-  const rawHotels: any[] = ratesJson.data?.hotels || ratesJson.hotels || (Array.isArray(ratesJson.data) ? ratesJson.data : []);
+function streamRatesResponse(
+  ratesJson: any,
+  cityOnly: string,
+  countryCode: string,
+  defaultCurrency: string = 'INR',
+  metaInfo?: { offset: number; limit: number; total?: number; hasMore?: boolean }
+): Response {
+  // LiteAPI v3 /hotels/rates with includeHotelData=true returns TWO separate arrays:
+  //   ratesJson.hotels -> metadata ({ id, name, main_photo, thumbnail, address, city_name, country_code, rating, stars, ... })
+  //   ratesJson.data   -> rate offers ({ hotelId, roomTypes: [{ offerId, offerRetailRate, rates: [...] }] })
+  const metaList: any[] = Array.isArray(ratesJson.hotels) ? ratesJson.hotels : [];
+  const rateList: any[] = Array.isArray(ratesJson.data)
+    ? ratesJson.data
+    : (Array.isArray(ratesJson.data?.hotels) ? ratesJson.data.hotels : []);
 
-  console.log(`[hotel-search] /hotels/rates returned ${rawHotels.length} hotels with rates`);
+  const metaById = new Map<string, any>();
+  for (const h of metaList) {
+    const id = h.id || h.hotelId;
+    if (id) metaById.set(id, h);
+  }
 
-  if (rawHotels.length === 0) {
+  const ratesById = new Map<string, any>();
+  for (const d of rateList) {
+    const id = d.hotelId || d.id;
+    if (id) ratesById.set(id, d);
+  }
+
+  // Union of all hotel IDs (prefer rateList order, then any remaining metaList)
+  const orderedIds: string[] = [];
+  const seen = new Set<string>();
+  for (const d of rateList) {
+    const id = d.hotelId || d.id;
+    if (id && !seen.has(id)) { seen.add(id); orderedIds.push(id); }
+  }
+  for (const h of metaList) {
+    const id = h.id || h.hotelId;
+    if (id && !seen.has(id)) { seen.add(id); orderedIds.push(id); }
+  }
+
+  console.log(`[hotel-search] /hotels/rates returned ${orderedIds.length} hotels (${rateList.length} with rates, ${metaList.length} with metadata)`);
+
+  if (orderedIds.length === 0) {
     const emptyStream = new ReadableStream({
       start(c) {
         const enc = new TextEncoder();
@@ -277,53 +440,75 @@ function streamRatesResponse(ratesJson: any, cityOnly: string, countryCode: stri
     });
   }
 
-  // Process hotels and extract rates
   const finalHotels: any[] = [];
   const ratesForFrontend: any[] = [];
 
-  for (const item of rawHotels) {
-    const hotelId = item.hotelId || item.id;
-    if (!hotelId) continue;
-
-    // Hotel metadata — comes via includeHotelData=true
-    const meta = item.hotelData || item.hotel || {};
-    const mainPhoto = getPhoto(item) || getPhoto(meta);
+  for (const hotelId of orderedIds) {
+    const rateEntry = ratesById.get(hotelId) || {};
+    const meta = metaById.get(hotelId) || rateEntry.hotelData || rateEntry.hotel || {};
+    const mainPhoto = getPhoto(meta) || getPhoto(rateEntry);
 
     const hotelObj = {
       id: hotelId,
       hotelId,
-      name: item.name || meta.name || meta.hotelName || '',
-      address: item.address || meta.address || meta.hotelAddress || '',
-      city: item.city || meta.city || meta.cityName || cityOnly,
-      country: item.country || meta.country || meta.countryCode || countryCode,
-      stars: item.stars ?? item.starRating ?? meta.stars ?? meta.starRating ?? null,
-      reviewScore: item.reviewScore ?? item.guestScore ?? meta.reviewScore ?? null,
+      name: meta.name || meta.hotelName || rateEntry.name || '',
+      address: meta.address || meta.hotelAddress || rateEntry.address || '',
+      city: meta.city_name || meta.city || meta.cityName || rateEntry.city || cityOnly,
+      country: meta.country_code || meta.country || meta.countryCode || rateEntry.country || countryCode,
+      stars: meta.stars ?? meta.starRating ?? rateEntry.stars ?? rateEntry.starRating ?? null,
+      reviewScore: meta.rating ?? meta.reviewScore ?? meta.guestScore ?? rateEntry.reviewScore ?? null,
+      reviewCount: meta.review_count ?? meta.reviewCount ?? null,
       main_photo: mainPhoto,
-      thumbnail: mainPhoto,
-      latitude: item.latitude || meta.latitude || null,
-      longitude: item.longitude || meta.longitude || null,
+      thumbnail: meta.thumbnail || mainPhoto,
+      latitude: meta.latitude ?? rateEntry.latitude ?? null,
+      longitude: meta.longitude ?? rateEntry.longitude ?? null,
     };
     finalHotels.push(hotelObj);
 
-    // Extract cheapest rate for this hotel
-    const allRoomRates: any[] = item.roomTypes?.flatMap((rt: any) => rt.rates || []) || [];
-    if (allRoomRates.length > 0) {
-      const cheapest = allRoomRates.reduce((a: any, b: any) => {
-        const aP = a.finalRate ?? a.retailRate?.total?.[0]?.amount ?? 999999;
-        const bP = b.finalRate ?? b.retailRate?.total?.[0]?.amount ?? 999999;
-        return aP < bP ? a : b;
-      });
-      ratesForFrontend.push({
-        hotelId,
-        finalRate: cheapest.finalRate ?? cheapest.retailRate?.total?.[0]?.amount ?? null,
-        initialRate: cheapest.retailRate?.initialPrice ?? cheapest.initialRate ?? null,
-        currency: cheapest.currency || cheapest.retailRate?.total?.[0]?.currency || 'INR',
-        offerId: cheapest.offerId,
-        roomName: cheapest.roomName || cheapest.name || '',
-        promotions: cheapest.promotions || [],
-        perks: cheapest.perks || [],
-        roomTypes: item.roomTypes,
-      });
+    const roomTypes: any[] = rateEntry.roomTypes || [];
+    if (roomTypes.length > 0) {
+      // Find cheapest roomType offer
+      let cheapestRt: any = null;
+      let cheapestRateObj: any = null;
+      let cheapestPrice = Infinity;
+
+      for (const rt of roomTypes) {
+        const firstRate = rt.rates?.[0];
+        const rtPrice =
+          rt.offerRetailRate?.amount ??
+          firstRate?.retailRate?.total?.[0]?.amount ??
+          firstRate?.finalRate ??
+          Infinity;
+        if (typeof rtPrice === 'number' && rtPrice < cheapestPrice) {
+          cheapestPrice = rtPrice;
+          cheapestRt = rt;
+          cheapestRateObj = firstRate;
+        }
+      }
+
+      if (cheapestRt && cheapestPrice < Infinity) {
+        ratesForFrontend.push({
+          hotelId,
+          finalRate: cheapestPrice,
+          initialRate:
+            cheapestRt.offerInitialPrice?.amount ??
+            cheapestRateObj?.retailRate?.initialPrice?.[0]?.amount ??
+            cheapestRateObj?.initialRate ??
+            null,
+          currency:
+            cheapestRt.offerRetailRate?.currency ||
+            cheapestRateObj?.retailRate?.total?.[0]?.currency ||
+            cheapestRateObj?.currency ||
+            defaultCurrency,
+          offerId: cheapestRt.offerId || cheapestRateObj?.offerId,
+          roomName: cheapestRateObj?.name || cheapestRateObj?.roomName || '',
+          boardType: cheapestRateObj?.boardType || null,
+          boardName: cheapestRateObj?.boardName || null,
+          promotions: cheapestRateObj?.promotions || [],
+          perks: cheapestRateObj?.perks || [],
+          roomTypes,
+        });
+      }
     }
   }
 
@@ -339,6 +524,14 @@ function streamRatesResponse(ratesJson: any, cityOnly: string, countryCode: stri
       if (ratesForFrontend.length > 0) {
         controller.enqueue(enc.encode(sseChunk({ rates: ratesForFrontend })));
       }
+      controller.enqueue(enc.encode(sseChunk({
+        meta: {
+          offset: metaInfo?.offset ?? 0,
+          limit: metaInfo?.limit ?? 200,
+          total: metaInfo?.total ?? finalHotels.length,
+          hasMore: metaInfo?.hasMore ?? finalHotels.length >= 100,
+        }
+      })));
       controller.enqueue(enc.encode(`data: [DONE]\n\n`));
       controller.close();
     }

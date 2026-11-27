@@ -43,7 +43,8 @@ export class HotelPrebookService {
       
       const rawResponse = await liteApiClient.request<any>('/rates/prebook', {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        timeoutMs: 120000, // Prebook can take up to 2 minutes per LiteAPI docs
       });
 
       // 3. Update Prebook Reference

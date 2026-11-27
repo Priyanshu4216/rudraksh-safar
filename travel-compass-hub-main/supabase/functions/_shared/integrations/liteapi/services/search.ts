@@ -93,16 +93,18 @@ export class HotelSearchService {
     // 4. Map to Public DTO
     const publicData = HotelMapper.toPublicDtoList(hotels);
 
-    // 4. Update Cache (TTL 15 minutes)
-    const expiresAt = new Date();
-    expiresAt.setMinutes(expiresAt.getMinutes() + 15);
+    // 4. Update Cache (TTL 15 minutes) — NEVER cache empty results
+    if (publicData.length > 0) {
+      const expiresAt = new Date();
+      expiresAt.setMinutes(expiresAt.getMinutes() + 15);
 
-    await this.supabase.from('hotel_search_cache').upsert({
-      hash_key: hashKey,
-      request_payload: params,
-      response_data: publicData,
-      expires_at: expiresAt.toISOString()
-    });
+      await this.supabase.from('hotel_search_cache').upsert({
+        hash_key: hashKey,
+        request_payload: params,
+        response_data: publicData,
+        expires_at: expiresAt.toISOString()
+      });
+    }
 
     return publicData;
   }

@@ -1,17 +1,12 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { corsHeaders } from "../_shared/cors.ts";
-
-const LITEAPI_KEY =
-  Deno.env.get('NUITEE_API_KEY') ||
-  Deno.env.get('NUITEE_APT_KEY') ||
-  Deno.env.get('LITEAPI_KEY') ||
-  'sand_c0155ab8-c683-4f26-8f94-b5e92c5797b9';
+import { LITEAPI_BASE_URL, getLiteApiHeaders } from "../_shared/config/liteapi-config.ts";
 
 /**
  * hotel-places — Autocomplete for the search bar destination input
  * 
- * Calls LiteAPI /data/places which returns cities, regions, airports, and hotels.
- * Supports filtering by type: 'city', 'hotel', 'airport', or omit for all types.
+ * Calls LiteAPI /data/places?textQuery=... which returns cities, regions, airports, and hotels.
+ * Supports filtering by type (e.g. 'locality', 'hotel', 'airport') or omit for all types.
  */
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -20,9 +15,7 @@ serve(async (req) => {
 
   try {
     const url = new URL(req.url);
-    const text = url.searchParams.get('text') || '';
-    // Support querying cities, hotels, or all types
-    // When not specified, LiteAPI returns all types including hotels by name
+    const text = url.searchParams.get('text') || url.searchParams.get('textQuery') || '';
     const type = url.searchParams.get('type') || '';
     const limit = url.searchParams.get('limit') || '10';
 
@@ -32,18 +25,15 @@ serve(async (req) => {
       });
     }
 
-    // Build LiteAPI places URL
-    const apiUrl = new URL('https://api.liteapi.travel/v3.0/data/places');
-    apiUrl.searchParams.set('text', text.trim());
+    // Build LiteAPI places URL — parameter MUST be 'textQuery' per LiteAPI v3 spec
+    const apiUrl = new URL(`${LITEAPI_BASE_URL}/data/places`);
+    apiUrl.searchParams.set('textQuery', text.trim());
     if (type) apiUrl.searchParams.set('type', type);
 
     console.log(`[hotel-places] Fetching: ${apiUrl.toString()}`);
 
     const resp = await fetch(apiUrl.toString(), {
-      headers: {
-        'X-API-Key': LITEAPI_KEY,
-        'Content-Type': 'application/json',
-      },
+      headers: getLiteApiHeaders(),
     });
 
     if (!resp.ok) {
@@ -55,21 +45,43 @@ serve(async (req) => {
     }
 
     const json = await resp.json();
-    const places: any[] = json.data || json.places || (Array.isArray(json) ? json : []);
+    const rawPlaces: any[] = json.data || json.places || (Array.isArray(json) ? json : []);
+
+    // Filter out irrelevant POI noise (doctors, grocery stores, etc.) while keeping cities, regions, airports, and hotels
+    const places = rawPlaces.filter((p: any) => {
+      const types: string[] = Array.isArray(p.types) ? p.types : [];
+      if (types.length === 0) return true;
+      const isTravelRelevant = types.some((t) =>
+        ['locality', 'administrative_area_level_1', 'administrative_area_level_2', 'country', 'geocode', 'political', 'airport', 'lodging', 'hotel', 'tourist_attraction', 'natural_feature', 'island'].includes(t)
+      );
+      const isNoise = types.some((t) => ['doctor', 'health', 'dentist', 'store', 'grocery_store', 'liquor_store', 'food_store'].includes(t));
+      return isTravelRelevant || !isNoise;
+    });
 
     // Normalize the response so the frontend has a consistent shape
-    const normalized = places.slice(0, parseInt(limit, 10)).map((p: any) => ({
-      placeId: p.placeId || p.place_id || null,
-      displayName: p.displayName || p.name || p.label || text,
-      cityName: p.cityName || p.name || p.displayName?.split(',')[0] || text,
-      countryCode: p.countryCode || p.country_code || null,
-      countryName: p.countryName || null,
-      // Hotel-specific fields
-      hotelId: p.hotelId || p.hotel_id || null,
-      hotelName: p.hotelName || null,
-      // Type: 'city', 'hotel', 'region', 'airport', etc.
-      type: p.type || (p.hotelId ? 'hotel' : 'city'),
-    }));
+    const normalized = (places.length > 0 ? places : rawPlaces).slice(0, parseInt(limit, 10)).map((p: any) => {
+      const types: string[] = Array.isArray(p.types) ? p.types : [];
+      const inferredType = p.type
+        || (p.hotelId || types.includes('lodging') ? 'hotel'
+          : types.includes('airport') ? 'airport'
+          : 'city');
+
+      const displayName = p.displayName
+        ? (p.formattedAddress ? `${p.displayName}, ${p.formattedAddress}` : p.displayName)
+        : (p.name || p.label || text);
+
+      return {
+        placeId: p.placeId || p.place_id || null,
+        displayName,
+        cityName: p.cityName || p.displayName || p.name || text,
+        formattedAddress: p.formattedAddress || null,
+        countryCode: p.countryCode || p.country_code || null,
+        countryName: p.countryName || p.formattedAddress || null,
+        hotelId: p.hotelId || p.hotel_id || null,
+        hotelName: p.hotelName || (inferredType === 'hotel' ? p.displayName : null),
+        type: inferredType,
+      };
+    });
 
     console.log(`[hotel-places] Found ${normalized.length} places for "${text}"`);
 

@@ -1,14 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { corsHeaders } from "../_shared/cors.ts";
+import { LITEAPI_BASE_URL, getLiteApiHeaders } from "../_shared/config/liteapi-config.ts";
 
-const LITEAPI_KEY =
-  Deno.env.get('NUITEE_API_KEY') ||
-  Deno.env.get('NUITEE_APT_KEY') ||
-  Deno.env.get('LITEAPI_KEY') ||
-  'sand_c0155ab8-c683-4f26-8f94-b5e92c5797b9';
-
-const BASE_URL = 'https://api.liteapi.travel/v3.0';
-const HEADERS = { 'X-API-Key': LITEAPI_KEY, 'Content-Type': 'application/json' };
+const BASE_URL = LITEAPI_BASE_URL;
+const HEADERS = getLiteApiHeaders();
 
 /**
  * hotel-min-rates — Fast minimum price endpoint for listing pages
@@ -52,7 +47,7 @@ serve(async (req) => {
       currency,
       guestNationality,
       occupancies,
-      timeout: 10,
+      timeout: 15,
     };
 
     if (params.sessionId) body.sessionId = params.sessionId;
@@ -75,7 +70,7 @@ serve(async (req) => {
     }
 
     const json = await resp.json();
-    const rawData: any[] = json.data?.hotels || json.hotels || (Array.isArray(json.data) ? json.data : []);
+    const rawData: any[] = Array.isArray(json.data) ? json.data : (json.data?.hotels || json.hotels || []);
 
     // Transform into a simple map: hotelId → { minRate, currency }
     const minRatesMap: Record<string, { hotelId: string; minRate: number; currency: string }> = {};

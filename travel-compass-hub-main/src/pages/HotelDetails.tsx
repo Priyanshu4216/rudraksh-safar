@@ -5,6 +5,13 @@ import { useCurrency } from "../contexts/CurrencyContext";
 import { BookingStepper } from "../components/BookingStepper";
 import Navbar from "../components/Navbar";
 
+// Shared currency symbol map — covers all major currencies LiteAPI returns
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  INR: '₹', USD: '$', EUR: '€', GBP: '£', AED: 'د.إ',
+  SGD: 'S$', AUD: 'A$', CAD: 'C$', THB: '฿', IDR: 'Rp ',
+  MYR: 'RM ', JPY: '¥', CNY: '¥', HKD: 'HK$', CHF: 'Fr ',
+};
+
 const RoomCardItem: React.FC<{
   offer: any;
   idx: number;
@@ -16,46 +23,90 @@ const RoomCardItem: React.FC<{
   id: string;
   navigate: any;
 }> = ({ offer, idx, details, currency, checkInDate, checkOutDate, guestInfo, id, navigate }) => {
-  const rate = offer.rates?.[0] || offer;
-  const offerId = rate.offerId || offer.offerId || rate.rateId || offer.rateId || idx;
-  const roomName = offer.name || rate.name || "Standard Room";
-  const mappedRoomId = offer.mappedRoomId || rate.mappedRoomId;
-  const maxOccupancy = offer.maxOccupancy || rate.maxOccupancy || 2;
+  // ── LiteAPI v3 roomType shape ──────────────────────────────────────────────
+  // offer = { offerId, name, maxOccupancy, boardType, boardName, offerRetailRate,
+  //           offerInitialPrice, rates: [{ rateId, boardName, boardType,
+  //             cancellationPolicies, taxesAndFees, perks, promotions, ... }] }
+  const nestedRate = offer.rates?.[0] || {};
 
+  // offerId for checkout navigation — must be a valid API UUID
+  const offerId = offer.offerId || nestedRate.offerId || offer.rateId || nestedRate.rateId;
+  if (!offerId) console.warn('[RoomCard] No offerId on offer idx:', idx, offer);
+
+  // Room name: prefer offer.name, then nested rate name
+  const roomName = offer.name || nestedRate.name || offer.roomType || nestedRate.roomType || 'Room';
+
+  // Max occupancy from API — do NOT hardcode
+  const maxOccupancy: number | null = offer.maxOccupancy ?? nestedRate.maxOccupancy ?? null;
+
+  // Match against hotel detail rooms for photos/specs
+  const mappedRoomId = offer.mappedRoomId || nestedRate.mappedRoomId;
   const matchedRoom = details?.rooms?.find((r: any) =>
     mappedRoomId ? r.id === mappedRoomId : r.roomName === roomName
   );
 
-  const totalAmount = typeof rate.retailRate === 'number' 
-    ? rate.retailRate 
-    : rate.retailRate?.total?.[0]?.amount || rate.price || rate.retailRate;
-  
-  const initialAmount = rate.retailRate?.initialPrice || rate.sellerRate || null;
-  const hasDiscount = initialAmount && totalAmount && initialAmount > totalAmount;
-  const topPromo = rate.retailRate?.promotions?.[0] || rate.promotions?.[0];
-  const taxesAmount = rate.retailRate?.taxesAndFees?.[0]?.amount || rate.taxes || 0;
+  // ── Price extraction — LiteAPI v3 uses offerRetailRate.amount ──────────────
+  const totalAmount: number | null =
+    offer.offerRetailRate?.amount ??
+    (typeof nestedRate.retailRate === 'number' ? nestedRate.retailRate : null) ??
+    nestedRate.retailRate?.total?.[0]?.amount ??
+    offer.price ??
+    null;
 
-  // Photos
+  const initialAmount: number | null =
+    offer.offerInitialPrice?.amount ??
+    nestedRate.retailRate?.initialPrice ??
+    null;
+
+  const hasDiscount = initialAmount != null && totalAmount != null && initialAmount > totalAmount;
+
+  // Board / meal plan — v3: offer.boardType / offer.boardName or nested rate
+  const boardName = offer.boardName || nestedRate.boardName || null;
+  const boardType = offer.boardType || nestedRate.boardType || null;
+
+  // Cancellation — v3 nests it in rates[0].cancellationPolicies
+  const cancellationPolicies = nestedRate.cancellationPolicies || offer.cancellationPolicies;
+  const isRefundable = cancellationPolicies?.refundableTag === 'RFN';
+
+  // Promotions & perks — in nested rate
+  const topPromo = (nestedRate.promotions?.[0] || offer.promotions?.[0]) ?? null;
+  const ratePerks: any[] = nestedRate.perks || offer.perks || [];
+
+  // Taxes — in nested rate
+  const taxesAmount: number =
+    nestedRate.taxesAndFees?.[0]?.amount ??
+    offer.taxesAndFees?.[0]?.amount ??
+    0;
+
+  // ── Photos ─────────────────────────────────────────────────────────────────
   const photos = matchedRoom?.photos || [];
   const [photoIndex, setPhotoIndex] = useState(0);
-  const currentPhoto = photos[photoIndex]?.url || matchedRoom?.main_photo || details?.main_photo || details?.images?.[0]?.url || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80';
+  const currentPhoto =
+    photos[photoIndex]?.url ||
+    matchedRoom?.main_photo ||
+    details?.main_photo ||
+    details?.images?.[0]?.url ||
+    'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80';
 
-  // Room facilities: prefer room facilities -> hotel amenities -> rate perks -> room defaults
-  const rawFacilities =
-    (matchedRoom?.facilities && matchedRoom.facilities.length > 0)
-      ? matchedRoom.facilities.map((f: any) => typeof f === 'string' ? f : f.name || f)
-      : (details?.amenities && details.amenities.length > 0)
-        ? details.amenities.map((a: any) => typeof a === 'string' ? a : a.name || a)
-        : (rate?.perks && rate.perks.length > 0)
-          ? rate.perks.map((p: any) => typeof p === 'string' ? p : p.name || p)
-          : ['Heater', 'Mineral Water', 'Laundry Service', 'Air Conditioning', 'Housekeeping', 'Ironing Board'];
+  // ── Facilities — NEVER use a hardcoded list; show nothing if data missing ──
+  const rawFacilities: string[] =
+    (matchedRoom?.facilities?.length > 0)
+      ? matchedRoom.facilities.map((f: any) => typeof f === 'string' ? f : (f.name || f))
+      : (details?.amenities?.length > 0)
+        ? details.amenities.map((a: any) => typeof a === 'string' ? a : (a.name || a))
+        : ratePerks.length > 0
+          ? ratePerks.map((p: any) => typeof p === 'string' ? p : (p.name || p))
+          : [];
 
   const roomFacilities: string[] = Array.from(new Set(rawFacilities)).slice(0, 6);
 
-  const currencySymbol = currency === "INR" ? "₹" : currency === "USD" ? "$" : currency + " ";
-  const displayPrice = totalAmount != null ? Math.round(totalAmount).toLocaleString("en-IN") : "";
-  const displayInitialPrice = initialAmount ? Math.round(initialAmount).toLocaleString("en-IN") : "";
-  const displayTaxes = taxesAmount > 0 ? Math.round(taxesAmount).toLocaleString("en-IN") : "";
+  // ── Currency display ───────────────────────────────────────────────────────
+  const offerCurrency = offer.offerRetailRate?.currency || nestedRate.retailRate?.total?.[0]?.currency || currency;
+  const currencySymbol = CURRENCY_SYMBOLS[offerCurrency] ?? (offerCurrency + ' ');
+
+  const displayPrice = totalAmount != null ? Math.round(totalAmount).toLocaleString('en-IN') : '';
+  const displayInitialPrice = initialAmount != null ? Math.round(initialAmount).toLocaleString('en-IN') : '';
+  const displayTaxes = taxesAmount > 0 ? Math.round(taxesAmount).toLocaleString('en-IN') : '';
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0">
@@ -100,9 +151,9 @@ const RoomCardItem: React.FC<{
             <h3 className="text-base font-extrabold text-gray-900 uppercase tracking-tight line-clamp-2">
               {roomName}
             </h3>
-            {maxOccupancy && (
+            {maxOccupancy != null && (
               <span className="text-xs font-semibold text-gray-500 shrink-0 mt-0.5">
-                Max {maxOccupancy} Guests
+                Max {maxOccupancy} Guest{maxOccupancy !== 1 ? 's' : ''}
               </span>
             )}
           </div>
@@ -127,10 +178,12 @@ const RoomCardItem: React.FC<{
                 <span>{matchedRoom.view}</span>
               </div>
             )}
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400">🚿</span>
-              <span>{matchedRoom?.bathrooms || 1} Bathroom{(matchedRoom?.bathrooms || 1) > 1 ? 's' : ''}</span>
-            </div>
+            {matchedRoom?.bathrooms && (
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400">🚿</span>
+                <span>{matchedRoom.bathrooms} Bathroom{matchedRoom.bathrooms > 1 ? 's' : ''}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -140,7 +193,7 @@ const RoomCardItem: React.FC<{
         <div>
           {/* Rate Title */}
           <h4 className="text-lg font-extrabold text-gray-900 mb-3 leading-snug">
-            {roomName} {rate.cancellationPolicies?.refundableTag === "RFN" ? "| Free Cancellation" : ""} {rate.boardName ? `| ${rate.boardName}` : ""}
+            {roomName}{isRefundable ? ' | Free Cancellation' : ''}{boardName ? ` | ${boardName}` : boardType ? ` | ${boardType}` : ''}
           </h4>
 
           {/* Inclusions list with icons */}
@@ -152,10 +205,10 @@ const RoomCardItem: React.FC<{
               </div>
             )}
 
-            {rate.boardName && (
+            {boardName && (
               <div className="flex items-center gap-2 text-gray-700">
                 <span>☕</span>
-                <span>{rate.boardName}</span>
+                <span>{boardName}</span>
               </div>
             )}
 
@@ -167,7 +220,7 @@ const RoomCardItem: React.FC<{
             )}
 
             {/* 2-Column Bulleted Room Amenities directly under bed spec */}
-            {roomFacilities.length > 0 && (
+            {roomFacilities.length > 0 ? (
               <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 my-3 pt-2 text-xs text-gray-600 font-medium max-w-md">
                 {roomFacilities.slice(0, 6).map((fac: string, i: number) => (
                   <div key={i} className="flex items-center gap-1.5 truncate">
@@ -176,9 +229,11 @@ const RoomCardItem: React.FC<{
                   </div>
                 ))}
               </div>
+            ) : (
+              <p className="text-xs text-gray-400 italic my-3">Room facilities not listed</p>
             )}
 
-            {rate.cancellationPolicies?.refundableTag === "RFN" && (
+            {isRefundable && (
               <div className="flex items-center gap-1.5 text-emerald-600 font-bold mt-3">
                 <span>✓</span>
                 <span>Free Cancellation till 24 hrs before check in</span>
@@ -209,11 +264,15 @@ const RoomCardItem: React.FC<{
 
           <button
             type="button"
-            onClick={() =>
+            onClick={() => {
+              if (!offerId || typeof offerId === 'number') {
+                alert('Room offer ID is unavailable. Please refresh rates and try again.');
+                return;
+              }
               navigate(`/checkout/${offerId}`, {
                 state: {
                   price: totalAmount,
-                  currency: currency,
+                  currency: offerCurrency,
                   roomName: roomName,
                   hotelName: details.name,
                   hotelAddress: `${details.address}, ${details.city}, ${details.country}`,
@@ -221,11 +280,11 @@ const RoomCardItem: React.FC<{
                   hotelId: id,
                   checkin: checkInDate,
                   checkout: checkOutDate,
-                  adults: guestInfo,
-                  boardName: rate.boardName || 'Room Only',
+                  adults: parseInt(guestInfo, 10) || 2,
+                  boardName: boardName || boardType || 'Room Only',
                 }
-              })
-            }
+              });
+            }}
             className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg shadow-orange-200 transition-all hover:scale-105 active:scale-95 text-center shrink-0"
           >
             SELECT ROOM
@@ -249,6 +308,8 @@ export const HotelDetails = () => {
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [weather, setWeather] = useState<any[]>([]);
   const [ratesLoading, setRatesLoading] = useState(true);
+  const [ratesFetchedAt, setRatesFetchedAt] = useState<number | null>(null);
+  const [rateAgeMinutes, setRateAgeMinutes] = useState(0);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const stateParams = (location.state as any) || {};
@@ -275,7 +336,8 @@ export const HotelDetails = () => {
   };
 
   const initialChkIn = sanitizeDate(rawChkIn, tomorrowStr);
-  const initialChkOut = sanitizeDate(rawChkOut, dayAfterTomorrowStr);
+  const threeNightsOut = new Date(new Date(initialChkIn).getTime() + 86400000 * 3).toISOString().split("T")[0];
+  const initialChkOut = sanitizeDate(rawChkOut, threeNightsOut);
 
   const [checkInDate, setCheckInDate] = useState(initialChkIn);
   const [checkOutDate, setCheckOutDate] = useState(initialChkOut);
@@ -288,8 +350,11 @@ export const HotelDetails = () => {
         chkOut: outDate,
         guestInfo: guestInfo,
         currency: currency,
+        sessionId: sessionStorage.getItem('hotel_search_session_id') || undefined,
       });
       setRates(ratesData);
+      setRatesFetchedAt(Date.now());
+      setRateAgeMinutes(0);
     } catch (e) {
       console.error("Rates fetch failed", e);
       setRates(null);
@@ -312,6 +377,7 @@ export const HotelDetails = () => {
             chkOut: checkOutDate,
             guestInfo: guestInfo,
             currency: currency,
+            sessionId: sessionStorage.getItem('hotel_search_session_id') || undefined,
           }).catch((err) => {
             console.error("Rates fetch failed", err);
             return null;
@@ -326,6 +392,8 @@ export const HotelDetails = () => {
         setDetails(detailsObj);
         console.log('[HotelDetails] Rates fetched:', ratesData);
         setRates(ratesData);
+        setRatesFetchedAt(Date.now());
+        setRateAgeMinutes(0);
         setRatesLoading(false);
         setReviews(reviewsData || null);
 
@@ -347,6 +415,15 @@ export const HotelDetails = () => {
     };
     fetchHotelData();
   }, [id, currency]);
+
+  // Track elapsed minutes since rates were fetched (15-min offerId expiry indicator)
+  useEffect(() => {
+    if (!ratesFetchedAt) return;
+    const interval = setInterval(() => {
+      setRateAgeMinutes(Math.floor((Date.now() - ratesFetchedAt) / 60000));
+    }, 30000);
+    return () => clearInterval(interval);
+  }, [ratesFetchedAt]);
 
   if (loading) {
     return (
@@ -594,9 +671,33 @@ export const HotelDetails = () => {
             <section className="border-t border-gray-200 pt-8">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    Available Rooms
-                  </h2>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      Available Rooms
+                    </h2>
+                    {ratesFetchedAt && !ratesLoading && (
+                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border ${
+                        rateAgeMinutes >= 15
+                          ? 'bg-amber-50 text-amber-800 border-amber-200'
+                          : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                      }`}>
+                        <span>
+                          {rateAgeMinutes >= 15
+                            ? `Rates expired (${rateAgeMinutes}m old)`
+                            : rateAgeMinutes === 0
+                              ? 'Rates live · Just updated'
+                              : `Rates live · ${rateAgeMinutes}m ago (${15 - rateAgeMinutes}m left)`}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => fetchRatesForDates(checkInDate, checkOutDate)}
+                          className="underline font-bold hover:opacity-80 cursor-pointer"
+                        >
+                          Refresh
+                        </button>
+                      </div>
+                    )}
+                  </div>
                   <p className="text-sm text-gray-500 mt-0.5">
                     Showing prices for {checkInDate} to {checkOutDate} ({guestInfo} Guests)
                   </p>

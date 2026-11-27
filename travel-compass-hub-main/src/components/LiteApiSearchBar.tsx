@@ -52,18 +52,18 @@ interface GuestConfig {
 }
 
 const TRENDING_DESTINATIONS = [
-  { cityName: 'Goa', countryCode: 'IN', type: 'city', displayName: 'Goa, India', placeId: null },
-  { cityName: 'Manali', countryCode: 'IN', type: 'city', displayName: 'Manali, Himachal Pradesh, India', placeId: null },
-  { cityName: 'Jaipur', countryCode: 'IN', type: 'city', displayName: 'Jaipur, Rajasthan, India', placeId: null },
-  { cityName: 'Munnar', countryCode: 'IN', type: 'city', displayName: 'Munnar, Kerala, India', placeId: null },
-  { cityName: 'Rishikesh', countryCode: 'IN', type: 'city', displayName: 'Rishikesh, Uttarakhand, India', placeId: null },
-  { cityName: 'Udaipur', countryCode: 'IN', type: 'city', displayName: 'Udaipur, Rajasthan, India', placeId: null },
-  { cityName: 'Shimla', countryCode: 'IN', type: 'city', displayName: 'Shimla, Himachal Pradesh, India', placeId: null },
-  { cityName: 'Darjeeling', countryCode: 'IN', type: 'city', displayName: 'Darjeeling, West Bengal, India', placeId: null },
-  { cityName: 'Dubai', countryCode: 'AE', type: 'city', displayName: 'Dubai, United Arab Emirates', placeId: null },
-  { cityName: 'Bangkok', countryCode: 'TH', type: 'city', displayName: 'Bangkok, Thailand', placeId: null },
-  { cityName: 'Bali', countryCode: 'ID', type: 'city', displayName: 'Bali, Indonesia', placeId: null },
-  { cityName: 'Paris', countryCode: 'FR', type: 'city', displayName: 'Paris, France', placeId: null },
+  { cityName: 'Goa', countryCode: 'IN', type: 'city', displayName: 'Goa, India', placeId: 'ChIJQbc2YxC6vzsRkkDzYv-H-Oo' },
+  { cityName: 'Manali', countryCode: 'IN', type: 'city', displayName: 'Manali, Himachal Pradesh, India', placeId: 'ChIJP9A_FgiHBDkRzXZQvg6oKYE' },
+  { cityName: 'Jaipur', countryCode: 'IN', type: 'city', displayName: 'Jaipur, Rajasthan, India', placeId: 'ChIJgeJXTN9KbDkRCS7yDDrG4Qw' },
+  { cityName: 'Munnar', countryCode: 'IN', type: 'city', displayName: 'Munnar, Kerala, India', placeId: 'ChIJbZoJTXmZBzsRDH48VeVQMgY' },
+  { cityName: 'Rishikesh', countryCode: 'IN', type: 'city', displayName: 'Rishikesh, Uttarakhand, India', placeId: 'ChIJEfGTz2c-CTkR_huUb0qAeMw' },
+  { cityName: 'Udaipur', countryCode: 'IN', type: 'city', displayName: 'Udaipur, Rajasthan, India', placeId: 'ChIJEUShUGXlZzkRsGi4VYTC2Ns' },
+  { cityName: 'Shimla', countryCode: 'IN', type: 'city', displayName: 'Shimla, Himachal Pradesh, India', placeId: 'ChIJZ25d4-N4BTkRt1Sf__Z_fh8' },
+  { cityName: 'Darjeeling', countryCode: 'IN', type: 'city', displayName: 'Darjeeling, West Bengal, India', placeId: 'ChIJuwH1TGUu5DkRKnDUeVlVdUE' },
+  { cityName: 'Dubai', countryCode: 'AE', type: 'city', displayName: 'Dubai, United Arab Emirates', placeId: 'ChIJRcbZaklDXz4RYlEphFBu5r0' },
+  { cityName: 'Bangkok', countryCode: 'TH', type: 'city', displayName: 'Bangkok, Thailand', placeId: 'ChIJ82ENKDJgHTERIEjiXbIAAQE' },
+  { cityName: 'Bali', countryCode: 'ID', type: 'city', displayName: 'Bali, Indonesia', placeId: 'ChIJoQ8Q6NNB0S0RkOYkS7EPkSQ' },
+  { cityName: 'Paris', countryCode: 'FR', type: 'city', displayName: 'Paris, France', placeId: 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ' },
 ];
 
 export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) => {
@@ -125,8 +125,12 @@ export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) 
         if (res.ok) {
           const json = await res.json();
           const places = json.data || [];
-          setPredictions(places);
-          setShowDropdown(places.length > 0);
+          if (places.length > 0) {
+            setPredictions(places);
+            setShowDropdown(true);
+          } else {
+            await fallbackAutocomplete(q);
+          }
         } else {
           await fallbackAutocomplete(q);
         }
@@ -291,7 +295,18 @@ export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) 
                 <input
                   type="text"
                   value={city}
-                  onChange={e => { setCity(e.target.value); setError(''); setShowDropdown(true); }}
+                  onChange={e => {
+                    const val = e.target.value;
+                    setCity(val);
+                    setError('');
+                    setShowDropdown(true);
+                    if (val.trim().length >= 2) {
+                      setAcLoading(true);
+                    } else {
+                      setAcLoading(false);
+                      setPredictions([]);
+                    }
+                  }}
                   onFocus={() => setShowDropdown(true)}
                   placeholder="Search city, region or hotel name..."
                   className="w-full bg-transparent text-gray-900 font-semibold text-base outline-none placeholder-gray-400 pr-6"
@@ -468,7 +483,7 @@ export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) 
 
       {/* Autocomplete Predictions & Recent Searches Dropdown */}
       {showDropdown && (
-        <div className="absolute top-full left-0 w-full md:w-[32rem] bg-white mt-2 rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden divide-y divide-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute top-full left-0 w-full md:w-[32rem] max-h-80 overflow-y-auto bg-white mt-2 rounded-2xl shadow-2xl border border-gray-100 z-50 divide-y divide-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
           
           {predictions.length > 0 ? (
             <>

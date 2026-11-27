@@ -5,6 +5,7 @@ export const FREE_ENDPOINTS = [
   '/data/hotel/images',
   '/data/hotel/rooms',
   '/data/hotels/room-search',
+  '/data/places',
   '/data/countries',
   '/data/cities',
   '/data/hotelTypes',
@@ -18,7 +19,9 @@ export const FREE_ENDPOINTS = [
   '/booking/cancel',
   // V3 endpoints
   '/hotels/rates',
+  '/hotels/min-rates',
   '/rates/prebook',
+  '/prebooks',
   '/rates/book',
   '/rates/prebook/alternative-prebooks',
   '/rates/prebook/rebook',
@@ -31,7 +34,6 @@ export const FREE_ENDPOINTS = [
 export const PAID_ENDPOINTS = [
   '/pricing',
   '/prices',
-  '/places',
   '/ai-insights',
   '/logs',
   '/analytics'
@@ -42,8 +44,8 @@ export const PAID_ENDPOINTS = [
  * Throws an error if the endpoint is not explicitly in the free list or matches any paid signature.
  */
 export function validateEndpoint(endpoint: string): void {
-  // 1. Explicit deny-list check first
-  const isPaid = PAID_ENDPOINTS.some(paid => endpoint.includes(paid));
+  // 1. Explicit deny-list check first (prefix match so /data/places is not confused with /places)
+  const isPaid = PAID_ENDPOINTS.some(paid => endpoint.startsWith(paid));
   if (isPaid) {
     throw new Error(`[COST GUARD] Access Denied: Endpoint ${endpoint} is explicitly marked as a PAID feature.`);
   }

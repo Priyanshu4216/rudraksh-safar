@@ -53,9 +53,12 @@ export const Checkout = () => {
     Math.round((new Date(checkout).getTime() - new Date(checkin).getTime()) / 86400000)
   );
 
-  const currencySymbol = displayCurrency === 'INR' ? '₹'
-    : displayCurrency === 'USD' ? '$'
-    : displayCurrency + ' ';
+  const CURRENCY_SYMBOLS: Record<string, string> = {
+    INR: '₹', USD: '$', EUR: '€', GBP: '£', AED: 'د.إ',
+    SGD: 'S$', AUD: 'A$', CAD: 'C$', THB: '฿', IDR: 'Rp ',
+    MYR: 'RM ', JPY: '¥', CNY: '¥', HKD: 'HK$', CHF: 'Fr ',
+  };
+  const currencySymbol = CURRENCY_SYMBOLS[displayCurrency] ?? (displayCurrency + ' ');
 
   const fmtDate = (d: string) =>
     new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -207,7 +210,14 @@ export const Checkout = () => {
       }, 400);
 
     } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
+      const msg = String(err.message || '');
+      if (msg.includes('2001') || msg.toLowerCase().includes('sold out') || msg.toLowerCase().includes('availability')) {
+        setError('This room rate just sold out or expired. Please go back to the hotel page to select a refreshed rate.');
+      } else if (msg.includes('4016') || msg.toLowerCase().includes('timeout')) {
+        setError('Supplier confirmation timed out. Please try again in a moment.');
+      } else {
+        setError(msg || 'Something went wrong. Please try again.');
+      }
       setStep('guest_info');
     }
   };

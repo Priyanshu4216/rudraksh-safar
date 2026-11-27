@@ -1,4 +1,4 @@
-﻿import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -18,7 +18,7 @@ const Sitemap = () => {
         { name: 'Goa Packages from Raipur', href: '/goa-package-from-raipur', desc: 'Raipur to Goa trips' },
         { name: 'Goa Packages from Durg', href: '/goa-package-from-durg', desc: 'Durg departure special' },
         { name: 'Goa Trip from Supela', href: '/goa-trip-from-supela', desc: 'Local area pick-up' },
-        { name: 'Goa Trip Under ₹10,000', href: '/goa-trip-under-10000-from-bhilai', desc: 'Budget challenge guide' },
+        { name: 'Goa Trip Under ?10,000', href: '/goa-trip-under-10000-from-bhilai', desc: 'Budget challenge guide' },
         { name: 'Cheapest Way to Goa', href: '/goa-cheap-trip-guide', desc: 'Money saving hacks' },
         { name: '3 Day Budget Itinerary', href: '/goa-budget-itinerary-from-bhilai', desc: 'Plan for short trips' },
         { name: 'Train vs Flight to Goa', href: '/train-vs-flight-goa-from-cg', desc: 'Travel mode comparison' },
@@ -28,7 +28,7 @@ const Sitemap = () => {
     const localDestinations = [
         { name: 'Kashmir from Bhilai', href: '/kashmir-tour-package-from-bhilai', desc: 'Paradise on Earth packages' },
         { name: 'Manali from Bhilai', href: '/manali-tour-package-from-bhilai', desc: 'Himachal adventure tours' },
-        { name: 'Manali x Kasol Strangers Trip from Bhilai', href: '/manali-kasol-strangers-trip/from-bhilai', desc: '5N/6D Social Group Trip ₹5,999' },
+        { name: 'Manali x Kasol Strangers Trip from Bhilai', href: '/manali-kasol-strangers-trip/from-bhilai', desc: '5N/6D Social Group Trip ?5,999' },
         { name: 'Kerala from Bhilai', href: '/kerala-tour-package-from-bhilai', desc: 'God\'s Own Country trips' },
         { name: 'Rajasthan from Bhilai', href: '/rajasthan-tour-package-from-bhilai', desc: 'Royal heritage tours' },
         { name: 'Andaman from Bhilai', href: '/andaman-tour-package-from-bhilai', desc: 'Island getaway packages' },
@@ -50,6 +50,7 @@ const Sitemap = () => {
             icon: Compass,
             links: [
                 { name: 'Home', href: '/', desc: 'Overview of travel services, deals, and packages' },
+                { name: 'Hotel Booking', href: '/hotels', desc: 'Search & book hotels worldwide with live rates' },
                 { name: 'About Us', href: '/about-rudraksh-safar', desc: 'Information about Rudraksh Safar and our approach' },
                 { name: 'Why Rudraksh Safar', href: '/about/why-rudraksh-safar', desc: 'Our safety philosophy and trust signals' },
                 { name: 'Why Choose Us', href: '/why-choose-us', desc: 'Reasons travellers trust us for tours and bookings' },
@@ -76,11 +77,11 @@ const Sitemap = () => {
             ]
         },
                 {
-            title: "Manali × Kasol Strangers Trip (₹5,999 Special 🔥)",
+            title: "Manali × Kasol Strangers Trip (?5,999 Special ??)",
             description: "5N/6D Social Group & Backpacking Trip covering Manali, Solang Valley, Kullu, Kasol & Manikaran Sahib with local departures from Chhattisgarh.",
             icon: Mountain,
             links: [
-                { name: "Manali × Kasol Strangers Trip (Main Hub)", href: "/manali-kasol-strangers-trip", desc: "5N/6D Delhi Departure ₹5,999" },
+                { name: "Manali × Kasol Strangers Trip (Main Hub)", href: "/manali-kasol-strangers-trip", desc: "5N/6D Delhi Departure ?5,999" },
                 { name: "Manali Kasol Trip from Bhilai", href: "/manali-kasol-strangers-trip/from-bhilai", desc: "Bhilai Departure & Train Connectivity" },
                 { name: "Manali Kasol Trip from Raipur", href: "/manali-kasol-strangers-trip/from-raipur", desc: "Raipur Flight/Train Connectivity" },
                 { name: "Manali Kasol Trip from Durg", href: "/manali-kasol-strangers-trip/from-durg", desc: "Durg Junction Direct Train Guide" },
@@ -109,12 +110,12 @@ const Sitemap = () => {
                 { name: "Kumbh Package from Bilaspur", href: "/kumbh-mela-2027/packages/from-bilaspur", desc: "Bilaspur Express Trains & Stays" },
                 { name: "Kumbh Package from Durg", href: "/kumbh-mela-2027/packages/from-durg", desc: "Durg Junction Direct Rail Booking" },
                 { name: "Kumbh Package from Rajnandgaon", href: "/kumbh-mela-2027/packages/from-rajnandgaon", desc: "Rajnandgaon Pilgrim Departures" },
-                { name: "हरिद्वार महाकुंभ 2027 (हिंदी मुख्य पृष्ठ)", href: "/hi/kumbh-mela-2027", desc: "सम्पूर्ण महाकुंभ गाइड हिंदी में" },
-                { name: "शाही स्नान तिथियां 2027 (हिंदी)", href: "/hi/kumbh-mela-2027/snan-dates", desc: "प्रमुख स्नान तिथियां एवं मुहूर्त" }
+                { name: "???????? ??????? 2027 (????? ????? ?????)", href: "/hi/kumbh-mela-2027", desc: "???????? ??????? ???? ????? ???" },
+                { name: "???? ????? ??????? 2027 (?????)", href: "/hi/kumbh-mela-2027/snan-dates", desc: "?????? ????? ??????? ??? ???????" }
             ]
         },
         {
-            title: "Ladakh Expeditions (New 🔥)",
+            title: "Ladakh Expeditions (New ??)",
             description: "Complete guide for Ladakh trips - Routes, Bike Trips, Family Packages & Local Departures.",
             icon: Mountain,
             links: [
@@ -293,7 +294,7 @@ const Sitemap = () => {
             ]
         },
         {
-            title: "Thailand Authority Guide (New 🔥)",
+            title: "Thailand Authority Guide (New ??)",
             description: "The most comprehensive Thailand travel guide for Indian tourists.",
             icon: MapPin,
             links: [

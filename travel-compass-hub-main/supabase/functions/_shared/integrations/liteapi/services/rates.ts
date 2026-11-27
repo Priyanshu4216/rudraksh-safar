@@ -27,15 +27,44 @@ export class HotelRatesService {
     }
 
     // 2. Fetch from Supplier (LiteAPI)
-    const payload = {
+    let parsedOccupancies: Array<{ adults: number; children?: number[] }> = [
+      { adults: Math.max(1, parseInt(params.guestInfo || params.adults || '2', 10)) }
+    ];
+    if (params.occupancies) {
+      try {
+        const occ = typeof params.occupancies === 'string'
+          ? JSON.parse(params.occupancies)
+          : params.occupancies;
+        if (Array.isArray(occ) && occ.length > 0) {
+          parsedOccupancies = occ;
+        }
+      } catch {
+        // fallback to default parsedOccupancies
+      }
+    } else if (params.childrenAges) {
+      try {
+        const ages = typeof params.childrenAges === 'string'
+          ? JSON.parse(params.childrenAges)
+          : params.childrenAges;
+        if (Array.isArray(ages) && ages.length > 0) {
+          parsedOccupancies[0].children = ages;
+        }
+      } catch {}
+    }
+
+    const payload: Record<string, any> = {
       hotelIds: [hotelId],
-      occupancies: params.occupancies || [{ adults: parseInt(params.guestInfo || '2') }],
+      occupancies: parsedOccupancies,
       currency: params.currency || 'INR',
       guestNationality: params.guestNationality || 'IN',
       checkin: params.checkin || params.chkIn,
       checkout: params.checkout || params.chkOut,
-      roomMapping: true
+      roomMapping: params.roomMapping === true || params.roomMapping === 'true' ? true : false,
+      // For detail page: return up to 20 room types (search uses maxRatesPerHotel:1 for speed)
+      maxRatesPerHotel: params.maxRatesPerHotel ? parseInt(String(params.maxRatesPerHotel), 10) : 20,
+      timeout: 15,
     };
+    if (params.sessionId) payload.sessionId = params.sessionId;
     
     let rawResponse;
     try {

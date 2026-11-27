@@ -50,12 +50,15 @@ export const HotelsHub: React.FC = () => {
   const [ratesMap, setRatesMap] = useState<Map<string, any>>(new Map());
 
   const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(false);
 
   // Filtering and Sorting State
   const [sortOrder, setSortOrder] = useState<'recommended' | 'price_asc' | 'price_desc'>('recommended');
   const [minPrice, setMinPrice] = useState<number | ''>('');
   const [maxPrice, setMaxPrice] = useState<number | ''>('');
   const [minStars, setMinStars] = useState<number>(0);
+  const [minScore, setMinScore] = useState<number>(0);
+  const [boardFilter, setBoardFilter] = useState<string>('ALL');
 
   const handleSearch = useCallback(async (params: Record<string, any>, isLoadMore = false, currentOffset = 0) => {
     setIsLoading(true);
@@ -68,12 +71,15 @@ export const HotelsHub: React.FC = () => {
       setRatesMap(new Map());
       setLastSearchParams(params);
       setOffset(0);
+      setHasMore(false);
       
       // Reset filters on new search
       setSortOrder('recommended');
       setMinPrice('');
       setMaxPrice('');
       setMinStars(0);
+      setMinScore(0);
+      setBoardFilter('ALL');
     }
     
     try {
@@ -106,6 +112,10 @@ export const HotelsHub: React.FC = () => {
           setIsLoading(false);
           setRatesLoading(false);
           return;
+        }
+
+        if (chunk.meta) {
+          setHasMore(Boolean(chunk.meta.hasMore));
         }
 
         if (chunk.rates) {
@@ -168,7 +178,7 @@ export const HotelsHub: React.FC = () => {
 
   const handleLoadMore = () => {
     if (!lastSearchParams) return;
-    const newOffset = offset + 600;
+    const newOffset = offset + 200;
     setOffset(newOffset);
     handleSearch(lastSearchParams, true, newOffset);
   };
@@ -199,6 +209,31 @@ export const HotelsHub: React.FC = () => {
       result = result.filter(hotel => (hotel.stars || 0) >= minStars);
     }
 
+    // 2b. Filter by guest score
+    if (minScore > 0) {
+      result = result.filter(hotel => (hotel.reviewScore ?? hotel.rating ?? 0) >= minScore);
+    }
+
+    // 2c. Filter by board basis (RO, BB, HB, FB, AI)
+    if (boardFilter !== 'ALL') {
+      result = result.filter(hotel => {
+        const rate = ratesMap.get(hotel.id || hotel.hotelId);
+        // v3 shape: roomTypes[n].boardType (top-level on each roomType)
+        // also check nested rates[n].boardType for older shape
+        const allBoardTypes: string[] = (rate?.roomTypes || []).flatMap((rt: any) => {
+          const types: string[] = [];
+          if (rt.boardType) types.push(rt.boardType);
+          if (rt.boardName) types.push(rt.boardName);
+          (rt.rates || []).forEach((r: any) => {
+            if (r.boardType) types.push(r.boardType);
+            if (r.boardName) types.push(r.boardName);
+          });
+          return types;
+        });
+        return allBoardTypes.some(bt => bt === boardFilter);
+      });
+    }
+
     // 3. Filter by price range
     if (minPrice !== '' || maxPrice !== '') {
       result = result.filter(hotel => {
@@ -223,12 +258,12 @@ export const HotelsHub: React.FC = () => {
     }
 
     return result;
-  }, [hotels, ratesMap, sortOrder, minPrice, maxPrice, minStars]);
+  }, [hotels, ratesMap, sortOrder, minPrice, maxPrice, minStars, minScore, boardFilter]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <Navbar />
-      <section className="relative min-h-[460px] flex flex-col items-center justify-center pt-20 pb-12">
+      <section className="relative z-30 min-h-[460px] flex flex-col items-center justify-center pt-20 pb-12">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -457,11 +492,43 @@ export const HotelsHub: React.FC = () => {
                       ))}
                     </div>
                   </div>
+
+                  {/* Meal Plan / Board Basis */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Meal Plan</label>
+                    <select
+                      value={boardFilter}
+                      onChange={(e) => setBoardFilter(e.target.value)}
+                      className="bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg p-2 outline-none font-medium cursor-pointer"
+                    >
+                      <option value="ALL">All Plans</option>
+                      <option value="BB">Breakfast Included</option>
+                      <option value="HB">Half Board</option>
+                      <option value="AI">All Inclusive</option>
+                      <option value="RO">Room Only</option>
+                    </select>
+                  </div>
+
+                  {/* Guest Score */}
+                  <div className="flex flex-col hidden lg:flex">
+                    <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Guest Score</label>
+                    <div className="flex bg-gray-50 rounded-lg p-1 border border-gray-200 gap-1">
+                      {[0, 7, 8, 9].map(score => (
+                        <button
+                          key={score}
+                          onClick={() => setMinScore(score)}
+                          className={`px-2.5 py-1 text-xs font-bold rounded-md transition-colors ${minScore === score ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
+                        >
+                          {score === 0 ? 'Any' : `${score}+`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                   
                   {/* Clear Filters */}
-                  {(sortOrder !== 'recommended' || minPrice !== '' || maxPrice !== '' || minStars > 0) && (
+                  {(sortOrder !== 'recommended' || minPrice !== '' || maxPrice !== '' || minStars > 0 || minScore > 0 || boardFilter !== 'ALL') && (
                     <button 
-                      onClick={() => { setSortOrder('recommended'); setMinPrice(''); setMaxPrice(''); setMinStars(0); }}
+                      onClick={() => { setSortOrder('recommended'); setMinPrice(''); setMaxPrice(''); setMinStars(0); setMinScore(0); setBoardFilter('ALL'); }}
                       className="ml-auto sm:ml-2 text-xs font-bold text-red-500 hover:text-red-700 px-3 py-2 rounded-lg hover:bg-red-50 transition-colors"
                     >
                       Clear All
@@ -486,15 +553,21 @@ export const HotelsHub: React.FC = () => {
                       currency = rate.currency || 'INR';
                       initialPrice = rate.initialRate ?? null;
                     } else if (rate.roomTypes?.length > 0) {
-                      const allRates = rate.roomTypes.flatMap((rt: any) => rt.rates || []);
-                      if (allRates.length > 0) {
-                        const prices = allRates.map((r: any) =>
-                          r.finalRate ?? r.retailRate?.total?.[0]?.amount ?? 999999
-                        );
-                        price = Math.min(...prices);
-                        currency = allRates[0].retailRate?.total?.[0]?.currency || allRates[0].currency || 'INR';
-                        initialPrice = allRates[0].retailRate?.initialPrice ?? null;
-                      }
+                      // v3: roomTypes[n].offerRetailRate.amount is the cheapest per-room price
+                      const cheapest = [...rate.roomTypes].sort((a: any, b: any) => {
+                        const pa = a.offerRetailRate?.amount ?? a.rates?.[0]?.retailRate?.total?.[0]?.amount ?? 999999;
+                        const pb = b.offerRetailRate?.amount ?? b.rates?.[0]?.retailRate?.total?.[0]?.amount ?? 999999;
+                        return pa - pb;
+                      })[0];
+                      price = cheapest?.offerRetailRate?.amount ??
+                              cheapest?.rates?.[0]?.retailRate?.total?.[0]?.amount ??
+                              null;
+                      currency = cheapest?.offerRetailRate?.currency ??
+                                 cheapest?.rates?.[0]?.retailRate?.total?.[0]?.currency ??
+                                 'INR';
+                      initialPrice = cheapest?.offerInitialPrice?.amount ??
+                                     cheapest?.rates?.[0]?.retailRate?.initialPrice ??
+                                     null;
                     }
                   }
 
@@ -517,6 +590,7 @@ export const HotelsHub: React.FC = () => {
                       perks={rate?.perks || []}
                       checkin={lastSearchParams.chkIn || lastSearchParams.checkin}
                       checkout={lastSearchParams.chkOut || lastSearchParams.checkout}
+                      adults={lastSearchParams.adults || lastSearchParams.guestInfo || 2}
                     />
                   );
                 })}
@@ -528,7 +602,7 @@ export const HotelsHub: React.FC = () => {
             </div>
 
             {/* Load More Button */}
-            {hasSearched && !isLoading && !ratesLoading && hotels.length > offset + 600 && (
+            {hasSearched && !isLoading && !ratesLoading && hasMore && (
               <div className="mt-12 flex justify-center">
                 <button
                   onClick={handleLoadMore}

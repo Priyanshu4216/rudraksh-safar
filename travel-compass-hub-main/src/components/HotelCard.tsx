@@ -16,6 +16,7 @@ interface HotelCardProps {
   perks?: any[];
   checkin?: string;
   checkout?: string;
+  adults?: number | string;
   city?: string;
   country?: string;
   roomName?: string;
@@ -23,11 +24,12 @@ interface HotelCardProps {
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   USD: '$', EUR: '€', GBP: '£', INR: '₹', AED: 'د.إ', SGD: 'S$', AUD: 'A$', CAD: 'C$',
+  THB: '฿', IDR: 'Rp ', MYR: 'RM ', JPY: '¥', CNY: '¥', HKD: 'HK$', CHF: 'Fr ',
 };
 
 export const HotelCard: React.FC<HotelCardProps> = ({
   id, name, address, rating, stars, image, price, currency, initialPrice,
-  promotions, perks, checkin, checkout, city, country, roomName,
+  promotions, perks, checkin, checkout, adults = 2, city, country, roomName,
 }) => {
   const [actualImage, setActualImage] = React.useState(image);
   const [resolvedName, setResolvedName] = React.useState(name);
@@ -71,7 +73,7 @@ export const HotelCard: React.FC<HotelCardProps> = ({
 
   return (
     <Link
-      to={`/hotel/${id}?checkin=${checkin || ''}&checkout=${checkout || ''}&adults=2`}
+      to={`/hotel/${id}?checkin=${checkin || ''}&checkout=${checkout || ''}&adults=${adults || 2}`}
       target="_blank"
       rel="noopener noreferrer"
       className="group block rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-2xl transition-all duration-400 border border-gray-100"
