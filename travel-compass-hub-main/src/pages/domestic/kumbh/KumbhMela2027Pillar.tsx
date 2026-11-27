@@ -13,7 +13,8 @@ import { getKumbhFAQs } from '@/data/kumbh/faq';
 import { HOW_TO_REACH_ROUTES } from '@/data/kumbh/routes';
 import { KUMBH_PACKAGES } from '@/data/kumbh/packages';
 import { KUMBH_DISCLAIMERS } from '@/data/kumbh/disclaimers';
-import { MapPin, Calendar, ShieldCheck, ArrowRight, Compass, Users, Tent, ChevronDown } from 'lucide-react';
+import { KUMBH_SITE } from '@/data/kumbh/site';
+import { MapPin, Calendar, ShieldCheck, ArrowRight, Compass, Users, Tent, ChevronDown, Download, MessageCircle } from 'lucide-react';
 
 interface KumbhPillarPageProps {
   lang?: 'en' | 'hi';

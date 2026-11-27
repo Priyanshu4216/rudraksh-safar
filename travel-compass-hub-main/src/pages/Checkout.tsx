@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { HotelApiService } from '../services/api/hotel.service';
 import {
@@ -245,6 +246,10 @@ export const Checkout = () => {
       )}
 
       <div className="container mx-auto px-4 max-w-6xl">
+        <Helmet>
+          <title>Secure Hotel Checkout | Rudraksh Safar</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold text-gray-900 mb-1">Secure Checkout</h1>

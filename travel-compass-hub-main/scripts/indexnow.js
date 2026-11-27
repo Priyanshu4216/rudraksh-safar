@@ -34,7 +34,8 @@ async function run() {
         'sitemap-packages.xml',
         'sitemap-blog.xml',
         'sitemap-kumbh.xml',
-        'sitemap-local.xml'
+        'sitemap-local.xml',
+        'sitemap-hotels.xml'
     ];
     let urlsToSubmit = [];
 

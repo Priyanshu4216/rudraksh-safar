@@ -86,7 +86,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
     localOfficeSupport: {
       location: 'Rudraksh Safar Head Operations Desk, Bhilai-3, GE Road, Chhattisgarh',
       supportNote: 'You can meet our trip coordinators in person at our Bhilai office, verify your itinerary, pay in person (Cash/UPI/Card), and get printed booking vouchers.',
-      contactNumber: '9713057086'
+      contactNumber: '9229150311'
     },
     localFaqs: [
       {
@@ -147,7 +147,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
     localOfficeSupport: {
       location: 'Direct Assistance Desk & 24/7 Helpline for Raipur Travellers',
       supportNote: 'Our dedicated Raipur travel manager handles train PNR reservations, flight tickets, and Delhi reporting coordination.',
-      contactNumber: '9713057086'
+      contactNumber: '9229150311'
     },
     localFaqs: [
       {
@@ -208,7 +208,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
     localOfficeSupport: {
       location: 'Just 10 minutes from Durg at our Bhilai-3 Registered Office',
       supportNote: 'Travellers from Durg can easily drive down GE Road to our Bhilai operations office for complete face-to-face consultation and booking.',
-      contactNumber: '9713057086'
+      contactNumber: '9229150311'
     },
     localFaqs: [
       {
@@ -217,7 +217,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
       },
       {
         question: 'Can college students from Durg get a student discount or squad perk?',
-        answer: 'Yes! For college groups of 4 or more from BIT Durg, CSVTU, or Rungta, we offer special merchandise or adventure activity credit. Contact our coordinator at 9713057086.'
+        answer: 'Yes! For college groups of 4 or more from BIT Durg, CSVTU, or Rungta, we offer special merchandise or adventure activity credit. Contact our coordinator at 9229150311.'
       },
       {
         question: 'Is it safe for solo female travellers from Durg?',
@@ -269,7 +269,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
     localOfficeSupport: {
       location: 'Dedicated Bilaspur Virtual Desk & Bhilai Operations Support',
       supportNote: 'Our SECR train ticketing specialists assist Bilaspur travellers in securing confirmed berths on the Bilaspur Rajdhani and Chhattisgarh Express.',
-      contactNumber: '9713057086'
+      contactNumber: '9229150311'
     },
     localFaqs: [
       {
@@ -330,7 +330,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
     localOfficeSupport: {
       location: 'Bhilai Regional Desk (Only 35 minutes away along NH53)',
       supportNote: 'Rajnandgaon residents are just a quick drive away from our main operations office on GE Road in Bhilai for in-person consultations and payments.',
-      contactNumber: '9713057086'
+      contactNumber: '9229150311'
     },
     localFaqs: [
       {
@@ -343,7 +343,7 @@ export const MANALI_KASOL_SILO_DATA: Record<string, CitySiloData> = {
       },
       {
         question: 'What is the booking deposit required to confirm my seat from Rajnandgaon?',
-        answer: 'You can reserve your seat with a nominal booking advance. Call our team directly at 9713057086 or message us on WhatsApp for bank/UPI transfer details.'
+        answer: 'You can reserve your seat with a nominal booking advance. Call our team directly at 9229150311 or message us on WhatsApp for bank/UPI transfer details.'
       }
     ]
   }

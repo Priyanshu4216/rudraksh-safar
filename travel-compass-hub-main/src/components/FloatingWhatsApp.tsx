@@ -14,7 +14,7 @@ const FloatingWhatsApp = forwardRef<HTMLButtonElement, FloatingWhatsAppProps>(({
   customMessage
 }, ref) => {
   const location = useLocation();
-  const contactPhone = '9713057086';
+  const contactPhone = '9229150311';
 
   const getContextMessage = () => {
     if (customMessage) return customMessage;

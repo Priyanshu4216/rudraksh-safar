@@ -224,10 +224,10 @@ export const DepartureLogisticsEngine: React.FC<DepartureLogisticsProps> = ({ or
           </div>
           <div className="whitespace-nowrap">
             <a
-              href="tel:9713057086"
+              href="tel:9229150311"
               className="text-xs font-bold px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg inline-flex items-center gap-1.5 transition"
             >
-              Direct Call: +91 9713057086
+              Direct Call: +91 9229150311
             </a>
           </div>
         </div>

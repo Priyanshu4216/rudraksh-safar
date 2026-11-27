@@ -171,7 +171,7 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
                 +91 92036 50311
               </a>{' '}
               /{' '}
-              <a href="tel:+919713057086" className="font-bold underline hover:text-amber-200">
+              <a href="tel:+919229150311" className="font-bold underline hover:text-amber-200">
                 +91 97130 57086
               </a>
             </span>

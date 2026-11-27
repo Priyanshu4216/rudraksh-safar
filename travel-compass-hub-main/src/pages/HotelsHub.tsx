@@ -1,13 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Loader2, Sparkles, Star, Building2, MapPin } from 'lucide-react';
+import { Loader2, Sparkles, Star, Building2, MapPin, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { LiteApiSearchBar } from '../components/LiteApiSearchBar';
 import { HotelCard } from '../components/HotelCard';
 import { SkeletonCard } from '../components/SkeletonCard';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { HotelApiService } from '../services/api/hotel.service';
 import { AiRoomSearch } from '../components/AiRoomSearch';
+import { HotelSiloSchema } from '../components/seo/HotelSiloSchema';
+import { HotelTrustStrip } from '../components/hotels/HotelTrustStrip';
+import { HotelMobileStickyBar } from '../components/hotels/HotelMobileStickyBar';
+import { PRIORITY_CITY_LIST, PRIORITY_STATE_LIST, HOTEL_NAP } from '../data/hotelSiloData';
 
 const CURRENCY = 'INR';
 
@@ -260,8 +265,52 @@ export const HotelsHub: React.FC = () => {
     return result;
   }, [hotels, ratesMap, sortOrder, minPrice, maxPrice, minStars, minScore, boardFilter]);
 
+  const HUB_FAQS = [
+    {
+      question: 'Why book hotels through Rudraksh Safar instead of big OTAs?',
+      answer:
+        'You get the same live hotel inventory with Indian-traveller advantages OTAs do not offer: direct WhatsApp support on +91 92291 50311, GST-compliant corporate invoices, UPI/EMI payment in INR, and seamless hotel + cab + sightseeing bundles.',
+    },
+    {
+      question: 'Can I get a GST invoice for my hotel booking?',
+      answer:
+        `Yes. ${HOTEL_NAP.legalName} (GSTIN ${HOTEL_NAP.gstin}) provides valid GST invoices for corporate and business stays across India. Share your company GSTIN during booking or on WhatsApp.`,
+    },
+    {
+      question: 'Which cities have dedicated local support from Rudraksh Safar?',
+      answer:
+        'We operate our head office in Bhilai-3 (Durg, Chhattisgarh) serving Bhilai, Raipur, Durg, and Bilaspur, plus dedicated support offices in Haridwar (Uttarakhand), Kashmir, and Pattaya (Thailand).',
+    },
+    {
+      question: 'Are couple-friendly and pure-vegetarian stays available?',
+      answer:
+        'Yes. You can filter by meal plan (Breakfast Included, Half Board, All Inclusive) and reach our team on WhatsApp before booking to verify local ID rules, pure-veg kitchens, or early check-in.',
+    },
+  ];
+
+  const hasFilterOrSearchQuery = searchParams.toString().length > 0;
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-20 pb-16 md:pb-0">
+      <HotelSiloSchema
+        title="Hotel Booking Online: Compare Live INR Prices & Book | Rudraksh Safar"
+        description="Search and book verified hotels across India & worldwide with live INR rates, UPI/EMI payment, GST invoices, and 24/7 WhatsApp support from Rudraksh Safar."
+        canonicalPath="/hotels"
+        noindex={hasFilterOrSearchQuery}
+        includeTravelAgency={true}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Hotels', url: '/hotels' },
+        ]}
+        faqs={HUB_FAQS}
+        itemList={{
+          name: 'Priority Hotel Booking Cities',
+          items: PRIORITY_CITY_LIST.map((c) => ({
+            name: `Hotels in ${c.cityName}`,
+            url: `/hotels/${c.slug}`,
+          })),
+        }}
+      />
       <Navbar />
       <section className="relative z-30 min-h-[460px] flex flex-col items-center justify-center pt-20 pb-12">
         {/* Background Image */}
@@ -617,6 +666,93 @@ export const HotelsHub: React.FC = () => {
 
         </section>
       )}
+
+      {/* Trust Strip */}
+      <HotelTrustStrip />
+
+      {/* Browse by State & Priority City Silo (Internal Linking & Prerendered SEO Content) */}
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
+            Browse Hotels by State &amp; Priority City
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 max-w-3xl">
+            Explore our curated city hotel guides with neighbourhood breakdowns, indicative INR tariffs, GST billing, and optional transfer &amp; sightseeing bundles.
+          </p>
+        </div>
+
+        {/* State Pills */}
+        <div className="flex flex-wrap gap-3 mb-8">
+          {PRIORITY_STATE_LIST.map((state) => (
+            <Link
+              key={state.slug}
+              to={`/hotels/${state.slug}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-bold text-gray-800 hover:border-blue-500 hover:text-blue-600 shadow-xs transition-colors"
+            >
+              <MapPin className="w-4 h-4 text-blue-600" />
+              <span>Hotels in {state.stateName}</span>
+            </Link>
+          ))}
+        </div>
+
+        {/* City Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {PRIORITY_CITY_LIST.map((city) => (
+            <Link
+              key={city.slug}
+              to={`/hotels/${city.slug}`}
+              className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="h-36 overflow-hidden bg-gray-100">
+                  <img
+                    src={city.heroImage}
+                    alt={`Hotels in ${city.cityName}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+                    {city.stateName}
+                  </span>
+                  <h3 className="text-lg font-extrabold text-gray-900 group-hover:text-blue-600 transition-colors mt-0.5">
+                    Hotels in {city.cityName}
+                  </h3>
+                  <p className="text-xs font-semibold text-emerald-700 mt-1">
+                    {city.typicalPriceRange}
+                  </p>
+                  <p className="text-xs text-gray-600 line-clamp-2 mt-2">
+                    {city.oneSentenceAnswer}
+                  </p>
+                </div>
+              </div>
+              <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-blue-600">
+                <span>View Rates &amp; Guide</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Hub FAQs */}
+      <section className="max-w-7xl mx-auto px-4 pb-14">
+        <h2 className="text-2xl font-bold text-gray-900 mb-5">
+          Hotel Booking FAQs — {HOTEL_NAP.brandName}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {HUB_FAQS.map((faq, idx) => (
+            <div key={idx} className="bg-white rounded-xl border border-gray-200 p-5">
+              <h3 className="text-base font-bold text-gray-900 mb-2">{faq.question}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Footer />
+      <HotelMobileStickyBar />
     </div>
   );
 };

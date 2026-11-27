@@ -15,6 +15,7 @@ const Index = lazy(() => import("./pages/Index"));
 import HomeRedesign from "./pages/HomeRedesign";
 import { HotelsHub } from "./pages/HotelsHub";
 import { HotelDetails } from "./pages/HotelDetails";
+import { HotelSiloDispatcher } from "./pages/HotelSiloDispatcher";
 import { Checkout } from './pages/Checkout';
 import { BookingConfirmation } from './pages/BookingConfirmation';
 const SearchExperience = lazy(() => import("./pages/SearchExperience"));
@@ -399,6 +400,7 @@ const App = () => (
                   <Routes>
                     <Route path="/" element={<HomeRedesign />} />
                     <Route path="/hotels" element={<HotelsHub />} />
+                    <Route path="/hotels/:slug" element={<HotelSiloDispatcher />} />
                     <Route path="/hotel/:id" element={<HotelDetails />} />
                     <Route path="/checkout/:offerId" element={<Checkout />} />
                     <Route path="/booking/confirm" element={<BookingConfirmation />} />

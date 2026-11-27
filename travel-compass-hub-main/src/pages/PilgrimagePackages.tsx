@@ -30,7 +30,7 @@ import {
 
 const PilgrimagePackages = () => {
   const canonicalUrl = 'https://rudrakshsafar.com/pilgrimage-packages';
-  const contactPhone = '9713057086';
+  const contactPhone = '9229150311';
 
   const breadcrumbs = [
     { label: 'Home', path: '/' },
@@ -312,7 +312,7 @@ const PilgrimagePackages = () => {
             </a>
             <a href={`tel:+91${contactPhone}`}>
               <Button variant="outline" className="border-slate-700 text-slate-200 hover:bg-slate-800">
-                <Phone className="w-4 h-4 mr-2" /> Call +91 9713057086
+                <Phone className="w-4 h-4 mr-2" /> Call +91 9229150311
               </Button>
             </a>
           </div>

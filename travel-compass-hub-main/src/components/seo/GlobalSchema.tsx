@@ -21,7 +21,7 @@ const GlobalSchema = () => {
                 "@type": "ImageObject",
                 "url": logoUrl
             },
-            "telephone": "+919713057086",
+            "telephone": "+919229150311",
             "taxID": "22AGBPC7350G1ZZ",
             "aggregateRating": {
                 "@type": "AggregateRating",

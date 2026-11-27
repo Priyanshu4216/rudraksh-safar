@@ -22,7 +22,7 @@ export interface CountryVisa {
   checked: string;
 }
 
-export const VISA_PHONE_NUMBER = '9713057086';
+export const VISA_PHONE_NUMBER = '9229150311';
 
 export const createVisaWhatsAppUrl = (text: string) => {
   return `https://wa.me/91${VISA_PHONE_NUMBER}?text=${encodeURIComponent(text)}`;

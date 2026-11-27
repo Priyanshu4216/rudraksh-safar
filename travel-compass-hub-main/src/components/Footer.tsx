@@ -847,7 +847,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                     <a href="tel:+919229150311" className="text-white/70 hover:text-gold transition-colors font-medium">
                       +91 92291 50311 <span className="text-white/40 text-xs ml-1 font-normal">(Sanjeev Chaudhary)</span>
                     </a>
-                    <a href="tel:+919713057086" className="text-white/70 hover:text-gold transition-colors font-medium">
+                    <a href="tel:+919229150311" className="text-white/70 hover:text-gold transition-colors font-medium">
                       +91 97130 57086 <span className="text-white/40 text-xs ml-1 font-normal">(Priyanshu Chaudhary)</span>
                     </a>
                   </div>
@@ -1020,12 +1020,12 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </div>
               <p className="text-white/60 text-xs leading-relaxed max-w-2xl">
                 Registered Head Office: Sanjeev Enterprises, GE Road, In Front of Petrol Pump, Bhilai-3, Durg, Chhattisgarh 490021.
-                Direct Support Hotline: <a href="tel:+919713057086" className="text-white font-medium hover:underline">+91 9713057086</a> / <a href="tel:+919203650311" className="text-white font-medium hover:underline">+91 9203650311</a> | Email: <a href="mailto:rudrakshsafar@gmail.com" className="text-white font-medium hover:underline">rudrakshsafar@gmail.com</a>
+                Direct Support Hotline: <a href="tel:+919229150311" className="text-white font-medium hover:underline">+91 9229150311</a> / <a href="tel:+919203650311" className="text-white font-medium hover:underline">+91 9203650311</a> | Email: <a href="mailto:rudrakshsafar@gmail.com" className="text-white font-medium hover:underline">rudrakshsafar@gmail.com</a>
               </p>
             </div>
             <div className="flex items-center gap-3 whitespace-nowrap">
               <a
-                href="https://wa.me/919713057086?text=Hello%20Rudraksh%20Safar%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20inquire%20about%20a%20package."
+                href="https://wa.me/919229150311?text=Hello%20Rudraksh%20Safar%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20inquire%20about%20a%20package."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg shadow-emerald-950/40"
@@ -1033,7 +1033,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 WhatsApp Inquiry
               </a>
               <a
-                href="tel:+919713057086"
+                href="tel:+919229150311"
                 className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-xs border border-white/20 transition"
               >
                 Call Hotline
