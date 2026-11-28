@@ -290,7 +290,7 @@ export const ImagineJourneySection: React.FC = () => {
                 {/* Main Interactive Studio Form */}
                 <form 
                     onSubmit={handleSubmit}
-                    className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl border border-slate-200/80 dark:border-slate-800 space-y-5 sm:space-y-8"
+                    className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl border border-slate-200/80 dark:border-slate-800 space-y-5 sm:space-y-8"
                 >
                     {/* SECTION 1: DESTINATION & HUB */}
                     <div className="space-y-4">

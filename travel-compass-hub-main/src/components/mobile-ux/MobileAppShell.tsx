@@ -8,6 +8,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileAppShell() {
+    // Guarantee that all sections maintain full opacity and never get stuck with low opacity
+    useEffect(() => {
+        const resetOpacity = () => {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach((sec) => {
+                const el = sec;
+                if (el && el.style) {
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                }
+            });
+        };
+        resetOpacity();
+        window.addEventListener('resize', resetOpacity);
+        return () => window.removeEventListener('resize', resetOpacity);
+    }, []);
     const [isMobile, setIsMobile] = useState(false);
 
     // Check if on mobile initially and on resize
@@ -47,42 +63,15 @@ export default function MobileAppShell() {
                 });
             });
 
-            // Global Mobile Section GSAP Reveals & Parallax Depth
-            // Parity Check: Ensure dom has loaded its main tags.
-            setTimeout(() => {
-                const sections = document.querySelectorAll('main > section');
-                sections.forEach((sec, i) => {
-                    // Skip hero section since we manually animate it
-                    if (i === 0) return;
-
-                    // Apply Slide-up Fade Entrance
-                    gsap.fromTo(sec,
-                        { opacity: 0, y: 60 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.8,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: sec,
-                                start: "top 85%",
-                                toggleActions: "play none none reverse",
-                            }
-                        }
-                    );
-                });
-
-                // Set up Button Micro-interactions (Figma Style)
-                const buttons = document.querySelectorAll('button, .group.relative.block');
-                buttons.forEach(btn => {
-                    btn.addEventListener('touchstart', () => {
-                        gsap.to(btn, { scale: 0.96, duration: 0.15, ease: 'power1.out' });
-                    });
-                    btn.addEventListener('touchend', () => {
-                        gsap.to(btn, { scale: 1, duration: 0.2, ease: 'power1.out' });
-                    });
-                });
-            }, 100);
+            // Ensure all sections maintain 100% full opacity and contrast on both mobile and desktop
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach((sec) => {
+                const el = sec;
+                if (el && el.style) {
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                }
+            });
         }
 
         return () => {
