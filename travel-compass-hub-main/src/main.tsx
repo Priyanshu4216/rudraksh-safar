@@ -62,7 +62,7 @@ try {
   if (rootElement) {
     createRoot(rootElement).render(
       <React.StrictMode>
-        <HelmetProvider context={helmetContext}>
+        <HelmetProvider>
           <App />
         </HelmetProvider>
       </React.StrictMode>

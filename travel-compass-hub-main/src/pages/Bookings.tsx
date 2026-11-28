@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { HotelApiService } from '../services/api/hotel.service';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -140,6 +141,10 @@ export const Bookings = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>My Bookings | Rudraksh Safar</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Cinematic Header */}
       <div className="relative h-[300px] w-full overflow-hidden flex items-end pb-12">
         <div className="absolute inset-0 bg-blue-700">

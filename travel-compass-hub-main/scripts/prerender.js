@@ -27,9 +27,11 @@ for (const s of sitemaps) {
 
 console.log(`Found ${routes.length} routes to prerender.`);
 
+const templateHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+
 const app = express();
-app.use(express.static(distDir));
-app.get(/(.*)/, (req, res) => res.sendFile(path.join(distDir, 'index.html')));
+app.use(express.static(distDir, { index: false }));
+app.get(/(.*)/, (req, res) => res.type('html').send(templateHtml));
 
 const server = app.listen(3000, async () => {
     console.log('Static server listening on port 3000');
@@ -56,8 +58,14 @@ const server = app.listen(3000, async () => {
 
                     const url = `http://localhost:3000${route}`;
                     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-                    
-                    await new Promise(r => setTimeout(r, 1000));
+                    await page.waitForSelector('h1', { timeout: 6000 }).catch(() => {});
+                    if (route !== '/') {
+                        await page.waitForFunction(
+                            () => document.title && !document.title.startsWith('Rudraksh Safar — Travel Agency Serving Bhilai'),
+                            { timeout: 2500 }
+                        ).catch(() => {});
+                    }
+                    await new Promise(r => setTimeout(r, 400));
                     
                     let html = await page.content();
                     
