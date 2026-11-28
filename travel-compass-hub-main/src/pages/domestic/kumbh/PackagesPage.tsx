@@ -81,8 +81,8 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
           name="description"
           content={
             isHi
-              ? "हरिद्वार कुंभ मेला 2027 के 9 सत्यापित यात्रा पैकेज: 1N/2D कुंभ दर्शन ₹4,299 से, सीनियर सिटीजन स्पेशल, ऋषिकेश, नीम करोली कैंची धाम नैनीताल, मसूरी, देवप्रयाग एवं नीलकंठ महादेव। विस्तृत कार्यक्रम व पीडीएफ।"
-              : "Explore 9 verified Haridwar Kumbh Mela 2027 tour packages: 1N/2D starting ₹4,299, Senior Citizen Special, Rishikesh, Neem Karoli Kainchi Dham Nainital, Mussoorie, Devprayag & Neelkanth Mahadev. PDF itineraries & booking."
+              ? "हरिद्वार कुंभ मेला 2027 के 9 सत्यापित यात्रा पैकेज: 1N/2D कुंभ दर्शन ₹4,199 से, सीनियर सिटीजन स्पेशल, ऋषिकेश, नीम करोली कैंची धाम नैनीताल, मसूरी, देवप्रयाग एवं नीलकंठ महादेव। विस्तृत कार्यक्रम व पीडीएफ।"
+              : "Explore 9 verified Haridwar Kumbh Mela 2027 tour packages: 1N/2D starting ₹4,199, Senior Citizen Special, Rishikesh, Neem Karoli Kainchi Dham Nainital, Mussoorie, Devprayag & Neelkanth Mahadev. PDF itineraries & booking."
           }
         />
         <meta
@@ -230,7 +230,7 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
                     <div className="flex items-end justify-between gap-3 mb-4">
                       <div>
                         <span className="text-[11px] text-muted-foreground block font-medium">
-                          {isHi ? "व्यक्तिगत कोटेशन (Quad-sharing)" : "Personal quotation"}
+                          {isHi ? "शुरुआती कीमत (Starting from)" : "Starting from"}
                         </span>
                         <p className="text-2xl font-bold font-serif text-foreground leading-none mt-1">
                           {pkg.priceStarting}

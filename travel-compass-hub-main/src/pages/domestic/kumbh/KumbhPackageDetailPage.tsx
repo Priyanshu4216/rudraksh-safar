@@ -96,7 +96,7 @@ const KumbhPackageDetailPage: React.FC<KumbhPackageDetailPageProps> = ({ slug: p
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
-      "price": pkg.priceStarting?.replace(/[^0-9]/g, '') || "4299",
+      "price": pkg.priceStarting?.replace(/[^0-9]/g, '') || "4199",
       "availability": "https://schema.org/InStock",
       "validFrom": "2026-11-15",
       "url": canonicalUrl
@@ -257,7 +257,7 @@ const KumbhPackageDetailPage: React.FC<KumbhPackageDetailPageProps> = ({ slug: p
 
           <div className="p-4 rounded-xl border border-orange-500/30 bg-orange-500/5">
             <span className="text-[11px] font-medium text-orange-700 dark:text-orange-300 uppercase tracking-wider block mb-1">
-              {isHi ? "पैकेज मूल्य" : "Starting Price"}
+              {isHi ? "शुरुआती कीमत" : "Starting from"}
             </span>
             <p className="font-bold text-lg text-primary">
               {pkg.priceStarting}
