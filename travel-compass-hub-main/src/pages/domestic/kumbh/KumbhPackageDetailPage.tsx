@@ -17,6 +17,7 @@ import {
   MessageCircle,
   Phone,
   Check,
+  CheckCircle2,
   X,
   ShieldAlert,
   ArrowRight,
@@ -377,9 +378,27 @@ const KumbhPackageDetailPage: React.FC<KumbhPackageDetailPageProps> = ({ slug: p
                 </div>
               </div>
 
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
                 {isHi ? day.descHi : day.descEn}
               </p>
+
+              {/* Point-by-point easy breakdown */}
+              {((isHi ? day.pointsHi : day.pointsEn) || day.activities) && (
+                <div className="mt-4 pt-4 border-t border-border/60 bg-muted/20 p-4 sm:p-5 rounded-2xl">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-3 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{isHi ? "दैनिक मुख्य बिंदु (सरल व स्पष्ट कार्यक्रम):" : "Step-by-Step Points & Highlights:"}</span>
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {((isHi ? day.pointsHi : day.pointsEn) || day.activities)?.map((pt, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </article>
           ))}
         </div>

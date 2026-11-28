@@ -134,25 +134,52 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "दिल्ली अथवा हरिद्वार से सुगम प्रस्थान समन्वय एवं 24/7 तीर्थ सहायता"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar & Ganga Aarti at Har Ki Pauri",
-        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर दिव्य गंगा आरती",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to the sacred Har Ki Pauri to witness the divine Ganga Aarti, a spiritual experience as lamps glow over the flowing Ganga. Return to the hotel for dinner and a comfortable overnight stay.",
-        descHi: "हरिद्वार आगमन के उपरांत होटल बालाजी (अथवा समकक्ष) में चेक-इन करें। विश्राम के पश्चात सांध्यकाल में पावन हर की पौड़ी पहुंचकर दिव्य गंगा आरती के अलौकिक दर्शन करें। गंगा की बहती लहरों पर प्रज्ज्वलित दीपों का आध्यात्मिक दृश्य मन को शांति प्रदान करता है। होटल लौटकर स्वादिष्ट रात्रि भोजन करें और रात्रि विश्राम करें।",
+        titleEn: "Arrival in Haridwar & Har Ki Pauri Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर पावन गंगा आरती",
+        descEn: "Welcome to holy Haridwar. Arrive, check in at your hotel, take rest, and enjoy the divine evening Ganga Aarti at Har Ki Pauri.",
+        descHi: "पवित्र हरिद्वार में आपका स्वागत है। आगमन के बाद होटल में चेक-इन करें, आराम करें और शाम को हर की पौड़ी पर विश्व प्रसिद्ध गंगा आरती के दर्शन करें।",
         meals: "Dinner included",
-        stay: "1 Night at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1 Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrival in Haridwar and smooth check-in at Hotel Balaji (or similar hotel).",
+            "Freshen up and take rest in your comfortable room after the journey.",
+            "In the evening, proceed towards the holy Har Ki Pauri ghat.",
+            "Witness the world-famous Ganga Aarti with glowing oil lamps (diyas) and spiritual bells.",
+            "Return to the hotel, enjoy a warm vegetarian dinner, and comfortable night stay."
+        ],
+        pointsHi: [
+            "हरिद्वार आगमन और होटल बालाजी (या समकक्ष) में सुविधाजनक चेक-इन।",
+            "कमरे में फ्रेश हों और यात्रा के बाद थोड़ा आराम करें।",
+            "शाम को पावन हर की पौड़ी घाट के लिए प्रस्थान करें।",
+            "दीपों की रोशनी और मंत्रोच्चार के बीच अलौकिक गंगा आरती का दर्शन करें।",
+            "होटल लौटकर स्वादिष्ट शुद्ध सात्विक भोजन करें और रात्रि विश्राम करें।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Holy Ganga Snan, Temple Darshan & Departure",
-        titleHi: "पवित्र गंगा स्नान, प्रमुख मंदिर दर्शन एवं प्रस्थान",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period, followed by darshan at revered temples of Haridwar. Check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातःकालीन सात्विक नाश्ते के बाद, कुंभ मेला अवधि के दौरान पवित्र घाटों पर गंगा स्नान (Ganga Snan) करें और हरिद्वार के सुप्रसिद्ध व पूजनीय मंदिरों के दर्शन करें। इसके पश्चात होटल से चेक-आउट करें और माँ गंगा के आशीर्वाद व अविस्मरणीय स्मृतियों के साथ दिल्ली अथवा अपने गंतव्य के लिए प्रस्थान करें।",
+        titleEn: "Holy Ganga Snan, Temple Visits & Departure",
+        titleHi: "पवित्र गंगा स्नान, मंदिर दर्शन एवं सुखद घर वापसी",
+        descEn: "Take a sacred bath in the holy Ganga river during the Kumbh period, visit Haridwar's famous temples, and start your journey home.",
+        descHi: "कुंभ पर्व के पावन अवसर पर गंगा स्नान करें, सिद्ध मंदिरों के दर्शन करें और सुखद यादों के साथ घर के लिए प्रस्थान करें।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Enjoy a fresh and hearty morning breakfast at the hotel.",
+            "Head to the designated Kumbh bathing ghat for the sacred Holy Ganga Snan.",
+            "Visit revered temples like Mansa Devi Temple and Chandi Devi Temple (ropeway / cable-car available).",
+            "Complete hotel check-out by 11:00 AM - 12:00 PM.",
+            "Drop-off at Haridwar Railway Station or begin your drive back home with holy blessings."
+        ],
+        pointsHi: [
+            "सुबह होटल में गरमा-गरम और पौष्टिक नाश्ता करें।",
+            "निर्धारित कुंभ स्नान घाट पर माँ गंगा में श्रद्धापूर्वक पवित्र स्नान (डुबकी) लगाएं।",
+            "मनसा देवी और चंडी देवी जैसे प्रमुख मंदिरों के दर्शन करें (रोपवे/उड़नखटोला उपलब्ध)।",
+            "दोपहर 12:00 बजे तक होटल से चेक-आउट करें।",
+            "हरिद्वार रेलवे स्टेशन या गंतव्य की ओर गंगा मैया के आशीर्वाद के साथ विदा हों।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -227,34 +254,73 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "होटल बालाजी में 2 रात्रियों का प्रवास तथा प्रतिदिन पौष्टिक सात्विक नाश्ता एवं रात्रि भोज"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar, Hotel Check-in & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन, होटल चेक-इन एवं गंगा आरती",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and a comfortable overnight stay.",
-        descHi: "हरिद्वार आगमन पर होटल बालाजी (अथवा समकक्ष) में चेक-इन करें। विश्राम के उपरांत सांध्यकाल में पवित्र हर की पौड़ी जाएं और गंगा आरती के भव्य दर्शन करें, जहां सैकड़ों दीपों की जगमगाहट से माँ गंगा का तट जगमगा उठता है। होटल लौटकर सात्विक रात्रि भोजन एवं आरामदायक रात्रि विश्राम करें।",
+        titleEn: "Haridwar Arrival, Hotel Check-in & Evening Ganga Aarti",
+        titleHi: "हरिद्वार आगमन, होटल चेक-इन एवं शाम की गंगा आरती",
+        descEn: "Reach Haridwar, check in to your hotel, relax, and attend the world-famous evening Ganga Aarti at Har Ki Pauri.",
+        descHi: "हरिद्वार आगमन पर होटल में चेक-इन करें, थोड़ा आराम करें और शाम को हर की पौड़ी पर दिव्य गंगा आरती में सम्मिलित हों।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrival at Haridwar and assisted check-in at Hotel Balaji (or similar hotel).",
+            "Unpack and take rest in your comfortable room.",
+            "In the evening, visit Har Ki Pauri to see the glowing evening Ganga Aarti.",
+            "Soak in the spiritual chanting, ringing bells, and lamps floating on the river.",
+            "Enjoy a warm vegetarian dinner at the hotel and overnight stay."
+        ],
+        pointsHi: [
+            "हरिद्वार आगमन और होटल बालाजी में सुविधाजनक चेक-इन।",
+            "कमरे में सामान रखें और थोड़ा विश्राम करें।",
+            "शाम को हर की पौड़ी पर भव्य एवं पावन गंगा आरती के दर्शन करें।",
+            "गंगा जी में बहते दीयों और घंटियों की मधुर ध्वनि का आनंद लें।",
+            "होटल में स्वादिष्ट रात्रि भोजन करें और आराम से सोएं।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Holy Ganga Snan, Kumbh Mela Visit & Temple Darshan",
-        titleHi: "पवित्र गंगा स्नान, कुंभ मेला क्षेत्र दर्शन एवं मंदिर परिक्रमा",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and experience the grandeur of the Kumbh Mela. Later, visit revered local temples of Haridwar for darshan. Return to the hotel for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के पश्चात, पवित्र गंगा घाटों पर आस्था की डुबकी (गंगा स्नान) लगाएं और कुंभ मेले की आध्यात्मिक भव्यता का अनुभव करें। इसके बाद हरिद्वार के प्राचीन व प्रतिष्ठित मंदिरों में दर्शन-पूजन करें। संध्या समय होटल लौटकर स्वादिष्ट रात्रि भोजन और रात्रि विश्राम करें।",
+        titleEn: "Holy Kumbh Ganga Snan, Mela Visits & Temple Darshan",
+        titleHi: "पवित्र कुंभ स्नान, मेला क्षेत्र भ्रमण एवं मंदिर दर्शन",
+        descEn: "Experience the vibrant Kumbh Mela, take a holy bath in the sacred Ganga, and visit historic Haridwar temples.",
+        descHi: "कुंभ मेले का जीवंत अनुभव, गंगा जी में पवित्र स्नान और हरिद्वार के प्रसिद्ध ऐतिहासिक मंदिरों के दर्शन।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Start your morning with a fresh breakfast at the hotel.",
+            "Take a holy dip (Kumbh Snan) in the sacred waters of Mother Ganga.",
+            "Explore the Kumbh Mela area and witness holy camps, sadhus, and festive atmosphere.",
+            "Visit famous local temples including Daksh Prajapati Temple, Maya Devi, and Pawan Dham.",
+            "Return to the hotel in the evening for dinner and overnight stay."
+        ],
+        pointsHi: [
+            "सुबह होटल में स्वादिष्ट नाश्ते का आनंद लें।",
+            "माँ गंगा के पवित्र जल में आस्था की पावन डुबकी (कुंभ स्नान) लगाएं।",
+            "कुंभ मेला क्षेत्र का भ्रमण करें, संतों के शिविर और आध्यात्मिक वातावरण देखें।",
+            "दक्षेश्वर महादेव मंदिर, माया देवी और पवन धाम जैसे सिद्ध मंदिरों के दर्शन करें।",
+            "शाम को होटल लौटकर स्वादिष्ट रात्रि भोजन करें और विश्राम करें।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Haridwar Sightseeing & Departure",
-        titleHi: "हरिद्वार स्थानीय दर्शन एवं प्रस्थान",
-        descEn: "After breakfast, enjoy a short sightseeing of Haridwar. Check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातःकाल नाश्ते के बाद, हरिद्वार के स्थानीय दर्शनीय स्थलों व बाज़ारों का आनंद लें। होटल से चेक-आउट करें और आध्यात्मिक ऊर्जा व सुखद स्मृतियों के साथ दिल्ली अथवा अपने गृह नगर के लिए प्रस्थान करें।",
+        titleEn: "Morning Leisure, Shopping, Check-out & Departure",
+        titleHi: "सुबह की खरीदारी, होटल से चेक-आउट एवं घर वापसी",
+        descEn: "Enjoy morning prayers or local market shopping, check out from the hotel, and depart for home with sweet memories.",
+        descHi: "सुबह स्थानीय बाजार से खरीदारी, होटल से चेक-आउट और सुखद यादों के साथ घर के लिए प्रस्थान।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward destination"
-      }
-    ],
+        pointsEn: [
+            "Enjoy a healthy morning breakfast at the hotel.",
+            "Visit the local Haridwar markets to buy original Rudraksha, souvenirs, or Ganga Jal containers.",
+            "Complete hotel check-out by 11:00 AM - 12:00 PM.",
+            "Depart for Haridwar Railway Station or begin your return drive home with happy memories."
+        ],
+        pointsHi: [
+            "होटल में सुबह का ताजा नाश्ता करें।",
+            "स्थानीय बाजार में घूमकर असली रुद्राक्ष, धार्मिक वस्तुएं या गंगाजल के पात्र खरीदें।",
+            "दोपहर तक होटल से चेक-आउट की प्रक्रिया पूरी करें।",
+            "रेलवे स्टेशन या अपने शहर के लिए सुखद यादों और आशीर्वाद के साथ विदा हों।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -329,43 +395,88 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "होटल बालाजी हरिद्वार (2 रातें) + सनराइज रिसॉर्ट ऋषिकेश (1 रात) में सुखद आवास व सात्विक भोजन"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Haridwar Arrival & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी गंगा आरती",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन पर होटल बालाजी (अथवा समकक्ष) में चेक-इन करें। विश्राम के पश्चात सांध्यकाल में हर की पौड़ी पर विश्वप्रसिद्ध गंगा आरती के दर्शन करें। होटल लौटकर रात्रि भोजन व विश्राम।",
+        titleEn: "Arrival in Haridwar & Har Ki Pauri Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर गंगा आरती",
+        descEn: "Arrive in Haridwar, check in to your hotel, and attend the grand evening Ganga Aarti at Har Ki Pauri.",
+        descHi: "हरिद्वार पहुंचकर होटल में चेक-इन करें और शाम को हर की पौड़ी पर गंगा आरती में शामिल हों।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji.",
+            "Freshen up and take rest after your journey.",
+            "Attend the mesmerizing evening Ganga Aarti at Har Ki Pauri.",
+            "Enjoy a hot vegetarian dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार आगमन और होटल बालाजी में चेक-इन।",
+            "कमरे में विश्राम करें और फ्रेश हो जाएं।",
+            "शाम को हर की पौड़ी पर मनमोहक गंगा आरती के दर्शन करें।",
+            "स्वादिष्ट शाकाहारी रात्रि भोजन और होटल में आराम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Kumbh Holy Bathing & Temple Visits",
-        titleHi: "कुंभ पावन स्नान एवं हरिद्वार मंदिर दर्शन",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and experience the grandeur of the Kumbh Mela. Later, visit revered temples of Haridwar for darshan. Return to the hotel for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के बाद कुंभ मेला घाटों पर पवित्र गंगा स्नान करें। इसके उपरांत हरिद्वार के प्रमुख सिद्धपीठों और मंदिरों के दर्शन करें। रात्रि भोजन व हरिद्वार में प्रवास।",
+        titleEn: "Holy Kumbh Ganga Snan & Haridwar Temple Darshan",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार मंदिर दर्शन",
+        descEn: "Take a sacred bath in the Ganga, explore the Kumbh Mela surroundings, and visit top temples.",
+        descHi: "गंगा जी में पवित्र स्नान करें, कुंभ मेले का अनुभव लें और प्रसिद्ध मंदिरों के दर्शन करें।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Morning breakfast at the hotel restaurant.",
+            "Take a holy bath (snan) in the pure Ganga river during Kumbh Mela.",
+            "Visit Mansa Devi Temple, Chandi Devi Temple, and Bharat Mata Mandir.",
+            "Spend a peaceful evening along the river ghats, followed by dinner and rest."
+        ],
+        pointsHi: [
+            "होटल में सुबह का स्वादिष्ट नाश्ता करें।",
+            "माँ गंगा में श्रद्धापूर्वक पवित्र कुंभ स्नान करें।",
+            "मनसा देवी, चंडी देवी और भारत माता मंदिर के दर्शन करें।",
+            "शाम को गंगा किनारे शांति का अनुभव करें, फिर डिनर और विश्राम करें।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Devprayag Sangam Darshan & Rishikesh Stay",
-        titleHi: "देवप्रयाग पावन संगम दर्शन एवं ऋषिकेश प्रवास",
-        descEn: "After breakfast, drive towards Devprayag, the sacred confluence where the Alaknanda and Bhagirathi rivers meet to form the Ganga. Enjoy the Sangam darshan, then return to Rishikesh or a nearby stay for dinner and overnight, as per your booking.",
-        descHi: "प्रातः नाश्ते के उपरांत देवप्रयाग की मनोरम यात्रा। यहाँ अलकनंदा और भागीरथी के पावन संगम का अलौकिक दर्शन व पूजन करें जहाँ से माँ गंगा अवतरित होती हैं। दर्शन के उपरांत ऋषिकेश (सनराइज रिसॉर्ट या समकक्ष) आगमन, रात्रि भोजन व विश्राम।",
+        titleEn: "Scenic Mountain Drive to Devprayag Sangam & Rishikesh Stay",
+        titleHi: "देवप्रयाग संगम दर्शन एवं ऋषिकेश में रात्रि प्रवास",
+        descEn: "Drive into the hills to Devprayag to see the divine meeting of Bhagirathi and Alaknanda rivers, then stay in Rishikesh.",
+        descHi: "देवप्रयाग की मनोरम यात्रा, भागीरथी और अलकनंदा के पावन संगम दर्शन और ऋषिकेश में प्रवास।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Sunrise Resort, Rishikesh"
-      },
-      {
+        stay: "3rd Night at Sunrise Resort, Rishikesh (or equivalent)",
+        pointsEn: [
+            "Have breakfast and start a scenic mountain highway drive to Devprayag.",
+            "Stand at the sacred Sangam point where Alaknanda and Bhagirathi rivers meet to create the holy Ganga.",
+            "Visit the ancient and revered Raghunathji Temple.",
+            "Drive down to peaceful Rishikesh, check in at Sunrise Resort, have dinner, and overnight stay."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद देवप्रयाग के लिए सुंदर पहाड़ी रास्ते से रवाना हों।",
+            "उस पावन संगम के दर्शन करें जहां अलकनंदा और भागीरथी मिलकर गंगा बनती हैं।",
+            "प्राचीन श्री रघुनाथ जी मंदिर में दर्शन एवं पूजन करें।",
+            "ऋषिकेश पहुंचकर होटल में चेक-इन करें, स्वादिष्ट भोजन करें और विश्राम करें।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Breakfast & Departure",
-        titleHi: "नाश्ता एवं दिल्ली/गंतव्य हेतु प्रस्थान",
-        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातःकालीन नाश्ते के पश्चात होटल से चेक-आउट करें और पवित्र संगम व कुंभ के दिव्य आशीर्वाद के साथ दिल्ली अथवा गंतव्य के लिए प्रस्थान करें।",
+        titleEn: "Rishikesh Morning, Hotel Check-out & Departure",
+        titleHi: "सुबह ऋषिकेश दर्शन, चेक-आउट एवं घर वापसी",
+        descEn: "Enjoy a peaceful morning walk by the river in Rishikesh, check out from the hotel, and proceed for home.",
+        descHi: "ऋषिकेश में सुबह का शांत वातावरण, होटल से चेक-आउट और सुखद घर वापसी।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Enjoy breakfast surrounded by green Himalayan foothills.",
+            "Short walk around Ram Jhula or local market.",
+            "Check out from the hotel and drive back to Delhi or Haridwar station for your return journey."
+        ],
+        pointsHi: [
+            "पहाड़ों के शांत वातावरण में नाश्ते का आनंद लें।",
+            "राम झूला या आसपास के सुंदर घाटों का भ्रमण करें।",
+            "होटल से चेक-आउट करें और दिल्ली या रेलवे स्टेशन के लिए रवाना हों।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -439,43 +550,88 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "होटल बालाजी हरिद्वार (2 रातें) + होटल माया मसूरी (1 रात) में प्रवास एवं सात्विक भोजन"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं गंगा आरती दर्शन",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन पर होटल बालाजी में चेक-इन। सांध्यकाल में हर की पौड़ी पर भव्य गंगा आरती का दिव्य दर्शन। होटल वापसी, स्वादिष्ट भोजन एवं रात्रि विश्राम।",
+        titleEn: "Arrival in Haridwar & Har Ki Pauri Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर गंगा आरती",
+        descEn: "Reach Haridwar, check in to your hotel, and attend the world-famous evening Ganga Aarti at Har Ki Pauri.",
+        descHi: "हरिद्वार पहुंचकर होटल में चेक-इन करें और शाम को हर की पौड़ी पर दिव्य गंगा आरती में सम्मिलित हों।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji.",
+            "Freshen up and relax in your room.",
+            "In the evening, proceed to Har Ki Pauri to see the beautiful Ganga Aarti.",
+            "Enjoy a hot vegetarian dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार आगमन और होटल बालाजी में चेक-इन।",
+            "कमरे में फ्रेश हों और आराम करें।",
+            "शाम को हर की पौड़ी पर भव्य गंगा आरती का दर्शन करें।",
+            "स्वादिष्ट शाकाहारी भोजन और होटल में रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Holy Ganga Snan & Haridwar Pilgrimage Visits",
-        titleHi: "पवित्र गंगा स्नान एवं हरिद्वार तीर्थ दर्शन",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and experience the grandeur of the Kumbh Mela. Later, visit the revered pilgrimage sites of Haridwar. Return to the hotel for dinner and overnight stay.",
-        descHi: "प्रातःकालीन नाश्ते के बाद कुंभ स्नान घाटों पर पवित्र गंगा स्नान करें। इसके बाद हरिद्वार के पूजनीय तीर्थ स्थलों के दर्शन करें। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Holy Kumbh Ganga Snan & Haridwar Pilgrimage Tour",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार तीर्थ दर्शन",
+        descEn: "Take a holy bath during the Kumbh period, explore the Kumbh Mela, and visit Haridwar temples.",
+        descHi: "गंगा जी में पवित्र स्नान करें और हरिद्वार के प्रमुख धार्मिक स्थलों के दर्शन करें।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Morning breakfast at the hotel.",
+            "Take a holy bath (Kumbh Snan) at the sacred Ganga ghat.",
+            "Visit Mansa Devi Temple, Chandi Devi Temple, and Daksh Temple.",
+            "Return to hotel for a delicious dinner and comfortable overnight stay."
+        ],
+        pointsHi: [
+            "सुबह होटल में नाश्ता करें।",
+            "गंगा जी में श्रद्धापूर्वक पवित्र स्नान करें।",
+            "मनसा देवी, चंडी देवी और दक्षेश्वर महादेव मंदिर के दर्शन करें।",
+            "होटल में स्वादिष्ट डिनर और रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Drive to Mussoorie & Mall Road Sightseeing",
-        titleHi: "मसूरी की सुरम्य यात्रा एवं मॉल रोड भ्रमण",
-        descEn: "After breakfast, check out and drive to Mussoorie, the Queen of the Hills. On arrival, check in at Hotel Maya (or equivalent) and enjoy a leisurely stroll along the famous Mall Road with its cool mountain air and scenic views. Dinner and overnight stay in Mussoorie.",
-        descHi: "प्रातः नाश्ते के बाद चेक-आउट कर पहाड़ों की रानी मसूरी के लिए प्रस्थान। मसूरी पहुंचकर होटल माया में चेक-इन करें। इसके बाद प्रसिद्ध मॉल रोड पर टहलते हुए हिमालयी दृश्यों और ताजी हवा का आनंद लें। मसूरी में स्वादिष्ट डिनर व रात्रि विश्राम।",
+        titleEn: "Scenic Hill Drive to Mussoorie & Mall Road Walk",
+        titleHi: "मसूरी की मनोरम यात्रा एवं मॉल रोड की सैर",
+        descEn: "Drive up to Queen of Hills Mussoorie, check in to your hotel, and enjoy a pleasant evening walk on Mall Road.",
+        descHi: "पहाड़ों की रानी मसूरी के लिए सुंदर पहाड़ी यात्रा, होटल चेक-इन और प्रसिद्ध मॉल रोड पर भ्रमण।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Hotel Maya, Mussoorie"
-      },
-      {
+        stay: "3rd Night at Hotel Maya, Mussoorie (or equivalent)",
+        pointsEn: [
+            "After breakfast, check out and drive up into the hills to Mussoorie (approx. 2.5 - 3 hours).",
+            "Check in at Hotel Maya (or similar hotel in Mussoorie).",
+            "In the evening, stroll along the famous Mall Road with lovely mountain views and shopping.",
+            "Enjoy a warm dinner and cozy overnight stay in Mussoorie."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद चेक-आउट कर मसूरी के लिए पहाड़ी सफर शुरू करें।",
+            "मसूरी पहुंचकर होटल माया में चेक-इन करें।",
+            "शाम को प्रसिद्ध मॉल रोड पर टहलें, सुंदर नजारों का आनंद लें और खरीदारी करें।",
+            "होटल में गरमा-गरम स्वादिष्ट भोजन और आरामदायक रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Mussoorie Sightseeing & Departure",
-        titleHi: "मसूरी स्थानीय भ्रमण एवं दिल्ली वापसी",
-        descEn: "After breakfast, enjoy Mussoorie sightseeing as time permits. Check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "नाश्ते के पश्चात समयानुसार मसूरी के प्रसिद्ध स्थलों का दर्शन। होटल से चेक-आउट कर दिल्ली अथवा अपने गंतव्य के लिए सुखद यादों के साथ प्रस्थान।",
+        titleEn: "Mussoorie Sightseeing, Check-out & Departure",
+        titleHi: "मसूरी दर्शनीय स्थल, चेक-आउट एवं घर वापसी",
+        descEn: "Visit scenic spots in Mussoorie, check out from the hotel, and travel back home with sweet memories.",
+        descHi: "मसूरी के सुंदर दर्शनीय स्थल घूमें, होटल से चेक-आउट करें और घर के लिए प्रस्थान करें।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Enjoy breakfast with fresh mountain air and scenic valley views.",
+            "Visit Kempty Falls or Company Garden (as per time available).",
+            "Check out from the hotel and drive down towards Dehradun / Delhi for your journey home."
+        ],
+        pointsHi: [
+            "पहाड़ों की ठंडी हवा में सुबह का नाश्ता करें।",
+            "केम्प्टी फॉल्स या कंपनी गार्डन का आनंद लें।",
+            "होटल से चेक-आउट करें और देहरादून / दिल्ली होते हुए घर वापसी करें।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -549,43 +705,90 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "होटल बालाजी हरिद्वार (2 रातें) + सनराइज रिसॉर्ट ऋषिकेश (1 रात) में आरामदायक प्रवास व सात्विक भोजन"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं भव्य गंगा आरती दर्शन",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन पर होटल बालाजी में चेक-इन। सांध्यकाल में हर की पौड़ी पहुंचकर माँ गंगा की आरती के आलौकिक दर्शन। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Haridwar Arrival & Evening Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं शाम को गंगा आरती",
+        descEn: "Arrive in Haridwar, check in to your hotel, and attend the serene Ganga Aarti at Har Ki Pauri.",
+        descHi: "हरिद्वार आगमन, होटल में चेक-इन और शाम को हर की पौड़ी पर पावन गंगा आरती में शामिल हों।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji.",
+            "Freshen up and take rest in your room.",
+            "Visit Har Ki Pauri in the evening for the holy Ganga Aarti.",
+            "Enjoy a tasty vegetarian dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार पहुंचकर होटल बालाजी में चेक-इन करें।",
+            "कमरे में फ्रेश हों और आराम करें।",
+            "शाम को हर की पौड़ी पर भव्य गंगा आरती का दर्शन करें।",
+            "स्वादिष्ट रात्रि भोजन और होटल में विश्राम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Holy Ganga Snan & Kumbh Mela Sightseeing",
-        titleHi: "पवित्र कुंभ स्नान एवं मेला क्षेत्र दर्शन",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and soak in the grandeur of the Kumbh Mela with a visit around the Mela area. Return to the hotel for dinner and overnight stay.",
-        descHi: "नाश्ते के पश्चात पावन गंगा घाटों पर कुंभ स्नान करें और विशाल मेला क्षेत्र का भ्रमण कर संतों एवं अखाड़ों की दिव्य उपस्थिति का अनुभव करें। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Holy Kumbh Snan & Haridwar Temples",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार मंदिर भ्रमण",
+        descEn: "Take a sacred bath in the Ganga, experience the Kumbh Mela atmosphere, and visit revered temples.",
+        descHi: "गंगा जी में पवित्र स्नान करें और हरिद्वार के प्रसिद्ध मंदिरों के दर्शन करें।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Enjoy a fresh breakfast at the hotel.",
+            "Take a holy bath (Kumbh Snan) in the pure Ganga river.",
+            "Visit Mansa Devi Temple, Chandi Devi Temple, and Pawan Dham.",
+            "Return to the hotel for dinner and restful sleep."
+        ],
+        pointsHi: [
+            "सुबह होटल में नाश्ता करें।",
+            "माँ गंगा के पावन जल में पवित्र स्नान करें।",
+            "मनसा देवी, चंडी देवी और पवन धाम के दर्शन करें।",
+            "होटल में रात का भोजन और विश्राम।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Neelkanth Mahadev Darshan & Rishikesh Stay",
-        titleHi: "पौराणिक नीलकंठ महादेव मंदिर दर्शन एवं ऋषिकेश प्रवास",
-        descEn: "After breakfast, check out and travel towards Rishikesh and the sacred Neelkanth Mahadev Temple for darshan, subject to traffic and crowd conditions. Check in at Sunrise Resort, Rishikesh (or equivalent) for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के उपरांत चेक-आउट कर ऋषिकेश होते हुए भगवान शिव के सुप्रसिद्ध नीलकंठ महादेव मंदिर के दर्शन हेतु यात्रा। दर्शन उपरांत सनराइज रिसॉर्ट, ऋषिकेश में चेक-इन, रात्रि भोजन व विश्राम।",
+        titleEn: "Neelkanth Mahadev Temple Darshan & Rishikesh Stay",
+        titleHi: "नीलकंठ महादेव मंदिर दर्शन एवं ऋषिकेश प्रवास",
+        descEn: "Drive through forest hills to the holy Neelkanth Mahadev Temple, offer prayers to Lord Shiva, and stay in Rishikesh.",
+        descHi: "पहाड़ी रास्ते से नीलकंठ महादेव मंदिर पहुंचे, भगवान शिव की पूजा-अर्चना करें और ऋषिकेश में ठहरें।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Sunrise Resort, Rishikesh"
-      },
-      {
+        stay: "3rd Night at Sunrise Resort, Rishikesh (or equivalent)",
+        pointsEn: [
+            "After breakfast, drive up into the scenic hills to Neelkanth Mahadev Temple.",
+            "Offer holy jal and prayers at the ancient temple where Lord Shiva drank the cosmic poison (Halahala).",
+            "Drive down to Rishikesh and check in at Sunrise Resort.",
+            "Visit Ram Jhula or Triveni Ghat in the evening.",
+            "Dinner and comfortable overnight stay in Rishikesh."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद नीलकंठ महादेव मंदिर के लिए सुंदर पहाड़ी यात्रा करें।",
+            "भगवान शिव के पावन धाम में दर्शन और जलाभिषेक करें।",
+            "ऋषिकेश पहुंचकर सनराइज रिजॉर्ट में चेक-इन करें।",
+            "शाम को राम झूला या त्रिवेणी घाट के दर्शन करें।",
+            "होटल में स्वादिष्ट डिनर और रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Breakfast, Check-out & Departure",
-        titleHi: "नाश्ता, चेक-आउट एवं प्रस्थान",
-        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातः नाश्ते के बाद चेक-आउट करें और भगवान नीलकंठ व माँ गंगा की पावन कृपा के साथ दिल्ली अथवा गंतव्य के लिए प्रस्थान करें।",
+        titleEn: "Rishikesh Morning, Check-out & Departure",
+        titleHi: "सुबह का नाश्ता, चेक-आउट एवं घर वापसी",
+        descEn: "Enjoy morning breakfast by the hills, check out from the hotel, and proceed for home with Mahadev's blessings.",
+        descHi: "सुबह का नाश्ता, होटल से चेक-आउट और महादेव के आशीर्वाद के साथ घर के लिए प्रस्थान।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Breakfast at the hotel surrounded by nature.",
+            "Complete check-out formalities.",
+            "Transfer to Haridwar Railway Station or start drive back to Delhi with peaceful memories."
+        ],
+        pointsHi: [
+            "होटल में नाश्ते का आनंद लें।",
+            "होटल से चेक-आउट करें।",
+            "हरिद्वार रेलवे स्टेशन या दिल्ली के लिए प्रस्थान करें।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -660,34 +863,73 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "रुद्राक्ष सफ़र हरिद्वार टीम द्वारा 24/7 समर्पित बुजुर्ग तीर्थ सेवा एवं मेडिकल सहायता समन्वय"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar & Relaxed Evening",
-        titleHi: "हरिद्वार आगमन एवं सहज विश्राममय संध्या",
-        descEn: "Arrive in Haridwar and enjoy an assisted hotel check-in, with time to relax and refresh after your journey. In the evening, attend the divine Ganga Aarti if you are comfortable and it is permitted. Dinner and overnight stay in Haridwar.",
-        descHi: "हरिद्वार आगमन पर होटल में सहायता युक्त सुगम चेक-इन करें। यात्रा की थकान मिटाने हेतु पर्याप्त विश्राम का समय। सांध्यकाल में सुविधा और अनुमति अनुसार हर की पौड़ी पर दिव्य गंगा आरती के दर्शन करें। होटल में सात्विक रात्रि भोजन एवं रात्रि विश्राम।",
+        titleEn: "Easy Arrival in Haridwar, Rest & Har Ki Pauri Ganga Aarti",
+        titleHi: "सुगम हरिद्वार आगमन, आराम एवं हर की पौड़ी गंगा आरती",
+        descEn: "Easy arrival with full luggage help, ground floor / lift room check-in, and comfortable Ganga Aarti darshan with minimum walking.",
+        descHi: "सामान उठाने में पूरे सहयोग के साथ आसान आगमन, आरामदायक कमरे में चेक-इन और कम से कम चलने के साथ सुगम गंगा आरती दर्शन।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar (Senior-friendly)",
+        pointsEn: [
+            "Warm welcome at Haridwar with dedicated luggage assistance for elderly pilgrims.",
+            "Check-in at Hotel Balaji with priority ground floor or lift-accessible rooms.",
+            "Plenty of time to rest, freshen up, and relax after the journey.",
+            "In the evening, proceed to Har Ki Pauri with comfortable seating and minimum walking for the divine Ganga Aarti.",
+            "Enjoy mild, warm, sattvic vegetarian dinner suited for seniors, followed by peaceful sleep."
+        ],
+        pointsHi: [
+            "हरिद्वार आगमन पर वरिष्ठ नागरिकों के लिए सामान उठाने में पूरा सहयोग।",
+            "होटल बालाजी में आरामदायक चेक-इन (भूतल या लिफ्ट वाले कमरों को प्राथमिकता)।",
+            "यात्रा के बाद कमरे में आराम करें और फ्रेश हों।",
+            "शाम को कम से कम पैदल चलने और आरामदायक बैठने की व्यवस्था के साथ गंगा आरती दर्शन।",
+            "वरिष्ठ नागरिकों के अनुकूल हल्का, सुपाच्य सात्विक भोजन और सुकून भरी रात।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Unhurried Holy Ganga Snan",
-        titleHi: "सहज एवं शांत पवित्र गंगा स्नान",
-        descEn: "After breakfast, visit a designated accessible ghat for an unhurried holy Ganga Snan, subject to official access and crowd conditions. Return to the hotel for rest. Dinner and overnight stay in Haridwar.",
-        descHi: "प्रातःकालीन नाश्ते के उपरांत, वरिष्ठजनों के अनुकूल सुगम घाट पर बिना किसी जल्दबाजी के आस्था की डुबकी (गंगा स्नान) लगाएं। स्नान के उपरांत होटल लौटकर विश्राम करें। स्वादिष्ट रात्रि भोजन एवं हरिद्वार में रात्रि विश्राम।",
+        titleEn: "Unhurried Holy Ganga Snan & Easy Temple Darshan",
+        titleHi: "आराम से पवित्र गंगा स्नान एवं सुगम मंदिर दर्शन",
+        descEn: "A relaxed, slow-paced day with a safe Ganga bath at an accessible ghat with railings, followed by ropeway temple visits.",
+        descHi: "बिना किसी हड़बड़ी के सुरक्षित घाट पर पवित्र गंगा स्नान और रोपवे (उड़नखटोला) द्वारा सुगम मंदिर दर्शन।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Enjoy a fresh, warm, wholesome breakfast at an easy morning pace.",
+            "Visit a safe, less crowded, accessible ghat with railings for an unhurried Holy Ganga Snan.",
+            "Easy visit to Mansa Devi or Chandi Devi via ropeway (cable car) to avoid climbing steps.",
+            "Afternoon rest in the hotel room to avoid any exertion or fatigue.",
+            "Warm vegetarian dinner and peaceful overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "सुबह आराम से गर्म और सुपाच्य नाश्ते का आनंद लें।",
+            "रेलिंग वाले सुरक्षित और कम भीड़ वाले घाट पर बिना किसी जल्दबाजी के गंगा स्नान करें।",
+            "रोपवे (उड़नखटोला) की सहायता से बिना सीढ़ियां चढ़े मनसा देवी या चंडी देवी दर्शन।",
+            "दोपहर में होटल के कमरे में पर्याप्त आराम ताकि कोई थकान न हो।",
+            "गरमा-गरम सात्विक भोजन और आरामदायक नींद।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Short Temple Darshan & Departure",
-        titleHi: "संक्षिप्त मंदिर दर्शन एवं प्रस्थान",
-        descEn: "After breakfast, check out from the hotel. If time and conditions permit, enjoy a flexible, short local temple darshan. Depart for Haridwar railway station or Delhi as per the confirmed transfer arrangement.",
-        descHi: "प्रातः नाश्ते के बाद होटल से चेक-आउट करें। समयानुकूल एवं सुविधा अनुसार स्थानीय मंदिरों के संक्षिप्त दर्शन करें। माँ गंगा के आशीर्वाद के साथ रेलवे स्टेशन अथवा दिल्ली हेतु प्रस्थान।",
+        titleEn: "Relaxed Morning, Assisted Packing, Check-out & Departure",
+        titleHi: "आरामदायक सुबह, पैकिंग में सहायता, चेक-आउट एवं सुरक्षित विदाई",
+        descEn: "Relaxed breakfast, luggage packing help by hotel staff, and smooth assisted departure for home.",
+        descHi: "आराम से नाश्ता, सामान पैकिंग में पूरा सहयोग और सुरक्षित घर वापसी।",
         meals: "Breakfast included",
-        stay: "Departure towards Haridwar Railway Station / Delhi"
-      }
-    ],
+        pointsEn: [
+            "Enjoy breakfast at your own relaxed pace.",
+            "Staff assistance for luggage packing, carrying, and smooth hotel check-out.",
+            "Optional visit to a quiet ashram if health and time permit.",
+            "Drop-off at Haridwar Railway Station or assisted boarding for your return journey home."
+        ],
+        pointsHi: [
+            "सुबह सुकून से नाश्ता करें।",
+            "होटल स्टाफ की सहायता से सामान उठाना और आसान चेक-आउट।",
+            "यदि स्वास्थ्य और समय अनुमति दे तो किसी शांत आश्रम के दर्शन।",
+            "हरिद्वार स्टेशन पर सुविधाजनक बोर्डिंग और गंगा मैया के आशीर्वाद से घर वापसी।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -761,43 +1003,90 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "होटल बालाजी हरिद्वार (2 रातें) + सनराइज रिसॉर्ट ऋषिकेश (1 रात) में प्रवास एवं सात्विक भोजन"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Arrival in Haridwar & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं गंगा आरती दर्शन",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन पर होटल बालाजी में चेक-इन। विश्राम उपरांत सांध्यकाल में हर की पौड़ी पहुंचकर माँ गंगा की आरती के दिव्य दर्शन। होटल वापसी, स्वादिष्ट भोजन एवं रात्रि विश्राम।",
+        titleEn: "Arrival in Haridwar & Har Ki Pauri Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर गंगा आरती",
+        descEn: "Arrive in Haridwar, check in to your hotel, and attend the world-famous evening Ganga Aarti at Har Ki Pauri.",
+        descHi: "हरिद्वार आगमन पर होटल में चेक-इन करें, आराम करें और शाम को हर की पौड़ी पर दिव्य गंगा आरती के दर्शन करें।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji.",
+            "Freshen up and take rest after your journey.",
+            "In the evening, proceed to Har Ki Pauri for the divine Ganga Aarti.",
+            "Enjoy a hot vegetarian dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार पहुंचकर होटल बालाजी में चेक-इन करें।",
+            "कमरे में फ्रेश हों और थोड़ा आराम करें।",
+            "शाम को हर की पौड़ी पर भव्य गंगा आरती का दर्शन करें।",
+            "स्वादिष्ट शाकाहारी भोजन और होटल में रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Holy Ganga Snan & Haridwar Sightseeing",
-        titleHi: "पवित्र गंगा स्नान एवं हरिद्वार तीर्थ दर्शन",
-        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and experience the grandeur of the Kumbh Mela. Later, enjoy sightseeing in Haridwar. Return to the hotel for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के बाद पावन गंगा घाटों पर कुंभ स्नान करें। इसके उपरांत हरिद्वार के प्रमुख तीर्थ स्थलों व मंदिरों के दर्शन करें। रात्रि भोजन व हरिद्वार में प्रवास।",
+        titleEn: "Holy Kumbh Ganga Snan & Haridwar Sightseeing",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार भ्रमण",
+        descEn: "Take a holy bath during the Kumbh period, explore the Kumbh Mela, and visit Haridwar temples.",
+        descHi: "गंगा जी में पवित्र स्नान करें और हरिद्वार के प्रसिद्ध मंदिरों के दर्शन करें।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Morning breakfast at the hotel.",
+            "Take a holy dip in the sacred Ganga river.",
+            "Visit Mansa Devi Temple, Chandi Devi Temple, and Daksh Temple.",
+            "Return to hotel for a delicious dinner and comfortable overnight stay."
+        ],
+        pointsHi: [
+            "सुबह होटल में नाश्ता करें।",
+            "गंगा जी में श्रद्धापूर्वक पवित्र स्नान करें।",
+            "मनसा देवी, चंडी देवी और दक्षेश्वर महादेव मंदिर के दर्शन करें।",
+            "होटल में स्वादिष्ट डिनर और रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Transfer to Rishikesh, Triveni Ghat & Local Visit",
-        titleHi: "ऋषिकेश स्थानांतरण, त्रिवेणी घाट एवं स्थानीय दर्शन",
-        descEn: "After breakfast, check out and transfer to Rishikesh, the yoga capital of the world. Visit the serene Triveni Ghat and enjoy a local visit along the banks of the Ganga. Check in at Sunrise Resort, Rishikesh (or equivalent) for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के बाद चेक-आउट कर ऋषिकेश के लिए प्रस्थान। शांत एवं पावन त्रिवेणी घाट के दर्शन करें और गंगा तट पर टहलते हुए ऋषिकेश के वातावरण का अनुभव करें। सनराइज रिसॉर्ट ऋषिकेश में चेक-इन, रात्रि भोजन व विश्राम।",
+        titleEn: "Scenic Transfer to Rishikesh, Ram Jhula & Triveni Ghat Aarti",
+        titleHi: "ऋषिकेश की सुंदर यात्रा, राम झूला एवं त्रिवेणी घाट महाआरती",
+        descEn: "Drive to peaceful Rishikesh, visit iconic suspension bridges, and see Triveni Ghat Ganga Aarti.",
+        descHi: "ऋषिकेश की यात्रा, राम झूला-स्वर्गाश्रम दर्शन और शाम को त्रिवेणी घाट पर भव्य महाआरती।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Sunrise Resort, Rishikesh"
-      },
-      {
+        stay: "3rd Night at Sunrise Resort, Rishikesh (or equivalent)",
+        pointsEn: [
+            "After breakfast, take a scenic 45-minute drive to Rishikesh.",
+            "Check in at Sunrise Resort, Rishikesh (or equivalent).",
+            "Visit Ram Jhula, Swarg Ashram, and Gita Bhawan along the river.",
+            "In the evening, witness the divine Maha Aarti at Triveni Ghat.",
+            "Dinner and peaceful overnight stay in Rishikesh."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद ऋषिकेश के लिए 45 मिनट की सुंदर यात्रा करें।",
+            "सनराइज रिजॉर्ट ऋषिकेश (या समकक्ष) में चेक-इन करें।",
+            "राम झूला, स्वर्गाश्रम और गीता भवन का भ्रमण करें।",
+            "शाम को त्रिवेणी घाट पर प्रसिद्ध महाआरती के दर्शन करें।",
+            "होटल में स्वादिष्ट डिनर और सुकून भरी रात।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Breakfast & Departure",
-        titleHi: "नाश्ता एवं दिल्ली/गंतव्य हेतु प्रस्थान",
-        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातः नाश्ते के बाद चेक-आउट करें और माँ गंगा के पावन आशीर्वाद के साथ दिल्ली अथवा गंतव्य के लिए प्रस्थान करें।",
+        titleEn: "Rishikesh Morning Walk, Check-out & Departure",
+        titleHi: "सुबह गंगा दर्शन, होटल चेक-आउट एवं घर वापसी",
+        descEn: "Enjoy the morning breeze by the Ganga, check out from the hotel, and depart for home.",
+        descHi: "सुबह गंगा किनारे टहलना, चेक-आउट और घर के लिए प्रस्थान।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Enjoy breakfast surrounded by green hills.",
+            "Optional morning walk by the river or visit local spiritual shops.",
+            "Check out from the hotel and drive back to Delhi / Haridwar Station."
+        ],
+        pointsHi: [
+            "पहाड़ियों के शांत वातावरण में नाश्ता करें।",
+            "गंगा किनारे प्रातः भ्रमण या स्थानीय दुकानों से खरीदारी।",
+            "होटल से चेक-आउट करें और दिल्ली या रेलवे स्टेशन के लिए रवाना हों।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -870,52 +1159,113 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "2 रात हरिद्वार (होटल बालाजी) + 1 रात नैनीताल (होटल एरोमा) + 1 रात भीमताल (द पाम रिसॉर्ट) में सात्विक भोजन सहित प्रवास"
     ],
     itinerary: [
-      {
+    {
         day: 1,
         titleEn: "Haridwar Arrival & Evening Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं सांध्य गंगा आरती",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). In the evening, attend the divine Ganga Aarti at Har Ki Pauri. Dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन एवं होटल बालाजी में चेक-इन। सांध्यकाल में हर की पौड़ी पर भव्य गंगा आरती का दिव्य दर्शन। रात्रि भोजन एवं हरिद्वार में विश्राम।",
+        titleHi: "हरिद्वार आगमन एवं शाम को गंगा आरती",
+        descEn: "Arrive in Haridwar, check in to your hotel, and attend the Har Ki Pauri Ganga Aarti.",
+        descHi: "हरिद्वार आगमन, होटल चेक-इन और शाम को हर की पौड़ी पर गंगा आरती।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji.",
+            "Rest and freshen up in your room.",
+            "Attend the divine evening Ganga Aarti at Har Ki Pauri.",
+            "Dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार पहुंचकर होटल बालाजी में चेक-इन करें।",
+            "कमरे में आराम करें और फ्रेश हों।",
+            "शाम को हर की पौड़ी पर पावन गंगा आरती में शामिल हों।",
+            "होटल में स्वादिष्ट भोजन और विश्राम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Kumbh Holy Snan & Local Visit",
-        titleHi: "कुंभ पावन स्नान एवं स्थानीय दर्शन",
-        descEn: "After breakfast, take a holy Kumbh snan (Ganga Snan) at the ghats and enjoy a local visit around Haridwar. Dinner and overnight stay at the hotel.",
-        descHi: "प्रातः नाश्ते के बाद पावन गंगा घाटों पर कुंभ स्नान करें और हरिद्वार के सिद्धपीठों के दर्शन करें। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Holy Kumbh Ganga Snan & Haridwar Temples",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार मंदिर भ्रमण",
+        descEn: "Holy Ganga bath during the Kumbh festival and visits to prominent Haridwar temples.",
+        descHi: "पवित्र कुंभ स्नान और हरिद्वार के प्रसिद्ध मंदिरों के दर्शन।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Morning breakfast at the hotel.",
+            "Take a holy dip in the sacred Ganga river.",
+            "Visit Mansa Devi Temple and local spiritual ashrams.",
+            "Dinner and overnight stay at Haridwar."
+        ],
+        pointsHi: [
+            "होटल में सुबह का नाश्ता करें।",
+            "माँ गंगा में श्रद्धापूर्वक पवित्र स्नान करें।",
+            "मनसा देवी मंदिर और प्रसिद्ध आश्रमों के दर्शन करें।",
+            "होटल में रात्रि भोजन और विश्राम।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Travel to Nainital & Hotel Check-in",
-        titleHi: "नैनीताल की सुरम्य यात्रा एवं होटल चेक-इन",
-        descEn: "After breakfast, check out and drive towards Nainital, the Lake District of India. Check in at Hotel Aroma (or equivalent) for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के उपरांत चेक-आउट कर भारत की प्रसिद्ध सरोवर नगरी नैनीताल के लिए प्रस्थान। आगमन पर होटल एरोमा में चेक-इन, रात्रि भोजन व विश्राम।",
+        titleEn: "Scenic Drive to Nainital & Mall Road Leisure",
+        titleHi: "नैनीताल की खूबसूरत यात्रा एवं मॉल रोड की सैर",
+        descEn: "Drive into the Kumaon hills to the beautiful lake town of Nainital, check in, and enjoy Mall Road.",
+        descHi: "कुमाऊं की वादियों में नैनीताल की यात्रा, होटल चेक-इन और मॉल रोड का आनंद।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Hotel Aroma, Nainital"
-      },
-      {
+        stay: "3rd Night at Hotel Aroma, Nainital (or equivalent)",
+        pointsEn: [
+            "After breakfast, check out and start your scenic drive to Nainital (approx. 6-7 hours).",
+            "Enjoy breathtaking mountain views along the journey.",
+            "Arrive in Nainital and check in at Hotel Aroma (or equivalent).",
+            "Evening walk along the famous Mall Road next to Naini Lake.",
+            "Dinner and cozy overnight stay in Nainital."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद चेक-आउट कर नैनीताल के लिए मनोरम यात्रा शुरू करें।",
+            "रास्ते में सुंदर पहाड़ियों और वादियों का आनंद लें।",
+            "नैनीताल पहुंचकर होटल अरोमा (या समकक्ष) में चेक-इन करें।",
+            "शाम को नैनी झील के किनारे मॉल रोड पर टहलें।",
+            "होटल में गरमा-गरम स्वादिष्ट डिनर और रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Kainchi Dham (Neem Karoli Baba) Darshan & Bhimtal",
-        titleHi: "कैंची धाम (नीम करोली बाबा) दर्शन एवं भीमताल प्रवास",
-        descEn: "After breakfast, visit the serene Kainchi Dham, the ashram of Neem Karoli Baba, for darshan. Continue to The Palm Resort, Bhimtal (or equivalent) for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के बाद परम पूज्य नीम करोली बाबा के दिव्य कैंची धाम आश्रम के दर्शन व पूजन। दर्शन उपरांत भीमताल प्रस्थान, द पाम रिसॉर्ट में चेक-इन, रात्रि भोजन व विश्राम।",
+        titleEn: "Kainchi Dham (Neem Karoli Baba Ashram) Darshan & Bhimtal",
+        titleHi: "कैंची धाम (नीम करोली बाबा आश्रम) दर्शन एवं भीमताल",
+        descEn: "Visit the miraculous Kainchi Dham ashram of Neem Karoli Baba, offer prayers, and explore Bhimtal.",
+        descHi: "नीम करोली बाबा के दिव्य कैंची धाम आश्रम के दर्शन, पूजा-अर्चना और भीमताल प्रवास।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 4 at The Palm Resort, Bhimtal"
-      },
-      {
+        stay: "4th Night at The Palm Resort, Bhimtal (or equivalent)",
+        pointsEn: [
+            "Morning breakfast at the hotel.",
+            "Drive to the world-famous Kainchi Dham, the sacred ashram of Neem Karoli Baba (Maharaj-ji).",
+            "Spend peaceful time in the ashram, take prasad, and absorb the divine energy.",
+            "Drive to the serene lake town of Bhimtal and check in at The Palm Resort (or equivalent).",
+            "Enjoy a stroll around Bhimtal lake, followed by dinner and overnight stay."
+        ],
+        pointsHi: [
+            "होटल में सुबह का नाश्ता करें।",
+            "विश्व प्रसिद्ध कैंची धाम आश्रम के लिए प्रस्थान करें जहां नीम करोली बाबा का पावन सानिध्य है।",
+            "आश्रम में शांतिपूर्वक दर्शन करें, हनुमान चालीसा का पाठ करें और प्रसाद ग्रहण करें।",
+            "भीमताल पहुंचकर द पाम रिजॉर्ट (या समकक्ष) में चेक-इन करें।",
+            "भीमताल झील किनारे समय बिताएं, फिर होटल में स्वादिष्ट भोजन और विश्राम करें।"
+        ]
+    },
+    {
         day: 5,
-        titleEn: "Nainital Lake, Sightseeing & Departure",
-        titleHi: "नैनीताल झील दर्शन, स्थानीय भ्रमण एवं दिल्ली प्रस्थान",
-        descEn: "After breakfast, enjoy Nainital Lake and local sightseeing, then check out and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातः नाश्ते के बाद नैनीताल झील एवं स्थानीय दर्शनीय स्थलों का आनंद लें। चेक-आउट कर बाबा नीम करोली एवं माँ गंगा के आशीर्वाद के साथ दिल्ली हेतु प्रस्थान।",
+        titleEn: "Lake Sightseeing, Check-out & Departure",
+        titleHi: "झील दर्शन, होटल चेक-आउट एवं घर वापसी",
+        descEn: "Enjoy boating on the lake, check out, and head back to Delhi / Kathgodam station with blessings.",
+        descHi: "झील में नौकायन/दर्शन, होटल से चेक-आउट और घर के लिए प्रस्थान।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward destination"
-      }
-    ],
+        pointsEn: [
+            "Morning breakfast with serene lake and mountain views.",
+            "Enjoy optional boating on Naini Lake or Bhimtal Lake.",
+            "Check out from the hotel and drive back towards Kathgodam / Delhi for your journey home."
+        ],
+        pointsHi: [
+            "झील और पहाड़ों के सुंदर दृश्य के साथ नाश्ता करें।",
+            "नैनी झील या भीमताल में नौकायन का आनंद लें।",
+            "होटल से चेक-आउट करें और काठगोदाम / दिल्ली होते हुए घर वापसी करें।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,
@@ -989,52 +1339,111 @@ export const KUMBH_PACKAGES: PackageTier[] = [
       "2 रात हरिद्वार (होटल बालाजी) + 1 रात ऋषिकेश (सनराइज रिसॉर्ट) + 1 रात मसूरी (होटल माया) में सात्विक भोजन सहित प्रवास"
     ],
     itinerary: [
-      {
+    {
         day: 1,
-        titleEn: "Haridwar Arrival & Ganga Aarti",
-        titleHi: "हरिद्वार आगमन एवं गंगा आरती दर्शन",
-        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). In the evening, attend the divine Ganga Aarti at Har Ki Pauri. Dinner and overnight stay.",
-        descHi: "हरिद्वार आगमन एवं होटल बालाजी में चेक-इन। संध्या समय हर की पौड़ी पहुंचकर दिव्य गंगा आरती के दर्शन। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Haridwar Arrival & Har Ki Pauri Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं हर की पौड़ी पर गंगा आरती",
+        descEn: "Welcome to Haridwar. Check in at your hotel, relax, and attend the grand evening Ganga Aarti.",
+        descHi: "हरिद्वार आगमन, होटल चेक-इन और शाम को हर की पौड़ी पर भव्य गंगा आरती।",
         meals: "Dinner included",
-        stay: "Night 1 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "1st Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Arrive in Haridwar and check in at Hotel Balaji (or equivalent).",
+            "Freshen up and take rest after your journey.",
+            "In the evening, visit Har Ki Pauri for the divine Ganga Aarti.",
+            "Dinner and overnight stay in Haridwar."
+        ],
+        pointsHi: [
+            "हरिद्वार पहुंचकर होटल बालाजी में चेक-इन करें।",
+            "कमरे में फ्रेश हों और थोड़ा आराम करें।",
+            "शाम को हर की पौड़ी पर भव्य गंगा आरती का पुण्य लाभ उठाएं।",
+            "होटल में स्वादिष्ट भोजन और रात्रि विश्राम।"
+        ]
+    },
+    {
         day: 2,
-        titleEn: "Kumbh Ganga Snan & Local Darshan",
-        titleHi: "कुंभ गंगा स्नान एवं स्थानीय मंदिर दर्शन",
-        descEn: "After breakfast, take a holy Ganga Snan at the ghats during the Kumbh period, followed by local temple darshan in Haridwar. Dinner and overnight stay at the hotel.",
-        descHi: "प्रातः नाश्ते के बाद पवित्र कुंभ घाटों पर गंगा स्नान करें और हरिद्वार के प्राचीन शक्तिपीठों के दर्शन करें। होटल में रात्रि भोजन और विश्राम।",
+        titleEn: "Holy Kumbh Ganga Snan & Haridwar Temples",
+        titleHi: "पवित्र कुंभ स्नान एवं हरिद्वार मंदिर दर्शन",
+        descEn: "Sacred Ganga dip during Kumbh, temple darshan, and enjoying the holy ghats.",
+        descHi: "पावन कुंभ स्नान, प्रसिद्ध मंदिरों के दर्शन और गंगा घाटों का भ्रमण।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 2 at Hotel Balaji, Haridwar"
-      },
-      {
+        stay: "2nd Night at Hotel Balaji, Haridwar",
+        pointsEn: [
+            "Enjoy morning breakfast at the hotel.",
+            "Take a holy dip in the sacred Ganga river.",
+            "Visit Mansa Devi Temple, Chandi Devi Temple, and Pawan Dham.",
+            "Return to hotel for dinner and overnight stay."
+        ],
+        pointsHi: [
+            "सुबह होटल में नाश्ता करें।",
+            "माँ गंगा में आस्था की पवित्र डुबकी लगाएं।",
+            "मनसा देवी, चंडी देवी और पवन धाम के दर्शन करें।",
+            "होटल में स्वादिष्ट डिनर और आराम।"
+        ]
+    },
+    {
         day: 3,
-        titleEn: "Rishikesh Transfer, Triveni Ghat & Sightseeing",
-        titleHi: "ऋषिकेश स्थानांतरण, त्रिवेणी घाट एवं दर्शन",
-        descEn: "After breakfast, check out and transfer to Rishikesh. Visit Triveni Ghat and enjoy local sightseeing. Check in at Sunrise Resort (or equivalent) for dinner and overnight stay.",
-        descHi: "प्रातः नाश्ते के बाद चेक-आउट कर ऋषिकेश प्रस्थान। पवित्र त्रिवेणी घाट एवं स्थानीय आश्रमों के दर्शन। सनराइज रिसॉर्ट में चेक-इन, रात्रि भोजन व विश्राम।",
+        titleEn: "Transfer to Rishikesh, Ram Jhula & Triveni Ghat Aarti",
+        titleHi: "ऋषिकेश आगमन, राम झूला दर्शन एवं त्रिवेणी घाट महाआरती",
+        descEn: "Drive to Rishikesh, explore holy ashrams, walk across Ram Jhula, and see evening Triveni Ghat Aarti.",
+        descHi: "ऋषिकेश आगमन, राम झूला-स्वर्गाश्रम दर्शन और त्रिवेणी घाट महाआरती।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 3 at Sunrise Resort, Rishikesh"
-      },
-      {
+        stay: "3rd Night at Sunrise Resort, Rishikesh (or equivalent)",
+        pointsEn: [
+            "After breakfast, take a short drive to Rishikesh.",
+            "Check in at Sunrise Resort, Rishikesh (or equivalent).",
+            "Explore Ram Jhula, Gita Bhawan, and nearby spiritual ashrams.",
+            "Witness the mesmerizing Maha Aarti at Triveni Ghat in the evening.",
+            "Dinner and overnight stay in Rishikesh."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद ऋषिकेश के लिए प्रस्थान करें।",
+            "सनराइज रिजॉर्ट ऋषिकेश (या समकक्ष) में चेक-इन करें।",
+            "राम झूला, गीता भवन और प्रमुख आश्रमों का भ्रमण करें।",
+            "शाम को त्रिवेणी घाट पर प्रसिद्ध महाआरती के दर्शन करें।",
+            "होटल में स्वादिष्ट भोजन और सुकून भरी रात।"
+        ]
+    },
+    {
         day: 4,
-        titleEn: "Mussoorie Transfer & Mall Road",
-        titleHi: "मसूरी यात्रा एवं मॉल रोड भ्रमण",
-        descEn: "After breakfast, drive to Mussoorie, the Queen of the Hills. Check in at Hotel Maya (or equivalent) and stroll along the famous Mall Road. Dinner and overnight stay.",
-        descHi: "नाश्ते के पश्चात पहाड़ों की रानी मसूरी के लिए प्रस्थान। होटल माया में चेक-इन करें और सांध्यकाल में प्रसिद्ध मॉल रोड की सैर का आनंद लें। स्वादिष्ट रात्रि भोजन व विश्राम।",
+        titleEn: "Scenic Drive to Mussoorie & Mall Road Leisure",
+        titleHi: "मसूरी की मनोरम पहाड़ी यात्रा एवं मॉल रोड की सैर",
+        descEn: "Drive up to Queen of Hills Mussoorie, check in to your hotel, and stroll on Mall Road.",
+        descHi: "मसूरी की मनोरम पहाड़ी यात्रा, होटल चेक-इन और मॉल रोड की सैर।",
         meals: "Breakfast & Dinner included",
-        stay: "Night 4 at Hotel Maya, Mussoorie"
-      },
-      {
+        stay: "4th Night at Hotel Maya, Mussoorie (or equivalent)",
+        pointsEn: [
+            "After breakfast, drive up into the hills to Mussoorie (approx. 2.5 - 3 hours).",
+            "Check in at Hotel Maya (or equivalent in Mussoorie).",
+            "Take a relaxed evening walk on the famous Mall Road with lovely mountain views.",
+            "Dinner and cozy overnight stay in Mussoorie."
+        ],
+        pointsHi: [
+            "नाश्ते के बाद मसूरी के लिए सुंदर पहाड़ी यात्रा शुरू करें।",
+            "होटल माया (या समकक्ष) में चेक-इन करें।",
+            "शाम को प्रसिद्ध मॉल रोड पर टहलें और वादियों का आनंद लें।",
+            "होटल में स्वादिष्ट डिनर और आरामदायक रात।"
+        ]
+    },
+    {
         day: 5,
-        titleEn: "Breakfast & Departure",
-        titleHi: "नाश्ता एवं दिल्ली वापसी",
-        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
-        descHi: "प्रातः नाश्ते के बाद होटल से चेक-आउट करें और अविस्मरणीय स्मृतियों व माँ गंगा के पावन आशीर्वाद के साथ दिल्ली हेतु प्रस्थान।",
+        titleEn: "Mussoorie Sightseeing, Check-out & Departure",
+        titleHi: "मसूरी के सुंदर दृश्य, चेक-आउट एवं घर वापसी",
+        descEn: "Morning mountain views, optional visit to Kempty Falls, check-out, and drive home.",
+        descHi: "मसूरी के सुंदर दृश्य, चेक-आउट और घर के लिए प्रस्थान।",
         meals: "Breakfast included",
-        stay: "Departure towards Delhi / onward journey"
-      }
-    ],
+        pointsEn: [
+            "Enjoy morning breakfast with panoramic hill views.",
+            "Visit Kempty Falls or Company Garden (time permitting).",
+            "Check out from the hotel and drive down to Dehradun / Delhi for your journey home."
+        ],
+        pointsHi: [
+            "पहाड़ों की ठंडी हवा और खूबसूरत नजारों के साथ नाश्ता करें।",
+            "केम्प्टी फॉल्स या कंपनी गार्डन का आनंद लें।",
+            "होटल से चेक-आउट करें और देहरादून / दिल्ली होते हुए घर वापसी करें।"
+        ]
+    }
+],
     inclusionsEn: COMMON_INCLUSIONS_EN,
     inclusionsHi: COMMON_INCLUSIONS_HI,
     exclusionsEn: COMMON_EXCLUSIONS_EN,

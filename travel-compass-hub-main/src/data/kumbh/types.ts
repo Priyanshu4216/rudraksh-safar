@@ -69,6 +69,8 @@ export interface DayPlan {
   meals?: string;
   stay?: string;
   activities?: string[];
+  pointsEn?: string[];
+  pointsHi?: string[];
 }
 
 export interface PackageTier {
