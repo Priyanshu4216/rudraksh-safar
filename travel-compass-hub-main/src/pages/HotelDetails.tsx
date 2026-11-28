@@ -710,12 +710,21 @@ export const HotelDetails = () => {
 
                 {/* Inline Date Selector */}
                 <div className="bg-gray-100 p-1.5 rounded-xl flex items-center gap-2 border border-gray-200">
-                  <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-700">
+                  <div 
+                    onClick={(e) => {
+                      const inp = e.currentTarget.querySelector('input');
+                      try { inp?.showPicker(); } catch { inp?.focus(); }
+                    }}
+                    className="flex items-center gap-1.5 bg-white hover:bg-gray-50 px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-700 cursor-pointer select-none transition-colors"
+                  >
                     <span className="text-gray-400">In:</span>
                     <input
                       type="date"
                       value={checkInDate}
                       min={tomorrowStr}
+                      onClick={(e) => {
+                        try { (e.currentTarget as HTMLInputElement).showPicker(); } catch {}
+                      }}
                       onChange={(e) => {
                         const newIn = e.target.value;
                         setCheckInDate(newIn);
@@ -730,12 +739,21 @@ export const HotelDetails = () => {
                       className="bg-transparent outline-none cursor-pointer"
                     />
                   </div>
-                  <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-700">
+                  <div 
+                    onClick={(e) => {
+                      const inp = e.currentTarget.querySelector('input');
+                      try { inp?.showPicker(); } catch { inp?.focus(); }
+                    }}
+                    className="flex items-center gap-1.5 bg-white hover:bg-gray-50 px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-700 cursor-pointer select-none transition-colors"
+                  >
                     <span className="text-gray-400">Out:</span>
                     <input
                       type="date"
                       value={checkOutDate}
                       min={checkInDate}
+                      onClick={(e) => {
+                        try { (e.currentTarget as HTMLInputElement).showPicker(); } catch {}
+                      }}
                       onChange={(e) => {
                         const newOut = e.target.value;
                         setCheckOutDate(newOut);

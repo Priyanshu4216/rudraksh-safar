@@ -81,6 +81,22 @@ export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) 
   const [recentSearches, setRecentSearches] = useState<any[]>([]);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const guestPanelRef = useRef<HTMLDivElement>(null);
+  const checkInInputRef = useRef<HTMLInputElement>(null);
+  const checkOutInputRef = useRef<HTMLInputElement>(null);
+
+  const openDatePicker = (inputRef: React.RefObject<HTMLInputElement>) => {
+    if (inputRef.current) {
+      try {
+        if (typeof inputRef.current.showPicker === 'function') {
+          inputRef.current.showPicker();
+        } else {
+          inputRef.current.focus();
+        }
+      } catch {
+        inputRef.current.focus();
+      }
+    }
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem('recentSearches');
@@ -320,34 +336,60 @@ export const LiteApiSearchBar: React.FC<LiteApiSearchBarProps> = ({ onSearch }) 
           </div>
 
           {/* Check-in */}
-          <div className="flex items-center gap-3 px-5 py-4 md:w-44">
-            <Calendar className="w-5 h-5 text-blue-500 shrink-0" />
-            <div className="flex-1">
-              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">
+          <div 
+            onClick={() => openDatePicker(checkInInputRef)}
+            className="flex items-center gap-3 px-5 py-4 md:w-44 cursor-pointer hover:bg-blue-50/40 transition-colors group select-none"
+          >
+            <Calendar className="w-5 h-5 text-blue-500 shrink-0 group-hover:scale-110 transition-transform" />
+            <div className="flex-1 min-w-0">
+              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5 cursor-pointer">
                 Check-in
               </label>
               <input
+                ref={checkInInputRef}
                 type="date"
                 value={checkIn}
                 min={getTomorrow()}
-                onChange={e => setCheckIn(e.target.value)}
+                onChange={e => {
+                  const val = e.target.value;
+                  setCheckIn(val);
+                  if (val >= checkOut) {
+                    const next = new Date(val);
+                    next.setDate(next.getDate() + 1);
+                    setCheckOut(next.toISOString().split('T')[0]);
+                  }
+                }}
+                onClick={e => {
+                  try {
+                    (e.currentTarget as HTMLInputElement).showPicker();
+                  } catch {}
+                }}
                 className="w-full bg-transparent text-gray-900 font-semibold text-sm outline-none cursor-pointer"
               />
             </div>
           </div>
 
           {/* Check-out */}
-          <div className="flex items-center gap-3 px-5 py-4 md:w-44">
-            <Calendar className="w-5 h-5 text-blue-500 shrink-0" />
-            <div className="flex-1">
-              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">
+          <div 
+            onClick={() => openDatePicker(checkOutInputRef)}
+            className="flex items-center gap-3 px-5 py-4 md:w-44 cursor-pointer hover:bg-blue-50/40 transition-colors group select-none"
+          >
+            <Calendar className="w-5 h-5 text-blue-500 shrink-0 group-hover:scale-110 transition-transform" />
+            <div className="flex-1 min-w-0">
+              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5 cursor-pointer">
                 Check-out
               </label>
               <input
+                ref={checkOutInputRef}
                 type="date"
                 value={checkOut}
                 min={checkIn}
                 onChange={e => setCheckOut(e.target.value)}
+                onClick={e => {
+                  try {
+                    (e.currentTarget as HTMLInputElement).showPicker();
+                  } catch {}
+                }}
                 className="w-full bg-transparent text-gray-900 font-semibold text-sm outline-none cursor-pointer"
               />
             </div>

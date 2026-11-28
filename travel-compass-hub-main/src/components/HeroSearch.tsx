@@ -20,6 +20,22 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSearch, isLoading }) =
   const [checkOut, setCheckOut] = useState(defaultCheckOut);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const checkInRef = useRef<HTMLInputElement>(null);
+  const checkOutRef = useRef<HTMLInputElement>(null);
+
+  const openDatePicker = (inputRef: React.RefObject<HTMLInputElement>) => {
+    if (inputRef.current) {
+      try {
+        if (typeof inputRef.current.showPicker === 'function') {
+          inputRef.current.showPicker();
+        } else {
+          inputRef.current.focus();
+        }
+      } catch {
+        inputRef.current.focus();
+      }
+    }
+  };
 
   // Click outside to close dropdown
   useEffect(() => {
@@ -153,15 +169,24 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSearch, isLoading }) =
 
           {/* Date Pickers */}
           <div className="flex-[1.5] flex gap-2">
-            <div className="flex-1 flex items-center bg-gray-50/50 rounded-xl px-4 py-1 border border-gray-100 focus-within:ring-2 focus-within:ring-blue-500 transition-all group">
-              <Calendar className="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
+            <div 
+              onClick={() => openDatePicker(checkInRef)}
+              className="flex-1 flex items-center bg-gray-50/50 hover:bg-gray-100/60 rounded-xl px-4 py-1 border border-gray-100 focus-within:ring-2 focus-within:ring-blue-500 transition-all group cursor-pointer select-none"
+            >
+              <Calendar className="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 group-hover:text-blue-500 transition-colors" />
               <div className="flex-1 ml-3">
-                <label className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Check-in</label>
+                <label className="text-[10px] uppercase font-bold text-gray-500 tracking-wider cursor-pointer">Check-in</label>
                 <input
+                  ref={checkInRef}
                   type="date"
                   className="w-full bg-transparent text-gray-900 focus:outline-none font-semibold cursor-pointer"
                   value={checkIn}
                   min={new Date().toISOString().split('T')[0]}
+                  onClick={(e) => {
+                    try {
+                      (e.currentTarget as HTMLInputElement).showPicker();
+                    } catch {}
+                  }}
                   onChange={(e) => {
                     setCheckIn(e.target.value);
                     if (e.target.value >= checkOut) {
@@ -174,14 +199,24 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ onSearch, isLoading }) =
               </div>
             </div>
             
-            <div className="flex-1 flex items-center bg-gray-50/50 rounded-xl px-4 py-1 border border-gray-100 focus-within:ring-2 focus-within:ring-blue-500 transition-all group">
-              <div className="flex-1">
-                <label className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Check-out</label>
+            <div 
+              onClick={() => openDatePicker(checkOutRef)}
+              className="flex-1 flex items-center bg-gray-50/50 hover:bg-gray-100/60 rounded-xl px-4 py-1 border border-gray-100 focus-within:ring-2 focus-within:ring-blue-500 transition-all group cursor-pointer select-none"
+            >
+              <Calendar className="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 group-hover:text-blue-500 transition-colors" />
+              <div className="flex-1 ml-3">
+                <label className="text-[10px] uppercase font-bold text-gray-500 tracking-wider cursor-pointer">Check-out</label>
                 <input
+                  ref={checkOutRef}
                   type="date"
                   className="w-full bg-transparent text-gray-900 focus:outline-none font-semibold cursor-pointer"
                   value={checkOut}
                   min={checkIn}
+                  onClick={(e) => {
+                    try {
+                      (e.currentTarget as HTMLInputElement).showPicker();
+                    } catch {}
+                  }}
                   onChange={(e) => setCheckOut(e.target.value)}
                 />
               </div>
