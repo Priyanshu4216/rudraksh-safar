@@ -71,8 +71,8 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
           name="description"
           content={
             isHi
-              ? `${city.nameHi} से हरिद्वार अर्ध कुंभ 2027 की संपूर्ण यात्रा योजना। ट्रेन प्रस्थान, आश्रम व टेंट आवास, सात्विक भोजन एवं बुजुर्गों हेतु विशेष तीर्थ सहायता।`
-              : `Guided Haridwar Ardh Kumbh 2027 tour packages from ${city.nameEn}. Review express rail connectivity, certified ashram stays, sattvic food, and senior care.`
+              ? `${city.nameHi} से हरिद्वार अर्ध कुंभ 2027 की संपूर्ण यात्रा योजना। शुरुआत मात्र ₹4,199 से। ट्रेन व फ्लाइट संपर्क, सत्यापित होटल प्रवास, शुद्ध सात्विक भोजन एवं बुजुर्गों हेतु विशेष सहायता।`
+              : `Guided Haridwar Ardh Kumbh 2027 tour packages from ${city.nameEn}. Starting ₹4,199/person. Express rail & flight connectivity, certified Haridwar hotel stays, sattvic MAP meals, and senior citizen care.`
           }
         />
         <meta name="keywords" content={city.keywordTargets.join(', ')} />
@@ -80,6 +80,10 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
         <link rel="alternate" hrefLang="en" href={`https://rudrakshsafar.com/kumbh-mela-2027/packages/${city.slug}`} />
         <link rel="alternate" hrefLang="hi" href={`https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/${city.slug}`} />
         <link rel="alternate" hrefLang="x-default" href={`https://rudrakshsafar.com/kumbh-mela-2027/packages/${city.slug}`} />
+        <meta property="og:title" content={isHi ? `${city.nameHi} से हरिद्वार कुंभ मेला 2027 पैकेज` : `Kumbh Mela 2027 Tour Package from ${city.nameEn} | Rudraksh Safar`} />
+        <meta property="og:description" content={isHi ? `${city.nameHi} से हरिद्वार कुंभ मेला 2027 पैकेज मात्र ₹4,199 से।` : `Guided Kumbh Mela 2027 tour packages from ${city.nameEn} starting at ₹4,199/person.`} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* Structured Data */}

@@ -21,6 +21,9 @@ export const KumbhCityLinksSection: React.FC<KumbhCityLinksSectionProps> = ({
       className="my-10"
       aria-label={isHi ? "आपके शहर से कुंभ मेला 2027 पैकेज" : "Kumbh Mela 2027 packages from your city"}
     >
+      <h2 className="sr-only">
+        {isHi ? "भारत के प्रमुख 100 शहरों से कुंभ मेला 2027 टूर पैकेज" : "Haridwar Kumbh Mela 2027 Tour Packages from Top 100 Indian Cities"}
+      </h2>
       {/* Collapsible Header Pill */}
       <button
         type="button"
@@ -51,6 +54,7 @@ export const KumbhCityLinksSection: React.FC<KumbhCityLinksSectionProps> = ({
               <Link
                 key={city.slug}
                 to={toUrl}
+                title={isHi ? `${city.nameHi} से हरिद्वार कुंभ मेला 2027 टूर पैकेज - ₹4,199 से शुरू` : `Kumbh Mela 2027 Tour Package from ${city.nameEn} - Starting ₹4,199`}
                 className={`px-4 py-2 rounded-full border text-xs sm:text-sm font-medium transition-all ${
                   isActive
                     ? 'border-orange-600 bg-orange-600 text-white shadow-sm'

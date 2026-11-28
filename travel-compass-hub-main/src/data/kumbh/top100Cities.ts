@@ -195,7 +195,10 @@ export function buildCityData(meta: RawCityMeta, allCities: RawCityMeta[]): City
       `${meta.nameEn.toLowerCase()} to haridwar kumbh yatra`,
       `haridwar kumbh 2027 tour from ${meta.nameEn.toLowerCase()}`,
       `kumbh mela tour package ${meta.nameEn.toLowerCase()}`,
-      `${meta.state.toLowerCase()} to haridwar kumbh 2027`
+      `${meta.state.toLowerCase()} to haridwar kumbh 2027`,
+      `haridwar kumbh snan package from ${meta.nameEn.toLowerCase()}`,
+      `${meta.nameEn.toLowerCase()} to haridwar kumbh mela booking 2027`,
+      `ardh kumbh 2027 family tour from ${meta.nameEn.toLowerCase()}`
     ],
     nearbyCityLinks: siblings.map(s => ({
       slug: slugifyCity(s.nameEn),
