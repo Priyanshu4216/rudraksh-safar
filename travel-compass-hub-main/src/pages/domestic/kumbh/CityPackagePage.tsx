@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { KumbhLayout } from '@/components/kumbh/KumbhLayout';
 import { KumbhCityLinksSection } from '@/components/kumbh/KumbhCityLinksSection';
+import { KumbhPackageCardsGrid } from '@/components/kumbh/KumbhPackageCardsGrid';
 import { KumbhArticleSchema } from '@/components/kumbh/seo/KumbhArticleSchema';
 import { KumbhFAQSchema } from '@/components/kumbh/seo/KumbhFAQSchema';
 import { CHHATTISGARH_CITIES, getCityBySlug } from '@/data/kumbh/cities';
@@ -174,6 +175,24 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
         </div>
       </section>
 
+      {/* Kumbh Tour Packages Cards for {City} */}
+      <section className="my-10 pt-6 border-t border-border/60" aria-label="Kumbh Tour Packages Cards">
+        <div className="mb-6">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
+            {isHi
+              ? `${city.nameHi} से उपलब्ध कुंभ मेला 2027 टूर पैकेज`
+              : `Haridwar Kumbh 2027 Tour Packages from ${city.nameEn}`}
+          </h2>
+          <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+            {isHi
+              ? `${city.nameHi} के श्रद्धालुओं के लिए हमारे सभी 9 सत्यापित कुंभ यात्रा पैकेज (शुरुआत ₹4,199 से)। किसी भी कार्ड पर क्लिक कर विस्तृत दैनिक कार्यक्रम और PDF देखें:`
+              : `Explore all 9 verified Haridwar Kumbh 2027 packages for pilgrims travelling from ${city.nameEn} (Starting from ₹4,199 per person). Click any package card to view the full itinerary or download the PDF brochure:`}
+          </p>
+        </div>
+
+        <KumbhPackageCardsGrid lang={lang} cityName={isHi ? city.nameHi : city.nameEn} />
+      </section>
+
       {/* 3. Best Kumbh snan dates for travellers from {City} */}
       <section className="my-10 pt-6 border-t border-border/60">
         <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
@@ -221,53 +240,6 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
             <span>{isHi ? "सभी 10 स्नान पर्वों का संपूर्ण विवरण एवं कैलेंडर देखें →" : "View complete 10-date bathing calendar and download alerts →"}</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
-        </div>
-      </section>
-
-      {/* 4. Package Tiers Relevant to City */}
-      <section className="my-10 pt-6 border-t border-border/60">
-        <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
-          {isHi
-            ? `${city.nameHi} के श्रद्धालुओं हेतु उपलब्ध पैकेज श्रेणियां`
-            : `Available Package Tiers for ${city.nameEn} Pilgrims`}
-        </h2>
-        <p className="text-xs md:text-sm text-muted-foreground mb-6 leading-relaxed">
-          {isHi ? KUMBH_DISCLAIMERS.melaAccessHi : KUMBH_DISCLAIMERS.melaAccess}
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {KUMBH_PACKAGES.slice(0, 2).map((pkg) => (
-            <div key={pkg.id} className="p-6 rounded-2xl border border-border bg-card">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider block mb-1">
-                {pkg.duration}
-              </span>
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                {isHi ? pkg.titleHi : pkg.titleEn}
-              </h3>
-              <p className="text-xs text-muted-foreground mb-4">
-                {isHi ? pkg.idealForHi : pkg.idealForEn}
-              </p>
-
-              <div className="space-y-1.5 text-xs text-muted-foreground mb-4">
-                <strong className="text-foreground block">{isHi ? "मुख्य सुविधाएं:" : "Inclusions:"}</strong>
-                {(isHi ? pkg.inclusionsHi : pkg.inclusionsEn).map((inc, i) => (
-                  <div key={i} className="flex items-start gap-1.5">
-                    <span className="text-green-600 font-bold">•</span>
-                    <span>{inc}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-3 border-t border-border flex items-center justify-between text-xs">
-                <span className="text-muted-foreground italic">
-                  {isHi ? "रद्दीकरण नीति: लिखित वाउचर में स्पष्ट" : "Cancellation Terms: Written policy in voucher"}
-                </span>
-                <span className="font-semibold text-primary">
-                  {isHi ? "पूछताछ पर उपलब्ध" : "Quote on Request"}
-                </span>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
