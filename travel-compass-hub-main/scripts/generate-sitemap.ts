@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { ALL_KUMBH_CITIES } from '../src/data/kumbh/cities.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,13 +38,13 @@ const KUMBH_ROUTES: RouteConfig[] = [
   { path: '/kumbh-mela-2027/packages/kumbh-neem-karoli-nainital-4n-5d', changefreq: 'weekly', priority: '0.9' },
   { path: '/kumbh-mela-2027/packages/kumbh-rishikesh-mussoorie-4n-5d', changefreq: 'weekly', priority: '0.9' },
 
-  // Chhattisgarh Silo
+  // Chhattisgarh Hub & Top 100 Cities Regional Silos
   { path: '/kumbh-mela-2027/packages/chhattisgarh', changefreq: 'weekly', priority: '0.9' },
-  { path: '/kumbh-mela-2027/packages/from-raipur', changefreq: 'weekly', priority: '0.85' },
-  { path: '/kumbh-mela-2027/packages/from-bhilai', changefreq: 'weekly', priority: '0.85' },
-  { path: '/kumbh-mela-2027/packages/from-bilaspur', changefreq: 'weekly', priority: '0.85' },
-  { path: '/kumbh-mela-2027/packages/from-durg', changefreq: 'weekly', priority: '0.85' },
-  { path: '/kumbh-mela-2027/packages/from-rajnandgaon', changefreq: 'weekly', priority: '0.85' }
+  ...ALL_KUMBH_CITIES.map((city) => ({
+    path: `/kumbh-mela-2027/packages/${city.slug}`,
+    changefreq: 'weekly' as const,
+    priority: '0.85'
+  }))
 ];
 
 export function generateKumbhSitemapXml(): string {

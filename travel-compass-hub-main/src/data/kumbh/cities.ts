@@ -1,4 +1,5 @@
 import type { CityData } from './types.ts';
+import { GENERATED_TOP_95_CITIES } from './top100Cities.ts';
 
 export const CHHATTISGARH_CITIES: CityData[] = [
   // ==========================================
@@ -582,6 +583,8 @@ export const CHHATTISGARH_CITIES: CityData[] = [
   }
 ];
 
+export const ALL_KUMBH_CITIES: CityData[] = [...GENERATED_TOP_95_CITIES, ...CHHATTISGARH_CITIES];
+
 export const getCityBySlug = (slug: string): CityData | undefined => {
-  return CHHATTISGARH_CITIES.find(city => city.slug === slug);
+  return ALL_KUMBH_CITIES.find(city => city.slug === slug);
 };

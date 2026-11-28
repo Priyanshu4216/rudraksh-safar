@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { KumbhLayout } from '@/components/kumbh/KumbhLayout';
+import { KumbhCityLinksSection } from '@/components/kumbh/KumbhCityLinksSection';
 import { KumbhArticleSchema } from '@/components/kumbh/seo/KumbhArticleSchema';
 import { KumbhFAQSchema } from '@/components/kumbh/seo/KumbhFAQSchema';
 import { CHHATTISGARH_CITIES, getCityBySlug } from '@/data/kumbh/cities';
@@ -32,7 +33,7 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
     { name: isHi ? 'होम' : 'Home', url: '/' },
     { name: isHi ? 'हरिद्वार कुंभ 2027' : 'Haridwar Kumbh 2027', url: isHi ? '/hi/kumbh-mela-2027' : '/kumbh-mela-2027' },
     { name: isHi ? 'यात्रा पैकेज' : 'Packages', url: isHi ? '/hi/kumbh-mela-2027/packages' : '/kumbh-mela-2027/packages' },
-    { name: isHi ? 'छत्तीसगढ़' : 'Chhattisgarh', url: isHi ? '/hi/kumbh-mela-2027/packages/chhattisgarh' : '/kumbh-mela-2027/packages/chhattisgarh' },
+    ...(city.stateParent === 'Chhattisgarh' ? [{ name: isHi ? 'छत्तीसगढ़' : 'Chhattisgarh', url: isHi ? '/hi/kumbh-mela-2027/packages/chhattisgarh' : '/kumbh-mela-2027/packages/chhattisgarh' }] : []),
     { name: isHi ? city.nameHi : city.nameEn, url: isHi ? `/hi/kumbh-mela-2027/packages/${city.slug}` : `/kumbh-mela-2027/packages/${city.slug}` }
   ];
 
@@ -74,6 +75,7 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
               : `Guided Haridwar Ardh Kumbh 2027 tour packages from ${city.nameEn}. Review express rail connectivity, certified ashram stays, sattvic food, and senior care.`
           }
         />
+        <meta name="keywords" content={city.keywordTargets.join(', ')} />
         <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hrefLang="en" href={`https://rudrakshsafar.com/kumbh-mela-2027/packages/${city.slug}`} />
         <link rel="alternate" hrefLang="hi" href={`https://rudrakshsafar.com/hi/kumbh-mela-2027/packages/${city.slug}`} />
@@ -452,6 +454,9 @@ const CityPackagePage: React.FC<CityPackagePageProps> = ({ slugProp, lang = 'en'
           </form>
         </div>
       </section>
+
+      {/* Top 100 Cities Regional SEO Silo */}
+      <KumbhCityLinksSection lang={lang} currentCitySlug={city.slug} />
     </KumbhLayout>
   );
 };

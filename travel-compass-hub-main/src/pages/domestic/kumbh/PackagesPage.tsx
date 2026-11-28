@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { KumbhLayout } from '@/components/kumbh/KumbhLayout';
+import { KumbhCityLinksSection } from '@/components/kumbh/KumbhCityLinksSection';
 import { KumbhArticleSchema } from '@/components/kumbh/seo/KumbhArticleSchema';
 import { KUMBH_PACKAGES } from '@/data/kumbh/packages';
 import { KUMBH_DISCLAIMERS } from '@/data/kumbh/disclaimers';
@@ -449,6 +450,9 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
           </form>
         </div>
       </section>
+
+      {/* Top 100 Cities Regional SEO Silo */}
+      <KumbhCityLinksSection lang={lang} />
     </KumbhLayout>
   );
 };

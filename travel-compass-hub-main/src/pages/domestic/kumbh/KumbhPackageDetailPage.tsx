@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { KumbhLayout } from '@/components/kumbh/KumbhLayout';
+import { KumbhCityLinksSection } from '@/components/kumbh/KumbhCityLinksSection';
 import { KumbhArticleSchema } from '@/components/kumbh/seo/KumbhArticleSchema';
 import { KumbhFAQSchema } from '@/components/kumbh/seo/KumbhFAQSchema';
 import { KUMBH_PACKAGES, getPackageBySlug } from '@/data/kumbh/packages';
@@ -678,7 +679,7 @@ const KumbhPackageDetailPage: React.FC<KumbhPackageDetailPageProps> = ({ slug: p
             to={isHi ? "/hi/kumbh-mela-2027/packages" : "/kumbh-mela-2027/packages"}
             className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
           >
-            <span>{isHi ? "सभी 5 पैकेज देखें" : "View All 5 Packages"}</span>
+            <span>{isHi ? "सभी 9 पैकेज देखें" : "View All 9 Packages"}</span>
             <ChevronRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -710,6 +711,9 @@ const KumbhPackageDetailPage: React.FC<KumbhPackageDetailPageProps> = ({ slug: p
           ))}
         </div>
       </section>
+
+      {/* Top 100 Cities Regional SEO Silo */}
+      <KumbhCityLinksSection lang={lang} />
 
       {/* Silo Navigation Hub Links */}
       <nav className="my-10 p-6 rounded-2xl border border-border bg-card text-xs md:text-sm">
