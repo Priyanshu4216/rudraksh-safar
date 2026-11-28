@@ -32,6 +32,10 @@ const KUMBH_ROUTES: RouteConfig[] = [
   { path: '/kumbh-mela-2027/packages/kumbh-devprayag-3n-4d', changefreq: 'weekly', priority: '0.9' },
   { path: '/kumbh-mela-2027/packages/kumbh-mussoorie-3n-4d', changefreq: 'weekly', priority: '0.9' },
   { path: '/kumbh-mela-2027/packages/kumbh-neelkanth-mahadev-3n-4d', changefreq: 'weekly', priority: '0.9' },
+  { path: '/kumbh-mela-2027/packages/kumbh-senior-citizen-special-2n-3d', changefreq: 'weekly', priority: '0.9' },
+  { path: '/kumbh-mela-2027/packages/kumbh-rishikesh-3n-4d', changefreq: 'weekly', priority: '0.9' },
+  { path: '/kumbh-mela-2027/packages/kumbh-neem-karoli-nainital-4n-5d', changefreq: 'weekly', priority: '0.9' },
+  { path: '/kumbh-mela-2027/packages/kumbh-rishikesh-mussoorie-4n-5d', changefreq: 'weekly', priority: '0.9' },
 
   // Chhattisgarh Silo
   { path: '/kumbh-mela-2027/packages/chhattisgarh', changefreq: 'weekly', priority: '0.9' },

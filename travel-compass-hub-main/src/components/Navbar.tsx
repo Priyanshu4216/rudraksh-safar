@@ -97,6 +97,18 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
+  // Lock body scroll when mobile menu is open so page content does not scroll behind
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   // Reliable AI Planner navigation & smooth scrolling
   const handleAiPlanClick = () => {
     setIsMobileMenuOpen(false);
@@ -187,11 +199,7 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
 
       {/* Main Navbar */}
       <nav
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? 'bg-slate-950/95 backdrop-blur-xl py-2 sm:py-2.5 border-b border-amber-500/20 shadow-2xl'
-            : 'bg-slate-950/85 backdrop-blur-md py-2 sm:py-3 border-b border-white/10 shadow-lg'
-        }`}
+        className={`transition-all duration-300 bg-[#0B1B33] text-white border-b border-amber-500/20 shadow-xl ${isScrolled ? "py-2 sm:py-2.5 shadow-2xl" : "py-2 sm:py-3"}`}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -353,16 +361,14 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
           </div>
         </div>
 
-        {/* Mobile Full-Screen Overlay Menu */}
-        <div
-          className={`lg:hidden fixed inset-0 z-[101] transition-all duration-300 ${
-            isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-          }`}
-          aria-hidden={!isMobileMenuOpen}
-        >
-          {/* Backdrop */}
+      </nav>
+
+      {/* Mobile Full-Screen Overlay Menu (Solid, 100% Opaque, No Bleed-through) */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-[120]" aria-hidden={!isMobileMenuOpen}>
+          {/* Dark Opaque Backdrop */}
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/80"
             onClick={() => {
               setIsMobileMenuOpen(false);
               setOpenDropdown(null);
@@ -370,139 +376,137 @@ const Navbar = forwardRef<HTMLElement>((_, ref) => {
             aria-hidden="true"
           />
 
-          {/* Panel */}
-          <div className="relative mt-[94px] mx-4">
-            <div className="bg-slate-950/98 backdrop-blur-2xl rounded-3xl p-5 max-h-[82vh] overflow-y-auto border border-amber-500/30 shadow-2xl text-white">
-              
-              {/* Feature AI Banner at top of Mobile Menu */}
-              <button
-                onClick={handleAiPlanClick}
-                className="w-full mb-4 p-3.5 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-bold text-sm flex items-center justify-between shadow-lg shadow-orange-500/25 active:scale-98 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-white/20 rounded-xl">
-                    <Sparkles className="w-5 h-5 text-amber-100 animate-pulse" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-extrabold text-sm flex items-center gap-1.5">
-                      AI Trip Architect
-                      <span className="px-1.5 py-0.5 text-[9px] font-black uppercase rounded bg-white text-orange-600">NEW</span>
-                    </div>
-                    <div className="text-[11px] font-normal text-white/90">Instant custom itinerary & pricing</div>
-                  </div>
+          {/* Solid Opaque Drawer Panel */}
+          <div className="fixed inset-x-3 top-[76px] sm:top-[84px] max-h-[85vh] overflow-y-auto rounded-3xl bg-[#0B1B33] border-2 border-amber-500/40 shadow-[0_20px_70px_rgba(0,0,0,0.95)] p-5 text-white z-10">
+            {/* Feature AI Banner */}
+            <button
+              onClick={handleAiPlanClick}
+              className="w-full mb-4 p-3.5 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-bold text-sm flex items-center justify-between shadow-lg shadow-orange-500/25 active:scale-98 transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/20 rounded-xl">
+                  <Sparkles className="w-5 h-5 text-amber-100 animate-pulse" />
                 </div>
-              </button>
-
-              <ul className="flex flex-col space-y-1">
-                {navLinks.filter((l) => !l.isAi).map((link) => (
-                  <li key={link.name} className="border-b border-white/10 last:border-0 pb-2 pt-1">
-                    {link.dropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                          className="flex items-center justify-between w-full py-2.5 font-semibold text-slate-100"
-                          aria-expanded={openDropdown === link.name}
-                        >
-                          <span className="flex items-center gap-2 text-sm">
-                            {link.name}
-                            {(link as any).badge && (
-                              <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-orange-600 text-white leading-none">
-                                {(link as any).badge}
-                              </span>
-                            )}
-                          </span>
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              openDropdown === link.name ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                        <ul
-                          className={`overflow-hidden transition-all duration-200 ${
-                            openDropdown === link.name ? 'max-h-[320px] pb-2' : 'max-h-0'
-                          }`}
-                        >
-                          {link.dropdown.map((item) => (
-                            <li key={item.name}>
-                              {item.isRoute ? (
-                                <Link
-                                  to={item.href}
-                                  className="flex items-center gap-2.5 py-2 pl-4 text-xs text-slate-300 hover:text-amber-400 transition-colors"
-                                  onClick={() => {
-                                    setIsMobileMenuOpen(false);
-                                    setOpenDropdown(null);
-                                  }}
-                                >
-                                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/60" />
-                                  <span>{item.name}</span>
-                                </Link>
-                              ) : (
-                                <a
-                                  href={item.href}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    handleNavClick(item.href);
-                                  }}
-                                  className="flex items-center gap-2.5 py-2 pl-4 text-xs text-slate-300 hover:text-amber-400 transition-colors"
-                                >
-                                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/60" />
-                                  <span>{item.name}</span>
-                                </a>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : link.isRoute ? (
-                      <Link
-                        to={link.href}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setOpenDropdown(null);
-                        }}
-                        className="block py-2.5 text-sm font-semibold text-slate-100 hover:text-amber-400 transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(link.href);
-                        }}
-                        className="block py-2.5 text-sm font-semibold text-slate-100 hover:text-amber-400 transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Mobile Quick Contacts Footer */}
-              <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between gap-3">
-                <a
-                  href="https://wa.me/919203650311"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-500 text-white font-bold text-xs"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp</span>
-                </a>
-                <a
-                  href="tel:+919203650311"
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/15 text-white font-bold text-xs border border-white/20"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Us</span>
-                </a>
+                <div className="text-left">
+                  <div className="font-extrabold text-sm flex items-center gap-1.5">
+                    AI Trip Architect
+                    <span className="px-1.5 py-0.5 text-[9px] font-black uppercase rounded bg-white text-orange-600">NEW</span>
+                  </div>
+                  <div className="text-[11px] font-normal text-white/90">Instant custom itinerary & pricing</div>
+                </div>
               </div>
+            </button>
+
+            <ul className="flex flex-col space-y-1">
+              {navLinks.filter((l) => !l.isAi).map((link) => (
+                <li key={link.name} className="border-b border-white/10 last:border-0 pb-2 pt-1">
+                  {link.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                        className="flex items-center justify-between w-full py-2.5 font-semibold text-white hover:text-amber-400 transition-colors"
+                        aria-expanded={openDropdown === link.name}
+                      >
+                        <span className="flex items-center gap-2 text-sm">
+                          {link.name}
+                          {(link.badge) && (
+                            <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-orange-600 text-white leading-none">
+                              {link.badge}
+                            </span>
+                          )}
+                        </span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            openDropdown === link.name ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <ul
+                        className={`overflow-hidden transition-all duration-200 ${
+                          openDropdown === link.name ? 'max-h-[360px] pb-2 bg-slate-900/90 rounded-2xl p-2 mt-1 border border-white/10' : 'max-h-0'
+                        }`}
+                      >
+                        {link.dropdown.map((item) => (
+                          <li key={item.name}>
+                            {item.isRoute ? (
+                              <Link
+                                to={item.href}
+                                className="flex items-center gap-2.5 py-2 pl-3 text-xs text-slate-200 hover:text-amber-400 transition-colors"
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false);
+                                  setOpenDropdown(null);
+                                }}
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />
+                                <span>{item.name}</span>
+                              </Link>
+                            ) : (
+                              <a
+                                href={item.href}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  handleNavClick(item.href);
+                                }}
+                                className="flex items-center gap-2.5 py-2 pl-3 text-xs text-slate-200 hover:text-amber-400 transition-colors"
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />
+                                <span>{item.name}</span>
+                              </a>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setOpenDropdown(null);
+                      }}
+                      className="block py-2.5 text-sm font-semibold text-white hover:text-amber-400 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }}
+                      className="block py-2.5 text-sm font-semibold text-white hover:text-amber-400 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            {/* Mobile Quick Contacts Footer */}
+            <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between gap-3">
+              <a
+                href="https://wa.me/919713057086?text=Hi%20Rudraksh%20Safar%2C%20I%20would%20like%20to%20plan%20a%20trip."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href="tel:+919713057086"
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-white/15 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Us</span>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+      )}
+
     </header>
   );
 });

@@ -435,6 +435,10 @@ const App = () => (
                     <Route path="/kumbh-mela-2027/packages/kumbh-devprayag-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-devprayag-3n-4d" lang="en" />} />
                     <Route path="/kumbh-mela-2027/packages/kumbh-mussoorie-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-mussoorie-3n-4d" lang="en" />} />
                     <Route path="/kumbh-mela-2027/packages/kumbh-neelkanth-mahadev-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-neelkanth-mahadev-3n-4d" lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/kumbh-senior-citizen-special-2n-3d" element={<KumbhPackageDetailPage slug="kumbh-senior-citizen-special-2n-3d" lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/kumbh-rishikesh-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-rishikesh-3n-4d" lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/kumbh-neem-karoli-nainital-4n-5d" element={<KumbhPackageDetailPage slug="kumbh-neem-karoli-nainital-4n-5d" lang="en" />} />
+                    <Route path="/kumbh-mela-2027/packages/kumbh-rishikesh-mussoorie-4n-5d" element={<KumbhPackageDetailPage slug="kumbh-rishikesh-mussoorie-4n-5d" lang="en" />} />
                     <Route path="/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="en" />} />
 
                     {/* Haridwar Ardh Kumbh 2027 Ecosystem (Hindi - /hi/...) */}
@@ -454,6 +458,10 @@ const App = () => (
                     <Route path="/hi/kumbh-mela-2027/packages/kumbh-devprayag-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-devprayag-3n-4d" lang="hi" />} />
                     <Route path="/hi/kumbh-mela-2027/packages/kumbh-mussoorie-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-mussoorie-3n-4d" lang="hi" />} />
                     <Route path="/hi/kumbh-mela-2027/packages/kumbh-neelkanth-mahadev-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-neelkanth-mahadev-3n-4d" lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/kumbh-senior-citizen-special-2n-3d" element={<KumbhPackageDetailPage slug="kumbh-senior-citizen-special-2n-3d" lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/kumbh-rishikesh-3n-4d" element={<KumbhPackageDetailPage slug="kumbh-rishikesh-3n-4d" lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/kumbh-neem-karoli-nainital-4n-5d" element={<KumbhPackageDetailPage slug="kumbh-neem-karoli-nainital-4n-5d" lang="hi" />} />
+                    <Route path="/hi/kumbh-mela-2027/packages/kumbh-rishikesh-mussoorie-4n-5d" element={<KumbhPackageDetailPage slug="kumbh-rishikesh-mussoorie-4n-5d" lang="hi" />} />
                     <Route path="/hi/kumbh-mela-2027/packages/:slug" element={<CityPackagePage lang="hi" />} />
 
                     {/* Where To Go Master Ecosystem */}

@@ -613,6 +613,453 @@ export const KUMBH_PACKAGES: PackageTier[] = [
     metaDescriptionEn: "Book Haridwar Kumbh Mela + Neelkanth Mahadev Temple 3N/4D tour package. Sacred Ganga snan, Har Ki Pauri Aarti, Neelkanth darshan, Rishikesh stay & MAP meals.",
     metaDescriptionHi: "हरिद्वार कुंभ मेला + नीलकंठ महादेव मंदिर 3 रात्रि 4 दिन यात्रा पैकेज। पावन गंगा स्नान, हर की पौड़ी महाआरती, नीलकंठ दर्शन, ऋषिकेश रिसॉर्ट व सात्विक भोजन। अभी बुक करें।"
   }
+,
+  // ==============================================================
+  // 6. KUMBH SENIOR CITIZEN SPECIAL (2N / 3D)
+  // ==============================================================
+  {
+    id: "pkg-kumbh-senior-citizen-2n3d",
+    slug: "kumbh-senior-citizen-special-2n-3d",
+    titleEn: "Kumbh Senior Citizen Special (2 Nights / 3 Days)",
+    titleHi: "कुंभ वरिष्ठ नागरिक स्पेशल यात्रा (2 रात्रि / 3 दिन)",
+    duration: "2 Nights / 3 Days",
+    departure: "Ex Haridwar or Delhi",
+    routeEn: "Delhi / Haridwar › Ganga Snan › Local Darshan › Departure",
+    routeHi: "दिल्ली / हरिद्वार › पावन गंगा स्नान › स्थानीय दर्शन › प्रस्थान",
+    nightStayEn: "2 Nights, Haridwar",
+    nightStayHi: "2 रात्रि, हरिद्वार",
+    hotelProposedEn: "Hotel Balaji, Haridwar (or equivalent)",
+    hotelProposedHi: "होटल बालाजी, हरिद्वार (अथवा समकक्ष)",
+    mealsEn: "MAP: Breakfast + Dinner",
+    mealsHi: "एमएपी (MAP): नाश्ता + रात्रि भोजन",
+    priceStarting: "On Request (Best Price for Group)",
+    priceRangeInr: "Best price on request (Breakfast + Dinner included)",
+    priceNoteEn: "*Final price varies by travel date, group size, room sharing and vehicle type. Senior-friendly arrangements.",
+    priceNoteHi: "*अंतिम मूल्य यात्रा तिथि, समूह संख्या, रूम शेयरिंग एवं वाहन के अनुसार निर्धारित होता है।",
+    pdfUrl: "/Kumbh-2027 Haridwar Packages PDF/NEW/Rudraksh_Safar_Kumbh_Senior_Citizen_Special_2N3D_2027_1.pdf",
+    pdfCleanUrl: "/Pdf/kumbh-2027/Rudraksh_Safar_Kumbh_Senior_Citizen_Special_2N3D_2027_1.pdf",
+    imageUrl: "/images/kumbh-packages/kumbh_senior_citizen_2.png",
+    badgeTextEn: "SENIOR CITIZEN CARE",
+    badgeTextHi: "वरिष्ठ नागरिक विशेष",
+    categoryTagEn: "RELAXED PACE · ACCESSIBLE",
+    categoryTagHi: "सहज गति · सुलभ दर्शन",
+    idealForEn: "Elderly devotees and families travelling with senior citizens seeking an unhurried, comfortable pilgrimage with assisted hotel check-in, accessible bathing ghats, and dedicated care.",
+    idealForHi: "बुजुर्ग परिजनों एवं वरिष्ठ नागरिकों के साथ यात्रा करने वाले परिवारों हेतु विशेष रूप से तैयार सहज, तनावमुक्त एवं सुलभ तीर्थ यात्रा।",
+    highlightsEn: [
+      "Relaxed pace pilgrimage with adequate rest breaks specifically designed for seniors",
+      "Assisted hotel check-in at Hotel Balaji, Haridwar with comfortable elevator/ground floor priority",
+      "Visit to designated, easily accessible ghats for an unhurried holy Ganga Snan",
+      "Assisted Har Ki Pauri evening Ganga Aarti viewing according to comfort levels",
+      "24/7 dedicated Rudraksh Safar elder-care assistance and doctor-on-call coordination"
+    ],
+    highlightsHi: [
+      "वरिष्ठ नागरिकों की सुविधा अनुसार पर्याप्त विश्राम एवं सहज गति से तैयार यात्रा कार्यक्रम",
+      "होटल बालाजी हरिद्वार में सुविधाजनक चेक-इन एवं भूतल/लिफ्ट युक्त कमरों को प्राथमिकता",
+      "शांत एवं सुगम घाटों पर बिना किसी हड़बड़ी के पावन गंगा स्नान की सुगम व्यवस्था",
+      "हर की पौड़ी पर सायंकालीन दिव्य गंगा आरती के सुविधाजनक दर्शन",
+      "रुद्राक्ष सफ़र हरिद्वार टीम द्वारा 24/7 समर्पित बुजुर्ग तीर्थ सेवा एवं मेडिकल सहायता समन्वय"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        titleEn: "Arrival in Haridwar & Relaxed Evening",
+        titleHi: "हरिद्वार आगमन एवं सहज विश्राममय संध्या",
+        descEn: "Arrive in Haridwar and enjoy an assisted hotel check-in, with time to relax and refresh after your journey. In the evening, attend the divine Ganga Aarti if you are comfortable and it is permitted. Dinner and overnight stay in Haridwar.",
+        descHi: "हरिद्वार आगमन पर होटल में सहायता युक्त सुगम चेक-इन करें। यात्रा की थकान मिटाने हेतु पर्याप्त विश्राम का समय। सांध्यकाल में सुविधा और अनुमति अनुसार हर की पौड़ी पर दिव्य गंगा आरती के दर्शन करें। होटल में सात्विक रात्रि भोजन एवं रात्रि विश्राम।",
+        meals: "Dinner included",
+        stay: "Night 1 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 2,
+        titleEn: "Unhurried Holy Ganga Snan",
+        titleHi: "सहज एवं शांत पवित्र गंगा स्नान",
+        descEn: "After breakfast, visit a designated accessible ghat for an unhurried holy Ganga Snan, subject to official access and crowd conditions. Return to the hotel for rest. Dinner and overnight stay in Haridwar.",
+        descHi: "प्रातःकालीन नाश्ते के उपरांत, वरिष्ठजनों के अनुकूल सुगम घाट पर बिना किसी जल्दबाजी के आस्था की डुबकी (गंगा स्नान) लगाएं। स्नान के उपरांत होटल लौटकर विश्राम करें। स्वादिष्ट रात्रि भोजन एवं हरिद्वार में रात्रि विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 2 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 3,
+        titleEn: "Short Temple Darshan & Departure",
+        titleHi: "संक्षिप्त मंदिर दर्शन एवं प्रस्थान",
+        descEn: "After breakfast, check out from the hotel. If time and conditions permit, enjoy a flexible, short local temple darshan. Depart for Haridwar railway station or Delhi as per the confirmed transfer arrangement.",
+        descHi: "प्रातः नाश्ते के बाद होटल से चेक-आउट करें। समयानुकूल एवं सुविधा अनुसार स्थानीय मंदिरों के संक्षिप्त दर्शन करें। माँ गंगा के आशीर्वाद के साथ रेलवे स्टेशन अथवा दिल्ली हेतु प्रस्थान।",
+        meals: "Breakfast included",
+        stay: "Departure towards Haridwar Railway Station / Delhi"
+      }
+    ],
+    inclusionsEn: COMMON_INCLUSIONS_EN,
+    inclusionsHi: COMMON_INCLUSIONS_HI,
+    exclusionsEn: COMMON_EXCLUSIONS_EN,
+    exclusionsHi: COMMON_EXCLUSIONS_HI,
+    bookingConditionsEn: COMMON_BOOKING_CONDITIONS_EN,
+    bookingConditionsHi: COMMON_BOOKING_CONDITIONS_HI,
+    paymentPolicyEn: COMMON_PAYMENT_POLICIES_EN,
+    paymentPolicyHi: COMMON_PAYMENT_POLICIES_HI,
+    legalDisclaimerEn: COMMON_LEGAL_DISCLAIMER_EN,
+    legalDisclaimerHi: COMMON_LEGAL_DISCLAIMER_HI,
+    cancellationPolicyEn: "Written booking conditions apply. 100% refund up to 21 days before arrival; 50% refund between 10–20 days; non-refundable within 9 days of travel.",
+    cancellationPolicyHi: "लिखित बुकिंग शर्तें लागू। यात्रा से 21 दिन पूर्व 100% वापसी; 10 से 20 दिन पूर्व 50% वापसी; 9 दिन के भीतर राशि अहस्तांतरणीय।",
+    keywords: [
+      "Kumbh Senior Citizen Special package",
+      "Senior friendly Kumbh Mela tour 2027",
+      "Elderly pilgrimage Haridwar Kumbh",
+      "Wheelchair accessible Kumbh package",
+      "Relaxed pace Kumbh Mela tour",
+      "Hotel Balaji Haridwar senior care",
+      "Rudraksh Safar senior citizen tour"
+    ],
+    metaTitleEn: "Kumbh Senior Citizen Special 2N 3D Tour Package 2027 | Rudraksh Safar",
+    metaTitleHi: "कुंभ वरिष्ठ नागरिक स्पेशल 2 रात्रि 3 दिन यात्रा पैकेज 2027 | रुद्राक्ष सफ़र",
+    metaDescriptionEn: "Senior citizen friendly Haridwar Kumbh Mela 2N/3D tour package. Relaxed pacing, accessible ghat Ganga Snan, assisted Har Ki Pauri Aarti, Hotel Balaji stay & MAP meals.",
+    metaDescriptionHi: "वरिष्ठ नागरिकों हेतु विशेष हरिद्वार कुंभ मेला 2N/3D यात्रा पैकेज। सहज गति, सुलभ घाट गंगा स्नान, हर की पौड़ी आरती सहायता, होटल बालाजी प्रवास एवं सात्विक भोजन।"
+  },
+
+  // ==============================================================
+  // 7. KUMBH + RISHIKESH (3N / 4D)
+  // ==============================================================
+  {
+    id: "pkg-kumbh-rishikesh-3n4d",
+    slug: "kumbh-rishikesh-3n-4d",
+    titleEn: "Kumbh + Rishikesh Spiritual Tour (3 Nights / 4 Days)",
+    titleHi: "कुंभ + ऋषिकेश आध्यात्मिक यात्रा (3 रात्रि / 4 दिन)",
+    duration: "3 Nights / 4 Days",
+    departure: "Ex Haridwar or Delhi",
+    routeEn: "Delhi › Haridwar › Rishikesh › Delhi",
+    routeHi: "दिल्ली › हरिद्वार › ऋषिकेश › दिल्ली",
+    nightStayEn: "2N Haridwar + 1N Rishikesh",
+    nightStayHi: "2 रात्रि हरिद्वार + 1 रात्रि ऋषिकेश",
+    hotelProposedEn: "Hotel Balaji, Haridwar; Sunrise Resort, Rishikesh (or equivalent)",
+    hotelProposedHi: "होटल बालाजी, हरिद्वार; सनराइज रिसॉर्ट, ऋषिकेश (अथवा समकक्ष)",
+    mealsEn: "MAP: Breakfast + Dinner",
+    mealsHi: "एमएपी (MAP): नाश्ता + रात्रि भोजन",
+    priceStarting: "On Request (Best Price for Group)",
+    priceRangeInr: "Best price on request (Breakfast + Dinner included)",
+    priceNoteEn: "*Final price varies by travel date, group size, room sharing and vehicle type.",
+    priceNoteHi: "*अंतिम मूल्य यात्रा तिथि, समूह संख्या, रूम शेयरिंग एवं वाहन के अनुसार निर्धारित होता है।",
+    pdfUrl: "/Kumbh-2027 Haridwar Packages PDF/NEW/Rudraksh_Safar_Kumbh_Rishikesh_3N4D_2027.pdf",
+    pdfCleanUrl: "/Pdf/kumbh-2027/Rudraksh_Safar_Kumbh_Rishikesh_3N4D_2027.pdf",
+    imageUrl: "/images/kumbh-packages/kumbh_rishikesh_3n4d_3.png",
+    badgeTextEn: "YOGA & GANGA",
+    badgeTextHi: "योग एवं गंगा संगम",
+    categoryTagEn: "TRIVENI GHAT · RAM JHULA",
+    categoryTagHi: "त्रिवेणी घाट · राम झूला",
+    idealForEn: "Pilgrims and spiritual seekers looking to blend the monumental sacred bathing rituals of Haridwar Kumbh Mela 2027 with the peaceful yoga ghats, ashrams, and Triveni Aarti in Rishikesh.",
+    idealForHi: "हरिद्वार कुंभ मेले के पावन गंगा स्नान के साथ-साथ योगनगरी ऋषिकेश के शांत आश्रमों, त्रिवेणी घाट एवं राम झूला के दर्शन के इच्छुक श्रद्धालुओं हेतु।",
+    highlightsEn: [
+      "Auspicious Holy Ganga Snan at Haridwar during Kumbh Mela 2027",
+      "Witness divine Har Ki Pauri Ganga Aarti with hundreds of glowing lamps",
+      "Explore Rishikesh, the world capital of Yoga, nestled in Himalayan foothills",
+      "Visit the sacred Triveni Ghat where Ganga, Yamuna & Saraswati meet spiritually",
+      "2 Nights at Hotel Balaji Haridwar + 1 Night at Sunrise Resort Rishikesh with MAP meals"
+    ],
+    highlightsHi: [
+      "कुंभ मेला 2027 के पावन अवसर पर हरिद्वार में पवित्र गंगा स्नान",
+      "हर की पौड़ी पर सैकड़ों प्रज्ज्वलित दीपों के मध्य आलौकिक गंगा आरती दर्शन",
+      "विश्व योग राजधानी ऋषिकेश, राम झूला एवं पवित्र गंगा तटों का भ्रमण",
+      "त्रिवेणी घाट के दर्शन जहां तीनों पावन नदियों का आध्यात्मिक संगम माना जाता है",
+      "होटल बालाजी हरिद्वार (2 रातें) + सनराइज रिसॉर्ट ऋषिकेश (1 रात) में प्रवास एवं सात्विक भोजन"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        titleEn: "Arrival in Haridwar & Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं गंगा आरती दर्शन",
+        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). Freshen up and, in the evening, proceed to Har Ki Pauri to witness the divine Ganga Aarti, as hundreds of lamps glow over the flowing Ganga. Return to the hotel for dinner and overnight stay.",
+        descHi: "हरिद्वार आगमन पर होटल बालाजी में चेक-इन। विश्राम उपरांत सांध्यकाल में हर की पौड़ी पहुंचकर माँ गंगा की आरती के दिव्य दर्शन। होटल वापसी, स्वादिष्ट भोजन एवं रात्रि विश्राम।",
+        meals: "Dinner included",
+        stay: "Night 1 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 2,
+        titleEn: "Holy Ganga Snan & Haridwar Sightseeing",
+        titleHi: "पवित्र गंगा स्नान एवं हरिद्वार तीर्थ दर्शन",
+        descEn: "After breakfast, take a holy dip (Ganga Snan) at the ghats during the Kumbh period and experience the grandeur of the Kumbh Mela. Later, enjoy sightseeing in Haridwar. Return to the hotel for dinner and overnight stay.",
+        descHi: "प्रातः नाश्ते के बाद पावन गंगा घाटों पर कुंभ स्नान करें। इसके उपरांत हरिद्वार के प्रमुख तीर्थ स्थलों व मंदिरों के दर्शन करें। रात्रि भोजन व हरिद्वार में प्रवास।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 2 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 3,
+        titleEn: "Transfer to Rishikesh, Triveni Ghat & Local Visit",
+        titleHi: "ऋषिकेश स्थानांतरण, त्रिवेणी घाट एवं स्थानीय दर्शन",
+        descEn: "After breakfast, check out and transfer to Rishikesh, the yoga capital of the world. Visit the serene Triveni Ghat and enjoy a local visit along the banks of the Ganga. Check in at Sunrise Resort, Rishikesh (or equivalent) for dinner and overnight stay.",
+        descHi: "प्रातः नाश्ते के बाद चेक-आउट कर ऋषिकेश के लिए प्रस्थान। शांत एवं पावन त्रिवेणी घाट के दर्शन करें और गंगा तट पर टहलते हुए ऋषिकेश के वातावरण का अनुभव करें। सनराइज रिसॉर्ट ऋषिकेश में चेक-इन, रात्रि भोजन व विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 3 at Sunrise Resort, Rishikesh"
+      },
+      {
+        day: 4,
+        titleEn: "Breakfast & Departure",
+        titleHi: "नाश्ता एवं दिल्ली/गंतव्य हेतु प्रस्थान",
+        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
+        descHi: "प्रातः नाश्ते के बाद चेक-आउट करें और माँ गंगा के पावन आशीर्वाद के साथ दिल्ली अथवा गंतव्य के लिए प्रस्थान करें।",
+        meals: "Breakfast included",
+        stay: "Departure towards Delhi / onward journey"
+      }
+    ],
+    inclusionsEn: COMMON_INCLUSIONS_EN,
+    inclusionsHi: COMMON_INCLUSIONS_HI,
+    exclusionsEn: COMMON_EXCLUSIONS_EN,
+    exclusionsHi: COMMON_EXCLUSIONS_HI,
+    bookingConditionsEn: COMMON_BOOKING_CONDITIONS_EN,
+    bookingConditionsHi: COMMON_BOOKING_CONDITIONS_HI,
+    paymentPolicyEn: COMMON_PAYMENT_POLICIES_EN,
+    paymentPolicyHi: COMMON_PAYMENT_POLICIES_HI,
+    legalDisclaimerEn: COMMON_LEGAL_DISCLAIMER_EN,
+    legalDisclaimerHi: COMMON_LEGAL_DISCLAIMER_HI,
+    cancellationPolicyEn: "Written booking conditions apply. 100% refund up to 21 days before arrival; 50% refund between 10–20 days; non-refundable within 9 days of travel.",
+    cancellationPolicyHi: "लिखित बुकिंग शर्तें लागू। यात्रा से 21 दिन पूर्व 100% वापसी; 10 से 20 दिन पूर्व 50% वापसी; 9 दिन के भीतर राशि अहस्तांतरणीय।",
+    keywords: [
+      "Kumbh Rishikesh tour package 3N 4D",
+      "Haridwar Kumbh Rishikesh tour 2027",
+      "Triveni Ghat Aarti Rishikesh Kumbh",
+      "Haridwar Rishikesh pilgrimage package",
+      "Sunrise Resort Rishikesh Kumbh package",
+      "Rudraksh Safar Kumbh Rishikesh"
+    ],
+    metaTitleEn: "Haridwar Kumbh + Rishikesh 3N 4D Tour Package 2027 | Rudraksh Safar",
+    metaTitleHi: "हरिद्वार कुंभ + ऋषिकेश 3N 4D यात्रा पैकेज 2027 | रुद्राक्ष सफ़र",
+    metaDescriptionEn: "Book Haridwar Kumbh 2027 + Rishikesh 3 Nights / 4 Days tour package. Holy Ganga dip, Har Ki Pauri Aarti, Triveni Ghat visit, Sunrise Resort stay & MAP meals.",
+    metaDescriptionHi: "हरिद्वार कुंभ 2027 + ऋषिकेश 3 रात्रि 4 दिन यात्रा पैकेज। पावन गंगा स्नान, हर की पौड़ी महाआरती, त्रिवेणी घाट दर्शन, सनराइज रिसॉर्ट ऋषिकेश प्रवास व सात्विक भोजन।"
+  },
+
+  // ==============================================================
+  // 8. KUMBH + NEEM KAROLI + NAINITAL (4N / 5D)
+  // ==============================================================
+  {
+    id: "pkg-kumbh-neem-karoli-nainital-4n5d",
+    slug: "kumbh-neem-karoli-nainital-4n-5d",
+    titleEn: "Kumbh + Neem Karoli + Nainital (4 Nights / 5 Days)",
+    titleHi: "कुंभ + नीम करोली बाबा (कैंची धाम) + नैनीताल (4 रात्रि / 5 दिन)",
+    duration: "4 Nights / 5 Days",
+    departure: "Ex Haridwar or Delhi",
+    routeEn: "Delhi › Haridwar › Nainital › Kainchi Dham › Delhi",
+    routeHi: "दिल्ली › हरिद्वार › नैनीताल › कैंची धाम › दिल्ली",
+    nightStayEn: "2N Haridwar + 1N Nainital + 1N Bhimtal",
+    nightStayHi: "2 रात्रि हरिद्वार + 1 रात्रि नैनीताल + 1 रात्रि भीमताल",
+    hotelProposedEn: "Hotel Balaji, Haridwar; Aroma, Nainital; The Palm Resort, Bhimtal (or equivalent)",
+    hotelProposedHi: "होटल बालाजी, हरिद्वार; होटल एरोमा, नैनीताल; द पाम रिसॉर्ट, भीमताल (अथवा समकक्ष)",
+    mealsEn: "MAP: Breakfast + Dinner",
+    mealsHi: "एमएपी (MAP): नाश्ता + रात्रि भोजन",
+    priceStarting: "On Request (Best Price for Group)",
+    priceRangeInr: "Best price on request (Breakfast + Dinner included)",
+    priceNoteEn: "*Final price varies by travel date, group size, room sharing and vehicle type.",
+    priceNoteHi: "*अंतिम मूल्य यात्रा तिथि, समूह संख्या, रूम शेयरिंग एवं वाहन के अनुसार निर्धारित होता है।",
+    pdfUrl: "/Kumbh-2027 Haridwar Packages PDF/NEW/Rudraksh_Safar_Kumbh_Neem_Karoli_Nainital_4N5D_2027.pdf",
+    pdfCleanUrl: "/Pdf/kumbh-2027/Rudraksh_Safar_Kumbh_Neem_Karoli_Nainital_4N5D_2027.pdf",
+    imageUrl: "/images/kumbh-packages/kumbh_neem_karoli_nainital_3.png",
+    badgeTextEn: "KAINCHI DHAM BLESSINGS",
+    badgeTextHi: "कैंची धाम पावन दर्शन",
+    categoryTagEn: "NEEM KAROLI BABA · LAKES",
+    categoryTagHi: "नीम करोली बाबा · सरोवर नगरी",
+    idealForEn: "Devotees wishing to combine the holy bath at Haridwar Kumbh Mela 2027 with the spiritually electrifying darshan of Kainchi Dham Ashram (Neem Karoli Baba) and the scenic lakes of Nainital & Bhimtal.",
+    idealForHi: "हरिद्वार कुंभ मेला गंगा स्नान के साथ-साथ सुप्रसिद्ध कैंची धाम (नीम करोली बाबा आश्रम) के दिव्य दर्शन एवं नैनीताल-भीमताल की सुरम्य झीलों का आनंद लेने वाले श्रद्धालुओं हेतु।",
+    highlightsEn: [
+      "Sacred Kumbh Snan at Haridwar with Har Ki Pauri evening Ganga Aarti",
+      "Darshan at the legendary Kainchi Dham Ashram of Neem Karoli Baba in Kumaon hills",
+      "Explore the Lake District of India: Boating in Nainital Lake & scenic Bhimtal",
+      "Naina Devi Temple darshan along the banks of Naini Lake",
+      "2N Haridwar (Hotel Balaji) + 1N Nainital (Hotel Aroma) + 1N Bhimtal (The Palm Resort) with MAP meals"
+    ],
+    highlightsHi: [
+      "कुंभ मेला 2027 में पावन गंगा स्नान एवं हर की पौड़ी पर दिव्य सांध्य आरती",
+      "कुमाऊं की शांत वादियों में स्थित बाबा नीम करोली के विश्वप्रसिद्ध कैंची धाम के दर्शन",
+      "भारत की सरोवर नगरी नैनीताल झील एवं भीमताल का मनमोहक भ्रमण व नौकायन",
+      "नैनी झील के तट पर स्थित प्रसिद्ध माँ नैना देवी शक्तिपीठ के पावन दर्शन",
+      "2 रात हरिद्वार (होटल बालाजी) + 1 रात नैनीताल (होटल एरोमा) + 1 रात भीमताल (द पाम रिसॉर्ट) में सात्विक भोजन सहित प्रवास"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        titleEn: "Haridwar Arrival & Evening Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं सांध्य गंगा आरती",
+        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). In the evening, attend the divine Ganga Aarti at Har Ki Pauri. Dinner and overnight stay.",
+        descHi: "हरिद्वार आगमन एवं होटल बालाजी में चेक-इन। सांध्यकाल में हर की पौड़ी पर भव्य गंगा आरती का दिव्य दर्शन। रात्रि भोजन एवं हरिद्वार में विश्राम।",
+        meals: "Dinner included",
+        stay: "Night 1 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 2,
+        titleEn: "Kumbh Holy Snan & Local Visit",
+        titleHi: "कुंभ पावन स्नान एवं स्थानीय दर्शन",
+        descEn: "After breakfast, take a holy Kumbh snan (Ganga Snan) at the ghats and enjoy a local visit around Haridwar. Dinner and overnight stay at the hotel.",
+        descHi: "प्रातः नाश्ते के बाद पावन गंगा घाटों पर कुंभ स्नान करें और हरिद्वार के सिद्धपीठों के दर्शन करें। होटल में रात्रि भोजन और विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 2 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 3,
+        titleEn: "Travel to Nainital & Hotel Check-in",
+        titleHi: "नैनीताल की सुरम्य यात्रा एवं होटल चेक-इन",
+        descEn: "After breakfast, check out and drive towards Nainital, the Lake District of India. Check in at Hotel Aroma (or equivalent) for dinner and overnight stay.",
+        descHi: "प्रातः नाश्ते के उपरांत चेक-आउट कर भारत की प्रसिद्ध सरोवर नगरी नैनीताल के लिए प्रस्थान। आगमन पर होटल एरोमा में चेक-इन, रात्रि भोजन व विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 3 at Hotel Aroma, Nainital"
+      },
+      {
+        day: 4,
+        titleEn: "Kainchi Dham (Neem Karoli Baba) Darshan & Bhimtal",
+        titleHi: "कैंची धाम (नीम करोली बाबा) दर्शन एवं भीमताल प्रवास",
+        descEn: "After breakfast, visit the serene Kainchi Dham, the ashram of Neem Karoli Baba, for darshan. Continue to The Palm Resort, Bhimtal (or equivalent) for dinner and overnight stay.",
+        descHi: "प्रातः नाश्ते के बाद परम पूज्य नीम करोली बाबा के दिव्य कैंची धाम आश्रम के दर्शन व पूजन। दर्शन उपरांत भीमताल प्रस्थान, द पाम रिसॉर्ट में चेक-इन, रात्रि भोजन व विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 4 at The Palm Resort, Bhimtal"
+      },
+      {
+        day: 5,
+        titleEn: "Nainital Lake, Sightseeing & Departure",
+        titleHi: "नैनीताल झील दर्शन, स्थानीय भ्रमण एवं दिल्ली प्रस्थान",
+        descEn: "After breakfast, enjoy Nainital Lake and local sightseeing, then check out and depart for Delhi or your onward destination with blessings and lasting memories.",
+        descHi: "प्रातः नाश्ते के बाद नैनीताल झील एवं स्थानीय दर्शनीय स्थलों का आनंद लें। चेक-आउट कर बाबा नीम करोली एवं माँ गंगा के आशीर्वाद के साथ दिल्ली हेतु प्रस्थान।",
+        meals: "Breakfast included",
+        stay: "Departure towards Delhi / onward destination"
+      }
+    ],
+    inclusionsEn: COMMON_INCLUSIONS_EN,
+    inclusionsHi: COMMON_INCLUSIONS_HI,
+    exclusionsEn: COMMON_EXCLUSIONS_EN,
+    exclusionsHi: COMMON_EXCLUSIONS_HI,
+    bookingConditionsEn: COMMON_BOOKING_CONDITIONS_EN,
+    bookingConditionsHi: COMMON_BOOKING_CONDITIONS_HI,
+    paymentPolicyEn: COMMON_PAYMENT_POLICIES_EN,
+    paymentPolicyHi: COMMON_PAYMENT_POLICIES_HI,
+    legalDisclaimerEn: COMMON_LEGAL_DISCLAIMER_EN,
+    legalDisclaimerHi: COMMON_LEGAL_DISCLAIMER_HI,
+    cancellationPolicyEn: "Written booking conditions apply. 100% refund up to 21 days before arrival; 50% refund between 10–20 days; non-refundable within 9 days of travel.",
+    cancellationPolicyHi: "लिखित बुकिंग शर्तें लागू। यात्रा से 21 दिन पूर्व 100% वापसी; 10 से 20 दिन पूर्व 50% वापसी; 9 दिन के भीतर राशि अहस्तांतरणीय।",
+    keywords: [
+      "Kumbh Kainchi Dham Neem Karoli Baba package",
+      "Haridwar Kumbh Nainital tour package 4N 5D",
+      "Kainchi Dham ashram tour package 2027",
+      "Neem Karoli Baba darshan tour from Delhi",
+      "Haridwar Nainital Bhimtal Kumbh tour",
+      "Hotel Aroma Nainital Kumbh package",
+      "Rudraksh Safar Kainchi Dham tour"
+    ],
+    metaTitleEn: "Kumbh + Neem Karoli + Nainital 4N 5D Tour Package 2027 | Rudraksh Safar",
+    metaTitleHi: "कुंभ + नीम करोली (कैंची धाम) + नैनीताल 4N 5D पैकेज 2027 | रुद्राक्ष सफ़र",
+    metaDescriptionEn: "Book Haridwar Kumbh Mela 2027 + Kainchi Dham Neem Karoli Baba + Nainital 4N/5D tour package. Holy Ganga dip, Kainchi Dham darshan, Naini Lake & Bhimtal stay.",
+    metaDescriptionHi: "हरिद्वार कुंभ 2027 + नीम करोली बाबा कैंची धाम + नैनीताल 4 रात्रि 5 दिन यात्रा पैकेज। पावन गंगा स्नान, कैंची धाम दर्शन, नैनीताल झील व भीमताल रिसॉर्ट प्रवास।"
+  },
+
+  // ==============================================================
+  // 9. KUMBH + RISHIKESH + MUSSOORIE (4N / 5D)
+  // ==============================================================
+  {
+    id: "pkg-kumbh-rishikesh-mussoorie-4n5d",
+    slug: "kumbh-rishikesh-mussoorie-4n-5d",
+    titleEn: "Kumbh + Rishikesh + Mussoorie (4 Nights / 5 Days)",
+    titleHi: "कुंभ + ऋषिकेश + मसूरी महायात्रा (4 रात्रि / 5 दिन)",
+    duration: "4 Nights / 5 Days",
+    departure: "Ex Haridwar or Delhi",
+    routeEn: "Delhi › Haridwar › Rishikesh › Mussoorie › Delhi",
+    routeHi: "दिल्ली › हरिद्वार › ऋषिकेश › मसूरी › दिल्ली",
+    nightStayEn: "2N Haridwar + 1N Rishikesh + 1N Mussoorie",
+    nightStayHi: "2 रात्रि हरिद्वार + 1 रात्रि ऋषिकेश + 1 रात्रि मसूरी",
+    hotelProposedEn: "Hotel Balaji, Haridwar; Sunrise Resort, Rishikesh; Hotel Maya, Mussoorie (or equivalent)",
+    hotelProposedHi: "होटल बालाजी, हरिद्वार; सनराइज रिसॉर्ट, ऋषिकेश; होटल माया, मसूरी (अथवा समकक्ष)",
+    mealsEn: "MAP: Breakfast + Dinner",
+    mealsHi: "एमएपी (MAP): नाश्ता + रात्रि भोजन",
+    priceStarting: "On Request (Best Price for Group)",
+    priceRangeInr: "Best price on request (Breakfast + Dinner included)",
+    priceNoteEn: "*Final price varies by travel date, group size, room sharing and vehicle type.",
+    priceNoteHi: "*अंतिम मूल्य यात्रा तिथि, समूह संख्या, रूम शेयरिंग एवं वाहन के अनुसार निर्धारित होता है।",
+    pdfUrl: "/Kumbh-2027 Haridwar Packages PDF/NEW/Rudraksh_Safar_Kumbh_Rishikesh_Mussoorie_4N5D_2027.pdf",
+    pdfCleanUrl: "/Pdf/kumbh-2027/Rudraksh_Safar_Kumbh_Rishikesh_Mussoorie_4N5D_2027.pdf",
+    imageUrl: "/images/kumbh-packages/kumbh_rishikesh_mussoorie_3.png",
+    badgeTextEn: "ULTIMATE UTTARAKHAND",
+    badgeTextHi: "उत्तराखंड महासंगम",
+    categoryTagEn: "KUMBH · YOGA · HILLS",
+    categoryTagHi: "कुंभ · योग · हिमालय",
+    idealForEn: "Families, pilgrimage groups, and travellers desiring the ultimate 5-day Uttarakhand pilgrimage journey uniting the sacred Kumbh Snan at Haridwar, the serene yoga ashrams of Rishikesh, and the refreshing alpine air of Mussoorie.",
+    idealForHi: "हरिद्वार कुंभ स्नान, ऋषिकेश के आध्यात्मिक आश्रम व त्रिवेणी घाट तथा पहाड़ों की रानी मसूरी के प्राकृतिक सौंदर्य को एक साथ अनुभव करने वाले परिवारों हेतु 5 दिवसीय संपूर्ण यात्रा।",
+    highlightsEn: [
+      "Haridwar Ardh Kumbh 2027 sacred Ganga Snan and Har Ki Pauri evening Aarti",
+      "Rishikesh spiritual immersion covering Triveni Ghat, Ram Jhula & holy banks",
+      "Scenic Garhwal Himalayan drive to Mussoorie with leisure on Mall Road",
+      "Diverse experiences combining Vedic rituals, spiritual peace, and mountain bliss",
+      "2N Haridwar (Hotel Balaji) + 1N Rishikesh (Sunrise Resort) + 1N Mussoorie (Hotel Maya) with MAP meals"
+    ],
+    highlightsHi: [
+      "हरिद्वार अर्ध कुंभ 2027 में पावन गंगा स्नान एवं हर की पौड़ी महाआरती के दर्शन",
+      "ऋषिकेश में त्रिवेणी घाट, राम झूला एवं शांत आध्यात्मिक गंगा तटों का भ्रमण",
+      "पहाड़ों की रानी मसूरी की सुरम्य वादियों की यात्रा एवं प्रसिद्ध मॉल रोड पर सैर",
+      "एक ही यात्रा में कुंभ की दिव्यता, ऋषिकेश का योग सानिध्य और मसूरी का प्राकृतिक आनंद",
+      "2 रात हरिद्वार (होटल बालाजी) + 1 रात ऋषिकेश (सनराइज रिसॉर्ट) + 1 रात मसूरी (होटल माया) में सात्विक भोजन सहित प्रवास"
+    ],
+    itinerary: [
+      {
+        day: 1,
+        titleEn: "Haridwar Arrival & Ganga Aarti",
+        titleHi: "हरिद्वार आगमन एवं गंगा आरती दर्शन",
+        descEn: "Arrive in Haridwar and check in at Hotel Balaji (or equivalent). In the evening, attend the divine Ganga Aarti at Har Ki Pauri. Dinner and overnight stay.",
+        descHi: "हरिद्वार आगमन एवं होटल बालाजी में चेक-इन। संध्या समय हर की पौड़ी पहुंचकर दिव्य गंगा आरती के दर्शन। होटल में रात्रि भोजन और विश्राम।",
+        meals: "Dinner included",
+        stay: "Night 1 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 2,
+        titleEn: "Kumbh Ganga Snan & Local Darshan",
+        titleHi: "कुंभ गंगा स्नान एवं स्थानीय मंदिर दर्शन",
+        descEn: "After breakfast, take a holy Ganga Snan at the ghats during the Kumbh period, followed by local temple darshan in Haridwar. Dinner and overnight stay at the hotel.",
+        descHi: "प्रातः नाश्ते के बाद पवित्र कुंभ घाटों पर गंगा स्नान करें और हरिद्वार के प्राचीन शक्तिपीठों के दर्शन करें। होटल में रात्रि भोजन और विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 2 at Hotel Balaji, Haridwar"
+      },
+      {
+        day: 3,
+        titleEn: "Rishikesh Transfer, Triveni Ghat & Sightseeing",
+        titleHi: "ऋषिकेश स्थानांतरण, त्रिवेणी घाट एवं दर्शन",
+        descEn: "After breakfast, check out and transfer to Rishikesh. Visit Triveni Ghat and enjoy local sightseeing. Check in at Sunrise Resort (or equivalent) for dinner and overnight stay.",
+        descHi: "प्रातः नाश्ते के बाद चेक-आउट कर ऋषिकेश प्रस्थान। पवित्र त्रिवेणी घाट एवं स्थानीय आश्रमों के दर्शन। सनराइज रिसॉर्ट में चेक-इन, रात्रि भोजन व विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 3 at Sunrise Resort, Rishikesh"
+      },
+      {
+        day: 4,
+        titleEn: "Mussoorie Transfer & Mall Road",
+        titleHi: "मसूरी यात्रा एवं मॉल रोड भ्रमण",
+        descEn: "After breakfast, drive to Mussoorie, the Queen of the Hills. Check in at Hotel Maya (or equivalent) and stroll along the famous Mall Road. Dinner and overnight stay.",
+        descHi: "नाश्ते के पश्चात पहाड़ों की रानी मसूरी के लिए प्रस्थान। होटल माया में चेक-इन करें और सांध्यकाल में प्रसिद्ध मॉल रोड की सैर का आनंद लें। स्वादिष्ट रात्रि भोजन व विश्राम।",
+        meals: "Breakfast & Dinner included",
+        stay: "Night 4 at Hotel Maya, Mussoorie"
+      },
+      {
+        day: 5,
+        titleEn: "Breakfast & Departure",
+        titleHi: "नाश्ता एवं दिल्ली वापसी",
+        descEn: "After breakfast, check out from the hotel and depart for Delhi or your onward destination with blessings and lasting memories.",
+        descHi: "प्रातः नाश्ते के बाद होटल से चेक-आउट करें और अविस्मरणीय स्मृतियों व माँ गंगा के पावन आशीर्वाद के साथ दिल्ली हेतु प्रस्थान।",
+        meals: "Breakfast included",
+        stay: "Departure towards Delhi / onward journey"
+      }
+    ],
+    inclusionsEn: COMMON_INCLUSIONS_EN,
+    inclusionsHi: COMMON_INCLUSIONS_HI,
+    exclusionsEn: COMMON_EXCLUSIONS_EN,
+    exclusionsHi: COMMON_EXCLUSIONS_HI,
+    bookingConditionsEn: COMMON_BOOKING_CONDITIONS_EN,
+    bookingConditionsHi: COMMON_BOOKING_CONDITIONS_HI,
+    paymentPolicyEn: COMMON_PAYMENT_POLICIES_EN,
+    paymentPolicyHi: COMMON_PAYMENT_POLICIES_HI,
+    legalDisclaimerEn: COMMON_LEGAL_DISCLAIMER_EN,
+    legalDisclaimerHi: COMMON_LEGAL_DISCLAIMER_HI,
+    cancellationPolicyEn: "Written booking conditions apply. 100% refund up to 21 days before arrival; 50% refund between 10–20 days; non-refundable within 9 days of travel.",
+    cancellationPolicyHi: "लिखित बुकिंग शर्तें लागू। यात्रा से 21 दिन पूर्व 100% वापसी; 10 से 20 दिन पूर्व 50% वापसी; 9 दिन के भीतर राशि अहस्तांतरणीय।",
+    keywords: [
+      "Kumbh Rishikesh Mussoorie tour package 4N 5D",
+      "Haridwar Kumbh Rishikesh Mussoorie 5 days",
+      "Complete Uttarakhand Kumbh tour 2027",
+      "Haridwar holy dip and hill station tour",
+      "Sunrise Resort Rishikesh Hotel Maya Mussoorie",
+      "Rudraksh Safar Uttarakhand Kumbh tour"
+    ],
+    metaTitleEn: "Kumbh + Rishikesh + Mussoorie 4N 5D Tour Package 2027 | Rudraksh Safar",
+    metaTitleHi: "कुंभ + ऋषिकेश + मसूरी 4N 5D महायात्रा पैकेज 2027 | रुद्राक्ष सफ़र",
+    metaDescriptionEn: "Book Haridwar Kumbh 2027 + Rishikesh + Mussoorie 4 Nights / 5 Days tour package. Sacred Ganga snan, Triveni Ghat Aarti, Mall Road Mussoorie & MAP hotel stays.",
+    metaDescriptionHi: "हरिद्वार कुंभ 2027 + ऋषिकेश + मसूरी 4 रात्रि 5 दिन संपूर्ण यात्रा पैकेज। पावन गंगा स्नान, त्रिवेणी घाट दर्शन, मसूरी मॉल रोड भ्रमण एवं सात्विक भोजन सहित प्रवास।"
+  }
 ];
 
 export function getPackageBySlug(slug: string): PackageTier | undefined {

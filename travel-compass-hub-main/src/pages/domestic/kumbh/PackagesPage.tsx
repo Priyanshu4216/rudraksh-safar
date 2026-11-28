@@ -74,15 +74,15 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
       <Helmet>
         <title>
           {isHi
-            ? "हरिद्वार कुंभ मेला 2027 टूर पैकेज: 1N/2D से 3N/4D आधिकारिक यात्रा कार्यक्रम | रुद्राक्ष सफ़र"
-            : "Haridwar Kumbh Mela 2027 Tour Packages: 1N/2D to 3N/4D Itineraries | Rudraksh Safar"}
+            ? "हरिद्वार कुंभ मेला 2027 टूर पैकेज: 1N/2D से 4N/5D आधिकारिक यात्रा कार्यक्रम | रुद्राक्ष सफ़र"
+            : "Haridwar Kumbh Mela 2027 Tour Packages: 1N/2D to 4N/5D Itineraries | Rudraksh Safar"}
         </title>
         <meta
           name="description"
           content={
             isHi
-              ? "हरिद्वार कुंभ मेला 2027 के 5 सत्यापित यात्रा पैकेज: 1N/2D कुंभ दर्शन ₹4,299 से, 2N/3D कुंभ मेला, देवप्रयाग संगम, मसूरी एवं नीलकंठ महादेव। विस्तृत दैनिक कार्यक्रम व पीडीएफ ब्रोशर।"
-              : "Explore verified Haridwar Kumbh Mela 2027 tour packages: 1N/2D Kumbh Darshan starting ₹4,299, 2N/3D Kumbh Mela, Devprayag Sangam, Mussoorie & Neelkanth Mahadev. PDF itineraries & booking."
+              ? "हरिद्वार कुंभ मेला 2027 के 9 सत्यापित यात्रा पैकेज: 1N/2D कुंभ दर्शन ₹4,299 से, सीनियर सिटीजन स्पेशल, ऋषिकेश, नीम करोली कैंची धाम नैनीताल, मसूरी, देवप्रयाग एवं नीलकंठ महादेव। विस्तृत कार्यक्रम व पीडीएफ।"
+              : "Explore 9 verified Haridwar Kumbh Mela 2027 tour packages: 1N/2D starting ₹4,299, Senior Citizen Special, Rishikesh, Neem Karoli Kainchi Dham Nainital, Mussoorie, Devprayag & Neelkanth Mahadev. PDF itineraries & booking."
           }
         />
         <meta
@@ -98,8 +98,8 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
           property="og:description"
           content={
             isHi
-              ? "हरिद्वार कुंभ 2027 के 5 विशेष टूर पैकेज। पवित्र गंगा स्नान, हर की पौड़ी गंगा आरती, होटल बालाजी प्रवास एवं सात्विक भोजन व्यवस्था।"
-              : "5 official Haridwar Kumbh 2027 pilgrimage packages. Holy Ganga dip, Har Ki Pauri Aarti, Hotel Balaji stay & MAP meals."
+              ? "हरिद्वार कुंभ 2027 के 9 विशेष टूर पैकेज। पवित्र गंगा स्नान, हर की पौड़ी गंगा आरती, नीम करोली कैंची धाम, ऋषिकेश व सात्विक भोजन व्यवस्था।"
+              : "9 official Haridwar Kumbh 2027 pilgrimage packages: Senior citizen, Rishikesh, Neem Karoli Kainchi Dham, Devprayag & Mussoorie with holy Ganga snan."
           }
         />
         <meta property="og:url" content={canonicalUrl} />
@@ -108,7 +108,7 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
 
       <KumbhArticleSchema
         headline={isHi ? "हरिद्वार कुंभ मेला 2027 टूर पैकेज एवं यात्रा कार्यक्रम" : "Haridwar Kumbh Mela 2027 Tour Packages & Itineraries"}
-        description="Official verified pilgrimage tour packages for Haridwar Ardh Kumbh 2027 featuring 1N/2D to 3N/4D itineraries with Devprayag, Mussoorie, and Neelkanth Mahadev."
+        description="Official verified pilgrimage tour packages for Haridwar Ardh Kumbh 2027 featuring 1N/2D to 4N/5D itineraries with Rishikesh, Neem Karoli Kainchi Dham Nainital, Mussoorie, Devprayag, and Neelkanth Mahadev."
         url={canonicalUrl}
         lang={lang}
       />
@@ -125,8 +125,8 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ lang = 'en' }) => {
         </h1>
         <p className="text-muted-foreground text-sm md:text-base max-w-3xl leading-relaxed">
           {isHi
-            ? "माँ गंगा के पावन सानिध्य में आस्था की डुबकी लगाएं। हमने श्रद्धालुओं की सुविधा अनुसार 1 रात्रि / 2 दिन से लेकर 3 रात्रि / 4 दिन तक के 5 विशेष यात्रा पैकेज तैयार किए हैं, जिनमें होटल प्रवास, सात्विक भोजन, हर की पौड़ी गंगा आरती और गंगा स्नान समन्वित हैं।"
-            : "Immerse in the sacred waters of Mother Ganga during Haridwar Ardh Kumbh 2027. We offer 5 meticulously structured packages ranging from 1 Night / 2 Days to 3 Nights / 4 Days, featuring Hotel Balaji Haridwar, MAP sattvic meals, Har Ki Pauri Ganga Aarti, and holy Ganga Snan."}
+            ? "माँ गंगा के पावन सानिध्य में आस्था की डुबकी लगाएं। हमने श्रद्धालुओं की सुविधा अनुसार 1 रात्रि / 2 दिन से लेकर 4 रात्रि / 5 दिन तक के 9 विशेष यात्रा पैकेज तैयार किए हैं, जिनमें होटल प्रवास, सात्विक भोजन, हर की पौड़ी गंगा आरती और गंगा स्नान समन्वित हैं।"
+            : "Immerse in the sacred waters of Mother Ganga during Haridwar Ardh Kumbh 2027. We offer 9 meticulously structured packages ranging from 1 Night / 2 Days to 4 Nights / 5 Days, featuring Hotel Balaji Haridwar, MAP sattvic meals, Har Ki Pauri Ganga Aarti, and holy Ganga Snan."}
         </p>
       </header>
 
